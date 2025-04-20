@@ -1,0 +1,17 @@
+<Application x:Class="Synthora.Demo.App"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:actipro="http://schemas.actiprosoftware.com/avaloniaui"
+             xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             RequestedThemeVariant="Default">
+    <!--  "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options.  -->
+
+    <Application.Styles>
+        <!--<SimpleTheme />-->
+        <!--<FluentTheme />-->
+        <SynthoraTheme />
+        <SynthoraDataGridTheme />
+        <!--<actipro:ModernTheme Includes="NativeDataGrid" />-->
+        <materialIcons:MaterialIconStyles />
+    </Application.Styles>
+</Application>

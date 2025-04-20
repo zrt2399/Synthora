@@ -1,0 +1,148 @@
+<Window x:Class="Synthora.Demo.Views.MainWindow"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:Synthora.Demo.ViewModels"
+        Title="Synthora.Demo"
+        Width="800"
+        Height="450"
+        x:DataType="vm:MainWindowViewModel"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d">
+
+    <Design.DataContext>
+        <!--
+            This only sets the DataContext for the previewer in an IDE,
+            to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs)
+        -->
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+    <TabControl>
+        <TabItem Header="Base">
+            <ScrollViewer>
+                <StackPanel Margin="10" Spacing="10">
+                    <TextBox Text="{Binding Greeting}" TextWrapping="Wrap" />
+                    <PathPicker UseFolderDialog="True" Watermark="Pick a folder" />
+                    <Button>
+                        Button
+                        <Button.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="123456">
+                                    <MenuItem Header="789101112" />
+                                </MenuItem>
+                                <Separator />
+                                <MenuItem Foreground="Red"
+                                          Header="131415"
+                                          Icon="{materialIcons:MaterialIconExt Kind=Delete}" />
+                            </ContextMenu>
+                        </Button.ContextMenu>
+                    </Button>
+                    <Button Theme="{StaticResource CancelButtonTheme}" ToolTip.Tip="CancelButtonTheme">CancelButtonTheme</Button>
+                    <Button Theme="{StaticResource RemoveButtonTheme}" ToolTip.Tip="RemoveButtonTheme">RemoveButtonTheme</Button>
+                    <ToggleButton ToolTip.Tip="ToggleButton">ToggleButton</ToggleButton>
+                    <DropDownButton>DropDownButton</DropDownButton>
+                    <GroupBox Header="GroupBox">123</GroupBox>
+
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <CheckBox>CheckBox</CheckBox>
+                        <CheckBox IsChecked="{x:Null}">CheckBox</CheckBox>
+                    </StackPanel>
+                    <GridSplitter Height="4" />
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <RadioButton>RadioButton1</RadioButton>
+                        <RadioButton>RadioButton2</RadioButton>
+                    </StackPanel>
+                    <ListBox>
+                        <ListBoxItem>123</ListBoxItem>
+                        <ListBoxItem>456</ListBoxItem>
+                        <ListBoxItem>789</ListBoxItem>
+                    </ListBox>
+                    <TreeView>
+                        <TreeViewItem Header="abcd">
+                            <TreeViewItem Header="efgh">
+                                <TreeViewItem Header="ijkl" />
+                            </TreeViewItem>
+                        </TreeViewItem>
+                    </TreeView>
+                    <NumericUpDown Value="12" />
+                    <SelectableTextBlock>SelectableTextBlock</SelectableTextBlock>
+                    <TextBlock>TextBlock</TextBlock>
+                    <HyperlinkButton>HyperlinkButton</HyperlinkButton>
+                    <ComboBox>
+                        <ComboBoxItem>12345678910</ComboBoxItem>
+                        <ComboBoxItem>abcdefg</ComboBoxItem>
+                    </ComboBox>
+                    <DatePicker />
+                    <TimePicker />
+                    <ToggleSwitch />
+                    <Slider Name="Slider" />
+                    <ProgressBar ShowProgressText="True" Value="{Binding #Slider.Value}" />
+                    <Slider Name="VerticalSlider" Orientation="Vertical" />
+                    <ProgressBar Orientation="Vertical"
+                                 ShowProgressText="True"
+                                 Value="{Binding #VerticalSlider.Value}" />
+                </StackPanel>
+            </ScrollViewer>
+        </TabItem>
+        <TabItem Header="Ext">
+            <StackPanel>
+                <Menu VerticalAlignment="Top">
+                    <MenuItem Header="MenuItem1">
+                        <MenuItem Header="MenuItem2">
+                            <MenuItem Header="MenuItem3" />
+                        </MenuItem>
+                    </MenuItem>
+                    <MenuItem Header="MenuItem4">
+                        <MenuItem Header="MenuItem5" />
+                    </MenuItem>
+                </Menu>
+
+                <StackPanel Margin="10" Spacing="10">
+                    <Expander CornerRadius="2"
+                              ExpandDirection="Left"
+                              Header="Expander">
+                        <StackPanel Margin="10">
+                            <Button>1</Button>
+                            <Button>2</Button>
+                        </StackPanel>
+                    </Expander>
+                    <Expander CornerRadius="3"
+                              ExpandDirection="Right"
+                              Header="Expander">
+                        <StackPanel Margin="10">
+                            <Button>1</Button>
+                            <Button>2</Button>
+                        </StackPanel>
+                    </Expander>
+                    <Expander CornerRadius="4"
+                              ExpandDirection="Up"
+                              Header="Expander">
+                        <StackPanel Margin="10">
+                            <Button>1</Button>
+                            <Button>2</Button>
+                        </StackPanel>
+                    </Expander>
+                    <Expander CornerRadius="5"
+                              ExpandDirection="Down"
+                              Header="Expander">
+                        <StackPanel Margin="10">
+                            <Button>1</Button>
+                            <Button>2</Button>
+                        </StackPanel>
+                    </Expander>
+                </StackPanel>
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="DataGrid">
+            <DataGrid x:Name="dataGrid"
+                      Margin="10"
+                      AutoGenerateColumns="True"
+                      GridLinesVisibility="Horizontal"
+                      HeadersVisibility="All"
+                      ItemsSource="{Binding DataGridCollectionView}" />
+
+        </TabItem>
+    </TabControl>
+</Window>

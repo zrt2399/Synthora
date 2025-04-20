@@ -1,0 +1,40 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:utils="using:Synthora.Utils"
+                    x:ClassModifier="internal">
+
+    <Design.PreviewWith>
+        <SelectableTextBlock Text="Preview" />
+    </Design.PreviewWith>
+
+    <MenuFlyout x:Key="SelectableTextBlockContextFlyout" Placement="Bottom">
+        <MenuItem x:Name="SelectableTextBlockContextFlyoutCopyItem"
+                  Command="{Binding $parent[SelectableTextBlock].Copy}"
+                  Header="{DynamicResource StringTextFlyoutCopyText}"
+                  InputGesture="{x:Static TextBox.CopyGesture}"
+                  IsEnabled="{Binding $parent[SelectableTextBlock].CanCopy}" />
+    </MenuFlyout>
+
+    <ContextMenu x:Key="SelectableTextBlockContextMenu" Cursor="{x:Null}">
+        <MenuItem Command="{Binding $parent[SelectableTextBlock].Copy}"
+                  Header="{DynamicResource StringTextFlyoutCopyText}"
+                  InputGesture="{x:Static TextBox.CopyGesture}"
+                  IsEnabled="{Binding $parent[SelectableTextBlock].CanCopy}" />
+        <MenuItem Command="{Binding $parent[TextBox].SelectAll}"
+                  Header="{DynamicResource StringTextFlyoutSelectAllText}"
+                  InputGesture="{x:Static utils:TextBoxUtils.SelectAllGesture}" />
+    </ContextMenu>
+
+    <ControlTheme x:Key="{x:Type SelectableTextBlock}" TargetType="SelectableTextBlock">
+        <Setter Property="SelectionBrush" Value="{DynamicResource ThemeAccentBrush2}" />
+
+        <Style Selector="^[IsEnabled=True]">
+            <Setter Property="Cursor" Value="IBeam" />
+            <Setter Property="ContextFlyout" Value="{StaticResource SelectableTextBlockContextFlyout}" />
+            <Setter Property="ContextMenu" Value="{StaticResource SelectableTextBlockContextMenu}" />
+        </Style>
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

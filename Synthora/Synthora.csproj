@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<AvaloniaVersion>11.2.4</AvaloniaVersion>
+		<DebugType>embedded</DebugType>
+		<Version>0.0.0.1</Version>
+		<FileVersion>$(Version)</FileVersion>
+		<AssemblyVersion>$(Version)</AssemblyVersion>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<Title>AvaloniaUI Library</Title>
+		<Authors>Yoyo</Authors>
+		<Copyright>Copyright © $(Authors) $([System.DateTime]::Today.ToString(yyyy))</Copyright>
+		<PackageTags>Avalonia;XAML;UI;Theme</PackageTags>
+		<Description>Avalonia control styles and themes</Description>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<AvaloniaResource Include="Accents\**" />
+		<AvaloniaResource Include="Controls\Themes\**" />
+		<AvaloniaResource Include="Strings\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
+	</ItemGroup>
+
+</Project>

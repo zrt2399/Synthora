@@ -1,0 +1,81 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:ClassModifier="internal">
+
+    <Styles.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/AdornerLayer.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/Button.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/RadioButton.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/Expander.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/RepeatButton.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ToggleSwitch.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ButtonSpinner.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ToggleButton.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/DropDownButton.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/PathIcon.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/PathPicker.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/CheckBox.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ToolTip.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/Label.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ComboBoxItem.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ComboBox.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/Window.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/Carousel.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/CaptionButtons.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/TitleBar.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/TextBox.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/TextBlock.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/AutoCompleteBox.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/DataValidationErrors.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/FlyoutPresenter.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/MenuFlyoutPresenter.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/GridSplitter.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/GroupBox.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/HyperlinkButton.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ItemsControl.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ListBoxItem.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ListBox.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ScrollBar.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ScrollViewer.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/TabStrip.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/TabStripItem.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/TabControl.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/TabItem.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/PopupRoot.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/OverlayPopupHost.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/WindowNotificationManager.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/EmbeddableControlRoot.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/TransitioningContentControl.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/TreeView.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/TreeViewItem.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ProgressBar.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/Separator.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/Menu.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/MenuItem.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ContextMenu.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/CalendarButton.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/CalendarDayButton.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/CalendarItem.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/Calendar.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/CalendarDatePicker.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/Slider.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/NotificationCard.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/NumericUpDown.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/DateTimePickerShared.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/DatePicker.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/TimePicker.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/SplitView.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ManagedFileChooser.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/SplitButton.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/SelectableTextBlock.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/RefreshContainer.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/RefreshVisualizer.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ThemeVariantScope.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/HeaderedContentControl.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/TextSelectionHandle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Styles.Resources>
+</Styles> 

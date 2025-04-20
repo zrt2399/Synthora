@@ -1,0 +1,352 @@
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using Avalonia;
+using Avalonia.Controls;
+using Avalonia.Controls.Primitives;
+using Avalonia.Data;
+using Avalonia.Input;
+using Avalonia.Layout;
+using Avalonia.Media;
+using Avalonia.Platform.Storage;
+using Synthora.Utils;
+
+namespace Synthora.Controls
+{
+    public class PathPicker : TemplatedControl
+    {
+        private TextBox? PART_TextBox;
+
+        static PathPicker()
+        {
+            SelectedPathsProperty.Changed.AddClassHandler<PathPicker, List<string>>((o, e) => o.OnSelectedPathsChanged(e.NewValue.Value));
+        }
+
+        public static readonly StyledProperty<string> TitleProperty =
+            AvaloniaProperty.Register<PathPicker, string>(nameof(Title), string.Empty);
+
+        public static readonly StyledProperty<string> SuggestedStartLocationProperty =
+            AvaloniaProperty.Register<PathPicker, string>(nameof(SuggestedStartLocation), string.Empty);
+
+        public static readonly StyledProperty<string> SuggestedFileNameProperty =
+            AvaloniaProperty.Register<PathPicker, string>(nameof(SuggestedFileName), string.Empty);
+
+        public static readonly StyledProperty<string> DefaultExtensionProperty =
+            AvaloniaProperty.Register<PathPicker, string>(nameof(DefaultExtension), string.Empty);
+
+        public static readonly StyledProperty<bool> AllowMultipleProperty =
+            AvaloniaProperty.Register<PathPicker, bool>(nameof(AllowMultiple));
+
+        public static readonly StyledProperty<string> SelectedPathProperty =
+            AvaloniaProperty.Register<PathPicker, string>(nameof(SelectedPath), string.Empty, defaultBindingMode: BindingMode.TwoWay);
+
+        public static readonly StyledProperty<List<string>> SelectedPathsProperty =
+            AvaloniaProperty.Register<PathPicker, List<string>>(nameof(SelectedPaths), [], defaultBindingMode: BindingMode.TwoWay);
+
+        public static readonly StyledProperty<bool> UseFolderDialogProperty =
+            AvaloniaProperty.Register<PathPicker, bool>(nameof(UseFolderDialog));
+
+        public static readonly StyledProperty<bool> UseSaveDialogProperty =
+            AvaloniaProperty.Register<PathPicker, bool>(nameof(UseSaveDialog));
+
+        public static readonly StyledProperty<IReadOnlyList<FilePickerFileType>> FileTypeFiltersProperty =
+            AvaloniaProperty.Register<PathPicker, IReadOnlyList<FilePickerFileType>>(nameof(FileTypeFilters));
+
+        public static readonly StyledProperty<string> WatermarkProperty =
+            AvaloniaProperty.Register<PathPicker, string>(nameof(Watermark), string.Empty);
+
+        public static readonly StyledProperty<string> BrowseButtonContentProperty =
+            AvaloniaProperty.Register<PathPicker, string>(nameof(BrowseButtonContent), "  ...  ");
+
+        public static readonly StyledProperty<string?> ExploreButtonContentProperty =
+            AvaloniaProperty.Register<PathPicker, string?>(nameof(ExploreButtonContent));
+
+        public static readonly StyledProperty<string?> OpenButtonContentProperty =
+            AvaloniaProperty.Register<PathPicker, string?>(nameof(OpenButtonContent));
+
+        public static readonly StyledProperty<string?> BrowseButtonToolTipProperty =
+            AvaloniaProperty.Register<PathPicker, string?>(nameof(BrowseButtonToolTip));
+
+        public static readonly StyledProperty<string?> ExploreButtonToolTipProperty =
+            AvaloniaProperty.Register<PathPicker, string?>(nameof(ExploreButtonToolTip));
+
+        public static readonly StyledProperty<string?> OpenButtonToolTipProperty =
+            AvaloniaProperty.Register<PathPicker, string?>(nameof(OpenButtonToolTip));
+
+        public static readonly StyledProperty<HorizontalAlignment> HorizontalContentAlignmentProperty =
+            AvaloniaProperty.Register<ContentControl, HorizontalAlignment>(nameof(HorizontalContentAlignment));
+
+        public static readonly StyledProperty<VerticalAlignment> VerticalContentAlignmentProperty =
+            AvaloniaProperty.Register<ContentControl, VerticalAlignment>(nameof(VerticalContentAlignment));
+
+        public static readonly StyledProperty<TextWrapping> TextWrappingProperty =
+            AvaloniaProperty.Register<PathPicker, TextWrapping>(nameof(TextWrapping), TextWrapping.NoWrap);
+
+        public static readonly StyledProperty<bool> IsReadOnlyProperty =
+            AvaloniaProperty.Register<PathPicker, bool>(nameof(IsReadOnly), true);
+
+        public static readonly StyledProperty<Thickness> SpacingProperty =
+            AvaloniaProperty.Register<PathPicker, Thickness>(nameof(Spacing), new Thickness(4, 0, 0, 0));
+
+        /// <summary>
+        /// Gets or sets the title of the file dialog.
+        /// </summary>
+        public string Title
+        {
+            get => GetValue(TitleProperty);
+            set => SetValue(TitleProperty, value);
+        }
+
+        public string SuggestedStartLocation
+        {
+            get => GetValue(SuggestedStartLocationProperty);
+            set => SetValue(SuggestedStartLocationProperty, value);
+        }
+
+        public string SuggestedFileName
+        {
+            get => GetValue(SuggestedFileNameProperty);
+            set => SetValue(SuggestedFileNameProperty, value);
+        }
+
+        public string DefaultExtension
+        {
+            get => GetValue(DefaultExtensionProperty);
+            set => SetValue(DefaultExtensionProperty, value);
+        }
+
+        public bool AllowMultiple
+        {
+            get => GetValue(AllowMultipleProperty);
+            set => SetValue(AllowMultipleProperty, value);
+        }
+
+        public string SelectedPath
+        {
+            get => GetValue(SelectedPathProperty);
+            set => SetValue(SelectedPathProperty, value);
+        }
+
+        public List<string> SelectedPaths
+        {
+            get => GetValue(SelectedPathsProperty);
+            set => SetValue(SelectedPathsProperty, value);
+        }
+
+        public bool UseFolderDialog
+        {
+            get => GetValue(UseFolderDialogProperty);
+            set => SetValue(UseFolderDialogProperty, value);
+        }
+
+        public bool UseSaveDialog
+        {
+            get => GetValue(UseSaveDialogProperty);
+            set => SetValue(UseSaveDialogProperty, value);
+        }
+
+        public IReadOnlyList<FilePickerFileType> FileTypeFilters
+        {
+            get => GetValue(FileTypeFiltersProperty);
+            set => SetValue(FileTypeFiltersProperty, value);
+        }
+
+        public string Watermark
+        {
+            get => GetValue(WatermarkProperty);
+            set => SetValue(WatermarkProperty, value);
+        }
+
+        public object BrowseButtonContent
+        {
+            get => GetValue(BrowseButtonContentProperty);
+            set => SetValue(BrowseButtonContentProperty, value);
+        }
+
+        public object? ExploreButtonContent
+        {
+            get => GetValue(ExploreButtonContentProperty);
+            set => SetValue(ExploreButtonContentProperty, value);
+        }
+
+        public object? OpenButtonContent
+        {
+            get => GetValue(OpenButtonContentProperty);
+            set => SetValue(OpenButtonContentProperty, value);
+        }
+
+        public object? BrowseButtonToolTip
+        {
+            get => GetValue(BrowseButtonToolTipProperty);
+            set => SetValue(BrowseButtonToolTipProperty, value);
+        }
+
+        public object? ExploreButtonToolTip
+        {
+            get => GetValue(ExploreButtonToolTipProperty);
+            set => SetValue(ExploreButtonToolTipProperty, value);
+        }
+
+        public object? OpenButtonToolTip
+        {
+            get => GetValue(OpenButtonToolTipProperty);
+            set => SetValue(OpenButtonToolTipProperty, value);
+        }
+
+        public HorizontalAlignment HorizontalContentAlignment
+        {
+            get => GetValue(HorizontalContentAlignmentProperty);
+            set => SetValue(HorizontalContentAlignmentProperty, value);
+        }
+
+        public VerticalAlignment VerticalContentAlignment
+        {
+            get => GetValue(VerticalContentAlignmentProperty);
+            set => SetValue(VerticalContentAlignmentProperty, value);
+        }
+
+        public TextWrapping TextWrapping
+        {
+            get => GetValue(TextWrappingProperty);
+            set => SetValue(TextWrappingProperty, value);
+        }
+
+        public bool IsReadOnly
+        {
+            get => GetValue(IsReadOnlyProperty);
+            set => SetValue(IsReadOnlyProperty, value);
+        }
+
+        public Thickness Spacing
+        {
+            get => GetValue(SpacingProperty);
+            set => SetValue(SpacingProperty, value);
+        }
+
+        protected virtual void OnSelectedPathsChanged(List<string> paths)
+        {
+            SelectedPath = paths == null || paths.Count == 0 ? string.Empty : string.Join("|", paths);
+        }
+
+        private async void SetCommonOptions(PickerOptions pickerOptions, TopLevel topLevel)
+        {
+            pickerOptions.Title = Title;
+            if (!string.IsNullOrEmpty(SuggestedStartLocation))
+            {
+                pickerOptions.SuggestedStartLocation = await topLevel.StorageProvider.TryGetFolderFromPathAsync(SuggestedStartLocation);
+            }
+            if (!string.IsNullOrEmpty(SuggestedFileName))
+            {
+                pickerOptions.SuggestedFileName = SuggestedFileName;
+            }
+        }
+
+        public async void Browse()
+        {
+            if (TopLevel.GetTopLevel(this) is not TopLevel topLevel)
+            {
+                return;
+            }
+            if (UseFolderDialog)
+            {
+                var options = new FolderPickerOpenOptions
+                {
+                    AllowMultiple = AllowMultiple
+                };
+                SetCommonOptions(options, topLevel);
+                var storageFolders = await topLevel.StorageProvider.OpenFolderPickerAsync(options);
+
+                if (storageFolders.Count > 0)
+                {
+                    List<string> folders = new List<string>(storageFolders.Count);
+                    foreach (var item in storageFolders)
+                    {
+                        folders.Add(GetStorageFullName(item) ?? string.Empty);
+                    }
+                    SelectedPaths = folders;
+                }
+            }
+            else
+            {
+                if (UseSaveDialog)
+                {
+                    var options = new FilePickerSaveOptions
+                    {
+                        DefaultExtension = DefaultExtension,
+                        FileTypeChoices = FileTypeFilters
+                    };
+                    SetCommonOptions(options, topLevel);
+                    using var storageFile = await topLevel.StorageProvider.SaveFilePickerAsync(options);
+                    if (storageFile != null)
+                    {
+                        SelectedPaths = new List<string>() { GetStorageFullName(storageFile) ?? string.Empty };
+                    }
+                }
+                else
+                {
+                    var options = new FilePickerOpenOptions
+                    {
+                        AllowMultiple = AllowMultiple,
+                        FileTypeFilter = FileTypeFilters
+                    };
+                    SetCommonOptions(options, topLevel);
+                    var storageFiles = await topLevel.StorageProvider.OpenFilePickerAsync(options);
+                    if (storageFiles.Count > 0)
+                    {
+                        List<string> files = new List<string>(storageFiles.Count);
+                        foreach (var item in storageFiles)
+                        {
+                            files.Add(GetStorageFullName(item) ?? string.Empty);
+                        }
+                        SelectedPaths = files;
+                    }
+                }
+            }
+        }
+
+        public void Explore()
+        {
+            if (SelectedPaths?.Count > 0)
+            {
+                PathUtils.OpenFileLocation(SelectedPaths.First());
+            }
+        }
+
+        public void Open()
+        {
+            if (SelectedPaths?.Count > 0)
+            {
+                PathUtils.OpenFlie(SelectedPaths.First());
+            }
+        }
+
+        protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
+        {
+            base.OnApplyTemplate(e);
+            PART_TextBox = e.NameScope.Get<TextBox>(nameof(PART_TextBox));
+        }
+
+        protected override void OnGotFocus(GotFocusEventArgs e)
+        {
+            if (!e.Handled && PART_TextBox != null)
+            {
+                if (Equals(e.Source, this))
+                {
+                    PART_TextBox.Focus();
+                    PART_TextBox.SelectAll();
+                    e.Handled = true;
+                }
+            }
+            base.OnGotFocus(e);
+        }
+
+        private static string? GetStorageFullName(object? obj)
+        {
+            if (obj?.GetType().GetProperty(nameof(FileSystemInfo))?.GetValue(obj) is FileSystemInfo fileSystemInfo)
+            {
+                return fileSystemInfo.FullName;
+            }
+            return null;
+        }
+    }
+}

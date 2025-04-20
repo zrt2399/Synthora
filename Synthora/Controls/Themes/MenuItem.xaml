@@ -1,0 +1,148 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:conv="using:Avalonia.Controls.Converters"
+                    xmlns:sys="using:System"
+                    x:ClassModifier="internal">
+    <conv:PlatformKeyGestureConverter x:Key="KeyGestureConverter" />
+
+    <ControlTheme x:Key="{x:Type MenuItem}" TargetType="MenuItem">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Padding" Value="0,0,40,0" />
+        <Setter Property="MinWidth" Value="100" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="root"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20" />
+                            <ColumnDefinition Width="5" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="MenuItemIGT" />
+                            <ColumnDefinition Width="20" />
+                        </Grid.ColumnDefinitions>
+                        <ContentControl x:Name="PART_ToggleIconPresenter"
+                                        Grid.Column="0"
+                                        Width="16"
+                                        Height="16"
+                                        Margin="3"
+                                        IsVisible="False" />
+                        <ContentControl Name="PART_IconPresenter"
+                                        Grid.Column="0"
+                                        Width="16"
+                                        Height="16"
+                                        Margin="3"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Content="{TemplateBinding Icon}" />
+                        <ContentPresenter Name="PART_HeaderPresenter"
+                                          Grid.Column="2"
+                                          Margin="{TemplateBinding Padding}"
+                                          VerticalAlignment="Center"
+                                          Content="{TemplateBinding Header}"
+                                          ContentTemplate="{TemplateBinding HeaderTemplate}">
+                            <ContentPresenter.DataTemplates>
+                                <DataTemplate DataType="sys:String">
+                                    <AccessText Text="{Binding}" />
+                                </DataTemplate>
+                            </ContentPresenter.DataTemplates>
+                        </ContentPresenter>
+                        <TextBlock x:Name="PART_InputGestureText"
+                                   Grid.Column="3"
+                                   VerticalAlignment="Center"
+                                   Text="{TemplateBinding InputGesture,
+                                                          Converter={StaticResource KeyGestureConverter}}" />
+                        <!--<Path Name="rightArrow"
+                              Grid.Column="4"
+                              Margin="10,0,0,0"
+                              VerticalAlignment="Center"
+                              Data="M0,0L4,3.5 0,7z"
+                              Fill="{DynamicResource ThemeForegroundBrush}" />-->
+                        <PathIcon Name="rightArrow"
+                                  Grid.Column="4"
+                                  Width="12"
+                                  Height="12"
+                                  Margin="10,0,0,0"
+                                  VerticalAlignment="Center"
+                                  Data="{DynamicResource RightArrowGlyph}"
+                                  Foreground="{DynamicResource ThemeForegroundBrush}"
+                                  IsHitTestVisible="False"
+                                  UseLayoutRounding="False" />
+                        <Popup Name="PART_Popup"
+                               IsLightDismissEnabled="False"
+                               IsOpen="{TemplateBinding IsSubMenuOpen,
+                                                        Mode=TwoWay}"
+                               Placement="Right"
+                               WindowManagerAddShadowHint="False">
+                            <Border Margin="{DynamicResource DefaultBoxShadowMargin}"
+                                    Background="{DynamicResource ThemeBackgroundBrush}"
+                                    BorderBrush="{DynamicResource ThemeBorderMidBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    BoxShadow="{DynamicResource DefaultBoxShadow}"
+                                    CornerRadius="{TemplateBinding CornerRadius}">
+                                <ScrollViewer Theme="{StaticResource SimpleMenuScrollViewer}">
+                                    <ItemsPresenter Name="PART_ItemsPresenter"
+                                                    Margin="2"
+                                                    Grid.IsSharedSizeScope="True"
+                                                    ItemsPanel="{TemplateBinding ItemsPanel}" />
+                                </ScrollViewer>
+                            </Border>
+                        </Popup>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:separator">
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Separator />
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="^:selected /template/ Border#root">
+            <Setter Property="Background" Value="{DynamicResource CommonSelectedBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource CommonSelectedBrush}" />
+            <!--<Setter Property="TextElement.Foreground" Value="White" />-->
+        </Style>
+
+        <Style Selector="^:empty /template/ PathIcon#rightArrow">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+        </Style>
+
+        <Style Selector="^:toggle /template/ ContentControl#PART_ToggleIconPresenter, ^:radio /template/ ContentControl#PART_ToggleIconPresenter">
+            <Setter Property="IsVisible" Value="True" />
+        </Style>
+        <Style Selector="^:toggle /template/ ContentPresenter#PART_IconPresenter, ^:radio /template/ ContentPresenter#PART_IconPresenter">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style Selector="^:checked:toggle /template/ ContentControl#PART_ToggleIconPresenter">
+            <Setter Property="Content">
+                <Template>
+                    <Path VerticalAlignment="Center"
+                          Data="F1M10,1.2L4.7,9.1 4.5,9.1 0,5.2 1.3,3.5 4.3,6.1 8.3,0 10,1.2z"
+                          Fill="{Binding $parent[MenuItem].Foreground}" />
+                </Template>
+            </Setter>
+        </Style>
+        <Style Selector="^:checked:radio /template/ ContentControl#PART_ToggleIconPresenter">
+            <Setter Property="Content">
+                <Template>
+                    <Ellipse Width="8"
+                             Height="8"
+                             Margin="4"
+                             Fill="{Binding $parent[MenuItem].Foreground}" />
+                </Template>
+            </Setter>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
