@@ -4,8 +4,6 @@
                     xmlns:converters="using:Synthora.Converters"
                     x:ClassModifier="internal">
 
-    <converters:NotNullOrEmptyToBoolConverter x:Key="NotNullOrEmptyToBoolConverter" />
-
     <ControlTheme x:Key="{x:Type controls:PathPicker}" TargetType="{x:Type controls:PathPicker}">
         <Setter Property="Template">
             <ControlTemplate>
@@ -16,7 +14,7 @@
                     <Grid ColumnDefinitions="*,Auto,Auto,Auto">
                         <Grid.Styles>
                             <Style Selector="Button">
-                                <Setter Property="IsVisible" Value="{Binding RelativeSource={RelativeSource Self}, Path=Content, Converter={StaticResource NotNullOrEmptyToBoolConverter}}" />
+                                <Setter Property="IsVisible" Value="{Binding RelativeSource={RelativeSource Self}, Path=Content, Converter={x:Static converters:NotNullOrEmptyToBoolConverter.Instance}}" />
                             </Style>
                         </Grid.Styles>
                         <TextBox x:Name="PART_TextBox"
@@ -35,13 +33,13 @@
                                 Margin="{TemplateBinding Spacing}"
                                 Command="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Explore}"
                                 Content="{TemplateBinding ExploreButtonContent}"
-                                IsEnabled="{Binding ElementName=PART_TextBox, Path=Text, Converter={StaticResource NotNullOrEmptyToBoolConverter}}"
+                                IsEnabled="{Binding ElementName=PART_TextBox, Path=Text, Converter={x:Static converters:NotNullOrEmptyToBoolConverter.Instance}}"
                                 ToolTip.Tip="{TemplateBinding ExploreButtonToolTip}" />
                         <Button Grid.Column="3"
                                 Margin="{TemplateBinding Spacing}"
                                 Command="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Open}"
                                 Content="{TemplateBinding OpenButtonContent}"
-                                IsEnabled="{Binding ElementName=PART_TextBox, Path=Text, Converter={StaticResource NotNullOrEmptyToBoolConverter}}"
+                                IsEnabled="{Binding ElementName=PART_TextBox, Path=Text, Converter={x:Static converters:NotNullOrEmptyToBoolConverter.Instance}}"
                                 ToolTip.Tip="{TemplateBinding OpenButtonToolTip}" />
                     </Grid>
                 </Border>

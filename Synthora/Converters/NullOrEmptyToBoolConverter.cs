@@ -6,6 +6,8 @@ namespace Synthora.Converters
 {
     public class NullOrEmptyToBoolConverter : IValueConverter
     {
+        public static NullOrEmptyToBoolConverter Instance { get; } = new NullOrEmptyToBoolConverter();
+
         public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             return string.IsNullOrEmpty(value?.ToString());
@@ -19,6 +21,8 @@ namespace Synthora.Converters
 
     public class NotNullOrEmptyToBoolConverter : IValueConverter
     {
+        public static NotNullOrEmptyToBoolConverter Instance { get; } = new NotNullOrEmptyToBoolConverter();
+
         public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             return !string.IsNullOrEmpty(value?.ToString());
@@ -29,4 +33,4 @@ namespace Synthora.Converters
             throw new NotImplementedException();
         }
     }
-} 
+}

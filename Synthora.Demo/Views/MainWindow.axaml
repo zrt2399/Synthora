@@ -76,7 +76,10 @@
                     </ComboBox>
                     <DatePicker />
                     <TimePicker />
-                    <ToggleSwitch />
+                    <StackPanel Orientation="Horizontal">
+                        <ToggleSwitch OffContent="{x:Null}" OnContent="{x:Null}" />
+                        <ToggleSwitch />
+                    </StackPanel>
                     <Slider Name="Slider" />
                     <ProgressBar ShowProgressText="True" Value="{Binding #Slider.Value}" />
                     <Slider Name="VerticalSlider" Orientation="Vertical" />
@@ -96,6 +99,9 @@
                     </MenuItem>
                     <MenuItem Header="MenuItem4">
                         <MenuItem Header="MenuItem5" />
+                    </MenuItem>
+                    <MenuItem Header="MenuItem6">
+                        <MenuItem Header="1" />
                     </MenuItem>
                 </Menu>
 

@@ -53,8 +53,8 @@
         </Setter>
 
         <Style Selector="^:selected /template/ Border#root">
-            <Setter Property="Background" Value="{DynamicResource CommonSelectedBrush}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource CommonSelectedBrush}" />
+            <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeSelectedMidBrush}" />
             <!--<Setter Property="TextElement.Foreground" Value="White" />-->
         </Style>
 

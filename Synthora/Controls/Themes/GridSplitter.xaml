@@ -5,7 +5,7 @@
         <Setter Property="Focusable" Value="True" />
         <Setter Property="MinWidth" Value="1" />
         <Setter Property="MinHeight" Value="1" />
-        <Setter Property="Background" Value="{DynamicResource CommonSelectedBrush}" />
+        <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidBrush}" />
         <Setter Property="PreviewContent">
             <Template>
                 <Rectangle Fill="{DynamicResource HighlightBrush}" />

@@ -1,5 +1,6 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="using:Synthora.Converters"
                     x:ClassModifier="internal">
     <Design.PreviewWith>
         <StackPanel Width="250"
@@ -88,7 +89,8 @@
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Content="{TemplateBinding OffContent}"
-                                          ContentTemplate="{TemplateBinding OffContentTemplate}" />
+                                          ContentTemplate="{TemplateBinding OffContentTemplate}"
+                                          IsVisible="{Binding RelativeSource={RelativeSource Self}, Path=Content, Converter={x:Static converters:NotNullOrEmptyToBoolConverter.Instance}}" />
 
                         <ContentPresenter x:Name="PART_OnContentPresenter"
                                           Grid.RowSpan="3"
@@ -97,7 +99,8 @@
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Content="{TemplateBinding OnContent}"
-                                          ContentTemplate="{TemplateBinding OnContentTemplate}" />
+                                          ContentTemplate="{TemplateBinding OnContentTemplate}"
+                                          IsVisible="{Binding RelativeSource={RelativeSource Self}, Path=Content, Converter={x:Static converters:NotNullOrEmptyToBoolConverter.Instance}}" />
 
                         <Border x:Name="OuterBorder"
                                 Grid.Row="1"

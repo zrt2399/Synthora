@@ -1,15 +1,17 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:conv="using:Avalonia.Controls.Converters"
+                    xmlns:converters="using:Synthora.Converters"
                     xmlns:sys="using:System"
                     x:ClassModifier="internal">
+
     <conv:PlatformKeyGestureConverter x:Key="KeyGestureConverter" />
 
     <ControlTheme x:Key="{x:Type MenuItem}" TargetType="MenuItem">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="Padding" Value="0,0,40,0" />
-        <Setter Property="MinWidth" Value="100" />
+        <!--<Setter Property="Padding" Value="0" />-->
+        <Setter Property="MinWidth" Value="80" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Name="root"
@@ -20,7 +22,7 @@
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="20" />
-                            <ColumnDefinition Width="5" />
+                            <ColumnDefinition Width="0" />
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" SharedSizeGroup="MenuItemIGT" />
                             <ColumnDefinition Width="20" />
@@ -53,20 +55,17 @@
                         </ContentPresenter>
                         <TextBlock x:Name="PART_InputGestureText"
                                    Grid.Column="3"
+                                   Margin="20,0,0,0"
                                    VerticalAlignment="Center"
+                                   IsVisible="{Binding $self.Text, Converter={x:Static converters:NotNullOrEmptyToBoolConverter.Instance}}"
                                    Text="{TemplateBinding InputGesture,
                                                           Converter={StaticResource KeyGestureConverter}}" />
-                        <!--<Path Name="rightArrow"
-                              Grid.Column="4"
-                              Margin="10,0,0,0"
-                              VerticalAlignment="Center"
-                              Data="M0,0L4,3.5 0,7z"
-                              Fill="{DynamicResource ThemeForegroundBrush}" />-->
+
                         <PathIcon Name="rightArrow"
                                   Grid.Column="4"
                                   Width="12"
                                   Height="12"
-                                  Margin="10,0,0,0"
+                                  Margin="20,0,0,0"
                                   VerticalAlignment="Center"
                                   Data="{DynamicResource RightArrowGlyph}"
                                   Foreground="{DynamicResource ThemeForegroundBrush}"
@@ -106,8 +105,8 @@
         </Style>
 
         <Style Selector="^:selected /template/ Border#root">
-            <Setter Property="Background" Value="{DynamicResource CommonSelectedBrush}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource CommonSelectedBrush}" />
+            <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeSelectedMidBrush}" />
             <!--<Setter Property="TextElement.Foreground" Value="White" />-->
         </Style>
 

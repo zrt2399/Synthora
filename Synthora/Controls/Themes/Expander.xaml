@@ -78,7 +78,7 @@
             </ControlTemplate>
         </Setter>
         <Style Selector="^:pointerover">
-            <Setter Property="Background" Value="{DynamicResource CommonSelectedBrush}" />
+            <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidBrush}" />
         </Style>
     </ControlTheme>
 

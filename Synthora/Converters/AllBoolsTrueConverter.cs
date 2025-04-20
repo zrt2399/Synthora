@@ -8,6 +8,8 @@ namespace Synthora.Converters
 {
     public class AllBoolsTrueConverter : IMultiValueConverter
     {
+        public static AllBoolsTrueConverter Instance { get; } = new AllBoolsTrueConverter();
+
         public object? Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture)
         {
             if (values != null)
@@ -20,6 +22,8 @@ namespace Synthora.Converters
 
     public class AnyBoolsTrueConverter : IMultiValueConverter
     {
+        public static AnyBoolsTrueConverter Instance { get; } = new AnyBoolsTrueConverter();
+
         public object? Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture)
         {
             if (values != null)
