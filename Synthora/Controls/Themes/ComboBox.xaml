@@ -80,30 +80,10 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^[IsDropDownOpen=true] /template/ PathIcon#pathIcon">
-            <Style.Animations>
-                <Animation FillMode="Both" Duration="0:0:0.2">
-                    <KeyFrame Cue="0%">
-                        <Setter Property="RotateTransform.Angle" Value="0" />
-                    </KeyFrame>
-                    <KeyFrame Cue="100%">
-                        <Setter Property="RotateTransform.Angle" Value="180" />
-                    </KeyFrame>
-                </Animation>
-            </Style.Animations>
-        </Style>
-
-        <Style Selector="^[IsDropDownOpen=false] /template/ PathIcon#pathIcon">
-            <Style.Animations>
-                <Animation FillMode="Both" Duration="0:0:0.2">
-                    <KeyFrame Cue="0%">
-                        <Setter Property="RotateTransform.Angle" Value="180" />
-                    </KeyFrame>
-                    <KeyFrame Cue="100%">
-                        <Setter Property="RotateTransform.Angle" Value="0" />
-                    </KeyFrame>
-                </Animation>
-            </Style.Animations>
+        <Style Selector="^:dropdownopen /template/ PathIcon#pathIcon">
+            <Setter Property="RenderTransform">
+                <RotateTransform Angle="180" />
+            </Setter>
         </Style>
 
         <Style Selector="^:pointerover">

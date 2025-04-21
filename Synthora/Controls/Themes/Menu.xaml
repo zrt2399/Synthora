@@ -5,7 +5,7 @@
 
     <ControlTheme x:Key="SimpleTopLevelMenuItem" TargetType="MenuItem">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Padding" Value="6 2" />
+        <Setter Property="Padding" Value="4" />
         <!--<Setter Property="BorderThickness" Value="1" />-->
         <Setter Property="Template">
             <ControlTemplate>
@@ -53,8 +53,8 @@
         </Setter>
 
         <Style Selector="^:selected /template/ Border#root">
-            <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidBrush}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeSelectedMidBrush}" />
+            <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeSelectedLowBrush}" />
             <!--<Setter Property="TextElement.Foreground" Value="White" />-->
         </Style>
 

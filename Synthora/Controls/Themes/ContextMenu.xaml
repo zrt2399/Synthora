@@ -6,11 +6,8 @@
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
         <Setter Property="WindowManagerAddShadowHint" Value="False" />
         <Setter Property="BorderThickness" Value="1" />
-        <!--<Setter Property="HorizontalOffset" Value="{DynamicResource PopupShadowHorizontalOffset}" />
-        <Setter Property="VerticalOffset" Value="{DynamicResource PopupShadowVerticalOffset}" />-->
         <Setter Property="Focusable" Value="True" />
         <Setter Property="Padding" Value="2" />
-        <Setter Property="MinWidth" Value="80" />
         <Setter Property="TextBlock.FontSize" Value="{DynamicResource FontSizeNormal}" />
         <Setter Property="TextBlock.FontWeight" Value="Normal" />
         <Setter Property="Template">

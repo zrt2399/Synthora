@@ -36,8 +36,9 @@
                                          DockPanel.Dock="Right"
                                          IsVisible="{TemplateBinding ShowButtonSpinner}"
                                          Rows="2"
-                                         TabIndex="2"> 
-                                <RepeatButton Name="PART_IncreaseButton" Padding="4,0"
+                                         TabIndex="2">
+                                <RepeatButton Name="PART_IncreaseButton"
+                                              Padding="4,0"
                                               IsTabStop="{TemplateBinding IsTabStop}"
                                               Theme="{StaticResource SimpleButtonSpinnerRepeatButton}">
                                     <Path Width="8"
@@ -48,7 +49,8 @@
                                           Fill="{DynamicResource ThemeForegroundBrush}"
                                           Stretch="Uniform" />
                                 </RepeatButton>
-                                <RepeatButton Name="PART_DecreaseButton" Padding="4,0"
+                                <RepeatButton Name="PART_DecreaseButton"
+                                              Padding="4,0"
                                               IsTabStop="{TemplateBinding IsTabStop}"
                                               Theme="{StaticResource SimpleButtonSpinnerRepeatButton}">
                                     <Path Width="8"

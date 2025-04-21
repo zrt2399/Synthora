@@ -10,8 +10,8 @@
             <Color x:Key="PrimaryPressedColor">#FF499FEF</Color>
             <Color x:Key="OnPrimaryColor">#FFFFFFFF</Color>
             <Color x:Key="PrimaryContrastColor">#FFCBD5E0</Color>
-            <Color x:Key="ThemeSelectedMidColor">#FFE1E1E1</Color>
-            <Color x:Key="ThemeSelectedLowColor">#FFF0F0F0</Color>
+            <Color x:Key="ThemeSelectedMidColor">#FFDCDCDC</Color>
+            <Color x:Key="ThemeSelectedLowColor">#FFE6E6E6</Color>
 
             <Color x:Key="ThemeBackgroundColor">#FFFFFFFF</Color>
             <Color x:Key="ThemeBorderLowColor">#FFAAAAAA</Color>
@@ -72,7 +72,7 @@
             <Color x:Key="PrimaryPressedColor">#FF499FEF</Color>
             <Color x:Key="OnPrimaryColor">#FFFFFFFF</Color>
             <Color x:Key="PrimaryContrastColor">#FF2C3E50</Color>
-            <Color x:Key="ThemeSelectedMidColor">#FF505050</Color>
+            <Color x:Key="ThemeSelectedMidColor">#FF5A5A5A</Color>
             <Color x:Key="ThemeSelectedLowColor">#FF505050</Color>
 
             <Color x:Key="ThemeBackgroundColor">#FF282828</Color>
@@ -134,6 +134,7 @@
     <Color x:Key="ThemeAccentColor3">#77007AFF</Color>
     <Color x:Key="ThemeAccentColor4">#44007AFF</Color>
     <Color x:Key="ThemeForegroundLowColor">#FF808080</Color>
+    <Color x:Key="ThemeForegroundMidColor">#FF707070</Color>
     <Color x:Key="HighlightForegroundColor">#FFFFFFFF</Color>
     <Color x:Key="ErrorColor">#FFFF0000</Color>
     <Color x:Key="ErrorLowColor">#10FF0000</Color>
@@ -141,6 +142,7 @@
     <Color x:Key="DangerColor">#FFDB3340</Color>
     <SolidColorBrush x:Key="HighlightForegroundBrush" Color="{StaticResource HighlightForegroundColor}" />
     <SolidColorBrush x:Key="ThemeForegroundLowBrush" Color="{StaticResource ThemeForegroundLowColor}" />
+    <SolidColorBrush x:Key="ThemeForegroundMidBrush" Color="{StaticResource ThemeForegroundMidColor}" />
     <SolidColorBrush x:Key="ThemeAccentBrush2" Color="{StaticResource ThemeAccentColor2}" />
     <SolidColorBrush x:Key="ThemeAccentBrush3" Color="{StaticResource ThemeAccentColor3}" />
     <SolidColorBrush x:Key="ThemeAccentBrush4" Color="{StaticResource ThemeAccentColor4}" />
@@ -190,7 +192,6 @@
     <BoxShadows x:Key="DefaultBoxShadow">0 0 6 0 DarkGray</BoxShadows>
     <Thickness x:Key="DefaultBoxShadowMargin">2</Thickness>
 
-    <sys:Double x:Key="PopupShadowVerticalOffset">-4.5</sys:Double>
-    <sys:Double x:Key="PopupShadowHorizontalOffset">-4.5</sys:Double>
+    <sys:Double x:Key="MenuItemMinWidth">160</sys:Double>
 
 </ResourceDictionary> 

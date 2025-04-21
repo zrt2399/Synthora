@@ -8,10 +8,29 @@
 
     <Application.Styles>
         <!--<SimpleTheme />-->
-        <!--<FluentTheme />-->
+        <!--<FluentTheme />
+        <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml" />-->
         <SynthoraTheme />
         <SynthoraDataGridTheme />
         <!--<actipro:ModernTheme Includes="NativeDataGrid" />-->
         <materialIcons:MaterialIconStyles />
+
+        <Style Selector="DataGrid">
+            <Setter Property="GridLinesVisibility" Value="Horizontal" />
+            <Styles>
+                <Style Selector="DataGridRow:nth-child(odd)">
+                    <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
+                </Style>
+                <Style Selector="DataGridRow:nth-child(even)">
+                    <Setter Property="Background" Value="Transparent" />
+                </Style>
+            </Styles>
+        </Style>
     </Application.Styles>
+    <Application.Resources>
+        <x:String x:Key="StringTextFlyoutCutText">剪切</x:String>
+        <x:String x:Key="StringTextFlyoutCopyText">复制</x:String>
+        <x:String x:Key="StringTextFlyoutPasteText">粘贴</x:String>
+        <x:String x:Key="StringTextFlyoutSelectAllText">全选</x:String>
+    </Application.Resources>
 </Application>

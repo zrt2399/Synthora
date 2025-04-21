@@ -10,17 +10,25 @@
 		<AssemblyVersion>$(Version)</AssemblyVersion>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<Title>AvaloniaUI Library</Title>
+		<Title>AvaloniaUI Theme</Title>
 		<Authors>Yoyo</Authors>
 		<Copyright>Copyright © $(Authors) $([System.DateTime]::Today.ToString(yyyy))</Copyright>
 		<PackageTags>Avalonia;XAML;UI;Theme</PackageTags>
 		<Description>Avalonia control styles and themes</Description>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<AvaloniaResource Include="Accents\**" />
 		<AvaloniaResource Include="Controls\Themes\**" />
 		<AvaloniaResource Include="Strings\**" />
+		<AvaloniaXaml Include="Controls\Styles\MessageBoxAvaloniaStyles.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</AvaloniaXaml>
+		<None Include="..\README.md">
+			<Pack>true</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
 	</ItemGroup>
 
 	<ItemGroup>

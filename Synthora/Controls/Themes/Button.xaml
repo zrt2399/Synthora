@@ -1,11 +1,11 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     x:ClassModifier="internal">
+
     <ControlTheme x:Key="{x:Type Button}" TargetType="Button">
-        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
         <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
         <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
-
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
 
         <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -19,8 +19,8 @@
                         CornerRadius="{TemplateBinding CornerRadius}">
                     <ContentPresenter Name="PART_ContentPresenter"
                                       Margin="{TemplateBinding Padding}"
-                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                       Content="{TemplateBinding Content}"
                                       ContentTemplate="{TemplateBinding ContentTemplate}"
                                       RecognizesAccessKey="True"
@@ -57,7 +57,7 @@
 
     </ControlTheme>
 
-    <ControlTheme x:Key="RemoveButtonTheme"
+    <ControlTheme x:Key="DangerButtonTheme"
                   BasedOn="{StaticResource {x:Type Button}}"
                   TargetType="Button">
         <Setter Property="Foreground" Value="White" />

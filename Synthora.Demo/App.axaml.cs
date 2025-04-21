@@ -1,7 +1,7 @@
+using System;
 using System.Linq;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia.Data.Core;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
 using Synthora.Demo.ViewModels;
@@ -11,6 +11,18 @@ namespace Synthora.Demo
 {
     public partial class App : Application
     {
+        public static MainWindow MainWindow
+        {
+            get
+            {
+                if (((IClassicDesktopStyleApplicationLifetime?)Current?.ApplicationLifetime)?.MainWindow is not MainWindow mainWindow)
+                {
+                    throw new Exception("MainWindow is not available.");
+                }
+                return mainWindow;
+            }
+        }
+
         public override void Initialize()
         {
             AvaloniaXamlLoader.Load(this);

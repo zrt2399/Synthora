@@ -19,13 +19,13 @@
         -->
         <vm:MainWindowViewModel />
     </Design.DataContext>
-    <TabControl>
+    <TabControl x:Name="TabControl">
         <TabItem Header="Base">
             <ScrollViewer>
                 <StackPanel Margin="10" Spacing="10">
                     <TextBox Text="{Binding Greeting}" TextWrapping="Wrap" />
                     <PathPicker UseFolderDialog="True" Watermark="Pick a folder" />
-                    <Button>
+                    <Button HorizontalAlignment="Center" Command="{Binding Show}">
                         Button
                         <Button.ContextMenu>
                             <ContextMenu>
@@ -40,11 +40,9 @@
                         </Button.ContextMenu>
                     </Button>
                     <Button Theme="{StaticResource CancelButtonTheme}" ToolTip.Tip="CancelButtonTheme">CancelButtonTheme</Button>
-                    <Button Theme="{StaticResource RemoveButtonTheme}" ToolTip.Tip="RemoveButtonTheme">RemoveButtonTheme</Button>
+                    <Button Theme="{StaticResource DangerButtonTheme}" ToolTip.Tip="DangerButtonTheme">DangerButtonTheme</Button>
                     <ToggleButton ToolTip.Tip="ToggleButton">ToggleButton</ToggleButton>
                     <DropDownButton>DropDownButton</DropDownButton>
-                    <GroupBox Header="GroupBox">123</GroupBox>
-
                     <StackPanel Orientation="Horizontal" Spacing="10">
                         <CheckBox>CheckBox</CheckBox>
                         <CheckBox IsChecked="{x:Null}">CheckBox</CheckBox>
@@ -90,7 +88,7 @@
             </ScrollViewer>
         </TabItem>
         <TabItem Header="Ext">
-            <StackPanel>
+            <StackPanel Spacing="10">
                 <Menu VerticalAlignment="Top">
                     <MenuItem Header="MenuItem1">
                         <MenuItem Header="MenuItem2">
@@ -104,8 +102,13 @@
                         <MenuItem Header="1" />
                     </MenuItem>
                 </Menu>
-
                 <StackPanel Margin="10" Spacing="10">
+                    <Calendar />
+                    <StackPanel Orientation="Horizontal">
+                        <GroupBox Header="GroupBox">Content</GroupBox>
+                        <Expander Header="Expander">Content</Expander>
+                    </StackPanel>
+
                     <Expander CornerRadius="2"
                               ExpandDirection="Left"
                               Header="Expander">

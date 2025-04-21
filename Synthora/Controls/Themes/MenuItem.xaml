@@ -10,8 +10,8 @@
     <ControlTheme x:Key="{x:Type MenuItem}" TargetType="MenuItem">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="1" />
-        <!--<Setter Property="Padding" Value="0" />-->
-        <Setter Property="MinWidth" Value="80" />
+        <!--<Setter Property="Padding" Value="0,0,20,0" />-->
+        <Setter Property="MinWidth" Value="{DynamicResource MenuItemMinWidth}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Name="root"
@@ -22,7 +22,7 @@
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="20" />
-                            <ColumnDefinition Width="0" />
+                            <ColumnDefinition Width="5" />
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" SharedSizeGroup="MenuItemIGT" />
                             <ColumnDefinition Width="20" />
@@ -105,8 +105,8 @@
         </Style>
 
         <Style Selector="^:selected /template/ Border#root">
-            <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidBrush}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeSelectedMidBrush}" />
+            <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeSelectedLowBrush}" />
             <!--<Setter Property="TextElement.Foreground" Value="White" />-->
         </Style>
 

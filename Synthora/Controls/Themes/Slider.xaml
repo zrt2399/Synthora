@@ -41,6 +41,7 @@
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
         <Style Selector="^:horizontal">
+            <Setter Property="VerticalAlignment" Value="Top" />
             <Setter Property="MinWidth" Value="40" />
             <!--<Setter Property="MinHeight" Value="26" />-->
             <Setter Property="Template">
@@ -71,6 +72,7 @@
             </Setter>
         </Style>
         <Style Selector="^:vertical">
+            <Setter Property="HorizontalAlignment" Value="Left" />
             <!--<Setter Property="MinWidth" Value="26" />-->
             <Setter Property="MinHeight" Value="40" />
             <Setter Property="Template">
@@ -103,6 +105,9 @@
 
         <Style Selector="^:pointerover /template/ Thumb#thumb">
             <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />
+        </Style>
+        <Style Selector="^:pressed /template/ Thumb#thumb">
+            <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidBrush}" />
         </Style>
 
         <Style Selector="^ /template/ Track#PART_Track">

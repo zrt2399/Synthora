@@ -1,6 +1,8 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="using:Synthora.Converters"
                     x:ClassModifier="internal">
+
     <Design.PreviewWith>
         <Border Padding="20">
             <StackPanel Width="350"
@@ -44,7 +46,16 @@
 
     <ControlTheme x:Key="SimpleExpanderToggleButtonTheme" TargetType="ToggleButton">
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="Padding" Value="4" />
         <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
+        <Setter Property="BorderThickness">
+            <MultiBinding Converter="{x:Static converters:ExpanderHederBorderThicknessConverter.Instance}">
+                <Binding Path="BorderThickness" RelativeSource="{RelativeSource AncestorType=Expander}" />
+                <Binding Path="ExpandDirection" RelativeSource="{RelativeSource AncestorType=Expander}" />
+                <Binding Path="IsExpanded" RelativeSource="{RelativeSource AncestorType=Expander}" />
+            </MultiBinding>
+        </Setter>
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Background="{TemplateBinding Background}"
@@ -54,7 +65,7 @@
                     <Grid ColumnDefinitions="Auto,*">
                         <Border Width="12"
                                 Height="12"
-                                Margin="4"
+                                Margin="4,4,0,4"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center">
                             <PathIcon Width="12"
@@ -67,9 +78,8 @@
                         <ContentPresenter Name="PART_ContentPresenter"
                                           Grid.Column="1"
                                           Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="Center"
-                                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Background="Transparent"
                                           Content="{TemplateBinding Content}"
                                           ContentTemplate="{Binding $parent[Expander].HeaderTemplate}" />
@@ -78,6 +88,9 @@
             </ControlTemplate>
         </Setter>
         <Style Selector="^:pointerover">
+            <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />
+        </Style>
+        <Style Selector="^:pressed">
             <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidBrush}" />
         </Style>
     </ControlTheme>
@@ -126,7 +139,8 @@
             </Setter.Value>
         </Setter>-->
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
+        <Setter Property="Padding" Value="10" />
         <Style Selector="^[ExpandDirection=Down]">
             <Setter Property="VerticalAlignment" Value="Top" />
             <Setter Property="Template">
@@ -137,7 +151,6 @@
                             CornerRadius="{TemplateBinding CornerRadius}">
                         <Grid RowDefinitions="Auto,*">
                             <ToggleButton Name="PART_toggle"
-                                          Padding="4"
                                           HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalAlignment}"
                                           Content="{TemplateBinding Header}"
@@ -147,9 +160,9 @@
                                           Theme="{StaticResource SimpleExpanderToggleButtonRightTheme}" />
                             <ContentPresenter Name="PART_ContentPresenter"
                                               Grid.Row="1"
-                                              Padding="{TemplateBinding Padding}"
-                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                               Content="{TemplateBinding Content}"
                                               ContentTemplate="{TemplateBinding ContentTemplate}"
                                               IsVisible="{TemplateBinding IsExpanded}" />
@@ -172,7 +185,6 @@
                         <Grid RowDefinitions="*,Auto">
                             <ToggleButton Name="PART_toggle"
                                           Grid.Row="1"
-                                          Padding="4"
                                           HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalAlignment}"
                                           Content="{TemplateBinding Header}"
@@ -181,9 +193,9 @@
                                                                       Mode=TwoWay}"
                                           Theme="{StaticResource SimpleExpanderToggleButtonRightTheme}" />
                             <ContentPresenter Name="PART_ContentPresenter"
-                                              Padding="{TemplateBinding Padding}"
-                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                               Content="{TemplateBinding Content}"
                                               ContentTemplate="{TemplateBinding ContentTemplate}"
                                               IsVisible="{TemplateBinding IsExpanded}" />
@@ -205,7 +217,6 @@
                             CornerRadius="{TemplateBinding CornerRadius}">
                         <Grid ColumnDefinitions="Auto,*">
                             <ToggleButton Name="PART_toggle"
-                                          Padding="4"
                                           HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalAlignment}"
                                           Content="{TemplateBinding Header}"
@@ -215,9 +226,9 @@
                                           Theme="{StaticResource SimpleExpanderToggleButtonLeftTheme}" />
                             <ContentPresenter Name="PART_ContentPresenter"
                                               Grid.Column="1"
-                                              Padding="{TemplateBinding Padding}"
-                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                               Content="{TemplateBinding Content}"
                                               ContentTemplate="{TemplateBinding ContentTemplate}"
                                               IsVisible="{TemplateBinding IsExpanded}" />
@@ -240,7 +251,6 @@
                         <Grid ColumnDefinitions="*,Auto">
                             <ToggleButton Name="PART_toggle"
                                           Grid.Column="1"
-                                          Padding="4"
                                           HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalAlignment}"
                                           Content="{TemplateBinding Header}"
@@ -249,9 +259,9 @@
                                                                       Mode=TwoWay}"
                                           Theme="{StaticResource SimpleExpanderToggleButtonRightTheme}" />
                             <ContentPresenter Name="PART_ContentPresenter"
-                                              Padding="{TemplateBinding Padding}"
-                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                               Content="{TemplateBinding Content}"
                                               ContentTemplate="{TemplateBinding ContentTemplate}"
                                               IsVisible="{TemplateBinding IsExpanded}" />

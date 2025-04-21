@@ -55,9 +55,9 @@
             <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
             <Setter Property="HorizontalContentAlignment" Value="Left" />
             <Setter Property="VerticalContentAlignment" Value="Center" />
-            <Setter Property="SeparatorBrush" Value="{DynamicResource ThemeControlLowColor}" />
+            <Setter Property="SeparatorBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
             <Setter Property="Padding" Value="4" />
-            <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
+            <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
             <!--<Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
             <Setter Property="BorderThickness" Value="0,0,1,1" />-->
             <Setter Property="Template">
@@ -89,17 +89,6 @@
                                           IsVisible="False"
                                           UseLayoutRounding="False" />
 
-                                <!--<Path Name="SortIcon"
-                                      Grid.Column="1"
-                                      Width="8"
-                                      Margin="4,0,0,0"
-                                      HorizontalAlignment="Left"
-                                      VerticalAlignment="Center"
-                                      Data="F1 M -5.215,6.099L 5.215,6.099L 0,0L -5.215,6.099 Z "
-                                      Fill="{TemplateBinding Foreground}"
-                                      IsVisible="False"
-                                      Stretch="Uniform" />-->
-
                             </Grid>
 
                             <Rectangle Name="VerticalSeparator"
@@ -118,12 +107,12 @@
                 <Setter Property="IsVisible" Value="True" />
             </Style>
 
-            <Style Selector="^:pointerover /template/ Grid#PART_ColumnHeaderRoot">
-                <Setter Property="Background" Value="{DynamicResource DataGridColumnHeaderHoveredBackgroundBrush}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowColor}" />
             </Style>
 
-            <Style Selector="^:pressed /template/ Grid#PART_ColumnHeaderRoot">
-                <Setter Property="Background" Value="{DynamicResource DataGridColumnHeaderPressedBackgroundBrush}" />
+            <Style Selector="^:pressed">
+                <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidColor}" />
             </Style>
 
             <Style Selector="^:dragIndicator">
@@ -180,6 +169,7 @@
 
         <ControlTheme x:Key="{x:Type DataGridRow}" TargetType="DataGridRow">
             <Setter Property="Background" Value="{Binding $parent[DataGrid].RowBackground}" />
+
             <Setter Property="Template">
                 <ControlTemplate>
                     <Border x:Name="RowBorder"
@@ -215,19 +205,19 @@
                 </ControlTemplate>
             </Setter>
 
-            <Style Selector="^:pointerover">
+            <Style Selector="^:pointerover /template/ Border#RowBorder">
                 <Setter Property="Background" Value="{DynamicResource ThemeControlHighlightMidBrush}" />
             </Style>
-            <Style Selector="^:selected">
+            <Style Selector="^:selected /template/ Border#RowBorder">
                 <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush4}" />
             </Style>
-            <Style Selector="^:selected:focus-within">
+            <Style Selector="^:selected:focus-within /template/ Border#RowBorder">
                 <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush3}" />
             </Style>
-            <Style Selector="^:selected:pointerover">
+            <Style Selector="^:selected:pointerover /template/ Border#RowBorder">
                 <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush3}" />
             </Style>
-            <Style Selector="^:selected:focus-within:pointerover">
+            <Style Selector="^:selected:focus-within:pointerover /template/ Border#RowBorder">
                 <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush2}" />
             </Style>
         </ControlTheme>
@@ -266,6 +256,9 @@
                 </ControlTemplate>
             </Setter>
             <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />
+            </Style>
+            <Style Selector="^:pressed">
                 <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidBrush}" />
             </Style>
         </ControlTheme>
