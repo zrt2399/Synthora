@@ -3,7 +3,7 @@
                     x:ClassModifier="internal">
     <ControlTheme x:Key="{x:Type HeaderedContentControl}" TargetType="HeaderedContentControl">
 
-        <Setter Property="Padding" Value="3" />
+        <!--<Setter Property="Padding" Value="4" />-->
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Padding="{TemplateBinding Padding}"
@@ -11,7 +11,7 @@
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}">
-                    <Grid RowDefinitions="auto *">
+                    <Grid RowDefinitions="Auto,*">
                         <ContentPresenter Name="PART_HeaderPresenter"
                                           Grid.Row="0"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -39,4 +39,4 @@
             </ControlTemplate>
         </Setter>
     </ControlTheme>
-</ResourceDictionary>
+</ResourceDictionary> 

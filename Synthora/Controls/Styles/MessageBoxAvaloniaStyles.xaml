@@ -1,15 +1,32 @@
 <Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
+	<Style Selector="Button.ok /template/ ContentPresenter#PART_ContentPresenter">
+		<Setter Property="Content" Value="{DynamicResource StringMessageBoxButtonOK}" />
+	</Style>
+	
+    <Style Selector="Button.yes /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Content" Value="{DynamicResource StringMessageBoxButtonYes}" />
+    </Style>
+
     <Style Selector="Button.no">
         <Setter Property="Theme" Value="{DynamicResource CancelButtonTheme}" />
+    </Style>
+    <Style Selector="Button.no /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Content" Value="{DynamicResource StringMessageBoxButtonNo}" />
     </Style>
 
     <Style Selector="Button.cancel">
         <Setter Property="Theme" Value="{DynamicResource CancelButtonTheme}" />
     </Style>
+    <Style Selector="Button.cancel /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Content" Value="{DynamicResource StringMessageBoxButtonCancel}" />
+    </Style>
 
     <Style Selector="Button.abort">
         <Setter Property="Theme" Value="{DynamicResource DangerButtonTheme}" />
     </Style>
+    <Style Selector="Button.abort /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Content" Value="{DynamicResource StringMessageBoxButtonAbort}" />
+    </Style>
 
-</Styles>
+</Styles> 

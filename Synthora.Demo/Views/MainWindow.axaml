@@ -45,7 +45,7 @@
                             </ContextMenu>
                         </Button.ContextMenu>
                     </Button>
-                    <StackPanel Orientation="Horizontal" Spacing="2">
+                    <StackPanel Orientation="Horizontal" Spacing="10">
                         <Button>Button1</Button>
                         <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
                         <Button>Button2</Button>
@@ -67,16 +67,17 @@
                     <StackPanel Orientation="Horizontal" Spacing="10">
                         <RadioButton>RadioButton1</RadioButton>
                         <RadioButton>RadioButton2</RadioButton>
+                        <RadioButton IsChecked="{x:Null}">RadioButton3</RadioButton>
                     </StackPanel>
                     <ListBox>
-                        <ListBoxItem>123</ListBoxItem>
-                        <ListBoxItem>456</ListBoxItem>
-                        <ListBoxItem>789</ListBoxItem>
+                        <ListBoxItem>123456</ListBoxItem>
+                        <ListBoxItem>7891011</ListBoxItem>
+                        <ListBoxItem>12131415</ListBoxItem>
                     </ListBox>
                     <TreeView>
-                        <TreeViewItem Header="abcd">
-                            <TreeViewItem Header="efgh">
-                                <TreeViewItem Header="ijkl" />
+                        <TreeViewItem Header="abcdefghijklmnopqrstuvwxyz">
+                            <TreeViewItem Header="1234567890">
+                                <TreeViewItem Header="11121314151617181920" />
                             </TreeViewItem>
                         </TreeViewItem>
                     </TreeView>
@@ -85,8 +86,8 @@
                     <TextBlock>TextBlock</TextBlock>
                     <HyperlinkButton>HyperlinkButton</HyperlinkButton>
                     <ComboBox>
-                        <ComboBoxItem>12345678910</ComboBoxItem>
-                        <ComboBoxItem>abcdefg</ComboBoxItem>
+                        <ComboBoxItem>12345678910111213141516</ComboBoxItem>
+                        <ComboBoxItem>abcdefghijklmnopqrstuvwxyz</ComboBoxItem>
                     </ComboBox>
                     <DatePicker />
                     <TimePicker />
@@ -171,7 +172,7 @@
                 <DataGrid x:Name="dataGrid"
                           Margin="10"
                           AutoGenerateColumns="True"
-                          GridLinesVisibility="Horizontal"
+                          GridLinesVisibility="All"
                           HeadersVisibility="All"
                           ItemsSource="{Binding DataGridCollectionView}" />
                 <DataGrid Margin="10"
@@ -180,7 +181,7 @@
                           ItemsSource="{Binding DataGridCollectionView}" />
                 <DataGrid Margin="10"
                           AutoGenerateColumns="True"
-                          ItemsSource="{Binding DataGridCollectionView}" />
+                          ItemsSource="{Binding Employees}" />
             </UniformGrid>
         </TabItem>
     </TabControl>

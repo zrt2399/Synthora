@@ -16,21 +16,17 @@
         <!--<actipro:ModernTheme Includes="NativeDataGrid" />-->
         <materialIcons:MaterialIconStyles />
 
-        <Style Selector="DataGrid">
-            <Styles>
-                <Style Selector="DataGridRow:nth-child(odd)">
-                    <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
-                </Style>
-                <Style Selector="DataGridRow:nth-child(even)">
-                    <Setter Property="Background" Value="Transparent" />
-                </Style>
-            </Styles>
-        </Style>
+        
     </Application.Styles>
     <Application.Resources>
         <x:String x:Key="StringTextFlyoutCutText">剪切</x:String>
         <x:String x:Key="StringTextFlyoutCopyText">复制</x:String>
         <x:String x:Key="StringTextFlyoutPasteText">粘贴</x:String>
         <x:String x:Key="StringTextFlyoutSelectAllText">全选</x:String>
+        <x:String x:Key="StringMessageBoxButtonOK">确定</x:String>
+        <x:String x:Key="StringMessageBoxButtonYes">是</x:String>
+        <x:String x:Key="StringMessageBoxButtonNo">否</x:String>
+        <x:String x:Key="StringMessageBoxButtonCancel">取消</x:String>
+        <x:String x:Key="StringMessageBoxButtonAbort">中止</x:String>
     </Application.Resources>
 </Application>

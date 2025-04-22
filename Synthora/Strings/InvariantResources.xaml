@@ -26,4 +26,10 @@
     <x:String x:Key="StringManagedFileChooserOverwritePromptFileAlreadyExistsText">{0} already exists. Do you want to replace it?</x:String>
     <x:String x:Key="StringManagedFileChooserOverwritePromptConfirmText">Yes</x:String>
     <x:String x:Key="StringManagedFileChooserOverwritePromptCancelText">No</x:String>
+    <!--  MessageBoxAvalonia  -->
+    <x:String x:Key="StringMessageBoxButtonOK">OK</x:String>
+    <x:String x:Key="StringMessageBoxButtonYes">Yes</x:String>
+    <x:String x:Key="StringMessageBoxButtonNo">No</x:String>
+    <x:String x:Key="StringMessageBoxButtonCancel">Cancel</x:String>
+    <x:String x:Key="StringMessageBoxButtonAbort">Abort</x:String>
 </ResourceDictionary> 

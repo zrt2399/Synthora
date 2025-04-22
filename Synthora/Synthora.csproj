@@ -34,13 +34,5 @@
 	<ItemGroup>
 		<PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
 		<PackageReference Include="Avalonia.Controls.DataGrid" Version="$(AvaloniaVersion)" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <AvaloniaResource Update="Controls\Themes\DataGrid.xaml">
-	    <SubType>Designer</SubType>
-	    <Generator>MSBuild:Compile</Generator>
-	  </AvaloniaResource>
-	</ItemGroup>
-
+	</ItemGroup> 
 </Project>

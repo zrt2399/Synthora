@@ -20,7 +20,7 @@
                   Header="{DynamicResource StringTextFlyoutCopyText}"
                   InputGesture="{x:Static TextBox.CopyGesture}"
                   IsEnabled="{Binding $parent[SelectableTextBlock].CanCopy}" />
-        <MenuItem Command="{Binding $parent[TextBox].SelectAll}"
+        <MenuItem Command="{Binding $parent[SelectableTextBlock].SelectAll}"
                   Header="{DynamicResource StringTextFlyoutSelectAllText}"
                   InputGesture="{x:Static utils:TextBoxUtils.SelectAllGesture}" />
     </ContextMenu>

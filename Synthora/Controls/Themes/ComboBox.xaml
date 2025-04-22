@@ -1,6 +1,43 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     x:ClassModifier="internal">
+
+    <ControlTheme x:Key="SimpleComboBoxDropDownButtonTheme" TargetType="ToggleButton">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="ClickMode" Value="Press" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Width="12"
+                        Height="12"
+                        Margin="{TemplateBinding Padding}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <PathIcon Name="pathIcon"
+                              Width="12"
+                              Height="12"
+                              Data="{DynamicResource DropDownGlyph}"
+                              Foreground="{TemplateBinding Foreground}"
+                              IsHitTestVisible="False"
+                              UseLayoutRounding="False" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:checked /template/ PathIcon#pathIcon">
+            <Setter Property="RenderTransform">
+                <RotateTransform Angle="180" />
+            </Setter>
+        </Style>
+        <Style Selector="^:pointerover">
+            <Setter Property="Opacity" Value="0.8" />
+        </Style>
+    </ControlTheme>
+
     <ControlTheme x:Key="{x:Type ComboBox}" TargetType="ComboBox">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
@@ -35,24 +72,11 @@
                                         Content="{TemplateBinding SelectionBoxItem}"
                                         ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" />
                         <ToggleButton Grid.Column="1"
-                                      Background="Transparent"
-                                      BorderThickness="0"
-                                      ClickMode="Press"
-                                      Focusable="False"
+                                      Margin="0,4,4,4"
                                       IsChecked="{TemplateBinding IsDropDownOpen,
-                                                                  Mode=TwoWay}">
+                                                                  Mode=TwoWay}"
+                                      Theme="{DynamicResource SimpleComboBoxDropDownButtonTheme}" />
 
-                            <PathIcon Name="pathIcon"
-                                      Width="12"
-                                      Height="12"
-                                      HorizontalAlignment="Center"
-                                      VerticalAlignment="Center"
-                                      Data="{DynamicResource DropDownGlyph}"
-                                      Foreground="{Binding $parent[ToggleButton].Foreground}"
-                                      IsHitTestVisible="False"
-                                      UseLayoutRounding="False" />
-
-                        </ToggleButton>
                         <Popup Name="PART_Popup"
                                InheritsTransform="True"
                                IsLightDismissEnabled="True"
@@ -60,31 +84,27 @@
                                                         Mode=TwoWay}"
                                PlacementTarget="{TemplateBinding}"
                                WindowManagerAddShadowHint="False">
-                            <Border MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
-                                    MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                                    Margin="{DynamicResource DefaultBoxShadowMargin}"
-                                    Background="{DynamicResource ThemeBackgroundBrush}"
-                                    BorderBrush="{DynamicResource ThemeBorderMidBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    BoxShadow="{DynamicResource DefaultBoxShadow}"
-                                    CornerRadius="{TemplateBinding CornerRadius}">
-                                <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
-                                              IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}"
-                                              VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
-                                    <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
-                                </ScrollViewer>
-                            </Border>
+                            <Panel Margin="0,-2,0,0">
+                                <Border MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                                        MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                                        Margin="{DynamicResource DefaultBoxShadowMargin}"
+                                        Background="{DynamicResource ThemeBackgroundBrush}"
+                                        BorderBrush="{DynamicResource ThemeBorderMidBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        BoxShadow="{DynamicResource DefaultBoxShadow}"
+                                        CornerRadius="{TemplateBinding CornerRadius}">
+                                    <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                                  IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}"
+                                                  VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                                        <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+                                    </ScrollViewer>
+                                </Border>
+                            </Panel>
                         </Popup>
                     </Grid>
                 </Border>
             </ControlTemplate>
         </Setter>
-
-        <Style Selector="^:dropdownopen /template/ PathIcon#pathIcon">
-            <Setter Property="RenderTransform">
-                <RotateTransform Angle="180" />
-            </Setter>
-        </Style>
 
         <Style Selector="^:pointerover">
             <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighBrush}" />

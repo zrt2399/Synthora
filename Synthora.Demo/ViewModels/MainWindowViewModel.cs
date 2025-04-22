@@ -14,8 +14,6 @@ namespace Synthora.Demo.ViewModels
 {
     public partial class MainWindowViewModel : ViewModelBase
     {
-        private readonly ObservableCollection<Employee> _employees;
-
         public MainWindowViewModel()
         {
             var employeeFaker = new Faker<Employee>("zh_CN")
@@ -33,10 +31,12 @@ namespace Synthora.Demo.ViewModels
             //});
 
             List<Employee> employees = employeeFaker.Generate(1000);
-            _employees = new ObservableCollection<Employee>(employees);
-            DataGridCollectionView = new DataGridCollectionView(_employees);
+            Employees = new ObservableCollection<Employee>(employees);
+            DataGridCollectionView = new DataGridCollectionView(Employees);
             DataGridCollectionView.GroupDescriptions.Add(new DataGridPathGroupDescription(nameof(Employee.Age)));
         }
+
+        public ObservableCollection<Employee> Employees { get; }
 
         public string Greeting { get; set; } = "Welcome to Avalonia!";
         public double Value { get; set; }
