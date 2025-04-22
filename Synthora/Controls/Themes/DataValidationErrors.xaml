@@ -27,7 +27,8 @@
                 <Canvas Width="14"
                         Height="14"
                         Margin="4,0,1,0"
-                        Background="Transparent">
+                        Background="Transparent"
+                        Cursor="{x:Null}">
                     <Canvas.Styles>
                         <Style Selector="ToolTip">
                             <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />

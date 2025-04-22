@@ -296,7 +296,7 @@
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
                                 Theme="{StaticResource SimpleDateTimePickerButton}">
-                            <Path Data="M0.5,8.5 5,13.5 15.5,3"
+                            <Path Data="M0.5,7.0 5,12.0 15.5,1.5"
                                   Stroke="{Binding $parent[Button].Foreground}"
                                   StrokeLineCap="Round"
                                   StrokeThickness="0.75" />

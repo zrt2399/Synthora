@@ -1,20 +1,35 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="using:Synthora.Controls"
                     x:ClassModifier="internal">
 
     <ControlTheme x:Key="{x:Type Separator}" TargetType="Separator">
         <Setter Property="Focusable" Value="False" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
-        <Setter Property="Margin" Value="28,2,0,1" />
-        <Setter Property="BorderThickness" Value="0,1,0,0" />
+        <Setter Property="Background" Value="{DynamicResource ThemeBorderMidBrush}" />
+        <Setter Property="Margin" Value="28,2,0,2" />
+        <Setter Property="Height" Value="1" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}" />
+                <controls:PixelAlignedRectangle Width="{TemplateBinding Width}"
+                                                Height="{TemplateBinding Height}"
+                                                Fill="{TemplateBinding Background}" />
+
             </ControlTemplate>
         </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="HorizontalSeparatorTheme"
+                  BasedOn="{StaticResource {x:Type Separator}}"
+                  TargetType="Separator">
+        <Setter Property="Margin" Value="0" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="VerticalSeparatorTheme"
+                  BasedOn="{StaticResource {x:Type Separator}}"
+                  TargetType="Separator">
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Width" Value="1" />
+        <Setter Property="Height" Value="NaN" />
     </ControlTheme>
 
 </ResourceDictionary>

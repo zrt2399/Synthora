@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Avalonia;
@@ -19,7 +20,7 @@ namespace Synthora.Controls
 
         static PathPicker()
         {
-            SelectedPathsProperty.Changed.AddClassHandler<PathPicker, List<string>>((o, e) => o.OnSelectedPathsChanged(e.NewValue.Value));
+            SelectedPathsProperty.Changed.AddClassHandler<PathPicker, IList?>((o, e) => o.OnSelectedPathsChanged(e.NewValue.Value));
         }
 
         public static readonly StyledProperty<string> TitleProperty =
@@ -40,8 +41,8 @@ namespace Synthora.Controls
         public static readonly StyledProperty<string> SelectedPathProperty =
             AvaloniaProperty.Register<PathPicker, string>(nameof(SelectedPath), string.Empty, defaultBindingMode: BindingMode.TwoWay);
 
-        public static readonly StyledProperty<List<string>> SelectedPathsProperty =
-            AvaloniaProperty.Register<PathPicker, List<string>>(nameof(SelectedPaths), [], defaultBindingMode: BindingMode.TwoWay);
+        public static readonly StyledProperty<IList?> SelectedPathsProperty =
+            AvaloniaProperty.Register<PathPicker, IList?>(nameof(SelectedPaths), defaultBindingMode: BindingMode.TwoWay);
 
         public static readonly StyledProperty<bool> UseFolderDialogProperty =
             AvaloniaProperty.Register<PathPicker, bool>(nameof(UseFolderDialog));
@@ -49,8 +50,8 @@ namespace Synthora.Controls
         public static readonly StyledProperty<bool> UseSaveDialogProperty =
             AvaloniaProperty.Register<PathPicker, bool>(nameof(UseSaveDialog));
 
-        public static readonly StyledProperty<IReadOnlyList<FilePickerFileType>> FileTypeFiltersProperty =
-            AvaloniaProperty.Register<PathPicker, IReadOnlyList<FilePickerFileType>>(nameof(FileTypeFilters));
+        public static readonly StyledProperty<IReadOnlyList<FilePickerFileType>> FilePickerFileTypesProperty =
+            AvaloniaProperty.Register<PathPicker, IReadOnlyList<FilePickerFileType>>(nameof(FilePickerFileTypes));
 
         public static readonly StyledProperty<string> WatermarkProperty =
             AvaloniaProperty.Register<PathPicker, string>(nameof(Watermark), string.Empty);
@@ -127,7 +128,7 @@ namespace Synthora.Controls
             set => SetValue(SelectedPathProperty, value);
         }
 
-        public List<string> SelectedPaths
+        public IList? SelectedPaths
         {
             get => GetValue(SelectedPathsProperty);
             set => SetValue(SelectedPathsProperty, value);
@@ -145,10 +146,10 @@ namespace Synthora.Controls
             set => SetValue(UseSaveDialogProperty, value);
         }
 
-        public IReadOnlyList<FilePickerFileType> FileTypeFilters
+        public IReadOnlyList<FilePickerFileType> FilePickerFileTypes
         {
-            get => GetValue(FileTypeFiltersProperty);
-            set => SetValue(FileTypeFiltersProperty, value);
+            get => GetValue(FilePickerFileTypesProperty);
+            set => SetValue(FilePickerFileTypesProperty, value);
         }
 
         public string Watermark
@@ -223,9 +224,9 @@ namespace Synthora.Controls
             set => SetValue(SpacingProperty, value);
         }
 
-        protected virtual void OnSelectedPathsChanged(List<string> paths)
+        protected virtual void OnSelectedPathsChanged(IList? paths)
         {
-            SelectedPath = paths == null || paths.Count == 0 ? string.Empty : string.Join("|", paths);
+            SelectedPath = paths == null || paths.Count == 0 ? string.Empty : string.Join("|", paths.OfType<string>());
         }
 
         private async void SetCommonOptions(PickerOptions pickerOptions, TopLevel topLevel)
@@ -273,7 +274,7 @@ namespace Synthora.Controls
                     var options = new FilePickerSaveOptions
                     {
                         DefaultExtension = DefaultExtension,
-                        FileTypeChoices = FileTypeFilters
+                        FileTypeChoices = FilePickerFileTypes
                     };
                     SetCommonOptions(options, topLevel);
                     using var storageFile = await topLevel.StorageProvider.SaveFilePickerAsync(options);
@@ -287,7 +288,7 @@ namespace Synthora.Controls
                     var options = new FilePickerOpenOptions
                     {
                         AllowMultiple = AllowMultiple,
-                        FileTypeFilter = FileTypeFilters
+                        FileTypeFilter = FilePickerFileTypes
                     };
                     SetCommonOptions(options, topLevel);
                     var storageFiles = await topLevel.StorageProvider.OpenFilePickerAsync(options);
@@ -306,17 +307,17 @@ namespace Synthora.Controls
 
         public void Explore()
         {
-            if (SelectedPaths?.Count > 0)
+            if (SelectedPaths?.Count > 0 && SelectedPaths[0] is string path)
             {
-                PathUtils.OpenFileLocation(SelectedPaths.First());
+                PathUtils.OpenFileLocation(path);
             }
         }
 
         public void Open()
         {
-            if (SelectedPaths?.Count > 0)
+            if (SelectedPaths?.Count > 0 && SelectedPaths[0] is string path)
             {
-                PathUtils.OpenFlie(SelectedPaths.First());
+                PathUtils.OpenFlie(path);
             }
         }
 

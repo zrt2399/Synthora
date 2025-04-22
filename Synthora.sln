@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Synthora", "Synthora\Syntho
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Synthora.Demo", "Synthora.Demo\Synthora.Demo.csproj", "{F862A19F-5644-4109-92C8-3256064E5A78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Synthora.DataGrid", "Synthora.DataGrid\Synthora.DataGrid.csproj", "{A9D8AC36-88E8-4798-AF2A-D17578FA7C18}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{F862A19F-5644-4109-92C8-3256064E5A78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F862A19F-5644-4109-92C8-3256064E5A78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F862A19F-5644-4109-92C8-3256064E5A78}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A9D8AC36-88E8-4798-AF2A-D17578FA7C18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A9D8AC36-88E8-4798-AF2A-D17578FA7C18}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A9D8AC36-88E8-4798-AF2A-D17578FA7C18}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A9D8AC36-88E8-4798-AF2A-D17578FA7C18}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

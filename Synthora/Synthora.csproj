@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
 		<Nullable>enable</Nullable>
-		<AvaloniaVersion>11.2.4</AvaloniaVersion>
+		<AvaloniaVersion>11.2.1</AvaloniaVersion>
 		<DebugType>embedded</DebugType>
 		<Version>0.0.0.1</Version>
 		<FileVersion>$(Version)</FileVersion>
@@ -16,15 +16,15 @@
 		<PackageTags>Avalonia;XAML;UI;Theme</PackageTags>
 		<Description>Avalonia control styles and themes</Description>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/zrt2399/Synthora</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/zrt2399/Synthora</PackageProjectUrl>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<AvaloniaResource Include="Accents\**" />
 		<AvaloniaResource Include="Controls\Themes\**" />
+		<AvaloniaResource Include="Controls\Styles\**" />
 		<AvaloniaResource Include="Strings\**" />
-		<AvaloniaXaml Include="Controls\Styles\MessageBoxAvaloniaStyles.xaml">
-		  <Generator>MSBuild:Compile</Generator>
-		</AvaloniaXaml>
 		<None Include="..\README.md">
 			<Pack>true</Pack>
 			<PackagePath>\</PackagePath>
@@ -33,6 +33,14 @@
 
 	<ItemGroup>
 		<PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
+		<PackageReference Include="Avalonia.Controls.DataGrid" Version="$(AvaloniaVersion)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <AvaloniaResource Update="Controls\Themes\DataGrid.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </AvaloniaResource>
 	</ItemGroup>
 
 </Project>

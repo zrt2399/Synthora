@@ -61,37 +61,27 @@
                     that appear opaque. Not sure how MS does it though I suspect this is it
                     but source isn't MIT yet, so this is my solution
                 -->
-                <Border Background="{TemplateBinding Background}">
+                <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{DynamicResource ThemeControlTransparentBrush}"
+                        BorderThickness="{DynamicResource DateTimeFlyoutButtonBorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
                     <ContentPresenter x:Name="PART_ContentPresenter"
-                                      Padding="{TemplateBinding Padding}"
-                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                      Background="{TemplateBinding Background}"
-                                      BorderBrush="{DynamicResource ThemeControlTransparentBrush}"
-                                      BorderThickness="{DynamicResource DateTimeFlyoutButtonBorderThickness}"
+                                      Margin="{TemplateBinding Padding}"
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                       Content="{TemplateBinding Content}"
                                       ContentTemplate="{TemplateBinding ContentTemplate}"
-                                      CornerRadius="{TemplateBinding CornerRadius}"
                                       Foreground="{DynamicResource ThemeForegroundBrush}" />
                 </Border>
             </ControlTemplate>
         </Setter>
 
         <Style Selector="^:pointerover">
-            <Setter Property="Opacity" Value="0.8" />
+            <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />
         </Style>
 
-        <Style Selector="^:pointerover /template/ ContentPresenter">
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeControlHighBrush}" />
-            <Setter Property="TextElement.Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
-        </Style>
-
-        <Style Selector="^:pressed /template/ ContentPresenter">
-            <Setter Property="Background">
-                <SolidColorBrush Opacity="0.6" Color="{DynamicResource ThemeControlMidHighColor}" />
-            </Setter>
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeControlLowBrush}" />
-            <Setter Property="TextElement.Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
+        <Style Selector="^:pressed">
+            <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidBrush}" />
         </Style>
     </ControlTheme>
 

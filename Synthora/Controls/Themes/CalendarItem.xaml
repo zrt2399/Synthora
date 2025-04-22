@@ -13,8 +13,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
-                    <Border Margin="0,2,0,2"
-                            Background="{TemplateBinding Background}"
+                    <Border Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{TemplateBinding CornerRadius}">
@@ -152,7 +151,6 @@
                     </Border>
 
                     <Rectangle Name="DisabledVisual"
-                               Margin="0,2,0,2"
                                Fill="{DynamicResource ThemeControlLowBrush}"
                                IsVisible="False"
                                Opacity="{DynamicResource ThemeDisabledOpacity}"

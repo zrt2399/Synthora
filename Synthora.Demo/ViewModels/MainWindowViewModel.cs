@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Avalonia.Collections;
+using Avalonia.Platform.Storage;
 using Bogus;
 using MsBox.Avalonia;
 using MsBox.Avalonia.Enums;
@@ -37,6 +39,15 @@ namespace Synthora.Demo.ViewModels
         }
 
         public string Greeting { get; set; } = "Welcome to Avalonia!";
+        public double Value { get; set; }
+        public IList? SelectedFiles { get; set; }
+        public IReadOnlyList<FilePickerFileType> FilePickerFileTypes { get; } = new List<FilePickerFileType>
+        {
+            new FilePickerFileType("Image Files"){ Patterns = new [] { "*.jpg", "*.jpeg", "*.png", "*.gif" }},
+            new FilePickerFileType("Text Files"){ Patterns = new [] { "*.txt" }},
+            new FilePickerFileType("All Files"){ Patterns = new [] { "*" }}
+        };
+
         public DataGridCollectionView DataGridCollectionView { get; set; }
 
         public async Task Show()

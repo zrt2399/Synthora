@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:so="https://github.com/zrt2399/Synthora"
         xmlns:vm="using:Synthora.Demo.ViewModels"
         Title="Synthora.Demo"
         Width="800"
@@ -19,14 +20,19 @@
         -->
         <vm:MainWindowViewModel />
     </Design.DataContext>
+
     <TabControl x:Name="TabControl">
         <TabItem Header="Base">
             <ScrollViewer>
                 <StackPanel Margin="10" Spacing="10">
                     <TextBox Text="{Binding Greeting}" TextWrapping="Wrap" />
+                    <TextBox Text="{Binding Value}" TextWrapping="Wrap" />
                     <PathPicker UseFolderDialog="True" Watermark="Pick a folder" />
+                    <PathPicker FilePickerFileTypes="{Binding FilePickerFileTypes}"
+                                SelectedPaths="{Binding SelectedFiles}"
+                                Watermark="Pick a file" />
                     <Button HorizontalAlignment="Center" Command="{Binding Show}">
-                        Button
+                        ContextMenuButton
                         <Button.ContextMenu>
                             <ContextMenu>
                                 <MenuItem Header="123456">
@@ -39,6 +45,16 @@
                             </ContextMenu>
                         </Button.ContextMenu>
                     </Button>
+                    <StackPanel Orientation="Horizontal" Spacing="2">
+                        <Button>Button1</Button>
+                        <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
+                        <Button>Button2</Button>
+                        <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
+                        <Button>Button3</Button>
+                        <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
+                        <Button>Button4</Button>
+                    </StackPanel>
+                    <Separator Theme="{StaticResource HorizontalSeparatorTheme}" />
                     <Button Theme="{StaticResource CancelButtonTheme}" ToolTip.Tip="CancelButtonTheme">CancelButtonTheme</Button>
                     <Button Theme="{StaticResource DangerButtonTheme}" ToolTip.Tip="DangerButtonTheme">DangerButtonTheme</Button>
                     <ToggleButton ToolTip.Tip="ToggleButton">ToggleButton</ToggleButton>
@@ -76,6 +92,7 @@
                     <TimePicker />
                     <StackPanel Orientation="Horizontal">
                         <ToggleSwitch OffContent="{x:Null}" OnContent="{x:Null}" />
+                        <ToggleSwitch OffContent="123" OnContent="456789" />
                         <ToggleSwitch />
                     </StackPanel>
                     <Slider Name="Slider" />
@@ -103,7 +120,12 @@
                     </MenuItem>
                 </Menu>
                 <StackPanel Margin="10" Spacing="10">
-                    <Calendar />
+                    <so:GroupBox Padding="0"
+                                 HorizontalContentAlignment="Left"
+                                 Header="so:GroupBox">
+                        <Calendar />
+                    </so:GroupBox>
+
                     <StackPanel Orientation="Horizontal">
                         <GroupBox Header="GroupBox">Content</GroupBox>
                         <Expander Header="Expander">Content</Expander>
@@ -145,13 +167,21 @@
             </StackPanel>
         </TabItem>
         <TabItem Header="DataGrid">
-            <DataGrid x:Name="dataGrid"
-                      Margin="10"
-                      AutoGenerateColumns="True"
-                      GridLinesVisibility="Horizontal"
-                      HeadersVisibility="All"
-                      ItemsSource="{Binding DataGridCollectionView}" />
-
+            <UniformGrid Columns="1">
+                <DataGrid x:Name="dataGrid"
+                          Margin="10"
+                          AutoGenerateColumns="True"
+                          GridLinesVisibility="Horizontal"
+                          HeadersVisibility="All"
+                          ItemsSource="{Binding DataGridCollectionView}" />
+                <DataGrid Margin="10"
+                          AutoGenerateColumns="True"
+                          GridLinesVisibility="Vertical"
+                          ItemsSource="{Binding DataGridCollectionView}" />
+                <DataGrid Margin="10"
+                          AutoGenerateColumns="True"
+                          ItemsSource="{Binding DataGridCollectionView}" />
+            </UniformGrid>
         </TabItem>
     </TabControl>
 </Window>

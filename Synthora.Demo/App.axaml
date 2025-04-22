@@ -7,16 +7,16 @@
     <!--  "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options.  -->
 
     <Application.Styles>
-        <!--<SimpleTheme />-->
+        <SimpleTheme />
+        <!--<StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Simple.xaml" />-->
         <!--<FluentTheme />
-        <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml" />-->
+        <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Simple.xaml" />-->
         <SynthoraTheme />
-        <SynthoraDataGridTheme />
+        <!--<SynthoraDataGridTheme />-->
         <!--<actipro:ModernTheme Includes="NativeDataGrid" />-->
         <materialIcons:MaterialIconStyles />
 
         <Style Selector="DataGrid">
-            <Setter Property="GridLinesVisibility" Value="Horizontal" />
             <Styles>
                 <Style Selector="DataGridRow:nth-child(odd)">
                     <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
