@@ -7,16 +7,17 @@
     <!--  "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options.  -->
 
     <Application.Styles>
-        <SimpleTheme />
-        <!--<StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Simple.xaml" />-->
-        <!--<FluentTheme />
+        <!--<SimpleTheme />
         <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Simple.xaml" />-->
+
+        <!--<FluentTheme />
+        <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml" />-->
+
         <SynthoraTheme />
-        <!--<SynthoraDataGridTheme />-->
+
         <!--<actipro:ModernTheme Includes="NativeDataGrid" />-->
         <materialIcons:MaterialIconStyles />
 
-        
     </Application.Styles>
     <Application.Resources>
         <x:String x:Key="StringTextFlyoutCutText">剪切</x:String>

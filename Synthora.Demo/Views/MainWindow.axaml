@@ -87,7 +87,8 @@
                     <HyperlinkButton>HyperlinkButton</HyperlinkButton>
                     <ComboBox>
                         <ComboBoxItem>12345678910111213141516</ComboBoxItem>
-                        <ComboBoxItem>abcdefghijklmnopqrstuvwxyz</ComboBoxItem>
+						<ComboBoxItem>abcdefghijklmnopqrstuvwxyz</ComboBoxItem>
+						<ComboBoxItem>~!@#$%^*()_+</ComboBoxItem>
                     </ComboBox>
                     <DatePicker />
                     <TimePicker />

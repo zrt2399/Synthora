@@ -84,22 +84,20 @@
                                                         Mode=TwoWay}"
                                PlacementTarget="{TemplateBinding}"
                                WindowManagerAddShadowHint="False">
-                            <Panel Margin="0,-2,0,0">
-                                <Border MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
-                                        MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                                        Margin="{DynamicResource DefaultBoxShadowMargin}"
-                                        Background="{DynamicResource ThemeBackgroundBrush}"
-                                        BorderBrush="{DynamicResource ThemeBorderMidBrush}"
-                                        BorderThickness="{TemplateBinding BorderThickness}"
-                                        BoxShadow="{DynamicResource DefaultBoxShadow}"
-                                        CornerRadius="{TemplateBinding CornerRadius}">
-                                    <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
-                                                  IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}"
-                                                  VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
-                                        <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
-                                    </ScrollViewer>
-                                </Border>
-                            </Panel>
+                            <Border MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                                    MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                                    Margin="{DynamicResource DefaultBoxShadowMargin}"
+                                    Background="{DynamicResource ThemeBackgroundBrush}"
+                                    BorderBrush="{DynamicResource ThemeBorderMidBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    BoxShadow="{DynamicResource DefaultBoxShadow}"
+                                    CornerRadius="{TemplateBinding CornerRadius}">
+                                <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                              IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}"
+                                              VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                                    <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+                                </ScrollViewer>
+                            </Border>
                         </Popup>
                     </Grid>
                 </Border>

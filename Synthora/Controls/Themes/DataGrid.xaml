@@ -133,6 +133,8 @@
     <ControlTheme x:Key="{x:Type DataGridRowHeader}" TargetType="DataGridRowHeader">
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="BorderThickness" Value="{Binding $parent[DataGrid].GridLinesVisibility, Converter={x:Static converters:DataGridLineThicknessConverter.Instance}, ConverterParameter={x:Static Orientation.Vertical}}" />
+        <Setter Property="BorderBrush" Value="{Binding $parent[DataGrid].VerticalGridLinesBrush}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Background="{TemplateBinding Background}"
@@ -144,29 +146,6 @@
                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                       Content="{TemplateBinding Content}" />
                 </Border>
-                <!--<Grid x:Name="PART_Root"
-                      ColumnDefinitions="Auto,*"
-                      RowDefinitions="*,*,Auto">
-                    <Border Grid.RowSpan="3"
-                            Grid.ColumnSpan="2"
-                            BorderBrush="{TemplateBinding SeparatorBrush}"
-                            BorderThickness="0,0,1,0">
-                        <Grid Background="{TemplateBinding Background}">
-                            <Rectangle x:Name="RowInvalidVisualElement" Stretch="Fill" />
-                            <Rectangle x:Name="BackgroundRectangle" Stretch="Fill" />
-                        </Grid>
-                    </Border>
-                    <Rectangle x:Name="HorizontalSeparator"
-                               Grid.Row="2"
-                               Grid.ColumnSpan="2"
-                               Height="1"
-                               Margin="1,0,1,0"
-                               HorizontalAlignment="Stretch"
-                               Fill="{TemplateBinding SeparatorBrush}"
-                               IsVisible="{TemplateBinding AreSeparatorsVisible}" />
-
-
-                </Grid>-->
             </ControlTemplate>
         </Setter>
     </ControlTheme>
@@ -186,10 +165,6 @@
                                         ColumnDefinitions="Auto,*"
                                         RowDefinitions="*,Auto">
 
-                        <!--<Rectangle Name="BackgroundRectangle"
-                                Grid.RowSpan="2"
-                                Grid.ColumnSpan="2" />-->
-
                         <DataGridRowHeader Name="PART_RowHeader"
                                            Grid.RowSpan="2"
                                            DataGridFrozenGrid.IsFrozen="True" />
@@ -199,11 +174,6 @@
                         <DataGridDetailsPresenter Name="PART_DetailsPresenter"
                                                   Grid.Row="1"
                                                   Grid.Column="1" />
-                        <!--<Rectangle Name="PART_BottomGridLine"
-                                   Grid.Row="2"
-                                   Grid.Column="1"
-                                   Height="1"
-                                   HorizontalAlignment="Stretch" />-->
 
                     </DataGridFrozenGrid>
                 </Border>
