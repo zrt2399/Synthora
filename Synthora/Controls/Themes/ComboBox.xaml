@@ -3,6 +3,7 @@
                     x:ClassModifier="internal">
 
     <ControlTheme x:Key="SimpleComboBoxDropDownButtonTheme" TargetType="ToggleButton">
+        <Setter Property="Margin" Value="0,4,4,4" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Focusable" Value="False" />
         <Setter Property="ClickMode" Value="Press" />
@@ -72,7 +73,6 @@
                                         Content="{TemplateBinding SelectionBoxItem}"
                                         ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" />
                         <ToggleButton Grid.Column="1"
-                                      Margin="0,4,4,4"
                                       IsChecked="{TemplateBinding IsDropDownOpen,
                                                                   Mode=TwoWay}"
                                       Theme="{DynamicResource SimpleComboBoxDropDownButtonTheme}" />

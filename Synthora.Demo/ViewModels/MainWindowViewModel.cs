@@ -9,6 +9,7 @@ using Bogus;
 using MsBox.Avalonia;
 using MsBox.Avalonia.Enums;
 using Synthora.Demo.Models;
+using Synthora.Messaging;
 
 namespace Synthora.Demo.ViewModels
 {
@@ -56,6 +57,11 @@ namespace Synthora.Demo.ViewModels
                ButtonEnum.YesNo, Icon.Info);
 
             var result = await box.ShowAsPopupAsync(App.MainWindow);
+        }
+
+        public void ShowMessageTip()
+        {
+            MessageTip.ShowOK("OK");
         }
     }
 }

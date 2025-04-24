@@ -23,23 +23,23 @@ namespace Synthora.Controls
             SelectedPathsProperty.Changed.AddClassHandler<PathPicker, IList?>((o, e) => o.OnSelectedPathsChanged(e.NewValue.Value));
         }
 
-        public static readonly StyledProperty<string> TitleProperty =
-            AvaloniaProperty.Register<PathPicker, string>(nameof(Title), string.Empty);
+        public static readonly StyledProperty<string?> TitleProperty =
+            AvaloniaProperty.Register<PathPicker, string?>(nameof(Title));
 
-        public static readonly StyledProperty<string> SuggestedStartLocationProperty =
-            AvaloniaProperty.Register<PathPicker, string>(nameof(SuggestedStartLocation), string.Empty);
+        public static readonly StyledProperty<string?> SuggestedStartLocationProperty =
+            AvaloniaProperty.Register<PathPicker, string?>(nameof(SuggestedStartLocation) );
 
-        public static readonly StyledProperty<string> SuggestedFileNameProperty =
-            AvaloniaProperty.Register<PathPicker, string>(nameof(SuggestedFileName), string.Empty);
+        public static readonly StyledProperty<string?> SuggestedFileNameProperty =
+            AvaloniaProperty.Register<PathPicker, string?>(nameof(SuggestedFileName) );
 
-        public static readonly StyledProperty<string> DefaultExtensionProperty =
-            AvaloniaProperty.Register<PathPicker, string>(nameof(DefaultExtension), string.Empty);
+        public static readonly StyledProperty<string?> DefaultExtensionProperty =
+            AvaloniaProperty.Register<PathPicker, string?>(nameof(DefaultExtension));
 
         public static readonly StyledProperty<bool> AllowMultipleProperty =
             AvaloniaProperty.Register<PathPicker, bool>(nameof(AllowMultiple));
 
-        public static readonly StyledProperty<string> SelectedPathProperty =
-            AvaloniaProperty.Register<PathPicker, string>(nameof(SelectedPath), string.Empty, defaultBindingMode: BindingMode.TwoWay);
+        public static readonly StyledProperty<string?> SelectedPathProperty =
+            AvaloniaProperty.Register<PathPicker, string?>(nameof(SelectedPath), defaultBindingMode: BindingMode.TwoWay);
 
         public static readonly StyledProperty<IList?> SelectedPathsProperty =
             AvaloniaProperty.Register<PathPicker, IList?>(nameof(SelectedPaths), defaultBindingMode: BindingMode.TwoWay);
@@ -53,26 +53,26 @@ namespace Synthora.Controls
         public static readonly StyledProperty<IReadOnlyList<FilePickerFileType>> FilePickerFileTypesProperty =
             AvaloniaProperty.Register<PathPicker, IReadOnlyList<FilePickerFileType>>(nameof(FilePickerFileTypes));
 
-        public static readonly StyledProperty<string> WatermarkProperty =
-            AvaloniaProperty.Register<PathPicker, string>(nameof(Watermark), string.Empty);
+        public static readonly StyledProperty<string?> WatermarkProperty =
+            AvaloniaProperty.Register<PathPicker, string?>(nameof(Watermark));
 
-        public static readonly StyledProperty<string> BrowseButtonContentProperty =
-            AvaloniaProperty.Register<PathPicker, string>(nameof(BrowseButtonContent), "  ...  ");
+        public static readonly StyledProperty<object?> BrowseButtonContentProperty =
+            AvaloniaProperty.Register<PathPicker, object?>(nameof(BrowseButtonContent), "  ...  ");
 
-        public static readonly StyledProperty<string?> ExploreButtonContentProperty =
-            AvaloniaProperty.Register<PathPicker, string?>(nameof(ExploreButtonContent));
+        public static readonly StyledProperty<object?> ExploreButtonContentProperty =
+            AvaloniaProperty.Register<PathPicker, object?>(nameof(ExploreButtonContent));
 
-        public static readonly StyledProperty<string?> OpenButtonContentProperty =
-            AvaloniaProperty.Register<PathPicker, string?>(nameof(OpenButtonContent));
+        public static readonly StyledProperty<object?> OpenButtonContentProperty =
+            AvaloniaProperty.Register<PathPicker, object?>(nameof(OpenButtonContent));
 
-        public static readonly StyledProperty<string?> BrowseButtonToolTipProperty =
-            AvaloniaProperty.Register<PathPicker, string?>(nameof(BrowseButtonToolTip));
+        public static readonly StyledProperty<object?> BrowseButtonToolTipProperty =
+            AvaloniaProperty.Register<PathPicker, object?>(nameof(BrowseButtonToolTip));
 
-        public static readonly StyledProperty<string?> ExploreButtonToolTipProperty =
-            AvaloniaProperty.Register<PathPicker, string?>(nameof(ExploreButtonToolTip));
+        public static readonly StyledProperty<object?> ExploreButtonToolTipProperty =
+            AvaloniaProperty.Register<PathPicker, object?>(nameof(ExploreButtonToolTip));
 
-        public static readonly StyledProperty<string?> OpenButtonToolTipProperty =
-            AvaloniaProperty.Register<PathPicker, string?>(nameof(OpenButtonToolTip));
+        public static readonly StyledProperty<object?> OpenButtonToolTipProperty =
+            AvaloniaProperty.Register<PathPicker, object?>(nameof(OpenButtonToolTip));
 
         public static readonly StyledProperty<HorizontalAlignment> HorizontalContentAlignmentProperty =
             AvaloniaProperty.Register<ContentControl, HorizontalAlignment>(nameof(HorizontalContentAlignment));
@@ -92,25 +92,25 @@ namespace Synthora.Controls
         /// <summary>
         /// Gets or sets the title of the file dialog.
         /// </summary>
-        public string Title
+        public string? Title
         {
             get => GetValue(TitleProperty);
             set => SetValue(TitleProperty, value);
         }
 
-        public string SuggestedStartLocation
+        public string? SuggestedStartLocation
         {
             get => GetValue(SuggestedStartLocationProperty);
             set => SetValue(SuggestedStartLocationProperty, value);
         }
 
-        public string SuggestedFileName
+        public string? SuggestedFileName
         {
             get => GetValue(SuggestedFileNameProperty);
             set => SetValue(SuggestedFileNameProperty, value);
         }
 
-        public string DefaultExtension
+        public string? DefaultExtension
         {
             get => GetValue(DefaultExtensionProperty);
             set => SetValue(DefaultExtensionProperty, value);
@@ -122,7 +122,7 @@ namespace Synthora.Controls
             set => SetValue(AllowMultipleProperty, value);
         }
 
-        public string SelectedPath
+        public string? SelectedPath
         {
             get => GetValue(SelectedPathProperty);
             set => SetValue(SelectedPathProperty, value);
@@ -152,13 +152,13 @@ namespace Synthora.Controls
             set => SetValue(FilePickerFileTypesProperty, value);
         }
 
-        public string Watermark
+        public string? Watermark
         {
             get => GetValue(WatermarkProperty);
             set => SetValue(WatermarkProperty, value);
         }
 
-        public object BrowseButtonContent
+        public object? BrowseButtonContent
         {
             get => GetValue(BrowseButtonContentProperty);
             set => SetValue(BrowseButtonContentProperty, value);
