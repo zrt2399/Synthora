@@ -1,6 +1,5 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:converters="clr-namespace:Synthora.Converters"
                     x:ClassModifier="internal">
 
     <ControlTheme x:Key="{x:Type TabItem}" TargetType="TabItem">
@@ -26,7 +25,7 @@
                                           RecognizesAccessKey="True" />
                         <Border Name="PART_SelectedPipe">
                             <Border.IsVisible>
-                                <MultiBinding Converter="{x:Static converters:AnyBoolsTrueConverter.Instance}">
+                                <MultiBinding Converter="{x:Static SynthoraConverters.IsAnyTrue}">
                                     <Binding Path="IsSelected" RelativeSource="{RelativeSource TemplatedParent}" />
                                     <Binding Path="IsPointerOver" RelativeSource="{RelativeSource TemplatedParent}" />
                                 </MultiBinding>

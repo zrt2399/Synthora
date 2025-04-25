@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Data;
 using Avalonia.Data.Converters;
 
 namespace Synthora.Converters
@@ -29,7 +28,7 @@ namespace Synthora.Converters
                     _ => new Thickness(0)
                 };
             }
-            return BindingOperations.DoNothing;
+            return AvaloniaProperty.UnsetValue;
         }
     }
 }

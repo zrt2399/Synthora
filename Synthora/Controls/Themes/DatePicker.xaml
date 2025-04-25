@@ -80,7 +80,8 @@
         <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
-        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="Template">
@@ -177,8 +178,9 @@
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Grid Name="ContentRoot" RowDefinitions="*,Auto">
-                    <Grid Name="PART_PickerContainer">
+                <Grid Name="ContentRoot" RowDefinitions="Auto,*,Auto">
+                    <TextBlock Margin="4" HorizontalAlignment="Center">Select Date</TextBlock>
+                    <Grid Name="PART_PickerContainer" Grid.Row="1">
                         <Grid.Styles>
                             <Style Selector="DateTimePickerPanel &gt; ListBoxItem">
                                 <Setter Property="Theme" Value="{StaticResource SimpleDateTimePickerItem}" />
@@ -239,7 +241,7 @@
                     </Grid>
 
                     <Grid Name="AcceptDismissGrid"
-                          Grid.Row="1"
+                          Grid.Row="2"
                           ColumnDefinitions="*,*">
                         <Rectangle Grid.ColumnSpan="2"
                                    Height="{DynamicResource DatePickerSpacerThemeWidth}"
@@ -250,6 +252,7 @@
                                 Height="{DynamicResource DatePickerFlyoutPresenterAcceptDismissHostGridHeight}"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
+                                CornerRadius="{Binding $parent[DatePicker].CornerRadius, Converter={x:Static SynthoraConverters.BorderCornerRadius}, ConverterParameter={x:Static CornerRadiusType.BottomLeft}}"
                                 Theme="{StaticResource SimpleDateTimePickerButton}">
                             <Path Data="M0.5,7.0 5,12.0 15.5,1.5"
                                   Stroke="{Binding $parent[Button].Foreground}"
@@ -261,6 +264,7 @@
                                 Height="{DynamicResource DatePickerFlyoutPresenterAcceptDismissHostGridHeight}"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
+                                CornerRadius="{Binding $parent[DatePicker].CornerRadius, Converter={x:Static SynthoraConverters.BorderCornerRadius}, ConverterParameter={x:Static CornerRadiusType.BottomRight}}"
                                 Theme="{StaticResource SimpleDateTimePickerButton}">
                             <Path Data="M2,2 14,14 M2,14 14 2"
                                   Stroke="{Binding $parent[Button].Foreground}"

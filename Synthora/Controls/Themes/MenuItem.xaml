@@ -1,7 +1,6 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:conv="using:Avalonia.Controls.Converters"
-                    xmlns:converters="using:Synthora.Converters"
                     xmlns:sys="using:System"
                     x:ClassModifier="internal">
 
@@ -9,7 +8,7 @@
 
     <ControlTheme x:Key="{x:Type MenuItem}" TargetType="MenuItem">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <!--<Setter Property="Padding" Value="0,0,20,0" />-->
         <Setter Property="MinWidth" Value="{DynamicResource MenuItemMinWidth}" />
         <Setter Property="Template">
@@ -57,7 +56,7 @@
                                    Grid.Column="3"
                                    Margin="20,0,0,0"
                                    VerticalAlignment="Center"
-                                   IsVisible="{Binding $self.Text, Converter={x:Static converters:NotNullOrEmptyToBoolConverter.Instance}}"
+                                   IsVisible="{Binding $self.Text, Converter={x:Static SynthoraConverters.IsNotNullOrEmpty}}"
                                    Text="{TemplateBinding InputGesture,
                                                           Converter={StaticResource KeyGestureConverter}}" />
 
@@ -82,7 +81,7 @@
                                     BorderBrush="{DynamicResource ThemeBorderMidBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
                                     BoxShadow="{DynamicResource DefaultBoxShadow}"
-                                    CornerRadius="{TemplateBinding CornerRadius}">
+                                    CornerRadius="{DynamicResource ThemeBorderCornerRadius}">
                                 <ScrollViewer Theme="{StaticResource SimpleMenuScrollViewer}">
                                     <ItemsPresenter Name="PART_ItemsPresenter"
                                                     Margin="2"

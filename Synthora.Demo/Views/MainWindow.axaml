@@ -39,6 +39,83 @@
                             <ContextMenu>
                                 <MenuItem Header="123456">
                                     <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
+                                    <MenuItem Header="789101112" />
                                 </MenuItem>
                                 <Separator />
                                 <MenuItem Foreground="Red"
@@ -48,13 +125,13 @@
                         </Button.ContextMenu>
                     </Button>
                     <StackPanel Orientation="Horizontal" Spacing="10">
-                        <Button>Button1</Button>
+                        <RepeatButton>Button1</RepeatButton>
                         <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
-                        <Button>Button2</Button>
+                        <RepeatButton>Button2</RepeatButton>
                         <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
-                        <Button>Button3</Button>
+                        <RepeatButton>Button3</RepeatButton>
                         <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
-                        <Button>Button4</Button>
+                        <RepeatButton>Button4</RepeatButton>
                     </StackPanel>
                     <Separator Theme="{StaticResource HorizontalSeparatorTheme}" />
                     <Button Theme="{StaticResource CancelButtonTheme}" ToolTip.Tip="CancelButtonTheme">CancelButtonTheme</Button>
@@ -74,13 +151,15 @@
                         </Border>
                     </Popup>
                     <DropDownButton>DropDownButton</DropDownButton>
-                    <StackPanel Orientation="Horizontal" Spacing="10">
+                    <StackPanel Orientation="Horizontal" Spacing="0">
                         <CheckBox>CheckBox</CheckBox>
+                        <CheckBox Content="" />
                         <CheckBox IsChecked="{x:Null}">CheckBox</CheckBox>
                     </StackPanel>
                     <GridSplitter Height="4" />
-                    <StackPanel Orientation="Horizontal" Spacing="10">
+                    <StackPanel Orientation="Horizontal" Spacing="0">
                         <RadioButton>RadioButton1</RadioButton>
+                        <RadioButton Content="" />
                         <RadioButton>RadioButton2</RadioButton>
                         <RadioButton IsChecked="{x:Null}">RadioButton3</RadioButton>
                     </StackPanel>
@@ -100,10 +179,12 @@
                     <SelectableTextBlock>SelectableTextBlock</SelectableTextBlock>
                     <TextBlock>TextBlock</TextBlock>
                     <HyperlinkButton>HyperlinkButton</HyperlinkButton>
-                    <ComboBox>
-                        <ComboBoxItem>12345678910111213141516</ComboBoxItem>
-                        <ComboBoxItem>abcdefghijklmnopqrstuvwxyz</ComboBoxItem>
-                        <ComboBoxItem>~!@#$%^*()_+</ComboBoxItem>
+                    <ComboBox ItemsSource="{Binding Employees}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
                     </ComboBox>
                     <DatePicker />
                     <TimePicker />
@@ -137,9 +218,7 @@
                     </MenuItem>
                 </Menu>
                 <StackPanel Margin="10" Spacing="10">
-                    <so:GroupBox Padding="0"
-                                 HorizontalContentAlignment="Left"
-                                 Header="so:GroupBox">
+                    <so:GroupBox HorizontalContentAlignment="Left" Header="so:GroupBox">
                         <Calendar />
                     </so:GroupBox>
 

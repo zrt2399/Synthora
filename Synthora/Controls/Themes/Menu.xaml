@@ -38,7 +38,7 @@
                                     BorderBrush="{DynamicResource ThemeBorderMidBrush}"
                                     BorderThickness="{DynamicResource ThemeBorderThickness}"
                                     BoxShadow="{DynamicResource DefaultBoxShadow}"
-                                    CornerRadius="{TemplateBinding CornerRadius}">
+                                    CornerRadius="{DynamicResource ThemeBorderCornerRadius}">
                                 <ScrollViewer Theme="{StaticResource SimpleMenuScrollViewer}">
                                     <ItemsPresenter Name="PART_ItemsPresenter"
                                                     Margin="2"

@@ -174,6 +174,7 @@
                      Opacity="0.4"
                      Color="{StaticResource ThemeAccentColor}" />
     <Thickness x:Key="ThemeBorderThickness">1</Thickness>
+    <CornerRadius x:Key="ThemeBorderCornerRadius">4</CornerRadius>
     <sys:Double x:Key="ThemeDisabledOpacity">0.5</sys:Double>
 
     <sys:Double x:Key="FontSizeSmall">10</sys:Double>
@@ -186,6 +187,7 @@
     <sys:Double x:Key="IconElementThemeHeight">20</sys:Double>
     <sys:Double x:Key="IconElementThemeWidth">20</sys:Double>
 
+    <StreamGeometry x:Key="DropUpGlyph">M1939 1114L2029 1024L1024 19L19 1024L109 1114L1024 199L1939 1114Z</StreamGeometry>
     <StreamGeometry x:Key="DropDownGlyph">M1939 486L2029 576L1024 1581L19 576L109 486L1024 1401L1939 486Z</StreamGeometry>
     <StreamGeometry x:Key="RightArrowGlyph">M486 109L576 19L1581 1024L576 2029L486 1939L1401 1024L486 109Z</StreamGeometry>
 

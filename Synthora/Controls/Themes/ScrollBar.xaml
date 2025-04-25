@@ -107,10 +107,11 @@
         </Style>
         <Style Selector="^ /template/ Thumb#thumb">
             <Setter Property="Background" Value="{DynamicResource ThemeControlMidHighBrush}" />
+            <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate>
-                        <Border Background="{TemplateBinding Background}" />
+                        <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}" />
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>

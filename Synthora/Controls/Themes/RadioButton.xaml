@@ -8,11 +8,12 @@
         <Setter Property="Padding" Value="4,0,0,0" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Grid Background="{TemplateBinding Background}" ColumnDefinitions="Auto,*">
+                <Grid ColumnDefinitions="Auto,*">
                     <Ellipse Name="border"
                              Width="18"
                              Height="18"
                              VerticalAlignment="Center"
+                             Fill="{TemplateBinding Background}"
                              Stroke="{TemplateBinding BorderBrush}"
                              StrokeThickness="1" />
                     <Ellipse Name="checkMark"
@@ -20,7 +21,7 @@
                              Height="10"
                              HorizontalAlignment="Center"
                              VerticalAlignment="Center"
-                             Fill="{DynamicResource PrimaryBrush}"
+                             Fill="{DynamicResource OnPrimaryBrush}"
                              IsVisible="False"
                              Stretch="Uniform"
                              UseLayoutRounding="False" />
@@ -29,7 +30,7 @@
                              Height="10"
                              HorizontalAlignment="Center"
                              VerticalAlignment="Center"
-                             Fill="{DynamicResource ThemeAccentBrush}"
+                             Fill="{DynamicResource OnPrimaryBrush}"
                              IsVisible="False"
                              Stretch="Uniform"
                              UseLayoutRounding="False" />
@@ -39,20 +40,30 @@
                                       VerticalAlignment="Center"
                                       Content="{TemplateBinding Content}"
                                       ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      IsVisible="{TemplateBinding Content,
+                                                                  Converter={x:Static SynthoraConverters.IsNotNullOrEmpty}}"
                                       RecognizesAccessKey="True" />
                 </Grid>
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^:pointerover /template/ Ellipse#border">
-            <Setter Property="Stroke" Value="{DynamicResource ThemeBorderHighBrush}" />
+        <Style Selector="^:pointerover">
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighBrush}" />
         </Style>
 
         <Style Selector="^:checked /template/ Ellipse#checkMark">
             <Setter Property="IsVisible" Value="True" />
         </Style>
-        <Style Selector="^:indeterminate /template/ Ellipse#indeterminateMark">
-            <Setter Property="IsVisible" Value="True" />
+        <Style Selector="^:checked">
+            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+        </Style>
+        <Style Selector="^:indeterminate /template/ Ellipse#checkMark">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style Selector="^:indeterminate">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
         </Style>
         <Style Selector="^:disabled">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />

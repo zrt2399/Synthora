@@ -4,8 +4,9 @@
     <ControlTheme x:Key="{x:Type ContextMenu}" TargetType="ContextMenu">
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
         <Setter Property="WindowManagerAddShadowHint" Value="False" />
-        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="Focusable" Value="True" />
         <Setter Property="Padding" Value="2" />
         <Setter Property="TextBlock.FontSize" Value="{DynamicResource FontSizeNormal}" />

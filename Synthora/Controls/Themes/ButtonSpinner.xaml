@@ -7,9 +7,12 @@
                   TargetType="RepeatButton">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
-        <Style Selector="^ /template/ RepeatButton:pointerover">
-            <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Style Selector="^:pointerover">
+            <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowColor}" />
+        </Style>
+        <Style Selector="^:pressed">
+            <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidColor}" />
         </Style>
     </ControlTheme>
 
@@ -17,6 +20,7 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Focusable" Value="True" />
@@ -39,27 +43,32 @@
                                          TabIndex="2">
                                 <RepeatButton Name="PART_IncreaseButton"
                                               Padding="4,0"
+                                              CornerRadius="{TemplateBinding CornerRadius,
+                                                                             Converter={x:Static BorderCornerRadiusConverter.Instance},
+                                                                             ConverterParameter={x:Static CornerRadiusType.TopRight}}"
                                               IsTabStop="{TemplateBinding IsTabStop}"
                                               Theme="{StaticResource SimpleButtonSpinnerRepeatButton}">
-                                    <Path Width="8"
-                                          Height="4"
-                                          HorizontalAlignment="Center"
-                                          VerticalAlignment="Center"
-                                          Data="M0,5 L4.5,.5 9,5 6,5 4.5,3.5 3,5 z"
-                                          Fill="{DynamicResource ThemeForegroundBrush}"
-                                          Stretch="Uniform" />
+
+                                    <PathIcon Width="8"
+                                              Height="4"
+                                              HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              Data="{DynamicResource DropUpGlyph}"
+                                              Foreground="{DynamicResource ThemeForegroundBrush}" />
                                 </RepeatButton>
                                 <RepeatButton Name="PART_DecreaseButton"
                                               Padding="4,0"
+                                              CornerRadius="{TemplateBinding CornerRadius,
+                                                                             Converter={x:Static BorderCornerRadiusConverter.Instance},
+                                                                             ConverterParameter={x:Static CornerRadiusType.BottomRight}}"
                                               IsTabStop="{TemplateBinding IsTabStop}"
                                               Theme="{StaticResource SimpleButtonSpinnerRepeatButton}">
-                                    <Path Width="8"
-                                          Height="4"
-                                          HorizontalAlignment="Center"
-                                          VerticalAlignment="Center"
-                                          Data="M0,0 L3,0 4.5,1.5 6,0 9,0 4.5,4.5 z"
-                                          Fill="{DynamicResource ThemeForegroundBrush}"
-                                          Stretch="Uniform" />
+                                    <PathIcon Width="8"
+                                              Height="4"
+                                              HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              Data="{DynamicResource DropDownGlyph}"
+                                              Foreground="{DynamicResource ThemeForegroundBrush}" />
                                 </RepeatButton>
                             </UniformGrid>
                             <ContentPresenter Name="PART_ContentPresenter"

@@ -44,6 +44,7 @@
         <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Padding" Value="4" />
@@ -65,7 +66,7 @@
                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                    Foreground="{TemplateBinding PlaceholderForeground}"
                                    IsVisible="{TemplateBinding SelectionBoxItem,
-                                                               Converter={x:Static ObjectConverters.IsNull}}"
+                                                               Converter={x:Static SynthoraConverters.IsNullOrEmpty}}"
                                    Text="{TemplateBinding PlaceholderText}" />
                         <ContentControl Margin="{TemplateBinding Padding}"
                                         HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -87,6 +88,7 @@
                             <Border MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
                                     MaxHeight="{TemplateBinding MaxDropDownHeight}"
                                     Margin="{DynamicResource DefaultBoxShadowMargin}"
+                                    Padding="0,4"
                                     Background="{DynamicResource ThemeBackgroundBrush}"
                                     BorderBrush="{DynamicResource ThemeBorderMidBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"

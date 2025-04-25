@@ -79,7 +79,8 @@
         <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
-        <Setter Property="BorderThickness" Value="{DynamicResource TimePickerBorderThemeThickness}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="Template">
@@ -209,8 +210,9 @@
         <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Grid Name="ContentPanel" RowDefinitions="*,Auto">
-                    <Grid Name="PART_PickerContainer">
+                <Grid Name="ContentPanel" RowDefinitions="Auto,*,Auto">
+                    <TextBlock Margin="4" HorizontalAlignment="Center">Select Time</TextBlock>
+                    <Grid Name="PART_PickerContainer" Grid.Row="1">
                         <!--  Ignore col defs here, set in code  -->
                         <Panel Name="PART_HourHost" Grid.Column="0">
                             <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
@@ -284,7 +286,7 @@
                     </Grid>
 
                     <Grid Name="AcceptDismissGrid"
-                          Grid.Row="1"
+                          Grid.Row="2"
                           ColumnDefinitions="*,*">
                         <Rectangle Grid.ColumnSpan="2"
                                    Height="{DynamicResource TimePickerSpacerThemeWidth}"
@@ -295,6 +297,7 @@
                                 Height="{DynamicResource TimePickerFlyoutPresenterAcceptDismissHostGridHeight}"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
+                                CornerRadius="{Binding $parent[TimePicker].CornerRadius, Converter={x:Static SynthoraConverters.BorderCornerRadius}, ConverterParameter={x:Static CornerRadiusType.BottomLeft}}"
                                 Theme="{StaticResource SimpleDateTimePickerButton}">
                             <Path Data="M0.5,7.0 5,12.0 15.5,1.5"
                                   Stroke="{Binding $parent[Button].Foreground}"
@@ -306,6 +309,7 @@
                                 Height="{DynamicResource TimePickerFlyoutPresenterAcceptDismissHostGridHeight}"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
+                                CornerRadius="{Binding $parent[TimePicker].CornerRadius, Converter={x:Static SynthoraConverters.BorderCornerRadius}, ConverterParameter={x:Static CornerRadiusType.BottomRight}}"
                                 FontSize="16"
                                 Theme="{StaticResource SimpleDateTimePickerButton}">
                             <Path Data="M2,2 14,14 M2,14 14 2"

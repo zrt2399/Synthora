@@ -4,8 +4,8 @@
 
     <ControlTheme x:Key="{x:Type GroupBox}" TargetType="GroupBox">
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
-        <Setter Property="BorderThickness" Value="1" />
-        <!--<Setter Property="CornerRadius" Value="10" />-->
+        <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
         <Setter Property="Padding" Value="10" />
         <Setter Property="HeaderPadding" Value="4" />
         <Setter Property="HeaderBackground" Value="{DynamicResource ThemeControlMidBrush}" />
@@ -23,7 +23,10 @@
                                 Background="{TemplateBinding HeaderBackground}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="0,0,0,1"
-                                CornerRadius="{TemplateBinding CornerRadius}"
+                                CornerRadius="{TemplateBinding CornerRadius,
+                                                               Converter={x:Static SynthoraConverters.BorderCornerRadius},
+                                                               ConverterParameter={x:Static CornerRadiusType.BottomLeft},
+                                                               ConverterParameter='TopLeft,TopRight'}"
                                 DockPanel.Dock="Top">
                             <ContentPresenter x:Name="PART_HeaderContentPresenter"
                                               Content="{TemplateBinding Header}"

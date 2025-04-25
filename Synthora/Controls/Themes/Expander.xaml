@@ -139,6 +139,7 @@
             </Setter.Value>
         </Setter>-->
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
         <Setter Property="Padding" Value="10" />
         <Style Selector="^[ExpandDirection=Down]">
