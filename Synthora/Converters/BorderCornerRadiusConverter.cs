@@ -17,9 +17,7 @@ namespace Synthora.Converters
     }
 
     public class BorderCornerRadiusConverter : IValueConverter
-    {
-        public static BorderCornerRadiusConverter Instance { get; } = new BorderCornerRadiusConverter();
-
+    { 
         public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             if (value is CornerRadius cornerRadius)

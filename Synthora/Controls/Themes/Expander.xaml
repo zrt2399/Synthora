@@ -44,24 +44,34 @@
         </Border>
     </Design.PreviewWith>
 
+    <converters:ExpanderHeaderBorderCornerRadiusConverter x:Key="ExpanderHeaderBorderCornerRadiusConverter" />
+
     <ControlTheme x:Key="SimpleExpanderToggleButtonTheme" TargetType="ToggleButton">
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="Padding" Value="4" />
         <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
         <Setter Property="BorderThickness">
-            <MultiBinding Converter="{x:Static converters:ExpanderHederBorderThicknessConverter.Instance}">
+            <MultiBinding Converter="{x:Static converters:ExpanderHeaderBorderThicknessConverter.Instance}">
                 <Binding Path="BorderThickness" RelativeSource="{RelativeSource AncestorType=Expander}" />
                 <Binding Path="ExpandDirection" RelativeSource="{RelativeSource AncestorType=Expander}" />
                 <Binding Path="IsExpanded" RelativeSource="{RelativeSource AncestorType=Expander}" />
             </MultiBinding>
         </Setter>
+        <Setter Property="CornerRadius" Value="{Binding $parent[Expander].CornerRadius}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                    <!--  Setting CornerRadius in setter is invalid, it can only be set here  -->
+                    <Border.CornerRadius>
+                        <MultiBinding Converter="{x:Static converters:ExpanderHeaderBorderCornerRadiusConverter.Instance}">
+                            <Binding Path="CornerRadius" RelativeSource="{RelativeSource AncestorType=Expander}" />
+                            <Binding Path="ExpandDirection" RelativeSource="{RelativeSource AncestorType=Expander}" />
+                            <Binding Path="IsExpanded" RelativeSource="{RelativeSource AncestorType=Expander}" />
+                        </MultiBinding>
+                    </Border.CornerRadius>
                     <Grid ColumnDefinitions="Auto,*">
                         <Border Width="12"
                                 Height="12"

@@ -74,7 +74,7 @@
                                IsLightDismissEnabled="False"
                                IsOpen="{TemplateBinding IsSubMenuOpen,
                                                         Mode=TwoWay}"
-                               Placement="Right"
+                               Placement="RightEdgeAlignedTop"
                                WindowManagerAddShadowHint="False">
                             <Border Margin="{DynamicResource DefaultBoxShadowMargin}"
                                     Background="{DynamicResource ThemeBackgroundBrush}"

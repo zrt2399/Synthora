@@ -44,7 +44,7 @@
                                 <RepeatButton Name="PART_IncreaseButton"
                                               Padding="4,0"
                                               CornerRadius="{TemplateBinding CornerRadius,
-                                                                             Converter={x:Static BorderCornerRadiusConverter.Instance},
+                                                                             Converter={x:Static SynthoraConverters.BorderCornerRadius},
                                                                              ConverterParameter={x:Static CornerRadiusType.TopRight}}"
                                               IsTabStop="{TemplateBinding IsTabStop}"
                                               Theme="{StaticResource SimpleButtonSpinnerRepeatButton}">
@@ -59,7 +59,7 @@
                                 <RepeatButton Name="PART_DecreaseButton"
                                               Padding="4,0"
                                               CornerRadius="{TemplateBinding CornerRadius,
-                                                                             Converter={x:Static BorderCornerRadiusConverter.Instance},
+                                                                             Converter={x:Static SynthoraConverters.BorderCornerRadius},
                                                                              ConverterParameter={x:Static CornerRadiusType.BottomRight}}"
                                               IsTabStop="{TemplateBinding IsTabStop}"
                                               Theme="{StaticResource SimpleButtonSpinnerRepeatButton}">

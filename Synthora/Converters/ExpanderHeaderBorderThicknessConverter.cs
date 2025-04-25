@@ -7,13 +7,13 @@ using Avalonia.Data.Converters;
 
 namespace Synthora.Converters
 {
-    internal class ExpanderHederBorderThicknessConverter : IMultiValueConverter
+    internal class ExpanderHeaderBorderThicknessConverter : IMultiValueConverter
     {
-        public static ExpanderHederBorderThicknessConverter Instance { get; } = new ExpanderHederBorderThicknessConverter();
+        public static ExpanderHeaderBorderThicknessConverter Instance { get; } = new ExpanderHeaderBorderThicknessConverter();
 
         public object? Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture)
         {
-            if (values != null && values.Count == 3 && values[0] is Thickness thickness && values[1] is ExpandDirection expandDirection && values[2] is bool isExpanded)
+            if (values.Count == 3 && values[0] is Thickness thickness && values[1] is ExpandDirection expandDirection && values[2] is bool isExpanded)
             {
                 if (!isExpanded)
                 {
@@ -21,10 +21,10 @@ namespace Synthora.Converters
                 }
                 return expandDirection switch
                 {
-                    ExpandDirection.Right => new Thickness(0, 0, thickness.Right, 0),
-                    ExpandDirection.Left => new Thickness(thickness.Left, 0, 0, 0),
                     ExpandDirection.Up => new Thickness(0, thickness.Top, 0, 0),
                     ExpandDirection.Down => new Thickness(0, 0, 0, thickness.Bottom),
+                    ExpandDirection.Left => new Thickness(thickness.Left, 0, 0, 0),
+                    ExpandDirection.Right => new Thickness(0, 0, thickness.Right, 0),
                     _ => new Thickness(0)
                 };
             }

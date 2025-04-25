@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:so="https://github.com/zrt2399/Synthora"
+        xmlns:so="https://github.com/zrt2399/synthora"
         xmlns:vm="using:Synthora.Demo.ViewModels"
         Title="Synthora.Demo"
         Width="800"
@@ -31,9 +31,14 @@
                     <PathPicker FilePickerFileTypes="{Binding FilePickerFileTypes}"
                                 SelectedPaths="{Binding SelectedFiles}"
                                 Watermark="Pick a file" />
-                    <Button Command="{Binding Show}">MessageBox</Button>
-                    <Button Command="{Binding ShowMessageTip}">MessageTip</Button>
-                    <Button HorizontalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <Button Command="{Binding ShowMessageBox}" CornerRadiusAttach.IsCircular="True">MessageBox.Show</Button>
+                        <Button Command="{Binding ShowMessageTip}" CommandParameter="Show">MessageTip.Show</Button>
+                        <Button Command="{Binding ShowMessageTip}" CommandParameter="OK">MessageTip.OK</Button>
+                        <Button Command="{Binding ShowMessageTip}" CommandParameter="Warning">MessageTip.Warning</Button>
+                        <Button Command="{Binding ShowMessageTip}" CommandParameter="Error">MessageTip.Error</Button>
+                    </StackPanel>
+                    <Button>
                         ContextMenuButton
                         <Button.ContextMenu>
                             <ContextMenu>
@@ -207,13 +212,15 @@
                 <Menu VerticalAlignment="Top">
                     <MenuItem Header="MenuItem1">
                         <MenuItem Header="MenuItem2">
-                            <MenuItem Header="MenuItem3" />
+                            <MenuItem Header="MenuItem4" />
+                            <MenuItem Header="MenuItem5" />
+                            <MenuItem Header="MenuItem6" />
                         </MenuItem>
                     </MenuItem>
-                    <MenuItem Header="MenuItem4">
-                        <MenuItem Header="MenuItem5" />
+                    <MenuItem Header="MenuItema">
+                        <MenuItem Header="MenuItemb" />
                     </MenuItem>
-                    <MenuItem Header="MenuItem6">
+                    <MenuItem Header="MenuItemc">
                         <MenuItem Header="1" />
                     </MenuItem>
                 </Menu>

@@ -179,7 +179,9 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid Name="ContentRoot" RowDefinitions="Auto,*,Auto">
-                    <TextBlock Margin="4" HorizontalAlignment="Center">Select Date</TextBlock>
+                    <TextBlock Margin="4"
+                               HorizontalAlignment="Center"
+                               Text="{DynamicResource StringDatePickerSelectDate}" />
                     <Grid Name="PART_PickerContainer" Grid.Row="1">
                         <Grid.Styles>
                             <Style Selector="DateTimePickerPanel &gt; ListBoxItem">

@@ -46,7 +46,7 @@ namespace Synthora.Demo.ViewModels
 
         public DataGridCollectionView DataGridCollectionView { get; }
 
-        public async Task Show()
+        public async void ShowMessageBox()
         {
             var box = MessageBoxManager.GetMessageBoxStandard("Caption", "Are you sure you would like to delete appender_replace_page_1?",
                ButtonEnum.YesNo, Icon.Info);
@@ -54,14 +54,29 @@ namespace Synthora.Demo.ViewModels
             var result = await box.ShowAsPopupAsync(App.MainWindow);
         }
 
-        public void ShowMessageTip()
+        public void ShowMessageTip(string param)
         {
             StringBuilder stringBuilder = new StringBuilder();
             for (int i = 0; i < 100; i++)
             {
                 stringBuilder.Append("MessageTip.ShowOK;");
             }
-            MessageTip.ShowOK(stringBuilder.ToString());
+            if (param == "Show")
+            {
+                MessageTip.Show(stringBuilder.ToString());
+            }
+            else if (param == "OK")
+            {
+                MessageTip.ShowOK("ShowOK");
+            }
+            else if (param == "Warning")
+            {
+                MessageTip.ShowWarning("ShowWarning");
+            }
+            else if (param == "Error")
+            {
+                MessageTip.ShowError("ShowError");
+            }
         }
     }
 }

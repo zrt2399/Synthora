@@ -1,11 +1,59 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:utils="using:Synthora.Utils"
                     x:ClassModifier="internal">
+
+    <ContextMenu x:Key="SimpleScrollBarVerticalContextMenu">
+        <MenuItem Command="{x:Static utils:ScrollBarUtils.ScrollToTop}"
+                  CommandParameter="{Binding $parent[ScrollBar]}"
+                  Header="{DynamicResource StringScrollBarScrollToTop}" />
+        <MenuItem Command="{x:Static utils:ScrollBarUtils.ScrollToBottom}"
+                  CommandParameter="{Binding $parent[ScrollBar]}"
+                  Header="{DynamicResource StringScrollBarScrollToBottom}" />
+        <Separator />
+        <MenuItem Command="{x:Static utils:ScrollBarUtils.PageUp}"
+                  CommandParameter="{Binding $parent[ScrollBar]}"
+                  Header="{DynamicResource StringScrollBarPageUp}" />
+        <MenuItem Command="{x:Static utils:ScrollBarUtils.PageDown}"
+                  CommandParameter="{Binding $parent[ScrollBar]}"
+                  Header="{DynamicResource StringScrollBarPageDown}" />
+        <Separator />
+        <MenuItem Command="{x:Static utils:ScrollBarUtils.LineUp}"
+                  CommandParameter="{Binding $parent[ScrollBar]}"
+                  Header="{DynamicResource StringScrollBarLineUp}" />
+        <MenuItem Command="{x:Static utils:ScrollBarUtils.LineDown}"
+                  CommandParameter="{Binding $parent[ScrollBar]}"
+                  Header="{DynamicResource StringScrollBarLineDown}" />
+    </ContextMenu>
+
+    <ContextMenu x:Key="SimpleScrollBarHorizontalContextMenu">
+        <MenuItem Command="{x:Static utils:ScrollBarUtils.ScrollToLeftEdge}"
+                  CommandParameter="{Binding $parent[ScrollBar]}"
+                  Header="{DynamicResource StringScrollBarScrollToLeftEdge}" />
+        <MenuItem Command="{x:Static utils:ScrollBarUtils.ScrollToRightEdge}"
+                  CommandParameter="{Binding $parent[ScrollBar]}"
+                  Header="{DynamicResource StringScrollBarScrollToRightEdge}" />
+        <Separator />
+        <MenuItem Command="{x:Static utils:ScrollBarUtils.PageLeft}"
+                  CommandParameter="{Binding $parent[ScrollBar]}"
+                  Header="{DynamicResource StringScrollBarPageLeft}" />
+        <MenuItem Command="{x:Static utils:ScrollBarUtils.PageRight}"
+                  CommandParameter="{Binding $parent[ScrollBar]}"
+                  Header="{DynamicResource StringScrollBarPageRight}" />
+        <Separator />
+        <MenuItem Command="{x:Static utils:ScrollBarUtils.LineLeft}"
+                  CommandParameter="{Binding $parent[ScrollBar]}"
+                  Header="{DynamicResource StringScrollBarLineLeft}" />
+        <MenuItem Command="{x:Static utils:ScrollBarUtils.LineRight}"
+                  CommandParameter="{Binding $parent[ScrollBar]}"
+                  Header="{DynamicResource StringScrollBarLineRight}" />
+    </ContextMenu>
 
     <ControlTheme x:Key="{x:Type ScrollBar}" TargetType="ScrollBar">
         <Setter Property="Cursor" Value="Arrow" />
 
         <Style Selector="^:horizontal">
+            <Setter Property="ContextMenu" Value="{StaticResource SimpleScrollBarHorizontalContextMenu}" />
             <Setter Property="Height" Value="{DynamicResource ScrollBarThickness}" />
             <Setter Property="Template">
                 <ControlTemplate>
@@ -15,7 +63,6 @@
                                           Grid.Row="0"
                                           Grid.Column="0"
                                           MinWidth="{DynamicResource ScrollBarThickness}"
-                                          VerticalAlignment="Center"
                                           Classes="repeat"
                                           Focusable="False">
                                 <Path Data="M 4 0 L 4 8 L 0 4 Z" />
@@ -45,7 +92,6 @@
                                           Grid.Row="2"
                                           Grid.Column="2"
                                           MinWidth="{DynamicResource ScrollBarThickness}"
-                                          VerticalAlignment="Center"
                                           Classes="repeat"
                                           Focusable="False">
                                 <Path Data="M 0 0 L 4 4 L 0 8 Z" />
@@ -56,6 +102,7 @@
             </Setter>
         </Style>
         <Style Selector="^:vertical">
+            <Setter Property="ContextMenu" Value="{StaticResource SimpleScrollBarVerticalContextMenu}" />
             <Setter Property="Width" Value="{DynamicResource ScrollBarThickness}" />
             <Setter Property="Template">
                 <ControlTemplate>
@@ -64,7 +111,6 @@
                             <RepeatButton Name="PART_LineUpButton"
                                           Grid.Row="0"
                                           MinHeight="{DynamicResource ScrollBarThickness}"
-                                          HorizontalAlignment="Center"
                                           Classes="repeat"
                                           Focusable="False">
                                 <Path Data="M 0 4 L 8 4 L 4 0 Z" />
@@ -95,7 +141,6 @@
                                           Grid.Row="2"
                                           Grid.Column="2"
                                           MinHeight="{DynamicResource ScrollBarThickness}"
-                                          HorizontalAlignment="Center"
                                           Classes="repeat"
                                           Focusable="False">
                                 <Path Data="M 0 0 L 4 4 L 8 0 Z" />

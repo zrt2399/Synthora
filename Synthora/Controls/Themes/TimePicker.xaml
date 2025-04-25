@@ -211,7 +211,9 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid Name="ContentPanel" RowDefinitions="Auto,*,Auto">
-                    <TextBlock Margin="4" HorizontalAlignment="Center">Select Time</TextBlock>
+                    <TextBlock Margin="4"
+                               HorizontalAlignment="Center"
+                               Text="{DynamicResource StringDatePickerSelectTime}" />
                     <Grid Name="PART_PickerContainer" Grid.Row="1">
                         <!--  Ignore col defs here, set in code  -->
                         <Panel Name="PART_HourHost" Grid.Column="0">

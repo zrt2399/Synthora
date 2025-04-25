@@ -5,10 +5,12 @@
     <x:String x:Key="StringDatePickerDayText">day</x:String>
     <x:String x:Key="StringDatePickerMonthText">month</x:String>
     <x:String x:Key="StringDatePickerYearText">year</x:String>
+    <x:String x:Key="StringDatePickerSelectDate">Select Date</x:String>
     <!--  TimePicker  -->
     <x:String x:Key="StringTimePickerHourText">hour</x:String>
     <x:String x:Key="StringTimePickerMinuteText">minute</x:String>
     <x:String x:Key="StringTimePickerSecondText">second</x:String>
+    <x:String x:Key="StringDatePickerSelectTime">Select Time</x:String>
     <!--  TextBox/SelectableTextBox flyout  -->
     <x:String x:Key="StringTextFlyoutCutText">Cut</x:String>
     <x:String x:Key="StringTextFlyoutCopyText">Copy</x:String>
@@ -26,6 +28,19 @@
     <x:String x:Key="StringManagedFileChooserOverwritePromptFileAlreadyExistsText">{0} already exists. Do you want to replace it?</x:String>
     <x:String x:Key="StringManagedFileChooserOverwritePromptConfirmText">Yes</x:String>
     <x:String x:Key="StringManagedFileChooserOverwritePromptCancelText">No</x:String>
+    <!--  ScrollBar  -->
+    <x:String x:Key="StringScrollBarScrollToTop">Top</x:String>
+    <x:String x:Key="StringScrollBarScrollToBottom">Bottom</x:String>
+    <x:String x:Key="StringScrollBarPageUp">Page Up</x:String>
+    <x:String x:Key="StringScrollBarPageDown">Page Down</x:String>
+    <x:String x:Key="StringScrollBarLineUp">Line Up</x:String>
+    <x:String x:Key="StringScrollBarLineDown">Line Down</x:String>
+    <x:String x:Key="StringScrollBarScrollToLeftEdge">Left Edge</x:String>
+    <x:String x:Key="StringScrollBarScrollToRightEdge">Right Edge</x:String>
+    <x:String x:Key="StringScrollBarPageLeft">Page Left</x:String>
+    <x:String x:Key="StringScrollBarPageRight">Page Right</x:String>
+    <x:String x:Key="StringScrollBarLineLeft">Line Left</x:String>
+    <x:String x:Key="StringScrollBarLineRight">Line Right</x:String>
     <!--  MessageBoxAvalonia  -->
     <x:String x:Key="StringMessageBoxButtonOK">OK</x:String>
     <x:String x:Key="StringMessageBoxButtonYes">Yes</x:String>
