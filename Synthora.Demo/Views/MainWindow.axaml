@@ -25,6 +25,7 @@
         <TabItem Header="Base">
             <ScrollViewer>
                 <StackPanel Margin="10" Spacing="10">
+                    <CalendarDatePicker />
                     <TextBox Text="{Binding Greeting}" TextWrapping="Wrap" />
                     <TextBox Text="{Binding Value}" TextWrapping="Wrap" />
                     <PathPicker UseFolderDialog="True" Watermark="Pick a folder" />
@@ -168,10 +169,16 @@
                         <RadioButton>RadioButton2</RadioButton>
                         <RadioButton IsChecked="{x:Null}">RadioButton3</RadioButton>
                     </StackPanel>
-                    <ListBox>
+                    <ListBox Height="80">
                         <ListBoxItem>123456</ListBoxItem>
                         <ListBoxItem>7891011</ListBoxItem>
-                        <ListBoxItem>12131415</ListBoxItem>
+						<ListBoxItem>12131415</ListBoxItem>
+						<ListBoxItem>12131415</ListBoxItem>
+						<ListBoxItem>12131415</ListBoxItem>
+						<ListBoxItem>12131415</ListBoxItem>
+						<ListBoxItem>12131415</ListBoxItem>
+						<ListBoxItem>12131415</ListBoxItem>
+						<ListBoxItem>12131415</ListBoxItem>
                     </ListBox>
                     <TreeView>
                         <TreeViewItem Header="abcdefghijklmnopqrstuvwxyz">
@@ -230,7 +237,11 @@
                     </so:GroupBox>
 
                     <StackPanel Orientation="Horizontal">
-                        <GroupBox Header="GroupBox">Content</GroupBox>
+                        <GroupBox Width="50" Header="GroupBox">
+							<StackPanel Orientation="Horizontal">
+								<TextBlock>TextBlockTextBlock</TextBlock>
+							</StackPanel>
+						</GroupBox>
                         <Expander Header="Expander">Content</Expander>
                     </StackPanel>
 

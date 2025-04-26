@@ -40,7 +40,7 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type ComboBox}" TargetType="ComboBox">
-        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
@@ -83,16 +83,17 @@
                                IsLightDismissEnabled="True"
                                IsOpen="{TemplateBinding IsDropDownOpen,
                                                         Mode=TwoWay}"
+                               Placement="BottomEdgeAlignedLeft"
                                PlacementTarget="{TemplateBinding}"
                                WindowManagerAddShadowHint="False">
                             <Border MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
                                     MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                                    Margin="{DynamicResource DefaultBoxShadowMargin}"
+                                    Margin="{DynamicResource PopupBoxShadowMargin}"
                                     Padding="0,4"
-                                    Background="{DynamicResource ThemeBackgroundBrush}"
-                                    BorderBrush="{DynamicResource ThemeBorderMidBrush}"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
-                                    BoxShadow="{DynamicResource DefaultBoxShadow}"
+                                    BoxShadow="{DynamicResource PopupBoxShadow}"
                                     CornerRadius="{TemplateBinding CornerRadius}">
                                 <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
                                               IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}"

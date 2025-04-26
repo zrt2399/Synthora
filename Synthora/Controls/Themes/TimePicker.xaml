@@ -179,11 +179,11 @@
                                Placement="Bottom"
                                PlacementTarget="{TemplateBinding}"
                                WindowManagerAddShadowHint="False">
-                            <Border Margin="{DynamicResource DefaultBoxShadowMargin}"
+                            <Border Margin="{DynamicResource PopupBoxShadowMargin}"
                                     Background="{DynamicResource ThemeBackgroundBrush}"
                                     BorderBrush="{DynamicResource ThemeBorderMidBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
-                                    BoxShadow="{DynamicResource DefaultBoxShadow}"
+                                    BoxShadow="{DynamicResource PopupBoxShadow}"
                                     CornerRadius="{TemplateBinding CornerRadius}">
                                 <TimePickerPresenter Name="PART_PickerPresenter" />
                             </Border>

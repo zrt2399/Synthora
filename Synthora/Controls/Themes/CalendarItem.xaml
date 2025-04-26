@@ -9,7 +9,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     x:ClassModifier="internal">
     <ControlTheme x:Key="{x:Type CalendarItem}" TargetType="CalendarItem">
-        <Setter Property="CornerRadius" Value="1" />
+        <!--<Setter Property="CornerRadius" Value="1" />-->
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>

@@ -22,13 +22,13 @@
                 <Panel Background="Transparent">
 
                     <Rectangle Name="TodayBackground"
-                               Fill="{DynamicResource PrimaryBrush}"
-                               IsVisible="False" />
-
-                    <Rectangle Name="SelectedBackground"
                                Fill="{TemplateBinding Background}"
                                IsVisible="False"
                                Opacity="0.75" />
+
+                    <Rectangle Name="SelectedBackground"
+                               Fill="{DynamicResource PrimaryBrush}"
+                               IsVisible="False" />
 
                     <Rectangle Name="Background"
                                Fill="{TemplateBinding Background}"
@@ -75,6 +75,9 @@
         <Style Selector="^:selected /template/ Rectangle#SelectedBackground">
             <Setter Property="IsVisible" Value="True" />
         </Style>
+        <Style Selector="^:selected /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+        </Style>
 
         <Style Selector="^:disabled /template/ Rectangle#Background">
             <Setter Property="IsVisible" Value="False" />
@@ -93,9 +96,6 @@
 
         <Style Selector="^:inactive /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundLowBrush}" />
-        </Style>
-        <Style Selector="^:today /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
         </Style>
 
         <Style Selector="^:blackout /template/ Path#BlackoutVisual">

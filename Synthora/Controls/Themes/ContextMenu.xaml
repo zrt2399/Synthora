@@ -13,12 +13,12 @@
         <Setter Property="TextBlock.FontWeight" Value="Normal" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Margin="{DynamicResource DefaultBoxShadowMargin}"
+                <Border Margin="{DynamicResource PopupBoxShadowMargin}"
                         Padding="{TemplateBinding Padding}"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
-                        BoxShadow="{DynamicResource DefaultBoxShadow}"
+                        BoxShadow="{DynamicResource PopupBoxShadow}"
                         CornerRadius="{TemplateBinding CornerRadius}">
                     <ScrollViewer Theme="{StaticResource SimpleMenuScrollViewer}">
                         <ItemsPresenter Name="PART_ItemsPresenter"

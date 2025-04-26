@@ -18,6 +18,7 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type DataGridCell}" TargetType="DataGridCell">
+		<Setter Property="UseLayoutRounding" Value="False" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Stretch" />
@@ -49,7 +50,8 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type DataGridColumnHeader}" TargetType="DataGridColumnHeader">
-        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
+		<Setter Property="UseLayoutRounding" Value="False" />
+		<Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <!--<Setter Property="SeparatorBrush" Value="{DynamicResource ThemeBorderLowBrush}" />-->

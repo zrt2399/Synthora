@@ -76,11 +76,11 @@
                                                         Mode=TwoWay}"
                                Placement="RightEdgeAlignedTop"
                                WindowManagerAddShadowHint="False">
-                            <Border Margin="{DynamicResource DefaultBoxShadowMargin}"
+                            <Border Margin="{DynamicResource PopupBoxShadowMargin}"
                                     Background="{DynamicResource ThemeBackgroundBrush}"
                                     BorderBrush="{DynamicResource ThemeBorderMidBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
-                                    BoxShadow="{DynamicResource DefaultBoxShadow}"
+                                    BoxShadow="{DynamicResource PopupBoxShadow}"
                                     CornerRadius="{DynamicResource ThemeBorderCornerRadius}">
                                 <ScrollViewer Theme="{StaticResource SimpleMenuScrollViewer}">
                                     <ItemsPresenter Name="PART_ItemsPresenter"
