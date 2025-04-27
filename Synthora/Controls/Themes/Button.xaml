@@ -54,7 +54,36 @@
             <Setter Property="Background" Value="{DynamicResource ThemeControlHighBrush}" />
             <Setter Property="Foreground" Value="White" />
         </Style>
+    </ControlTheme>
 
+    <ControlTheme x:Key="SuccessButtonTheme"
+                  BasedOn="{StaticResource {x:Type Button}}"
+                  TargetType="Button">
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Background" Value="{DynamicResource SuccessBrush}" />
+        <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Background" Value="#42BF5F" />
+        </Style>
+        <Style Selector="^:pressed">
+            <Setter Property="Background" Value="#81D494" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="WarningButtonTheme"
+                  BasedOn="{StaticResource {x:Type Button}}"
+                  TargetType="Button">
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Background" Value="{DynamicResource WarningBrush}" />
+        <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Background" Value="#EBB737" />
+        </Style>
+        <Style Selector="^:pressed">
+            <Setter Property="Background" Value="#F2CF79" />
+        </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="DangerButtonTheme"
@@ -71,4 +100,4 @@
             <Setter Property="Background" Value="#E9858C" />
         </Style>
     </ControlTheme>
-</ResourceDictionary>
+</ResourceDictionary> 

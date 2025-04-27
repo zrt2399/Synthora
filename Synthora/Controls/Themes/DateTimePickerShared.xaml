@@ -20,7 +20,7 @@
         </Border>
     </Design.PreviewWith>
 
-    <Thickness x:Key="DateTimeFlyoutButtonBorderThickness">0</Thickness>
+    <Thickness x:Key="DateTimeFlyoutButtonBorderThickness">1</Thickness>
     <Thickness x:Key="DateTimeFlyoutBorderThickness">1</Thickness>
     <Thickness x:Key="DateTimeFlyoutBorderPadding">1</Thickness>
 
@@ -51,6 +51,8 @@
     <!--  This is used for both the accept/dismiss & repeatbuttons in the presenter  -->
     <ControlTheme x:Key="SimpleDateTimePickerButton" TargetType="Button">
         <Setter Property="Background" Value="{DynamicResource ThemeControlTransparentBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource DateTimeFlyoutButtonBorderThickness}" />
+        <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
         <Setter Property="Height" Value="22" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -62,11 +64,11 @@
                     but source isn't MIT yet, so this is my solution
                 -->
                 <Border Background="{TemplateBinding Background}"
-                        BorderBrush="{DynamicResource ThemeControlTransparentBrush}"
-                        BorderThickness="{DynamicResource DateTimeFlyoutButtonBorderThickness}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}">
                     <ContentPresenter x:Name="PART_ContentPresenter"
-                                      Margin="{TemplateBinding Padding}"
+                                      Margin="{TemplateBinding Padding}"          CornerRadius="{TemplateBinding CornerRadius}"
                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                       Content="{TemplateBinding Content}"

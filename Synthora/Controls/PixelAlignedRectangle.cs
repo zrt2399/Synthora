@@ -4,7 +4,7 @@ using Avalonia.Media;
 
 namespace Synthora.Controls
 {
-    public class PixelAlignedRectangle : Rectangle
+    internal class PixelAlignedRectangle : Rectangle
     {
         protected override Geometry CreateDefiningGeometry()
         {

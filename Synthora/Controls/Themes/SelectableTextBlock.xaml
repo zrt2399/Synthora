@@ -15,7 +15,7 @@
                   IsEnabled="{Binding $parent[SelectableTextBlock].CanCopy}" />
     </MenuFlyout>
 
-    <ContextMenu x:Key="SelectableTextBlockContextMenu" Cursor="{x:Null}">
+    <ContextMenu x:Key="SelectableTextBlockContextMenu" Cursor="Arrow">
         <MenuItem Command="{Binding $parent[SelectableTextBlock].Copy}"
                   Header="{DynamicResource StringTextFlyoutCopyText}"
                   InputGesture="{x:Static TextBox.CopyGesture}"

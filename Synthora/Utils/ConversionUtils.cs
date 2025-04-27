@@ -81,6 +81,22 @@ namespace Synthora.Utils
             return enumerationValue.ToString();
         }
 
+        /// <summary>
+        /// 计算内层 Border 的 CornerRadius，使内外圆角在边框厚度作用下完美贴合。
+        /// </summary>
+        /// <param name="outerRadius">外层 CornerRadius（各角相同）。</param>
+        /// <param name="outerBorderThickness">外层 BorderThickness（单侧宽度）。</param>
+        /// <param name="innerBorderThickness">内层 BorderThickness（单侧宽度，若无则传0）。</param>
+        /// <returns>内层 CornerRadius（各角相同，最小为0）。</returns>
+        public static double CalcInnerRadius(double outerRadius, double outerBorderThickness, double innerBorderThickness = 0)
+        {
+            // 通用公式：R' = R - T/2 - T'/2
+            double result = outerRadius - outerBorderThickness / 2.0 - innerBorderThickness / 2.0;
+
+            // 保证不为负
+            return Math.Max(0, result);
+        }
+
         public static Geometry? DrawPolygon(this DrawingContext dc, Brush brush, Pen pen, params Point[] points)
         {
             if (!points.Any())
@@ -102,4 +118,4 @@ namespace Synthora.Utils
             return geometry;
         }
     }
-} 
+}

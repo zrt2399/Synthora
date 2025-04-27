@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
-using System.Threading.Tasks;
 using Avalonia.Collections;
 using Avalonia.Platform.Storage;
 using Bogus;
@@ -17,7 +16,7 @@ namespace Synthora.Demo.ViewModels
     public partial class MainWindowViewModel : ViewModelBase
     {
         public MainWindowViewModel()
-        {
+        { 
             var employeeFaker = new Faker<Employee>("zh_CN")
                 .RuleFor(e => e.Id, f => f.IndexGlobal + 1)
                 .RuleFor(e => e.Name, f => f.Name.LastName() + f.Name.FirstName())

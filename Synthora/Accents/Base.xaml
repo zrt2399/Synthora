@@ -138,6 +138,7 @@
     <Color x:Key="HighlightForegroundColor">#FFFFFFFF</Color>
     <Color x:Key="ErrorColor">#FFFF0000</Color>
     <Color x:Key="ErrorLowColor">#10FF0000</Color>
+    <Color x:Key="SuccessColor">#FF2DB84D</Color>
     <Color x:Key="WarningColor">#FFDC9B28</Color>
     <Color x:Key="DangerColor">#FFDB3340</Color>
     <SolidColorBrush x:Key="HighlightForegroundBrush" Color="{StaticResource HighlightForegroundColor}" />
@@ -149,6 +150,7 @@
     <SolidColorBrush x:Key="ThemeAccentBrush" Color="{StaticResource ThemeAccentColor}" />
     <SolidColorBrush x:Key="ErrorBrush" Color="{StaticResource ErrorColor}" />
     <SolidColorBrush x:Key="ErrorLowBrush" Color="{StaticResource ErrorLowColor}" />
+    <SolidColorBrush x:Key="SuccessBrush" Color="{StaticResource SuccessColor}" />
     <SolidColorBrush x:Key="WarningBrush" Color="{StaticResource WarningColor}" />
     <SolidColorBrush x:Key="DangerBrush" Color="{StaticResource DangerColor}" />
     <SolidColorBrush x:Key="NotificationCardBackgroundBrush"
@@ -187,8 +189,8 @@
     <sys:Double x:Key="IconElementThemeHeight">20</sys:Double>
     <sys:Double x:Key="IconElementThemeWidth">20</sys:Double>
 
-    <StreamGeometry x:Key="DropUpGlyph">M1939 1114L2029 1024L1024 19L19 1024L109 1114L1024 199L1939 1114Z</StreamGeometry>
-    <StreamGeometry x:Key="DropDownGlyph">M1939 486L2029 576L1024 1581L19 576L109 486L1024 1401L1939 486Z</StreamGeometry>
+    <StreamGeometry x:Key="UpArrowGlyph">M1939 1114L2029 1024L1024 19L19 1024L109 1114L1024 199L1939 1114Z</StreamGeometry>
+    <StreamGeometry x:Key="DownArrowGlyph">M1939 486L2029 576L1024 1581L19 576L109 486L1024 1401L1939 486Z</StreamGeometry>
     <StreamGeometry x:Key="RightArrowGlyph">M486 109L576 19L1581 1024L576 2029L486 1939L1401 1024L486 109Z</StreamGeometry>
 
     <BoxShadows x:Key="PopupBoxShadow">4 4 2 0 DarkGray</BoxShadows>
@@ -200,4 +202,4 @@
 
     <sys:Double x:Key="MenuItemMinWidth">160</sys:Double>
 
-</ResourceDictionary> 
+</ResourceDictionary>

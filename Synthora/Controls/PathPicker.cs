@@ -18,11 +18,6 @@ namespace Synthora.Controls
     {
         private TextBox? PART_TextBox;
 
-        static PathPicker()
-        {
-            SelectedPathsProperty.Changed.AddClassHandler<PathPicker, IList?>((o, e) => o.OnSelectedPathsChanged(e.NewValue.Value));
-        }
-
         public static readonly StyledProperty<string?> TitleProperty =
             AvaloniaProperty.Register<PathPicker, string?>(nameof(Title));
 
@@ -88,6 +83,11 @@ namespace Synthora.Controls
 
         public static readonly StyledProperty<Thickness> SpacingProperty =
             AvaloniaProperty.Register<PathPicker, Thickness>(nameof(Spacing), new Thickness(4, 0, 0, 0));
+
+        static PathPicker()
+        {
+            SelectedPathsProperty.Changed.AddClassHandler<PathPicker, IList?>((o, e) => o.OnSelectedPathsChanged(e.NewValue.Value));
+        }
 
         /// <summary>
         /// Gets or sets the title of the file dialog.

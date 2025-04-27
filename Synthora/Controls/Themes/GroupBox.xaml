@@ -21,16 +21,18 @@
                             BoxShadow="{DynamicResource DefaultBoxShadow}"
                             ClipToBounds="{TemplateBinding ClipToBounds}"
                             CornerRadius="{TemplateBinding CornerRadius}">
-                        <DockPanel ClipToBounds="True">
+                        <DockPanel Name="PART_DockPanel" ClipToBounds="True">
                             <Border Padding="{TemplateBinding HeaderPadding}"
                                     Background="{TemplateBinding HeaderBackground}"
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="0,0,0,1"
-                                    CornerRadius="{TemplateBinding CornerRadius,
-                                                                   Converter={x:Static SynthoraConverters.BorderCornerRadius},
-                                                                   ConverterParameter={x:Static CornerRadiusType.BottomLeft},
-                                                                   ConverterParameter='TopLeft,TopRight'}"
                                     DockPanel.Dock="Top">
+                                <Border.CornerRadius>
+                                    <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadius}" ConverterParameter="TopLeft,TopRight">
+                                        <Binding Path="BorderThickness" RelativeSource="{RelativeSource AncestorType=GroupBox}" />
+                                        <Binding Path="CornerRadius" RelativeSource="{RelativeSource AncestorType=GroupBox}" />
+                                    </MultiBinding>
+                                </Border.CornerRadius>
                                 <ContentPresenter x:Name="PART_HeaderContentPresenter"
                                                   Content="{TemplateBinding Header}"
                                                   ContentTemplate="{TemplateBinding HeaderTemplate}"

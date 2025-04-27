@@ -40,7 +40,7 @@
                                       Margin="0,0,4,0"
                                       HorizontalAlignment="Right"
                                       VerticalAlignment="Center"
-                                      Data="{DynamicResource DropDownGlyph}"
+                                      Data="{DynamicResource DownArrowGlyph}"
                                       Foreground="{TemplateBinding Foreground}"
                                       IsHitTestVisible="False"
                                       UseLayoutRounding="False" />

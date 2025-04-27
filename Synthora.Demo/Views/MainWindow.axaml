@@ -32,13 +32,31 @@
                     <PathPicker FilePickerFileTypes="{Binding FilePickerFileTypes}"
                                 SelectedPaths="{Binding SelectedFiles}"
                                 Watermark="Pick a file" />
-                    <StackPanel Orientation="Horizontal" Spacing="10">
-                        <Button Command="{Binding ShowMessageBox}" CornerRadiusAttach.IsCircular="True">MessageBox.Show</Button>
-                        <Button Command="{Binding ShowMessageTip}" CommandParameter="Show">MessageTip.Show</Button>
-                        <Button Command="{Binding ShowMessageTip}" CommandParameter="OK">MessageTip.OK</Button>
-                        <Button Command="{Binding ShowMessageTip}" CommandParameter="Warning">MessageTip.Warning</Button>
-                        <Button Command="{Binding ShowMessageTip}" CommandParameter="Error">MessageTip.Error</Button>
-                    </StackPanel>
+                    <DropShadowChrome Padding="0,10">
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <Button Command="{Binding ShowMessageBox}" CornerRadiusAttach.IsCircular="True">MessageBox.Show</Button>
+                            <Button Command="{Binding ShowMessageTip}"
+                                    CommandParameter="Show"
+                                    Theme="{StaticResource CancelButtonTheme}">
+                                MessageTip.Show
+                            </Button>
+                            <Button Command="{Binding ShowMessageTip}"
+                                    CommandParameter="OK"
+                                    Theme="{StaticResource SuccessButtonTheme}">
+                                MessageTip.OK
+                            </Button>
+                            <Button Command="{Binding ShowMessageTip}"
+                                    CommandParameter="Warning"
+                                    Theme="{StaticResource WarningButtonTheme}">
+                                MessageTip.Warning
+                            </Button>
+                            <Button Command="{Binding ShowMessageTip}"
+                                    CommandParameter="Error"
+                                    Theme="{StaticResource DangerButtonTheme}">
+                                MessageTip.Error
+                            </Button>
+                        </StackPanel>
+                    </DropShadowChrome>
                     <Button>
                         ContextMenuButton
                         <Button.ContextMenu>
@@ -172,13 +190,13 @@
                     <ListBox Height="80">
                         <ListBoxItem>123456</ListBoxItem>
                         <ListBoxItem>7891011</ListBoxItem>
-						<ListBoxItem>12131415</ListBoxItem>
-						<ListBoxItem>12131415</ListBoxItem>
-						<ListBoxItem>12131415</ListBoxItem>
-						<ListBoxItem>12131415</ListBoxItem>
-						<ListBoxItem>12131415</ListBoxItem>
-						<ListBoxItem>12131415</ListBoxItem>
-						<ListBoxItem>12131415</ListBoxItem>
+                        <ListBoxItem>12131415</ListBoxItem>
+                        <ListBoxItem>12131415</ListBoxItem>
+                        <ListBoxItem>12131415</ListBoxItem>
+                        <ListBoxItem>12131415</ListBoxItem>
+                        <ListBoxItem>12131415</ListBoxItem>
+                        <ListBoxItem>12131415</ListBoxItem>
+                        <ListBoxItem>12131415</ListBoxItem>
                     </ListBox>
                     <TreeView>
                         <TreeViewItem Header="abcdefghijklmnopqrstuvwxyz">
@@ -235,13 +253,15 @@
                     <so:GroupBox HorizontalContentAlignment="Left" Header="so:GroupBox">
                         <Calendar />
                     </so:GroupBox>
-
-                    <StackPanel Orientation="Horizontal">
+                    <so:DropShadowChrome>
+                        <TextBlock>DropShadowChrome</TextBlock>
+                    </so:DropShadowChrome>
+                    <StackPanel Orientation="Horizontal" Spacing="10">
                         <GroupBox Width="50" Header="GroupBox">
-							<StackPanel Orientation="Horizontal">
-								<TextBlock>TextBlockTextBlock</TextBlock>
-							</StackPanel>
-						</GroupBox>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>TextBlockTextBlock</TextBlock>
+                            </StackPanel>
+                        </GroupBox>
                         <Expander Header="Expander">Content</Expander>
                     </StackPanel>
 

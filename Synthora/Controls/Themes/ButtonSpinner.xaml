@@ -43,31 +43,36 @@
                                          TabIndex="2">
                                 <RepeatButton Name="PART_IncreaseButton"
                                               Padding="4,0"
-                                              CornerRadius="{TemplateBinding CornerRadius,
-                                                                             Converter={x:Static SynthoraConverters.BorderCornerRadius},
-                                                                             ConverterParameter={x:Static CornerRadiusType.TopRight}}"
                                               IsTabStop="{TemplateBinding IsTabStop}"
                                               Theme="{StaticResource SimpleButtonSpinnerRepeatButton}">
-
+                                    <RepeatButton.CornerRadius>
+                                        <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadius}" ConverterParameter="{x:Static CornerRadiusType.TopRight}">
+                                            <Binding Path="BorderThickness" RelativeSource="{RelativeSource AncestorType=ButtonSpinner}" />
+                                            <Binding Path="CornerRadius" RelativeSource="{RelativeSource AncestorType=ButtonSpinner}" />
+                                        </MultiBinding>
+                                    </RepeatButton.CornerRadius>
                                     <PathIcon Width="8"
                                               Height="4"
                                               HorizontalAlignment="Center"
                                               VerticalAlignment="Center"
-                                              Data="{DynamicResource DropUpGlyph}"
+                                              Data="{DynamicResource UpArrowGlyph}"
                                               Foreground="{DynamicResource ThemeForegroundBrush}" />
                                 </RepeatButton>
                                 <RepeatButton Name="PART_DecreaseButton"
                                               Padding="4,0"
-                                              CornerRadius="{TemplateBinding CornerRadius,
-                                                                             Converter={x:Static SynthoraConverters.BorderCornerRadius},
-                                                                             ConverterParameter={x:Static CornerRadiusType.BottomRight}}"
                                               IsTabStop="{TemplateBinding IsTabStop}"
                                               Theme="{StaticResource SimpleButtonSpinnerRepeatButton}">
+                                    <RepeatButton.CornerRadius>
+                                        <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadius}" ConverterParameter="{x:Static CornerRadiusType.BottomRight}">
+                                            <Binding Path="BorderThickness" RelativeSource="{RelativeSource AncestorType=ButtonSpinner}" />
+                                            <Binding Path="CornerRadius" RelativeSource="{RelativeSource AncestorType=ButtonSpinner}" />
+                                        </MultiBinding>
+                                    </RepeatButton.CornerRadius>
                                     <PathIcon Width="8"
                                               Height="4"
                                               HorizontalAlignment="Center"
                                               VerticalAlignment="Center"
-                                              Data="{DynamicResource DropDownGlyph}"
+                                              Data="{DynamicResource DownArrowGlyph}"
                                               Foreground="{DynamicResource ThemeForegroundBrush}" />
                                 </RepeatButton>
                             </UniformGrid>

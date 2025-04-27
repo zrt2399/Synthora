@@ -14,6 +14,7 @@
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ButtonSpinner.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ToggleButton.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/DropDownButton.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/DropShadowChrome.axaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/PathIcon.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/PathPicker.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/CheckBox.xaml" />
@@ -54,8 +55,8 @@
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/Separator.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/Menu.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/MenuItem.xaml" />
-				<MergeResourceInclude Source="avares://Synthora/Controls/Themes/ContextMenu.xaml" />
-				<MergeResourceInclude Source="avares://Synthora/Controls/Themes/DataGrid.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ContextMenu.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/DataGrid.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/CalendarButton.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/CalendarDayButton.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/CalendarItem.xaml" />
