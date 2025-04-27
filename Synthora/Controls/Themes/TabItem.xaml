@@ -23,7 +23,7 @@
                                           ContentTemplate="{TemplateBinding HeaderTemplate}"
                                           CornerRadius="{TemplateBinding CornerRadius}"
                                           RecognizesAccessKey="True" />
-                        <Border Name="PART_SelectedPipe">
+                        <Border Name="PART_SelectedPipe" CornerRadius="{DynamicResource ThemeBorderCornerRadius}">
                             <Border.IsVisible>
                                 <MultiBinding Converter="{x:Static SynthoraConverters.IsAnyTrue}">
                                     <Binding Path="IsSelected" RelativeSource="{RelativeSource TemplatedParent}" />

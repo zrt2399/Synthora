@@ -64,10 +64,10 @@
         <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
 
         <Style Selector="^:pointerover">
-            <Setter Property="Background" Value="#42BF5F" />
+            <Setter Property="Background" Value="#1C8139" />
         </Style>
         <Style Selector="^:pressed">
-            <Setter Property="Background" Value="#81D494" />
+            <Setter Property="Background" Value="#197935" />
         </Style>
     </ControlTheme>
 

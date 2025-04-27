@@ -42,7 +42,7 @@
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
         <Style Selector="^:horizontal">
             <Setter Property="VerticalAlignment" Value="Top" />
-            <Setter Property="MinWidth" Value="40" />
+            <!--<Setter Property="MinWidth" Value="40" />-->
             <!--<Setter Property="MinHeight" Value="26" />-->
             <Setter Property="Template">
                 <ControlTemplate>
@@ -74,7 +74,7 @@
         <Style Selector="^:vertical">
             <Setter Property="HorizontalAlignment" Value="Left" />
             <!--<Setter Property="MinWidth" Value="26" />-->
-            <Setter Property="MinHeight" Value="40" />
+            <!--<Setter Property="MinHeight" Value="40" />-->
             <Setter Property="Template">
                 <ControlTemplate>
                     <Panel>

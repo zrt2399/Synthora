@@ -223,6 +223,7 @@
                         <ToggleSwitch OffContent="123" OnContent="456789" />
                         <ToggleSwitch />
                     </StackPanel>
+                    <ProgressBar Height="20" Value="50" />
                     <Slider Name="Slider" />
                     <ProgressBar ShowProgressText="True" Value="{Binding #Slider.Value}" />
                     <Slider Name="VerticalSlider" Orientation="Vertical" />

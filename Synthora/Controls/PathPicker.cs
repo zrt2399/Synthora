@@ -324,7 +324,7 @@ namespace Synthora.Controls
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
         {
             base.OnApplyTemplate(e);
-            PART_TextBox = e.NameScope.Get<TextBox>(nameof(PART_TextBox));
+            PART_TextBox = e.NameScope.Find<TextBox>(nameof(PART_TextBox));
         }
 
         protected override void OnGotFocus(GotFocusEventArgs e)

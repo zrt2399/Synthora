@@ -74,12 +74,12 @@
             <Setter Property="VerticalAlignment" Value="Bottom" />
         </Style>
         <Style Selector="^:horizontal">
-            <Setter Property="MinWidth" Value="100" />
-            <Setter Property="MinHeight" Value="16" />
+            <!--<Setter Property="MinWidth" Value="100" />-->
+            <!--<Setter Property="MinHeight" Value="16" />-->
         </Style>
         <Style Selector="^:vertical">
-            <Setter Property="MinWidth" Value="16" />
-            <Setter Property="MinHeight" Value="100" />
+            <!--<Setter Property="MinWidth" Value="16" />-->
+            <!--<Setter Property="MinHeight" Value="100" />-->
         </Style>
         <Style Selector="^:vertical /template/ LayoutTransformControl#PART_LayoutTransformControl">
             <Setter Property="LayoutTransform">

@@ -138,7 +138,7 @@
     <Color x:Key="HighlightForegroundColor">#FFFFFFFF</Color>
     <Color x:Key="ErrorColor">#FFFF0000</Color>
     <Color x:Key="ErrorLowColor">#10FF0000</Color>
-    <Color x:Key="SuccessColor">#FF2DB84D</Color>
+    <Color x:Key="SuccessColor">#FF1F883D</Color>
     <Color x:Key="WarningColor">#FFDC9B28</Color>
     <Color x:Key="DangerColor">#FFDB3340</Color>
     <SolidColorBrush x:Key="HighlightForegroundBrush" Color="{StaticResource HighlightForegroundColor}" />
