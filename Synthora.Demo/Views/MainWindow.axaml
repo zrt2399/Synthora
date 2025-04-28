@@ -187,16 +187,18 @@
                         <RadioButton>RadioButton2</RadioButton>
                         <RadioButton IsChecked="{x:Null}">RadioButton3</RadioButton>
                     </StackPanel>
-                    <ListBox Height="80">
-                        <ListBoxItem>123456</ListBoxItem>
-                        <ListBoxItem>7891011</ListBoxItem>
-                        <ListBoxItem>12131415</ListBoxItem>
-                        <ListBoxItem>12131415</ListBoxItem>
-                        <ListBoxItem>12131415</ListBoxItem>
-                        <ListBoxItem>12131415</ListBoxItem>
-                        <ListBoxItem>12131415</ListBoxItem>
-                        <ListBoxItem>12131415</ListBoxItem>
-                        <ListBoxItem>12131415</ListBoxItem>
+                    <ListBox Width="200"
+                             Height="100"
+                             ScrollViewerAttach.Orientation="Horizontal">
+                        <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
+                        <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
+                        <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
+                        <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
+                        <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
+                        <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
+                        <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
+                        <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
+                        <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
                     </ListBox>
                     <TreeView>
                         <TreeViewItem Header="abcdefghijklmnopqrstuvwxyz">
@@ -224,7 +226,7 @@
                         <ToggleSwitch />
                     </StackPanel>
                     <ProgressBar Height="20" Value="50" />
-                    <Slider Name="Slider" />
+                    <Slider Name="Slider" Maximum="100" />
                     <ProgressBar ShowProgressText="True" Value="{Binding #Slider.Value}" />
                     <Slider Name="VerticalSlider" Orientation="Vertical" />
                     <ProgressBar Orientation="Vertical"
@@ -315,6 +317,8 @@
                           ItemsSource="{Binding DataGridCollectionView}" />
                 <DataGrid Margin="10"
                           AutoGenerateColumns="True"
+                          BorderThickness="0"
+                          IsReadOnly="True"
                           ItemsSource="{Binding Employees}" />
             </UniformGrid>
         </TabItem>

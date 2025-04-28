@@ -1,5 +1,4 @@
 using Avalonia.Controls;
-using Avalonia.Controls.Primitives;
 
 namespace Synthora.Demo.Views
 {
@@ -8,7 +7,7 @@ namespace Synthora.Demo.Views
         public MainWindow()
         {
             InitializeComponent();
-            dataGrid.LoadingRow += DataGrid_LoadingRow;    
+            dataGrid.LoadingRow += DataGrid_LoadingRow;
         }
 
         private void DataGrid_LoadingRow(object? sender, DataGridRowEventArgs e)

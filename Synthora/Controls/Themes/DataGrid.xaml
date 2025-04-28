@@ -18,7 +18,7 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type DataGridCell}" TargetType="DataGridCell">
-		<Setter Property="UseLayoutRounding" Value="False" />
+        <!--<Setter Property="UseLayoutRounding" Value="False" />-->
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Stretch" />
@@ -50,8 +50,8 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type DataGridColumnHeader}" TargetType="DataGridColumnHeader">
-		<Setter Property="UseLayoutRounding" Value="False" />
-		<Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
+        <!--<Setter Property="UseLayoutRounding" Value="False" />-->
+        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <!--<Setter Property="SeparatorBrush" Value="{DynamicResource ThemeBorderLowBrush}" />-->
@@ -272,7 +272,9 @@
                           RowDefinitions="Auto,*,Auto,Auto">
                         <DataGridColumnHeader Name="PART_TopLeftCornerHeader" Width="22" />
                         <DataGridColumnHeadersPresenter Name="PART_ColumnHeadersPresenter" Grid.Column="1" />
-                        <DataGridColumnHeader Name="PART_TopRightCornerHeader" Grid.Column="2" />
+                        <DataGridColumnHeader Name="PART_TopRightCornerHeader"
+                                              Grid.Column="2"
+                                              BorderThickness="0,0,0,1" />
                         <Rectangle Name="PART_ColumnHeadersAndRowsSeparator"
                                    Grid.ColumnSpan="3"
                                    Height="1"

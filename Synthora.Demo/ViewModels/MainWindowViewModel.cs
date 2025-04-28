@@ -23,7 +23,8 @@ namespace Synthora.Demo.ViewModels
                 .RuleFor(e => e.Email, (f, e) => f.Internet.Email(f.Random.AlphaNumeric(8)))
                 .RuleFor(e => e.Age, f => f.Random.Int(18, 65))
                 .RuleFor(e => e.HireDate, f => f.Date.Past(10, DateTime.Now)) // 过去10年内的日期
-                .RuleFor(e => e.Salary, f => Math.Round(f.Random.Decimal(5000, 50000), 2)); // 薪资范围
+                .RuleFor(e => e.Salary, f => Math.Round(f.Random.Decimal(5000, 50000), 2)) // 薪资范围
+                .RuleFor(e => e.IsActive, f => f.Random.Bool());  
 
             List<Employee> employees = employeeFaker.Generate(1000);
             Employees = new ObservableCollection<Employee>(employees);

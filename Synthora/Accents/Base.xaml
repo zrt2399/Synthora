@@ -193,7 +193,7 @@
     <StreamGeometry x:Key="DownArrowGlyph">M1939 486L2029 576L1024 1581L19 576L109 486L1024 1401L1939 486Z</StreamGeometry>
     <StreamGeometry x:Key="RightArrowGlyph">M486 109L576 19L1581 1024L576 2029L486 1939L1401 1024L486 109Z</StreamGeometry>
 
-    <BoxShadows x:Key="PopupBoxShadow">4 4 2 0 DarkGray</BoxShadows>
+    <BoxShadows x:Key="PopupBoxShadow">2 2 4 0 DarkGray</BoxShadows>
     <Thickness x:Key="PopupBoxShadowMargin">0,0,4,4</Thickness>
 
     <BoxShadows x:Key="DefaultBoxShadow">0 0 4 0 DarkGray</BoxShadows>
