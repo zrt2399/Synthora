@@ -28,9 +28,10 @@
                 </Border>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:pointerover">
+        <Style Selector="^:focus,^:pointerover">
             <Setter Property="Background" Value="{DynamicResource PrimaryPointerOverBrush}" />
         </Style>
+
         <Style Selector="^:pressed">
             <Setter Property="Background" Value="{DynamicResource PrimaryPressedBrush}" />
         </Style>
@@ -46,7 +47,7 @@
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
 
-        <Style Selector="^:pointerover">
+        <Style Selector="^:focus,^:pointerover">
             <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
             <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
         </Style>
@@ -63,7 +64,7 @@
         <Setter Property="Background" Value="{DynamicResource SuccessBrush}" />
         <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
 
-        <Style Selector="^:pointerover">
+        <Style Selector="^:focus,^:pointerover">
             <Setter Property="Background" Value="#1C8139" />
         </Style>
         <Style Selector="^:pressed">
@@ -78,7 +79,7 @@
         <Setter Property="Background" Value="{DynamicResource WarningBrush}" />
         <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
 
-        <Style Selector="^:pointerover">
+        <Style Selector="^:focus,^:pointerover">
             <Setter Property="Background" Value="#EBB737" />
         </Style>
         <Style Selector="^:pressed">
@@ -93,7 +94,7 @@
         <Setter Property="Background" Value="{DynamicResource DangerBrush}" />
         <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
 
-        <Style Selector="^:pointerover">
+        <Style Selector="^:focus,^:pointerover">
             <Setter Property="Background" Value="#DF4853" />
         </Style>
         <Style Selector="^:pressed">

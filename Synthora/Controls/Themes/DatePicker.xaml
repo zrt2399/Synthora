@@ -256,7 +256,7 @@
                                 VerticalAlignment="Stretch"
                                 Theme="{StaticResource SimpleDateTimePickerButton}">
                             <Button.CornerRadius>
-                                <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadius}" ConverterParameter="{x:Static CornerRadiusType.BottomLeft}">
+                                <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.BottomLeft}">
                                     <Binding Path="$parent[DatePicker].BorderThickness" />
                                     <Binding Path="$parent[DatePicker].CornerRadius" />
                                 </MultiBinding>
@@ -273,7 +273,7 @@
                                 VerticalAlignment="Stretch"
                                 Theme="{StaticResource SimpleDateTimePickerButton}">
                             <Button.CornerRadius>
-                                <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadius}" ConverterParameter="{x:Static CornerRadiusType.BottomRight}">
+                                <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.BottomRight}">
                                     <Binding Path="$parent[DatePicker].BorderThickness" />
                                     <Binding Path="$parent[DatePicker].CornerRadius" />
                                 </MultiBinding>

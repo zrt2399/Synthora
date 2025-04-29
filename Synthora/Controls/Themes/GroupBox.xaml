@@ -28,7 +28,7 @@
                                     BorderThickness="0,0,0,1"
                                     DockPanel.Dock="Top">
                                 <Border.CornerRadius>
-                                    <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadius}" ConverterParameter="TopLeft,TopRight">
+                                    <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="TopLeft,TopRight">
                                         <Binding Path="BorderThickness" RelativeSource="{RelativeSource AncestorType=GroupBox}" />
                                         <Binding Path="CornerRadius" RelativeSource="{RelativeSource AncestorType=GroupBox}" />
                                     </MultiBinding>

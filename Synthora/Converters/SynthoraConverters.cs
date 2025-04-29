@@ -12,6 +12,7 @@ namespace Synthora.Converters
         public static NotNullOrEmptyToBoolConverter IsNotNullOrEmpty { get; } = new NotNullOrEmptyToBoolConverter();
         public static AllBoolsTrueConverter IsAllTrue { get; } = new AllBoolsTrueConverter();
         public static AnyBoolsTrueConverter IsAnyTrue { get; } = new AnyBoolsTrueConverter();
-        public static BorderCornerRadiusConverter BorderCornerRadius { get; } = new BorderCornerRadiusConverter();
+        public static BoxShadowConverter BoxShadowConverter { get; } = new BoxShadowConverter();
+        public static BorderCornerRadiusConverter BorderCornerRadiusConverter { get; } = new BorderCornerRadiusConverter();
     }
 }

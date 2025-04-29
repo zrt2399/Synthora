@@ -46,7 +46,7 @@
                                               IsTabStop="{TemplateBinding IsTabStop}"
                                               Theme="{StaticResource SimpleButtonSpinnerRepeatButton}">
                                     <RepeatButton.CornerRadius>
-                                        <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadius}" ConverterParameter="{x:Static CornerRadiusType.TopRight}">
+                                        <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.TopRight}">
                                             <Binding Path="BorderThickness" RelativeSource="{RelativeSource AncestorType=ButtonSpinner}" />
                                             <Binding Path="CornerRadius" RelativeSource="{RelativeSource AncestorType=ButtonSpinner}" />
                                         </MultiBinding>
@@ -63,7 +63,7 @@
                                               IsTabStop="{TemplateBinding IsTabStop}"
                                               Theme="{StaticResource SimpleButtonSpinnerRepeatButton}">
                                     <RepeatButton.CornerRadius>
-                                        <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadius}" ConverterParameter="{x:Static CornerRadiusType.BottomRight}">
+                                        <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.BottomRight}">
                                             <Binding Path="BorderThickness" RelativeSource="{RelativeSource AncestorType=ButtonSpinner}" />
                                             <Binding Path="CornerRadius" RelativeSource="{RelativeSource AncestorType=ButtonSpinner}" />
                                         </MultiBinding>
