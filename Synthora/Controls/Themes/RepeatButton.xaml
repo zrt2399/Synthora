@@ -27,7 +27,7 @@
                 </Border>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:pointerover">
+        <Style Selector="^:focus,^:pointerover">
             <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
         </Style>
 

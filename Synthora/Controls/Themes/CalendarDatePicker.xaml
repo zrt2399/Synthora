@@ -37,6 +37,8 @@
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
         <Setter Property="Padding" Value="4" />
+        <Setter Property="IsTodayHighlighted" Value="True" />
+
 
         <Setter Property="Template">
             <ControlTemplate>

@@ -21,7 +21,8 @@
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ToolTip.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/Label.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ComboBoxItem.xaml" />
-                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ComboBox.xaml" />
+				<MergeResourceInclude Source="avares://Synthora/Controls/Themes/ComboBox.xaml" />
+				<MergeResourceInclude Source="avares://Synthora/Controls/Themes/ContentControl.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/Window.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/Carousel.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/CaptionButtons.xaml" />

@@ -130,13 +130,13 @@
                                   Height="20">
 
                                 <Ellipse x:Name="SwitchKnobOn"
-                                         Width="10"
-                                         Height="10"
+                                         Width="12"
+                                         Height="12"
                                          Fill="{DynamicResource HighlightForegroundColor}" />
 
                                 <Ellipse x:Name="SwitchKnobOff"
-                                         Width="10"
-                                         Height="10"
+                                         Width="12"
+                                         Height="12"
                                          Fill="{DynamicResource ThemeBorderMidColor}" />
                             </Grid>
                         </Canvas>

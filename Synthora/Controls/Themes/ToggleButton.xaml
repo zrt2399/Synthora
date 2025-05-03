@@ -32,7 +32,7 @@
             <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
             <Setter Property="Foreground" Value="White" />
         </Style>
-        <Style Selector="^:pointerover">
+        <Style Selector="^:focus,^:pointerover">
             <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
         </Style>
         <Style Selector="^:pressed">

@@ -46,9 +46,7 @@
                                               ContentTemplate="{TemplateBinding ContentTemplate}" />
                         </DockPanel>
                     </Border>
-
                 </Panel>
-
             </ControlTemplate>
         </Setter>
         <Style Selector="^:disabled">
