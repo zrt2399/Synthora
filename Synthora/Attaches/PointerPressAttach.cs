@@ -2,8 +2,6 @@
 using System.Windows.Input;
 using Avalonia;
 using Avalonia.Input;
-using Avalonia.Reactive;
-using Synthora.Reactive;
 
 namespace Synthora.Attaches
 {
@@ -23,7 +21,7 @@ namespace Synthora.Attaches
     {
         static PointerPressAttach()
         {
-            CommandProperty.Changed.Subscribe(OnCommandChanged);
+            CommandProperty.Changed.AddClassHandler<InputElement, ICommand?>((s, e) => OnCommandChanged(e));
         }
 
         public static readonly AttachedProperty<string?> IgnoreElementProperty =

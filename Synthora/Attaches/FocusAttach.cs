@@ -2,7 +2,6 @@
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Threading;
-using Synthora.Reactive;
 
 namespace Synthora.Attaches
 {
@@ -10,7 +9,7 @@ namespace Synthora.Attaches
     {
         static FocusAttach()
         {
-            IsFocusedProperty.Changed.Subscribe(OnIsFocusedChanged);
+            IsFocusedProperty.Changed.AddClassHandler<InputElement, bool>((s, e) => OnIsFocusedChanged(e));
         }
 
         public static readonly AttachedProperty<bool> IsFocusedProperty =

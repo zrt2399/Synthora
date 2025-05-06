@@ -5,7 +5,7 @@
 		<Nullable>enable</Nullable>
 		<AvaloniaVersion>11.2.1</AvaloniaVersion>
 		<DebugType>embedded</DebugType>
-		<Version>1.1.0.0</Version>
+		<Version>1.1.2.0</Version>
 		<FileVersion>$(Version)</FileVersion>
 		<AssemblyVersion>$(Version)</AssemblyVersion>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
@@ -13,6 +13,7 @@
 		<Title>AvaloniaUI Theme</Title>
 		<Authors>Yoyo</Authors>
 		<Copyright>Copyright © $(Authors) $([System.DateTime]::Today.ToString(yyyy))</Copyright>
+		<PackageIcon>logo.png</PackageIcon>
 		<PackageTags>Avalonia;XAML;UI;Theme</PackageTags>
 		<Description>Avalonia control styles and themes</Description>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
@@ -25,6 +26,10 @@
 		<AvaloniaResource Include="Controls\Themes\**" />
 		<AvaloniaResource Include="Controls\Styles\**" />
 		<AvaloniaResource Include="Strings\**" />
+		<None Include="logo.png">
+			<Pack>true</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
 		<None Include="..\README.md">
 			<Pack>true</Pack>
 			<PackagePath>\</PackagePath>
@@ -37,9 +42,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <AvaloniaResource Update="Controls\Themes\ContentControl.xaml">
+	  <AvaloniaResource Update="Controls\Themes\EmptyBox.xaml">
 	    <SubType>Designer</SubType>
 	    <Generator>MSBuild:Compile</Generator>
 	  </AvaloniaResource>
-	</ItemGroup> 
+	</ItemGroup>
 </Project>

@@ -16,7 +16,7 @@ namespace Synthora.Demo.ViewModels
     public partial class MainWindowViewModel : ViewModelBase
     {
         public MainWindowViewModel()
-        { 
+        {
             var employeeFaker = new Faker<Employee>("zh_CN")
                 .RuleFor(e => e.Id, f => f.IndexGlobal + 1)
                 .RuleFor(e => e.Name, f => f.Name.LastName() + f.Name.FirstName())
@@ -24,7 +24,7 @@ namespace Synthora.Demo.ViewModels
                 .RuleFor(e => e.Age, f => f.Random.Int(18, 65))
                 .RuleFor(e => e.HireDate, f => f.Date.Past(10, DateTime.Now)) // 过去10年内的日期
                 .RuleFor(e => e.Salary, f => Math.Round(f.Random.Decimal(5000, 50000), 2)) // 薪资范围
-                .RuleFor(e => e.IsActive, f => f.Random.Bool());  
+                .RuleFor(e => e.IsActive, f => f.Random.Bool());
 
             List<Employee> employees = employeeFaker.Generate(1000);
             Employees = new ObservableCollection<Employee>(employees);
@@ -45,6 +45,11 @@ namespace Synthora.Demo.ViewModels
         };
 
         public DataGridCollectionView DataGridCollectionView { get; }
+
+        public void ClearEmployees()
+        {
+            Employees.Clear();
+        }
 
         public async void ShowMessageBox()
         {

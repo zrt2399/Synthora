@@ -25,6 +25,7 @@
         <TabItem Header="Base">
             <ScrollViewer>
                 <StackPanel Margin="10" Spacing="10">
+                    <EmptyBox />
                     <CalendarDatePicker />
                     <TextBox Text="{Binding Greeting}" TextWrapping="Wrap" />
                     <TextBox Text="{Binding Value}" TextWrapping="Wrap" />
@@ -200,6 +201,11 @@
                         <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
                         <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
                     </ListBox>
+                    <DataGrid Height="200"
+                              AutoGenerateColumns="True"
+                              BorderThickness="0"
+                              IsReadOnly="True"
+                              ItemsSource="{Binding Employees}" />
                     <TreeView>
                         <TreeViewItem Header="abcdefghijklmnopqrstuvwxyz">
                             <TreeViewItem Header="1234567890">
@@ -230,6 +236,8 @@
                         <ComboBoxItem>Item9</ComboBoxItem>
                         <ComboBoxItem>ComboBoxItem10</ComboBoxItem>
                     </ComboBox>
+                    <ComboBox ItemsSource="{Binding Employees}" />
+                    <Button Command="{Binding ClearEmployees}">ClearEmployees</Button>
                     <DatePicker />
                     <TimePicker />
                     <StackPanel Orientation="Horizontal">

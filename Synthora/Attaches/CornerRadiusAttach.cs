@@ -4,7 +4,6 @@ using Avalonia.Controls.Primitives;
 using Avalonia.Data;
 using Avalonia.Input;
 using Synthora.Converters;
-using Synthora.Reactive;
 
 namespace Synthora.Attaches
 {
@@ -12,7 +11,7 @@ namespace Synthora.Attaches
     {
         static CornerRadiusAttach()
         {
-            IsCircularProperty.Changed.Subscribe(OnIsCircularChanged);
+            IsCircularProperty.Changed.AddClassHandler<InputElement, bool>((s, e) => OnIsCircularChanged(e));
         }
 
         public static readonly AttachedProperty<bool> IsCircularProperty =

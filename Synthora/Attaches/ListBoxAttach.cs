@@ -6,7 +6,6 @@ using Avalonia.Controls;
 using Avalonia.Data;
 using Avalonia.Threading;
 using Avalonia.VisualTree;
-using Synthora.Reactive;
 
 namespace Synthora.Attaches
 {
@@ -16,7 +15,7 @@ namespace Synthora.Attaches
 
         static ListBoxAttach()
         {
-            IsAutoScrollToEndProperty.Changed.Subscribe(OnIsAutoScrollToEndChanged);
+            IsAutoScrollToEndProperty.Changed.AddClassHandler<ListBox, bool>((s, e) => OnIsAutoScrollToEndChanged(e));
         }
 
         public static readonly AttachedProperty<bool> IsAutoScrollToEndProperty =

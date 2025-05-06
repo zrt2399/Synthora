@@ -3,7 +3,7 @@ using System.Windows.Input;
 
 namespace Synthora.Commands
 {
-    public class RelayCommand : ICommand
+    internal class RelayCommand : ICommand
     {
         private readonly Action<object?> _execute;
         private readonly Func<object?, bool>? _canExecute;
@@ -32,7 +32,7 @@ namespace Synthora.Commands
         }
     }
 
-    public class RelayCommand<T> : ICommand
+    internal class RelayCommand<T> : ICommand
     {
         private readonly Action<T?> _execute;
         private readonly Func<T?, bool>? _canExecute;

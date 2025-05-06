@@ -8,7 +8,6 @@ using Avalonia.Controls.Primitives;
 using Avalonia.Data;
 using Avalonia.Threading;
 using Avalonia.VisualTree;
-using Synthora.Reactive;
 
 namespace Synthora.Attaches
 {
@@ -18,10 +17,10 @@ namespace Synthora.Attaches
 
         static DataGridAttach()
         {
-            IsAutoScrollToEndProperty.Changed.Subscribe(OnIsAutoScrollToEndChanged);
-            SelectedItemsAttachProperty.Changed.Subscribe(SelectedItemsAttachChanged);
-            ScrollIntoItemProperty.Changed.Subscribe(OnScrollIntoItemChanged);
-            IsAllExpandedProperty.Changed.Subscribe(OnIsAllExpandedChanged);
+            IsAutoScrollToEndProperty.Changed.AddClassHandler<DataGrid, bool>((s, e) => OnIsAutoScrollToEndChanged(e));
+            SelectedItemsAttachProperty.Changed.AddClassHandler<DataGrid, bool>((s, e) => SelectedItemsAttachChanged(e));
+            ScrollIntoItemProperty.Changed.AddClassHandler<DataGrid, object?>((s, e) => OnScrollIntoItemChanged(e));
+            IsAllExpandedProperty.Changed.AddClassHandler<DataGrid, bool?>((s, e) => OnIsAllExpandedChanged(e));
         }
 
         public static readonly AttachedProperty<bool?> IsAllExpandedProperty =

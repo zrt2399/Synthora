@@ -22,10 +22,10 @@ namespace Synthora.Controls
             AvaloniaProperty.Register<PathPicker, string?>(nameof(Title));
 
         public static readonly StyledProperty<string?> SuggestedStartLocationProperty =
-            AvaloniaProperty.Register<PathPicker, string?>(nameof(SuggestedStartLocation) );
+            AvaloniaProperty.Register<PathPicker, string?>(nameof(SuggestedStartLocation));
 
         public static readonly StyledProperty<string?> SuggestedFileNameProperty =
-            AvaloniaProperty.Register<PathPicker, string?>(nameof(SuggestedFileName) );
+            AvaloniaProperty.Register<PathPicker, string?>(nameof(SuggestedFileName));
 
         public static readonly StyledProperty<string?> DefaultExtensionProperty =
             AvaloniaProperty.Register<PathPicker, string?>(nameof(DefaultExtension));
@@ -86,7 +86,7 @@ namespace Synthora.Controls
 
         static PathPicker()
         {
-            SelectedPathsProperty.Changed.AddClassHandler<PathPicker, IList?>((o, e) => o.OnSelectedPathsChanged(e.NewValue.Value));
+            SelectedPathsProperty.Changed.AddClassHandler<PathPicker, IList?>((s, e) => OnSelectedPathsChanged(e));
         }
 
         /// <summary>
@@ -224,9 +224,17 @@ namespace Synthora.Controls
             set => SetValue(SpacingProperty, value);
         }
 
-        protected virtual void OnSelectedPathsChanged(IList? paths)
+        private static void OnSelectedPathsChanged(AvaloniaPropertyChangedEventArgs<IList?> e)
         {
-            SelectedPath = paths == null || paths.Count == 0 ? string.Empty : string.Join("|", paths.OfType<string>());
+            var pathPicker = (PathPicker)e.Sender;
+            var oldSelectedPaths = e.OldValue.Value;
+            var newSelectedPaths = e.NewValue.Value;
+            pathPicker.OnSelectedPathsChanged(oldSelectedPaths, newSelectedPaths);
+        }
+
+        protected virtual void OnSelectedPathsChanged(IList? oldSelectedPaths, IList? newSelectedPaths)
+        {
+            SelectedPath = newSelectedPaths == null || newSelectedPaths.Count == 0 ? string.Empty : string.Join("|", newSelectedPaths.OfType<string>());
         }
 
         private async void SetCommonOptions(PickerOptions pickerOptions, TopLevel topLevel)

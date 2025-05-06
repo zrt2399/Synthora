@@ -22,12 +22,12 @@ namespace Synthora.Attaches
 
         static ScrollViewerAttach()
         {
-            OrientationProperty.Changed.AddClassHandler<AvaloniaObject, Orientation>(OnOrientationChanged);
+            OrientationProperty.Changed.AddClassHandler<AvaloniaObject, Orientation>((s, e) => OnOrientationChanged(e));
         }
 
-        private static void OnOrientationChanged(AvaloniaObject element, AvaloniaPropertyChangedEventArgs<Orientation> e)
+        private static void OnOrientationChanged(AvaloniaPropertyChangedEventArgs<Orientation> e)
         {
-            if (element is not ScrollViewer scrollViewer)
+            if (e.Sender is not ScrollViewer scrollViewer)
             {
                 return;
             }
