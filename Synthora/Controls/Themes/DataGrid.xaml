@@ -5,9 +5,11 @@
                     xmlns:converters="using:Synthora.Converters">
 
     <Thickness x:Key="DataGridTextColumnCellTextBlockMargin">4</Thickness>
-    <ControlTheme x:Key="DataGridCellTextBlockTheme" TargetType="TextBlock">
+    <ControlTheme x:Key="DataGridCellTextBlockTheme"
+                  BasedOn="{StaticResource {x:Type TextBlock}}"
+                  TargetType="TextBlock">
         <Setter Property="Margin" Value="{DynamicResource DataGridTextColumnCellTextBlockMargin}" />
-        <Setter Property="VerticalAlignment" Value="Center" />
+        <!--<Setter Property="VerticalAlignment" Value="Center" />-->
     </ControlTheme>
     <ControlTheme x:Key="DataGridCellTextBoxTheme"
                   BasedOn="{StaticResource {x:Type TextBox}}"

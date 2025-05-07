@@ -8,7 +8,7 @@
         <Setter Property="WindowManagerAddShadowHint" Value="False" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="Focusable" Value="True" />
-        <Setter Property="Padding" Value="2" />
+        <Setter Property="Padding" Value="4" />
         <Setter Property="TextBlock.FontSize" Value="{DynamicResource FontSizeNormal}" />
         <Setter Property="TextBlock.FontWeight" Value="Normal" />
         <Setter Property="Template">

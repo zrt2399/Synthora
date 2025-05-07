@@ -84,7 +84,7 @@
                                     CornerRadius="{DynamicResource ThemeBorderCornerRadius}">
                                 <ScrollViewer Theme="{StaticResource SimpleMenuScrollViewer}">
                                     <ItemsPresenter Name="PART_ItemsPresenter"
-                                                    Margin="2"
+                                                    Margin="4"
                                                     Grid.IsSharedSizeScope="True"
                                                     ItemsPanel="{TemplateBinding ItemsPanel}" />
                                 </ScrollViewer>

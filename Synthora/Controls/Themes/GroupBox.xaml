@@ -49,7 +49,7 @@
                 </Panel>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:disabled">
+        <Style Selector="^:disabled /template/ ContentPresenter#PART_HeaderContentPresenter">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
         </Style>
     </ControlTheme>

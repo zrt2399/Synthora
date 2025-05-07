@@ -6,7 +6,6 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Controls.Primitives;
 using Avalonia.Layout;
 using Avalonia.Media;
-using Avalonia.Platform;
 using Avalonia.Threading;
 using Synthora.Utils;
 
@@ -102,10 +101,10 @@ namespace Synthora.Messaging
                     Popup popup = new Popup();
                     popup.Opened += Popup_Opened;
                     popup.Child = border;
-                    if (control is Window window && window.Screens.Primary is Screen screen)
-                    {
-                        grid.MaxWidth = screen.WorkingArea.Width;
-                    }
+                    //if (control is Window window && window.Screens.Primary is Screen screen)
+                    //{
+                    //    grid.MaxWidth = screen.WorkingArea.Width;
+                    //}
                     popup.Placement = PlacementMode.Pointer;
                     //popup.VerticalOffset = 16;
                     popup.PlacementTarget = control;
@@ -134,6 +133,14 @@ namespace Synthora.Messaging
 
     public class TipIcon : Control
     {
+        public static readonly StyledProperty<IconType> IconTypeProperty =
+            AvaloniaProperty.Register<TipIcon, IconType>(nameof(IconType), IconType.Info);
+
+        static TipIcon()
+        {
+            AffectsRender<TipIcon>(IconTypeProperty);
+        }
+
         public TipIcon()
         {
             Height = 20;
@@ -142,9 +149,6 @@ namespace Synthora.Messaging
 
         private double ActualHeight => Bounds.Height;
         private double ActualWidth => Bounds.Width;
-
-        public static readonly StyledProperty<IconType> IconTypeProperty =
-            AvaloniaProperty.Register<TipIcon, IconType>(nameof(IconType), IconType.Info);
 
         public IconType IconType
         {

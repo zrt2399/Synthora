@@ -99,7 +99,7 @@ namespace Synthora.Utils
 
         public static Geometry? DrawPolygon(this DrawingContext dc, Brush brush, Pen pen, params Point[] points)
         {
-            if (!points.Any())
+            if (points.Length == 0)
             {
                 return null;
             }

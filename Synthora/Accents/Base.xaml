@@ -177,7 +177,7 @@
                      Color="{StaticResource ThemeAccentColor}" />
     <Thickness x:Key="ThemeBorderThickness">1</Thickness>
     <CornerRadius x:Key="ThemeBorderCornerRadius">4</CornerRadius>
-    <sys:Double x:Key="ThemeDisabledOpacity">0.5</sys:Double>
+    <sys:Double x:Key="ThemeDisabledOpacity">0.6</sys:Double>
 
     <sys:Double x:Key="FontSizeSmall">10</sys:Double>
     <sys:Double x:Key="FontSizeNormal">12</sys:Double>

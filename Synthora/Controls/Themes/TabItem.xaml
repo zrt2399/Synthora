@@ -25,7 +25,7 @@
                                           RecognizesAccessKey="True" />
                         <Border Name="PART_SelectedPipe" CornerRadius="{DynamicResource ThemeBorderCornerRadius}">
                             <Border.IsVisible>
-                                <MultiBinding Converter="{x:Static SynthoraConverters.IsAnyTrue}">
+                                <MultiBinding Converter="{x:Static BoolConverters.Or}">
                                     <Binding Path="IsSelected" RelativeSource="{RelativeSource TemplatedParent}" />
                                     <Binding Path="IsPointerOver" RelativeSource="{RelativeSource TemplatedParent}" />
                                 </MultiBinding>

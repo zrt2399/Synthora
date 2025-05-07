@@ -10,8 +10,6 @@ namespace Synthora.Converters
     {
         public static NullOrEmptyToBoolConverter IsNullOrEmpty { get; } = new NullOrEmptyToBoolConverter();
         public static NotNullOrEmptyToBoolConverter IsNotNullOrEmpty { get; } = new NotNullOrEmptyToBoolConverter();
-        public static AllBoolsTrueConverter IsAllTrue { get; } = new AllBoolsTrueConverter();
-        public static AnyBoolsTrueConverter IsAnyTrue { get; } = new AnyBoolsTrueConverter();
         public static IsZeroConverter IsZero { get; } = new IsZeroConverter();
         public static IsNotZeroConverter IsNotZero { get; } = new IsNotZeroConverter();
         public static ItemsSourceHasItemsConverter HasItems { get; } = new ItemsSourceHasItemsConverter();

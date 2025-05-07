@@ -25,233 +25,236 @@
         <TabItem Header="Base">
             <ScrollViewer>
                 <StackPanel Margin="10" Spacing="10">
-                    <EmptyBox />
-                    <CalendarDatePicker />
-                    <TextBox Text="{Binding Greeting}" TextWrapping="Wrap" />
-                    <TextBox Text="{Binding Value}" TextWrapping="Wrap" />
-                    <PathPicker UseFolderDialog="True" Watermark="Pick a folder" />
-                    <PathPicker FilePickerFileTypes="{Binding FilePickerFileTypes}"
-                                SelectedPaths="{Binding SelectedFiles}"
-                                Watermark="Pick a file" />
-                    <DropShadowChrome Padding="0,10">
+                    <CheckBox Name="IsEnabled" IsChecked="True">IsEnabled</CheckBox>
+                    <StackPanel IsEnabled="{Binding #IsEnabled.IsChecked}" Spacing="10">
+                        <EmptyBox />
+                        <CalendarDatePicker />
+                        <TextBox Text="{Binding Greeting}" TextWrapping="Wrap" />
+                        <TextBox Text="{Binding Value}" TextWrapping="Wrap" />
+                        <PathPicker UseFolderDialog="True" Watermark="Pick a folder" />
+                        <PathPicker FilePickerFileTypes="{Binding FilePickerFileTypes}"
+                                    SelectedPaths="{Binding SelectedFiles}"
+                                    Watermark="Pick a file" />
+                        <DropShadowChrome Padding="0,10">
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <Button Command="{Binding ShowMessageBox}" CornerRadiusAttach.IsCircular="True">MessageBox.Show</Button>
+                                <Button Command="{Binding ShowMessageTip}"
+                                        CommandParameter="Show"
+                                        Theme="{StaticResource CancelButtonTheme}">
+                                    MessageTip.Show
+                                </Button>
+                                <Button Command="{Binding ShowMessageTip}"
+                                        CommandParameter="OK"
+                                        Theme="{StaticResource SuccessButtonTheme}">
+                                    MessageTip.OK
+                                </Button>
+                                <Button Command="{Binding ShowMessageTip}"
+                                        CommandParameter="Warning"
+                                        Theme="{StaticResource WarningButtonTheme}">
+                                    MessageTip.Warning
+                                </Button>
+                                <Button Command="{Binding ShowMessageTip}"
+                                        CommandParameter="Error"
+                                        Theme="{StaticResource DangerButtonTheme}">
+                                    MessageTip.Error
+                                </Button>
+                            </StackPanel>
+                        </DropShadowChrome>
+                        <Button>
+                            ContextMenuButton
+                            <Button.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="123456">
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                        <MenuItem Header="789101112" />
+                                    </MenuItem>
+                                    <Separator />
+                                    <MenuItem Foreground="Red"
+                                              Header="131415"
+                                              Icon="{materialIcons:MaterialIconExt Kind=Delete}" />
+                                </ContextMenu>
+                            </Button.ContextMenu>
+                        </Button>
                         <StackPanel Orientation="Horizontal" Spacing="10">
-                            <Button Command="{Binding ShowMessageBox}" CornerRadiusAttach.IsCircular="True">MessageBox.Show</Button>
-                            <Button Command="{Binding ShowMessageTip}"
-                                    CommandParameter="Show"
-                                    Theme="{StaticResource CancelButtonTheme}">
-                                MessageTip.Show
-                            </Button>
-                            <Button Command="{Binding ShowMessageTip}"
-                                    CommandParameter="OK"
-                                    Theme="{StaticResource SuccessButtonTheme}">
-                                MessageTip.OK
-                            </Button>
-                            <Button Command="{Binding ShowMessageTip}"
-                                    CommandParameter="Warning"
-                                    Theme="{StaticResource WarningButtonTheme}">
-                                MessageTip.Warning
-                            </Button>
-                            <Button Command="{Binding ShowMessageTip}"
-                                    CommandParameter="Error"
-                                    Theme="{StaticResource DangerButtonTheme}">
-                                MessageTip.Error
-                            </Button>
+                            <RepeatButton>Button1</RepeatButton>
+                            <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
+                            <RepeatButton>Button2</RepeatButton>
+                            <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
+                            <RepeatButton>Button3</RepeatButton>
+                            <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
+                            <RepeatButton>Button4</RepeatButton>
                         </StackPanel>
-                    </DropShadowChrome>
-                    <Button>
-                        ContextMenuButton
-                        <Button.ContextMenu>
-                            <ContextMenu>
-                                <MenuItem Header="123456">
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                    <MenuItem Header="789101112" />
-                                </MenuItem>
-                                <Separator />
-                                <MenuItem Foreground="Red"
-                                          Header="131415"
-                                          Icon="{materialIcons:MaterialIconExt Kind=Delete}" />
-                            </ContextMenu>
-                        </Button.ContextMenu>
-                    </Button>
-                    <StackPanel Orientation="Horizontal" Spacing="10">
-                        <RepeatButton>Button1</RepeatButton>
-                        <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
-                        <RepeatButton>Button2</RepeatButton>
-                        <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
-                        <RepeatButton>Button3</RepeatButton>
-                        <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
-                        <RepeatButton>Button4</RepeatButton>
-                    </StackPanel>
-                    <Separator Theme="{StaticResource HorizontalSeparatorTheme}" />
-                    <Button Theme="{StaticResource CancelButtonTheme}" ToolTip.Tip="CancelButtonTheme">CancelButtonTheme</Button>
-                    <Button Theme="{StaticResource DangerButtonTheme}" ToolTip.Tip="DangerButtonTheme">DangerButtonTheme</Button>
-                    <ToggleButton Name="ToggleButton" ToolTip.Tip="ToggleButton">ToggleButton</ToggleButton>
-                    <Popup IsOpen="{Binding #ToggleButton.IsChecked}"
-                           Placement="Pointer"
-                           PlacementTarget="{Binding $parent[Window]}"
-                           VerticalOffset="16">
-                        <Border Margin="4"
-                                Padding="4"
-                                Background="White"
-                                BorderBrush="DarkGray"
-                                BorderThickness="1"
-                                BoxShadow="0 0 6 0 DarkGray">
-                            <TextBlock Text="Popup>Border>TextBlock" />
-                        </Border>
-                    </Popup>
-                    <DropDownButton>DropDownButton</DropDownButton>
-                    <StackPanel Orientation="Horizontal" Spacing="0">
-                        <CheckBox>CheckBox</CheckBox>
-                        <CheckBox Content="" />
-                        <CheckBox IsChecked="{x:Null}">CheckBox</CheckBox>
-                    </StackPanel>
-                    <GridSplitter Height="4" />
-                    <StackPanel Orientation="Horizontal" Spacing="0">
-                        <RadioButton>RadioButton1</RadioButton>
-                        <RadioButton Content="" />
-                        <RadioButton>RadioButton2</RadioButton>
-                        <RadioButton IsChecked="{x:Null}">RadioButton3</RadioButton>
-                    </StackPanel>
-                    <ListBox Width="200"
-                             Height="100"
-                             ScrollViewerAttach.Orientation="Horizontal">
-                        <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
-                        <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
-                        <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
-                        <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
-                        <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
-                        <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
-                        <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
-                        <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
-                        <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
-                    </ListBox>
-                    <DataGrid Height="200"
-                              AutoGenerateColumns="True"
-                              BorderThickness="0"
-                              IsReadOnly="True"
-                              ItemsSource="{Binding Employees}" />
-                    <TreeView>
-                        <TreeViewItem Header="abcdefghijklmnopqrstuvwxyz">
-                            <TreeViewItem Header="1234567890">
-                                <TreeViewItem Header="11121314151617181920" />
+                        <Separator Theme="{StaticResource HorizontalSeparatorTheme}" />
+                        <Button Theme="{StaticResource CancelButtonTheme}" ToolTip.Tip="CancelButtonTheme">CancelButtonTheme</Button>
+                        <Button Theme="{StaticResource DangerButtonTheme}" ToolTip.Tip="DangerButtonTheme">DangerButtonTheme</Button>
+                        <ToggleButton Name="ToggleButton" ToolTip.Tip="ToggleButton">ToggleButton</ToggleButton>
+                        <Popup IsOpen="{Binding #ToggleButton.IsChecked}"
+                               Placement="Pointer"
+                               PlacementTarget="{Binding $parent[Window]}"
+                               VerticalOffset="16">
+                            <Border Margin="4"
+                                    Padding="4"
+                                    Background="White"
+                                    BorderBrush="DarkGray"
+                                    BorderThickness="1"
+                                    BoxShadow="0 0 6 0 DarkGray">
+                                <TextBlock Text="Popup>Border>TextBlock" />
+                            </Border>
+                        </Popup>
+                        <DropDownButton>DropDownButton</DropDownButton>
+                        <StackPanel Orientation="Horizontal" Spacing="0">
+                            <CheckBox>CheckBox</CheckBox>
+                            <CheckBox Content="" />
+                            <CheckBox IsChecked="{x:Null}">CheckBox</CheckBox>
+                        </StackPanel>
+                        <GridSplitter Height="4" />
+                        <StackPanel Orientation="Horizontal" Spacing="0">
+                            <RadioButton>RadioButton1</RadioButton>
+                            <RadioButton Content="" />
+                            <RadioButton>RadioButton2</RadioButton>
+                            <RadioButton IsChecked="{x:Null}">RadioButton3</RadioButton>
+                        </StackPanel>
+                        <ListBox Width="200"
+                                 Height="100"
+                                 ScrollViewerAttach.Orientation="Horizontal">
+                            <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
+                            <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
+                            <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
+                            <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
+                            <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
+                            <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
+                            <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
+                            <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
+                            <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
+                        </ListBox>
+                        <DataGrid Height="200"
+                                  AutoGenerateColumns="True"
+                                  BorderThickness="0"
+                                  IsReadOnly="True"
+                                  ItemsSource="{Binding Employees}" />
+                        <TreeView>
+                            <TreeViewItem Header="abcdefghijklmnopqrstuvwxyz">
+                                <TreeViewItem Header="1234567890">
+                                    <TreeViewItem Header="11121314151617181920" />
+                                </TreeViewItem>
                             </TreeViewItem>
-                        </TreeViewItem>
-                    </TreeView>
-                    <NumericUpDown Value="12" />
-                    <SelectableTextBlock>SelectableTextBlock</SelectableTextBlock>
-                    <TextBlock>TextBlock</TextBlock>
-                    <HyperlinkButton>HyperlinkButton</HyperlinkButton>
-                    <ComboBox ItemsSource="{Binding Employees}">
-                        <ComboBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Name}" />
-                            </DataTemplate>
-                        </ComboBox.ItemTemplate>
-                    </ComboBox>
-                    <ComboBox>
-                        <ComboBoxItem>ComboBoxItem1</ComboBoxItem>
-                        <ComboBoxItem>Item2</ComboBoxItem>
-                        <ComboBoxItem>Item3</ComboBoxItem>
-                        <ComboBoxItem>Item4</ComboBoxItem>
-                        <ComboBoxItem>Item5</ComboBoxItem>
-                        <ComboBoxItem>Item6</ComboBoxItem>
-                        <ComboBoxItem>Item7</ComboBoxItem>
-                        <ComboBoxItem>Item8</ComboBoxItem>
-                        <ComboBoxItem>Item9</ComboBoxItem>
-                        <ComboBoxItem>ComboBoxItem10</ComboBoxItem>
-                    </ComboBox>
-                    <ComboBox ItemsSource="{Binding Employees}" />
-                    <Button Command="{Binding ClearEmployees}">ClearEmployees</Button>
-                    <DatePicker />
-                    <TimePicker />
-                    <StackPanel Orientation="Horizontal">
-                        <ToggleSwitch OffContent="{x:Null}" OnContent="{x:Null}" />
-                        <ToggleSwitch OffContent="123" OnContent="456789" />
-                        <ToggleSwitch />
+                        </TreeView>
+                        <NumericUpDown Value="12" />
+                        <SelectableTextBlock>SelectableTextBlock</SelectableTextBlock>
+                        <TextBlock>TextBlock</TextBlock>
+                        <HyperlinkButton>HyperlinkButton</HyperlinkButton>
+                        <ComboBox ItemsSource="{Binding Employees}">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Name}" />
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <ComboBox>
+                            <ComboBoxItem>ComboBoxItem1</ComboBoxItem>
+                            <ComboBoxItem>Item2</ComboBoxItem>
+                            <ComboBoxItem>Item3</ComboBoxItem>
+                            <ComboBoxItem>Item4</ComboBoxItem>
+                            <ComboBoxItem>Item5</ComboBoxItem>
+                            <ComboBoxItem>Item6</ComboBoxItem>
+                            <ComboBoxItem>Item7</ComboBoxItem>
+                            <ComboBoxItem>Item8</ComboBoxItem>
+                            <ComboBoxItem>Item9</ComboBoxItem>
+                            <ComboBoxItem>ComboBoxItem10</ComboBoxItem>
+                        </ComboBox>
+                        <ComboBox ItemsSource="{Binding Employees}" />
+                        <Button Command="{Binding ClearEmployees}">ClearEmployees</Button>
+                        <DatePicker />
+                        <TimePicker />
+                        <StackPanel Orientation="Horizontal">
+                            <ToggleSwitch OffContent="{x:Null}" OnContent="{x:Null}" />
+                            <ToggleSwitch OffContent="123" OnContent="456789" />
+                            <ToggleSwitch />
+                        </StackPanel>
+                        <ProgressBar Height="20" Value="50" />
+                        <Slider Name="Slider" Maximum="100" />
+                        <ProgressBar ShowProgressText="True" Value="{Binding #Slider.Value}" />
+                        <Slider Name="VerticalSlider" Orientation="Vertical" />
+                        <ProgressBar Orientation="Vertical"
+                                     ShowProgressText="True"
+                                     Value="{Binding #VerticalSlider.Value}" />
                     </StackPanel>
-                    <ProgressBar Height="20" Value="50" />
-                    <Slider Name="Slider" Maximum="100" />
-                    <ProgressBar ShowProgressText="True" Value="{Binding #Slider.Value}" />
-                    <Slider Name="VerticalSlider" Orientation="Vertical" />
-                    <ProgressBar Orientation="Vertical"
-                                 ShowProgressText="True"
-                                 Value="{Binding #VerticalSlider.Value}" />
                 </StackPanel>
             </ScrollViewer>
         </TabItem>
@@ -274,7 +277,10 @@
                 </Menu>
                 <StackPanel Margin="10" Spacing="10">
                     <so:GroupBox HorizontalContentAlignment="Left" Header="so:GroupBox">
-                        <Calendar />
+                        <StackPanel>
+                            <TextBlock>TextBlock</TextBlock>
+                            <Calendar />
+                        </StackPanel>
                     </so:GroupBox>
                     <GroupBox>
                         <GroupBox>

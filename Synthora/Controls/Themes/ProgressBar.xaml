@@ -30,7 +30,8 @@
         <Setter Property="Template">
             <ControlTemplate TargetType="ProgressBar">
                 <Grid>
-                    <Border Background="{TemplateBinding Background}"
+                    <Border Name="PART_Border"
+                            Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{TemplateBinding CornerRadius}">
@@ -72,6 +73,9 @@
         <Style Selector="^:vertical /template/ Border#PART_Indicator">
             <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="VerticalAlignment" Value="Bottom" />
+        </Style>
+        <Style Selector="^:disabled /template/ Border#PART_Border">
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
         </Style>
         <Style Selector="^:horizontal">
             <!--<Setter Property="MinWidth" Value="100" />-->
