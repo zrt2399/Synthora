@@ -30,7 +30,7 @@
                         <Carousel ItemsSource="{Binding Employees}">
                             <Carousel.ItemTemplate>
                                 <DataTemplate>
-                                    <Border Margin="10" Background="LightBlue">
+                                    <Border Background="Orange" ToolTip.Tip="{Binding}">
                                         <TextBlock HorizontalAlignment="Center"
                                                    VerticalAlignment="Center"
                                                    FontSize="24"

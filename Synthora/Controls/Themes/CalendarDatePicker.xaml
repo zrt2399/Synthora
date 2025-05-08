@@ -32,6 +32,7 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type CalendarDatePicker}" TargetType="CalendarDatePicker">
+        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
@@ -42,7 +43,6 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
-
                     <TextBox Name="PART_TextBox"
                              Padding="{TemplateBinding Padding}"
                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -52,6 +52,7 @@
                              BorderThickness="{TemplateBinding BorderThickness}"
                              CornerRadius="{TemplateBinding CornerRadius}"
                              DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
+                             Foreground="{TemplateBinding Foreground}"
                              UseFloatingWatermark="{TemplateBinding UseFloatingWatermark}"
                              Watermark="{TemplateBinding Watermark}">
                         <TextBox.InnerRightContent>
@@ -60,7 +61,7 @@
                                     Margin="4,0,0,0"
                                     Cursor="Arrow"
                                     Focusable="False"
-                                    Foreground="{TemplateBinding Foreground}"
+                                    Foreground="{Binding $parent[CalendarDatePicker].Foreground}"
                                     Theme="{StaticResource SimpleCalendarDatePickerButtonTheme}" />
                         </TextBox.InnerRightContent>
                     </TextBox>

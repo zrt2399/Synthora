@@ -18,6 +18,7 @@
     <ContextMenu x:Key="SelectableTextBlockContextMenu" Cursor="Arrow">
         <MenuItem Command="{Binding $parent[SelectableTextBlock].Copy}"
                   Header="{DynamicResource StringTextFlyoutCopyText}"
+                  Icon="{StaticResource TextCopyIcon}"
                   InputGesture="{x:Static TextBox.CopyGesture}"
                   IsEnabled="{Binding $parent[SelectableTextBlock].CanCopy}" />
         <MenuItem Command="{Binding $parent[SelectableTextBlock].SelectAll}"

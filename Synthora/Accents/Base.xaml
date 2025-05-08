@@ -203,6 +203,6 @@
     <Thickness x:Key="DefaultBoxShadowMargin">2</Thickness>
     <Thickness x:Key="DefaultBoxShadowParentMargin">-2</Thickness>
 
-    <sys:Double x:Key="MenuItemMinWidth">160</sys:Double>
+    <sys:Double x:Key="MenuItemMinWidth">140</sys:Double>
 
 </ResourceDictionary>
