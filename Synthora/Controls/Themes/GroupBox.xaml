@@ -13,7 +13,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel Margin="{DynamicResource DefaultBoxShadowParentMargin}">
-                    <Border Name="PART_Border"
+                    <Border Name="root"
                             Margin="{DynamicResource DefaultBoxShadowMargin}"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
@@ -22,15 +22,16 @@
                             ClipToBounds="{TemplateBinding ClipToBounds}"
                             CornerRadius="{TemplateBinding CornerRadius}">
                         <DockPanel Name="PART_DockPanel" ClipToBounds="True">
-                            <Border Padding="{TemplateBinding HeaderPadding}"
+                            <Border Name="headerBorder"
+                                    Padding="{TemplateBinding HeaderPadding}"
                                     Background="{TemplateBinding HeaderBackground}"
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="0,0,0,1"
                                     DockPanel.Dock="Top">
                                 <Border.CornerRadius>
                                     <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="TopLeft,TopRight">
-                                        <Binding Path="BorderThickness" RelativeSource="{RelativeSource AncestorType=GroupBox}" />
-                                        <Binding Path="CornerRadius" RelativeSource="{RelativeSource AncestorType=GroupBox}" />
+                                        <Binding Path="BorderThickness" RelativeSource="{RelativeSource TemplatedParent}" />
+                                        <Binding Path="CornerRadius" RelativeSource="{RelativeSource TemplatedParent}" />
                                     </MultiBinding>
                                 </Border.CornerRadius>
                                 <ContentPresenter x:Name="PART_HeaderContentPresenter"
@@ -49,7 +50,10 @@
                 </Panel>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:disabled /template/ ContentPresenter#PART_HeaderContentPresenter">
+        <Style Selector="^[HasShadow=False] /template/ Border#root">
+            <Setter Property="BoxShadow" Value="{DynamicResource EmptyBoxShadow}" />
+        </Style>
+        <Style Selector="^:disabled /template/ Border#headerBorder">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
         </Style>
     </ControlTheme>

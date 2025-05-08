@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using Avalonia.Collections;
+using Avalonia.Controls;
+using Avalonia.Controls.Shapes;
 using Avalonia.Platform.Storage;
 using Bogus;
 using MsBox.Avalonia;
@@ -28,7 +30,7 @@ namespace Synthora.Demo.ViewModels
 
             List<Employee> employees = employeeFaker.Generate(1000);
             Employees = new ObservableCollection<Employee>(employees);
-            DataGridCollectionView = new DataGridCollectionView(Employees);
+            DataGridCollectionView = new DataGridCollectionView(Employees); 
             DataGridCollectionView.GroupDescriptions.Add(new DataGridPathGroupDescription(nameof(Employee.Age)));
         }
 

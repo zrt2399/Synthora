@@ -56,6 +56,11 @@
             <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />
         </Style>
 
+        <!--  Listen for root:pointerover, so it will not be triggered when subitem is pressed  -->
+        <Style Selector="^:pressed /template/ Border#root:pointerover">
+            <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidBrush}" />
+        </Style>
+
         <Style Selector="^:empty /template/ PathIcon#rightArrow">
             <Setter Property="IsVisible" Value="False" />
         </Style>

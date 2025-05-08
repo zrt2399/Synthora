@@ -46,7 +46,7 @@
 
     <ControlTheme x:Key="SimpleExpanderToggleButtonTheme" TargetType="ToggleButton">
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-        <Setter Property="Padding" Value="4" />
+        <Setter Property="Padding" Value="{DynamicResource ThemeBorderPadding}" />
         <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
         <Setter Property="BorderThickness">
@@ -71,19 +71,16 @@
                             <Binding Path="IsExpanded" RelativeSource="{RelativeSource AncestorType=Expander}" />
                         </MultiBinding>
                     </Border.CornerRadius>
-                    <Grid ColumnDefinitions="Auto,*">
-                        <Border Width="12"
-                                Height="12"
-                                Margin="4,4,0,4"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center">
-                            <PathIcon Width="12"
-                                      Height="12"
-                                      Data="{DynamicResource RightArrowGlyph}"
-                                      Foreground="{TemplateBinding Foreground}"
-                                      IsHitTestVisible="False"
-                                      UseLayoutRounding="False" />
-                        </Border>
+                    <Grid ColumnDefinitions="Auto,*"> 
+                        <PathIcon Width="12"
+                                  Height="12"
+                                  Margin="4,4,0,4"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  Data="{DynamicResource RightArrowGlyph}"
+                                  Foreground="{TemplateBinding Foreground}"
+                                  IsHitTestVisible="False"
+                                  UseLayoutRounding="False" />
                         <ContentPresenter Name="PART_ContentPresenter"
                                           Grid.Column="1"
                                           Margin="{TemplateBinding Padding}"

@@ -9,7 +9,7 @@
 		<ApplicationManifest>app.manifest</ApplicationManifest>
 		<AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
 		<ApplicationIcon>Assets/avalonia-logo.ico</ApplicationIcon>
-		<PublishReadyToRun>true</PublishReadyToRun>
+		<PublishReadyToRun>True</PublishReadyToRun>
 	</PropertyGroup>
 
 	<ItemGroup>

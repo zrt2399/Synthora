@@ -1,11 +1,14 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     x:ClassModifier="internal">
+
     <ControlTheme x:Key="{x:Type AutoCompleteBox}" TargetType="AutoCompleteBox">
+        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
-        <Setter Property="Padding" Value="4" />
+        <Setter Property="Padding" Value="{DynamicResource ThemeBorderPadding}" />
+        <Setter Property="MaxDropDownHeight" Value="200" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
@@ -24,13 +27,20 @@
                              Watermark="{TemplateBinding Watermark}" />
 
                     <Popup Name="PART_Popup"
-                           MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
-                           MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                           InheritsTransform="True"
                            IsLightDismissEnabled="True"
-                           PlacementTarget="{TemplateBinding}">
-                        <Border Background="{DynamicResource ThemeBackgroundBrush}"
-                                BorderBrush="{DynamicResource ThemeBorderMidBrush}"
-                                BorderThickness="1">
+                           Placement="BottomEdgeAlignedLeft"
+                           PlacementTarget="{TemplateBinding}"
+                           WindowManagerAddShadowHint="False">
+                        <Border MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                                MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                                Margin="{DynamicResource PopupBoxShadowMargin}"
+                                Padding="0,4"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                BoxShadow="{DynamicResource PopupBoxShadow}"
+                                CornerRadius="{TemplateBinding CornerRadius}">
                             <ListBox Name="PART_SelectingItemsControl"
                                      Background="{TemplateBinding Background}"
                                      BorderThickness="0"
@@ -44,4 +54,4 @@
             </ControlTemplate>
         </Setter>
     </ControlTheme>
-</ResourceDictionary>
+</ResourceDictionary> 

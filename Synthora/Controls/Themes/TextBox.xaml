@@ -27,10 +27,14 @@
                   Header="{DynamicResource StringTextFlyoutCutText}"
                   InputGesture="{x:Static TextBox.CutGesture}"
                   IsEnabled="{Binding $parent[TextBox].CanCut}" />
-        <MenuItem Command="{Binding $parent[TextBox].Copy}"
+		<MenuItem Command="{Binding $parent[TextBox].Copy}"
                   Header="{DynamicResource StringTextFlyoutCopyText}"
                   InputGesture="{x:Static TextBox.CopyGesture}"
-                  IsEnabled="{Binding $parent[TextBox].CanCopy}" />
+                  IsEnabled="{Binding $parent[TextBox].CanCopy}" >
+			<MenuItem.Icon>
+				<PathIcon Data="M 116,412 V 80 H 96 C 78.4,80 64,94.4 64,112 v 352 c 0,17.6 14.4,32 32,32 h 256 c 17.6,0 32,-14.4 32,-32 V 444 H 148 c -17.6,0 -32,-14.4 -32,-32 z M 307,96 V 16 H 176 c -17.6,0 -32,14.4 -32,32 v 336 c 0,17.6 14.4,32 32,32 h 240 c 17.6,0 32,-14.4 32,-32 V 141 h -96 c -24.8,0 -45,-20.2 -45,-45 z m 45,19 h 90 c 3.3,0 6,-2.7 6,-6 0,-8.2 -3.7,-16 -10,-21.3 L 360.9,23.5 c -4.9,-4.1 -14.2,-7.4 -20.6,-7.4 -4.1,0 -7.4,3.3 -7.4,7.4 V 96 c 0.1,10.5 8.6,19 19.1,19 z" Height="12" Width="12"></PathIcon>
+			</MenuItem.Icon>
+		</MenuItem>
         <MenuItem Command="{Binding $parent[TextBox].Paste}"
                   Header="{DynamicResource StringTextFlyoutPasteText}"
                   InputGesture="{x:Static TextBox.PasteGesture}"
@@ -114,7 +118,7 @@
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
         <Setter Property="SelectionBrush" Value="{DynamicResource ThemeAccentBrush2}" />
         <!--<Setter Property="SelectionForegroundBrush" Value="{DynamicResource HighlightForegroundBrush}" />-->
-        <Setter Property="Padding" Value="4" />
+        <Setter Property="Padding" Value="{DynamicResource ThemeBorderPadding}" />
         <Setter Property="ContextFlyout" Value="{StaticResource SimpleTextBoxContextFlyout}" />
         <Setter Property="ContextMenu" Value="{StaticResource SimpleTextBoxContextMenu}" />
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
@@ -209,20 +213,17 @@
                 </Border>
             </ControlTemplate>
         </Setter>
+        <Style Selector="^:focus,^:pointerover">
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighBrush}" />
+        </Style>
 
-        <Style Selector="^:pointerover /template/ Border#border">
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighBrush}" />
-        </Style>
-        <Style Selector="^:focus /template/ Border#border">
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighBrush}" />
-        </Style>
-        <Style Selector="^:error /template/ Border#border">
+        <Style Selector="^:error">
             <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
         </Style>
         <Style Selector="^ /template/ DockPanel">
             <Setter Property="Cursor" Value="IBeam" />
         </Style>
-        <Style Selector="^:disabled /template/ Border#border">
+        <Style Selector="^:disabled">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
         </Style>
         <Style Selector="^ /template/ TextBlock#floatingWatermark">

@@ -25,7 +25,7 @@
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="20" />
-                            <ColumnDefinition Width="0" />
+                            <ColumnDefinition Width="4" />
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" SharedSizeGroup="MenuItemIGT" />
                             <ColumnDefinition Width="20" />
@@ -52,7 +52,7 @@
                                           ContentTemplate="{TemplateBinding HeaderTemplate}">
                             <ContentPresenter.DataTemplates>
                                 <DataTemplate DataType="sys:String">
-                                    <AccessText Text="{Binding}" />
+                                    <AccessText Text="{Binding}" TextAlignment="Left" />
                                 </DataTemplate>
                             </ContentPresenter.DataTemplates>
                         </ContentPresenter>
@@ -110,6 +110,11 @@
 
         <Style Selector="^:selected /template/ Border#root">
             <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />
+        </Style>
+
+        <!--  Listen for root:pointerover, so it will not be triggered when subitem is pressed  -->
+        <Style Selector="^:pressed /template/ Border#root:pointerover">
+            <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidBrush}" />
         </Style>
 
         <Style Selector="^:empty /template/ PathIcon#rightArrow">

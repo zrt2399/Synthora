@@ -25,11 +25,27 @@
         <TabItem Header="Base">
             <ScrollViewer>
                 <StackPanel Margin="10" Spacing="10">
-                    <CheckBox Name="IsEnabled" IsChecked="True">IsEnabled</CheckBox>
-                    <StackPanel IsEnabled="{Binding #IsEnabled.IsChecked}" Spacing="10">
+                    <CheckBox Name="BaseViewIsEnabled" IsChecked="True">IsEnabled</CheckBox>
+                    <StackPanel IsEnabled="{Binding #BaseViewIsEnabled.IsChecked}" Spacing="10">
+                        <Carousel ItemsSource="{Binding Employees}">
+                            <Carousel.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Margin="10" Background="LightBlue">
+                                        <TextBlock HorizontalAlignment="Center"
+                                                   VerticalAlignment="Center"
+                                                   FontSize="24"
+                                                   Text="{Binding}" />
+                                    </Border>
+                                </DataTemplate>
+                            </Carousel.ItemTemplate>
+                        </Carousel>
+                        <AutoCompleteBox ItemsSource="{Binding Employees}" />
                         <EmptyBox />
                         <CalendarDatePicker />
-                        <TextBox Text="{Binding Greeting}" TextWrapping="Wrap" />
+                        <TextBox InnerRightContent="Ω"
+                                 Text="{Binding Greeting}"
+                                 TextAlignment="Right"
+                                 TextWrapping="Wrap" />
                         <TextBox Text="{Binding Value}" TextWrapping="Wrap" />
                         <PathPicker UseFolderDialog="True" Watermark="Pick a folder" />
                         <PathPicker FilePickerFileTypes="{Binding FilePickerFileTypes}"
@@ -279,14 +295,24 @@
                         <MenuItem Header="1" />
                     </MenuItem>
                 </Menu>
-                <StackPanel Margin="10" Spacing="10">
+                <CheckBox Name="ExtViewIsEnabled"
+                          Margin="10,10,10,0"
+                          IsChecked="True">
+                    IsEnabled
+                </CheckBox>
+                <StackPanel Margin="10"
+                            IsEnabled="{Binding #ExtViewIsEnabled.IsChecked}"
+                            Spacing="10">
                     <so:GroupBox HorizontalContentAlignment="Left" Header="so:GroupBox">
                         <StackPanel>
                             <TextBlock>TextBlock</TextBlock>
-                            <Calendar />
+                            <StackPanel Orientation="Horizontal">
+                                <Calendar />
+                                <GroupBox Header="Calendar" />
+                            </StackPanel>
                         </StackPanel>
                     </so:GroupBox>
-                    <GroupBox>
+                    <GroupBox Header="GroupBox">
                         <GroupBox>
                             <DropShadowChrome Padding="10">
                                 <DropShadowChrome>

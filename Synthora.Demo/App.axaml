@@ -43,6 +43,6 @@
         <x:String x:Key="StringScrollBarPageRight">向右翻页</x:String>
         <x:String x:Key="StringScrollBarLineLeft">向左滚动</x:String>
         <x:String x:Key="StringScrollBarLineRight">向右滚动</x:String>
-		<x:String x:Key="StringEmptyBoxDescription">暂无数据</x:String> 
-	</Application.Resources>
+        <x:String x:Key="StringEmptyBoxDescription">暂无数据</x:String>
+    </Application.Resources>
 </Application>

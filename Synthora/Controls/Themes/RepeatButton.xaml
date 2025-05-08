@@ -10,7 +10,7 @@
         <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="Padding" Value="4" />
+        <Setter Property="Padding" Value="{DynamicResource ThemeBorderPadding}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Background="{TemplateBinding Background}"

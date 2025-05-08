@@ -129,7 +129,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="KeyboardNavigation.IsTabStop" Value="True" />
         <Setter Property="Focusable" Value="True" />
-        <Setter Property="Padding" Value="4" />
+        <Setter Property="Padding" Value="{DynamicResource ThemeBorderPadding}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid>

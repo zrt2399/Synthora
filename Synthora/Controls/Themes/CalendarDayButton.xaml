@@ -82,9 +82,9 @@
         <Style Selector="^:disabled /template/ Rectangle#Background">
             <Setter Property="IsVisible" Value="False" />
         </Style>
-        <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+        <!--<Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Opacity" Value="0.3" />
-        </Style>
+        </Style>-->
 
         <Style Selector="^:dayfocused /template/ Rectangle#FocusVisual">
             <Setter Property="IsVisible" Value="True" />
@@ -99,7 +99,7 @@
         </Style>
 
         <Style Selector="^:blackout /template/ Path#BlackoutVisual">
-            <Setter Property="Opacity" Value="0.3" />
+            <Setter Property="Opacity" Value="0.6" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>
