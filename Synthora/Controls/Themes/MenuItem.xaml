@@ -8,20 +8,24 @@
 
     <ControlTheme x:Key="{x:Type MenuItem}" TargetType="MenuItem">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
-        <!--<Setter Property="Padding" Value="0,0,20,0" />-->
         <Setter Property="MinWidth" Value="{DynamicResource MenuItemMinWidth}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Name="root"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                    <Border.CornerRadius>
+                        <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.All}">
+                            <Binding Path="#Popup_Border.BorderThickness" />
+                            <Binding Path="#Popup_Border.CornerRadius" />
+                            <Binding Path="#PART_ItemsPresenter.Margin" />
+                        </MultiBinding>
+                    </Border.CornerRadius>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="20" />
-                            <ColumnDefinition Width="5" />
+                            <ColumnDefinition Width="0" />
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" SharedSizeGroup="MenuItemIGT" />
                             <ColumnDefinition Width="20" />
@@ -76,15 +80,16 @@
                                                         Mode=TwoWay}"
                                Placement="RightEdgeAlignedTop"
                                WindowManagerAddShadowHint="False">
-                            <Border Margin="{DynamicResource PopupBoxShadowMargin}"
+                            <Border Name="Popup_Border"
+                                    Margin="{DynamicResource PopupBoxShadowMargin}"
                                     Background="{DynamicResource ThemeBackgroundBrush}"
                                     BorderBrush="{DynamicResource ThemeBorderMidBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    BorderThickness="{DynamicResource ThemeBorderThickness}"
                                     BoxShadow="{DynamicResource PopupBoxShadow}"
                                     CornerRadius="{DynamicResource ThemeBorderCornerRadius}">
                                 <ScrollViewer Theme="{StaticResource SimpleMenuScrollViewer}">
                                     <ItemsPresenter Name="PART_ItemsPresenter"
-                                                    Margin="4"
+                                                    Margin="{DynamicResource ThemeBorderPadding}"
                                                     Grid.IsSharedSizeScope="True"
                                                     ItemsPanel="{TemplateBinding ItemsPanel}" />
                                 </ScrollViewer>
@@ -105,8 +110,6 @@
 
         <Style Selector="^:selected /template/ Border#root">
             <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeSelectedLowBrush}" />
-            <!--<Setter Property="TextElement.Foreground" Value="White" />-->
         </Style>
 
         <Style Selector="^:empty /template/ PathIcon#rightArrow">

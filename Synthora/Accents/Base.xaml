@@ -176,6 +176,7 @@
                      Opacity="0.4"
                      Color="{StaticResource ThemeAccentColor}" />
     <Thickness x:Key="ThemeBorderThickness">1</Thickness>
+    <Thickness x:Key="ThemeBorderPadding">4</Thickness>
     <CornerRadius x:Key="ThemeBorderCornerRadius">4</CornerRadius>
     <sys:Double x:Key="ThemeDisabledOpacity">0.6</sys:Double>
 

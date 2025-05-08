@@ -1,4 +1,5 @@
 using Avalonia.Controls;
+using Avalonia.Data;
 
 namespace Synthora.Demo.Views
 {
@@ -12,7 +13,7 @@ namespace Synthora.Demo.Views
 
         private void DataGrid_LoadingRow(object? sender, DataGridRowEventArgs e)
         {
-            e.Row.Header = e.Row.Index + 1;
+            e.Row.Header = e.Row.Index + 1; 
         }
     }
 }

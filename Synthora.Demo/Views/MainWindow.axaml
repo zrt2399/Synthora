@@ -148,6 +148,10 @@
                                     <MenuItem Foreground="Red"
                                               Header="131415"
                                               Icon="{materialIcons:MaterialIconExt Kind=Delete}" />
+                                    <MenuItem Foreground="Red"
+                                              Header="45678910"
+                                              Icon="{materialIcons:MaterialIconExt Kind=Refresh}"
+                                              IsEnabled="False" />
                                 </ContextMenu>
                             </Button.ContextMenu>
                         </Button>
@@ -259,7 +263,7 @@
             </ScrollViewer>
         </TabItem>
         <TabItem Header="Ext">
-            <StackPanel Spacing="10">
+            <StackPanel>
                 <Menu VerticalAlignment="Top">
                     <MenuItem Header="MenuItem1">
                         <MenuItem Header="MenuItem2">

@@ -5,8 +5,7 @@
 
     <ControlTheme x:Key="SimpleTopLevelMenuItem" TargetType="MenuItem">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Padding" Value="4" />
-        <!--<Setter Property="BorderThickness" Value="1" />-->
+        <Setter Property="Padding" Value="{DynamicResource ThemeBorderPadding}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Name="root"
@@ -32,7 +31,8 @@
                                OverlayInputPassThroughElement="{Binding $parent[Menu]}"
                                Placement="BottomEdgeAlignedLeft"
                                WindowManagerAddShadowHint="False">
-                            <Border MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                            <Border Name="Popup_Border"
+                                    MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
                                     Margin="{DynamicResource PopupBoxShadowMargin}"
                                     Background="{DynamicResource ThemeBackgroundBrush}"
                                     BorderBrush="{DynamicResource ThemeBorderMidBrush}"
@@ -41,7 +41,7 @@
                                     CornerRadius="{DynamicResource ThemeBorderCornerRadius}">
                                 <ScrollViewer Theme="{StaticResource SimpleMenuScrollViewer}">
                                     <ItemsPresenter Name="PART_ItemsPresenter"
-                                                    Margin="4"
+                                                    Margin="{DynamicResource ThemeBorderPadding}"
                                                     Grid.IsSharedSizeScope="True"
                                                     ItemsPanel="{TemplateBinding ItemsPanel}" />
                                 </ScrollViewer>
@@ -54,8 +54,6 @@
 
         <Style Selector="^:selected /template/ Border#root">
             <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeSelectedLowBrush}" />
-            <!--<Setter Property="TextElement.Foreground" Value="White" />-->
         </Style>
 
         <Style Selector="^:empty /template/ PathIcon#rightArrow">
