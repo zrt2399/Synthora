@@ -53,6 +53,8 @@ namespace Synthora.Demo.ViewModels
             Employees.Clear();
         }
 
+        public void Test() => Greeting = "Test";
+
         public async void ShowMessageBox()
         {
             var box = MessageBoxManager.GetMessageBoxStandard("Caption", "Are you sure you would like to delete appender_replace_page_1?",

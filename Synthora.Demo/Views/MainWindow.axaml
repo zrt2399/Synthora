@@ -42,10 +42,13 @@
                         <AutoCompleteBox ItemsSource="{Binding Employees}" />
                         <EmptyBox />
                         <CalendarDatePicker />
-                        <TextBox InnerRightContent="Ω"
+                        <TextBox Name="testTextBox"
+                                 InnerRightContent="Ω"
                                  Text="{Binding Greeting}"
                                  TextAlignment="Right"
                                  TextWrapping="Wrap" />
+                        <Button Click="Button_Click">coede behind</Button>
+                        <Button Command="{Binding Test}">viewmodel</Button>
                         <TextBox Text="{Binding Value}" TextWrapping="Wrap" />
                         <PathPicker UseFolderDialog="True" Watermark="Pick a folder" />
                         <PathPicker FilePickerFileTypes="{Binding FilePickerFileTypes}"

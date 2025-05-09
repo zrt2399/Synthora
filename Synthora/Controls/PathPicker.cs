@@ -11,6 +11,7 @@ using Avalonia.Layout;
 using Avalonia.Media;
 using Avalonia.Platform.Storage;
 using Synthora.Utils;
+using static System.Net.WebRequestMethods;
 
 namespace Synthora.Controls
 {
@@ -234,7 +235,7 @@ namespace Synthora.Controls
 
         protected virtual void OnSelectedPathsChanged(IList? oldSelectedPaths, IList? newSelectedPaths)
         {
-            SelectedPath = newSelectedPaths == null || newSelectedPaths.Count == 0 ? string.Empty : string.Join("|", newSelectedPaths.OfType<string>());
+            SetCurrentValue(SelectedPathProperty, newSelectedPaths == null || newSelectedPaths.Count == 0 ? string.Empty : string.Join("|", newSelectedPaths.OfType<string>()));
         }
 
         private async void SetCommonOptions(PickerOptions pickerOptions, TopLevel topLevel)
@@ -272,7 +273,7 @@ namespace Synthora.Controls
                     {
                         folders.Add(GetStorageFullName(item) ?? string.Empty);
                     }
-                    SelectedPaths = folders;
+                    SetCurrentValue(SelectedPathsProperty, folders);
                 }
             }
             else
@@ -288,7 +289,7 @@ namespace Synthora.Controls
                     using var storageFile = await topLevel.StorageProvider.SaveFilePickerAsync(options);
                     if (storageFile != null)
                     {
-                        SelectedPaths = new List<string>() { GetStorageFullName(storageFile) ?? string.Empty };
+                        SetCurrentValue(SelectedPathsProperty, new List<string>() { GetStorageFullName(storageFile) ?? string.Empty });
                     }
                 }
                 else
@@ -307,7 +308,7 @@ namespace Synthora.Controls
                         {
                             files.Add(GetStorageFullName(item) ?? string.Empty);
                         }
-                        SelectedPaths = files;
+                        SetCurrentValue(SelectedPathsProperty, files);
                     }
                 }
             }
@@ -349,7 +350,7 @@ namespace Synthora.Controls
             base.OnGotFocus(e);
         }
 
-        private static string? GetStorageFullName(object? obj)
+        private static string? GetStorageFullName<T>(T? obj) where T : IStorageItem
         {
             if (obj?.GetType().GetProperty(nameof(FileSystemInfo))?.GetValue(obj) is FileSystemInfo fileSystemInfo)
             {
