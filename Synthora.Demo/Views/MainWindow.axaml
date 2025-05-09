@@ -40,7 +40,7 @@
                             </Carousel.ItemTemplate>
                         </Carousel>
                         <AutoCompleteBox ItemsSource="{Binding Employees}" />
-                        <EmptyBox />
+                        <EmptyBox GlyphHeight="80" GlyphWidth="120" />
                         <CalendarDatePicker />
                         <TextBox Name="testTextBox"
                                  InnerRightContent="Ω"
@@ -174,33 +174,72 @@
                                 </ContextMenu>
                             </Button.ContextMenu>
                         </Button>
+                        <SplitButton>
+                            <SplitButton.Flyout>
+                                <Flyout>
+                                    <Button Margin="4">Button</Button>
+                                </Flyout>
+                            </SplitButton.Flyout>
+                            SplitButton
+                        </SplitButton>
                         <StackPanel Orientation="Horizontal" Spacing="10">
-                            <RepeatButton>Button1</RepeatButton>
+                            <RepeatButton>RepeatButton1</RepeatButton>
                             <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
-                            <RepeatButton>Button2</RepeatButton>
+                            <RepeatButton>RepeatButton2</RepeatButton>
                             <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
-                            <RepeatButton>Button3</RepeatButton>
+                            <RepeatButton>RepeatButton3</RepeatButton>
                             <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
-                            <RepeatButton>Button4</RepeatButton>
+                            <RepeatButton>RepeatButton4</RepeatButton>
                         </StackPanel>
                         <Separator Theme="{StaticResource HorizontalSeparatorTheme}" />
                         <Button Theme="{StaticResource CancelButtonTheme}" ToolTip.Tip="CancelButtonTheme">CancelButtonTheme</Button>
                         <Button Theme="{StaticResource DangerButtonTheme}" ToolTip.Tip="DangerButtonTheme">DangerButtonTheme</Button>
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <Button Command="{Binding SwitchTheme}" CommandParameter="{Binding $self.Content}">Default</Button>
+                            <Button Command="{Binding SwitchTheme}" CommandParameter="{Binding $self.Content}">Light</Button>
+                            <Button Command="{Binding SwitchTheme}"
+                                    CommandParameter="{Binding $self.Content}"
+                                    Theme="{StaticResource CancelButtonTheme}">
+                                Dark
+                            </Button>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <Button Command="{Binding ShowNotification}" CommandParameter="{Binding $self.Content}">Information</Button>
+                            <Button Command="{Binding ShowNotification}"
+                                    CommandParameter="{Binding $self.Content}"
+                                    Theme="{StaticResource SuccessButtonTheme}">
+                                Success
+                            </Button>
+                            <Button Command="{Binding ShowNotification}"
+                                    CommandParameter="{Binding $self.Content}"
+                                    Theme="{StaticResource WarningButtonTheme}">
+                                Warning
+                            </Button>
+                            <Button Command="{Binding ShowNotification}"
+                                    CommandParameter="{Binding $self.Content}"
+                                    Theme="{StaticResource DangerButtonTheme}">
+                                Error
+                            </Button>
+                        </StackPanel>
                         <ToggleButton Name="ToggleButton" ToolTip.Tip="ToggleButton">ToggleButton</ToggleButton>
                         <Popup IsOpen="{Binding #ToggleButton.IsChecked}"
                                Placement="Pointer"
                                PlacementTarget="{Binding $parent[Window]}"
                                VerticalOffset="16">
-                            <Border Margin="4"
-                                    Padding="4"
-                                    Background="White"
-                                    BorderBrush="DarkGray"
-                                    BorderThickness="1"
-                                    BoxShadow="0 0 6 0 DarkGray">
+                            <DropShadowChrome Margin="4"
+                                              Padding="4"
+                                              Background="{DynamicResource ThemeBackgroundBrush}">
                                 <TextBlock Text="Popup>Border>TextBlock" />
-                            </Border>
+                            </DropShadowChrome>
                         </Popup>
-                        <DropDownButton>DropDownButton</DropDownButton>
+                        <DropDownButton>
+                            DropDownButton
+                            <DropDownButton.Flyout>
+                                <Flyout Placement="BottomEdgeAlignedLeft">
+                                    <Button Margin="4">Button</Button>
+                                </Flyout>
+                            </DropDownButton.Flyout>
+                        </DropDownButton>
                         <StackPanel Orientation="Horizontal" Spacing="0">
                             <CheckBox>CheckBox</CheckBox>
                             <CheckBox Content="" />
@@ -213,19 +252,10 @@
                             <RadioButton>RadioButton2</RadioButton>
                             <RadioButton IsChecked="{x:Null}">RadioButton3</RadioButton>
                         </StackPanel>
-                        <ListBox Width="200"
-                                 Height="100"
-                                 ScrollViewerAttach.Orientation="Horizontal">
-                            <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
-                            <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
-                            <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
-                            <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
-                            <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
-                            <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
-                            <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
-                            <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
-                            <ListBoxItem>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</ListBoxItem>
-                        </ListBox>
+                        <ListBox Width="300"
+                                 Height="200"
+                                 ItemsSource="{Binding Employees}"
+                                 ScrollViewerAttach.Orientation="Horizontal" />
                         <DataGrid Height="200"
                                   AutoGenerateColumns="True"
                                   BorderThickness="0"

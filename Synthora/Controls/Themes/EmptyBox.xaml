@@ -16,6 +16,7 @@
     <ControlTheme x:Key="{x:Type EmptyBox}" TargetType="EmptyBox">
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Center" />
+
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Background="{TemplateBinding Background}"
@@ -23,8 +24,8 @@
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}">
                     <StackPanel>
-                        <Rectangle Width="60"
-                                   Height="40"
+                        <Rectangle Width="{TemplateBinding GlyphWidth}"
+                                   Height="{TemplateBinding GlyphHeight}"
                                    Fill="{DynamicResource EmptySimpleLogo}" />
                         <TextBlock Margin="0,10,0,0"
                                    HorizontalAlignment="Center"

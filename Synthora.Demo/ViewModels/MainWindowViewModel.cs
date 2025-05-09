@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using Avalonia;
 using Avalonia.Collections;
-using Avalonia.Controls;
-using Avalonia.Controls.Shapes;
+using Avalonia.Controls.Notifications;
 using Avalonia.Platform.Storage;
+using Avalonia.Styling;
+using Avalonia.Threading;
 using Bogus;
 using MsBox.Avalonia;
 using MsBox.Avalonia.Enums;
@@ -17,6 +19,8 @@ namespace Synthora.Demo.ViewModels
 {
     public partial class MainWindowViewModel : ViewModelBase
     {
+        private WindowNotificationManager? _notificationManager;
+
         public MainWindowViewModel()
         {
             var employeeFaker = new Faker<Employee>("zh_CN")
@@ -30,8 +34,9 @@ namespace Synthora.Demo.ViewModels
 
             List<Employee> employees = employeeFaker.Generate(1000);
             Employees = new ObservableCollection<Employee>(employees);
-            DataGridCollectionView = new DataGridCollectionView(Employees); 
+            DataGridCollectionView = new DataGridCollectionView(Employees);
             DataGridCollectionView.GroupDescriptions.Add(new DataGridPathGroupDescription(nameof(Employee.Age)));
+            Dispatcher.UIThread.InvokeAsync(() => _notificationManager = new WindowNotificationManager(App.MainWindow));
         }
 
         public ObservableCollection<Employee> Employees { get; }
@@ -85,6 +90,50 @@ namespace Synthora.Demo.ViewModels
             else if (param == "Error")
             {
                 MessageTip.ShowError("ShowError");
+            }
+        }
+
+        public void SwitchTheme(string param)
+        {
+            if (Application.Current is Application application)
+            {
+                if (param == "Default")
+                {
+                    application.RequestedThemeVariant = ThemeVariant.Default;
+                }
+                else if (param == "Light")
+                {
+                    application.RequestedThemeVariant = ThemeVariant.Light;
+                }
+                else if (param == "Dark")
+                {
+                    application.RequestedThemeVariant = ThemeVariant.Dark;
+                }
+            }
+        }
+
+        public void ShowNotification(string param)
+        {
+            if (_notificationManager == null)
+            {
+                return;
+            }
+
+            if (param == "Information")
+            {
+                _notificationManager.Show(new Notification("操作完成", "文件保存至本地完成。", NotificationType.Information));
+            }
+            else if (param == "Success")
+            {
+                _notificationManager.Show(new Notification("操作成功", "文件已保存至本地。", NotificationType.Success));
+            }
+            else if (param == "Warning")
+            {
+                _notificationManager.Show(new Notification("操作失败", "文件保存至本地失败。", NotificationType.Warning));
+            }
+            else if (param == "Error")
+            {
+                _notificationManager.Show(new Notification("操作异常", "文件保存至本地异常。", NotificationType.Error));
             }
         }
     }

@@ -101,4 +101,8 @@
             <Setter Property="Background" Value="#E9858C" />
         </Style>
     </ControlTheme>
+    <ControlTheme x:Key="ErrorButtonTheme"
+                  BasedOn="{StaticResource DangerButtonTheme}"
+                  TargetType="Button" />
+
 </ResourceDictionary> 

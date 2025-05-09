@@ -48,6 +48,6 @@
     <x:String x:Key="StringMessageBoxButtonCancel">Cancel</x:String>
     <x:String x:Key="StringMessageBoxButtonAbort">Abort</x:String>
     <!--  EmptyBox  -->
-    <x:String x:Key="StringEmptyBoxDescription">No items available</x:String>
+    <x:String x:Key="StringEmptyBoxDescription">No data</x:String>
 
 </ResourceDictionary> 
