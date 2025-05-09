@@ -20,7 +20,7 @@
             <ControlTemplate>
                 <LayoutTransformControl Name="PART_LayoutTransformControl" UseRenderTransform="True">
                     <Border Margin="5"
-                            BoxShadow="0 0 10 0 #4F000000"
+                            BoxShadow="0 0 8 0 #64000000"
                             CornerRadius="{TemplateBinding CornerRadius}">
                         <Border Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
