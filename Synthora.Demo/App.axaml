@@ -20,10 +20,10 @@
     </Application.Styles>
 
     <Application.Resources>
-        <x:String x:Key="StringTextFlyoutCutText">剪切</x:String>
+        <!--<x:String x:Key="StringTextFlyoutCutText">剪切</x:String>
         <x:String x:Key="StringTextFlyoutCopyText">复制</x:String>
         <x:String x:Key="StringTextFlyoutPasteText">粘贴</x:String>
-        <x:String x:Key="StringTextFlyoutSelectAllText">全选</x:String>
+        <x:String x:Key="StringTextFlyoutSelectAllText">全选</x:String>-->
         <x:String x:Key="StringMessageBoxButtonOK">确定</x:String>
         <x:String x:Key="StringMessageBoxButtonYes">是</x:String>
         <x:String x:Key="StringMessageBoxButtonNo">否</x:String>

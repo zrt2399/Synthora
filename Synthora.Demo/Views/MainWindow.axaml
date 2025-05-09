@@ -166,11 +166,26 @@
                                     <Separator />
                                     <MenuItem Foreground="Red"
                                               Header="131415"
-                                              Icon="{materialIcons:MaterialIconExt Kind=Delete}" />
+                                              HotKey="Control+D"
+                                              Icon="{materialIcons:MaterialIconExt Kind=Delete}"
+                                              InputGesture="{Binding $self.HotKey}" />
+                                    <MenuItem Header="Checkable"
+                                              InputGesture="Control+C"
+                                              IsChecked="True"
+                                              ToggleType="CheckBox" />
                                     <MenuItem Foreground="Red"
                                               Header="45678910"
                                               Icon="{materialIcons:MaterialIconExt Kind=Refresh}"
                                               IsEnabled="False" />
+                                    <MenuItem GroupName="Radioable"
+                                              Header="Radioable1"
+                                              IsChecked="True"
+                                              StaysOpenOnClick="True"
+                                              ToggleType="Radio" />
+                                    <MenuItem GroupName="Radioable"
+                                              Header="Radioable2"
+                                              StaysOpenOnClick="True"
+                                              ToggleType="Radio" />
                                 </ContextMenu>
                             </Button.ContextMenu>
                         </Button>

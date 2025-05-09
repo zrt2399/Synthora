@@ -1,4 +1,5 @@
 using Avalonia.Controls;
+using Avalonia.Input;
 using Avalonia.Interactivity;
 
 namespace Synthora.Demo.Views
@@ -17,7 +18,7 @@ namespace Synthora.Demo.Views
         }
 
         private void Button_Click(object? sender, RoutedEventArgs e)
-        {
+        { 
             testTextBox.SetCurrentValue(TextBox.TextProperty, "Button clicked!");
             //testTextBox.SetValue( TextBox.TextProperty, "Button clicked!"); 
         }
