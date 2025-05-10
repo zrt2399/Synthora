@@ -91,7 +91,7 @@ namespace Synthora.Utils
         public static double CalcInnerRadius(double outerRadius, double outerBorderThickness, double innerBorderThickness = 0)
         {
             // 通用公式：R' = R - T/2 - T'/2
-            double result = outerRadius - outerBorderThickness / 2.0 - innerBorderThickness / 2.0;
+            double result = outerRadius - (outerBorderThickness / 2.0) - (innerBorderThickness / 2.0);
 
             // 保证不为负
             return Math.Max(0, result);

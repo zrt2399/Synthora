@@ -53,6 +53,21 @@ namespace Synthora.Demo.ViewModels
 
         public DataGridCollectionView DataGridCollectionView { get; }
 
+        public ObservableCollection<string> BrushKeys { get; } = new ObservableCollection<string>
+        { 
+            "PrimaryBrush",
+            "SuccessBrush",
+            "WarningBrush", 
+            "DangerBrush", 
+            "ErrorBrush", 
+            "ThemeAccentBrush",
+            "ThemeAccentBrush2", 
+            "ThemeAccentBrush3", 
+            "ThemeAccentBrush4",
+            "ThemeBackgroundBrush",
+            "ThemeForegroundBrush"
+        };
+
         public void ClearEmployees()
         {
             Employees.Clear();

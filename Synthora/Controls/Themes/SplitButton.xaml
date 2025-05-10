@@ -11,12 +11,6 @@
         </Border>
     </Design.PreviewWith>
 
-    <!--<x:Double x:Key="SplitButtonPrimaryButtonSize">24</x:Double>
-    <x:Double x:Key="SplitButtonSecondaryButtonSize">24</x:Double>
-    <x:Double x:Key="SplitButtonSeparatorWidth">1</x:Double>
-    <x:Double x:Key="SplitButtonMinHeight">24</x:Double>
-    <Thickness x:Key="SplitButtonBorderThemeThickness">1</Thickness>-->
-
     <converters:MarginMultiplierConverter x:Key="PrimaryButtonBorderMultiplier"
                                           Bottom="True"
                                           Indent="1"
@@ -61,6 +55,10 @@
         <Style Selector="^:pressed">
             <Setter Property="Background" Value="{DynamicResource ThemeControlHighBrush}" />
             <Setter Property="Foreground" Value="White" />
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
         </Style>
 
         <Style Selector="^[Tag=flyout-open]">
@@ -166,20 +164,16 @@
             <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
         </Style>
 
-        <Style Selector="^:flyout-open /template/ Button">
+        <Style Selector="^:flyout-open /template/ Button#PART_SecondaryButton">
             <Setter Property="Tag" Value="flyout-open" />
         </Style>
 
-        <Style Selector="^:checked /template/ Button">
+        <Style Selector="^:checked /template/ Button#PART_SecondaryButton">
             <Setter Property="Tag" Value="checked" />
         </Style>
 
-        <Style Selector="^:checked:flyout-open /template/ Button">
+        <Style Selector="^:checked:flyout-open /template/ Button#PART_SecondaryButton">
             <Setter Property="Tag" Value="checked-flyout-open" />
-        </Style>
-
-        <Style Selector="^:disabled">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary> 

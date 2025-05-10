@@ -27,6 +27,7 @@
         <Setter Property="Background" Value="{DynamicResource PrimaryContrastBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
+        <Setter Property="ClipToBounds" Value="True" />
         <Setter Property="Template">
             <ControlTemplate TargetType="ProgressBar">
                 <Grid>
@@ -34,6 +35,7 @@
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
+                            ClipToBounds="{TemplateBinding ClipToBounds}"
                             CornerRadius="{TemplateBinding CornerRadius}">
                         <Panel>
                             <Border Name="PART_Indicator"
@@ -79,10 +81,10 @@
         </Style>
         <Style Selector="^:horizontal">
             <!--<Setter Property="MinWidth" Value="100" />-->
-            <!--<Setter Property="MinHeight" Value="16" />-->
+            <Setter Property="MinHeight" Value="1" />
         </Style>
         <Style Selector="^:vertical">
-            <!--<Setter Property="MinWidth" Value="16" />-->
+            <Setter Property="MinWidth" Value="1" />
             <!--<Setter Property="MinHeight" Value="100" />-->
         </Style>
         <Style Selector="^:vertical /template/ LayoutTransformControl#PART_LayoutTransformControl">

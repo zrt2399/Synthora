@@ -40,6 +40,7 @@
         <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
         <Style Selector="^:horizontal">
             <Setter Property="VerticalAlignment" Value="Top" />
             <!--<Setter Property="MinWidth" Value="40" />-->
@@ -48,10 +49,11 @@
                 <ControlTemplate>
                     <Panel>
                         <Border Name="TrackBackground"
-                                Height="1"
+                                Height="2"
                                 Margin="6,0"
                                 VerticalAlignment="Center"
-                                Background="{TemplateBinding BorderBrush}" />
+                                Background="{TemplateBinding BorderBrush}"
+                                CornerRadius="{TemplateBinding CornerRadius}" />
                         <Track Name="PART_Track"
                                IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
                                Orientation="Horizontal">
@@ -79,10 +81,11 @@
                 <ControlTemplate>
                     <Panel>
                         <Border Name="TrackBackground"
-                                Width="1"
+                                Width="2"
                                 Margin="0,6"
                                 HorizontalAlignment="Center"
-                                Background="{TemplateBinding BorderBrush}" />
+                                Background="{TemplateBinding BorderBrush}"
+                                CornerRadius="{TemplateBinding CornerRadius}" />
                         <Track Name="PART_Track"
                                IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
                                Orientation="Vertical">

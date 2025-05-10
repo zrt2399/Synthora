@@ -1,6 +1,7 @@
 <Window x:Class="Synthora.Demo.Views.MainWindow"
         xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:converters="using:Synthora.Demo.Converters"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -21,40 +22,123 @@
         <vm:MainWindowViewModel />
     </Design.DataContext>
 
-    <TabControl x:Name="TabControl">
-        <TabItem Header="Base">
-            <ScrollViewer>
-                <StackPanel Margin="10" Spacing="10">
-                    <CheckBox Name="BaseViewIsEnabled" IsChecked="True">IsEnabled</CheckBox>
-                    <StackPanel IsEnabled="{Binding #BaseViewIsEnabled.IsChecked}" Spacing="10">
-                        <Carousel ItemsSource="{Binding Employees}">
-                            <Carousel.ItemTemplate>
-                                <DataTemplate>
-                                    <Border Background="Orange" ToolTip.Tip="{Binding}">
-                                        <TextBlock HorizontalAlignment="Center"
-                                                   VerticalAlignment="Center"
-                                                   FontSize="24"
-                                                   Text="{Binding}" />
-                                    </Border>
-                                </DataTemplate>
-                            </Carousel.ItemTemplate>
-                        </Carousel>
-                        <AutoCompleteBox ItemsSource="{Binding Employees}" />
-                        <EmptyBox GlyphHeight="80" GlyphWidth="120" />
-                        <CalendarDatePicker />
-                        <TextBox Name="testTextBox"
-                                 InnerRightContent="Ω"
-                                 Text="{Binding Greeting}"
-                                 TextAlignment="Right"
-                                 TextWrapping="Wrap" />
-                        <Button Click="Button_Click">coede behind</Button>
-                        <Button Command="{Binding Test}">viewmodel</Button>
-                        <TextBox Text="{Binding Value}" TextWrapping="Wrap" />
-                        <PathPicker UseFolderDialog="True" Watermark="Pick a folder" />
-                        <PathPicker FilePickerFileTypes="{Binding FilePickerFileTypes}"
-                                    SelectedPaths="{Binding SelectedFiles}"
-                                    Watermark="Pick a file" />
-                        <DropShadowChrome Padding="0,10">
+    <Window.Resources>
+        <converters:ResourceKeyToBrushConverter x:Key="ResourceKeyToBrushConverter" />
+    </Window.Resources>
+
+    <Grid RowDefinitions="*,Auto">
+        <TabControl x:Name="TabControl">
+            <TabItem Header="Brush">
+                <ItemsControl Margin="5" ItemsSource="{Binding BrushKeys}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <DropShadowChrome MinWidth="100"
+                                              MinHeight="60"
+                                              Margin="5"
+                                              Background="{Binding Converter={StaticResource ResourceKeyToBrushConverter}}"
+                                              BorderBrush="{Binding $self.Background}">
+                                <StackPanel Margin="10"
+                                            VerticalAlignment="Center"
+                                            Spacing="10"
+                                            TextElement.Foreground="{Binding $parent[DropShadowChrome].Background, Converter={x:Static SynthoraConverters.ContrastColorConverter}}">
+                                    <SelectableTextBlock HorizontalAlignment="Center" Text="{Binding}" />
+                                    <SelectableTextBlock HorizontalAlignment="Center" Text="{Binding $parent[DropShadowChrome].Background}" />
+                                </StackPanel>
+                            </DropShadowChrome>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </TabItem>
+            <TabItem Header="Input">
+                <ScrollViewer>
+                    <StackPanel Margin="10" Spacing="10">
+                        <CheckBox Name="InputViewIsEnabled" IsChecked="True">IsEnabled</CheckBox>
+                        <StackPanel IsEnabled="{Binding #InputViewIsEnabled.IsChecked}" Spacing="10">
+                            <AutoCompleteBox ItemsSource="{Binding Employees}" />
+                            <TextBox InnerRightContent="Ω"
+                                     Text="{Binding Greeting}"
+                                     TextAlignment="Right"
+                                     TextWrapping="Wrap" />
+                            <TextBox Text="{Binding Value}" TextWrapping="Wrap" />
+                            <CalendarDatePicker />
+                            <DatePicker />
+                            <TimePicker />
+                            <PathPicker UseFolderDialog="True" Watermark="Pick a folder" />
+                            <PathPicker AllowMultiple="True"
+                                        FilePickerFileTypes="{Binding FilePickerFileTypes}"
+                                        SelectedPaths="{Binding SelectedFiles}"
+                                        Watermark="Pick files" />
+                            <NumericUpDown Value="12" />
+                            <ComboBox ItemsSource="{Binding Employees}">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Name}" />
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                            <ComboBox>
+                                <ComboBoxItem>ComboBoxItemabcdefghijklmnopqrstuvwxyz</ComboBoxItem>
+                                <ComboBoxItem>ComboBoxItemABCDEFGHIJKLMNOPQRSTUVWXYZ</ComboBoxItem>
+                                <ComboBoxItem>ComboBoxItem1234567890</ComboBoxItem>
+                            </ComboBox>
+                            <SelectableTextBlock>SelectableTextBlock</SelectableTextBlock>
+                            <TextBlock>TextBlock</TextBlock>
+                            <StackPanel Orientation="Horizontal">
+                                <CheckBox>CheckBox1</CheckBox>
+                                <CheckBox Content="" />
+                                <CheckBox>CheckBox2</CheckBox>
+                                <CheckBox IsChecked="{x:Null}">CheckBox3</CheckBox>
+                            </StackPanel>
+                            <GridSplitter Height="4" />
+                            <StackPanel Orientation="Horizontal">
+                                <RadioButton>RadioButton1</RadioButton>
+                                <RadioButton Content="" />
+                                <RadioButton>RadioButton2</RadioButton>
+                                <RadioButton IsChecked="{x:Null}">RadioButton3</RadioButton>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal">
+                                <ToggleSwitch OffContent="{x:Null}" OnContent="{x:Null}" />
+                                <ToggleSwitch OffContent="123" OnContent="456789" />
+                                <ToggleSwitch />
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Header="Button">
+                <ScrollViewer>
+                    <StackPanel Margin="10" Spacing="10">
+                        <CheckBox Name="ButtonViewIsEnabled" IsChecked="True">IsEnabled</CheckBox>
+                        <StackPanel IsEnabled="{Binding #ButtonViewIsEnabled.IsChecked}" Spacing="10">
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <Button Command="{Binding SwitchTheme}" CommandParameter="{Binding $self.Content}">Default</Button>
+                                <Button Command="{Binding SwitchTheme}" CommandParameter="{Binding $self.Content}">Light</Button>
+                                <Button Command="{Binding SwitchTheme}"
+                                        CommandParameter="{Binding $self.Content}"
+                                        Content="Dark"
+                                        Theme="{StaticResource CancelButtonTheme}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <Button Command="{Binding ShowNotification}" CommandParameter="{Binding $self.Content}">Information</Button>
+                                <Button Command="{Binding ShowNotification}"
+                                        CommandParameter="{Binding $self.Content}"
+                                        Content="Success"
+                                        Theme="{StaticResource SuccessButtonTheme}" />
+                                <Button Command="{Binding ShowNotification}"
+                                        CommandParameter="{Binding $self.Content}"
+                                        Content="Warning"
+                                        Theme="{StaticResource WarningButtonTheme}" />
+                                <Button Command="{Binding ShowNotification}"
+                                        CommandParameter="{Binding $self.Content}"
+                                        Content="Error"
+                                        Theme="{StaticResource DangerButtonTheme}" />
+                            </StackPanel>
                             <StackPanel Orientation="Horizontal" Spacing="10">
                                 <Button Command="{Binding ShowMessageBox}" CornerRadiusAttach.IsCircular="True">MessageBox.Show</Button>
                                 <Button Command="{Binding ShowMessageTip}"
@@ -78,376 +162,319 @@
                                     MessageTip.Error
                                 </Button>
                             </StackPanel>
-                        </DropShadowChrome>
-                        <Button>
-                            ContextMenuButton
-                            <Button.ContextMenu>
-                                <ContextMenu>
-                                    <MenuItem Header="123456">
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                        <MenuItem Header="789101112" />
-                                    </MenuItem>
-                                    <Separator />
-                                    <MenuItem Foreground="Red"
-                                              Header="131415"
-                                              HotKey="Control+D"
-                                              Icon="{materialIcons:MaterialIconExt Kind=Delete}"
-                                              InputGesture="{Binding $self.HotKey}" />
-                                    <MenuItem Header="Checkable"
-                                              InputGesture="Control+C"
-                                              IsChecked="True"
-                                              ToggleType="CheckBox" />
-                                    <MenuItem Foreground="Red"
-                                              Header="45678910"
-                                              Icon="{materialIcons:MaterialIconExt Kind=Refresh}"
-                                              IsEnabled="False" />
-                                    <MenuItem GroupName="Radioable"
-                                              Header="Radioable1"
-                                              IsChecked="True"
-                                              StaysOpenOnClick="True"
-                                              ToggleType="Radio" />
-                                    <MenuItem GroupName="Radioable"
-                                              Header="Radioable2"
-                                              StaysOpenOnClick="True"
-                                              ToggleType="Radio" />
-                                </ContextMenu>
-                            </Button.ContextMenu>
-                        </Button>
-                        <SplitButton>
-                            <SplitButton.Flyout>
-                                <Flyout>
-                                    <Button Margin="4">Button</Button>
-                                </Flyout>
-                            </SplitButton.Flyout>
-                            SplitButton
-                        </SplitButton>
-                        <StackPanel Orientation="Horizontal" Spacing="10">
-                            <RepeatButton>RepeatButton1</RepeatButton>
-                            <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
-                            <RepeatButton>RepeatButton2</RepeatButton>
-                            <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
-                            <RepeatButton>RepeatButton3</RepeatButton>
-                            <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
-                            <RepeatButton>RepeatButton4</RepeatButton>
-                        </StackPanel>
-                        <Separator Theme="{StaticResource HorizontalSeparatorTheme}" />
-                        <Button Theme="{StaticResource CancelButtonTheme}" ToolTip.Tip="CancelButtonTheme">CancelButtonTheme</Button>
-                        <Button Theme="{StaticResource DangerButtonTheme}" ToolTip.Tip="DangerButtonTheme">DangerButtonTheme</Button>
-                        <StackPanel Orientation="Horizontal" Spacing="10">
-                            <Button Command="{Binding SwitchTheme}" CommandParameter="{Binding $self.Content}">Default</Button>
-                            <Button Command="{Binding SwitchTheme}" CommandParameter="{Binding $self.Content}">Light</Button>
-                            <Button Command="{Binding SwitchTheme}"
-                                    CommandParameter="{Binding $self.Content}"
-                                    Theme="{StaticResource CancelButtonTheme}">
-                                Dark
+                            <Button Content="ContextMenuButton">
+                                <Button.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="123456">
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                            <MenuItem Header="789101112" />
+                                        </MenuItem>
+                                        <Separator />
+                                        <MenuItem Foreground="Red"
+                                                  Header="131415"
+                                                  HotKey="Control+D"
+                                                  Icon="{materialIcons:MaterialIconExt Kind=Delete}"
+                                                  InputGesture="{Binding $self.HotKey}" />
+                                        <MenuItem Header="Checkable"
+                                                  InputGesture="Control+C"
+                                                  IsChecked="True"
+                                                  ToggleType="CheckBox" />
+                                        <MenuItem Foreground="Red"
+                                                  Header="45678910"
+                                                  Icon="{materialIcons:MaterialIconExt Kind=Refresh}"
+                                                  IsEnabled="False" />
+                                        <MenuItem GroupName="Radioable"
+                                                  Header="Radioable1"
+                                                  IsChecked="True"
+                                                  StaysOpenOnClick="True"
+                                                  ToggleType="Radio" />
+                                        <MenuItem GroupName="Radioable"
+                                                  Header="Radioable2"
+                                                  StaysOpenOnClick="True"
+                                                  ToggleType="Radio" />
+                                    </ContextMenu>
+                                </Button.ContextMenu>
                             </Button>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Spacing="10">
-                            <Button Command="{Binding ShowNotification}" CommandParameter="{Binding $self.Content}">Information</Button>
-                            <Button Command="{Binding ShowNotification}"
-                                    CommandParameter="{Binding $self.Content}"
-                                    Theme="{StaticResource SuccessButtonTheme}">
-                                Success
-                            </Button>
-                            <Button Command="{Binding ShowNotification}"
-                                    CommandParameter="{Binding $self.Content}"
-                                    Theme="{StaticResource WarningButtonTheme}">
-                                Warning
-                            </Button>
-                            <Button Command="{Binding ShowNotification}"
-                                    CommandParameter="{Binding $self.Content}"
-                                    Theme="{StaticResource DangerButtonTheme}">
-                                Error
-                            </Button>
-                        </StackPanel>
-                        <ToggleButton Name="ToggleButton" ToolTip.Tip="ToggleButton">ToggleButton</ToggleButton>
-                        <Popup IsOpen="{Binding #ToggleButton.IsChecked}"
-                               Placement="Pointer"
-                               PlacementTarget="{Binding $parent[Window]}"
-                               VerticalOffset="16">
-                            <DropShadowChrome Margin="4"
-                                              Padding="4"
-                                              Background="{DynamicResource ThemeBackgroundBrush}">
-                                <TextBlock Text="Popup>Border>TextBlock" />
-                            </DropShadowChrome>
-                        </Popup>
-                        <DropDownButton>
-                            DropDownButton
-                            <DropDownButton.Flyout>
-                                <Flyout Placement="BottomEdgeAlignedLeft">
-                                    <Button Margin="4">Button</Button>
-                                </Flyout>
-                            </DropDownButton.Flyout>
-                        </DropDownButton>
-                        <StackPanel Orientation="Horizontal" Spacing="0">
-                            <CheckBox>CheckBox</CheckBox>
-                            <CheckBox Content="" />
-                            <CheckBox IsChecked="{x:Null}">CheckBox</CheckBox>
-                        </StackPanel>
-                        <GridSplitter Height="4" />
-                        <StackPanel Orientation="Horizontal" Spacing="0">
-                            <RadioButton>RadioButton1</RadioButton>
-                            <RadioButton Content="" />
-                            <RadioButton>RadioButton2</RadioButton>
-                            <RadioButton IsChecked="{x:Null}">RadioButton3</RadioButton>
-                        </StackPanel>
-                        <ListBox Width="300"
-                                 Height="200"
-                                 ItemsSource="{Binding Employees}"
-                                 ScrollViewerAttach.Orientation="Horizontal" />
-                        <DataGrid Height="200"
-                                  AutoGenerateColumns="True"
-                                  BorderThickness="0"
-                                  IsReadOnly="True"
-                                  ItemsSource="{Binding Employees}" />
-                        <TreeView>
-                            <TreeViewItem Header="abcdefghijklmnopqrstuvwxyz">
-                                <TreeViewItem Header="1234567890">
-                                    <TreeViewItem Header="11121314151617181920" />
-                                </TreeViewItem>
-                            </TreeViewItem>
-                        </TreeView>
-                        <NumericUpDown Value="12" />
-                        <SelectableTextBlock>SelectableTextBlock</SelectableTextBlock>
-                        <TextBlock>TextBlock</TextBlock>
-                        <HyperlinkButton>HyperlinkButton</HyperlinkButton>
-                        <ComboBox ItemsSource="{Binding Employees}">
-                            <ComboBox.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Name}" />
-                                </DataTemplate>
-                            </ComboBox.ItemTemplate>
-                        </ComboBox>
-                        <ComboBox>
-                            <ComboBoxItem>ComboBoxItem1</ComboBoxItem>
-                            <ComboBoxItem>Item2</ComboBoxItem>
-                            <ComboBoxItem>Item3</ComboBoxItem>
-                            <ComboBoxItem>Item4</ComboBoxItem>
-                            <ComboBoxItem>Item5</ComboBoxItem>
-                            <ComboBoxItem>Item6</ComboBoxItem>
-                            <ComboBoxItem>Item7</ComboBoxItem>
-                            <ComboBoxItem>Item8</ComboBoxItem>
-                            <ComboBoxItem>Item9</ComboBoxItem>
-                            <ComboBoxItem>ComboBoxItem10</ComboBoxItem>
-                        </ComboBox>
-                        <ComboBox ItemsSource="{Binding Employees}" />
-                        <Button Command="{Binding ClearEmployees}">ClearEmployees</Button>
-                        <DatePicker />
-                        <TimePicker />
-                        <StackPanel Orientation="Horizontal">
-                            <ToggleSwitch OffContent="{x:Null}" OnContent="{x:Null}" />
-                            <ToggleSwitch OffContent="123" OnContent="456789" />
-                            <ToggleSwitch />
-                        </StackPanel>
-                        <ProgressBar Height="20" Value="50" />
-                        <Slider Name="Slider" Maximum="100" />
-                        <ProgressBar ShowProgressText="True" Value="{Binding #Slider.Value}" />
-                        <Slider Name="VerticalSlider" Orientation="Vertical" />
-                        <ProgressBar Orientation="Vertical"
-                                     ShowProgressText="True"
-                                     Value="{Binding #VerticalSlider.Value}" />
-                    </StackPanel>
-                </StackPanel>
-            </ScrollViewer>
-        </TabItem>
-        <TabItem Header="Ext">
-            <StackPanel>
-                <Menu VerticalAlignment="Top">
-                    <MenuItem Header="MenuItem1">
-                        <MenuItem Header="MenuItem2">
-                            <MenuItem Header="MenuItem4" />
-                            <MenuItem Header="MenuItem5" />
-                            <MenuItem Header="MenuItem6" />
-                        </MenuItem>
-                    </MenuItem>
-                    <MenuItem Header="MenuItema">
-                        <MenuItem Header="MenuItemb" />
-                    </MenuItem>
-                    <MenuItem Header="MenuItemc">
-                        <MenuItem Header="1" />
-                    </MenuItem>
-                </Menu>
-                <CheckBox Name="ExtViewIsEnabled"
-                          Margin="10,10,10,0"
-                          IsChecked="True">
-                    IsEnabled
-                </CheckBox>
-                <StackPanel Margin="10"
-                            IsEnabled="{Binding #ExtViewIsEnabled.IsChecked}"
-                            Spacing="10">
-                    <so:GroupBox HorizontalContentAlignment="Left" Header="so:GroupBox">
-                        <StackPanel>
-                            <TextBlock>TextBlock</TextBlock>
-                            <StackPanel Orientation="Horizontal">
-                                <Calendar />
-                                <GroupBox Header="Calendar" />
+                            <SplitButton Content="SplitButton">
+                                <SplitButton.Flyout>
+                                    <Flyout>
+                                        <Button Margin="4">Button</Button>
+                                    </Flyout>
+                                </SplitButton.Flyout>
+                            </SplitButton>
+                            <DropDownButton Content="DropDownButton">
+                                <DropDownButton.Flyout>
+                                    <Flyout Placement="BottomEdgeAlignedLeft">
+                                        <Button Margin="4">Button</Button>
+                                    </Flyout>
+                                </DropDownButton.Flyout>
+                            </DropDownButton>
+                            <ToggleButton ToolTip.Tip="ToggleButton">ToggleButton</ToggleButton>
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <RepeatButton>RepeatButton1</RepeatButton>
+                                <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
+                                <RepeatButton>RepeatButton2</RepeatButton>
+                                <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
+                                <RepeatButton>RepeatButton3</RepeatButton>
+                                <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
+                                <RepeatButton>RepeatButton4</RepeatButton>
                             </StackPanel>
+                            <Separator Theme="{StaticResource HorizontalSeparatorTheme}" />
+                            <Button Command="{Binding ClearEmployees}" Theme="{StaticResource DangerButtonTheme}">ClearEmployees</Button>
+                            <HyperlinkButton>HyperlinkButton</HyperlinkButton>
                         </StackPanel>
-                    </so:GroupBox>
-                    <GroupBox Header="GroupBox">
-                        <GroupBox>
-                            <DropShadowChrome Padding="10">
-                                <DropShadowChrome>
-                                    <TextBlock>DropShadowChrome</TextBlock>
-                                </DropShadowChrome>
-                            </DropShadowChrome>
-                        </GroupBox>
-                    </GroupBox>
-                    <ContentControl>
-                        <GroupBox>
-                            <GroupBox>
-                                <DropShadowChrome Padding="10">
-                                    <DropShadowChrome>
-                                        <TextBlock>DropShadowChrome</TextBlock>
-                                    </DropShadowChrome>
-                                </DropShadowChrome>
-                            </GroupBox>
-                        </GroupBox>
-                    </ContentControl>
-                    <so:DropShadowChrome>
-                        <TextBlock>DropShadowChrome</TextBlock>
-                    </so:DropShadowChrome>
-                    <StackPanel Orientation="Horizontal" Spacing="10">
-                        <GroupBox Width="50" Header="GroupBox">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock>TextBlockTextBlock</TextBlock>
-                            </StackPanel>
-                        </GroupBox>
-                        <Expander Header="Expander">Content</Expander>
                     </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Header="Other">
+                <ScrollViewer>
+                    <StackPanel Margin="10" Spacing="10">
+                        <CheckBox Name="OtherViewIsEnabled" IsChecked="True">IsEnabled</CheckBox>
+                        <StackPanel IsEnabled="{Binding #OtherViewIsEnabled.IsChecked}" Spacing="10">
+                            <StackPanel Orientation="Horizontal">
+                                <EmptyBox />
+                                <EmptyBox GlyphHeight="60" GlyphWidth="90" />
+                                <EmptyBox GlyphHeight="80" GlyphWidth="120" />
+                            </StackPanel>
 
-                    <Expander CornerRadius="2"
-                              ExpandDirection="Left"
-                              Header="Expander">
-                        <StackPanel Margin="10">
-                            <Button>1</Button>
-                            <Button>2</Button>
+                            <ProgressBar Value="{Binding #HorizontalSlider.Value}" />
+                            <Slider Name="HorizontalSlider" />
+                            <ProgressBar ShowProgressText="True" Value="{Binding #HorizontalSlider.Value}" />
+                            <DockPanel MinHeight="60">
+                                <Slider Name="VerticalSlider"
+                                        DockPanel.Dock="Left"
+                                        Orientation="Vertical" />
+                                <ProgressBar Margin="10,0,0,0"
+                                             Orientation="Vertical"
+                                             ShowProgressText="True"
+                                             Value="{Binding #VerticalSlider.Value}" />
+                            </DockPanel>
+
+                            <Expander CornerRadius="2"
+                                      ExpandDirection="Left"
+                                      Header="Expander">
+                                <StackPanel Margin="10">
+                                    <Button>1</Button>
+                                    <Button>2</Button>
+                                </StackPanel>
+                            </Expander>
+                            <Expander CornerRadius="3"
+                                      ExpandDirection="Right"
+                                      Header="Expander">
+                                <StackPanel Margin="10">
+                                    <Button>1</Button>
+                                    <Button>2</Button>
+                                </StackPanel>
+                            </Expander>
+                            <Expander CornerRadius="4"
+                                      ExpandDirection="Up"
+                                      Header="Expander">
+                                <StackPanel Margin="10">
+                                    <Button>1</Button>
+                                    <Button>2</Button>
+                                </StackPanel>
+                            </Expander>
+                            <Expander CornerRadius="5"
+                                      ExpandDirection="Down"
+                                      Header="Expander">
+                                <GroupBox>
+                                    <DropShadowChrome Padding="10">
+                                        <DropShadowChrome>
+                                            <TextBlock>DropShadowChrome</TextBlock>
+                                        </DropShadowChrome>
+                                    </DropShadowChrome>
+                                </GroupBox>
+                            </Expander>
                         </StackPanel>
-                    </Expander>
-                    <Expander CornerRadius="3"
-                              ExpandDirection="Right"
-                              Header="Expander">
-                        <StackPanel Margin="10">
-                            <Button>1</Button>
-                            <Button>2</Button>
-                        </StackPanel>
-                    </Expander>
-                    <Expander CornerRadius="4"
-                              ExpandDirection="Up"
-                              Header="Expander">
-                        <StackPanel Margin="10">
-                            <Button>1</Button>
-                            <Button>2</Button>
-                        </StackPanel>
-                    </Expander>
-                    <Expander CornerRadius="5"
-                              ExpandDirection="Down"
-                              Header="Expander">
-                        <GroupBox>
-                            <DropShadowChrome Padding="10">
-                                <DropShadowChrome>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Header="Ext">
+                <DockPanel>
+                    <Menu DockPanel.Dock="Top">
+                        <MenuItem Header="MenuItem1">
+                            <MenuItem Header="MenuItem2">
+                                <MenuItem Header="MenuItem4" />
+                                <MenuItem Header="MenuItem5" />
+                                <MenuItem Header="MenuItem6" />
+                            </MenuItem>
+                        </MenuItem>
+                        <MenuItem Header="MenuItema">
+                            <MenuItem Header="MenuItemb" />
+                        </MenuItem>
+                        <MenuItem Header="MenuItemc">
+                            <MenuItem Header="1" />
+                        </MenuItem>
+                    </Menu>
+                    <ScrollViewer>
+                        <StackPanel Margin="10" Spacing="10">
+                            <CheckBox Name="ExtViewIsEnabled"
+                                      Content="IsEnabled"
+                                      IsChecked="True" />
+                            <StackPanel IsEnabled="{Binding #ExtViewIsEnabled.IsChecked}" Spacing="10">
+                                <so:GroupBox HorizontalContentAlignment="Left" Header="so:GroupBox">
+                                    <StackPanel>
+                                        <TextBlock>TextBlock</TextBlock>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Calendar />
+                                            <GroupBox Header="Calendar" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </so:GroupBox>
+                                <GroupBox Header="GroupBox">
+                                    <GroupBox>
+                                        <DropShadowChrome Padding="10">
+                                            <DropShadowChrome>
+                                                <TextBlock>DropShadowChrome</TextBlock>
+                                            </DropShadowChrome>
+                                        </DropShadowChrome>
+                                    </GroupBox>
+                                </GroupBox>
+                                <ContentControl>
+                                    <GroupBox>
+                                        <GroupBox>
+                                            <DropShadowChrome Padding="10">
+                                                <DropShadowChrome>
+                                                    <TextBlock>DropShadowChrome</TextBlock>
+                                                </DropShadowChrome>
+                                            </DropShadowChrome>
+                                        </GroupBox>
+                                    </GroupBox>
+                                </ContentControl>
+                                <so:DropShadowChrome>
                                     <TextBlock>DropShadowChrome</TextBlock>
-                                </DropShadowChrome>
-                            </DropShadowChrome>
-                        </GroupBox>
-                    </Expander>
-                </StackPanel>
+                                </so:DropShadowChrome>
+                                <StackPanel Orientation="Horizontal" Spacing="10">
+                                    <GroupBox Width="50" Header="GroupBox">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock>TextBlockTextBlock</TextBlock>
+                                        </StackPanel>
+                                    </GroupBox>
+                                    <Expander Header="Expander">Content</Expander>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </DockPanel>
+            </TabItem>
+            <TabItem Header="Collection">
+                <UniformGrid Margin="10" Columns="1">
+                    <ListBox ItemsSource="{Binding Employees}" ScrollViewerAttach.Orientation="Horizontal" />
+                    <TreeView Margin="0,10,0,0">
+                        <TreeViewItem Header="abcdefghijklmnopqrstuvwxyz">
+                            <TreeViewItem Header="1234567890">
+                                <TreeViewItem Header="11121314151617181920" />
+                            </TreeViewItem>
+                        </TreeViewItem>
+                        <TreeViewItem Header="/*-+">
+                            <TreeViewItem Header="~!@#$%^" />
+                        </TreeViewItem>
+                    </TreeView>
+                </UniformGrid>
+            </TabItem>
+            <TabItem Header="DataGrid">
+                <UniformGrid Columns="1">
+                    <DataGrid x:Name="dataGrid"
+                              Margin="10"
+                              AutoGenerateColumns="True"
+                              GridLinesVisibility="All"
+                              HeadersVisibility="All"
+                              ItemsSource="{Binding DataGridCollectionView}" />
+                    <DataGrid Margin="10"
+                              AutoGenerateColumns="True"
+                              GridLinesVisibility="Vertical"
+                              ItemsSource="{Binding DataGridCollectionView}" />
+                    <DataGrid Margin="10"
+                              AutoGenerateColumns="True"
+                              BorderThickness="0"
+                              IsReadOnly="True"
+                              ItemsSource="{Binding Employees}" />
+                </UniformGrid>
+            </TabItem>
+        </TabControl>
+        <StatusBar Grid.Row="1">
+            <StackPanel Margin="4"
+                        Orientation="Horizontal"
+                        Spacing="10">
+                <TextBlock VerticalAlignment="Center">StatusBar</TextBlock>
+                <CheckBox Foreground="White" IsChecked="{Binding $parent[StatusBar].IsRunning}">IsRunning</CheckBox>
             </StackPanel>
-        </TabItem>
-        <TabItem Header="DataGrid">
-            <UniformGrid Columns="1">
-                <DataGrid x:Name="dataGrid"
-                          Margin="10"
-                          AutoGenerateColumns="True"
-                          GridLinesVisibility="All"
-                          HeadersVisibility="All"
-                          ItemsSource="{Binding DataGridCollectionView}" />
-                <DataGrid Margin="10"
-                          AutoGenerateColumns="True"
-                          GridLinesVisibility="Vertical"
-                          ItemsSource="{Binding DataGridCollectionView}" />
-                <DataGrid Margin="10"
-                          AutoGenerateColumns="True"
-                          BorderThickness="0"
-                          IsReadOnly="True"
-                          ItemsSource="{Binding Employees}" />
-            </UniformGrid>
-        </TabItem>
-    </TabControl>
+        </StatusBar>
+    </Grid>
 </Window>

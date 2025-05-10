@@ -65,10 +65,10 @@
         <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
 
         <Style Selector="^:focus,^:pointerover">
-            <Setter Property="Background" Value="#1C8139" />
+            <Setter Property="Background" Value="#FF1C8139" />
         </Style>
         <Style Selector="^:pressed">
-            <Setter Property="Background" Value="#197935" />
+            <Setter Property="Background" Value="#FF197935" />
         </Style>
     </ControlTheme>
 
@@ -80,10 +80,10 @@
         <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
 
         <Style Selector="^:focus,^:pointerover">
-            <Setter Property="Background" Value="#EBB737" />
+            <Setter Property="Background" Value="#FFE6A532" />
         </Style>
         <Style Selector="^:pressed">
-            <Setter Property="Background" Value="#F2CF79" />
+            <Setter Property="Background" Value="#FFF0AF3C" />
         </Style>
     </ControlTheme>
 
@@ -95,10 +95,10 @@
         <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
 
         <Style Selector="^:focus,^:pointerover">
-            <Setter Property="Background" Value="#DF4853" />
+            <Setter Property="Background" Value="#FFDF4853" />
         </Style>
         <Style Selector="^:pressed">
-            <Setter Property="Background" Value="#E9858C" />
+            <Setter Property="Background" Value="#FFE9525D" />
         </Style>
     </ControlTheme>
     <ControlTheme x:Key="ErrorButtonTheme"

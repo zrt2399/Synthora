@@ -70,7 +70,8 @@
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/DateTimePickerShared.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/DatePicker.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/TimePicker.xaml" />
-                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/SplitView.xaml" />
+				<MergeResourceInclude Source="avares://Synthora/Controls/Themes/SplitView.xaml" />
+				<MergeResourceInclude Source="avares://Synthora/Controls/Themes/StatusBar.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ManagedFileChooser.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/SplitButton.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/SelectableTextBlock.xaml" />

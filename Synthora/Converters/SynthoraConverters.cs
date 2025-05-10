@@ -14,6 +14,7 @@ namespace Synthora.Converters
         public static IsNotZeroConverter IsNotZero { get; } = new IsNotZeroConverter();
         public static ItemsSourceHasItemsConverter HasItems { get; } = new ItemsSourceHasItemsConverter();
         public static BoxShadowConverter BoxShadowConverter { get; } = new BoxShadowConverter();
+        public static ContrastColorConverter ContrastColorConverter { get; } = new ContrastColorConverter();
         public static BorderCornerRadiusConverter BorderCornerRadiusConverter { get; } = new BorderCornerRadiusConverter();
     }
 }

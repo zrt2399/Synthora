@@ -10,8 +10,8 @@
             <Color x:Key="PrimaryPressedColor">#FF499FEF</Color>
             <Color x:Key="OnPrimaryColor">#FFFFFFFF</Color>
             <Color x:Key="PrimaryContrastColor">#FFCBD5E0</Color>
-            <Color x:Key="ThemeSelectedMidColor">#FFDCDCDC</Color>
             <Color x:Key="ThemeSelectedLowColor">#FFE6E6E6</Color>
+            <Color x:Key="ThemeSelectedMidColor">#FFDCDCDC</Color>
 
             <Color x:Key="ThemeBackgroundColor">#FFFFFFFF</Color>
             <Color x:Key="ThemeBorderLowColor">#FFAAAAAA</Color>
@@ -35,8 +35,8 @@
             <SolidColorBrush x:Key="PrimaryPressedBrush" Color="{StaticResource PrimaryPressedColor}" />
             <SolidColorBrush x:Key="OnPrimaryBrush" Color="{StaticResource OnPrimaryColor}" />
             <SolidColorBrush x:Key="PrimaryContrastBrush" Color="{StaticResource PrimaryContrastColor}" />
-            <SolidColorBrush x:Key="ThemeSelectedMidBrush" Color="{StaticResource ThemeSelectedMidColor}" />
             <SolidColorBrush x:Key="ThemeSelectedLowBrush" Color="{StaticResource ThemeSelectedLowColor}" />
+            <SolidColorBrush x:Key="ThemeSelectedMidBrush" Color="{StaticResource ThemeSelectedMidColor}" />
 
             <SolidColorBrush x:Key="ThemeBackgroundBrush" Color="{StaticResource ThemeBackgroundColor}" />
             <SolidColorBrush x:Key="ThemeBorderLowBrush" Color="{StaticResource ThemeBorderLowColor}" />
@@ -72,8 +72,8 @@
             <Color x:Key="PrimaryPressedColor">#FF499FEF</Color>
             <Color x:Key="OnPrimaryColor">#FFFFFFFF</Color>
             <Color x:Key="PrimaryContrastColor">#FF2C3E50</Color>
-            <Color x:Key="ThemeSelectedMidColor">#FF5A5A5A</Color>
             <Color x:Key="ThemeSelectedLowColor">#FF505050</Color>
+            <Color x:Key="ThemeSelectedMidColor">#FF5A5A5A</Color>
 
             <Color x:Key="ThemeBackgroundColor">#FF282828</Color>
             <Color x:Key="ThemeBorderLowColor">#FF505050</Color>
@@ -97,8 +97,8 @@
             <SolidColorBrush x:Key="PrimaryPressedBrush" Color="{StaticResource PrimaryPressedColor}" />
             <SolidColorBrush x:Key="OnPrimaryBrush" Color="{StaticResource OnPrimaryColor}" />
             <SolidColorBrush x:Key="PrimaryContrastBrush" Color="{StaticResource PrimaryContrastColor}" />
-            <SolidColorBrush x:Key="ThemeSelectedMidBrush" Color="{StaticResource ThemeSelectedMidColor}" />
             <SolidColorBrush x:Key="ThemeSelectedLowBrush" Color="{StaticResource ThemeSelectedLowColor}" />
+            <SolidColorBrush x:Key="ThemeSelectedMidBrush" Color="{StaticResource ThemeSelectedMidColor}" />
 
             <SolidColorBrush x:Key="ThemeBackgroundBrush" Color="{StaticResource ThemeBackgroundColor}" />
             <SolidColorBrush x:Key="ThemeBorderLowBrush" Color="{StaticResource ThemeBorderLowColor}" />
@@ -144,10 +144,10 @@
     <SolidColorBrush x:Key="HighlightForegroundBrush" Color="{StaticResource HighlightForegroundColor}" />
     <SolidColorBrush x:Key="ThemeForegroundLowBrush" Color="{StaticResource ThemeForegroundLowColor}" />
     <SolidColorBrush x:Key="ThemeForegroundMidBrush" Color="{StaticResource ThemeForegroundMidColor}" />
+    <SolidColorBrush x:Key="ThemeAccentBrush" Color="{StaticResource ThemeAccentColor}" />
     <SolidColorBrush x:Key="ThemeAccentBrush2" Color="{StaticResource ThemeAccentColor2}" />
     <SolidColorBrush x:Key="ThemeAccentBrush3" Color="{StaticResource ThemeAccentColor3}" />
     <SolidColorBrush x:Key="ThemeAccentBrush4" Color="{StaticResource ThemeAccentColor4}" />
-    <SolidColorBrush x:Key="ThemeAccentBrush" Color="{StaticResource ThemeAccentColor}" />
     <SolidColorBrush x:Key="ErrorBrush" Color="{StaticResource ErrorColor}" />
     <SolidColorBrush x:Key="ErrorLowBrush" Color="{StaticResource ErrorLowColor}" />
     <SolidColorBrush x:Key="SuccessBrush" Color="{StaticResource SuccessColor}" />
