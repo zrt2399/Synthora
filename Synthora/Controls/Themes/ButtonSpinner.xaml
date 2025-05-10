@@ -97,7 +97,7 @@
         <Style Selector="^:pointerover /template/ Border#border">
             <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighBrush}" />
         </Style>
-        <Style Selector="^:focus /template/ Border#border">
+        <Style Selector="^:focus-within /template/ Border#border">
             <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighBrush}" />
         </Style>
         <Style Selector="^:error /template/ Border#border">

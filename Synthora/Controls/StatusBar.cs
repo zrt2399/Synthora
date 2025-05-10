@@ -3,7 +3,7 @@ using Avalonia.Controls;
 
 namespace Synthora.Controls
 {
-    public class StatusBar : Grid
+    public class StatusBar : ContentControl
     {
         public static readonly StyledProperty<bool> IsRunningProperty =
             AvaloniaProperty.Register<StatusBar, bool>(nameof(IsRunning));

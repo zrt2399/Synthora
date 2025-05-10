@@ -68,11 +68,12 @@
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}">
                     <ContentPresenter x:Name="PART_ContentPresenter"
-                                      Margin="{TemplateBinding Padding}"          CornerRadius="{TemplateBinding CornerRadius}"
+                                      Margin="{TemplateBinding Padding}"
                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                       Content="{TemplateBinding Content}"
                                       ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      CornerRadius="{TemplateBinding CornerRadius}"
                                       Foreground="{DynamicResource ThemeForegroundBrush}" />
                 </Border>
             </ControlTemplate>

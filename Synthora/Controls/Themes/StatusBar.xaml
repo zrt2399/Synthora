@@ -9,13 +9,34 @@
 
     <ControlTheme x:Key="{x:Type StatusBar}" TargetType="StatusBar">
         <Setter Property="Background" Value="{DynamicResource StatusBarDefaultBackground}" />
-        <Setter Property="TextElement.Foreground" Value="{DynamicResource StatusBarDefaultForeground}" />
+        <Setter Property="Foreground" Value="{DynamicResource StatusBarDefaultForeground}" />
+        <Setter Property="Padding" Value="{DynamicResource ThemeBorderPadding}" />
+
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+
+                    <ContentPresenter Name="PART_ContentPresenter"
+                                      Margin="{TemplateBinding Padding}"
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      RecognizesAccessKey="True"
+                                      TextElement.Foreground="{TemplateBinding Foreground}" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
 
         <Style Selector="^[IsRunning=True]">
             <Setter Property="Background" Value="{DynamicResource StatusBarRunningBackground}" />
-            <Setter Property="TextElement.Foreground" Value="{DynamicResource StatusBarRunningForeground}" />
+            <Setter Property="Foreground" Value="{DynamicResource StatusBarRunningForeground}" />
         </Style>
-
     </ControlTheme>
 
 </ResourceDictionary> 

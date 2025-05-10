@@ -469,10 +469,9 @@
             </TabItem>
         </TabControl>
         <StatusBar Grid.Row="1">
-            <StackPanel Margin="4"
-                        Orientation="Horizontal"
-                        Spacing="10">
+            <StackPanel Orientation="Horizontal" Spacing="10">
                 <TextBlock VerticalAlignment="Center">StatusBar</TextBlock>
+                <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
                 <CheckBox Foreground="White" IsChecked="{Binding $parent[StatusBar].IsRunning}">IsRunning</CheckBox>
             </StackPanel>
         </StatusBar>

@@ -4,11 +4,13 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
+using PropertyChanged;
 using Synthora.Demo.ViewModels;
 using Synthora.Demo.Views;
 
 namespace Synthora.Demo
 {
+    [DoNotNotify]
     public partial class App : Application
     {
         public static MainWindow MainWindow
