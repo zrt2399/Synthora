@@ -13,3 +13,6 @@ dotnet add package Synthora
     <SynthoraTheme /> 
 </Application.Styles>
 ```
+
+# 📷 ScreenShot
+![ScreenShot](ScreenShots/ButtonView.png)
