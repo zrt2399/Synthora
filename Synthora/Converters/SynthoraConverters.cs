@@ -8,6 +8,8 @@ namespace Synthora.Converters
 {
     public static class SynthoraConverters
     {
+        public static EqualsConverter Equal { get; } = new EqualsConverter();
+        public static NotEqualsConverter NotEqual { get; } = new NotEqualsConverter();
         public static NullOrEmptyToBoolConverter IsNullOrEmpty { get; } = new NullOrEmptyToBoolConverter();
         public static NotNullOrEmptyToBoolConverter IsNotNullOrEmpty { get; } = new NotNullOrEmptyToBoolConverter();
         public static IsZeroConverter IsZero { get; } = new IsZeroConverter();
