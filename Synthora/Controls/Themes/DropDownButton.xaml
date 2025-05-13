@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     x:ClassModifier="internal">
+
     <ControlTheme x:Key="{x:Type DropDownButton}" TargetType="DropDownButton">
         <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
@@ -34,7 +35,8 @@
                                               ContentTemplate="{TemplateBinding ContentTemplate}"
                                               RecognizesAccessKey="True" />
 
-                            <PathIcon Grid.Column="1"
+                            <PathIcon Name="pathIcon"
+                                      Grid.Column="1"
                                       Width="12"
                                       Height="12"
                                       Margin="0,0,4,0"
@@ -50,6 +52,12 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+
+        <Style Selector="^:flyout-open /template/ PathIcon#pathIcon">
+            <Setter Property="RenderTransform">
+                <RotateTransform Angle="180" />
+            </Setter>
+        </Style>
 
         <Style Selector="^:pointerover">
             <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />

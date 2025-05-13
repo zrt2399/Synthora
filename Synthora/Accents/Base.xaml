@@ -154,21 +154,11 @@
     <SolidColorBrush x:Key="SuccessBrush" Color="{StaticResource SuccessColor}" />
     <SolidColorBrush x:Key="WarningBrush" Color="{StaticResource WarningColor}" />
     <SolidColorBrush x:Key="DangerBrush" Color="{StaticResource DangerColor}" />
-    <SolidColorBrush x:Key="NotificationCardBackgroundBrush"
-                     Opacity="0.75"
-                     Color="#444444" />
-    <SolidColorBrush x:Key="NotificationCardInformationBackgroundBrush"
-                     Opacity="0.75"
-                     Color="#007ACC" />
-    <SolidColorBrush x:Key="NotificationCardSuccessBackgroundBrush"
-                     Opacity="0.75"
-                     Color="#1F9E45" />
-    <SolidColorBrush x:Key="NotificationCardWarningBackgroundBrush"
-                     Opacity="0.75"
-                     Color="#FDB328" />
-    <SolidColorBrush x:Key="NotificationCardErrorBackgroundBrush"
-                     Opacity="0.75"
-                     Color="#BD202C" />
+
+    <SolidColorBrush x:Key="NotificationCardInformationBackgroundBrush" Color="{StaticResource PrimaryColor}" />
+    <SolidColorBrush x:Key="NotificationCardSuccessBackgroundBrush" Color="{StaticResource SuccessColor}" />
+    <SolidColorBrush x:Key="NotificationCardWarningBackgroundBrush" Color="{StaticResource WarningColor}" />
+    <SolidColorBrush x:Key="NotificationCardErrorBackgroundBrush" Color="{StaticResource DangerColor}" />
     <SolidColorBrush x:Key="ThemeControlTransparentBrush" Color="Transparent" />
     <SolidColorBrush x:Key="DatePickerFlyoutPresenterHighlightFill"
                      Opacity="0.4"

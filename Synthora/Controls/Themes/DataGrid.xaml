@@ -32,19 +32,12 @@
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}">
-                    <!--<Grid ColumnDefinitions="*,Auto">-->
                     <ContentPresenter Margin="{TemplateBinding Padding}"
                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                       Content="{TemplateBinding Content}"
                                       ContentTemplate="{TemplateBinding ContentTemplate}"
                                       Foreground="{TemplateBinding Foreground}" />
-
-                    <!--<Rectangle Name="PART_RightGridLine"
-                                   Grid.Column="1"
-                                   Width="1" Fill="Red"
-                                   VerticalAlignment="Stretch" />-->
-                    <!--</Grid>-->
                 </Border>
             </ControlTemplate>
         </Setter>
@@ -59,19 +52,20 @@
         <Setter Property="Padding" Value="{DynamicResource ThemeBorderPadding}" />
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{Binding $parent[DataGrid].BorderBrush}" />
-        <Setter Property="BorderThickness" Value="0,0,1,1" />
+        <Setter Property="BorderThickness" Value="0,0,1,0" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border x:Name="HeaderBorder"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
-                    <!--<Grid ColumnDefinitions="*,Auto">-->
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        UseLayoutRounding="False">
                     <Grid Margin="{TemplateBinding Padding}"
                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                          ColumnDefinitions="*,Auto">
+                          ColumnDefinitions="*,Auto"
+                          UseLayoutRounding="{TemplateBinding UseLayoutRounding}">
                         <ContentPresenter x:Name="PART_ContentPresenter"
                                           Content="{TemplateBinding Content}"
                                           ContentTemplate="{TemplateBinding ContentTemplate}" />
@@ -88,24 +82,10 @@
                                   IsHitTestVisible="False"
                                   IsVisible="False"
                                   UseLayoutRounding="False" />
-
                     </Grid>
-
-                    <!--<Rectangle Name="VerticalSeparator"
-                                   Grid.Column="1"
-                                   Width="1"
-                                   VerticalAlignment="Stretch"
-                                   Fill="{TemplateBinding SeparatorBrush}"
-                                   IsVisible="{TemplateBinding AreSeparatorsVisible}" />-->
-
-                    <!--</Grid>-->
                 </Border>
             </ControlTemplate>
         </Setter>
-
-        <Style Selector="^:focus-visible /template/ Grid#FocusVisual">
-            <Setter Property="IsVisible" Value="True" />
-        </Style>
 
         <Style Selector="^:pointerover">
             <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowColor}" />
@@ -116,7 +96,7 @@
         </Style>
 
         <Style Selector="^:dragIndicator">
-            <Setter Property="Opacity" Value="0.5" />
+            <Setter Property="Opacity" Value="0.6" />
         </Style>
 
         <Style Selector="^:sortascending /template/ PathIcon#SortIcon">
@@ -271,17 +251,14 @@
                     <Grid ClipToBounds="True"
                           ColumnDefinitions="Auto,*,Auto"
                           RowDefinitions="Auto,*,Auto,Auto">
-                        <DataGridColumnHeader Name="PART_TopLeftCornerHeader" Width="22" />
+
+                        <DataGridColumnHeader Name="PART_TopLeftCornerHeader" />
                         <DataGridColumnHeadersPresenter Name="PART_ColumnHeadersPresenter" Grid.Column="1" />
-                        <DataGridColumnHeader Name="PART_TopRightCornerHeader"
-                                              Grid.Column="2"
-                                              BorderThickness="0,0,0,1" />
-                        <Rectangle Name="PART_ColumnHeadersAndRowsSeparator"
-                                   Grid.ColumnSpan="3"
-                                   Height="1"
-                                   VerticalAlignment="Bottom"
-                                   Fill="{DynamicResource ThemeControlMidHighBrush}"
-                                   StrokeThickness="1" />
+
+                        <Border Grid.ColumnSpan="3"
+                                BorderBrush="{Binding $parent[DataGrid].BorderBrush}"
+                                BorderThickness="0,0,0,1"
+                                UseLayoutRounding="False" />
 
                         <DataGridRowsPresenter Name="PART_RowsPresenter"
                                                Grid.Row="1"

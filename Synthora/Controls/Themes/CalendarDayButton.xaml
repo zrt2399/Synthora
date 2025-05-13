@@ -12,10 +12,12 @@
         <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush2}" />
         <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
+        <Setter Property="Padding" Value="4,2" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="MinWidth" Value="5" />
-        <Setter Property="MinHeight" Value="5" />
+
+        <!--<Setter Property="MinWidth" Value="5" />
+        <Setter Property="MinHeight" Value="5" />-->
         <Setter Property="Focusable" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
@@ -36,7 +38,7 @@
                                Opacity="0.5" />
 
                     <ContentPresenter Name="PART_ContentPresenter"
-                                      Margin="5,1,5,1"
+                                      Margin="{TemplateBinding Padding}"
                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                       Content="{TemplateBinding Content}"
