@@ -7,10 +7,16 @@
 
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="using:Avalonia.Controls.Converters"
                     xmlns:sys="using:System"
                     x:ClassModifier="internal">
 
+    <converters:MarginMultiplierConverter x:Key="CalendarDatePickerDropDownButtonMarginMultiplier"
+                                          Indent="1"
+                                          Left="True" />
+
     <ControlTheme x:Key="SimpleCalendarDatePickerButtonTheme" TargetType="Button">
+        <Setter Property="Margin" Value="{Binding $parent[CalendarDatePicker].Padding, Converter={StaticResource CalendarDatePickerDropDownButtonMarginMultiplier}}" />
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="Width" Value="12" />
@@ -58,7 +64,6 @@
                         <TextBox.InnerRightContent>
                             <Button Name="PART_Button"
                                     Grid.Column="1"
-                                    Margin="4,0,0,0"
                                     Cursor="Arrow"
                                     Focusable="False"
                                     Foreground="{Binding $parent[CalendarDatePicker].Foreground}"

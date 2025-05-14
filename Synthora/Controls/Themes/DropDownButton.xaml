@@ -1,6 +1,13 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="using:Avalonia.Controls.Converters"
                     x:ClassModifier="internal">
+
+    <converters:MarginMultiplierConverter x:Key="DropDownButtonMarginMultiplier"
+                                          Bottom="True"
+                                          Indent="1"
+                                          Right="True"
+                                          Top="True" />
 
     <ControlTheme x:Key="{x:Type DropDownButton}" TargetType="DropDownButton">
         <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
@@ -39,7 +46,8 @@
                                       Grid.Column="1"
                                       Width="12"
                                       Height="12"
-                                      Margin="0,0,4,0"
+                                      Margin="{TemplateBinding Padding,
+                                                               Converter={StaticResource DropDownButtonMarginMultiplier}}"
                                       HorizontalAlignment="Right"
                                       VerticalAlignment="Center"
                                       Data="{DynamicResource DownArrowGlyph}"

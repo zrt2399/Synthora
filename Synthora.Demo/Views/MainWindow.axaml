@@ -278,6 +278,7 @@
                                     </Flyout>
                                 </SplitButton.Flyout>
                             </SplitButton>
+                            <ToggleSplitButton Content="ToggleSplitButton" />
                             <DropDownButton Content="DropDownButton">
                                 <DropDownButton.Flyout>
                                     <Flyout Placement="BottomEdgeAlignedLeft">

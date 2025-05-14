@@ -15,7 +15,6 @@ namespace Synthora.Demo.Views
         private void DataGrid_LoadingRow(object? sender, DataGridRowEventArgs e)
         {
             e.Row.Header = e.Row.Index + 1;
-           var s= new DataGrid().ActualThemeVariant;
         }
     }
 }
