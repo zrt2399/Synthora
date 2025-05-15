@@ -4,7 +4,7 @@ using Avalonia.Input;
 
 namespace Synthora.Utils
 {
-    internal class TextBoxUtils
+    public class TextBoxUtils
     {
         public static KeyGesture? SelectAllGesture => Application.Current?.PlatformSettings?.HotkeyConfiguration.SelectAll.FirstOrDefault();
     }
