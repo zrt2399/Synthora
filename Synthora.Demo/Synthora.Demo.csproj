@@ -8,12 +8,12 @@
 		<BuiltInComInteropSupport>true</BuiltInComInteropSupport>
 		<ApplicationManifest>app.manifest</ApplicationManifest>
 		<AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
-		<ApplicationIcon>Assets\avalonia-logo.ico</ApplicationIcon>
+		<ApplicationIcon>Assets/avalonia-logo.ico</ApplicationIcon>
 		<PublishReadyToRun>True</PublishReadyToRun>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<AvaloniaResource Include="Assets\**" />
+		<AvaloniaResource Include="Assets/**" />
 	</ItemGroup>
 
 	<ItemGroup>
