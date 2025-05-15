@@ -26,10 +26,11 @@ namespace Synthora.Utils
                 var folderPath = GetDirectoryName(fullPath);
                 return Process.Start("xdg-open", $"\"{folderPath}\"");
             }
-            else
+            else if (OperatingSystem.IsMacOS())
             {
-                return null;
+                return Process.Start("open", $"-R \"{fullPath}\"");
             }
+            return null;
         }
 
         public static Process? OpenFlie(string fileName)
