@@ -182,7 +182,7 @@
         <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
-        <Setter Property="SelectionBrush" Value="{DynamicResource ThemeAccentBrush2}" />
+        <Setter Property="SelectionBrush" Value="{DynamicResource TextSelectionBrush}" />
         <!--<Setter Property="SelectionForegroundBrush" Value="{DynamicResource HighlightForegroundBrush}" />-->
         <Setter Property="Padding" Value="{DynamicResource ThemeBorderPadding}" />
         <Setter Property="ContextFlyout" Value="{StaticResource SimpleTextBoxContextFlyout}" />
