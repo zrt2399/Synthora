@@ -18,10 +18,13 @@
 
     <!-- macOS packing -->
     <!-- dotnet restore -r osx-arm64 -->
-    <!-- dotnet msbuild -t:BundleApp -p:RuntimeIdentifier=osx-arm64  -p:Configuration=Release -->
+    <!-- dotnet msbuild -t:BundleApp -p:RuntimeIdentifier=osx-arm64 -p:Configuration=Release -p:SelfContained=true -->
+    
+    <!-- xattr -cr /Applications/SynthoraDemo.app --><!-- Clear all file attributes -->
+
     <PropertyGroup>
-        <CFBundleName>Synthora Demo</CFBundleName> <!-- Also defines .app file name -->
-        <CFBundleDisplayName>Synthora Demo</CFBundleDisplayName>
+        <CFBundleName>SynthoraDemo</CFBundleName> <!-- Also defines .app file name -->
+        <CFBundleDisplayName>SynthoraDemo</CFBundleDisplayName>
         <CFBundleIdentifier>com.yoyo.synthora</CFBundleIdentifier>
         <CFBundleShortVersionString>$(Version)</CFBundleShortVersionString>
         <CFBundleVersion>1.0</CFBundleVersion>
