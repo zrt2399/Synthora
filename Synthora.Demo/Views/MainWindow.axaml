@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:converters="using:Synthora.Demo.Converters"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:demo="using:Synthora.Demo"
         xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:so="https://github.com/zrt2399/synthora"
@@ -470,11 +471,14 @@
             </TabItem>
         </TabControl>
         <StatusBar Grid.Row="1">
-            <StackPanel Orientation="Horizontal" Spacing="10">
-                <TextBlock VerticalAlignment="Center">StatusBar</TextBlock>
-                <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
-                <CheckBox Foreground="White" IsChecked="{Binding $parent[StatusBar].IsRunning}">IsRunning</CheckBox>
-            </StackPanel>
+            <Panel>
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <TextBlock VerticalAlignment="Center">StatusBar</TextBlock>
+                    <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
+                    <CheckBox Foreground="White" IsChecked="{Binding $parent[StatusBar].IsRunning}">IsRunning</CheckBox>
+                </StackPanel>
+                <TextBlock HorizontalAlignment="Right" Text="{x:Static demo:App.AppVersion}" />
+            </Panel>
         </StatusBar>
     </Grid>
 </Window>
