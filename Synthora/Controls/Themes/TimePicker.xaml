@@ -56,17 +56,15 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^:pointerover">
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighBrush}" />
-            <Setter Property="TextElement.Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
+		<Style Selector="^:pointerover,^:focus">
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighBrush}" /> 
         </Style>
 
         <Style Selector="^:pressed">
             <Setter Property="Background">
                 <SolidColorBrush Opacity="0.6" Color="{DynamicResource ThemeControlMidHighColor}" />
             </Setter>
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeControlLowBrush}" />
-            <Setter Property="TextElement.Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeControlLowBrush}" /> 
         </Style>
 
         <Style Selector="^:disabled">

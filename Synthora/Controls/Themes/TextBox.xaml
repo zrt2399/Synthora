@@ -280,7 +280,7 @@
             </ControlTemplate>
         </Setter>
         <Style Selector="^:focus,^:pointerover">
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighlightBrush}" />
         </Style>
 
         <Style Selector="^:error">

@@ -53,7 +53,6 @@
             <SolidColorBrush x:Key="ThemeControlHighlightHighBrush" Color="{StaticResource ThemeControlHighlightHighColor}" />
             <SolidColorBrush x:Key="ThemeForegroundBrush" Color="{StaticResource ThemeForegroundColor}" />
             <SolidColorBrush x:Key="HighlightBrush" Color="{StaticResource HighlightColor}" />
-            <SolidColorBrush x:Key="HighlightBrush2" Color="{StaticResource HighlightColor2}" />
             <SolidColorBrush x:Key="HyperlinkVisitedBrush" Color="{StaticResource HyperlinkVisitedColor}" />
 
             <SolidColorBrush x:Key="RefreshVisualizerForeground" Color="Black" />
@@ -116,7 +115,6 @@
             <SolidColorBrush x:Key="ThemeControlHighlightHighBrush" Color="{StaticResource ThemeControlHighlightHighColor}" />
             <SolidColorBrush x:Key="ThemeForegroundBrush" Color="{StaticResource ThemeForegroundColor}" />
             <SolidColorBrush x:Key="HighlightBrush" Color="{StaticResource HighlightColor}" />
-            <SolidColorBrush x:Key="HighlightBrush2" Color="{StaticResource HighlightColor2}" />
             <SolidColorBrush x:Key="HyperlinkVisitedBrush" Color="{StaticResource HyperlinkVisitedColor}" />
 
             <SolidColorBrush x:Key="RefreshVisualizerForeground" Color="White" />
@@ -131,6 +129,7 @@
     </ResourceDictionary.ThemeDictionaries>
 
     <FontFamily x:Key="ContentControlThemeFontFamily">fonts:Inter#Inter, $Default</FontFamily>
+    <Color x:Key="ThemeBorderHighlightColor">#FF007AFF</Color>
     <Color x:Key="ThemeAccentColor">#DD007AFF</Color>
     <Color x:Key="ThemeAccentColor2">#AA007AFF</Color>
     <Color x:Key="ThemeAccentColor3">#77007AFF</Color>
@@ -143,6 +142,7 @@
     <Color x:Key="SuccessColor">#FF1F883D</Color>
     <Color x:Key="WarningColor">#FFDC9B28</Color>
     <Color x:Key="DangerColor">#FFDB3340</Color>
+    <SolidColorBrush x:Key="ThemeBorderHighlightBrush" Color="{StaticResource ThemeBorderHighlightColor}" />
     <SolidColorBrush x:Key="HighlightForegroundBrush" Color="{StaticResource HighlightForegroundColor}" />
     <SolidColorBrush x:Key="ThemeForegroundLowBrush" Color="{StaticResource ThemeForegroundLowColor}" />
     <SolidColorBrush x:Key="ThemeForegroundMidBrush" Color="{StaticResource ThemeForegroundMidColor}" />

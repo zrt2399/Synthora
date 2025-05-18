@@ -148,9 +148,9 @@
                                     MessageTip.Show
                                 </Button>
                                 <Button Command="{Binding ShowMessageTip}"
-                                        CommandParameter="OK"
+                                        CommandParameter="Success"
                                         Theme="{StaticResource SuccessButtonTheme}">
-                                    MessageTip.OK
+                                    MessageTip.Success
                                 </Button>
                                 <Button Command="{Binding ShowMessageTip}"
                                         CommandParameter="Warning"

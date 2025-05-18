@@ -28,19 +28,21 @@
             <ControlTemplate>
                 <DataValidationErrors>
                     <Border Name="border"
-                            Margin="{TemplateBinding Padding}"
-                            HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
-                            VerticalAlignment="{TemplateBinding VerticalAlignment}"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{TemplateBinding CornerRadius}">
-                        <DockPanel>
+                        <Grid ColumnDefinitions="*,Auto">
+                            <ContentPresenter Name="PART_ContentPresenter"
+                                              Padding="{TemplateBinding Padding}"
+                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}" />
                             <UniformGrid Name="PART_SpinnerPanel"
-                                         DockPanel.Dock="Right"
+                                         Grid.Column="1"
                                          IsVisible="{TemplateBinding ShowButtonSpinner}"
-                                         Rows="2"
-                                         TabIndex="2">
+                                         Rows="2">
                                 <RepeatButton Name="PART_IncreaseButton"
                                               Padding="4,0"
                                               IsTabStop="{TemplateBinding IsTabStop}"
@@ -76,15 +78,7 @@
                                               Foreground="{DynamicResource ThemeForegroundBrush}" />
                                 </RepeatButton>
                             </UniformGrid>
-                            <ContentPresenter Name="PART_ContentPresenter"
-                                              Grid.Column="1"
-                                              Padding="{TemplateBinding Padding}"
-                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                              Content="{TemplateBinding Content}"
-                                              ContentTemplate="{TemplateBinding ContentTemplate}"
-                                              TabIndex="1" />
-                        </DockPanel>
+                        </Grid>
                     </Border>
                 </DataValidationErrors>
             </ControlTemplate>
@@ -95,10 +89,10 @@
             </Style>
         </Style>
         <Style Selector="^:pointerover /template/ Border#border">
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighlightBrush}" />
         </Style>
         <Style Selector="^:focus-within /template/ Border#border">
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighlightBrush}" />
         </Style>
         <Style Selector="^:error /template/ Border#border">
             <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />

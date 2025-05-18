@@ -57,9 +57,8 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^:pointerover">
+        <Style Selector="^:pointerover,^:focus">
             <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighBrush}" />
-            <Setter Property="TextBlock.Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
         </Style>
 
         <Style Selector="^:pressed">
@@ -67,7 +66,6 @@
             <Setter Property="Background">
                 <SolidColorBrush Opacity="0.6" Color="{DynamicResource ThemeControlMidHighColor}" />
             </Setter>
-            <Setter Property="TextBlock.Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
         </Style>
 
         <Style Selector="^:disabled">

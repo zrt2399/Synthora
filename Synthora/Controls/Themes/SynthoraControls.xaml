@@ -20,6 +20,7 @@
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/PathPicker.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/CheckBox.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ToolTip.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/TipIcon.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/Label.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ComboBoxItem.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ComboBox.xaml" />
@@ -70,8 +71,8 @@
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/DateTimePickerShared.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/DatePicker.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/TimePicker.xaml" />
-				<MergeResourceInclude Source="avares://Synthora/Controls/Themes/SplitView.xaml" />
-				<MergeResourceInclude Source="avares://Synthora/Controls/Themes/StatusBar.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/SplitView.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/StatusBar.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ManagedFileChooser.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/SplitButton.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/SelectableTextBlock.xaml" />

@@ -88,15 +88,15 @@ namespace Synthora.Demo.ViewModels
             StringBuilder stringBuilder = new StringBuilder();
             for (int i = 0; i < 100; i++)
             {
-                stringBuilder.Append("MessageTip.ShowOK;");
+                stringBuilder.Append("MessageTip.ShowSuccess;");
             }
             if (param == "Show")
             {
                 MessageTip.Show(stringBuilder.ToString());
             }
-            else if (param == "OK")
+            else if (param == "Success")
             {
-                MessageTip.ShowOK("ShowOK");
+                MessageTip.ShowSuccess("ShowSuccess");
             }
             else if (param == "Warning")
             {
