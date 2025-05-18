@@ -1,6 +1,13 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="using:Avalonia.Controls.Converters"
                     x:ClassModifier="internal">
+
+    <converters:MarginMultiplierConverter x:Key="NotificationCardIconMarginMultiplier"
+                                          Bottom="True"
+                                          Indent="1"
+                                          Left="True"
+                                          Top="True" />
 
     <Design.PreviewWith>
         <Border Padding="0" Background="White">
@@ -10,31 +17,43 @@
 
     <ControlTheme x:Key="{x:Type NotificationCard}" TargetType="NotificationCard">
         <Setter Property="UseLayoutRounding" Value="True" />
-        <Setter Property="Width" Value="350" />
+        <Setter Property="Padding" Value="12" />
+        <Setter Property="Width" Value="300" />
         <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
         <Setter Property="RenderTransformOrigin" Value="50%,75%" />
-        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <LayoutTransformControl Name="PART_LayoutTransformControl" UseRenderTransform="True">
                     <Border Margin="5"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
                             BoxShadow="0 0 8 0 #64000000"
                             CornerRadius="{TemplateBinding CornerRadius}">
-                        <Border Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                ClipToBounds="True"
-                                CornerRadius="{TemplateBinding CornerRadius}">
+                        <Border ClipToBounds="True">
+                            <Border.CornerRadius>
+                                <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="TopLeft,TopRight">
+                                    <Binding Path="BorderThickness" RelativeSource="{RelativeSource TemplatedParent}" />
+                                    <Binding Path="CornerRadius" RelativeSource="{RelativeSource TemplatedParent}" />
+                                </MultiBinding>
+                            </Border.CornerRadius>
                             <DockPanel>
                                 <Panel x:Name="PART_HeaderBar"
                                        Height="4"
-                                       Background="{DynamicResource NotificationCardProgressBackgroundBrush}"
+                                       Background="{TemplateBinding BorderBrush}"
                                        DockPanel.Dock="Top" />
-                                <ContentPresenter Name="PART_ContentPresenter"
-                                                  MinHeight="64"
-                                                  Content="{TemplateBinding Content}" />
+                                <DockPanel>
+                                    <TipIcon Name="icon"
+                                             Margin="{TemplateBinding Padding,
+                                                                      Converter={StaticResource NotificationCardIconMarginMultiplier}}"
+                                             VerticalAlignment="Top" />
+                                    <ContentPresenter Name="PART_ContentPresenter"
+                                                      Margin="{TemplateBinding Padding}"
+                                                      Content="{TemplateBinding Content}" />
+                                </DockPanel>
                             </DockPanel>
                         </Border>
                     </Border>
@@ -43,22 +62,16 @@
         </Setter>
 
         <ControlTheme.Animations>
-            <Animation Easing="QuadraticEaseIn"
+            <Animation Easing="QuadraticEaseOut"
                        FillMode="Forward"
-                       Duration="0:0:0.45">
+                       Duration="0:0:0.4">
                 <KeyFrame Cue="0%">
-                    <Setter Property="Opacity" Value="0" />
-                    <Setter Property="TranslateTransform.Y" Value="20" />
-                    <Setter Property="ScaleTransform.ScaleX" Value="0.85" />
-                    <Setter Property="ScaleTransform.ScaleY" Value="0.85" />
+                    <Setter Property="ScaleTransform.ScaleY" Value="0" />
+                    <Setter Property="TranslateTransform.X" Value="800" />
                 </KeyFrame>
-                <KeyFrame Cue="30%">
-                    <Setter Property="TranslateTransform.Y" Value="-20" />
-                </KeyFrame>
+                <!--  中间可选插值点，这里省略，直接到最终状态  -->
                 <KeyFrame Cue="100%">
-                    <Setter Property="Opacity" Value="1" />
-                    <Setter Property="TranslateTransform.Y" Value="0" />
-                    <Setter Property="ScaleTransform.ScaleX" Value="1" />
+                    <Setter Property="TranslateTransform.X" Value="0" />
                     <Setter Property="ScaleTransform.ScaleY" Value="1" />
                 </KeyFrame>
             </Animation>
@@ -98,17 +111,29 @@
             </Style.Animations>
         </Style>
 
-        <Style Selector="^:information /template/ Panel#PART_HeaderBar">
-            <Setter Property="Background" Value="{DynamicResource NotificationCardInformationBackgroundBrush}" />
+        <Style Selector="^:information">
+            <Style Selector="^ /template/ TipIcon#icon">
+                <Setter Property="IconType" Value="Information" />
+            </Style>
+            <Setter Property="BorderBrush" Value="{DynamicResource NotificationCardInformationBackgroundBrush}" />
         </Style>
-        <Style Selector="^:success /template/ Panel#PART_HeaderBar">
-            <Setter Property="Background" Value="{DynamicResource NotificationCardSuccessBackgroundBrush}" />
+        <Style Selector="^:success">
+            <Style Selector="^ /template/ TipIcon#icon">
+                <Setter Property="IconType" Value="Success" />
+            </Style>
+            <Setter Property="BorderBrush" Value="{DynamicResource NotificationCardSuccessBackgroundBrush}" />
         </Style>
-        <Style Selector="^:warning /template/ Panel#PART_HeaderBar">
-            <Setter Property="Background" Value="{DynamicResource NotificationCardWarningBackgroundBrush}" />
+        <Style Selector="^:warning">
+            <Style Selector="^ /template/ TipIcon#icon">
+                <Setter Property="IconType" Value="Warning" />
+            </Style>
+            <Setter Property="BorderBrush" Value="{DynamicResource NotificationCardWarningBackgroundBrush}" />
         </Style>
-        <Style Selector="^:error /template/ Panel#PART_HeaderBar">
-            <Setter Property="Background" Value="{DynamicResource NotificationCardErrorBackgroundBrush}" />
+        <Style Selector="^:error">
+            <Style Selector="^ /template/ TipIcon#icon">
+                <Setter Property="IconType" Value="Error" />
+            </Style>
+            <Setter Property="BorderBrush" Value="{DynamicResource NotificationCardErrorBackgroundBrush}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

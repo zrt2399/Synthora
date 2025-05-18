@@ -9,7 +9,7 @@
                 <ReversibleStackPanel Name="PART_Items">
                     <ReversibleStackPanel.DataTemplates>
                         <DataTemplate DataType="INotification">
-                            <StackPanel Margin="12" Spacing="8">
+                            <StackPanel Spacing="8">
                                 <TextBlock FontWeight="Bold" Text="{Binding Title}" />
                                 <TextBlock MaxHeight="80"
                                            Text="{Binding Message}"
@@ -18,7 +18,7 @@
                             </StackPanel>
                         </DataTemplate>
                         <DataTemplate DataType="x:String">
-                            <TextBlock Margin="12" Text="{Binding}" />
+                            <TextBlock Text="{Binding}" />
                         </DataTemplate>
                     </ReversibleStackPanel.DataTemplates>
                 </ReversibleStackPanel>
