@@ -1,0 +1,2 @@
+安装完打开程序提示已损坏请打开终端后执行以下命令，回车执行后就可以打开程序了
+xattr -cr /Applications/SynthoraDemo.app
