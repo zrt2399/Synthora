@@ -279,7 +279,16 @@
                                     </Flyout>
                                 </SplitButton.Flyout>
                             </SplitButton>
-                            <ToggleSplitButton Content="ToggleSplitButton" />
+                            <ToggleSplitButton Content="ToggleSplitButton">
+                                <ToggleSplitButton.Flyout>
+                                    <Flyout Placement="BottomEdgeAlignedLeft">
+                                        <ListBox MaxHeight="400"
+                                                 Margin="0,4"
+                                                 BorderThickness="0"
+                                                 ItemsSource="{Binding Employees}" />
+                                    </Flyout>
+                                </ToggleSplitButton.Flyout>
+                            </ToggleSplitButton>
                             <DropDownButton Content="DropDownButton">
                                 <DropDownButton.Flyout>
                                     <Flyout Placement="BottomEdgeAlignedLeft">
