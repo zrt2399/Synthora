@@ -5,7 +5,9 @@ using System.Collections.ObjectModel;
 using System.Text;
 using Avalonia;
 using Avalonia.Collections;
+using Avalonia.Controls;
 using Avalonia.Controls.Notifications;
+using Avalonia.Layout;
 using Avalonia.Platform.Storage;
 using Avalonia.Styling;
 using Avalonia.Threading;
@@ -46,23 +48,32 @@ namespace Synthora.Demo.ViewModels
         public IList? SelectedFiles { get; set; }
         public IReadOnlyList<FilePickerFileType> FilePickerFileTypes { get; } = new List<FilePickerFileType>
         {
-            new FilePickerFileType("Image Files"){ Patterns = new [] { "*.jpg", "*.jpeg", "*.png", "*.gif" }},
-            new FilePickerFileType("Text Files"){ Patterns = new [] { "*.txt" }},
-            new FilePickerFileType("All Files"){ Patterns = new [] { "*" }}
+            new FilePickerFileType("Image Files")
+            {
+                Patterns = ["*.jpg", "*.jpeg", "*.png", "*.gif", "*.bmp"]
+            },
+            new FilePickerFileType("Text Files")
+            {
+                Patterns = ["*.txt"]
+            },
+            new FilePickerFileType("All Files")
+            {
+                Patterns = ["*"]
+            }
         };
 
         public DataGridCollectionView DataGridCollectionView { get; }
 
         public ObservableCollection<string> BrushKeys { get; } = new ObservableCollection<string>
-        { 
+        {
             "PrimaryBrush",
             "SuccessBrush",
-            "WarningBrush", 
-            "DangerBrush", 
-            "ErrorBrush", 
+            "WarningBrush",
+            "DangerBrush",
+            "ErrorBrush",
             "ThemeAccentBrush",
-            "ThemeAccentBrush2", 
-            "ThemeAccentBrush3", 
+            "ThemeAccentBrush2",
+            "ThemeAccentBrush3",
             "ThemeAccentBrush4",
             "ThemeBackgroundBrush",
             "ThemeForegroundBrush"
@@ -75,12 +86,28 @@ namespace Synthora.Demo.ViewModels
 
         public void Test() => Greeting = "Test";
 
-        public async void ShowMessageBox()
+        public async void ShowMessageBox(string param)
         {
             var box = MessageBoxManager.GetMessageBoxStandard("Caption", "Are you sure you would like to delete appender_replace_page_1?",
-               ButtonEnum.YesNo, Icon.Info);
+                ButtonEnum.YesNo, Icon.Info);
 
-            var result = await box.ShowAsPopupAsync(App.MainWindow);
+            var result = param switch
+            {
+                nameof(box.ShowAsPopupAsync) => await box.ShowAsPopupAsync(App.MainWindow),
+                nameof(box.ShowWindowDialogAsync) => await box.ShowWindowDialogAsync(App.MainWindow),
+                nameof(box.ShowWindowAsync) => await box.ShowWindowAsync(),
+                _ => await box.ShowAsync()
+            };
+            new Window()
+            {
+                Content = result,
+                HorizontalContentAlignment = HorizontalAlignment.Center,
+                VerticalContentAlignment = VerticalAlignment.Center,
+                CanResize = false,
+                Height = 200,
+                Width = 400,
+                WindowStartupLocation = WindowStartupLocation.CenterOwner
+            }.ShowDialog(App.MainWindow);
         }
 
         public void ShowMessageTip(string param)
@@ -90,21 +117,20 @@ namespace Synthora.Demo.ViewModels
             {
                 stringBuilder.Append("MessageTip.ShowSuccess;");
             }
-            if (param == "Show")
+            switch (param)
             {
-                MessageTip.Show(stringBuilder.ToString());
-            }
-            else if (param == "Success")
-            {
-                MessageTip.ShowSuccess("ShowSuccess");
-            }
-            else if (param == "Warning")
-            {
-                MessageTip.ShowWarning("ShowWarning");
-            }
-            else if (param == "Error")
-            {
-                MessageTip.ShowError("ShowError");
+                case nameof(MessageTip.Show):
+                    MessageTip.Show(stringBuilder.ToString());
+                    break;
+                case nameof(MessageTip.ShowSuccess):
+                    MessageTip.ShowSuccess("ShowSuccess");
+                    break;
+                case nameof(MessageTip.ShowWarning):
+                    MessageTip.ShowWarning("ShowWarning");
+                    break;
+                case nameof(MessageTip.ShowError):
+                    MessageTip.ShowError("ShowError");
+                    break;
             }
         }
 
@@ -112,18 +138,13 @@ namespace Synthora.Demo.ViewModels
         {
             if (Application.Current is Application application)
             {
-                if (param == "Default")
+                application.RequestedThemeVariant = param switch
                 {
-                    application.RequestedThemeVariant = ThemeVariant.Default;
-                }
-                else if (param == "Light")
-                {
-                    application.RequestedThemeVariant = ThemeVariant.Light;
-                }
-                else if (param == "Dark")
-                {
-                    application.RequestedThemeVariant = ThemeVariant.Dark;
-                }
+                    nameof(ThemeVariant.Default) => ThemeVariant.Default,
+                    nameof(ThemeVariant.Light) => ThemeVariant.Light,
+                    nameof(ThemeVariant.Dark) => ThemeVariant.Dark,
+                    _ => application.RequestedThemeVariant
+                };
             }
         }
 
@@ -134,21 +155,20 @@ namespace Synthora.Demo.ViewModels
                 return;
             }
 
-            if (param == "Information")
+            switch (param)
             {
-                _notificationManager.Show(new Notification("操作完成", "文件保存至本地完成。", NotificationType.Information));
-            }
-            else if (param == "Success")
-            {
-                _notificationManager.Show(new Notification("操作成功", "文件已保存至本地。", NotificationType.Success));
-            }
-            else if (param == "Warning")
-            {
-                _notificationManager.Show(new Notification("操作失败", "文件保存至本地失败。", NotificationType.Warning));
-            }
-            else if (param == "Error")
-            {
-                _notificationManager.Show(new Notification("操作异常", "文件保存至本地异常。", NotificationType.Error));
+                case nameof(NotificationType.Information):
+                    _notificationManager.Show(new Notification("操作完成", "文件保存至本地完成。", NotificationType.Information));
+                    break;
+                case nameof(NotificationType.Success):
+                    _notificationManager.Show(new Notification("操作成功", "文件已保存至本地。", NotificationType.Success));
+                    break;
+                case nameof(NotificationType.Warning):
+                    _notificationManager.Show(new Notification("操作失败", "文件保存至本地失败。", NotificationType.Warning));
+                    break;
+                case nameof(NotificationType.Error):
+                    _notificationManager.Show(new Notification("操作异常", "文件保存至本地异常。", NotificationType.Error));
+                    break;
             }
         }
     }

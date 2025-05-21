@@ -113,7 +113,7 @@
                 </ScrollViewer>
             </TabItem>
             <TabItem Header="Button">
-                <ScrollViewer>
+                <ScrollViewer HorizontalScrollBarVisibility="Auto">
                     <StackPanel Margin="10" Spacing="10">
                         <CheckBox Name="ButtonViewIsEnabled" IsChecked="True">IsEnabled</CheckBox>
                         <StackPanel IsEnabled="{Binding #ButtonViewIsEnabled.IsChecked}" Spacing="10">
@@ -141,7 +141,6 @@
                                         Theme="{StaticResource DangerButtonTheme}" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Spacing="10">
-                                <Button Command="{Binding ShowMessageBox}" CornerRadiusAttach.IsCircular="True">MessageBox.Show</Button>
                                 <Button Command="{Binding ShowMessageTip}"
                                         CommandParameter="Show"
                                         Theme="{StaticResource CancelButtonTheme}">
@@ -161,6 +160,28 @@
                                         CommandParameter="Error"
                                         Theme="{StaticResource DangerButtonTheme}">
                                     MessageTip.Error
+                                </Button>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <Button Command="{Binding ShowMessageBox}"
+                                        CommandParameter="ShowAsPopupAsync"
+                                        CornerRadiusAttach.IsCircular="True">
+                                    MessageBox.ShowAsPopupAsync
+                                </Button>
+                                <Button Command="{Binding ShowMessageBox}"
+                                        CommandParameter="ShowWindowDialogAsync"
+                                        CornerRadiusAttach.IsCircular="True">
+                                    MessageBox.ShowWindowDialogAsync
+                                </Button>
+                                <Button Command="{Binding ShowMessageBox}"
+                                        CommandParameter="ShowWindowAsync"
+                                        CornerRadiusAttach.IsCircular="True">
+                                    MessageBox.ShowWindowAsync
+                                </Button>
+                                <Button Command="{Binding ShowMessageBox}"
+                                        CommandParameter="ShowAsync"
+                                        CornerRadiusAttach.IsCircular="True">
+                                    MessageBox.ShowAsync
                                 </Button>
                             </StackPanel>
                             <Button Content="ContextMenuButton">

@@ -46,7 +46,7 @@ namespace Synthora.Attaches
             }
         }
 
-        public static AvaloniaProperty? GetCornerRadiusProperty(InputElement element)
+        private static AvaloniaProperty? GetCornerRadiusProperty(InputElement element)
         {
             if (element is Border)
             {
