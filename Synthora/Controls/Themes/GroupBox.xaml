@@ -9,6 +9,7 @@
         <Setter Property="Padding" Value="10" />
         <Setter Property="HeaderPadding" Value="4" />
         <Setter Property="HeaderBackground" Value="{DynamicResource ThemeControlMidBrush}" />
+        <Setter Property="BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
@@ -18,7 +19,7 @@
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            BoxShadow="{DynamicResource DefaultBoxShadow}"
+                            BoxShadow="{TemplateBinding BoxShadow}"
                             ClipToBounds="{TemplateBinding ClipToBounds}"
                             CornerRadius="{TemplateBinding CornerRadius}">
                         <DockPanel Name="PART_DockPanel" ClipToBounds="True">
@@ -50,9 +51,6 @@
                 </Panel>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^[HasShadow=False] /template/ Border#root">
-            <Setter Property="BoxShadow" Value="{DynamicResource EmptyBoxShadow}" />
-        </Style>
         <Style Selector="^:disabled /template/ Border#headerBorder">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
         </Style>

@@ -26,12 +26,16 @@
         </Setter>
         <Setter Property="ErrorTemplate">
             <DataTemplate>
-                <ItemsControl x:DataType="DataValidationErrors"
-                              Foreground="{DynamicResource ErrorBrush}"
-                              ItemsSource="{Binding}">
+                <ItemsControl x:DataType="DataValidationErrors" ItemsSource="{Binding}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <SelectableTextBlock Text="{Binding Message}" TextWrapping="Wrap" />
+                            <TextBox Padding="0"
+                                     Background="Transparent"
+                                     BorderThickness="0"
+                                     Foreground="{DynamicResource ErrorBrush}"
+                                     IsReadOnly="True"
+                                     Text="{Binding Message}"
+                                     TextWrapping="Wrap" />
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>

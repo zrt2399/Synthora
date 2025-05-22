@@ -15,17 +15,11 @@
                 <GroupBox Background="{TemplateBinding Background}"
                           BorderBrush="{TemplateBinding BorderBrush}"
                           BorderThickness="{TemplateBinding BorderThickness}"
+                          BoxShadow="{DynamicResource EmptyBoxShadow}"
                           CornerRadius="{TemplateBinding CornerRadius}"
-                          HasShadow="False"
                           HeaderBackground="{TemplateBinding HeaderBackground}">
                     <GroupBox.Header>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-
+                        <Grid ColumnDefinitions="Auto,*,Auto">
                             <Grid.Styles>
                                 <Style Selector="Button.CalendarHeader">
                                     <Setter Property="VerticalAlignment" Value="Center" />
@@ -70,58 +64,47 @@
                             </Button>
                         </Grid>
                     </GroupBox.Header>
-                    <Panel>
-                        <Grid>
+                    <Grid RowDefinitions="Auto,*">
+
+                        <Grid Name="PART_MonthView"
+                              Grid.Row="1"
+                              IsVisible="False">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
-                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
-
-                            <Grid Name="PART_MonthView"
-                                  Grid.Row="1"
-                                  IsVisible="False">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
-                            </Grid>
-
-                            <Grid Name="PART_YearView"
-                                  Grid.Row="1"
-                                  IsVisible="False">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
-                            </Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
                         </Grid>
-                        <!--<Rectangle Name="DisabledVisual"
-                                   Fill="{DynamicResource ThemeControlLowBrush}"
-                                   IsVisible="False"
-                                   Opacity="{DynamicResource ThemeDisabledOpacity}"
-                                   Stretch="Fill" />-->
-                    </Panel>
+
+                        <Grid Name="PART_YearView"
+                              Grid.Row="1"
+                              IsVisible="False">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+                    </Grid>
                 </GroupBox>
             </ControlTemplate>
         </Setter>

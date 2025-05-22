@@ -15,7 +15,7 @@
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ButtonSpinner.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ToggleButton.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/DropDownButton.xaml" />
-                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/DropShadowChrome.axaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/DropShadowChrome.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/PathIcon.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/PathPicker.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/CheckBox.xaml" />

@@ -11,7 +11,6 @@ using Avalonia.Layout;
 using Avalonia.Media;
 using Avalonia.Platform.Storage;
 using Synthora.Utils;
-using static System.Net.WebRequestMethods;
 
 namespace Synthora.Controls
 {
