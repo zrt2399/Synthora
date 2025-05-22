@@ -137,8 +137,7 @@
     <Color x:Key="ThemeForegroundLowColor">#FF808080</Color>
     <Color x:Key="ThemeForegroundMidColor">#FF707070</Color>
     <Color x:Key="HighlightForegroundColor">#FFFFFFFF</Color>
-    <Color x:Key="ErrorColor">#FFFF0000</Color>
-    <Color x:Key="ErrorLowColor">#10FF0000</Color>
+    <Color x:Key="ErrorColor">#FFD32F2F</Color>
     <Color x:Key="SuccessColor">#FF1F883D</Color>
     <Color x:Key="WarningColor">#FFDC9B28</Color>
     <Color x:Key="DangerColor">#FFDB3340</Color>
@@ -151,7 +150,6 @@
     <SolidColorBrush x:Key="ThemeAccentBrush3" Color="{StaticResource ThemeAccentColor3}" />
     <SolidColorBrush x:Key="ThemeAccentBrush4" Color="{StaticResource ThemeAccentColor4}" />
     <SolidColorBrush x:Key="ErrorBrush" Color="{StaticResource ErrorColor}" />
-    <SolidColorBrush x:Key="ErrorLowBrush" Color="{StaticResource ErrorLowColor}" />
     <SolidColorBrush x:Key="SuccessBrush" Color="{StaticResource SuccessColor}" />
     <SolidColorBrush x:Key="WarningBrush" Color="{StaticResource WarningColor}" />
     <SolidColorBrush x:Key="DangerBrush" Color="{StaticResource DangerColor}" />

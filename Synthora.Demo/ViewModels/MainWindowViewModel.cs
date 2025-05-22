@@ -98,7 +98,7 @@ namespace Synthora.Demo.ViewModels
                 nameof(box.ShowWindowAsync) => await box.ShowWindowAsync(),
                 _ => await box.ShowAsync()
             };
-            new Window()
+            await new Window()
             {
                 Content = result,
                 HorizontalContentAlignment = HorizontalAlignment.Center,
@@ -107,7 +107,7 @@ namespace Synthora.Demo.ViewModels
                 Height = 200,
                 Width = 400,
                 WindowStartupLocation = WindowStartupLocation.CenterOwner
-            }.ShowDialog(App.MainWindow);
+            }.ShowDialog(App.MainWindow);//The modal dialog flashes on macOS when clicking on the parent window
         }
 
         public void ShowMessageTip(string param)

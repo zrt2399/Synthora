@@ -138,7 +138,7 @@
                                 <Button Command="{Binding ShowNotification}"
                                         CommandParameter="{Binding $self.Content}"
                                         Content="Error"
-                                        Theme="{StaticResource DangerButtonTheme}" />
+                                        Theme="{StaticResource ErrorButtonTheme}" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Spacing="10">
                                 <Button Command="{Binding ShowMessageTip}"
@@ -147,18 +147,18 @@
                                     MessageTip.Show
                                 </Button>
                                 <Button Command="{Binding ShowMessageTip}"
-                                        CommandParameter="Success"
+                                        CommandParameter="ShowSuccess"
                                         Theme="{StaticResource SuccessButtonTheme}">
                                     MessageTip.Success
                                 </Button>
                                 <Button Command="{Binding ShowMessageTip}"
-                                        CommandParameter="Warning"
+                                        CommandParameter="ShowWarning"
                                         Theme="{StaticResource WarningButtonTheme}">
                                     MessageTip.Warning
                                 </Button>
                                 <Button Command="{Binding ShowMessageTip}"
-                                        CommandParameter="Error"
-                                        Theme="{StaticResource DangerButtonTheme}">
+                                        CommandParameter="ShowError"
+                                        Theme="{StaticResource ErrorButtonTheme}">
                                     MessageTip.Error
                                 </Button>
                             </StackPanel>

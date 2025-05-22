@@ -65,10 +65,10 @@
         <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
 
         <Style Selector="^:focus,^:pointerover">
-            <Setter Property="Background" Value="#FF1C8139" />
+            <Setter Property="Background" Value="#FF359450" />
         </Style>
         <Style Selector="^:pressed">
-            <Setter Property="Background" Value="#FF197935" />
+            <Setter Property="Background" Value="#FF499F62" />
         </Style>
     </ControlTheme>
 
@@ -101,8 +101,20 @@
             <Setter Property="Background" Value="#FFE9525D" />
         </Style>
     </ControlTheme>
+
     <ControlTheme x:Key="ErrorButtonTheme"
-                  BasedOn="{StaticResource DangerButtonTheme}"
-                  TargetType="Button" />
+                  BasedOn="{StaticResource {x:Type Button}}"
+                  TargetType="Button">
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Background" Value="{DynamicResource ErrorBrush}" />
+        <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
+
+        <Style Selector="^:focus,^:pointerover">
+            <Setter Property="Background" Value="#FFD74444" />
+        </Style>
+        <Style Selector="^:pressed">
+            <Setter Property="Background" Value="#FFF05757" />
+        </Style>
+    </ControlTheme>
 
 </ResourceDictionary> 

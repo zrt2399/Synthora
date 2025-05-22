@@ -1,6 +1,5 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:utils="using:Synthora.Utils"
                     x:ClassModifier="internal">
 
     <Design.PreviewWith>
@@ -23,7 +22,7 @@
                   IsEnabled="{Binding $parent[SelectableTextBlock].CanCopy}" />
         <MenuItem Command="{Binding $parent[SelectableTextBlock].SelectAll}"
                   Header="{DynamicResource StringTextFlyoutSelectAllText}"
-                  InputGesture="{x:Static utils:TextBoxUtils.SelectAllGesture}" />
+                  InputGesture="{x:Static GestureUtils.SelectAllGesture}" />
     </ContextMenu>
 
     <ControlTheme x:Key="{x:Type SelectableTextBlock}" TargetType="SelectableTextBlock">
