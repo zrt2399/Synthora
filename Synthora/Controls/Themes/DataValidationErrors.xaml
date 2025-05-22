@@ -31,14 +31,9 @@
                               ItemsSource="{Binding}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <SelectableTextBlock Text="{Binding Message}" />
+                            <SelectableTextBlock Text="{Binding Message}" TextWrapping="Wrap" />
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
-                    <ItemsControl.Styles>
-                        <Style Selector="TextBlock">
-                            <Setter Property="TextWrapping" Value="Wrap" />
-                        </Style>
-                    </ItemsControl.Styles>
                 </ItemsControl>
             </DataTemplate>
         </Setter>
