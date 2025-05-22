@@ -189,31 +189,31 @@
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
         <Setter Property="Template">
             <ControlTemplate>
-                <DataValidationErrors>
-                    <Border Name="border"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{TemplateBinding CornerRadius}">
-                        <DockPanel Margin="{TemplateBinding Padding}"
-                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                <Border Name="border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <DockPanel Margin="{TemplateBinding Padding}"
+                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
 
-                            <TextBlock Name="floatingWatermark"
-                                       DockPanel.Dock="Top"
-                                       FontSize="{DynamicResource FontSizeSmall}"
-                                       Foreground="{DynamicResource ThemeAccentBrush}"
-                                       Text="{TemplateBinding Watermark}">
-                                <TextBlock.IsVisible>
-                                    <MultiBinding Converter="{x:Static BoolConverters.And}">
-                                        <Binding Path="UseFloatingWatermark" RelativeSource="{RelativeSource TemplatedParent}" />
-                                        <Binding Converter="{x:Static StringConverters.IsNotNullOrEmpty}"
-                                                 Path="Text"
-                                                 RelativeSource="{RelativeSource TemplatedParent}" />
-                                    </MultiBinding>
-                                </TextBlock.IsVisible>
-                            </TextBlock>
+                        <TextBlock Name="floatingWatermark"
+                                   DockPanel.Dock="Top"
+                                   FontSize="{DynamicResource FontSizeSmall}"
+                                   Foreground="{DynamicResource ThemeAccentBrush}"
+                                   Text="{TemplateBinding Watermark}">
+                            <TextBlock.IsVisible>
+                                <MultiBinding Converter="{x:Static BoolConverters.And}">
+                                    <Binding Path="UseFloatingWatermark" RelativeSource="{RelativeSource TemplatedParent}" />
+                                    <Binding Converter="{x:Static StringConverters.IsNotNullOrEmpty}"
+                                             Path="Text"
+                                             RelativeSource="{RelativeSource TemplatedParent}" />
+                                </MultiBinding>
+                            </TextBlock.IsVisible>
+                        </TextBlock>
 
+                        <DataValidationErrors>
                             <Grid ColumnDefinitions="Auto,*,Auto">
                                 <ContentPresenter Grid.Column="0"
                                                   Grid.ColumnSpan="1"
@@ -268,13 +268,11 @@
                                         </Style>
                                     </ScrollViewer.Styles>
                                 </ScrollViewer>
-                                <ContentPresenter Grid.Column="2"
-                                                  Grid.ColumnSpan="1"
-                                                  Content="{TemplateBinding InnerRightContent}" />
+                                <ContentPresenter Grid.Column="2" Content="{TemplateBinding InnerRightContent}" />
                             </Grid>
-                        </DockPanel>
-                    </Border>
-                </DataValidationErrors>
+                        </DataValidationErrors>
+                    </DockPanel>
+                </Border>
             </ControlTemplate>
         </Setter>
         <Style Selector="^:focus,^:pointerover">

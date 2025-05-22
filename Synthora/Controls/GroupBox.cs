@@ -20,6 +20,9 @@ namespace Synthora.Controls
         public static readonly StyledProperty<BoxShadows> BoxShadowProperty =
             AvaloniaProperty.Register<GroupBox, BoxShadows>(nameof(BoxShadow));
 
+        public static readonly StyledProperty<double> HeaderDividerHeightProperty =
+            AvaloniaProperty.Register<GroupBox, double>(nameof(HeaderDividerHeight));
+
         public Thickness HeaderPadding
         {
             get => GetValue(HeaderPaddingProperty);
@@ -36,6 +39,12 @@ namespace Synthora.Controls
         {
             get => GetValue(BoxShadowProperty);
             set => SetValue(BoxShadowProperty, value);
+        }
+
+        public double HeaderDividerHeight
+        {
+            get => GetValue(HeaderDividerHeightProperty);
+            set => SetValue(HeaderDividerHeightProperty, value);
         }
     }
 }

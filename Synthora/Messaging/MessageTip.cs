@@ -24,7 +24,8 @@ namespace Synthora.Messaging
         private const int Delay = 2000;
 
         public static int GlobalDelay { get; set; } = 0;
-
+        public static int HorizontalOffset { get; set; } = 0;
+        public static int VerticalOffset { get; set; } = 0;
         public static CornerRadius TipCornerRadius { get; set; } = new CornerRadius(4);
 
         public static void Show(string message, int delay = Delay) => Show(message, IconType.Information, delay);
@@ -73,10 +74,16 @@ namespace Synthora.Messaging
                     };
 
                     Grid grid = new Grid();
-                    grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = GridLength.Auto });
+                    grid.ColumnDefinitions.Add(new ColumnDefinition()
+                    {
+                        Width = GridLength.Auto
+                    });
                     grid.ColumnDefinitions.Add(new ColumnDefinition());
 
-                    TextBlock textBlock = new TextBlock { TextWrapping = TextWrapping.Wrap, VerticalAlignment = VerticalAlignment.Center, Text = message };
+                    TextBlock textBlock = new TextBlock();
+                    textBlock.TextWrapping = TextWrapping.Wrap;
+                    textBlock.VerticalAlignment = VerticalAlignment.Center;
+                    textBlock.Text = message;
 
                     if (!string.IsNullOrEmpty(textBlock.Text))
                     {
@@ -85,7 +92,15 @@ namespace Synthora.Messaging
 
                     textBlock.FontSize = application.Resources["FontSizeNormal"] as double? ?? 12;
                     textBlock.SetValue(Grid.ColumnProperty, 1);
-                    grid.Children.Add(new Viewbox() { Width = 16, Height = 16, Child = new StatusIcon() { IconType = iconType } });
+                    grid.Children.Add(new Viewbox()
+                    {
+                        Width = 16,
+                        Height = 16,
+                        Child = new StatusIcon()
+                        {
+                            IconType = iconType
+                        }
+                    });
                     grid.Children.Add(textBlock);
 
                     Border border = new Border();
@@ -96,17 +111,24 @@ namespace Synthora.Messaging
                     border.Background = SolidColorBrush.Parse("#FAFAFA");
                     border.BorderThickness = new Thickness(1);
                     border.BorderBrush = borderBrush;
-                    border.BoxShadow = new BoxShadows(new BoxShadow() { Blur = 6, Color = borderBrush.Color });
+                    border.BoxShadow = new BoxShadows(new BoxShadow()
+                    {
+                        Blur = 6,
+                        Color = borderBrush.Color
+                    });
 
                     Popup popup = new Popup();
                     popup.Opened += Popup_Opened;
                     popup.Child = border;
-                    //if (control is Window window && window.Screens.Primary is Screen screen)
-                    //{
-                    //    grid.MaxWidth = screen.WorkingArea.Width;
-                    //}
                     popup.Placement = PlacementMode.Pointer;
-                    //popup.VerticalOffset = 16;
+                    if (HorizontalOffset != 0)
+                    {
+                        popup.HorizontalOffset = HorizontalOffset;
+                    }
+                    if (VerticalOffset != 0)
+                    {
+                        popup.VerticalOffset = VerticalOffset;
+                    }
                     popup.PlacementTarget = control;
                     popup.IsOpen = true;
                     await Task.Delay(delay);

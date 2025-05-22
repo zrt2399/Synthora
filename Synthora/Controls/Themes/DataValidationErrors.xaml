@@ -1,17 +1,15 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     x:ClassModifier="internal">
-
     <ControlTheme x:Key="{x:Type DataValidationErrors}" TargetType="DataValidationErrors">
         <Setter Property="Template">
             <ControlTemplate>
                 <DockPanel LastChildFill="True">
                     <ContentControl DataContext="{TemplateBinding Owner}"
-                                    Margin="0,4,0,0"
                                     x:DataType="DataValidationErrors"
                                     Content="{Binding (DataValidationErrors.Errors)}"
                                     ContentTemplate="{TemplateBinding ErrorTemplate}"
-                                    DockPanel.Dock="Bottom"
+                                    DockPanel.Dock="Right"
                                     IsVisible="{Binding (DataValidationErrors.HasErrors)}" />
                     <ContentPresenter Name="PART_ContentPresenter"
                                       Padding="{TemplateBinding Padding}"
@@ -26,19 +24,29 @@
         </Setter>
         <Setter Property="ErrorTemplate">
             <DataTemplate>
-                <ItemsControl x:DataType="DataValidationErrors" ItemsSource="{Binding}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <TextBox Padding="0"
-                                     Background="Transparent"
-                                     BorderThickness="0"
-                                     Foreground="{DynamicResource ErrorBrush}"
-                                     IsReadOnly="True"
-                                     Text="{Binding Message}"
-                                     TextWrapping="Wrap" />
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                <Canvas Width="14"
+                        Height="14"
+                        Margin="4,0,1,0"
+                        Background="Transparent"
+                        Cursor="{x:Null}">
+                    <Canvas.Styles>
+                        <Style Selector="ToolTip">
+                            <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
+                        </Style>
+                    </Canvas.Styles>
+                    <ToolTip.Tip>
+                        <ItemsControl x:DataType="DataValidationErrors" ItemsSource="{Binding}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <SelectableTextBlock Text="{Binding Message}" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ToolTip.Tip>
+                    <Path Data="M14,7 A7,7 0 0,0 0,7 M0,7 A7,7 0 1,0 14,7 M7,3l0,5 M7,9l0,2"
+                          Stroke="{DynamicResource ErrorBrush}"
+                          StrokeThickness="2" />
+                </Canvas>
             </DataTemplate>
         </Setter>
     </ControlTheme>

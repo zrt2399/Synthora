@@ -149,7 +149,7 @@
                                     BorderThickness="{TemplateBinding BorderThickness}"
                                     BoxShadow="{DynamicResource PopupBoxShadow}"
                                     CornerRadius="{TemplateBinding CornerRadius}">
-                                <DatePickerPresenter Name="PART_PickerPresenter" />
+                                <DatePickerPresenter Name="PART_PickerPresenter" CornerRadius="{TemplateBinding CornerRadius}" />
                             </Border>
                         </Popup>
                     </Grid>
@@ -177,9 +177,14 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid Name="ContentRoot" RowDefinitions="Auto,*,Auto">
-                    <TextBlock Margin="4,4,4,0"
-                               HorizontalAlignment="Center"
-                               Text="{DynamicResource StringDatePickerSelectDate}" />
+                    <Border Height="2" Background="{DynamicResource PrimaryBrush}">
+                        <Border.CornerRadius>
+                            <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="TopLeft,TopRight">
+                                <Binding Path="BorderThickness" RelativeSource="{RelativeSource TemplatedParent}" />
+                                <Binding Path="CornerRadius" RelativeSource="{RelativeSource TemplatedParent}" />
+                            </MultiBinding>
+                        </Border.CornerRadius>
+                    </Border>
                     <Grid Name="PART_PickerContainer" Grid.Row="1">
                         <Grid.Styles>
                             <Style Selector="DateTimePickerPanel &gt; ListBoxItem">

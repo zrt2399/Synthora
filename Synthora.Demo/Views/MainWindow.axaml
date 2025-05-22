@@ -433,7 +433,14 @@
                                     <GroupBox>
                                         <DropShadowChrome Padding="10">
                                             <DropShadowChrome>
-                                                <TextBlock>DropShadowChrome</TextBlock>
+                                                <TextBox Padding="0"
+                                                         Background="Transparent"
+                                                         BorderThickness="0"
+                                                         Foreground="{DynamicResource ErrorBrush}"
+                                                         IsReadOnly="True"
+                                                         TextWrapping="Wrap">
+                                                    DropShadowChrome
+                                                </TextBox>
                                             </DropShadowChrome>
                                         </DropShadowChrome>
                                     </GroupBox>

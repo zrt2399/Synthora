@@ -29,8 +29,6 @@
         <x:String x:Key="StringMessageBoxButtonNo">否</x:String>
         <x:String x:Key="StringMessageBoxButtonCancel">取消</x:String>
         <x:String x:Key="StringMessageBoxButtonAbort">中止</x:String>
-        <x:String x:Key="StringDatePickerSelectDate">选择时间</x:String>
-        <x:String x:Key="StringDatePickerSelectTime">选择日期</x:String>
         <x:String x:Key="StringScrollBarScrollToTop">顶部</x:String>
         <x:String x:Key="StringScrollBarScrollToBottom">底部</x:String>
         <x:String x:Key="StringScrollBarPageUp">向上翻页</x:String>

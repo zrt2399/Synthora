@@ -5,12 +5,10 @@
     <x:String x:Key="StringDatePickerDayText">day</x:String>
     <x:String x:Key="StringDatePickerMonthText">month</x:String>
     <x:String x:Key="StringDatePickerYearText">year</x:String>
-    <x:String x:Key="StringDatePickerSelectDate">Select Date</x:String>
     <!--  TimePicker  -->
     <x:String x:Key="StringTimePickerHourText">hour</x:String>
     <x:String x:Key="StringTimePickerMinuteText">minute</x:String>
     <x:String x:Key="StringTimePickerSecondText">second</x:String>
-    <x:String x:Key="StringDatePickerSelectTime">Select Time</x:String>
     <!--  TextBox/SelectableTextBox flyout  -->
     <x:String x:Key="StringTextFlyoutCutText">Cut</x:String>
     <x:String x:Key="StringTextFlyoutCopyText">Copy</x:String>
@@ -50,4 +48,4 @@
     <!--  EmptyBox  -->
     <x:String x:Key="StringEmptyBoxDescription">No data</x:String>
 
-</ResourceDictionary> 
+</ResourceDictionary>
