@@ -29,14 +29,11 @@
     </Design.PreviewWith>
 
     <x:Double x:Key="TimePickerSpacerThemeWidth">1</x:Double>
-    <Thickness x:Key="TimePickerBorderThemeThickness">1</Thickness>
     <x:Double x:Key="TimePickerFlyoutPresenterItemHeight">28</x:Double>
     <x:Double x:Key="TimePickerFlyoutPresenterHighlightHeight">28</x:Double>
     <x:Double x:Key="TimePickerFlyoutPresenterAcceptDismissHostGridHeight">28</x:Double>
     <x:Double x:Key="TimePickerThemeMinWidth">242</x:Double>
     <x:Double x:Key="TimePickerThemeMaxWidth">456</x:Double>
-    <Thickness x:Key="TimePickerFlyoutPresenterItemPadding">4</Thickness>
-    <Thickness x:Key="TimePickerHostPadding">4</Thickness>
 
     <ControlTheme x:Key="SimpleTimePickerFlyoutButton" TargetType="Button">
         <Setter Property="RenderTransform" Value="none" />
@@ -79,103 +76,111 @@
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
+        <Setter Property="Padding" Value="{DynamicResource ThemeBorderPadding}" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="Template">
             <ControlTemplate>
                 <DataValidationErrors>
-                    <Grid Name="LayoutRoot" Margin="{TemplateBinding Padding}">
-                        <Button x:Name="PART_FlyoutButton"
-                                MinWidth="{DynamicResource TimePickerThemeMinWidth}"
-                                MaxWidth="{DynamicResource TimePickerThemeMaxWidth}"
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="{TemplateBinding CornerRadius}"
-                                Foreground="{TemplateBinding Foreground}"
-                                IsEnabled="{TemplateBinding IsEnabled}"
-                                Theme="{StaticResource SimpleTimePickerFlyoutButton}">
+                    <Panel Name="LayoutRoot">
+                        <DockPanel>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding (TextBoxAttach.TitleHorizontalAlignment)}"
+                                              VerticalAlignment="{TemplateBinding (TextBoxAttach.TitleVerticalAlignment)}"
+                                              Content="{TemplateBinding (TextBoxAttach.Title)}"
+                                              DockPanel.Dock="{TemplateBinding (TextBoxAttach.TitlePlacement)}" />
+                            <Button x:Name="PART_FlyoutButton"
+                                    MinWidth="{DynamicResource TimePickerThemeMinWidth}"
+                                    MaxWidth="{DynamicResource TimePickerThemeMaxWidth}"
+                                    Padding="0"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="{TemplateBinding CornerRadius}"
+                                    Foreground="{TemplateBinding Foreground}"
+                                    IsEnabled="{TemplateBinding IsEnabled}"
+                                    Theme="{StaticResource SimpleTimePickerFlyoutButton}">
 
-                            <Grid Name="PART_FlyoutButtonContentGrid">
-                                <!--  Ignore col defs here, set in code  -->
-                                <Border x:Name="PART_FirstPickerHost"
-                                        Grid.Column="0"
-                                        HorizontalAlignment="Stretch"
-                                        VerticalAlignment="Stretch">
-                                    <TextBlock x:Name="PART_HourTextBlock"
-                                               Padding="{DynamicResource TimePickerHostPadding}"
+                                <Grid Name="PART_FlyoutButtonContentGrid">
+                                    <!--  Ignore col defs here, set in code  -->
+                                    <Border x:Name="PART_FirstPickerHost"
+                                            Grid.Column="0"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch">
+                                        <TextBlock x:Name="PART_HourTextBlock"
+                                                   Margin="{TemplateBinding Padding}"
+                                                   HorizontalAlignment="Center"
+                                                   FontFamily="{TemplateBinding FontFamily}"
+                                                   FontSize="{TemplateBinding FontSize}"
+                                                   FontWeight="{TemplateBinding FontWeight}"
+                                                   Text="{DynamicResource StringTimePickerHourText}" />
+                                    </Border>
+
+                                    <Rectangle Name="PART_FirstColumnDivider"
+                                               Grid.Column="1"
+                                               Width="{DynamicResource TimePickerSpacerThemeWidth}"
                                                HorizontalAlignment="Center"
-                                               FontFamily="{TemplateBinding FontFamily}"
-                                               FontSize="{TemplateBinding FontSize}"
-                                               FontWeight="{TemplateBinding FontWeight}"
-                                               Text="{DynamicResource StringTimePickerHourText}" />
-                                </Border>
+                                               Fill="{Binding #PART_FlyoutButton.BorderBrush}" />
 
-                                <Rectangle Name="PART_FirstColumnDivider"
-                                           Grid.Column="1"
-                                           Width="{DynamicResource TimePickerSpacerThemeWidth}"
-                                           HorizontalAlignment="Center"
-                                           Fill="{Binding #PART_FlyoutButton.BorderBrush}" />
+                                    <Border x:Name="PART_SecondPickerHost"
+                                            Grid.Column="2"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch">
+                                        <TextBlock x:Name="PART_MinuteTextBlock"
+                                                   Margin="{TemplateBinding Padding}"
+                                                   HorizontalAlignment="Center"
+                                                   FontFamily="{TemplateBinding FontFamily}"
+                                                   FontSize="{TemplateBinding FontSize}"
+                                                   FontWeight="{TemplateBinding FontWeight}"
+                                                   Text="{DynamicResource StringTimePickerMinuteText}" />
+                                    </Border>
 
-                                <Border x:Name="PART_SecondPickerHost"
-                                        Grid.Column="2"
-                                        HorizontalAlignment="Stretch"
-                                        VerticalAlignment="Stretch">
-                                    <TextBlock x:Name="PART_MinuteTextBlock"
-                                               Padding="{DynamicResource TimePickerHostPadding}"
+                                    <Rectangle Name="PART_SecondColumnDivider"
+                                               Grid.Column="3"
+                                               Width="{DynamicResource TimePickerSpacerThemeWidth}"
                                                HorizontalAlignment="Center"
-                                               FontFamily="{TemplateBinding FontFamily}"
-                                               FontSize="{TemplateBinding FontSize}"
-                                               FontWeight="{TemplateBinding FontWeight}"
-                                               Text="{DynamicResource StringTimePickerMinuteText}" />
-                                </Border>
+                                               Fill="{Binding #PART_FlyoutButton.BorderBrush}" />
 
-                                <Rectangle Name="PART_SecondColumnDivider"
-                                           Grid.Column="3"
-                                           Width="{DynamicResource TimePickerSpacerThemeWidth}"
-                                           HorizontalAlignment="Center"
-                                           Fill="{Binding #PART_FlyoutButton.BorderBrush}" />
+                                    <Border x:Name="PART_ThirdPickerHost"
+                                            Grid.Column="4"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch">
+                                        <TextBlock x:Name="PART_SecondTextBlock"
+                                                   Margin="{TemplateBinding Padding}"
+                                                   HorizontalAlignment="Center"
+                                                   FontFamily="{TemplateBinding FontFamily}"
+                                                   FontSize="{TemplateBinding FontSize}"
+                                                   FontWeight="{TemplateBinding FontWeight}"
+                                                   Text="{DynamicResource StringTimePickerSecondText}" />
+                                    </Border>
 
-                                <Border x:Name="PART_ThirdPickerHost"
-                                        Grid.Column="4"
-                                        HorizontalAlignment="Stretch"
-                                        VerticalAlignment="Stretch">
-                                    <TextBlock x:Name="PART_SecondTextBlock"
-                                               Padding="{DynamicResource TimePickerHostPadding}"
+                                    <Rectangle Name="PART_ThirdColumnDivider"
+                                               Grid.Column="5"
+                                               Width="{DynamicResource TimePickerSpacerThemeWidth}"
                                                HorizontalAlignment="Center"
-                                               FontFamily="{TemplateBinding FontFamily}"
-                                               FontSize="{TemplateBinding FontSize}"
-                                               FontWeight="{TemplateBinding FontWeight}"
-                                               Text="{DynamicResource StringTimePickerSecondText}" />
-                                </Border>
+                                               Fill="{Binding #PART_FlyoutButton.BorderBrush}" />
 
-                                <Rectangle Name="PART_ThirdColumnDivider"
-                                           Grid.Column="5"
-                                           Width="{DynamicResource TimePickerSpacerThemeWidth}"
-                                           HorizontalAlignment="Center"
-                                           Fill="{Binding #PART_FlyoutButton.BorderBrush}" />
-
-                                <Border x:Name="PART_FourthPickerHost"
-                                        Grid.Column="6"
-                                        HorizontalAlignment="Stretch"
-                                        VerticalAlignment="Stretch">
-                                    <TextBlock x:Name="PART_PeriodTextBlock"
-                                               Padding="{DynamicResource TimePickerHostPadding}"
-                                               HorizontalAlignment="Center"
-                                               FontFamily="{TemplateBinding FontFamily}"
-                                               FontSize="{TemplateBinding FontSize}"
-                                               FontWeight="{TemplateBinding FontWeight}" />
-                                </Border>
-                            </Grid>
-                        </Button>
+                                    <Border x:Name="PART_FourthPickerHost"
+                                            Grid.Column="6"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch">
+                                        <TextBlock x:Name="PART_PeriodTextBlock"
+                                                   Margin="{TemplateBinding Padding}"
+                                                   HorizontalAlignment="Center"
+                                                   FontFamily="{TemplateBinding FontFamily}"
+                                                   FontSize="{TemplateBinding FontSize}"
+                                                   FontWeight="{TemplateBinding FontWeight}" />
+                                    </Border>
+                                </Grid>
+                            </Button>
+                        </DockPanel>
 
                         <Popup Name="PART_Popup"
                                HorizontalOffset="1"
                                IsLightDismissEnabled="True"
                                Placement="Bottom"
-                               PlacementTarget="{TemplateBinding}"
+                               PlacementTarget="{Binding ElementName=PART_FlyoutButton}"
                                WindowManagerAddShadowHint="False">
                             <Border Margin="{DynamicResource PopupBoxShadowMargin}"
                                     Background="{DynamicResource ThemeBackgroundBrush}"
@@ -187,7 +192,7 @@
                             </Border>
                         </Popup>
 
-                    </Grid>
+                    </Panel>
                 </DataValidationErrors>
             </ControlTemplate>
         </Setter>

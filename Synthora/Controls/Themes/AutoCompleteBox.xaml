@@ -11,46 +11,52 @@
         <Setter Property="MaxDropDownHeight" Value="200" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel>
-                    <TextBox Name="PART_TextBox"
-                             Padding="{TemplateBinding Padding}"
-                             Background="{TemplateBinding Background}"
-                             BorderBrush="{TemplateBinding BorderBrush}"
-                             BorderThickness="{TemplateBinding BorderThickness}"
-                             CaretIndex="{TemplateBinding CaretIndex,
-                                                          Mode=TwoWay}"
-                             CornerRadius="{TemplateBinding CornerRadius}"
-                             DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
-                             InnerLeftContent="{TemplateBinding InnerLeftContent}"
-                             InnerRightContent="{TemplateBinding InnerRightContent}"
-                             MaxLength="{TemplateBinding MaxLength}"
-                             Watermark="{TemplateBinding Watermark}" />
+                <DockPanel>
+                    <ContentPresenter HorizontalAlignment="{TemplateBinding (TextBoxAttach.TitleHorizontalAlignment)}"
+                                      VerticalAlignment="{TemplateBinding (TextBoxAttach.TitleVerticalAlignment)}"
+                                      Content="{TemplateBinding (TextBoxAttach.Title)}"
+                                      DockPanel.Dock="{TemplateBinding (TextBoxAttach.TitlePlacement)}" />
+                    <Panel>
+                        <TextBox Name="PART_TextBox"
+                                 Padding="{TemplateBinding Padding}"
+                                 Background="{TemplateBinding Background}"
+                                 BorderBrush="{TemplateBinding BorderBrush}"
+                                 BorderThickness="{TemplateBinding BorderThickness}"
+                                 CaretIndex="{TemplateBinding CaretIndex,
+                                                              Mode=TwoWay}"
+                                 CornerRadius="{TemplateBinding CornerRadius}"
+                                 DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
+                                 InnerLeftContent="{TemplateBinding InnerLeftContent}"
+                                 InnerRightContent="{TemplateBinding InnerRightContent}"
+                                 MaxLength="{TemplateBinding MaxLength}"
+                                 Watermark="{TemplateBinding Watermark}" />
 
-                    <Popup Name="PART_Popup"
-                           InheritsTransform="True"
-                           IsLightDismissEnabled="True"
-                           Placement="BottomEdgeAlignedLeft"
-                           PlacementTarget="{TemplateBinding}"
-                           WindowManagerAddShadowHint="False">
-                        <Border MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
-                                MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                                Margin="{DynamicResource PopupBoxShadowMargin}"
-                                Padding="0,4"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                BoxShadow="{DynamicResource PopupBoxShadow}"
-                                CornerRadius="{TemplateBinding CornerRadius}">
-                            <ListBox Name="PART_SelectingItemsControl"
-                                     Background="{TemplateBinding Background}"
-                                     BorderThickness="0"
-                                     Foreground="{TemplateBinding Foreground}"
-                                     ItemTemplate="{TemplateBinding ItemTemplate}"
-                                     ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                                     ScrollViewer.VerticalScrollBarVisibility="Auto" />
-                        </Border>
-                    </Popup>
-                </Panel>
+                        <Popup Name="PART_Popup"
+                               InheritsTransform="True"
+                               IsLightDismissEnabled="True"
+                               Placement="BottomEdgeAlignedLeft"
+                               PlacementTarget="{Binding ElementName=PART_TextBox}"
+                               WindowManagerAddShadowHint="False">
+                            <Border MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                                    MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                                    Margin="{DynamicResource PopupBoxShadowMargin}"
+                                    Padding="0,4"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    BoxShadow="{DynamicResource PopupBoxShadow}"
+                                    CornerRadius="{TemplateBinding CornerRadius}">
+                                <ListBox Name="PART_SelectingItemsControl"
+                                         Background="{TemplateBinding Background}"
+                                         BorderThickness="0"
+                                         Foreground="{TemplateBinding Foreground}"
+                                         ItemTemplate="{TemplateBinding ItemTemplate}"
+                                         ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                                         ScrollViewer.VerticalScrollBarVisibility="Auto" />
+                            </Border>
+                        </Popup>
+                    </Panel>
+                </DockPanel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

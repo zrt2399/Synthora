@@ -60,29 +60,35 @@
                     <StackPanel Margin="10" Spacing="10">
                         <CheckBox Name="InputViewIsEnabled" IsChecked="True">IsEnabled</CheckBox>
                         <StackPanel IsEnabled="{Binding #InputViewIsEnabled.IsChecked}" Spacing="10">
-                            <AutoCompleteBox ItemsSource="{Binding Employees}" />
+                            <AutoCompleteBox ItemsSource="{Binding Employees}" TextBoxAttach.Title="AutoCompleteBox" />
                             <TextBox InnerRightContent="Ω"
                                      Text="{Binding Greeting}"
                                      TextAlignment="Right"
+                                     TextBoxAttach.Title="TextBox with InnerRightContent"
                                      TextWrapping="Wrap" />
-                            <TextBox Text="{Binding Value}" TextWrapping="Wrap" />
-                            <CalendarDatePicker />
-                            <DatePicker />
-                            <TimePicker />
-                            <PathPicker UseFolderDialog="True" Watermark="Pick a folder" />
+                            <TextBox Text="{Binding Value}"
+                                     TextBoxAttach.Title="TextBox"
+                                     TextWrapping="Wrap" />
+                            <CalendarDatePicker TextBoxAttach.Title="CalendarDatePicker" />
+                            <DatePicker TextBoxAttach.Title="DatePicker" />
+                            <TimePicker TextBoxAttach.Title="TimePicker" />
+                            <PathPicker TextBoxAttach.Title="PathPicker"
+                                        UseFolderDialog="True"
+                                        Watermark="Pick a folder" />
                             <PathPicker AllowMultiple="True"
                                         FilePickerFileTypes="{Binding FilePickerFileTypes}"
                                         SelectedPaths="{Binding SelectedFiles}"
+                                        TextBoxAttach.Title="PathPicker with FilePickerFileTypes"
                                         Watermark="Pick files" />
-                            <NumericUpDown Value="12" />
-                            <ComboBox ItemsSource="{Binding Employees}">
+                            <NumericUpDown TextBoxAttach.Title="NumericUpDown" Value="12" />
+                            <ComboBox ItemsSource="{Binding Employees}" TextBoxAttach.Title="ComboBox with ItemTemplate">
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding Name}" />
                                     </DataTemplate>
                                 </ComboBox.ItemTemplate>
                             </ComboBox>
-                            <ComboBox>
+                            <ComboBox TextBoxAttach.Title="ComboBox">
                                 <ComboBoxItem>ComboBoxItemabcdefghijklmnopqrstuvwxyz</ComboBoxItem>
                                 <ComboBoxItem>ComboBoxItemABCDEFGHIJKLMNOPQRSTUVWXYZ</ComboBoxItem>
                                 <ComboBoxItem>ComboBoxItem1234567890</ComboBoxItem>

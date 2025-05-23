@@ -6,42 +6,48 @@
     <ControlTheme x:Key="{x:Type controls:PathPicker}" TargetType="{x:Type controls:PathPicker}">
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Margin="{TemplateBinding Padding}"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}">
-                    <Grid ColumnDefinitions="*,Auto,Auto,Auto">
-                        <Grid.Styles>
-                            <Style Selector="Button">
-                                <Setter Property="IsVisible" Value="{Binding RelativeSource={RelativeSource Self}, Path=Content, Converter={x:Static SynthoraConverters.IsNotNullOrEmpty}}" />
-                            </Style>
-                        </Grid.Styles>
-                        <TextBox x:Name="PART_TextBox"
-                                 HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                 VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                 IsReadOnly="{TemplateBinding IsReadOnly}"
-                                 Text="{TemplateBinding SelectedPath}"
-                                 TextWrapping="{TemplateBinding TextWrapping}"
-                                 Watermark="{TemplateBinding Watermark}" />
-                        <Button Grid.Column="1"
-                                Margin="{TemplateBinding Spacing}"
-                                Command="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Browse}"
-                                Content="{TemplateBinding BrowseButtonContent}"
-                                ToolTip.Tip="{TemplateBinding BrowseButtonToolTip}" />
-                        <Button Grid.Column="2"
-                                Margin="{TemplateBinding Spacing}"
-                                Command="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Explore}"
-                                Content="{TemplateBinding ExploreButtonContent}"
-                                IsEnabled="{Binding ElementName=PART_TextBox, Path=Text, Converter={x:Static SynthoraConverters.IsNotNullOrEmpty}}"
-                                ToolTip.Tip="{TemplateBinding ExploreButtonToolTip}" />
-                        <Button Grid.Column="3"
-                                Margin="{TemplateBinding Spacing}"
-                                Command="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Open}"
-                                Content="{TemplateBinding OpenButtonContent}"
-                                IsEnabled="{Binding ElementName=PART_TextBox, Path=Text, Converter={x:Static SynthoraConverters.IsNotNullOrEmpty}}"
-                                ToolTip.Tip="{TemplateBinding OpenButtonToolTip}" />
-                    </Grid>
-                </Border>
+                <DockPanel>
+                    <ContentPresenter HorizontalAlignment="{TemplateBinding (TextBoxAttach.TitleHorizontalAlignment)}"
+                                      VerticalAlignment="{TemplateBinding (TextBoxAttach.TitleVerticalAlignment)}"
+                                      Content="{TemplateBinding (TextBoxAttach.Title)}"
+                                      DockPanel.Dock="{TemplateBinding (TextBoxAttach.TitlePlacement)}" />
+                    <Border Margin="{TemplateBinding Padding}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid ColumnDefinitions="*,Auto,Auto,Auto">
+                            <Grid.Styles>
+                                <Style Selector="Button">
+                                    <Setter Property="IsVisible" Value="{Binding RelativeSource={RelativeSource Self}, Path=Content, Converter={x:Static SynthoraConverters.IsNotNullOrEmpty}}" />
+                                </Style>
+                            </Grid.Styles>
+                            <TextBox x:Name="PART_TextBox"
+                                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                     IsReadOnly="{TemplateBinding IsReadOnly}"
+                                     Text="{TemplateBinding SelectedPath}"
+                                     TextWrapping="{TemplateBinding TextWrapping}"
+                                     Watermark="{TemplateBinding Watermark}" />
+                            <Button Grid.Column="1"
+                                    Margin="{TemplateBinding Spacing}"
+                                    Command="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Browse}"
+                                    Content="{TemplateBinding BrowseButtonContent}"
+                                    ToolTip.Tip="{TemplateBinding BrowseButtonToolTip}" />
+                            <Button Grid.Column="2"
+                                    Margin="{TemplateBinding Spacing}"
+                                    Command="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Explore}"
+                                    Content="{TemplateBinding ExploreButtonContent}"
+                                    IsEnabled="{Binding ElementName=PART_TextBox, Path=Text, Converter={x:Static SynthoraConverters.IsNotNullOrEmpty}}"
+                                    ToolTip.Tip="{TemplateBinding ExploreButtonToolTip}" />
+                            <Button Grid.Column="3"
+                                    Margin="{TemplateBinding Spacing}"
+                                    Command="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Open}"
+                                    Content="{TemplateBinding OpenButtonContent}"
+                                    IsEnabled="{Binding ElementName=PART_TextBox, Path=Text, Converter={x:Static SynthoraConverters.IsNotNullOrEmpty}}"
+                                    ToolTip.Tip="{TemplateBinding OpenButtonToolTip}" />
+                        </Grid>
+                    </Border>
+                </DockPanel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

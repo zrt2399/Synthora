@@ -48,52 +48,58 @@
 
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel>
-                    <TextBox Name="PART_TextBox"
-                             Padding="{TemplateBinding Padding}"
-                             HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                             VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                             Background="{TemplateBinding Background}"
-                             BorderBrush="{TemplateBinding BorderBrush}"
-                             BorderThickness="{TemplateBinding BorderThickness}"
-                             CornerRadius="{TemplateBinding CornerRadius}"
-                             DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
-                             Foreground="{TemplateBinding Foreground}"
-                             UseFloatingWatermark="{TemplateBinding UseFloatingWatermark}"
-                             Watermark="{TemplateBinding Watermark}">
-                        <TextBox.InnerRightContent>
-                            <Button Name="PART_Button"
-                                    Grid.Column="1"
-                                    Cursor="Arrow"
-                                    Focusable="False"
-                                    Foreground="{Binding $parent[CalendarDatePicker].Foreground}"
-                                    Theme="{StaticResource SimpleCalendarDatePickerButtonTheme}" />
-                        </TextBox.InnerRightContent>
-                    </TextBox>
+                <DockPanel>
+                    <ContentPresenter HorizontalAlignment="{TemplateBinding (TextBoxAttach.TitleHorizontalAlignment)}"
+                                      VerticalAlignment="{TemplateBinding (TextBoxAttach.TitleVerticalAlignment)}"
+                                      Content="{TemplateBinding (TextBoxAttach.Title)}"
+                                      DockPanel.Dock="{TemplateBinding (TextBoxAttach.TitlePlacement)}" />
+                    <Panel>
+                        <TextBox Name="PART_TextBox"
+                                 Padding="{TemplateBinding Padding}"
+                                 HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                 VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                 Background="{TemplateBinding Background}"
+                                 BorderBrush="{TemplateBinding BorderBrush}"
+                                 BorderThickness="{TemplateBinding BorderThickness}"
+                                 CornerRadius="{TemplateBinding CornerRadius}"
+                                 DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
+                                 Foreground="{TemplateBinding Foreground}"
+                                 UseFloatingWatermark="{TemplateBinding UseFloatingWatermark}"
+                                 Watermark="{TemplateBinding Watermark}">
+                            <TextBox.InnerRightContent>
+                                <Button Name="PART_Button"
+                                        Grid.Column="1"
+                                        Cursor="Arrow"
+                                        Focusable="False"
+                                        Foreground="{Binding $parent[CalendarDatePicker].Foreground}"
+                                        Theme="{StaticResource SimpleCalendarDatePickerButtonTheme}" />
+                            </TextBox.InnerRightContent>
+                        </TextBox>
 
-                    <Popup Name="PART_Popup"
-                           IsLightDismissEnabled="True"
-                           Placement="BottomEdgeAlignedLeft"
-                           PlacementTarget="{TemplateBinding}"
-                           WindowManagerAddShadowHint="False">
-                        <Border Margin="{DynamicResource PopupBoxShadowMargin}"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                BoxShadow="{DynamicResource PopupBoxShadow}"
-                                CornerRadius="{TemplateBinding CornerRadius}">
-                            <Calendar Name="PART_Calendar"
-                                      BorderThickness="0"
-                                      CornerRadius="{TemplateBinding CornerRadius}"
-                                      DisplayDate="{TemplateBinding DisplayDate}"
-                                      DisplayDateEnd="{TemplateBinding DisplayDateEnd}"
-                                      DisplayDateStart="{TemplateBinding DisplayDateStart}"
-                                      FirstDayOfWeek="{TemplateBinding FirstDayOfWeek}"
-                                      IsTodayHighlighted="{TemplateBinding IsTodayHighlighted}"
-                                      SelectedDate="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedDate, Mode=TwoWay}" />
-                        </Border>
-                    </Popup>
-                </Panel>
+                        <Popup Name="PART_Popup"
+                               IsLightDismissEnabled="True"
+                               Placement="BottomEdgeAlignedLeft"
+                               PlacementTarget="{Binding ElementName=PART_TextBox}"
+                               WindowManagerAddShadowHint="False">
+                            <Border Margin="{DynamicResource PopupBoxShadowMargin}"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    BoxShadow="{DynamicResource PopupBoxShadow}"
+                                    CornerRadius="{TemplateBinding CornerRadius}">
+                                <Calendar Name="PART_Calendar"
+                                          BorderThickness="0"
+                                          CornerRadius="{TemplateBinding CornerRadius}"
+                                          DisplayDate="{TemplateBinding DisplayDate}"
+                                          DisplayDateEnd="{TemplateBinding DisplayDateEnd}"
+                                          DisplayDateStart="{TemplateBinding DisplayDateStart}"
+                                          FirstDayOfWeek="{TemplateBinding FirstDayOfWeek}"
+                                          IsTodayHighlighted="{TemplateBinding IsTodayHighlighted}"
+                                          SelectedDate="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedDate, Mode=TwoWay}" />
+                            </Border>
+                        </Popup>
+                    </Panel>
+                </DockPanel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>
