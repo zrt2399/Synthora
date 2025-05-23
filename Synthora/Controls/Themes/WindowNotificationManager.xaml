@@ -3,7 +3,7 @@
                     x:ClassModifier="internal">
 
     <ControlTheme x:Key="{x:Type WindowNotificationManager}" TargetType="WindowNotificationManager">
-        <Setter Property="Margin" Value="0,5,5,0" />
+        <Setter Property="Margin" Value="5" />
         <Setter Property="Template">
             <ControlTemplate>
                 <ReversibleStackPanel Name="PART_Items">

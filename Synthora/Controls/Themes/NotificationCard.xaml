@@ -20,59 +20,55 @@
         <Setter Property="Padding" Value="12" />
         <Setter Property="Width" Value="340" />
         <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
-        <Setter Property="RenderTransformOrigin" Value="50%,75%" />
+        <!--<Setter Property="RenderTransformOrigin" Value="50%,75%" />-->
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <LayoutTransformControl Name="PART_LayoutTransformControl" UseRenderTransform="True">
-                    <Border Margin="5"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            BoxShadow="0 0 8 0 #64000000"
-                            CornerRadius="{TemplateBinding CornerRadius}">
-                        <Border ClipToBounds="True">
-                            <Border.CornerRadius>
-                                <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="TopLeft,TopRight">
-                                    <Binding Path="BorderThickness" RelativeSource="{RelativeSource TemplatedParent}" />
-                                    <Binding Path="CornerRadius" RelativeSource="{RelativeSource TemplatedParent}" />
-                                </MultiBinding>
-                            </Border.CornerRadius>
-                            <DockPanel>
-                                <Panel x:Name="PART_HeaderBar"
-                                       Height="4"
-                                       Background="{TemplateBinding BorderBrush}"
-                                       DockPanel.Dock="Top" />
-                                <DockPanel>
-                                    <TipIcon Name="icon"
-                                             Margin="{TemplateBinding Padding,
-                                                                      Converter={StaticResource NotificationCardIconMarginMultiplier}}"
-                                             VerticalAlignment="Top" />
-                                    <ContentPresenter Name="PART_ContentPresenter"
-                                                      Margin="{TemplateBinding Padding}"
-                                                      Content="{TemplateBinding Content}" />
-                                </DockPanel>
-                            </DockPanel>
-                        </Border>
-                    </Border>
+                    <GroupBox Margin="5"
+                              Padding="0"
+                              Background="{TemplateBinding Background}"
+                              BorderBrush="{TemplateBinding BorderBrush}"
+                              BorderThickness="{TemplateBinding BorderThickness}"
+                              BoxShadow="0 0 8 0 #64000000"
+                              CornerRadius="{TemplateBinding CornerRadius}"
+                              HeaderBackground="{TemplateBinding BorderBrush}"
+                              HeaderDividerHeight="0"
+                              HeaderPadding="2">
+                        <DockPanel>
+                            <TipIcon Name="icon"
+                                     Margin="{TemplateBinding Padding,
+                                                              Converter={StaticResource NotificationCardIconMarginMultiplier}}"
+                                     VerticalAlignment="Top" />
+                            <ContentPresenter Name="PART_ContentPresenter"
+                                              Margin="{TemplateBinding Padding}"
+                                              Content="{TemplateBinding Content}" />
+                        </DockPanel>
+                    </GroupBox>
                 </LayoutTransformControl>
             </ControlTemplate>
         </Setter>
 
         <ControlTheme.Animations>
-            <Animation Easing="QuadraticEaseOut"
+            <Animation Easing="QuadraticEaseIn"
                        FillMode="Forward"
-                       Duration="0:0:0.4">
+                       Duration="0:0:0.3">
                 <KeyFrame Cue="0%">
-                    <Setter Property="ScaleTransform.ScaleY" Value="0" />
-                    <Setter Property="TranslateTransform.X" Value="800" />
+                    <Setter Property="Opacity" Value="0" />
+                    <!--<Setter Property="TranslateTransform.Y" Value="20" />
+                    <Setter Property="ScaleTransform.ScaleX" Value="0.85" />
+                    <Setter Property="ScaleTransform.ScaleY" Value="0.85" />-->
                 </KeyFrame>
-                <!--  中间可选插值点，这里省略，直接到最终状态  -->
+                <!--<KeyFrame Cue="30%">
+                    <Setter Property="TranslateTransform.Y" Value="-20" />
+                </KeyFrame>-->
                 <KeyFrame Cue="100%">
-                    <Setter Property="TranslateTransform.X" Value="0" />
-                    <Setter Property="ScaleTransform.ScaleY" Value="1" />
+                    <Setter Property="Opacity" Value="1" />
+                    <!--<Setter Property="TranslateTransform.Y" Value="0" />
+                    <Setter Property="ScaleTransform.ScaleX" Value="1" />
+                    <Setter Property="ScaleTransform.ScaleY" Value="1" />-->
                 </KeyFrame>
             </Animation>
         </ControlTheme.Animations>
