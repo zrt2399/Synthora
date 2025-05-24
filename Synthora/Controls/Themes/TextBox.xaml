@@ -187,6 +187,7 @@
         <Setter Property="ContextFlyout" Value="{StaticResource SimpleTextBoxContextFlyout}" />
         <Setter Property="ContextMenu" Value="{StaticResource SimpleTextBoxContextMenu}" />
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
+        <Setter Property="FocusAdornerAttach.UseCorrectFocusAdorner" Value="True" />
         <Setter Property="Template">
             <ControlTemplate>
                 <DockPanel>
@@ -194,7 +195,7 @@
                                       VerticalAlignment="{TemplateBinding (TextBoxAttach.TitleVerticalAlignment)}"
                                       Content="{TemplateBinding (TextBoxAttach.Title)}"
                                       DockPanel.Dock="{TemplateBinding (TextBoxAttach.TitlePlacement)}" />
-                    <Border Name="border"
+                    <Border x:Name="FocusTarget"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
@@ -291,7 +292,7 @@
         <Style Selector="^ /template/ DockPanel">
             <Setter Property="Cursor" Value="IBeam" />
         </Style>
-        <Style Selector="^:disabled">
+        <Style Selector="^:disabled /template/ Border#FocusTarget">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
         </Style>
         <Style Selector="^ /template/ TextBlock#floatingWatermark">

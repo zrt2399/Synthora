@@ -1,5 +1,12 @@
+using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.Linq;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Primitives;
+using Avalonia.Controls.Templates;
+using Avalonia.Input;
+using Avalonia.Interactivity;
 using Avalonia.Layout;
 
 namespace Synthora.Attaches
@@ -18,7 +25,7 @@ namespace Synthora.Attaches
         {
             return obj.GetValue(TitleProperty);
         }
-        
+
         public static readonly AttachedProperty<Dock> TitlePlacementProperty =
             AvaloniaProperty.RegisterAttached<TextBoxAttach, Control, Dock>("TitlePlacement", Dock.Top);
 
@@ -30,8 +37,8 @@ namespace Synthora.Attaches
         public static Dock GetTitlePlacement(Control obj)
         {
             return obj.GetValue(TitlePlacementProperty);
-        }        
- 
+        }
+
         public static readonly AttachedProperty<HorizontalAlignment> TitleHorizontalAlignmentProperty =
             AvaloniaProperty.RegisterAttached<TextBoxAttach, Control, HorizontalAlignment>("TitleHorizontalAlignment", HorizontalAlignment.Left);
 
@@ -43,8 +50,8 @@ namespace Synthora.Attaches
         public static HorizontalAlignment GetTitleHorizontalAlignment(Control obj)
         {
             return obj.GetValue(TitleHorizontalAlignmentProperty);
-        }   
-        
+        }
+
         public static readonly AttachedProperty<VerticalAlignment> TitleVerticalAlignmentProperty =
             AvaloniaProperty.RegisterAttached<TextBoxAttach, Control, VerticalAlignment>("TitleVerticalAlignment", VerticalAlignment.Center);
 
@@ -56,6 +63,6 @@ namespace Synthora.Attaches
         public static VerticalAlignment GetTitleVerticalAlignment(Control obj)
         {
             return obj.GetValue(TitleVerticalAlignmentProperty);
-        }
+        } 
     }
 }

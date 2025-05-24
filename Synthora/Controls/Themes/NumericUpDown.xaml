@@ -49,7 +49,7 @@
                 </DataValidationErrors>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:disabled">
+        <Style Selector="^:disabled /template/ ButtonSpinner#PART_Spinner">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
         </Style>
     </ControlTheme>

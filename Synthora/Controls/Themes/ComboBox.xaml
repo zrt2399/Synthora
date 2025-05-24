@@ -58,6 +58,7 @@
         <!-- <Setter Property="MinHeight" Value="20" /> -->
         <Setter Property="PlaceholderForeground" Value="{DynamicResource ThemeForegroundBrush}" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="FocusAdornerAttach.UseCorrectFocusAdorner" Value="True" />
         <Setter Property="Template">
             <ControlTemplate>
                 <DockPanel>
@@ -65,7 +66,7 @@
                                       VerticalAlignment="{TemplateBinding (TextBoxAttach.TitleVerticalAlignment)}"
                                       Content="{TemplateBinding (TextBoxAttach.Title)}"
                                       DockPanel.Dock="{TemplateBinding (TextBoxAttach.TitlePlacement)}" />
-                    <Border Name="border"
+                    <Border x:Name="FocusTarget"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
@@ -95,7 +96,7 @@
                                    IsOpen="{TemplateBinding IsDropDownOpen,
                                                             Mode=TwoWay}"
                                    Placement="BottomEdgeAlignedLeft"
-                                   PlacementTarget="{Binding ElementName=border}"
+                                   PlacementTarget="{Binding ElementName=FocusTarget}"
                                    WindowManagerAddShadowHint="False">
                                 <Border MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
                                         MaxHeight="{TemplateBinding MaxDropDownHeight}"
@@ -126,7 +127,7 @@
         <Style Selector="^:pointerover">
             <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighBrush}" />
         </Style>
-        <Style Selector="^:disabled">
+        <Style Selector="^:disabled /template/ Border#FocusTarget">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
         </Style>
     </ControlTheme>
