@@ -57,7 +57,7 @@
         <Setter Property="Padding" Value="{DynamicResource ThemeBorderPadding}" />
         <!-- <Setter Property="MinHeight" Value="20" /> -->
         <Setter Property="PlaceholderForeground" Value="{DynamicResource ThemeForegroundBrush}" />
-        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" /> 
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         <Setter Property="Template">
             <ControlTemplate>
                 <DockPanel>
@@ -101,7 +101,7 @@
                                    Placement="BottomEdgeAlignedLeft"
                                    PlacementTarget="{Binding ElementName=FocusTarget}"
                                    WindowManagerAddShadowHint="False">
-                                <Border MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                                <Border MinWidth="{Binding Bounds.Width, ElementName=FocusTarget}"
                                         MaxHeight="{TemplateBinding MaxDropDownHeight}"
                                         Margin="{DynamicResource PopupBoxShadowMargin}"
                                         Padding="0,4"
