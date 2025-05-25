@@ -55,6 +55,9 @@
                                       DockPanel.Dock="{TemplateBinding (TextBoxAttach.TitlePlacement)}" />
                     <Panel>
                         <TextBox Name="PART_TextBox"
+                                 Width="{TemplateBinding (TextBoxAttach.Width)}"
+                                 MinWidth="{TemplateBinding (TextBoxAttach.MinWidth)}"
+                                 MaxWidth="{TemplateBinding (TextBoxAttach.MaxWidth)}"
                                  Padding="{TemplateBinding Padding}"
                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"

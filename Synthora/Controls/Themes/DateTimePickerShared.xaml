@@ -42,10 +42,10 @@
                 <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
             </Style>
         </Style>
-        <Style Selector="^.MonthItem">
+        <!--<Style Selector="^.MonthItem">
             <Setter Property="Padding" Value="{DynamicResource DatePickerFlyoutPresenterMonthPadding}" />
-            <Setter Property="HorizontalContentAlignment" Value="Left" />
-        </Style>
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+        </Style>-->
     </ControlTheme>
 
     <!--  This is used for both the accept/dismiss & repeatbuttons in the presenter  -->

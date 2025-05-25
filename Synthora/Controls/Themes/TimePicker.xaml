@@ -79,6 +79,8 @@
         <Setter Property="Padding" Value="{DynamicResource ThemeBorderPadding}" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="MinWidth" Value="{DynamicResource TimePickerThemeMinWidth}" />
+        <Setter Property="MaxWidth" Value="{DynamicResource TimePickerThemeMaxWidth}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <DataValidationErrors>
@@ -89,8 +91,9 @@
                                               Content="{TemplateBinding (TextBoxAttach.Title)}"
                                               DockPanel.Dock="{TemplateBinding (TextBoxAttach.TitlePlacement)}" />
                             <Button x:Name="PART_FlyoutButton"
-                                    MinWidth="{DynamicResource TimePickerThemeMinWidth}"
-                                    MaxWidth="{DynamicResource TimePickerThemeMaxWidth}"
+                                    Width="{TemplateBinding (TextBoxAttach.Width)}"
+                                    MinWidth="{TemplateBinding (TextBoxAttach.MinWidth)}"
+                                    MaxWidth="{TemplateBinding (TextBoxAttach.MaxWidth)}"
                                     Padding="0"
                                     HorizontalAlignment="Stretch"
                                     VerticalAlignment="Stretch"
@@ -177,21 +180,23 @@
                         </DockPanel>
 
                         <Popup Name="PART_Popup"
-                               HorizontalOffset="1"
                                IsLightDismissEnabled="True"
                                Placement="Bottom"
                                PlacementTarget="{Binding ElementName=PART_FlyoutButton}"
                                WindowManagerAddShadowHint="False">
-                            <Border Margin="{DynamicResource PopupBoxShadowMargin}"
-                                    Background="{DynamicResource ThemeBackgroundBrush}"
-                                    BorderBrush="{DynamicResource ThemeBorderMidBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    BoxShadow="{DynamicResource PopupBoxShadow}"
-                                    CornerRadius="{TemplateBinding CornerRadius}">
-                                <TimePickerPresenter Name="PART_PickerPresenter" CornerRadius="{TemplateBinding CornerRadius}" />
-                            </Border>
+                            <Panel Margin="4,0,0,0">
+                                <Border Margin="{DynamicResource PopupBoxShadowMargin}"
+                                        Background="{DynamicResource ThemeBackgroundBrush}"
+                                        BorderBrush="{DynamicResource ThemeBorderMidBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        BoxShadow="{DynamicResource PopupBoxShadow}"
+                                        CornerRadius="{TemplateBinding CornerRadius}">
+                                    <TimePickerPresenter Name="PART_PickerPresenter"
+                                                         Width="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                                                         CornerRadius="{TemplateBinding CornerRadius}" />
+                                </Border>
+                            </Panel>
                         </Popup>
-
                     </Panel>
                 </DataValidationErrors>
             </ControlTemplate>
@@ -207,10 +212,8 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type TimePickerPresenter}" TargetType="TimePickerPresenter">
-        <Setter Property="Width" Value="242" />
-        <Setter Property="MinWidth" Value="242" />
         <Setter Property="MaxHeight" Value="398" />
-        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid Name="ContentPanel" RowDefinitions="Auto,*,Auto">
@@ -223,6 +226,11 @@
                         </Border.CornerRadius>
                     </Border>
                     <Grid Name="PART_PickerContainer" Grid.Row="1">
+						<Grid.Styles>
+							<Style Selector="DateTimePickerPanel &gt; ListBoxItem">
+								<Setter Property="Theme" Value="{StaticResource SimpleDateTimePickerItem}" />
+							</Style>
+						</Grid.Styles>
                         <!--  Ignore col defs here, set in code  -->
                         <Panel Name="PART_HourHost" Grid.Column="0">
                             <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">

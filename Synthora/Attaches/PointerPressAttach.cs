@@ -19,52 +19,40 @@ namespace Synthora.Attaches
 
     public class PointerPressAttach
     {
+        public static readonly AttachedProperty<string?> IgnoreElementProperty =
+            AvaloniaProperty.RegisterAttached<PointerPressAttach, InputElement, string?>("IgnoreElement");
+
+        public static readonly AttachedProperty<PointerPressMode> PointerPressModeProperty =
+            AvaloniaProperty.RegisterAttached<PointerPressAttach, InputElement, PointerPressMode>("PointerPressMode", PointerPressMode.Left | PointerPressMode.Right);
+
+        public static readonly AttachedProperty<int> PointerPressCountProperty =
+            AvaloniaProperty.RegisterAttached<PointerPressAttach, InputElement, int>("PointerPressCount", 1);
+
+        public static readonly AttachedProperty<ICommand?> CommandProperty =
+            AvaloniaProperty.RegisterAttached<PointerPressAttach, InputElement, ICommand?>("Command");
+
+        public static readonly AttachedProperty<object?> CommandParameterProperty =
+           AvaloniaProperty.RegisterAttached<PointerPressAttach, InputElement, object?>("CommandParameter");
+
         static PointerPressAttach()
         {
             CommandProperty.Changed.AddClassHandler<InputElement, ICommand?>((s, e) => OnCommandChanged(e));
         }
 
-        public static readonly AttachedProperty<string?> IgnoreElementProperty =
-            AvaloniaProperty.RegisterAttached<PointerPressAttach, InputElement, string?>("IgnoreElement");
+        public static string? GetIgnoreElement(InputElement element) => element.GetValue(IgnoreElementProperty);
+        public static void SetIgnoreElement(InputElement element, string? value) => element.SetValue(IgnoreElementProperty, value);
 
-        public static string? GetIgnoreElement(InputElement element)
-        {
-            return element.GetValue(IgnoreElementProperty);
-        }
+        public static PointerPressMode GetPointerPressMode(InputElement element) => element.GetValue(PointerPressModeProperty);
+        public static void SetPointerPressMode(InputElement element, PointerPressMode value) => element.SetValue(PointerPressModeProperty, value);
 
-        public static void SetIgnoreElement(InputElement element, string? value)
-        {
-            element.SetValue(IgnoreElementProperty, value);
-        }
+        public static int GetPointerPressCount(InputElement element) => element.GetValue(PointerPressCountProperty);
+        public static void SetPointerPressCount(InputElement element, int value) => element.SetValue(PointerPressCountProperty, value);
 
-        public static readonly AttachedProperty<PointerPressMode> PointerPressModeProperty =
-            AvaloniaProperty.RegisterAttached<PointerPressAttach, InputElement, PointerPressMode>("PointerPressMode", PointerPressMode.Left | PointerPressMode.Right);
+        public static ICommand? GetCommand(InputElement element) => element.GetValue(CommandProperty);
+        public static void SetCommand(InputElement element, ICommand? value) => element.SetValue(CommandProperty, value);
 
-        public static PointerPressMode GetPointerPressMode(InputElement element)
-        {
-            return element.GetValue(PointerPressModeProperty);
-        }
-
-        public static void SetPointerPressMode(InputElement element, PointerPressMode value)
-        {
-            element.SetValue(PointerPressModeProperty, value);
-        }
-
-        public static readonly AttachedProperty<int> PointerPressCountProperty =
-            AvaloniaProperty.RegisterAttached<PointerPressAttach, InputElement, int>("PointerPressCount", 1);
-
-        public static int GetPointerPressCount(InputElement element)
-        {
-            return element.GetValue(PointerPressCountProperty);
-        }
-
-        public static void SetPointerPressCount(InputElement element, int value)
-        {
-            element.SetValue(PointerPressCountProperty, value);
-        }
-
-        public static readonly AttachedProperty<ICommand?> CommandProperty =
-            AvaloniaProperty.RegisterAttached<PointerPressAttach, InputElement, ICommand?>("Command");
+        public static object? GetCommandParameter(InputElement element) => element.GetValue(CommandParameterProperty); 
+        public static void SetCommandParameter(InputElement element, object? value) => element.SetValue(CommandParameterProperty, value);
 
         private static void OnCommandChanged(AvaloniaPropertyChangedEventArgs<ICommand?> e)
         {
@@ -128,29 +116,6 @@ namespace Synthora.Attaches
                     command?.Execute(commandParameter);
                 }
             }
-        }
-
-        public static ICommand? GetCommand(InputElement element)
-        {
-            return element.GetValue(CommandProperty);
-        }
-
-        public static void SetCommand(InputElement element, ICommand? value)
-        {
-            element.SetValue(CommandProperty, value);
-        }
-
-        public static readonly AttachedProperty<object?> CommandParameterProperty =
-           AvaloniaProperty.RegisterAttached<PointerPressAttach, InputElement, object?>("CommandParameter");
-
-        public static object? GetCommandParameter(InputElement element)
-        {
-            return element.GetValue(CommandParameterProperty);
-        }
-
-        public static void SetCommandParameter(InputElement element, object? value)
-        {
-            element.SetValue(CommandParameterProperty, value);
         }
     }
 }

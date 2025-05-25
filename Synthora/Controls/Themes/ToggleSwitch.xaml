@@ -78,8 +78,7 @@
                               Grid.RowSpan="3"
                               Grid.ColumnSpan="2"
                               Margin="0,5"
-                              Background="Transparent"
-                              TemplatedControl.IsTemplateFocusTarget="True" />
+                              Background="Transparent" />
 
                         <ContentPresenter x:Name="PART_OffContentPresenter"
                                           Grid.RowSpan="3"

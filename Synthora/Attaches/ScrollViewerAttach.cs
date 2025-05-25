@@ -10,21 +10,15 @@ namespace Synthora.Attaches
         public static readonly AttachedProperty<Orientation> OrientationProperty =
             AvaloniaProperty.RegisterAttached<ScrollViewerAttach, AvaloniaObject, Orientation>("Orientation", Orientation.Vertical, inherits: true);
 
-        public static void SetOrientation(AvaloniaObject element, Orientation value)
-        {
-            element.SetValue(OrientationProperty, value);
-        }
-
-        public static Orientation GetOrientation(AvaloniaObject element)
-        {
-            return element.GetValue(OrientationProperty);
-        }
-
         static ScrollViewerAttach()
         {
             OrientationProperty.Changed.AddClassHandler<AvaloniaObject, Orientation>((s, e) => OnOrientationChanged(e));
         }
 
+        public static void SetOrientation(AvaloniaObject obj, Orientation value) => obj.SetValue(OrientationProperty, value);
+
+        public static Orientation GetOrientation(AvaloniaObject obj) => obj.GetValue(OrientationProperty);
+         
         private static void OnOrientationChanged(AvaloniaPropertyChangedEventArgs<Orientation> e)
         {
             if (e.Sender is not ScrollViewer scrollViewer)

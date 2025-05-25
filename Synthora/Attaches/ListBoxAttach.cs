@@ -13,36 +13,22 @@ namespace Synthora.Attaches
     {
         private static readonly ConcurrentDictionary<object, ListBox> CollectionToListBoxMap = new();
 
+        public static readonly AttachedProperty<bool> IsAutoScrollToEndProperty =
+            AvaloniaProperty.RegisterAttached<ListBoxAttach, ListBox, bool>("IsAutoScrollToEnd");
+
+        public static readonly AttachedProperty<bool> IgnoreAutoScrollOnPointerOverProperty =
+            AvaloniaProperty.RegisterAttached<ListBoxAttach, ListBox, bool>("IgnoreAutoScrollOnPointerOver");
+
         static ListBoxAttach()
         {
             IsAutoScrollToEndProperty.Changed.AddClassHandler<ListBox, bool>((s, e) => OnIsAutoScrollToEndChanged(e));
         }
 
-        public static readonly AttachedProperty<bool> IsAutoScrollToEndProperty =
-            AvaloniaProperty.RegisterAttached<ListBoxAttach, ListBox, bool>("IsAutoScrollToEnd");
+        public static bool GetIsAutoScrollToEnd(ListBox obj) => obj.GetValue(IsAutoScrollToEndProperty);
+        public static void SetIsAutoScrollToEnd(ListBox obj, bool value) => obj.SetValue(IsAutoScrollToEndProperty, value);
 
-        public static void SetIsAutoScrollToEnd(ListBox obj, bool value)
-        {
-            obj.SetValue(IsAutoScrollToEndProperty, value);
-        }
-
-        public static bool GetIsAutoScrollToEnd(ListBox obj)
-        {
-            return obj.GetValue(IsAutoScrollToEndProperty);
-        }
-
-        public static readonly AttachedProperty<bool> IgnoreAutoScrollOnPointerOverProperty =
-            AvaloniaProperty.RegisterAttached<ListBoxAttach, ListBox, bool>("IgnoreAutoScrollOnPointerOver");
-
-        public static bool GetIgnoreAutoScrollOnPointerOver(ListBox obj)
-        {
-            return obj.GetValue(IgnoreAutoScrollOnPointerOverProperty);
-        }
-
-        public static void SetIgnoreAutoScrollOnPointerOver(ListBox obj, bool value)
-        {
-            obj.SetValue(IgnoreAutoScrollOnPointerOverProperty, value);
-        }
+        public static bool GetIgnoreAutoScrollOnPointerOver(ListBox obj) => obj.GetValue(IgnoreAutoScrollOnPointerOverProperty);
+        public static void SetIgnoreAutoScrollOnPointerOver(ListBox obj, bool value) => obj.SetValue(IgnoreAutoScrollOnPointerOverProperty, value);
 
         private static void OnIsAutoScrollToEndChanged(AvaloniaPropertyChangedEventArgs<bool> e)
         {

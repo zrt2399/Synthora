@@ -7,23 +7,16 @@ namespace Synthora.Attaches
 {
     public class FocusAttach
     {
+        public static readonly AttachedProperty<bool> IsFocusedProperty = 
+            AvaloniaProperty.RegisterAttached<FocusAttach, InputElement, bool>("IsFocused");
+
         static FocusAttach()
         {
             IsFocusedProperty.Changed.AddClassHandler<InputElement, bool>((s, e) => OnIsFocusedChanged(e));
         }
 
-        public static readonly AttachedProperty<bool> IsFocusedProperty =
-            AvaloniaProperty.RegisterAttached<FocusAttach, InputElement, bool>("IsFocused");
-
-        public static void SetIsFocused(InputElement obj, bool value)
-        {
-            obj.SetValue(IsFocusedProperty, value);
-        }
-
-        public static bool GetIsFocused(InputElement obj)
-        {
-            return obj.GetValue(IsFocusedProperty);
-        }
+        public static bool GetIsFocused(InputElement obj) => obj.GetValue(IsFocusedProperty);
+        public static void SetIsFocused(InputElement obj, bool value) => obj.SetValue(IsFocusedProperty, value); 
 
         private static void OnIsFocusedChanged(AvaloniaPropertyChangedEventArgs<bool> e)
         {

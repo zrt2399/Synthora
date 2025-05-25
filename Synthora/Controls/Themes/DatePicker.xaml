@@ -34,7 +34,6 @@
     <x:Double x:Key="DatePickerThemeMinWidth">296</x:Double>
     <x:Double x:Key="DatePickerThemeMaxWidth">456</x:Double>
     <Thickness x:Key="DatePickerFlyoutPresenterItemPadding">4</Thickness>
-    <Thickness x:Key="DatePickerFlyoutPresenterMonthPadding">4</Thickness>
     <x:Double x:Key="DatePickerSpacerThemeWidth">1</x:Double>
 
     <ControlTheme x:Key="SimpleDatePickerFlyoutButton" TargetType="Button">
@@ -81,6 +80,8 @@
         <Setter Property="Padding" Value="{DynamicResource ThemeBorderPadding}" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="MinWidth" Value="{DynamicResource DatePickerThemeMinWidth}" />
+        <Setter Property="MaxWidth" Value="{DynamicResource DatePickerThemeMaxWidth}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <DataValidationErrors>
@@ -91,8 +92,9 @@
                                               Content="{TemplateBinding (TextBoxAttach.Title)}"
                                               DockPanel.Dock="{TemplateBinding (TextBoxAttach.TitlePlacement)}" />
                             <Button Name="PART_FlyoutButton"
-                                    MinWidth="{DynamicResource DatePickerThemeMinWidth}"
-                                    MaxWidth="{DynamicResource DatePickerThemeMaxWidth}"
+                                    Width="{TemplateBinding (TextBoxAttach.Width)}"
+                                    MinWidth="{TemplateBinding (TextBoxAttach.MinWidth)}"
+                                    MaxWidth="{TemplateBinding (TextBoxAttach.MaxWidth)}"
                                     Padding="0"
                                     HorizontalAlignment="Stretch"
                                     VerticalAlignment="Stretch"
@@ -104,7 +106,8 @@
                                     IsEnabled="{TemplateBinding IsEnabled}"
                                     TemplatedControl.IsTemplateFocusTarget="True"
                                     Theme="{StaticResource SimpleDatePickerFlyoutButton}">
-                                <Grid ColumnDefinitions="78*,Auto,78*,Auto,78*">
+                                <Grid Name="PART_ButtonContentGrid" ColumnDefinitions="78*,Auto,78*,Auto,78*">
+                                    <!--  Ignore col defs here, set in code  -->
                                     <TextBlock Name="PART_YearTextBlock"
                                                Margin="{TemplateBinding Padding}"
                                                HorizontalAlignment="Center"
@@ -144,19 +147,23 @@
                         </DockPanel>
 
                         <Popup Name="PART_Popup"
-                               HorizontalOffset="1"
                                IsLightDismissEnabled="True"
                                Placement="Bottom"
                                PlacementTarget="{Binding ElementName=PART_FlyoutButton}"
                                WindowManagerAddShadowHint="False">
-                            <Border Margin="{DynamicResource PopupBoxShadowMargin}"
-                                    Background="{DynamicResource ThemeBackgroundBrush}"
-                                    BorderBrush="{DynamicResource ThemeBorderMidBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    BoxShadow="{DynamicResource PopupBoxShadow}"
-                                    CornerRadius="{TemplateBinding CornerRadius}">
-                                <DatePickerPresenter Name="PART_PickerPresenter" CornerRadius="{TemplateBinding CornerRadius}" />
-                            </Border>
+                            <!--  Add offset  -->
+                            <Panel Margin="4,0,0,0">
+                                <Border Margin="{DynamicResource PopupBoxShadowMargin}"
+                                        Background="{DynamicResource ThemeBackgroundBrush}"
+                                        BorderBrush="{DynamicResource ThemeBorderMidBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        BoxShadow="{DynamicResource PopupBoxShadow}"
+                                        CornerRadius="{TemplateBinding CornerRadius}">
+                                    <DatePickerPresenter Name="PART_PickerPresenter"
+                                                         Width="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                                                         CornerRadius="{TemplateBinding CornerRadius}" />
+                                </Border>
+                            </Panel>
                         </Popup>
                     </Panel>
                 </DataValidationErrors>
@@ -175,10 +182,7 @@
 
     <!--  WinUI: DatePickerFlyoutPresenter  -->
     <ControlTheme x:Key="{x:Type DatePickerPresenter}" TargetType="DatePickerPresenter">
-        <Setter Property="Width" Value="296" />
-        <Setter Property="MinWidth" Value="296" />
         <Setter Property="MaxHeight" Value="398" />
-        <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
         <Setter Property="Template">
             <ControlTemplate>
@@ -304,4 +308,4 @@
         </Style>
     </ControlTheme>
 
-</ResourceDictionary> 
+</ResourceDictionary>

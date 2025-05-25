@@ -57,8 +57,7 @@
         <Setter Property="Padding" Value="{DynamicResource ThemeBorderPadding}" />
         <!-- <Setter Property="MinHeight" Value="20" /> -->
         <Setter Property="PlaceholderForeground" Value="{DynamicResource ThemeForegroundBrush}" />
-        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
-        <Setter Property="FocusAdornerAttach.UseCorrectFocusAdorner" Value="True" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" /> 
         <Setter Property="Template">
             <ControlTemplate>
                 <DockPanel>
@@ -67,10 +66,14 @@
                                       Content="{TemplateBinding (TextBoxAttach.Title)}"
                                       DockPanel.Dock="{TemplateBinding (TextBoxAttach.TitlePlacement)}" />
                     <Border x:Name="FocusTarget"
+                            Width="{TemplateBinding (TextBoxAttach.Width)}"
+                            MinWidth="{TemplateBinding (TextBoxAttach.MinWidth)}"
+                            MaxWidth="{TemplateBinding (TextBoxAttach.MaxWidth)}"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{TemplateBinding CornerRadius}">
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            TemplatedControl.IsTemplateFocusTarget="True">
                         <Grid ColumnDefinitions="*,Auto">
                             <TextBlock Name="PlaceholderTextBlock"
                                        Margin="{TemplateBinding Padding}"

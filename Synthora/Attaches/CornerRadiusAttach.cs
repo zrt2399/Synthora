@@ -9,13 +9,16 @@ namespace Synthora.Attaches
 {
     public class CornerRadiusAttach
     {
+        public static readonly AttachedProperty<bool> IsCircularProperty =
+            AvaloniaProperty.RegisterAttached<CornerRadiusAttach, InputElement, bool>("IsCircular");
+
         static CornerRadiusAttach()
         {
             IsCircularProperty.Changed.AddClassHandler<InputElement, bool>((s, e) => OnIsCircularChanged(e));
         }
 
-        public static readonly AttachedProperty<bool> IsCircularProperty =
-            AvaloniaProperty.RegisterAttached<CornerRadiusAttach, InputElement, bool>("IsCircular");
+        public static void SetIsCircular(InputElement element, bool value) => element.SetValue(IsCircularProperty, value);
+        public static bool GetIsCircular(InputElement element) => element.GetValue(IsCircularProperty);
 
         private static void OnIsCircularChanged(AvaloniaPropertyChangedEventArgs<bool> e)
         {
@@ -57,16 +60,6 @@ namespace Synthora.Attaches
                 return TemplatedControl.CornerRadiusProperty;
             }
             return null;
-        }
-
-        public static void SetIsCircular(InputElement element, bool value)
-        {
-            element.SetValue(IsCircularProperty, value);
-        }
-
-        public static bool GetIsCircular(InputElement element)
-        {
-            return element.GetValue(IsCircularProperty);
         }
     }
 }

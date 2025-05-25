@@ -17,7 +17,9 @@
                                           Content="{TemplateBinding (TextBoxAttach.Title)}"
                                           DockPanel.Dock="{TemplateBinding (TextBoxAttach.TitlePlacement)}" />
                         <ButtonSpinner Name="PART_Spinner"
-                                       MinWidth="0"
+                                       Width="{TemplateBinding (TextBoxAttach.Width)}"
+                                       MinWidth="{TemplateBinding (TextBoxAttach.MinWidth)}"
+                                       MaxWidth="{TemplateBinding (TextBoxAttach.MaxWidth)}"
                                        Padding="0"
                                        HorizontalContentAlignment="Stretch"
                                        VerticalContentAlignment="Stretch"

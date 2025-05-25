@@ -7,23 +7,16 @@ namespace Synthora.Attaches
 {
     public class WindowAttach
     {
+        public static readonly AttachedProperty<bool> UseDpiLayoutRoundingProperty =
+            AvaloniaProperty.RegisterAttached<WindowAttach, Window, bool>("UseDpiLayoutRounding");
+
         static WindowAttach()
         {
             UseDpiLayoutRoundingProperty.Changed.AddClassHandler<Window, bool>((s, e) => OnUseDpiLayoutRoundingChanged(e));
         }
 
-        public static readonly AttachedProperty<bool> UseDpiLayoutRoundingProperty =
-            AvaloniaProperty.RegisterAttached<WindowAttach, Window, bool>("UseDpiLayoutRounding");
-
-        public static void SetUseDpiLayoutRounding(Window obj, bool value)
-        {
-            obj.SetValue(UseDpiLayoutRoundingProperty, value);
-        }
-
-        public static bool GetUseDpiLayoutRounding(Window obj)
-        {
-            return obj.GetValue(UseDpiLayoutRoundingProperty);
-        }
+        public static void SetUseDpiLayoutRounding(Window obj, bool value) => obj.SetValue(UseDpiLayoutRoundingProperty, value);
+        public static bool GetUseDpiLayoutRounding(Window obj) => obj.GetValue(UseDpiLayoutRoundingProperty);
 
         private static void OnUseDpiLayoutRoundingChanged(AvaloniaPropertyChangedEventArgs<bool> e)
         {

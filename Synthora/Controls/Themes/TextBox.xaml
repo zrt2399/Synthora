@@ -187,7 +187,6 @@
         <Setter Property="ContextFlyout" Value="{StaticResource SimpleTextBoxContextFlyout}" />
         <Setter Property="ContextMenu" Value="{StaticResource SimpleTextBoxContextMenu}" />
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
-        <Setter Property="FocusAdornerAttach.UseCorrectFocusAdorner" Value="True" />
         <Setter Property="Template">
             <ControlTemplate>
                 <DockPanel>
@@ -196,10 +195,14 @@
                                       Content="{TemplateBinding (TextBoxAttach.Title)}"
                                       DockPanel.Dock="{TemplateBinding (TextBoxAttach.TitlePlacement)}" />
                     <Border x:Name="FocusTarget"
+                            Width="{TemplateBinding (TextBoxAttach.Width)}"
+                            MinWidth="{TemplateBinding (TextBoxAttach.MinWidth)}"
+                            MaxWidth="{TemplateBinding (TextBoxAttach.MaxWidth)}"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{TemplateBinding CornerRadius}">
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            TemplatedControl.IsTemplateFocusTarget="True">
                         <DockPanel Margin="{TemplateBinding Padding}"
                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
