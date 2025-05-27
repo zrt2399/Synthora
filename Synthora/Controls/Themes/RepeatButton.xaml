@@ -33,7 +33,6 @@
 
         <Style Selector="^:pressed">
             <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidColor}" />
-            <!--<Setter Property="Foreground" Value="White" />-->
         </Style>
 
         <Style Selector="^:disabled">

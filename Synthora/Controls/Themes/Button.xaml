@@ -40,6 +40,21 @@
         </Style>
     </ControlTheme>
 
+    <ControlTheme x:Key="SynthoraButtonTheme"
+                  BasedOn="{StaticResource {x:Type Button}}"
+                  TargetType="Button">
+        <Setter Property="Background" Value="{DynamicResource SynthoraLowBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
+
+        <Style Selector="^:focus,^:pointerover">
+            <Setter Property="Background" Value="{DynamicResource SynthoraMidBrush}" />
+        </Style>
+        <Style Selector="^:pressed">
+            <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
+        </Style>
+    </ControlTheme>
+
     <ControlTheme x:Key="CancelButtonTheme"
                   BasedOn="{StaticResource {x:Type Button}}"
                   TargetType="Button">

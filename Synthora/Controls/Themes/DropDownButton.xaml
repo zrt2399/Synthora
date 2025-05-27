@@ -9,15 +9,9 @@
                                           Right="True"
                                           Top="True" />
 
-    <ControlTheme x:Key="{x:Type DropDownButton}" TargetType="DropDownButton">
-        <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
-        <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
-        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
-        <Setter Property="HorizontalContentAlignment" Value="Center" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="Padding" Value="{DynamicResource ThemeBorderPadding}" />
+    <ControlTheme x:Key="{x:Type DropDownButton}"
+                  BasedOn="{StaticResource SynthoraButtonTheme}"
+                  TargetType="DropDownButton">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
@@ -64,19 +58,6 @@
             <Setter Property="RenderTransform">
                 <RotateTransform Angle="180" />
             </Setter>
-        </Style>
-
-        <Style Selector="^:pointerover">
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
-        </Style>
-
-        <Style Selector="^:pressed">
-            <Setter Property="Background" Value="{DynamicResource ThemeControlHighBrush}" />
-            <Setter Property="Foreground" Value="White" />
-        </Style>
-
-        <Style Selector="^:disabled">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

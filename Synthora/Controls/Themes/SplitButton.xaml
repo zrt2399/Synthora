@@ -3,8 +3,6 @@
                     xmlns:converters="using:Avalonia.Controls.Converters"
                     x:ClassModifier="internal">
 
-    <!--  This style is based on the Fluent v1 style.  -->
-
     <Design.PreviewWith>
         <Border Padding="20">
             <SplitButton>SplitButton</SplitButton>
@@ -15,21 +13,13 @@
                                           Bottom="True"
                                           Indent="1"
                                           Left="True"
-                                          Right="True"
                                           Top="True" />
     <converters:MarginMultiplierConverter x:Key="SecondaryButtonBorderMultiplier"
                                           Bottom="True"
                                           Indent="1"
+                                          Left="True"
                                           Right="True"
                                           Top="True" />
-    <!--<converters:MarginMultiplierConverter x:Key="SeparatorBorderMultiplier"
-                                          Bottom="True"
-                                          Indent="1"
-                                          Top="True" />-->
-    <!--<converters:CornerRadiusFilterConverter x:Key="TopCornerRadiusFilterConverter" Filter="TopLeft, TopRight" />
-    <converters:CornerRadiusFilterConverter x:Key="RightCornerRadiusFilterConverter" Filter="TopRight, BottomRight" />
-    <converters:CornerRadiusFilterConverter x:Key="BottomCornerRadiusFilterConverter" Filter="BottomLeft, BottomRight" />
-    <converters:CornerRadiusFilterConverter x:Key="LeftCornerRadiusFilterConverter" Filter="TopLeft, BottomLeft" />-->
 
     <ControlTheme x:Key="SimpleSplitButtonComponent" TargetType="Button">
         <Setter Property="HorizontalAlignment" Value="Stretch" />
@@ -53,8 +43,7 @@
             </ControlTemplate>
         </Setter>
         <Style Selector="^:pressed">
-            <Setter Property="Background" Value="{DynamicResource ThemeControlHighBrush}" />
-            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
         </Style>
 
         <Style Selector="^:disabled">
@@ -62,44 +51,25 @@
         </Style>
 
         <Style Selector="^[Tag=flyout-open]">
-            <Setter Property="Background" Value="{DynamicResource ThemeControlHighBrush}" />
-            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
         </Style>
 
         <Style Selector="^[Tag=checked]">
-            <Setter Property="Background" Value="{DynamicResource ThemeControlHighBrush}" />
-            <Setter Property="Foreground" Value="White" />
-
-            <!--<Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{DynamicResource ThemeBorderHighColor}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidColor}" />
-                <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundColor}" />
-            </Style>
-
-            <Style Selector="^:pressed">
-                <Setter Property="Background" Value="{DynamicResource ThemeBorderHighColor}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource ThemeControlHighColor}" />
-                <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundColor}" />
-            </Style>-->
-
+            <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
         </Style>
 
         <Style Selector="^[Tag=checked-flyout-open]">
-            <Setter Property="Background" Value="{DynamicResource ThemeControlHighBrush}" />
-            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
         </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type SplitButton}" TargetType="SplitButton">
-        <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
+        <Setter Property="Background" Value="{DynamicResource SynthoraLowBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
 
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
-        <!--<Setter Property="MinHeight" Value="{DynamicResource SplitButtonMinHeight}" />-->
-        <!--<Setter Property="HorizontalAlignment" Value="Left" />
-        <Setter Property="VerticalAlignment" Value="Center" />-->
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="KeyboardNavigation.IsTabStop" Value="True" />
@@ -150,7 +120,8 @@
                                 <Binding Path="CornerRadius" RelativeSource="{RelativeSource TemplatedParent}" />
                             </MultiBinding>
                         </Button.CornerRadius>
-                        <PathIcon Width="12"
+                        <PathIcon Name="pathIcon"
+                                  Width="12"
                                   Height="12"
                                   Data="{DynamicResource DownArrowGlyph}"
                                   Foreground="{Binding $parent[Button].Foreground}" />
@@ -160,20 +131,35 @@
         </Setter>
 
         <Style Selector="^:focus,^:pointerover">
-            <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SynthoraMidBrush}" />
         </Style>
 
-        <Style Selector="^:flyout-open /template/ Button#PART_SecondaryButton">
-            <Setter Property="Tag" Value="flyout-open" />
+        <Style Selector="^:flyout-open">
+            <Style Selector="^ /template/ Button#PART_SecondaryButton">
+                <Setter Property="Tag" Value="flyout-open" />
+            </Style>
+
+            <Style Selector="^ /template/ PathIcon#pathIcon">
+                <Setter Property="RenderTransform">
+                    <RotateTransform Angle="180" />
+                </Setter>
+            </Style>
         </Style>
 
         <Style Selector="^:checked /template/ Button#PART_SecondaryButton">
             <Setter Property="Tag" Value="checked" />
         </Style>
 
-        <Style Selector="^:checked:flyout-open /template/ Button#PART_SecondaryButton">
-            <Setter Property="Tag" Value="checked-flyout-open" />
+        <Style Selector="^:checked:flyout-open">
+            <Style Selector="^ /template/ Button#PART_SecondaryButton">
+                <Setter Property="Tag" Value="checked-flyout-open" />
+            </Style>
+
+            <Style Selector="^ /template/ PathIcon#pathIcon">
+                <Setter Property="RenderTransform">
+                    <RotateTransform Angle="180" />
+                </Setter>
+            </Style>
         </Style>
     </ControlTheme>
-</ResourceDictionary> 
+</ResourceDictionary>

@@ -119,7 +119,7 @@
                 </ScrollViewer>
             </TabItem>
             <TabItem Header="Button">
-                <ScrollViewer HorizontalScrollBarVisibility="Auto">
+                <ScrollViewer>
                     <StackPanel Margin="10" Spacing="10">
                         <CheckBox Name="ButtonViewIsEnabled" IsChecked="True">IsEnabled</CheckBox>
                         <StackPanel IsEnabled="{Binding #ButtonViewIsEnabled.IsChecked}" Spacing="10">
@@ -129,7 +129,7 @@
                                 <Button Command="{Binding SwitchTheme}"
                                         CommandParameter="{Binding $self.Content}"
                                         Content="Dark"
-                                        Theme="{StaticResource CancelButtonTheme}" />
+                                        Theme="{StaticResource SynthoraButtonTheme}" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Spacing="10">
                                 <Button Command="{Binding ShowNotification}" CommandParameter="{Binding $self.Content}">Information</Button>
@@ -149,7 +149,7 @@
                             <StackPanel Orientation="Horizontal" Spacing="10">
                                 <Button Command="{Binding ShowMessageTip}"
                                         CommandParameter="Show"
-                                        Theme="{StaticResource CancelButtonTheme}">
+                                        Theme="{StaticResource SynthoraButtonTheme}">
                                     MessageTip.Show
                                 </Button>
                                 <Button Command="{Binding ShowMessageTip}"
