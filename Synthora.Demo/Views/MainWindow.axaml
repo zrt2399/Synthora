@@ -172,22 +172,22 @@
                                 <Button Command="{Binding ShowMessageBox}"
                                         CommandParameter="ShowAsPopupAsync"
                                         CornerRadiusAttach.IsCircular="True">
-                                    MessageBox.ShowAsPopupAsync
+                                    MessageBox.ShowAsPopup
                                 </Button>
                                 <Button Command="{Binding ShowMessageBox}"
                                         CommandParameter="ShowWindowDialogAsync"
                                         CornerRadiusAttach.IsCircular="True">
-                                    MessageBox.ShowWindowDialogAsync
+                                    MessageBox.ShowWindowDialog
                                 </Button>
                                 <Button Command="{Binding ShowMessageBox}"
                                         CommandParameter="ShowWindowAsync"
                                         CornerRadiusAttach.IsCircular="True">
-                                    MessageBox.ShowWindowAsync
+                                    MessageBox.ShowWindow
                                 </Button>
                                 <Button Command="{Binding ShowMessageBox}"
                                         CommandParameter="ShowAsync"
                                         CornerRadiusAttach.IsCircular="True">
-                                    MessageBox.ShowAsync
+                                    MessageBox.Show
                                 </Button>
                             </StackPanel>
                             <Button Content="ContextMenuButton">

@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using System.Reflection;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
@@ -26,7 +25,7 @@ namespace Synthora.Demo
             }
         }
 
-        public static string AppVersion => $"{Assembly.GetExecutingAssembly().GetName().Version}";
+        public static string AppVersion => $"{typeof(SynthoraTheme).Assembly.GetName().Version}";
         
         public override void Initialize()
         {
