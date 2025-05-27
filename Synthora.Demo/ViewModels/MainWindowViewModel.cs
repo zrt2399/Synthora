@@ -19,7 +19,7 @@ using Synthora.Messaging;
 
 namespace Synthora.Demo.ViewModels
 {
-    public partial class MainWindowViewModel : ViewModelBase
+    public class MainWindowViewModel : ViewModelBase
     {
         private WindowNotificationManager? _notificationManager;
 
@@ -104,22 +104,24 @@ namespace Synthora.Demo.ViewModels
                 HorizontalContentAlignment = HorizontalAlignment.Center,
                 VerticalContentAlignment = VerticalAlignment.Center,
                 CanResize = false,
-                Height = 200,
-                Width = 400,
+                Height = 180,
+                Width = 320,
                 WindowStartupLocation = WindowStartupLocation.CenterOwner
-            }.ShowDialog(App.MainWindow);//The modal dialog flashes on macOS when clicking on the parent window
+            }.ShowDialog(App.MainWindow);
+            //https://github.com/AvaloniaUI/Avalonia/issues/15649
+            //The modal dialog flashes on macOS when clicking on the parent window
         }
 
         public void ShowMessageTip(string param)
         {
-            StringBuilder stringBuilder = new StringBuilder();
-            for (int i = 0; i < 100; i++)
-            {
-                stringBuilder.Append("MessageTip.ShowSuccess;");
-            }
             switch (param)
             {
                 case nameof(MessageTip.Show):
+                    var stringBuilder = new StringBuilder();
+                    for (int i = 0; i < 100; i++)
+                    {
+                        stringBuilder.Append("MessageTip.ShowSuccess;");
+                    }
                     MessageTip.Show(stringBuilder.ToString());
                     break;
                 case nameof(MessageTip.ShowSuccess):

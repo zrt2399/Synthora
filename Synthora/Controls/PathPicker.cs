@@ -70,10 +70,10 @@ namespace Synthora.Controls
             AvaloniaProperty.Register<PathPicker, object?>(nameof(OpenButtonToolTip));
 
         public static readonly StyledProperty<HorizontalAlignment> HorizontalContentAlignmentProperty =
-            AvaloniaProperty.Register<ContentControl, HorizontalAlignment>(nameof(HorizontalContentAlignment));
+            ContentControl.HorizontalContentAlignmentProperty.AddOwner<PathPicker>();
 
         public static readonly StyledProperty<VerticalAlignment> VerticalContentAlignmentProperty =
-            AvaloniaProperty.Register<ContentControl, VerticalAlignment>(nameof(VerticalContentAlignment));
+            ContentControl.VerticalContentAlignmentProperty.AddOwner<PathPicker>();
 
         public static readonly StyledProperty<TextWrapping> TextWrappingProperty =
             AvaloniaProperty.Register<PathPicker, TextWrapping>(nameof(TextWrapping), TextWrapping.NoWrap);
