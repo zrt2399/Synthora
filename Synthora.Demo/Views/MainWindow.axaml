@@ -299,6 +299,7 @@
                                     </ContextMenu>
                                 </Button.ContextMenu>
                             </Button>
+                            <Button Command="{Binding ClearEmployees}" Theme="{StaticResource DangerButtonTheme}">ClearEmployees</Button>
                             <SplitButton Content="SplitButton">
                                 <SplitButton.Flyout>
                                     <Flyout>
@@ -334,7 +335,6 @@
                                 <RepeatButton>RepeatButton4</RepeatButton>
                             </StackPanel>
                             <Separator Theme="{StaticResource HorizontalSeparatorTheme}" />
-                            <Button Command="{Binding ClearEmployees}" Theme="{StaticResource DangerButtonTheme}">ClearEmployees</Button>
                             <HyperlinkButton>HyperlinkButton</HyperlinkButton>
                         </StackPanel>
                     </StackPanel>

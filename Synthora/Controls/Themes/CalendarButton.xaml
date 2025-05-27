@@ -8,19 +8,19 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     x:ClassModifier="internal">
+
     <ControlTheme x:Key="{x:Type CalendarButton}" TargetType="CalendarButton">
         <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
         <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush2}" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="MinWidth" Value="37" />
+        <Setter Property="MinWidth" Value="38" />
         <Setter Property="MinHeight" Value="38" />
         <Setter Property="Focusable" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Grid>
-
+                <Panel>
                     <Rectangle Name="SelectedBackground"
                                Fill="{TemplateBinding Background}"
                                IsVisible="False"
@@ -47,7 +47,7 @@
                                Stroke="{DynamicResource HighlightBrush}"
                                StrokeThickness="1" />
 
-                </Grid>
+                </Panel>
             </ControlTemplate>
         </Setter>
 
