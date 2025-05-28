@@ -341,69 +341,6 @@
                 </ScrollViewer>
             </TabItem>
             <TabItem Header="Other">
-                <ScrollViewer>
-                    <StackPanel Margin="10" Spacing="10">
-                        <CheckBox Name="OtherViewIsEnabled" IsChecked="True">IsEnabled</CheckBox>
-                        <StackPanel IsEnabled="{Binding #OtherViewIsEnabled.IsChecked}" Spacing="10">
-                            <StackPanel Orientation="Horizontal">
-                                <EmptyBox />
-                                <EmptyBox GlyphHeight="60" GlyphWidth="90" />
-                                <EmptyBox GlyphHeight="80" GlyphWidth="120" />
-                            </StackPanel>
-
-                            <ProgressBar Value="{Binding #HorizontalSlider.Value}" />
-                            <Slider Name="HorizontalSlider" />
-                            <ProgressBar ShowProgressText="True" Value="{Binding #HorizontalSlider.Value}" />
-                            <DockPanel MinHeight="60">
-                                <Slider Name="VerticalSlider"
-                                        DockPanel.Dock="Left"
-                                        Orientation="Vertical" />
-                                <ProgressBar Margin="10,0,0,0"
-                                             Orientation="Vertical"
-                                             ShowProgressText="True"
-                                             Value="{Binding #VerticalSlider.Value}" />
-                            </DockPanel>
-
-                            <Expander CornerRadius="2"
-                                      ExpandDirection="Left"
-                                      Header="Expander">
-                                <StackPanel Margin="10">
-                                    <Button>1</Button>
-                                    <Button>2</Button>
-                                </StackPanel>
-                            </Expander>
-                            <Expander CornerRadius="3"
-                                      ExpandDirection="Right"
-                                      Header="Expander">
-                                <StackPanel Margin="10">
-                                    <Button>1</Button>
-                                    <Button>2</Button>
-                                </StackPanel>
-                            </Expander>
-                            <Expander CornerRadius="4"
-                                      ExpandDirection="Up"
-                                      Header="Expander">
-                                <StackPanel Margin="10">
-                                    <Button>1</Button>
-                                    <Button>2</Button>
-                                </StackPanel>
-                            </Expander>
-                            <Expander CornerRadius="5"
-                                      ExpandDirection="Down"
-                                      Header="Expander">
-                                <GroupBox>
-                                    <DropShadowChrome Padding="10">
-                                        <DropShadowChrome>
-                                            <TextBlock>DropShadowChrome</TextBlock>
-                                        </DropShadowChrome>
-                                    </DropShadowChrome>
-                                </GroupBox>
-                            </Expander>
-                        </StackPanel>
-                    </StackPanel>
-                </ScrollViewer>
-            </TabItem>
-            <TabItem Header="Ext">
                 <DockPanel>
                     <Menu DockPanel.Dock="Top">
                         <MenuItem Header="MenuItem1">
@@ -422,61 +359,136 @@
                     </Menu>
                     <ScrollViewer>
                         <StackPanel Margin="10" Spacing="10">
-                            <CheckBox Name="ExtViewIsEnabled"
-                                      Content="IsEnabled"
-                                      IsChecked="True" />
-                            <StackPanel IsEnabled="{Binding #ExtViewIsEnabled.IsChecked}" Spacing="10">
-                                <so:GroupBox HorizontalContentAlignment="Left" Header="so:GroupBox">
-                                    <StackPanel>
-                                        <TextBlock>TextBlock</TextBlock>
-                                        <StackPanel Orientation="Horizontal">
-                                            <Calendar />
-                                            <GroupBox Header="Calendar" />
-                                        </StackPanel>
+                            <CheckBox Name="OtherViewIsEnabled" IsChecked="True">IsEnabled</CheckBox>
+                            <StackPanel IsEnabled="{Binding #OtherViewIsEnabled.IsChecked}" Spacing="10">
+                                <StackPanel Orientation="Horizontal">
+                                    <EmptyBox />
+                                    <EmptyBox GlyphHeight="60" GlyphWidth="90" />
+                                    <EmptyBox GlyphHeight="80" GlyphWidth="120" />
+                                </StackPanel>
+
+                                <ProgressBar Value="{Binding #HorizontalSlider.Value}" />
+                                <Slider Name="HorizontalSlider" />
+                                <ProgressBar ShowProgressText="True" Value="{Binding #HorizontalSlider.Value}" />
+                                <DockPanel MinHeight="60">
+                                    <Slider Name="VerticalSlider"
+                                            DockPanel.Dock="Left"
+                                            Orientation="Vertical" />
+                                    <ProgressBar Margin="10,0,0,0"
+                                                 Orientation="Vertical"
+                                                 ShowProgressText="True"
+                                                 Value="{Binding #VerticalSlider.Value}" />
+                                </DockPanel>
+
+                                <Expander CornerRadius="2"
+                                          ExpandDirection="Left"
+                                          Header="Expander">
+                                    <StackPanel Margin="10">
+                                        <Button>1</Button>
+                                        <Button>2</Button>
                                     </StackPanel>
-                                </so:GroupBox>
-                                <GroupBox Header="GroupBox">
+                                </Expander>
+                                <Expander CornerRadius="3"
+                                          ExpandDirection="Right"
+                                          Header="Expander">
+                                    <StackPanel Margin="10">
+                                        <Button>1</Button>
+                                        <Button>2</Button>
+                                    </StackPanel>
+                                </Expander>
+                                <Expander CornerRadius="4"
+                                          ExpandDirection="Up"
+                                          Header="Expander">
+                                    <StackPanel Margin="10">
+                                        <Button>1</Button>
+                                        <Button>2</Button>
+                                    </StackPanel>
+                                </Expander>
+                                <Expander CornerRadius="5"
+                                          ExpandDirection="Down"
+                                          Header="Expander">
                                     <GroupBox>
                                         <DropShadowChrome Padding="10">
                                             <DropShadowChrome>
-                                                <TextBox Padding="0"
-                                                         Background="Transparent"
-                                                         BorderThickness="0"
-                                                         Foreground="{DynamicResource ErrorBrush}"
-                                                         IsReadOnly="True"
-                                                         TextWrapping="Wrap">
-                                                    DropShadowChrome
-                                                </TextBox>
+                                                <TextBlock>DropShadowChrome</TextBlock>
                                             </DropShadowChrome>
                                         </DropShadowChrome>
                                     </GroupBox>
-                                </GroupBox>
-                                <ContentControl>
-                                    <GroupBox>
-                                        <GroupBox>
-                                            <DropShadowChrome Padding="10">
-                                                <DropShadowChrome>
-                                                    <TextBlock>DropShadowChrome</TextBlock>
-                                                </DropShadowChrome>
-                                            </DropShadowChrome>
-                                        </GroupBox>
-                                    </GroupBox>
-                                </ContentControl>
-                                <so:DropShadowChrome>
-                                    <TextBlock>DropShadowChrome</TextBlock>
-                                </so:DropShadowChrome>
-                                <StackPanel Orientation="Horizontal" Spacing="10">
-                                    <GroupBox Width="50" Header="GroupBox">
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock>TextBlockTextBlock</TextBlock>
-                                        </StackPanel>
-                                    </GroupBox>
-                                    <Expander Header="Expander">Content</Expander>
-                                </StackPanel>
+                                </Expander>
                             </StackPanel>
                         </StackPanel>
                     </ScrollViewer>
                 </DockPanel>
+            </TabItem>
+            <TabItem Header="Ext">
+                <ScrollViewer>
+                    <StackPanel Margin="10" Spacing="10">
+                        <CheckBox Name="ExtViewIsEnabled"
+                                  Content="IsEnabled"
+                                  IsChecked="True" />
+                        <StackPanel IsEnabled="{Binding #ExtViewIsEnabled.IsChecked}" Spacing="10">
+                            <so:GroupBox HorizontalContentAlignment="Left" Header="so:GroupBox">
+                                <StackPanel>
+                                    <TextBlock>Calendar</TextBlock>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Calendar />
+                                        <GroupBox Header="Calendar" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </so:GroupBox>
+                            <GroupBox Header="GroupBox">
+                                <GroupBox>
+                                    <DropShadowChrome Padding="10">
+                                        <DropShadowChrome>
+                                            <TextBox Padding="0"
+                                                     Background="Transparent"
+                                                     BorderThickness="0"
+                                                     Foreground="{DynamicResource ErrorBrush}"
+                                                     IsReadOnly="True"
+                                                     TextWrapping="Wrap">
+                                                DropShadowChrome
+                                            </TextBox>
+                                        </DropShadowChrome>
+                                    </DropShadowChrome>
+                                </GroupBox>
+                            </GroupBox>
+                            <ContentControl>
+                                <GroupBox>
+                                    <GroupBox>
+                                        <DropShadowChrome Padding="10">
+                                            <DropShadowChrome>
+                                                <TextBlock>DropShadowChrome</TextBlock>
+                                            </DropShadowChrome>
+                                        </DropShadowChrome>
+                                    </GroupBox>
+                                </GroupBox>
+                            </ContentControl>
+                            <DropShadowChrome>
+                                <TextBlock>DropShadowChrome</TextBlock>
+                            </DropShadowChrome>
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <GroupBox Width="50" Header="GroupBox">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock>TextBlockTextBlock</TextBlock>
+                                    </StackPanel>
+                                </GroupBox>
+                                <Expander Header="Expander">Content</Expander>
+                            </StackPanel>
+                        </StackPanel>
+                        <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>TextBlock</TextBlock>
+                                <TextBox>TextBox</TextBox>
+                            </StackPanel> 
+                            <Button>Button</Button>
+                            <ComboBox SelectedIndex="0">
+                                <ComboBoxItem>ComboBoxItem-1</ComboBoxItem>
+                                <ComboBoxItem>ComboBoxItem-2</ComboBoxItem>
+                            </ComboBox>
+                            <DropDownButton>DropDownButton</DropDownButton>
+                        </SpacingWrapPanel>
+                    </StackPanel>
+                </ScrollViewer>
             </TabItem>
             <TabItem Header="Collection">
                 <UniformGrid Margin="10" Columns="1">
