@@ -8,12 +8,7 @@ namespace Synthora.Controls
     {
         public static readonly StyledProperty<BoxShadows> BoxShadowProperty =
           AvaloniaProperty.Register<DropShadowChrome, BoxShadows>(nameof(BoxShadow));
-
-        static DropShadowChrome()
-        {
-            AffectsRender<DropShadowChrome>(BoxShadowProperty);
-        }
-
+ 
         public BoxShadows BoxShadow
         {
             get => GetValue(BoxShadowProperty);

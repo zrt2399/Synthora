@@ -15,9 +15,9 @@ namespace Synthora.Attaches
             UseDpiLayoutRoundingProperty.Changed.AddClassHandler<Window, bool>((s, e) => OnUseDpiLayoutRoundingChanged(e));
         }
 
-        public static void SetUseDpiLayoutRounding(Window obj, bool value) => obj.SetValue(UseDpiLayoutRoundingProperty, value);
         public static bool GetUseDpiLayoutRounding(Window obj) => obj.GetValue(UseDpiLayoutRoundingProperty);
-
+        public static void SetUseDpiLayoutRounding(Window obj, bool value) => obj.SetValue(UseDpiLayoutRoundingProperty, value);
+ 
         private static void OnUseDpiLayoutRoundingChanged(AvaloniaPropertyChangedEventArgs<bool> e)
         {
             if (e.Sender is not Window window)
@@ -45,6 +45,6 @@ namespace Synthora.Attaches
             }
         }
 
-        private static void UpdateUseLayoutRounding(Window window) => window.UseLayoutRounding = window.DesktopScaling * 100 % 2 != 0;
+        private static void UpdateUseLayoutRounding(Window window) => window.UseLayoutRounding = ((int)(window.RenderScaling * 100)) % 2 != 0;
     }
 }

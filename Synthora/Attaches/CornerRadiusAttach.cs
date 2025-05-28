@@ -17,8 +17,8 @@ namespace Synthora.Attaches
             IsCircularProperty.Changed.AddClassHandler<InputElement, bool>((s, e) => OnIsCircularChanged(e));
         }
 
-        public static void SetIsCircular(InputElement element, bool value) => element.SetValue(IsCircularProperty, value);
         public static bool GetIsCircular(InputElement element) => element.GetValue(IsCircularProperty);
+        public static void SetIsCircular(InputElement element, bool value) => element.SetValue(IsCircularProperty, value);
 
         private static void OnIsCircularChanged(AvaloniaPropertyChangedEventArgs<bool> e)
         {

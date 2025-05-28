@@ -5,12 +5,7 @@ using Avalonia.Media;
 namespace Synthora.Controls
 {
     public class GroupBox : HeaderedContentControl
-    {
-        static GroupBox()
-        {
-            AffectsRender<DropShadowChrome>(BoxShadowProperty);
-        }
-
+    { 
         public static readonly StyledProperty<Thickness> HeaderPaddingProperty =
             AvaloniaProperty.Register<GroupBox, Thickness>(nameof(HeaderPadding));
 

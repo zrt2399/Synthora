@@ -15,10 +15,9 @@ namespace Synthora.Attaches
             OrientationProperty.Changed.AddClassHandler<AvaloniaObject, Orientation>((s, e) => OnOrientationChanged(e));
         }
 
+        public static Orientation GetOrientation(AvaloniaObject obj) => obj.GetValue(OrientationProperty);
         public static void SetOrientation(AvaloniaObject obj, Orientation value) => obj.SetValue(OrientationProperty, value);
 
-        public static Orientation GetOrientation(AvaloniaObject obj) => obj.GetValue(OrientationProperty);
-         
         private static void OnOrientationChanged(AvaloniaPropertyChangedEventArgs<Orientation> e)
         {
             if (e.Sender is not ScrollViewer scrollViewer)
@@ -32,7 +31,6 @@ namespace Synthora.Attaches
             else
             {
                 scrollViewer.RemoveHandler(InputElement.PointerWheelChangedEvent, ScrollViewerPointerWheelChanged);
-                //scrollViewer.PointerWheelChanged -= ScrollViewerPointerWheelChanged;
             }
         }
 
