@@ -18,6 +18,7 @@
             <Color x:Key="SynthoraLowColor">#FFF6F8FA</Color>
             <Color x:Key="SynthoraMidColor">#FFEFF2F5</Color>
             <Color x:Key="SynthoraHighColor">#FFE6EAEF</Color>
+            <Color x:Key="SynthoraVeryHighColor">#FFD2DCE6</Color>
 
             <Color x:Key="ThemeBackgroundColor">#FFFFFFFF</Color>
             <Color x:Key="ThemeBorderLowColor">#FFAAAAAA</Color>
@@ -48,6 +49,7 @@
             <SolidColorBrush x:Key="SynthoraLowBrush" Color="{StaticResource SynthoraLowColor}" />
             <SolidColorBrush x:Key="SynthoraMidBrush" Color="{StaticResource SynthoraMidColor}" />
             <SolidColorBrush x:Key="SynthoraHighBrush" Color="{StaticResource SynthoraHighColor}" />
+            <SolidColorBrush x:Key="SynthoraVeryHighBrush" Color="{StaticResource SynthoraVeryHighColor}" />
 
             <SolidColorBrush x:Key="ThemeBackgroundBrush" Color="{StaticResource ThemeBackgroundColor}" />
             <SolidColorBrush x:Key="ThemeBorderLowBrush" Color="{StaticResource ThemeBorderLowColor}" />
@@ -90,6 +92,7 @@
             <Color x:Key="SynthoraLowColor">#FF212830</Color>
             <Color x:Key="SynthoraMidColor">#FF262C36</Color>
             <Color x:Key="SynthoraHighColor">#FF2A313C</Color>
+            <Color x:Key="SynthoraVeryHighColor">#FF181818</Color>
 
             <Color x:Key="ThemeBackgroundColor">#FF202020</Color>
             <Color x:Key="ThemeBorderLowColor">#FF505050</Color>
@@ -120,6 +123,7 @@
             <SolidColorBrush x:Key="SynthoraLowBrush" Color="{StaticResource SynthoraLowColor}" />
             <SolidColorBrush x:Key="SynthoraMidBrush" Color="{StaticResource SynthoraMidColor}" />
             <SolidColorBrush x:Key="SynthoraHighBrush" Color="{StaticResource SynthoraHighColor}" />
+            <SolidColorBrush x:Key="SynthoraVeryHighBrush" Color="{StaticResource SynthoraVeryHighColor}" />
 
             <SolidColorBrush x:Key="ThemeBackgroundBrush" Color="{StaticResource ThemeBackgroundColor}" />
             <SolidColorBrush x:Key="ThemeBorderLowBrush" Color="{StaticResource ThemeBorderLowColor}" />

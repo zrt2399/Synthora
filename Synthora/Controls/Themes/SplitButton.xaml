@@ -55,11 +55,11 @@
         </Style>
 
         <Style Selector="^[Tag=checked]">
-            <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SynthoraVeryHighBrush}" />
         </Style>
 
         <Style Selector="^[Tag=checked-flyout-open]">
-            <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SynthoraVeryHighBrush}" />
         </Style>
     </ControlTheme>
 
