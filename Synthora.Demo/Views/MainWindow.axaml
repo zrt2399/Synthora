@@ -125,11 +125,15 @@
                         <StackPanel IsEnabled="{Binding #ButtonViewIsEnabled.IsChecked}" Spacing="10">
                             <StackPanel Orientation="Horizontal" Spacing="10">
                                 <Button Command="{Binding SwitchTheme}" CommandParameter="{Binding $self.Content}">Default</Button>
-                                <Button Command="{Binding SwitchTheme}" CommandParameter="{Binding $self.Content}">Light</Button>
+                                <Button Command="{Binding SwitchTheme}"
+                                        CommandParameter="{Binding $self.Content}"
+                                        Theme="{StaticResource SynthoraButtonTheme}">
+                                    Light
+                                </Button>
                                 <Button Command="{Binding SwitchTheme}"
                                         CommandParameter="{Binding $self.Content}"
                                         Content="Dark"
-                                        Theme="{StaticResource SynthoraButtonTheme}" />
+                                        Theme="{StaticResource CancelButtonTheme}" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Spacing="10">
                                 <Button Command="{Binding ShowNotification}" CommandParameter="{Binding $self.Content}">Information</Button>
@@ -479,7 +483,7 @@
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>TextBlock</TextBlock>
                                 <TextBox>TextBox</TextBox>
-                            </StackPanel> 
+                            </StackPanel>
                             <Button>Button</Button>
                             <ComboBox SelectedIndex="0">
                                 <ComboBoxItem>ComboBoxItem-1</ComboBoxItem>
