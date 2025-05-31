@@ -9,8 +9,8 @@
         xmlns:so="https://github.com/zrt2399/synthora"
         xmlns:vm="using:Synthora.Demo.ViewModels"
         Title="Synthora.Demo"
-        Width="800"
-        Height="450"
+        Width="900"
+        Height="500"
         x:DataType="vm:MainWindowViewModel"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d">
@@ -30,19 +30,20 @@
     <Grid RowDefinitions="*,Auto">
         <TabControl x:Name="TabControl">
             <TabItem Header="Brush">
-                <ItemsControl Margin="5" ItemsSource="{Binding BrushKeys}">
+                <ItemsControl ItemsSource="{Binding BrushKeys}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <WrapPanel />
+                            <SpacingWrapPanel Margin="10"
+                                              HorizontalSpacing="10"
+                                              VerticalSpacing="10" />
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <DropShadowChrome MinWidth="100"
                                               MinHeight="60"
-                                              Margin="5"
                                               Background="{Binding Converter={StaticResource ResourceKeyToBrushConverter}}"
-                                              BorderBrush="{Binding $self.Background}">
+                                              BorderThickness="0">
                                 <StackPanel Margin="10"
                                             VerticalAlignment="Center"
                                             Spacing="10"
@@ -132,8 +133,9 @@
                                 </Button>
                                 <Button Command="{Binding SwitchTheme}"
                                         CommandParameter="{Binding $self.Content}"
-                                        Content="Dark"
-                                        Theme="{StaticResource CancelButtonTheme}" />
+                                        Theme="{StaticResource CancelButtonTheme}">
+                                    Dark
+                                </Button>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Spacing="10">
                                 <Button Command="{Binding ShowNotification}" CommandParameter="{Binding $self.Content}">Information</Button>
@@ -150,7 +152,7 @@
                                         Content="Error"
                                         Theme="{StaticResource ErrorButtonTheme}" />
                             </StackPanel>
-                            <StackPanel Orientation="Horizontal" Spacing="10">
+                            <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
                                 <Button Command="{Binding ShowMessageTip}"
                                         CommandParameter="Show"
                                         Theme="{StaticResource SynthoraButtonTheme}">
@@ -162,19 +164,19 @@
                                 <Button Command="{Binding ShowMessageTip}"
                                         CommandParameter="ShowSuccess"
                                         Theme="{StaticResource SuccessButtonTheme}">
-                                    MessageTip.Success
+                                    MessageTip.ShowSuccess
                                 </Button>
                                 <Button Command="{Binding ShowMessageTip}"
                                         CommandParameter="ShowWarning"
                                         Theme="{StaticResource WarningButtonTheme}">
-                                    MessageTip.Warning
+                                    MessageTip.ShowWarning
                                 </Button>
                                 <Button Command="{Binding ShowMessageTip}"
                                         CommandParameter="ShowError"
                                         Theme="{StaticResource ErrorButtonTheme}">
-                                    MessageTip.Error
+                                    MessageTip.ShowError
                                 </Button>
-                            </StackPanel>
+                            </SpacingWrapPanel>
                             <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
                                 <Button Command="{Binding ShowAlertDialog}"
                                         CommandParameter="Information"
@@ -361,6 +363,7 @@
                     <Menu DockPanel.Dock="Top">
                         <MenuItem Header="MenuItem1">
                             <MenuItem Header="MenuItem2">
+                                <MenuItem Header="MenuItem3" />
                                 <MenuItem Header="MenuItem4" />
                                 <MenuItem Header="MenuItem5" />
                                 <MenuItem Header="MenuItem6" />

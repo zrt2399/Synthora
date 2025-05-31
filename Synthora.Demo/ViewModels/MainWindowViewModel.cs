@@ -65,10 +65,12 @@ namespace Synthora.Demo.ViewModels
         public ObservableCollection<string> BrushKeys { get; } = new ObservableCollection<string>
         {
             "PrimaryBrush",
+            "OnPrimaryBrush",
             "SuccessBrush",
             "WarningBrush",
             "DangerBrush",
             "ErrorBrush",
+            "HighlightBrush",
             "ThemeAccentBrush",
             "ThemeAccentBrush2",
             "ThemeAccentBrush3",
