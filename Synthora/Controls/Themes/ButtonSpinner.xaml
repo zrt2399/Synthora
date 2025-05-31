@@ -57,7 +57,7 @@
                                               Height="4"
                                               HorizontalAlignment="Center"
                                               VerticalAlignment="Center"
-                                              Data="{DynamicResource UpArrowGlyph}"
+                                              Data="{DynamicResource ArrowUpGlyph}"
                                               Foreground="{DynamicResource ThemeForegroundBrush}" />
                                 </RepeatButton>
                                 <RepeatButton Name="PART_DecreaseButton"
@@ -74,7 +74,7 @@
                                               Height="4"
                                               HorizontalAlignment="Center"
                                               VerticalAlignment="Center"
-                                              Data="{DynamicResource DownArrowGlyph}"
+                                              Data="{DynamicResource ArrowDownGlyph}"
                                               Foreground="{DynamicResource ThemeForegroundBrush}" />
                                 </RepeatButton>
                             </UniformGrid>

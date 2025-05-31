@@ -43,7 +43,7 @@
                                                                Converter={StaticResource DropDownButtonMarginMultiplier}}"
                                       HorizontalAlignment="Right"
                                       VerticalAlignment="Center"
-                                      Data="{DynamicResource DownArrowGlyph}"
+                                      Data="{DynamicResource ArrowDownGlyph}"
                                       Foreground="{TemplateBinding Foreground}"
                                       IsHitTestVisible="False"
                                       UseLayoutRounding="False" />

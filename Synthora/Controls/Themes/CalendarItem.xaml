@@ -41,7 +41,7 @@
                                     IsVisible="False">
                                 <PathIcon Width="12"
                                           Height="12"
-                                          Data="{DynamicResource LeftArrowGlyph}"
+                                          Data="{DynamicResource ArrowLeftGlyph}"
                                           IsHitTestVisible="False"
                                           UseLayoutRounding="False" />
                             </Button>
@@ -58,7 +58,7 @@
                                     IsVisible="False">
                                 <PathIcon Width="12"
                                           Height="12"
-                                          Data="{DynamicResource RightArrowGlyph}"
+                                          Data="{DynamicResource ArrowRightGlyph}"
                                           IsHitTestVisible="False"
                                           UseLayoutRounding="False" />
                             </Button>

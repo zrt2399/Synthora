@@ -77,7 +77,7 @@
                                   Margin="4,4,0,4"
                                   HorizontalAlignment="Center"
                                   VerticalAlignment="Center"
-                                  Data="{DynamicResource RightArrowGlyph}"
+                                  Data="{DynamicResource ArrowRightGlyph}"
                                   Foreground="{TemplateBinding Foreground}"
                                   IsHitTestVisible="False"
                                   UseLayoutRounding="False" />

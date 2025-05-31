@@ -201,10 +201,10 @@
     <sys:Double x:Key="IconElementThemeHeight">20</sys:Double>
     <sys:Double x:Key="IconElementThemeWidth">20</sys:Double>
 
-    <StreamGeometry x:Key="UpArrowGlyph">M1939 1114L2029 1024L1024 19L19 1024L109 1114L1024 199L1939 1114Z</StreamGeometry>
-    <StreamGeometry x:Key="DownArrowGlyph">M1939 486L2029 576L1024 1581L19 576L109 486L1024 1401L1939 486Z</StreamGeometry>
-    <StreamGeometry x:Key="LeftArrowGlyph">M1581 109L1491 19L486 1024L1491 2029L1581 1939L666 1024Z</StreamGeometry>
-    <StreamGeometry x:Key="RightArrowGlyph">M486 109L576 19L1581 1024L576 2029L486 1939L1401 1024L486 109Z</StreamGeometry>
+    <StreamGeometry x:Key="ArrowUpGlyph">M1939 1114L2029 1024L1024 19L19 1024L109 1114L1024 199L1939 1114Z</StreamGeometry>
+    <StreamGeometry x:Key="ArrowDownGlyph">M1939 486L2029 576L1024 1581L19 576L109 486L1024 1401L1939 486Z</StreamGeometry>
+    <StreamGeometry x:Key="ArrowLeftGlyph">M1581 109L1491 19L486 1024L1491 2029L1581 1939L666 1024Z</StreamGeometry>
+    <StreamGeometry x:Key="ArrowRightGlyph">M486 109L576 19L1581 1024L576 2029L486 1939L1401 1024L486 109Z</StreamGeometry>
 
     <BoxShadows x:Key="PopupBoxShadow">2 2 4 0 DarkGray</BoxShadows>
     <Thickness x:Key="PopupBoxShadowMargin">0,0,4,4</Thickness>

@@ -28,7 +28,7 @@
                     <PathIcon Name="pathIcon"
                               Width="12"
                               Height="12"
-                              Data="{DynamicResource DownArrowGlyph}"
+                              Data="{DynamicResource ArrowDownGlyph}"
                               Foreground="{TemplateBinding Foreground}"
                               IsHitTestVisible="False"
                               UseLayoutRounding="False" />
