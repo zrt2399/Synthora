@@ -7,8 +7,8 @@
         <ResourceDictionary x:Key="Default">
             <!--  FF007AFF  -->
             <Color x:Key="PrimaryColor">#FF3A8BEF</Color>
-            <Color x:Key="PrimaryPointerOverColor">#FF3F94F5</Color>
-            <Color x:Key="PrimaryPressedColor">#FF499FEF</Color>
+            <Color x:Key="PrimaryPointerOverColor">#FF4E97F1</Color>
+            <Color x:Key="PrimaryPressedColor">#FF60A1F2</Color>
             <Color x:Key="OnPrimaryColor">#FFFFFFFF</Color>
             <Color x:Key="PrimaryContrastColor">#FFCBD5E0</Color>
             <Color x:Key="ThemeSelectedLowColor">#FFE6E6E6</Color>
@@ -33,8 +33,7 @@
             <Color x:Key="ThemeControlHighlightMidColor">#FFD0D0D0</Color>
             <Color x:Key="ThemeControlHighlightHighColor">#FF808080</Color>
             <Color x:Key="ThemeForegroundColor">#FF25292E</Color>
-            <Color x:Key="HighlightColor">#FF086F9E</Color>
-            <Color x:Key="HighlightColor2">#FF096085</Color>
+            <Color x:Key="HighlightColor">#FF0569B4</Color>
             <Color x:Key="HyperlinkVisitedColor">#FF681DA8</Color>
 
             <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource PrimaryColor}" />
@@ -76,13 +75,12 @@
             <SolidColorBrush x:Key="CaptionButtonForeground" Color="Black" />
             <SolidColorBrush x:Key="CaptionButtonBackground" Color="#ffe5e5e5" />
             <SolidColorBrush x:Key="CaptionButtonBorderBrush" Color="#ffcacaca" />
-
-
         </ResourceDictionary>
+
         <ResourceDictionary x:Key="Dark">
             <Color x:Key="PrimaryColor">#FF3A8BEF</Color>
-            <Color x:Key="PrimaryPointerOverColor">#FF3F94F5</Color>
-            <Color x:Key="PrimaryPressedColor">#FF499FEF</Color>
+            <Color x:Key="PrimaryPointerOverColor">#FF4E97F1</Color>
+            <Color x:Key="PrimaryPressedColor">#FF60A1F2</Color>
             <Color x:Key="OnPrimaryColor">#FFFFFFFF</Color>
             <Color x:Key="PrimaryContrastColor">#FF2C3E50</Color>
             <Color x:Key="ThemeSelectedLowColor">#FF505050</Color>
@@ -108,7 +106,6 @@
             <Color x:Key="ThemeControlHighlightHighColor">#FF505050</Color>
             <Color x:Key="ThemeForegroundColor">#FFDEDEDE</Color>
             <Color x:Key="HighlightColor">#FF119EDA</Color>
-            <Color x:Key="HighlightColor2">#FF096085</Color>
             <Color x:Key="HyperlinkVisitedColor">#FFC58AF9</Color>
 
             <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource PrimaryColor}" />
