@@ -1,6 +1,7 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     x:ClassModifier="internal">
+	
     <ControlTheme x:Key="{x:Type ListBox}" TargetType="ListBox">
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
@@ -32,8 +33,8 @@
                 </Border>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:disabled /template/ Border#border">
+        <!--<Style Selector="^:disabled /template/ Border#border">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
-        </Style>
+        </Style>-->
     </ControlTheme>
 </ResourceDictionary>
