@@ -152,8 +152,8 @@
                                Placement="Bottom"
                                PlacementTarget="{Binding ElementName=PART_FlyoutButton}"
                                WindowManagerAddShadowHint="False">
-                            <!--  Add offset  -->
-                            <Panel Margin="4,0,0,0">
+                            <!--  Add offset. ScrollViewerAttach.IsDisabled="True" fix mouse scrolling triggers parent  -->
+                            <Panel Margin="4,0,0,0" ScrollViewerAttach.IsDisabled="True">
                                 <Border Margin="{DynamicResource PopupBoxShadowMargin}"
                                         Background="{DynamicResource ThemeBackgroundBrush}"
                                         BorderBrush="{DynamicResource ThemeBorderMidBrush}"

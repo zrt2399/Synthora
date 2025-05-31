@@ -185,7 +185,8 @@
                                Placement="Bottom"
                                PlacementTarget="{Binding ElementName=PART_FlyoutButton}"
                                WindowManagerAddShadowHint="False">
-                            <Panel Margin="4,0,0,0">
+                            <!--  Add offset. ScrollViewerAttach.IsDisabled="True" fix mouse scrolling triggers parent  -->
+                            <Panel Margin="4,0,0,0" ScrollViewerAttach.IsDisabled="True">
                                 <Border Margin="{DynamicResource PopupBoxShadowMargin}"
                                         Background="{DynamicResource ThemeBackgroundBrush}"
                                         BorderBrush="{DynamicResource ThemeBorderMidBrush}"
@@ -267,7 +268,9 @@
                         </Panel>
 
                         <Panel Name="PART_PeriodHost" Grid.Column="6">
-                            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
+                            <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                                          ScrollViewerAttach.IsDisabled="True"
+                                          VerticalScrollBarVisibility="Hidden">
                                 <DateTimePickerPanel Name="PART_PeriodSelector"
                                                      ItemHeight="{DynamicResource TimePickerFlyoutPresenterItemHeight}"
                                                      PanelType="TimePeriod"
