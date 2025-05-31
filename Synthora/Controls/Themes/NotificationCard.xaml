@@ -18,7 +18,7 @@
     <ControlTheme x:Key="{x:Type NotificationCard}" TargetType="NotificationCard">
         <Setter Property="UseLayoutRounding" Value="True" />
         <Setter Property="Padding" Value="12" />
-        <Setter Property="Width" Value="340" />
+        <Setter Property="Width" Value="320" />
         <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
         <!--<Setter Property="RenderTransformOrigin" Value="50%,75%" />-->
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
@@ -32,11 +32,13 @@
                               Background="{TemplateBinding Background}"
                               BorderBrush="{TemplateBinding BorderBrush}"
                               BorderThickness="{TemplateBinding BorderThickness}"
-                              BoxShadow="0 0 8 0 #64000000"
+                              BoxShadow="{TemplateBinding BorderBrush,
+                                                          Converter={x:Static SynthoraConverters.BoxShadowConverter},
+                                                          ConverterParameter=0 0 8 0 #00000000}"
                               CornerRadius="{TemplateBinding CornerRadius}"
                               HeaderBackground="{TemplateBinding BorderBrush}"
                               HeaderDividerHeight="0"
-                              HeaderPadding="2">
+                              HeaderPadding="1">
                         <DockPanel>
                             <TipIcon Name="icon"
                                      Margin="{TemplateBinding Padding,
