@@ -71,7 +71,7 @@
                             <Binding Path="IsExpanded" RelativeSource="{RelativeSource AncestorType=Expander}" />
                         </MultiBinding>
                     </Border.CornerRadius>
-                    <Grid ColumnDefinitions="Auto,*"> 
+                    <Grid ColumnDefinitions="Auto,*">
                         <PathIcon Width="12"
                                   Height="12"
                                   Margin="4,4,0,4"
@@ -168,6 +168,7 @@
                                           HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalAlignment}"
                                           Content="{TemplateBinding Header}"
+                                          ContentTemplate="{TemplateBinding HeaderTemplate}"
                                           CornerRadius="{TemplateBinding CornerRadius}"
                                           IsChecked="{TemplateBinding IsExpanded,
                                                                       Mode=TwoWay}" />
@@ -177,12 +178,22 @@
                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                               Content="{TemplateBinding Content}"
                                               ContentTemplate="{TemplateBinding ContentTemplate}"
-                                              IsVisible="{TemplateBinding IsExpanded}" />
+                                              IsVisible="{TemplateBinding IsExpanded}"
+                                              Opacity="0">
+                                <ContentPresenter.Transitions>
+                                    <Transitions>
+                                        <DoubleTransition Property="Opacity" Duration="0:0:0.3" />
+                                    </Transitions>
+                                </ContentPresenter.Transitions>
+                            </ContentPresenter>
                         </DockPanel>
                     </Border>
                 </Panel>
             </ControlTemplate>
         </Setter>
+        <Style Selector="^:expanded /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Opacity" Value="1" />
+        </Style>
         <Style Selector="^[ExpandDirection=Down]">
             <Setter Property="VerticalAlignment" Value="Top" />
             <Style Selector="^ /template/ ToggleButton#PART_toggle">

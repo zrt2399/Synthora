@@ -95,7 +95,7 @@
         <Setter Property="Height" Value="22" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="Focusable" Value="False" />
-        <Setter Property="Background" Value="{DynamicResource ThemeControlHighlightMidBrush}" />
+        <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
         <Setter Property="IsVisible" Value="False" />
         <Setter Property="Content">
             <Template>
@@ -118,7 +118,7 @@
         <Setter Property="Height" Value="22" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="Focusable" Value="False" />
-        <Setter Property="Background" Value="{DynamicResource ThemeControlHighlightMidBrush}" />
+        <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
         <Setter Property="IsVisible" Value="False" />
         <Setter Property="Content">
             <Template>

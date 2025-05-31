@@ -9,6 +9,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="using:System"
                     x:ClassModifier="internal">
+
     <Design.PreviewWith>
         <Border Height="500" Padding="20">
             <StackPanel VerticalAlignment="Center" Spacing="20">
@@ -226,11 +227,11 @@
                         </Border.CornerRadius>
                     </Border>
                     <Grid Name="PART_PickerContainer" Grid.Row="1">
-						<Grid.Styles>
-							<Style Selector="DateTimePickerPanel &gt; ListBoxItem">
-								<Setter Property="Theme" Value="{StaticResource SimpleDateTimePickerItem}" />
-							</Style>
-						</Grid.Styles>
+                        <Grid.Styles>
+                            <Style Selector="DateTimePickerPanel &gt; ListBoxItem">
+                                <Setter Property="Theme" Value="{StaticResource SimpleDateTimePickerItem}" />
+                            </Style>
+                        </Grid.Styles>
                         <!--  Ignore col defs here, set in code  -->
                         <Panel Name="PART_HourHost" Grid.Column="0">
                             <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">

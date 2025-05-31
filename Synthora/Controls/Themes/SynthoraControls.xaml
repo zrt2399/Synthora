@@ -5,8 +5,8 @@
     <Styles.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-				<MergeResourceInclude Source="avares://Synthora/Controls/Themes/AdornerLayer.xaml" />
-				<MergeResourceInclude Source="avares://Synthora/Controls/Themes/AlertDialogHost.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/AdornerLayer.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/AlertDialogHost.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/Button.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/RadioButton.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/Expander.xaml" />

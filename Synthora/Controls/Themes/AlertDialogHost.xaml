@@ -107,7 +107,6 @@
                                 <Button Name="NoButton"
                                         Command="{Binding No, RelativeSource={RelativeSource TemplatedParent}}"
                                         Content="{DynamicResource StringAlertDialogButtonNo}"
-                                        IsCancel="True"
                                         IsVisible="{TemplateBinding DialogButton,
                                                                     Converter={x:Static SynthoraConverters.HasFlag},
                                                                     ConverterParameter={x:Static messaging:DialogButton.No}}"
