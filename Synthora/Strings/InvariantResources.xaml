@@ -39,12 +39,12 @@
     <x:String x:Key="StringScrollBarPageRight">Page Right</x:String>
     <x:String x:Key="StringScrollBarLineLeft">Line Left</x:String>
     <x:String x:Key="StringScrollBarLineRight">Line Right</x:String>
-    <!--  MessageBoxAvalonia  -->
-    <x:String x:Key="StringMessageBoxButtonOK">OK</x:String>
-    <x:String x:Key="StringMessageBoxButtonYes">Yes</x:String>
-    <x:String x:Key="StringMessageBoxButtonNo">No</x:String>
-    <x:String x:Key="StringMessageBoxButtonCancel">Cancel</x:String>
-    <x:String x:Key="StringMessageBoxButtonAbort">Abort</x:String>
+    <!--  AlertDialog  -->
+    <x:String x:Key="StringAlertDialogButtonOK">OK</x:String>
+    <x:String x:Key="StringAlertDialogButtonYes">Yes</x:String>
+    <x:String x:Key="StringAlertDialogButtonNo">No</x:String>
+    <x:String x:Key="StringAlertDialogButtonCancel">Cancel</x:String>
+    <x:String x:Key="StringAlertDialogButtonAbort">Abort</x:String>
     <!--  EmptyBox  -->
     <x:String x:Key="StringEmptyBoxDescription">No data</x:String>
 

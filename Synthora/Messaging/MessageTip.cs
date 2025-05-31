@@ -11,9 +11,31 @@ using Synthora.Controls;
 
 namespace Synthora.Messaging
 {
+    public enum DialogResult
+    {
+        None,
+        OK,
+        Cancel,
+        Yes,
+        No,
+        Abort
+    }
+
+    [Flags]
+    public enum DialogButton
+    {
+        None = 0,
+        OK = 1,
+        Cancel = 1 << 1,
+        Yes = 1 << 2,
+        No = 1 << 3,
+        Abort = 1 << 4
+    }
+
     public enum IconType
     {
         Information,
+        Question,
         Success,
         Warning,
         Error
@@ -24,11 +46,13 @@ namespace Synthora.Messaging
         private const int Delay = 2000;
 
         public static int GlobalDelay { get; set; } = 0;
-        public static int HorizontalOffset { get; set; } = 0;
-        public static int VerticalOffset { get; set; } = 0;
+        public static double HorizontalOffset { get; set; } = 0;
+        public static double VerticalOffset { get; set; } = 0;
         public static CornerRadius TipCornerRadius { get; set; } = new CornerRadius(4);
 
         public static void Show(string message, int delay = Delay) => Show(message, IconType.Information, delay);
+
+        public static void ShowQuestion(string message, int delay = Delay) => Show(message, IconType.Question, delay);
 
         public static void ShowSuccess(string message, int delay = Delay) => Show(message, IconType.Success, delay);
 
@@ -68,6 +92,7 @@ namespace Synthora.Messaging
                     var borderBrush = iconType switch
                     {
                         IconType.Information => SolidColorBrush.Parse("#8C8C8C"),
+                        IconType.Question => SolidColorBrush.Parse("#5A8CF0"),
                         IconType.Success => SolidColorBrush.Parse("#6EBE28"),
                         IconType.Warning => SolidColorBrush.Parse("#DC9B28"),
                         _ => SolidColorBrush.Parse("#E65050")
@@ -113,7 +138,7 @@ namespace Synthora.Messaging
                     border.BorderBrush = borderBrush;
                     border.BoxShadow = new BoxShadows(new BoxShadow()
                     {
-                        Blur = 6,
+                        Blur = 8,
                         Color = borderBrush.Color
                     });
 

@@ -24,11 +24,11 @@
         <x:String x:Key="StringTextFlyoutCopyText">复制</x:String>
         <x:String x:Key="StringTextFlyoutPasteText">粘贴</x:String>
         <x:String x:Key="StringTextFlyoutSelectAllText">全选</x:String>
-        <x:String x:Key="StringMessageBoxButtonOK">确定</x:String>
-        <x:String x:Key="StringMessageBoxButtonYes">是</x:String>
-        <x:String x:Key="StringMessageBoxButtonNo">否</x:String>
-        <x:String x:Key="StringMessageBoxButtonCancel">取消</x:String>
-        <x:String x:Key="StringMessageBoxButtonAbort">中止</x:String>
+        <x:String x:Key="StringAlertDialogButtonOK">确定</x:String>
+        <x:String x:Key="StringAlertDialogButtonYes">是</x:String>
+        <x:String x:Key="StringAlertDialogButtonNo">否</x:String>
+        <x:String x:Key="StringAlertDialogButtonCancel">取消</x:String>
+        <x:String x:Key="StringAlertDialogButtonAbort">中止</x:String>
         <x:String x:Key="StringScrollBarScrollToTop">顶部</x:String>
         <x:String x:Key="StringScrollBarScrollToBottom">底部</x:String>
         <x:String x:Key="StringScrollBarPageUp">向上翻页</x:String>

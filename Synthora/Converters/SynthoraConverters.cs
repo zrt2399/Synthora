@@ -12,6 +12,7 @@ namespace Synthora.Converters
         public static NotEqualsConverter NotEqual { get; } = new NotEqualsConverter();
         public static NullOrEmptyToBoolConverter IsNullOrEmpty { get; } = new NullOrEmptyToBoolConverter();
         public static NotNullOrEmptyToBoolConverter IsNotNullOrEmpty { get; } = new NotNullOrEmptyToBoolConverter();
+        public static HasFlagConverter HasFlag { get; } = new HasFlagConverter();
         public static IsZeroConverter IsZero { get; } = new IsZeroConverter();
         public static IsNotZeroConverter IsNotZero { get; } = new IsNotZeroConverter();
         public static ItemsSourceHasItemsConverter HasItems { get; } = new ItemsSourceHasItemsConverter();

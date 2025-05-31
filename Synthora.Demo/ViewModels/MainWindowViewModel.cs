@@ -12,8 +12,6 @@ using Avalonia.Platform.Storage;
 using Avalonia.Styling;
 using Avalonia.Threading;
 using Bogus;
-using MsBox.Avalonia;
-using MsBox.Avalonia.Enums;
 using Synthora.Demo.Models;
 using Synthora.Messaging;
 
@@ -30,8 +28,8 @@ namespace Synthora.Demo.ViewModels
                 .RuleFor(e => e.Name, f => f.Name.LastName() + f.Name.FirstName())
                 .RuleFor(e => e.Email, (f, e) => f.Internet.Email(f.Random.AlphaNumeric(8)))
                 .RuleFor(e => e.Age, f => f.Random.Int(18, 65))
-                .RuleFor(e => e.HireDate, f => f.Date.Past(10, DateTime.Now)) // 过去10年内的日期
-                .RuleFor(e => e.Salary, f => Math.Round(f.Random.Decimal(5000, 50000), 2)) // 薪资范围
+                .RuleFor(e => e.HireDate, f => f.Date.Past(10, DateTime.Now))
+                .RuleFor(e => e.Salary, f => Math.Round(f.Random.Decimal(5000, 50000), 2))
                 .RuleFor(e => e.IsActive, f => f.Random.Bool());
 
             List<Employee> employees = employeeFaker.Generate(1000);
@@ -86,26 +84,31 @@ namespace Synthora.Demo.ViewModels
 
         public void Test() => Greeting = "Test";
 
-        public async void ShowMessageBox(string param)
+        public async void ShowAlertDialog(string param)
         {
-            var box = MessageBoxManager.GetMessageBoxStandard("Caption", "Are you sure you would like to delete appender_replace_page_1?",
-                ButtonEnum.YesNo, Icon.Info);
+            var stringBuilder = new StringBuilder();
+            for (int i = 0; i < 50; i++)
+            {
+                stringBuilder.Append($"{param} Message;");
+            }
+            var message = stringBuilder.ToString();
 
             var result = param switch
             {
-                nameof(box.ShowAsPopupAsync) => await box.ShowAsPopupAsync(App.MainWindow),
-                nameof(box.ShowWindowDialogAsync) => await box.ShowWindowDialogAsync(App.MainWindow),
-                nameof(box.ShowWindowAsync) => await box.ShowWindowAsync(),
-                _ => await box.ShowAsync()
+                nameof(IconType.Information) => await AlertDialog.ShowAsPopupAsync(App.MainWindow, message, "Information", DialogButton.OK, IconType.Information),
+                nameof(IconType.Question) => await AlertDialog.ShowAsPopupAsync(App.MainWindow, message, "Question", DialogButton.OK | DialogButton.Cancel, IconType.Question),
+                nameof(IconType.Warning) => await AlertDialog.ShowAsPopupAsync(App.MainWindow, message, "Warning", DialogButton.Yes | DialogButton.No, IconType.Warning),
+                nameof(IconType.Error) => await AlertDialog.ShowAsPopupAsync(App.MainWindow, message, "Error", DialogButton.Yes | DialogButton.No | DialogButton.Cancel, IconType.Error),
+                _ => await AlertDialog.ShowAsPopupAsync(App.MainWindow, message, "Abort", DialogButton.Yes | DialogButton.No | DialogButton.Cancel | DialogButton.Abort, IconType.Error)
             };
             await new Window()
             {
-                Content = result,
+                Content = $"Selected:{result}",
                 HorizontalContentAlignment = HorizontalAlignment.Center,
                 VerticalContentAlignment = VerticalAlignment.Center,
                 CanResize = false,
-                Height = 180,
-                Width = 320,
+                Height = 140,
+                Width = 280,
                 WindowStartupLocation = WindowStartupLocation.CenterOwner
             }.ShowDialog(App.MainWindow);
             //https://github.com/AvaloniaUI/Avalonia/issues/15649
@@ -126,6 +129,9 @@ namespace Synthora.Demo.ViewModels
                     break;
                 case nameof(MessageTip.ShowSuccess):
                     MessageTip.ShowSuccess("ShowSuccess");
+                    break;
+                case nameof(MessageTip.ShowQuestion):
+                    MessageTip.ShowQuestion("ShowQuestion");
                     break;
                 case nameof(MessageTip.ShowWarning):
                     MessageTip.ShowWarning("ShowWarning");
@@ -160,16 +166,16 @@ namespace Synthora.Demo.ViewModels
             switch (param)
             {
                 case nameof(NotificationType.Information):
-                    _notificationManager.Show(new Notification("操作完成", "文件保存至本地完成。", NotificationType.Information));
+                    _notificationManager.Show(new Notification("Information", "Save file locally completed.", NotificationType.Information));
                     break;
                 case nameof(NotificationType.Success):
-                    _notificationManager.Show(new Notification("操作成功", "文件已保存至本地。", NotificationType.Success));
+                    _notificationManager.Show(new Notification("Success", "The file was saved locally.", NotificationType.Success));
                     break;
                 case nameof(NotificationType.Warning):
-                    _notificationManager.Show(new Notification("操作失败", "文件保存至本地失败。", NotificationType.Warning));
+                    _notificationManager.Show(new Notification("Warning", "Failed to save file locally.", NotificationType.Warning));
                     break;
                 case nameof(NotificationType.Error):
-                    _notificationManager.Show(new Notification("操作异常", "文件保存至本地异常。", NotificationType.Error));
+                    _notificationManager.Show(new Notification("Error", "Error saving file locally.", NotificationType.Error));
                     break;
             }
         }

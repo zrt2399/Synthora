@@ -156,6 +156,9 @@
                                         Theme="{StaticResource SynthoraButtonTheme}">
                                     MessageTip.Show
                                 </Button>
+                                <Button Command="{Binding ShowMessageTip}" CommandParameter="ShowQuestion">
+                                    MessageTip.ShowQuestion
+                                </Button>
                                 <Button Command="{Binding ShowMessageTip}"
                                         CommandParameter="ShowSuccess"
                                         Theme="{StaticResource SuccessButtonTheme}">
@@ -172,28 +175,37 @@
                                     MessageTip.Error
                                 </Button>
                             </StackPanel>
-                            <StackPanel Orientation="Horizontal" Spacing="10">
-                                <Button Command="{Binding ShowMessageBox}"
-                                        CommandParameter="ShowAsPopupAsync"
-                                        CornerRadiusAttach.IsCircular="True">
-                                    MessageBox.ShowAsPopup
+                            <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
+                                <Button Command="{Binding ShowAlertDialog}"
+                                        CommandParameter="Information"
+                                        CornerRadiusAttach.IsCircular="True"
+                                        Theme="{StaticResource SynthoraButtonTheme}">
+                                    AlertDialog.ShowInformation
                                 </Button>
-                                <Button Command="{Binding ShowMessageBox}"
-                                        CommandParameter="ShowWindowDialogAsync"
+                                <Button Command="{Binding ShowAlertDialog}"
+                                        CommandParameter="Question"
                                         CornerRadiusAttach.IsCircular="True">
-                                    MessageBox.ShowWindowDialog
+                                    AlertDialog.ShowQuestion
                                 </Button>
-                                <Button Command="{Binding ShowMessageBox}"
-                                        CommandParameter="ShowWindowAsync"
-                                        CornerRadiusAttach.IsCircular="True">
-                                    MessageBox.ShowWindow
+                                <Button Command="{Binding ShowAlertDialog}"
+                                        CommandParameter="Warning"
+                                        CornerRadiusAttach.IsCircular="True"
+                                        Theme="{StaticResource WarningButtonTheme}">
+                                    AlertDialog.ShowWarning
                                 </Button>
-                                <Button Command="{Binding ShowMessageBox}"
-                                        CommandParameter="ShowAsync"
-                                        CornerRadiusAttach.IsCircular="True">
-                                    MessageBox.Show
+                                <Button Command="{Binding ShowAlertDialog}"
+                                        CommandParameter="Error"
+                                        CornerRadiusAttach.IsCircular="True"
+                                        Theme="{StaticResource ErrorButtonTheme}">
+                                    AlertDialog.ShowError
                                 </Button>
-                            </StackPanel>
+                                <Button Command="{Binding ShowAlertDialog}"
+                                        CommandParameter="Abort"
+                                        CornerRadiusAttach.IsCircular="True"
+                                        Theme="{StaticResource DangerButtonTheme}">
+                                    AlertDialog.ShowAbort
+                                </Button>
+                            </SpacingWrapPanel>
                             <Button Content="ContextMenuButton">
                                 <Button.ContextMenu>
                                     <ContextMenu>

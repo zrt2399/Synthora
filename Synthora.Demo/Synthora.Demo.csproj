@@ -1,71 +1,79 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-        <OutputType>WinExe</OutputType>
-        <TargetFramework>net8.0</TargetFramework>
-        <Nullable>enable</Nullable>
-        <Version>1.1.0</Version>
-        <FileVersion>$(Version)</FileVersion>
-        <AssemblyVersion>$(Version)</AssemblyVersion>
-        <AvaloniaVersion>11.3.0</AvaloniaVersion>
-        <DebugType>embedded</DebugType>
-        <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
-        <ApplicationManifest>app.manifest</ApplicationManifest>
-        <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
-        <ApplicationIcon>Assets/avalonia-logo.ico</ApplicationIcon>
-        <PublishReadyToRun>True</PublishReadyToRun>
-    </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<Version>1.1.0</Version>
+		<FileVersion>$(Version)</FileVersion>
+		<AssemblyVersion>$(Version)</AssemblyVersion>
+		<AvaloniaVersion>11.3.0</AvaloniaVersion>
+		<DebugType>embedded</DebugType>
+		<BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+		<ApplicationManifest>app.manifest</ApplicationManifest>
+		<AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+		<ApplicationIcon>Assets/avalonia-logo.ico</ApplicationIcon>
+		<PublishReadyToRun>true</PublishReadyToRun>
+	</PropertyGroup>
 
-    <!-- macOS packing -->
-    <!-- dotnet restore -r osx-arm64 -->
-    <!-- dotnet msbuild -t:BundleApp -p:RuntimeIdentifier=osx-arm64 -p:Configuration=Release -p:SelfContained=true -->
-    
-    <!-- xattr -cr /Applications/SynthoraDemo.app --><!-- Clear all file attributes -->
+	<!-- macOS packing -->
+	<!-- dotnet restore -r osx-arm64 -->
+	<!-- dotnet msbuild -t:BundleApp -p:RuntimeIdentifier=osx-arm64 -p:Configuration=Release -p:SelfContained=true -->
 
-    <PropertyGroup>
-        <CFBundleName>SynthoraDemo</CFBundleName> <!-- Also defines .app file name -->
-        <CFBundleDisplayName>SynthoraDemo</CFBundleDisplayName>
-        <CFBundleIdentifier>com.yoyo.synthora</CFBundleIdentifier>
-        <CFBundleShortVersionString>$(Version)</CFBundleShortVersionString>
-        <CFBundleVersion>1.0</CFBundleVersion>
-        <CFBundlePackageType>APPL</CFBundlePackageType>
-        <CFBundleSignature>????</CFBundleSignature>
-        <CFBundleExecutable>$(AssemblyName)</CFBundleExecutable>
-        <CFBundleIconFile>icon.icns</CFBundleIconFile> <!-- Will be copied from output directory -->
-        <NSPrincipalClass>NSApplication</NSPrincipalClass>
-        <NSHighResolutionCapable>true</NSHighResolutionCapable>
+	<!-- xattr -cr /Applications/SynthoraDemo.app -->
+	<!-- Clear all file attributes -->
+	<PropertyGroup>
+		<!-- Also defines .app file name -->
+		<CFBundleName>SynthoraDemo</CFBundleName>
+		<CFBundleDisplayName>SynthoraDemo</CFBundleDisplayName>
+		<CFBundleIdentifier>com.yoyo.synthora</CFBundleIdentifier>
+		<CFBundleShortVersionString>$(Version)</CFBundleShortVersionString>
+		<CFBundleVersion>1.0</CFBundleVersion>
+		<CFBundlePackageType>APPL</CFBundlePackageType>
+		<CFBundleSignature>????</CFBundleSignature>
+		<CFBundleExecutable>$(AssemblyName)</CFBundleExecutable>
+		<!-- Will be copied from output directory -->
+		<CFBundleIconFile>icon.icns</CFBundleIconFile>
+		<NSPrincipalClass>NSApplication</NSPrincipalClass>
+		<NSHighResolutionCapable>true</NSHighResolutionCapable>
 
-        <!-- Optional -->
-        <!-- <NSRequiresAquaSystemAppearance>true</NSRequiresAquaSystemAppearance>-->
-    </PropertyGroup>
+		<!-- Optional -->
+		<!-- <NSRequiresAquaSystemAppearance>true</NSRequiresAquaSystemAppearance>-->
+	</PropertyGroup>
 
-    <ItemGroup>
-        <AvaloniaResource Include="Assets/**" />
-        <None Include="icon.icns" CopyToOutputDirectory="Always" />
-    </ItemGroup>
+	<ItemGroup>
+		<AvaloniaResource Include="Assets/**" />
+	</ItemGroup>
 
-    <ItemGroup>
-        <PackageReference Include="ActiproSoftware.Controls.Avalonia" Version="25.1.1" />
-        <PackageReference Include="ActiproSoftware.Controls.Avalonia.Themes.DataGrid" Version="25.1.1" />
-        <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
-        <PackageReference Include="Avalonia.Controls.DataGrid" Version="$(AvaloniaVersion)" />
-        <PackageReference Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
-        <PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />
-        <PackageReference Include="Avalonia.Themes.Simple" Version="$(AvaloniaVersion)" />
-        <!--<PackageReference Include="Avalonia.Fonts.Inter" Version="$(AvaloniaVersion)" />-->
-        <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
-        <PackageReference Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)">
-            <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
-            <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
-        </PackageReference>
-        <PackageReference Include="Bogus" Version="35.6.3" />
-        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
-        <PackageReference Include="Dotnet.Bundle" Version="0.9.13" />
-        <PackageReference Include="MessageBox.Avalonia" Version="3.2.0" />
-        <PackageReference Include="Material.Icons.Avalonia" Version="2.3.1" />
-        <PackageReference Include="PropertyChanged.Fody" Version="4.1.0" PrivateAssets="All" />
-    </ItemGroup>
+	<ItemGroup Condition="'$(RuntimeIdentifier.StartsWith(mac))' == true">
+		<None Include="icon.icns" CopyToOutputDirectory="Always" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(Configuration)' == 'Debug'">
+		<PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />
+		<PackageReference Include="Avalonia.Themes.Simple" Version="$(AvaloniaVersion)" />
+	</ItemGroup>
+	
+	<ItemGroup>
+		<PackageReference Include="ActiproSoftware.Controls.Avalonia" Version="25.1.1" />
+		<PackageReference Include="ActiproSoftware.Controls.Avalonia.Themes.DataGrid" Version="25.1.1" />
+		<PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
+		<PackageReference Include="Avalonia.Controls.DataGrid" Version="$(AvaloniaVersion)" />
+		<PackageReference Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
+		<!--<PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />
+		<PackageReference Include="Avalonia.Themes.Simple" Version="$(AvaloniaVersion)" />-->
+		<!--<PackageReference Include="Avalonia.Fonts.Inter" Version="$(AvaloniaVersion)" />-->
+		<!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+		<PackageReference Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)">
+			<IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
+			<PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="Bogus" Version="35.6.3" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
+		<PackageReference Include="Dotnet.Bundle" Version="0.9.13" /> 
+		<PackageReference Include="Material.Icons.Avalonia" Version="2.3.1" />
+		<PackageReference Include="PropertyChanged.Fody" Version="4.1.0" PrivateAssets="All" />
+	</ItemGroup>
 
-    <ItemGroup>
-        <ProjectReference Include="..\Synthora\Synthora.csproj" />
-    </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Synthora\Synthora.csproj" />
+	</ItemGroup>
 </Project>

@@ -1,43 +1,42 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
-        <Nullable>enable</Nullable>
-        <AvaloniaVersion>11.2.1</AvaloniaVersion>
-        <DebugType>embedded</DebugType>
-        <Version>1.5.6.0</Version>
-        <FileVersion>$(Version)</FileVersion>
-        <AssemblyVersion>$(Version)</AssemblyVersion>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <Title>AvaloniaUI Theme</Title>
-        <Authors>Yoyo</Authors>
-        <Copyright>Copyright © $(Authors) $([System.DateTime]::Today.ToString(yyyy))</Copyright>
-        <PackageIcon>logo.png</PackageIcon>
-        <PackageTags>Avalonia;XAML;UI;Theme</PackageTags>
-        <Description>Avalonia control styles and themes</Description>
-        <PackageReadmeFile>README.md</PackageReadmeFile>
-        <RepositoryUrl>https://github.com/zrt2399/Synthora</RepositoryUrl>
-        <PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
-    </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<AvaloniaVersion>11.2.1</AvaloniaVersion>
+		<DebugType>embedded</DebugType>
+		<Version>1.5.6.0</Version>
+		<FileVersion>$(Version)</FileVersion>
+		<AssemblyVersion>$(Version)</AssemblyVersion>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<Title>AvaloniaUI Theme</Title>
+		<Authors>Yoyo</Authors>
+		<Copyright>Copyright © $(Authors) $([System.DateTime]::Today.ToString(yyyy))</Copyright>
+		<PackageIcon>logo.png</PackageIcon>
+		<PackageTags>Avalonia;XAML;UI;Theme</PackageTags>
+		<Description>Avalonia control styles and themes</Description>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/zrt2399/Synthora</RepositoryUrl>
+		<PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
+	</PropertyGroup>
 
-    <ItemGroup>
-        <AvaloniaResource Include="Accents\**" />
-        <AvaloniaResource Include="Controls\Themes\**" />
-        <AvaloniaResource Include="Controls\Styles\**" />
-        <AvaloniaResource Include="Strings\**" />
-        <None Include="logo.png">
-            <Pack>true</Pack>
-            <PackagePath>\</PackagePath>
-        </None>
-        <None Include="..\README.md">
-            <Pack>true</Pack>
-            <PackagePath>\</PackagePath>
-        </None>
-    </ItemGroup>
+	<ItemGroup>
+		<AvaloniaResource Include="Accents\**" />
+		<AvaloniaResource Include="Controls\Themes\**" />
+		<AvaloniaResource Include="Strings\**" />
+		<None Include="logo.png">
+			<Pack>true</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\README.md">
+			<Pack>true</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
 
-    <ItemGroup>
-        <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
-        <PackageReference Include="Avalonia.Controls.DataGrid" Version="$(AvaloniaVersion)" />
-    </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
+		<PackageReference Include="Avalonia.Controls.DataGrid" Version="$(AvaloniaVersion)" />
+	</ItemGroup>
 </Project>

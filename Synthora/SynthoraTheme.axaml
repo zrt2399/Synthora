@@ -9,7 +9,6 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources>
-
-    <StyleInclude Source="/Controls/Styles/MessageBoxAvaloniaStyles.xaml" />
+ 
     <StyleInclude Source="/Controls/Themes/SynthoraControls.xaml" />
 </Styles>
