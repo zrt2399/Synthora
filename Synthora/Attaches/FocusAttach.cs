@@ -7,8 +7,11 @@ namespace Synthora.Attaches
 {
     public class FocusAttach
     {
-        public static readonly AttachedProperty<bool> IsFocusedProperty = 
+        public static readonly AttachedProperty<bool> IsFocusedProperty =
             AvaloniaProperty.RegisterAttached<FocusAttach, InputElement, bool>("IsFocused");
+
+        public static readonly AttachedProperty<DispatcherPriority> FocusPriorityProperty =
+            AvaloniaProperty.RegisterAttached<FocusAttach, InputElement, DispatcherPriority>("FocusPriority", DispatcherPriority.Render);
 
         static FocusAttach()
         {
@@ -16,7 +19,10 @@ namespace Synthora.Attaches
         }
 
         public static bool GetIsFocused(InputElement obj) => obj.GetValue(IsFocusedProperty);
-        public static void SetIsFocused(InputElement obj, bool value) => obj.SetValue(IsFocusedProperty, value); 
+        public static void SetIsFocused(InputElement obj, bool value) => obj.SetValue(IsFocusedProperty, value);
+
+        public static DispatcherPriority GetFocusPriority(InputElement obj) => obj.GetValue(FocusPriorityProperty);
+        public static void SetFocusPriority(InputElement obj, DispatcherPriority value) => obj.SetValue(FocusPriorityProperty, value);
 
         private static void OnIsFocusedChanged(AvaloniaPropertyChangedEventArgs<bool> e)
         {
@@ -27,6 +33,7 @@ namespace Synthora.Attaches
 
             if (e.NewValue.Value)
             {
+                var dispatcherPriority = GetFocusPriority(inputElement);
                 Dispatcher.UIThread.InvokeAsync(() =>
                 {
                     inputElement.Focus();
@@ -34,7 +41,7 @@ namespace Synthora.Attaches
                     {
                         textBox.SelectAll();
                     }
-                }, DispatcherPriority.Render);
+                }, dispatcherPriority);
             }
         }
     }
