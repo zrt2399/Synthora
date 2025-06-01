@@ -44,7 +44,7 @@
 		<AvaloniaResource Include="Assets/**" />
 	</ItemGroup>
 
-	<ItemGroup Condition="'$(RuntimeIdentifier.StartsWith(mac))' == true">
+	<ItemGroup Condition="'$(RuntimeIdentifier.StartsWith(osx))' == true">
 		<None Include="icon.icns" CopyToOutputDirectory="Always" />
 	</ItemGroup>
 	<ItemGroup Condition="'$(Configuration)' == 'Debug'">
