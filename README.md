@@ -1,4 +1,4 @@
-![License](https://img.shields.io/badge/license-MIT-8CBA04) [![NuGet](https://img.shields.io/badge/nuget-v1.5.6.0-blue)](https://www.nuget.org/packages/Synthora)
+![License](https://img.shields.io/badge/license-MIT-8CBA04) [![NuGet](https://img.shields.io/nuget/v/Synthora)](https://www.nuget.org/packages/Synthora)
 
 # Synthora
 Avalonia control styles and themes
