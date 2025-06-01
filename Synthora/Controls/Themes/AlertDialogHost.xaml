@@ -1,137 +1,150 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:converters="using:Synthora.Converters"
                     xmlns:messaging="using:Synthora.Messaging"
                     x:ClassModifier="internal">
 
     <ControlTheme x:Key="{x:Type AlertDialogHost}" TargetType="AlertDialogHost">
-        <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
-        <Setter Property="HorizontalContentAlignment" Value="Left" />
-        <Setter Property="VerticalContentAlignment" Value="Top" />
+        <!--<Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />-->
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="VerticalAlignment" Value="Stretch" />
         <Setter Property="BoxShadow" Value="0 0 20 0 DarkGray" />
-        <Setter Property="Focusable" Value="True" />
+        <Setter Property="OverlayBackground" Value="Transparent" />
+        <!--<Setter Property="Focusable" Value="True" />-->
 
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel>
+                <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
                     <Panel>
-                        <Panel.Effect>
-                            <BlurEffect Radius="{Binding BlurRadius, RelativeSource={RelativeSource TemplatedParent}}" />
-                        </Panel.Effect>
-                        <ContentControl Name="ParentContent"
-                                        HorizontalAlignment="Stretch"
-                                        VerticalAlignment="Stretch"
-                                        Content="{TemplateBinding ParentContent}"
-                                        Focusable="False"
-                                        IsHitTestVisible="False"
-                                        KeyboardNavigation.TabNavigation="None" />
+                        <Panel Name="panelBackground">
+                            <Panel.Effect>
+                                <BlurEffect Radius="{Binding BlurRadius, RelativeSource={RelativeSource TemplatedParent}}" />
+                            </Panel.Effect>
+                            <ContentPresenter x:Name="PART_ContentPresenter"
+                                              Margin="{TemplateBinding Padding}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              TextElement.Foreground="{TemplateBinding Foreground}" />
+                        </Panel>
+
+                        <Panel Background="{TemplateBinding OverlayBackground}" IsVisible="{TemplateBinding IsOpen}">
+                            <Border Name="dialogBorder"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Background="{DynamicResource ThemeBackgroundBrush}"
+                                    BoxShadow="{TemplateBinding BoxShadow}"
+                                    CornerRadius="{DynamicResource ThemeBorderCornerRadius}">
+                                <Border.Transitions>
+                                    <Transitions>
+                                        <DoubleTransition Property="Opacity" Duration="0:0:0.3" />
+                                    </Transitions>
+                                </Border.Transitions>
+
+                                <Grid Margin="10"
+                                      KeyboardNavigation.TabNavigation="Cycle"
+                                      RowDefinitions="Auto,*,Auto">
+                                    <SelectableTextBlock Name="title"
+                                                         HorizontalAlignment="Left"
+                                                         IsVisible="{Binding $self.Text, Converter={x:Static SynthoraConverters.IsNotNullOrEmpty}}"
+                                                         Text="{TemplateBinding Title}" />
+                                    <DockPanel Grid.Row="1">
+                                        <TipIcon Name="icon"
+                                                 Width="28"
+                                                 Height="28"
+                                                 Margin="10,20,20,0"
+                                                 VerticalAlignment="Top"
+                                                 DockPanel.Dock="Left"
+                                                 IconType="{TemplateBinding IconType}" />
+
+                                        <SelectableTextBlock Name="message"
+                                                             Grid.Column="1"
+                                                             MinWidth="100"
+                                                             MinHeight="40"
+                                                             Margin="0,20,10,20"
+                                                             HorizontalAlignment="Left"
+                                                             VerticalAlignment="Top"
+                                                             Text="{TemplateBinding Message}"
+                                                             TextWrapping="Wrap" />
+                                    </DockPanel>
+                                    <StackPanel x:Name="PART_ButtonPanel"
+                                                Grid.Row="2"
+                                                HorizontalAlignment="Right"
+                                                Orientation="Horizontal"
+                                                Spacing="10">
+                                        <StackPanel.Styles>
+                                            <Style Selector="Button">
+                                                <Setter Property="MinWidth" Value="80" />
+                                            </Style>
+                                        </StackPanel.Styles>
+                                        <Button Name="OKButton"
+                                                Command="{Binding OK, RelativeSource={RelativeSource TemplatedParent}}"
+                                                Content="{DynamicResource StringAlertDialogButtonOK}"
+                                                IsDefault="True"
+                                                IsVisible="{TemplateBinding DialogButton,
+                                                                            Converter={x:Static SynthoraConverters.HasFlag},
+                                                                            ConverterParameter={x:Static messaging:DialogButton.OK}}" />
+                                        <Button Name="YesButton"
+                                                Command="{Binding Yes, RelativeSource={RelativeSource TemplatedParent}}"
+                                                Content="{DynamicResource StringAlertDialogButtonYes}"
+                                                IsDefault="True"
+                                                IsVisible="{TemplateBinding DialogButton,
+                                                                            Converter={x:Static SynthoraConverters.HasFlag},
+                                                                            ConverterParameter={x:Static messaging:DialogButton.Yes}}" />
+                                        <Button Name="NoButton"
+                                                Command="{Binding No, RelativeSource={RelativeSource TemplatedParent}}"
+                                                Content="{DynamicResource StringAlertDialogButtonNo}"
+                                                IsVisible="{TemplateBinding DialogButton,
+                                                                            Converter={x:Static SynthoraConverters.HasFlag},
+                                                                            ConverterParameter={x:Static messaging:DialogButton.No}}"
+                                                Theme="{StaticResource CancelButtonTheme}" />
+                                        <Button Name="CancelButton"
+                                                Command="{Binding Cancel, RelativeSource={RelativeSource TemplatedParent}}"
+                                                Content="{DynamicResource StringAlertDialogButtonCancel}"
+                                                IsCancel="True"
+                                                IsVisible="{TemplateBinding DialogButton,
+                                                                            Converter={x:Static SynthoraConverters.HasFlag},
+                                                                            ConverterParameter={x:Static messaging:DialogButton.Cancel}}"
+                                                Theme="{StaticResource CancelButtonTheme}" />
+                                        <Button Name="AbortButton"
+                                                Command="{Binding Abort, RelativeSource={RelativeSource TemplatedParent}}"
+                                                Content="{DynamicResource StringAlertDialogButtonAbort}"
+                                                IsVisible="{TemplateBinding DialogButton,
+                                                                            Converter={x:Static SynthoraConverters.HasFlag},
+                                                                            ConverterParameter={x:Static messaging:DialogButton.Abort}}"
+                                                Theme="{StaticResource DangerButtonTheme}" />
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </Panel>
                     </Panel>
-
-                    <Border Name="PART_DialogBorder"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            BoxShadow="{TemplateBinding BoxShadow}"
-                            CornerRadius="{TemplateBinding CornerRadius}">
-                        <Border.Transitions>
-                            <Transitions>
-                                <DoubleTransition Property="Opacity" Duration="0:0:0.3" />
-                            </Transitions>
-                        </Border.Transitions>
-
-                        <Grid Margin="10"
-                              KeyboardNavigation.TabNavigation="Cycle"
-                              RowDefinitions="Auto,*,Auto">
-                            <SelectableTextBlock Name="Title"
-                                                 HorizontalAlignment="Left"
-                                                 VerticalAlignment="Center"
-                                                 IsVisible="{Binding $self.Text, Converter={x:Static SynthoraConverters.IsNotNullOrEmpty}}"
-                                                 Text="{TemplateBinding Title}" />
-                            <Grid Grid.Row="1" ColumnDefinitions="Auto,*">
-                                <TipIcon Name="icon"
-                                         Width="28"
-                                         Height="28"
-                                         Margin="10,20,20,0"
-                                         VerticalAlignment="Top"
-                                         IconType="{TemplateBinding IconType}" />
-                                <ContentPresenter Name="PART_ContentPresenter"
-                                                  Grid.Column="1"
-                                                  MinWidth="100"
-                                                  MinHeight="40"
-                                                  Margin="0,20,10,20"
-                                                  Padding="{TemplateBinding Padding}"
-                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                                  Content="{TemplateBinding Content}"
-                                                  ContentTemplate="{TemplateBinding ContentTemplate}"
-                                                  RecognizesAccessKey="True"
-                                                  TextElement.Foreground="{TemplateBinding Foreground}">
-                                    <ContentPresenter.DataTemplates>
-                                        <DataTemplate DataType="x:String">
-                                            <SelectableTextBlock HorizontalAlignment="{Binding $parent[AlertDialogHost].HorizontalContentAlignment}"
-                                                                 VerticalAlignment="{Binding $parent[AlertDialogHost].VerticalContentAlignment}"
-                                                                 FocusAttach.IsFocused="True"
-                                                                 Text="{Binding}"
-                                                                 TextWrapping="Wrap" />
-                                        </DataTemplate>
-                                    </ContentPresenter.DataTemplates>
-                                </ContentPresenter>
-                            </Grid>
-                            <StackPanel Grid.Row="2"
-                                        HorizontalAlignment="Right"
-                                        Orientation="Horizontal"
-                                        Spacing="10">
-                                <StackPanel.Styles>
-                                    <Style Selector="Button">
-                                        <Setter Property="MinWidth" Value="80" />
-                                    </Style>
-                                </StackPanel.Styles>
-                                <Button Name="OKButton"
-                                        Command="{Binding OK, RelativeSource={RelativeSource TemplatedParent}}"
-                                        Content="{DynamicResource StringAlertDialogButtonOK}"
-                                        IsDefault="True"
-                                        IsVisible="{TemplateBinding DialogButton,
-                                                                    Converter={x:Static SynthoraConverters.HasFlag},
-                                                                    ConverterParameter={x:Static messaging:DialogButton.OK}}" />
-                                <Button Name="YesButton"
-                                        Command="{Binding Yes, RelativeSource={RelativeSource TemplatedParent}}"
-                                        Content="{DynamicResource StringAlertDialogButtonYes}"
-                                        IsDefault="True"
-                                        IsVisible="{TemplateBinding DialogButton,
-                                                                    Converter={x:Static SynthoraConverters.HasFlag},
-                                                                    ConverterParameter={x:Static messaging:DialogButton.Yes}}" />
-                                <Button Name="NoButton"
-                                        Command="{Binding No, RelativeSource={RelativeSource TemplatedParent}}"
-                                        Content="{DynamicResource StringAlertDialogButtonNo}"
-                                        IsVisible="{TemplateBinding DialogButton,
-                                                                    Converter={x:Static SynthoraConverters.HasFlag},
-                                                                    ConverterParameter={x:Static messaging:DialogButton.No}}"
-                                        Theme="{StaticResource CancelButtonTheme}" />
-                                <Button Name="CancelButton"
-                                        Command="{Binding Cancel, RelativeSource={RelativeSource TemplatedParent}}"
-                                        Content="{DynamicResource StringAlertDialogButtonCancel}"
-                                        IsCancel="True"
-                                        IsVisible="{TemplateBinding DialogButton,
-                                                                    Converter={x:Static SynthoraConverters.HasFlag},
-                                                                    ConverterParameter={x:Static messaging:DialogButton.Cancel}}"
-                                        Theme="{StaticResource CancelButtonTheme}" />
-                                <Button Name="AbortButton"
-                                        Command="{Binding Abort, RelativeSource={RelativeSource TemplatedParent}}"
-                                        Content="{DynamicResource StringAlertDialogButtonAbort}"
-                                        IsVisible="{TemplateBinding DialogButton,
-                                                                    Converter={x:Static SynthoraConverters.HasFlag},
-                                                                    ConverterParameter={x:Static messaging:DialogButton.Abort}}"
-                                        Theme="{StaticResource DangerButtonTheme}" />
-                            </StackPanel>
-                        </Grid>
-                    </Border>
-                </Panel>
+                </Border>
             </ControlTemplate>
         </Setter>
+        <Style Selector="^[IsOpen=False]">
+            <Style Selector="^ /template/ Panel#panelBackground">
+                <Setter Property="Effect" Value="{x:Null}" />
+            </Style>
+            <Style Selector="^ /template/ Border#dialogBorder">
+                <Setter Property="Opacity" Value="0" />
+            </Style>
+        </Style>
+        <Style Selector="^[IsOpen=True]">
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="KeyboardNavigation.TabNavigation" Value="None" />
+                <Setter Property="IsHitTestVisible" Value="False" />
+                <Setter Property="Focusable" Value="False" />
+            </Style>
+            <Style Selector="^ /template/ Border#dialogBorder">
+                <Setter Property="Opacity" Value="1" />
+            </Style>
+        </Style>
     </ControlTheme>
-</ResourceDictionary>
+
+</ResourceDictionary> 
