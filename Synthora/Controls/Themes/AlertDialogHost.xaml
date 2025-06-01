@@ -50,6 +50,7 @@
                             <SelectableTextBlock Name="Title"
                                                  HorizontalAlignment="Left"
                                                  VerticalAlignment="Center"
+                                                 IsVisible="{Binding $self.Text, Converter={x:Static SynthoraConverters.IsNotNullOrEmpty}}"
                                                  Text="{TemplateBinding Title}" />
                             <Grid Grid.Row="1" ColumnDefinitions="Auto,*">
                                 <TipIcon Name="icon"
