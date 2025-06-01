@@ -5,9 +5,9 @@ using Synthora.Messaging;
 
 namespace Synthora.Controls
 {
-    internal class IconBase : TemplatedControl
+    public class IconBase : TemplatedControl
     {
-        public static readonly StyledProperty<IconType> IconTypeProperty = 
+        public static readonly StyledProperty<IconType> IconTypeProperty =
             AvaloniaProperty.Register<IconBase, IconType>(nameof(IconType), IconType.Information);
 
         public IconType IconType
@@ -17,7 +17,7 @@ namespace Synthora.Controls
         }
     }
 
-    internal class TipIcon : IconBase
+    public class TipIcon : IconBase
     {
 
     }
