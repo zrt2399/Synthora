@@ -44,7 +44,8 @@
                     <RepeatButton Background="Transparent"
                                   BorderThickness="0"
                                   Command="{Binding LineUp, RelativeSource={RelativeSource TemplatedParent}}"
-                                  DockPanel.Dock="Top">
+                                  DockPanel.Dock="Top"
+                                  Theme="{StaticResource CancelRepeatButtonTheme}">
                         <RepeatButton.IsVisible>
                             <MultiBinding Converter="{x:Static converters:MenuScrollingVisibilityConverter.Instance}" ConverterParameter="0">
                                 <Binding Path="VerticalScrollBarVisibility" RelativeSource="{RelativeSource TemplatedParent}" />
@@ -58,7 +59,8 @@
                     <RepeatButton Background="Transparent"
                                   BorderThickness="0"
                                   Command="{Binding LineDown, RelativeSource={RelativeSource TemplatedParent}}"
-                                  DockPanel.Dock="Bottom">
+                                  DockPanel.Dock="Bottom"
+                                  Theme="{StaticResource CancelRepeatButtonTheme}">
                         <RepeatButton.IsVisible>
                             <MultiBinding Converter="{x:Static converters:MenuScrollingVisibilityConverter.Instance}" ConverterParameter="100">
                                 <Binding Path="VerticalScrollBarVisibility" RelativeSource="{RelativeSource TemplatedParent}" />
