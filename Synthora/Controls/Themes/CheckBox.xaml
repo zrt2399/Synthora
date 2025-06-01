@@ -34,7 +34,7 @@
                                   Stretch="Uniform" />
                             <Rectangle Name="indeterminateMark"
                                        Width="10"
-                                       Height="10"
+                                       Height="2"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        Fill="{DynamicResource OnPrimaryBrush}"

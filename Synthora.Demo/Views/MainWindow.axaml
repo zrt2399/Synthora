@@ -343,16 +343,22 @@
                                 </DropDownButton.Flyout>
                             </DropDownButton>
                             <ToggleButton ToolTip.Tip="ToggleButton">ToggleButton</ToggleButton>
-                            <StackPanel Orientation="Horizontal" Spacing="10">
-                                <RepeatButton>RepeatButton1</RepeatButton>
-                                <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
-                                <RepeatButton>RepeatButton2</RepeatButton>
-                                <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
-                                <RepeatButton>RepeatButton3</RepeatButton>
-                                <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
-                                <RepeatButton>RepeatButton4</RepeatButton>
-                            </StackPanel>
                             <Separator Theme="{StaticResource HorizontalSeparatorTheme}" />
+                            <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
+                                <RepeatButton>DefaultRepeatButton</RepeatButton>
+                                <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
+                                <RepeatButton Theme="{StaticResource SynthoraRepeatButtonTheme}">SynthoraRepeatButton</RepeatButton>
+                                <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
+                                <RepeatButton Theme="{StaticResource CancelRepeatButtonTheme}">CancelRepeatButton</RepeatButton>
+                                <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
+                                <RepeatButton Theme="{StaticResource SuccessRepeatButtonTheme}">SuccessRepeatButton</RepeatButton>
+                                <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
+                                <RepeatButton Theme="{StaticResource WarningRepeatButtonTheme}">WarningRepeatButton</RepeatButton>
+                                <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
+                                <RepeatButton Theme="{StaticResource DangerRepeatButtonTheme}">DangerRepeatButton</RepeatButton>
+                                <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
+                                <RepeatButton Theme="{StaticResource ErrorRepeatButtonTheme}">ErrorRepeatButton</RepeatButton>
+                            </SpacingWrapPanel>
                             <HyperlinkButton>HyperlinkButton</HyperlinkButton>
                         </StackPanel>
                     </StackPanel>

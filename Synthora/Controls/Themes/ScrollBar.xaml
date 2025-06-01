@@ -65,7 +65,8 @@
                                           Grid.Column="0"
                                           MinWidth="{DynamicResource ScrollBarThickness}"
                                           Classes="repeat"
-                                          Focusable="False">
+                                          Focusable="False"
+                                          Theme="{StaticResource CancelRepeatButtonTheme}">
                                 <Path Data="M 4 0 L 4 8 L 0 4 Z" />
                             </RepeatButton>
                             <Track Grid.Row="1"
@@ -80,12 +81,14 @@
                                 <Track.DecreaseButton>
                                     <RepeatButton Name="PART_PageUpButton"
                                                   Classes="repeattrack"
-                                                  Focusable="False" />
+                                                  Focusable="False"
+                                                  Theme="{StaticResource CancelRepeatButtonTheme}" />
                                 </Track.DecreaseButton>
                                 <Track.IncreaseButton>
                                     <RepeatButton Name="PART_PageDownButton"
                                                   Classes="repeattrack"
-                                                  Focusable="False" />
+                                                  Focusable="False"
+                                                  Theme="{StaticResource CancelRepeatButtonTheme}" />
                                 </Track.IncreaseButton>
                                 <Thumb Name="thumb" />
                             </Track>
@@ -94,7 +97,8 @@
                                           Grid.Column="2"
                                           MinWidth="{DynamicResource ScrollBarThickness}"
                                           Classes="repeat"
-                                          Focusable="False">
+                                          Focusable="False"
+                                          Theme="{StaticResource CancelRepeatButtonTheme}">
                                 <Path Data="M 0 0 L 4 4 L 0 8 Z" />
                             </RepeatButton>
                         </Grid>
@@ -115,7 +119,8 @@
                                           Grid.Row="0"
                                           MinHeight="{DynamicResource ScrollBarThickness}"
                                           Classes="repeat"
-                                          Focusable="False">
+                                          Focusable="False"
+                                          Theme="{StaticResource CancelRepeatButtonTheme}">
                                 <Path Data="M 0 4 L 8 4 L 4 0 Z" />
                             </RepeatButton>
                             <Track Grid.Row="1"
@@ -131,12 +136,14 @@
                                 <Track.DecreaseButton>
                                     <RepeatButton Name="PART_PageUpButton"
                                                   Classes="repeattrack"
-                                                  Focusable="False" />
+                                                  Focusable="False"
+                                                  Theme="{StaticResource CancelRepeatButtonTheme}" />
                                 </Track.DecreaseButton>
                                 <Track.IncreaseButton>
                                     <RepeatButton Name="PART_PageDownButton"
                                                   Classes="repeattrack"
-                                                  Focusable="False" />
+                                                  Focusable="False"
+                                                  Theme="{StaticResource CancelRepeatButtonTheme}" />
                                 </Track.IncreaseButton>
                                 <Thumb Name="thumb" />
                             </Track>
@@ -145,7 +152,8 @@
                                           Grid.Column="2"
                                           MinHeight="{DynamicResource ScrollBarThickness}"
                                           Classes="repeat"
-                                          Focusable="False">
+                                          Focusable="False"
+                                          Theme="{StaticResource CancelRepeatButtonTheme}">
                                 <Path Data="M 0 0 L 4 4 L 8 0 Z" />
                             </RepeatButton>
                         </Grid>

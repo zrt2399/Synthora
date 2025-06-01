@@ -67,8 +67,7 @@
             <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
         </Style>
         <Style Selector="^:pressed">
-            <Setter Property="Background" Value="{DynamicResource ThemeControlHighBrush}" />
-            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidColor}" />
         </Style>
     </ControlTheme>
 
@@ -132,4 +131,4 @@
         </Style>
     </ControlTheme>
 
-</ResourceDictionary> 
+</ResourceDictionary>
