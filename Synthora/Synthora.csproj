@@ -4,10 +4,7 @@
 		<TargetFramework>net8.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<AvaloniaVersion>11.2.1</AvaloniaVersion>
-		<DebugType>embedded</DebugType>
-		<Version>1.6.2.0</Version>
-		<FileVersion>$(Version)</FileVersion>
-		<AssemblyVersion>$(Version)</AssemblyVersion> 
+		<DebugType>embedded</DebugType> 
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<Title>AvaloniaUI Theme</Title>
 		<Authors>Yoyo</Authors>
