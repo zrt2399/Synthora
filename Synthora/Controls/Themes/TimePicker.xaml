@@ -319,6 +319,8 @@
                                 Height="{DynamicResource TimePickerFlyoutPresenterAcceptDismissHostGridHeight}"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
+                                FocusAttach.FocusOnLoaded="True"
+                                IsDefault="True"
                                 Theme="{StaticResource SimpleDateTimePickerButton}">
                             <Button.CornerRadius>
                                 <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.BottomLeft}">
@@ -337,6 +339,7 @@
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
                                 FontSize="16"
+                                IsCancel="True"
                                 Theme="{StaticResource SimpleDateTimePickerButton}">
                             <Button.CornerRadius>
                                 <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.BottomRight}">
