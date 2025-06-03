@@ -45,6 +45,7 @@
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
         <Setter Property="Padding" Value="{DynamicResource ThemeBorderPadding}" />
         <Setter Property="IsTodayHighlighted" Value="True" />
+        <Setter Property="FocusAttach.UseCorrectFocusBehavior" Value="True" />
 
         <Setter Property="Template">
             <ControlTemplate>
@@ -67,6 +68,7 @@
                                  CornerRadius="{TemplateBinding CornerRadius}"
                                  DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
                                  Foreground="{TemplateBinding Foreground}"
+                                 TemplatedControl.IsTemplateFocusTarget="True"
                                  UseFloatingWatermark="{TemplateBinding UseFloatingWatermark}"
                                  Watermark="{TemplateBinding Watermark}">
                             <TextBox.InnerRightContent>
