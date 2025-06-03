@@ -1,6 +1,7 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
+using Avalonia.Interactivity;
 using Avalonia.Layout;
 
 namespace Synthora.Attaches
@@ -31,11 +32,11 @@ namespace Synthora.Attaches
             {
                 return;
             }
-            
+
             scrollViewer.RemoveHandler(InputElement.PointerWheelChangedEvent, ScrollViewerPointerWheelChanged);
             if (e.NewValue.Value == Orientation.Horizontal)
             {
-                scrollViewer.AddHandler(InputElement.PointerWheelChangedEvent, ScrollViewerPointerWheelChanged, handledEventsToo: true);
+                scrollViewer.AddHandler(InputElement.PointerWheelChangedEvent, ScrollViewerPointerWheelChanged, RoutingStrategies.Tunnel, true);
             }
         }
 
@@ -47,11 +48,7 @@ namespace Synthora.Attaches
             {
                 return;
             }
-
-            scrollViewer.Offset = new Vector(
-                scrollViewer.Offset.X - e.Delta.Y * step,
-                scrollViewer.Offset.Y
-            );
+            scrollViewer.SetCurrentValue(ScrollViewer.OffsetProperty, new Vector(scrollViewer.Offset.X - e.Delta.Y * step, scrollViewer.Offset.Y));
 
             e.Handled = true;
         }
