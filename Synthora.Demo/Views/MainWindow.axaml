@@ -4,6 +4,7 @@
         xmlns:converters="using:Synthora.Demo.Converters"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:demo="using:Synthora.Demo"
+        xmlns:local="using:Synthora.Demo.Views"
         xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:so="https://github.com/zrt2399/synthora"
@@ -29,7 +30,7 @@
 
     <AlertDialogHost Identifier="AlertDialogHost">
         <Grid RowDefinitions="*,Auto">
-            <TabControl x:Name="TabControl">
+            <TabControl>
                 <TabItem Header="Brush">
                     <ItemsControl ItemsSource="{Binding BrushKeys}">
                         <ItemsControl.ItemsPanel>
@@ -67,7 +68,9 @@
                                          Text="{Binding Greeting}"
                                          TextAlignment="Right"
                                          TextBoxAttach.Title="TextBox with InnerRightContent"
-                                         TextWrapping="Wrap" />
+                                         TextWrapping="Wrap"
+                                         UseFloatingWatermark="True"
+                                         Watermark="Type a message" />
                                 <TextBox Text="{Binding Value}"
                                          TextBoxAttach.Title="TextBox"
                                          TextWrapping="Wrap" />
@@ -231,7 +234,7 @@
                                                 <MenuItem Header="Last" />
                                             </MenuItem>
                                             <Separator />
-                                            <MenuItem Foreground="Red"
+                                            <MenuItem Foreground="{StaticResource DangerBrush}"
                                                       Header="131415"
                                                       HotKey="Control+D"
                                                       Icon="{materialIcons:MaterialIconExt Kind=Delete}"
@@ -240,7 +243,7 @@
                                                       InputGesture="Control+C"
                                                       IsChecked="True"
                                                       ToggleType="CheckBox" />
-                                            <MenuItem Foreground="Red"
+                                            <MenuItem Foreground="{StaticResource DangerBrush}"
                                                       Header="45678910"
                                                       Icon="{materialIcons:MaterialIconExt Kind=Refresh}"
                                                       IsEnabled="False" />

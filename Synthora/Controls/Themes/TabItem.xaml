@@ -5,9 +5,9 @@
     <ControlTheme x:Key="{x:Type TabItem}" TargetType="TabItem">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}" />
-        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundLowBrush}" />
+
         <Setter Property="HorizontalContentAlignment" Value="Left" />
-        <Setter Property="Padding" Value="10,6" />
+        <Setter Property="Padding" Value="8,6" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
@@ -44,13 +44,13 @@
         <Style Selector="^[TabStripPlacement=Left] /template/ Border#PART_SelectedPipe">
             <Setter Property="HorizontalAlignment" Value="Left" />
             <Setter Property="VerticalAlignment" Value="Stretch" />
-            <Setter Property="Width" Value="2" />
+            <Setter Property="Width" Value="3" />
             <Setter Property="Height" Value="NaN" />
         </Style>
         <Style Selector="^[TabStripPlacement=Right] /template/ Border#PART_SelectedPipe">
             <Setter Property="HorizontalAlignment" Value="Left" />
             <Setter Property="VerticalAlignment" Value="Stretch" />
-            <Setter Property="Width" Value="2" />
+            <Setter Property="Width" Value="3" />
             <Setter Property="Height" Value="NaN" />
         </Style>
         <Style Selector="^[TabStripPlacement=Bottom] /template/ Border#PART_SelectedPipe">
@@ -64,29 +64,13 @@
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
         </Style>
 
-        <!--<Style Selector="^:selected:focus /template/ ContentPresenter#PART_ContentPresenter">
-			<Setter Property="Background" Value="{DynamicResource ThemeAccentBrush3}" />
-		</Style>
-		<Style Selector="^:selected:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-			<Setter Property="Background" Value="{DynamicResource ThemeAccentBrush3}" />
-		</Style>
-		<Style Selector="^:selected:focus:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-			<Setter Property="Background" Value="{DynamicResource ThemeAccentBrush2}" />
-		</Style>-->
-        <!--<Style Selector="^[TabStripPlacement=Right]">
-            <Setter Property="HorizontalContentAlignment" Value="Right" />
-        </Style>-->
-
         <Style Selector="^:pointerover /template/ Border#PART_SelectedPipe">
-            <Setter Property="Background" Value="LightGray" />
+            <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidColor}" />
         </Style>
 
-        <Style Selector="^:pointerover">
-            <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundMidBrush}" />
-        </Style>
         <Style Selector="^:selected /template/ Border#PART_SelectedPipe">
             <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
         </Style>
     </ControlTheme>
-	
+
 </ResourceDictionary>
