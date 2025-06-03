@@ -8,7 +8,7 @@
             <StackPanel Width="350"
                         Orientation="Vertical"
                         Spacing="20">
-                <Expander CornerRadius="8" ExpandDirection="Up">
+                <Expander CornerRadius="6" ExpandDirection="Up">
                     <Expander.Header>
                         <Grid ColumnDefinitions="*, Auto">
                             <TextBlock Grid.Column="0" Text="Expand" />
@@ -19,21 +19,21 @@
                         <TextBlock Text="Expanded content" />
                     </StackPanel>
                 </Expander>
-                <Expander CornerRadius="8"
+                <Expander CornerRadius="6"
                           ExpandDirection="Down"
                           Header="Expand Down">
                     <StackPanel>
                         <TextBlock Text="Expanded content" />
                     </StackPanel>
                 </Expander>
-                <Expander CornerRadius="8"
+                <Expander CornerRadius="6"
                           ExpandDirection="Left"
                           Header="Expand Left">
                     <StackPanel>
                         <TextBlock Text="Expanded content" />
                     </StackPanel>
                 </Expander>
-                <Expander CornerRadius="8"
+                <Expander CornerRadius="6"
                           ExpandDirection="Right"
                           Header="Expand Right">
                     <StackPanel>
@@ -197,41 +197,41 @@
         <Style Selector="^[ExpandDirection=Down]">
             <Setter Property="VerticalAlignment" Value="Top" />
             <Style Selector="^ /template/ ToggleButton#PART_toggle">
-                <Setter Property="Theme" Value="{StaticResource SimpleExpanderToggleButtonDownTheme}" />
+                <Setter Property="Theme" Value="{StaticResource SimpleExpanderToggleButtonRightTheme}" />
                 <Setter Property="DockPanel.Dock" Value="Top" />
             </Style>
             <Style Selector="^:expanded /template/ ToggleButton#PART_toggle">
-                <Setter Property="Theme" Value="{StaticResource SimpleExpanderToggleButtonUpTheme}" />
+                <Setter Property="Theme" Value="{StaticResource SimpleExpanderToggleButtonDownTheme}" />
             </Style>
         </Style>
         <Style Selector="^[ExpandDirection=Up]">
             <Setter Property="VerticalAlignment" Value="Bottom" />
             <Style Selector="^ /template/ ToggleButton#PART_toggle">
-                <Setter Property="Theme" Value="{StaticResource SimpleExpanderToggleButtonUpTheme}" />
+                <Setter Property="Theme" Value="{StaticResource SimpleExpanderToggleButtonRightTheme}" />
                 <Setter Property="DockPanel.Dock" Value="Bottom" />
             </Style>
             <Style Selector="^:expanded /template/ ToggleButton#PART_toggle">
-                <Setter Property="Theme" Value="{StaticResource SimpleExpanderToggleButtonDownTheme}" />
+                <Setter Property="Theme" Value="{StaticResource SimpleExpanderToggleButtonUpTheme}" />
             </Style>
         </Style>
         <Style Selector="^[ExpandDirection=Right]">
             <Setter Property="HorizontalAlignment" Value="Left" />
             <Style Selector="^ /template/ ToggleButton#PART_toggle">
-                <Setter Property="Theme" Value="{StaticResource SimpleExpanderToggleButtonRightTheme}" />
+                <Setter Property="Theme" Value="{StaticResource SimpleExpanderToggleButtonLeftTheme}" />
                 <Setter Property="DockPanel.Dock" Value="Left" />
             </Style>
             <Style Selector="^:expanded /template/ ToggleButton#PART_toggle">
-                <Setter Property="Theme" Value="{StaticResource SimpleExpanderToggleButtonLeftTheme}" />
+                <Setter Property="Theme" Value="{StaticResource SimpleExpanderToggleButtonRightTheme}" />
             </Style>
         </Style>
         <Style Selector="^[ExpandDirection=Left]">
             <Setter Property="HorizontalAlignment" Value="Right" />
             <Style Selector="^ /template/ ToggleButton#PART_toggle">
-                <Setter Property="Theme" Value="{StaticResource SimpleExpanderToggleButtonLeftTheme}" />
+                <Setter Property="Theme" Value="{StaticResource SimpleExpanderToggleButtonRightTheme}" />
                 <Setter Property="DockPanel.Dock" Value="Right" />
             </Style>
             <Style Selector="^:expanded /template/ ToggleButton#PART_toggle">
-                <Setter Property="Theme" Value="{StaticResource SimpleExpanderToggleButtonRightTheme}" />
+                <Setter Property="Theme" Value="{StaticResource SimpleExpanderToggleButtonLeftTheme}" />
             </Style>
         </Style>
     </ControlTheme>

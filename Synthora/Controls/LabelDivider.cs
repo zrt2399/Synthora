@@ -31,12 +31,12 @@ namespace Synthora.Controls
         /// Gets or sets the minimum length of the shorter divider line (either left or right).
         /// The other side will stretch automatically to fill the remaining space.
         /// </summary>
-        public static readonly StyledProperty<double> MinLineLengthProperty =
-            AvaloniaProperty.Register<LabelDivider, double>(nameof(MinLineLength), 40d);
+        public static readonly StyledProperty<double> MinLineWidthProperty =
+            AvaloniaProperty.Register<LabelDivider, double>(nameof(MinLineWidth), 40d);
 
         static LabelDivider()
         {
-            MinLineLengthProperty.Changed.AddClassHandler<LabelDivider, double>((s, e) => s.SetGrid());
+            MinLineWidthProperty.Changed.AddClassHandler<LabelDivider, double>((s, e) => s.SetGrid());
             HorizontalContentAlignmentProperty.Changed.AddClassHandler<LabelDivider, HorizontalAlignment>((s, e) => s.SetGrid());
         }
 
@@ -61,10 +61,10 @@ namespace Synthora.Controls
         /// <summary>
         /// Gets or sets the minimum length of the shorter divider line (either left or right).
         /// </summary>
-        public double MinLineLength
+        public double MinLineWidth
         {
-            get => GetValue(MinLineLengthProperty);
-            set => SetValue(MinLineLengthProperty, value);
+            get => GetValue(MinLineWidthProperty);
+            set => SetValue(MinLineWidthProperty, value);
         }
 
         /// <inheritdoc/>
@@ -86,14 +86,14 @@ namespace Synthora.Controls
             switch (HorizontalContentAlignment)
             {
                 case HorizontalAlignment.Left:
-                    PART_DividerContainer.ColumnDefinitions.Add(new ColumnDefinition(MinLineLength, GridUnitType.Pixel));
+                    PART_DividerContainer.ColumnDefinitions.Add(new ColumnDefinition(MinLineWidth, GridUnitType.Pixel));
                     PART_DividerContainer.ColumnDefinitions.Add(new ColumnDefinition(GridLength.Auto));
                     PART_DividerContainer.ColumnDefinitions.Add(new ColumnDefinition(GridLength.Star));
                     break;
                 case HorizontalAlignment.Right:
                     PART_DividerContainer.ColumnDefinitions.Add(new ColumnDefinition(GridLength.Star));
                     PART_DividerContainer.ColumnDefinitions.Add(new ColumnDefinition(GridLength.Auto));
-                    PART_DividerContainer.ColumnDefinitions.Add(new ColumnDefinition(MinLineLength, GridUnitType.Pixel));
+                    PART_DividerContainer.ColumnDefinitions.Add(new ColumnDefinition(MinLineWidth, GridUnitType.Pixel));
                     break;
                 default:
                     PART_DividerContainer.ColumnDefinitions.Add(new ColumnDefinition(GridLength.Star));
