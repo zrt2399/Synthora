@@ -9,8 +9,14 @@ using Avalonia.Media;
 
 namespace Synthora.Utils
 {
+    /// <summary>
+    /// Provides utility methods for converting data.
+    /// </summary>
     public static class ConversionUtils
     {
+        /// <summary>
+        /// Converts a sequence of bytes to a hexadecimal string, with an optional separator between byte values.
+        /// </summary>
         public static string ToHexString(this IEnumerable<byte> bytes, string separator = " ")
         {
             if (bytes == null)
@@ -34,6 +40,9 @@ namespace Synthora.Utils
             return stringBuilder.ToString();
         }
 
+        /// <summary>
+        /// Converts the given string to its hexadecimal representation using UTF-8 encoding.
+        /// </summary>
         public static string ToHash(this string str)
         {
             if (string.IsNullOrEmpty(str))
@@ -49,6 +58,9 @@ namespace Synthora.Utils
             return stringBuilder.ToString();
         }
 
+        /// <summary>
+        /// Converts a hexadecimal string back to its original text assuming UTF-8 encoding.
+        /// </summary>
         public static string FromHash(this string str)
         {
             if (string.IsNullOrEmpty(str))
@@ -70,6 +82,10 @@ namespace Synthora.Utils
             }
         }
 
+        /// <summary>
+        /// Retrieves the <see cref="DescriptionAttribute"/> text for an enum value, 
+        /// or the enum's name if no description is found.
+        /// </summary>
         public static string GetDescription<T>(this T enumerationValue) where T : Enum
         {
             Type type = enumerationValue.GetType();
@@ -82,21 +98,28 @@ namespace Synthora.Utils
         }
 
         /// <summary>
-        /// 计算内层 Border 的 CornerRadius，使内外圆角在边框厚度作用下完美贴合。
+        /// Calculates the inner radius of a shape given its outer radius and border thickness values.
         /// </summary>
-        /// <param name="outerRadius">外层 CornerRadius（各角相同）。</param>
-        /// <param name="outerBorderThickness">外层 BorderThickness（单侧宽度）。</param>
-        /// <param name="innerBorderThickness">内层 BorderThickness（单侧宽度，若无则传0）。</param>
-        /// <returns>内层 CornerRadius（各角相同，最小为0）。</returns>
+        /// <param name="outerRadius">The outer radius of the shape.</param>
+        /// <param name="outerBorderThickness">The thickness of the outer border.</param>
+        /// <param name="innerBorderThickness">
+        /// Optional thickness of an inner border. Defaults to 0 if not specified.
+        /// </param>
+        /// <returns>
+        /// The computed inner radius after subtracting half of each border's thickness;
+        /// returns 0 if the computed value would be negative.
+        /// </returns>
         public static double CalcInnerRadius(double outerRadius, double outerBorderThickness, double innerBorderThickness = 0)
         {
-            // 通用公式：R' = R - T/2 - T'/2
+            //R' = R - T/2 - T'/2
             double result = outerRadius - (outerBorderThickness / 2.0) - (innerBorderThickness / 2.0);
-
-            // 保证不为负
+ 
             return Math.Max(0, result);
         }
 
+        /// <summary>
+        /// Draws a polygon defined by a sequence of points onto the specified <see cref="DrawingContext"/>.
+        /// </summary>
         public static Geometry? DrawPolygon(this DrawingContext dc, Brush brush, Pen pen, params Point[] points)
         {
             if (points.Length == 0)

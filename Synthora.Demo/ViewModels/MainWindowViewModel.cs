@@ -98,10 +98,10 @@ namespace Synthora.Demo.ViewModels
             var result = param switch
             {
                 nameof(IconType.Information) => await AlertDialog.ShowAsync("AlertDialogHost", message, "Information", DialogButton.OK, IconType.Information),
-                nameof(IconType.Question) => await AlertDialog.ShowAsync(message, "Question", DialogButton.OK | DialogButton.Cancel, IconType.Question),
-                nameof(IconType.Warning) => await AlertDialog.ShowAsync(message, "Warning", DialogButton.Yes | DialogButton.No, IconType.Warning),
-                nameof(IconType.Error) => await AlertDialog.ShowAsync(message, "Error", DialogButton.Yes | DialogButton.No | DialogButton.Cancel, IconType.Error),
-                _ => await AlertDialog.ShowAsync(message, "Abort", DialogButton.Yes | DialogButton.No | DialogButton.Cancel | DialogButton.Abort, IconType.Error)
+                nameof(IconType.Question) => await AlertDialog.ShowAsync(message, "Question", DialogButton.OKCancel, IconType.Question),
+                nameof(IconType.Warning) => await AlertDialog.ShowAsync(message, "Warning", DialogButton.YesNo, IconType.Warning),
+                nameof(IconType.Error) => await AlertDialog.ShowAsync(message, "Error", DialogButton.YesNoCancel, IconType.Error),
+                _ => await AlertDialog.ShowAsync(message, "Abort", DialogButton.YesNoCancel | DialogButton.Abort, IconType.Error)
             };
             await new Window()
             {

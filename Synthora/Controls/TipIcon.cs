@@ -5,11 +5,21 @@ using Synthora.Messaging;
 
 namespace Synthora.Controls
 {
-    public class IconBase : TemplatedControl
+    /// <summary>
+    /// A base control for displaying an icon based on the specified <see cref="IconType"/>.
+    /// </summary>
+    public abstract class IconBase : TemplatedControl
     {
-        public static readonly StyledProperty<IconType> IconTypeProperty =
-            AvaloniaProperty.Register<IconBase, IconType>(nameof(IconType), IconType.Information);
+        /// <summary>
+        /// Defines the <see cref="IconType"/> property.
+        /// Determines which type of icon (information, warning, error, etc.) to render.
+        /// </summary>
+        public static readonly StyledProperty<IconType> IconTypeProperty = 
+            AvaloniaProperty.Register<IconBase, IconType>(nameof(IconType));
 
+        /// <summary>
+        /// Gets or sets the type of icon to display.
+        /// </summary>
         public IconType IconType
         {
             get => GetValue(IconTypeProperty);
@@ -17,6 +27,10 @@ namespace Synthora.Controls
         }
     }
 
+    /// <summary>
+    /// A specialized icon control that inherits from <see cref="IconBase"/>.
+    /// Can be used to render tip-specific icons (e.g., in message tips).
+    /// </summary>
     public class TipIcon : IconBase
     {
 

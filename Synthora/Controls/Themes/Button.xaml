@@ -127,7 +127,7 @@
             <Setter Property="Background" Value="#FFD74444" />
         </Style>
         <Style Selector="^:pressed">
-            <Setter Property="Background" Value="#FFF05757" />
+            <Setter Property="Background" Value="#FFDB5757" />
         </Style>
     </ControlTheme>
 

@@ -126,89 +126,27 @@
                             <CheckBox Name="ButtonViewIsEnabled" IsChecked="True">IsEnabled</CheckBox>
                             <StackPanel IsEnabled="{Binding #ButtonViewIsEnabled.IsChecked}" Spacing="10">
                                 <StackPanel Orientation="Horizontal" Spacing="10">
-                                    <Button Command="{Binding SwitchTheme}" CommandParameter="{Binding $self.Content}">Default</Button>
+                                    <Button Command="{Binding SwitchTheme}" CommandParameter="Default">DefaultMode</Button>
                                     <Button Command="{Binding SwitchTheme}"
-                                            CommandParameter="{Binding $self.Content}"
+                                            CommandParameter="Light"
                                             Theme="{StaticResource SynthoraButtonTheme}">
-                                        Light
+                                        LightMode
                                     </Button>
                                     <Button Command="{Binding SwitchTheme}"
-                                            CommandParameter="{Binding $self.Content}"
+                                            CommandParameter="Dark"
                                             Theme="{StaticResource CancelButtonTheme}">
-                                        Dark
+                                        DarkMode
                                     </Button>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" Spacing="10">
-                                    <Button Command="{Binding ShowNotification}" CommandParameter="{Binding $self.Content}">Information</Button>
-                                    <Button Command="{Binding ShowNotification}"
-                                            CommandParameter="{Binding $self.Content}"
-                                            Content="Success"
-                                            Theme="{StaticResource SuccessButtonTheme}" />
-                                    <Button Command="{Binding ShowNotification}"
-                                            CommandParameter="{Binding $self.Content}"
-                                            Content="Warning"
-                                            Theme="{StaticResource WarningButtonTheme}" />
-                                    <Button Command="{Binding ShowNotification}"
-                                            CommandParameter="{Binding $self.Content}"
-                                            Content="Error"
-                                            Theme="{StaticResource ErrorButtonTheme}" />
+                                    <Button>Default</Button>
+                                    <Button Theme="{StaticResource SynthoraButtonTheme}">SynthoraButton</Button>
+                                    <Button Theme="{StaticResource CancelButtonTheme}">CancelButton</Button>
+                                    <Button Theme="{StaticResource SuccessButtonTheme}">SuccessButton</Button>
+                                    <Button Theme="{StaticResource WarningButtonTheme}">WarningButton</Button>
+                                    <Button Theme="{StaticResource DangerButtonTheme}">DangerButton</Button>
+                                    <Button Theme="{StaticResource ErrorButtonTheme}">ErrorButton</Button>
                                 </StackPanel>
-                                <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
-                                    <Button Command="{Binding ShowMessageTip}"
-                                            CommandParameter="Show"
-                                            Theme="{StaticResource SynthoraButtonTheme}">
-                                        MessageTip.Show
-                                    </Button>
-                                    <Button Command="{Binding ShowMessageTip}" CommandParameter="ShowQuestion">
-                                        MessageTip.ShowQuestion
-                                    </Button>
-                                    <Button Command="{Binding ShowMessageTip}"
-                                            CommandParameter="ShowSuccess"
-                                            Theme="{StaticResource SuccessButtonTheme}">
-                                        MessageTip.ShowSuccess
-                                    </Button>
-                                    <Button Command="{Binding ShowMessageTip}"
-                                            CommandParameter="ShowWarning"
-                                            Theme="{StaticResource WarningButtonTheme}">
-                                        MessageTip.ShowWarning
-                                    </Button>
-                                    <Button Command="{Binding ShowMessageTip}"
-                                            CommandParameter="ShowError"
-                                            Theme="{StaticResource ErrorButtonTheme}">
-                                        MessageTip.ShowError
-                                    </Button>
-                                </SpacingWrapPanel>
-                                <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
-                                    <Button Command="{Binding ShowAlertDialog}"
-                                            CommandParameter="Information"
-                                            CornerRadiusAttach.IsCircular="True"
-                                            Theme="{StaticResource SynthoraButtonTheme}">
-                                        AlertDialog.ShowInformation
-                                    </Button>
-                                    <Button Command="{Binding ShowAlertDialog}"
-                                            CommandParameter="Question"
-                                            CornerRadiusAttach.IsCircular="True">
-                                        AlertDialog.ShowQuestion
-                                    </Button>
-                                    <Button Command="{Binding ShowAlertDialog}"
-                                            CommandParameter="Warning"
-                                            CornerRadiusAttach.IsCircular="True"
-                                            Theme="{StaticResource WarningButtonTheme}">
-                                        AlertDialog.ShowWarning
-                                    </Button>
-                                    <Button Command="{Binding ShowAlertDialog}"
-                                            CommandParameter="Error"
-                                            CornerRadiusAttach.IsCircular="True"
-                                            Theme="{StaticResource ErrorButtonTheme}">
-                                        AlertDialog.ShowError
-                                    </Button>
-                                    <Button Command="{Binding ShowAlertDialog}"
-                                            CommandParameter="Abort"
-                                            CornerRadiusAttach.IsCircular="True"
-                                            Theme="{StaticResource DangerButtonTheme}">
-                                        AlertDialog.ShowAbort
-                                    </Button>
-                                </SpacingWrapPanel>
                                 <Button Content="ContextMenuButton">
                                     <Button.ContextMenu>
                                         <ContextMenu>
@@ -361,6 +299,57 @@
                                     <RepeatButton Theme="{StaticResource ErrorRepeatButtonTheme}">ErrorRepeatButton</RepeatButton>
                                 </SpacingWrapPanel>
                                 <HyperlinkButton>HyperlinkButton</HyperlinkButton>
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+                <TabItem Header="Messaging">
+                    <ScrollViewer>
+                        <StackPanel Margin="10" Spacing="10">
+                            <CheckBox Name="MessagingViewIsEnabled" IsChecked="True">IsEnabled</CheckBox>
+                            <StackPanel IsEnabled="{Binding #MessagingViewIsEnabled.IsChecked}" Spacing="10">
+                                <LabelDivider Content="Notification" />
+                                <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
+                                    <SpacingWrapPanel.Styles>
+                                        <Style Selector="Button">
+                                            <Setter Property="Command" Value="{Binding ShowNotification}" />
+                                            <Setter Property="CommandParameter" Value="{Binding $self.Content}" />
+                                        </Style>
+                                    </SpacingWrapPanel.Styles>
+                                    <Button Content="Information" />
+                                    <Button Content="Success" Theme="{StaticResource SuccessButtonTheme}" />
+                                    <Button Content="Warning" Theme="{StaticResource WarningButtonTheme}" />
+                                    <Button Content="Error" Theme="{StaticResource ErrorButtonTheme}" />
+                                </SpacingWrapPanel>
+                                <LabelDivider Content="MessageTip" />
+                                <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
+                                    <SpacingWrapPanel.Styles>
+                                        <Style Selector="Button">
+                                            <Setter Property="Command" Value="{Binding ShowMessageTip}" />
+                                            <Setter Property="CommandParameter" Value="{Binding $self.Content}" />
+                                        </Style>
+                                    </SpacingWrapPanel.Styles>
+                                    <Button Theme="{StaticResource SynthoraButtonTheme}">Show</Button>
+                                    <Button>ShowQuestion</Button>
+                                    <Button Theme="{StaticResource SuccessButtonTheme}">ShowSuccess</Button>
+                                    <Button Theme="{StaticResource WarningButtonTheme}">ShowWarning</Button>
+                                    <Button Theme="{StaticResource ErrorButtonTheme}">ShowError</Button>
+                                </SpacingWrapPanel>
+                                <LabelDivider Content="AlertDialog" />
+                                <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
+                                    <SpacingWrapPanel.Styles>
+                                        <Style Selector="Button">
+                                            <Setter Property="Command" Value="{Binding ShowAlertDialog}" />
+                                            <Setter Property="CommandParameter" Value="{Binding $self.Content}" />
+                                            <Setter Property="CornerRadiusAttach.IsCircular" Value="True" />
+                                        </Style>
+                                    </SpacingWrapPanel.Styles>
+                                    <Button Theme="{StaticResource SynthoraButtonTheme}">Information</Button>
+                                    <Button>Question</Button>
+                                    <Button Theme="{StaticResource WarningButtonTheme}">Warning</Button>
+                                    <Button Theme="{StaticResource ErrorButtonTheme}">Error</Button>
+                                    <Button Theme="{StaticResource DangerButtonTheme}">Abort</Button>
+                                </SpacingWrapPanel>
                             </StackPanel>
                         </StackPanel>
                     </ScrollViewer>

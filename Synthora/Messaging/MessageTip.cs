@@ -11,6 +11,9 @@ using Synthora.Controls;
 
 namespace Synthora.Messaging
 {
+    /// <summary>
+    /// Represents the possible results of a dialog interaction.
+    /// </summary>
     public enum DialogResult
     {
         None,
@@ -21,6 +24,9 @@ namespace Synthora.Messaging
         Abort
     }
 
+    /// <summary>
+    /// Specifies which buttons to display in a dialog. Can be combined using a bitwise OR.
+    /// </summary>
     [Flags]
     public enum DialogButton
     {
@@ -29,9 +35,15 @@ namespace Synthora.Messaging
         Cancel = 1 << 1,
         Yes = 1 << 2,
         No = 1 << 3,
-        Abort = 1 << 4
+        Abort = 1 << 4,
+        OKCancel = OK | Cancel,
+        YesNo = Yes | No,
+        YesNoCancel = YesNo | Cancel
     }
 
+    /// <summary>
+    /// Defines the type of icon to display in a message or dialog.
+    /// </summary>
     public enum IconType
     {
         Information,
@@ -41,25 +53,67 @@ namespace Synthora.Messaging
         Error
     }
 
+    /// <summary>
+    /// Provides static methods to display transient message tips with various icon types.
+    /// </summary>
     public static class MessageTip
     {
         private const int Delay = 2000;
 
+        /// <summary>
+        /// Global override for the display duration of all message tips (in milliseconds).
+        /// When set to a value greater than 0, this will override the default <see cref="Delay"/>.
+        /// </summary>
         public static int GlobalDelay { get; set; } = 0;
+
+        /// <summary>
+        /// Horizontal offset for positioning the message tip relative to the target element.
+        /// </summary>
         public static double HorizontalOffset { get; set; } = 0;
-        public static double VerticalOffset { get; set; } = 0;
+
+        /// <summary>
+        /// Vertical offset for positioning the message tip relative to the target element.
+        /// </summary>
+        public static double VerticalOffset { get; set; } = 12;
+
+        /// <summary>
+        /// Placement mode for the message tip (e.g., relative to a pointer or top).
+        /// </summary>
+        public static PlacementMode Placement { get; set; } = PlacementMode.Pointer;
+
+        /// <summary>
+        /// Corner radius used for rounding the corners of the message tip.
+        /// </summary>
         public static CornerRadius TipCornerRadius { get; set; } = new CornerRadius(4);
 
+        /// <summary>
+        /// Displays a transient informational message tip with the default icon.
+        /// </summary>
         public static void Show(string message, int delay = Delay) => Show(message, IconType.Information, delay);
 
+        /// <summary>
+        /// Displays a transient message tip with a question icon.
+        /// </summary>
         public static void ShowQuestion(string message, int delay = Delay) => Show(message, IconType.Question, delay);
 
+        /// <summary>
+        /// Displays a transient message tip with a success icon.
+        /// </summary>
         public static void ShowSuccess(string message, int delay = Delay) => Show(message, IconType.Success, delay);
 
+        /// <summary>
+        /// Displays a transient message tip with a warning icon.
+        /// </summary>
         public static void ShowWarning(string message, int delay = Delay) => Show(message, IconType.Warning, delay);
 
+        /// <summary>
+        /// Displays a transient message tip with an error icon.
+        /// </summary>
         public static void ShowError(string message, int delay = Delay) => Show(message, IconType.Error, delay);
 
+        /// <summary>
+        /// Displays a transient message tip with a specified icon type.
+        /// </summary>
         public static void Show(string message, IconType iconType, int delay = Delay)
         {
             if (Application.Current is not Application application)
@@ -99,10 +153,7 @@ namespace Synthora.Messaging
                     };
 
                     Grid grid = new Grid();
-                    grid.ColumnDefinitions.Add(new ColumnDefinition()
-                    {
-                        Width = GridLength.Auto
-                    });
+                    grid.ColumnDefinitions.Add(new ColumnDefinition(GridLength.Auto));
                     grid.ColumnDefinitions.Add(new ColumnDefinition());
 
                     TextBlock textBlock = new TextBlock();
@@ -145,7 +196,7 @@ namespace Synthora.Messaging
                     Popup popup = new Popup();
                     popup.Opened += Popup_Opened;
                     popup.Child = border;
-                    popup.Placement = PlacementMode.Pointer;
+                    popup.Placement = Placement;
                     if (HorizontalOffset != 0)
                     {
                         popup.HorizontalOffset = HorizontalOffset;
