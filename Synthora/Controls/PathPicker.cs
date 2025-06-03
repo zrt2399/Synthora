@@ -79,12 +79,12 @@ namespace Synthora.Controls
             AvaloniaProperty.Register<PathPicker, TextWrapping>(nameof(TextWrapping));
 
         public static readonly StyledProperty<TextAlignment> TextAlignmentProperty =
-           AvaloniaProperty.Register<PathPicker, TextAlignment>(nameof(TextAlignment));
+            AvaloniaProperty.Register<PathPicker, TextAlignment>(nameof(TextAlignment));
 
         public static readonly StyledProperty<bool> IsReadOnlyProperty =
             AvaloniaProperty.Register<PathPicker, bool>(nameof(IsReadOnly), true);
 
-        public static readonly StyledProperty<Thickness> SpacingProperty = 
+        public static readonly StyledProperty<Thickness> SpacingProperty =
             AvaloniaProperty.Register<PathPicker, Thickness>(nameof(Spacing), new Thickness(4, 0, 0, 0));
 
         static PathPicker()
@@ -297,7 +297,10 @@ namespace Synthora.Controls
                     using var storageFile = await topLevel.StorageProvider.SaveFilePickerAsync(options);
                     if (storageFile != null)
                     {
-                        SetCurrentValue(SelectedPathsProperty, new List<string>() { GetStorageFullName(storageFile) ?? string.Empty });
+                        SetCurrentValue(SelectedPathsProperty, new List<string>()
+                        {
+                            GetStorageFullName(storageFile) ?? string.Empty
+                        });
                     }
                 }
                 else
@@ -352,7 +355,6 @@ namespace Synthora.Controls
                 {
                     PART_TextBox.Focus();
                     PART_TextBox.SelectAll();
-                    e.Handled = true;
                 }
             }
             base.OnGotFocus(e);

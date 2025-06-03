@@ -3,6 +3,7 @@
                     x:ClassModifier="internal">
 
     <ControlTheme x:Key="{x:Type PathPicker}" TargetType="{x:Type PathPicker}">
+        <Setter Property="Focusable" Value="True" />
         <Setter Property="Template">
             <ControlTemplate>
                 <DockPanel>
@@ -27,6 +28,7 @@
                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                      IsReadOnly="{TemplateBinding IsReadOnly}"
+                                     TemplatedControl.IsTemplateFocusTarget="True"
                                      Text="{TemplateBinding SelectedPath}"
                                      TextAlignment="{TemplateBinding TextAlignment}"
                                      TextWrapping="{TemplateBinding TextWrapping}"
