@@ -28,6 +28,7 @@
                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                      IsReadOnly="{TemplateBinding IsReadOnly}"
                                      Text="{TemplateBinding SelectedPath}"
+                                     TextAlignment="{TemplateBinding TextAlignment}"
                                      TextWrapping="{TemplateBinding TextWrapping}"
                                      Watermark="{TemplateBinding Watermark}" />
                             <Button Grid.Column="1"

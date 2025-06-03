@@ -76,12 +76,15 @@ namespace Synthora.Controls
             ContentControl.VerticalContentAlignmentProperty.AddOwner<PathPicker>();
 
         public static readonly StyledProperty<TextWrapping> TextWrappingProperty =
-            AvaloniaProperty.Register<PathPicker, TextWrapping>(nameof(TextWrapping), TextWrapping.NoWrap);
+            AvaloniaProperty.Register<PathPicker, TextWrapping>(nameof(TextWrapping));
+
+        public static readonly StyledProperty<TextAlignment> TextAlignmentProperty =
+           AvaloniaProperty.Register<PathPicker, TextAlignment>(nameof(TextAlignment));
 
         public static readonly StyledProperty<bool> IsReadOnlyProperty =
             AvaloniaProperty.Register<PathPicker, bool>(nameof(IsReadOnly), true);
 
-        public static readonly StyledProperty<Thickness> SpacingProperty =
+        public static readonly StyledProperty<Thickness> SpacingProperty = 
             AvaloniaProperty.Register<PathPicker, Thickness>(nameof(Spacing), new Thickness(4, 0, 0, 0));
 
         static PathPicker()
@@ -210,6 +213,12 @@ namespace Synthora.Controls
         {
             get => GetValue(TextWrappingProperty);
             set => SetValue(TextWrappingProperty, value);
+        }
+
+        public TextAlignment TextAlignment
+        {
+            get => GetValue(TextAlignmentProperty);
+            set => SetValue(TextAlignmentProperty, value);
         }
 
         public bool IsReadOnly
