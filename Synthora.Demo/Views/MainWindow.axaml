@@ -378,24 +378,30 @@
                             <StackPanel Margin="10" Spacing="10">
                                 <CheckBox Name="OtherViewIsEnabled" IsChecked="True">IsEnabled</CheckBox>
                                 <StackPanel IsEnabled="{Binding #OtherViewIsEnabled.IsChecked}" Spacing="10">
-                                    <StackPanel Orientation="Horizontal">
+                                    <DockPanel>
                                         <EmptyBox />
                                         <EmptyBox GlyphHeight="60" GlyphWidth="90" />
                                         <EmptyBox GlyphHeight="80" GlyphWidth="120" />
-                                    </StackPanel>
 
-                                    <ProgressBar Value="{Binding #HorizontalSlider.Value}" />
-                                    <Slider Name="HorizontalSlider" />
-                                    <ProgressBar ShowProgressText="True" Value="{Binding #HorizontalSlider.Value}" />
-                                    <DockPanel MinHeight="60">
                                         <Slider Name="VerticalSlider"
-                                                DockPanel.Dock="Left"
-                                                Orientation="Vertical" />
+                                                IsSnapToTickEnabled="True"
+                                                Maximum="10"
+                                                Orientation="Vertical"
+                                                TickFrequency="1"
+                                                TickPlacement="BottomRight" />
                                         <ProgressBar Margin="10,0,0,0"
+                                                     Maximum="{Binding #VerticalSlider.Maximum}"
                                                      Orientation="Vertical"
                                                      ShowProgressText="True"
                                                      Value="{Binding #VerticalSlider.Value}" />
                                     </DockPanel>
+
+                                    <ProgressBar Value="{Binding #HorizontalSlider.Value}" />
+                                    <Slider Name="HorizontalSlider"
+                                            IsSnapToTickEnabled="True"
+                                            TickFrequency="1"
+                                            TickPlacement="Outside" />
+                                    <ProgressBar ShowProgressText="True" Value="{Binding #HorizontalSlider.Value}" />
 
                                     <Expander CornerRadius="2"
                                               ExpandDirection="Left"
@@ -524,6 +530,19 @@
                 </TabItem>
                 <TabItem Header="DataGrid">
                     <Grid>
+                        <Grid.Styles>
+                            <Style Selector="DataGrid">
+                                <!-- <Setter Property="BorderThickness" Value="0" /> -->
+                                <Styles>
+                                    <Style Selector="DataGridRow:nth-child(even)">
+                                        <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
+                                    </Style>
+                                    <!--<Style Selector="DataGridRow:nth-child(odd)">
+                                        <Setter Property="Background" Value="Transparent" />
+                                    </Style>-->
+                                </Styles>
+                            </Style>
+                        </Grid.Styles>
                         <Grid.RowDefinitions>
                             <RowDefinition MinHeight="20" />
                             <RowDefinition Height="Auto" />
