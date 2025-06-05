@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
@@ -246,14 +247,17 @@ namespace Synthora.Controls
             SetCurrentValue(SelectedPathProperty, newSelectedPaths == null || newSelectedPaths.Count == 0 ? string.Empty : string.Join("|", newSelectedPaths.OfType<string>()));
         }
 
-        private async void SetCommonOptions(PickerOptions pickerOptions, TopLevel topLevel)
+        private async Task SetCommonOptionsAsync(PickerOptions pickerOptions, TopLevel topLevel)
         {
-            pickerOptions.Title = Title;
-            if (!string.IsNullOrEmpty(SuggestedStartLocation))
+            if (pickerOptions.Title != null)
+            {
+                pickerOptions.Title = Title;
+            }
+            if (SuggestedStartLocation != null)
             {
                 pickerOptions.SuggestedStartLocation = await topLevel.StorageProvider.TryGetFolderFromPathAsync(SuggestedStartLocation);
             }
-            if (!string.IsNullOrEmpty(SuggestedFileName))
+            if (SuggestedFileName != null)
             {
                 pickerOptions.SuggestedFileName = SuggestedFileName;
             }
@@ -271,7 +275,7 @@ namespace Synthora.Controls
                 {
                     AllowMultiple = AllowMultiple
                 };
-                SetCommonOptions(options, topLevel);
+                await SetCommonOptionsAsync(options, topLevel);
                 var storageFolders = await topLevel.StorageProvider.OpenFolderPickerAsync(options);
 
                 if (storageFolders.Count > 0)
@@ -293,7 +297,7 @@ namespace Synthora.Controls
                         DefaultExtension = DefaultExtension,
                         FileTypeChoices = FilePickerFileTypes
                     };
-                    SetCommonOptions(options, topLevel);
+                    await SetCommonOptionsAsync(options, topLevel);
                     using var storageFile = await topLevel.StorageProvider.SaveFilePickerAsync(options);
                     if (storageFile != null)
                     {
@@ -310,7 +314,7 @@ namespace Synthora.Controls
                         AllowMultiple = AllowMultiple,
                         FileTypeFilter = FilePickerFileTypes
                     };
-                    SetCommonOptions(options, topLevel);
+                    await SetCommonOptionsAsync(options, topLevel);
                     var storageFiles = await topLevel.StorageProvider.OpenFilePickerAsync(options);
                     if (storageFiles.Count > 0)
                     {

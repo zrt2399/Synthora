@@ -12,48 +12,6 @@ using Synthora.Controls;
 namespace Synthora.Messaging
 {
     /// <summary>
-    /// Represents the possible results of a dialog interaction.
-    /// </summary>
-    public enum DialogResult
-    {
-        None,
-        OK,
-        Cancel,
-        Yes,
-        No,
-        Abort
-    }
-
-    /// <summary>
-    /// Specifies which buttons to display in a dialog. Can be combined using a bitwise OR.
-    /// </summary>
-    [Flags]
-    public enum DialogButton
-    {
-        None = 0,
-        OK = 1,
-        Cancel = 1 << 1,
-        Yes = 1 << 2,
-        No = 1 << 3,
-        Abort = 1 << 4,
-        OKCancel = OK | Cancel,
-        YesNo = Yes | No,
-        YesNoCancel = YesNo | Cancel
-    }
-
-    /// <summary>
-    /// Defines the type of icon to display in a message or dialog.
-    /// </summary>
-    public enum IconType
-    {
-        Information,
-        Question,
-        Success,
-        Warning,
-        Error
-    }
-
-    /// <summary>
     /// Provides static methods to display transient message tips with various icon types.
     /// </summary>
     public static class MessageTip
@@ -166,7 +124,11 @@ namespace Synthora.Messaging
                         textBlock.Margin = new Thickness(4, 0, 0, 0);
                     }
 
-                    textBlock.FontSize = application.Resources["FontSizeNormal"] as double? ?? 12;
+                    if (application.TryGetResource("FontSizeNormal", application.ActualThemeVariant, out var res) && res is double fontSize)
+                    {
+                        textBlock.FontSize = fontSize;
+                    }
+                  
                     textBlock.SetValue(Grid.ColumnProperty, 1);
                     grid.Children.Add(new Viewbox()
                     {

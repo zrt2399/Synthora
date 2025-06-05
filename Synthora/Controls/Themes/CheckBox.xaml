@@ -51,8 +51,7 @@
                                       ContentTemplate="{TemplateBinding ContentTemplate}"
                                       IsVisible="{TemplateBinding Content,
                                                                   Converter={x:Static SynthoraConverters.IsNotNullOrEmpty}}"
-                                      RecognizesAccessKey="True"
-                                      TextElement.Foreground="{TemplateBinding Foreground}" />
+                                      RecognizesAccessKey="True" />
                 </Grid>
             </ControlTemplate>
         </Setter>
@@ -60,22 +59,24 @@
             <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighBrush}" />
         </Style>
 
-        <Style Selector="^:checked /template/ Path#checkMark">
-            <Setter Property="IsVisible" Value="True" />
-        </Style>
         <Style Selector="^:checked">
             <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
             <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+            <Style Selector="^ /template/ Path#checkMark">
+                <Setter Property="IsVisible" Value="True" />
+            </Style>
         </Style>
-        <Style Selector="^:indeterminate /template/ Rectangle#indeterminateMark">
-            <Setter Property="IsVisible" Value="True" />
-        </Style>
+
         <Style Selector="^:indeterminate">
             <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
             <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+            <Style Selector="^ /template/ Rectangle#indeterminateMark">
+                <Setter Property="IsVisible" Value="True" />
+            </Style>
         </Style>
+
         <Style Selector="^:disabled">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
         </Style>
     </ControlTheme>
-</ResourceDictionary> 
+</ResourceDictionary>

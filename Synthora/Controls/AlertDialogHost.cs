@@ -165,12 +165,12 @@ namespace Synthora.Controls
             var tcs = new TaskCompletionSource<DialogResult>();
             try
             {
-                Title = alertDialogParameter.Title;
-                Message = alertDialogParameter.Message;
-                DialogButton = alertDialogParameter.DialogButton;
-                IconType = alertDialogParameter.IconType;
                 DialogClosed += OnDialogClosed;
-                IsOpen = true;
+                SetCurrentValue(TitleProperty, alertDialogParameter.Title);
+                SetCurrentValue(MessageProperty, alertDialogParameter.Message);
+                SetCurrentValue(DialogButtonProperty, alertDialogParameter.DialogButton);
+                SetCurrentValue(IconTypeProperty, alertDialogParameter.IconType);
+                SetCurrentValue(IsOpenProperty, true);
 
                 _ = Dispatcher.UIThread.InvokeAsync(() =>
                 {
@@ -186,13 +186,13 @@ namespace Synthora.Controls
             }
             finally
             {
-                IsOpen = false;
+                SetCurrentValue(IsOpenProperty, false);
                 DialogClosed -= OnDialogClosed;
             }
 
             void OnDialogClosed(object? sender, AlertDialogClosedEventArgs e)
             {
-                //IsOpen = false;
+                //SetCurrentValue(IsOpenProperty, false);
                 tcs.TrySetResult(e.DialogResult);
             }
         }

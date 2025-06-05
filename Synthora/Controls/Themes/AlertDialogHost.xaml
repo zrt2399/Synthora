@@ -53,6 +53,7 @@
                                       RowDefinitions="Auto,*,Auto">
                                     <SelectableTextBlock Name="title"
                                                          HorizontalAlignment="Left"
+                                                         FontWeight="Bold"
                                                          IsVisible="{Binding $self.Text, Converter={x:Static SynthoraConverters.IsNotNullOrEmpty}}"
                                                          Text="{TemplateBinding Title}" />
                                     <DockPanel Grid.Row="1">
@@ -148,4 +149,4 @@
         </Style>
     </ControlTheme>
 
-</ResourceDictionary> 
+</ResourceDictionary>

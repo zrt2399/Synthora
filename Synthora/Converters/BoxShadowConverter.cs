@@ -27,7 +27,7 @@ namespace Synthora.Converters
                 }
                 return new BoxShadows(new BoxShadow() { Blur = 8, Color = solidColorBrush.Color, });
             }
-            return AvaloniaProperty.UnsetValue;
+            return new BoxShadows();
         }
 
         public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)

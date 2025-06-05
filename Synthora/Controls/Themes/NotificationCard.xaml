@@ -34,7 +34,7 @@
                               BorderThickness="{TemplateBinding BorderThickness}"
                               BoxShadow="{TemplateBinding BorderBrush,
                                                           Converter={x:Static SynthoraConverters.BoxShadowConverter},
-                                                          ConverterParameter=0 0 8 0 #00000000}"
+                                                          ConverterParameter=0 0 4 0 #00000000}"
                               CornerRadius="{TemplateBinding CornerRadius}"
                               HeaderBackground="{TemplateBinding BorderBrush}"
                               HeaderDividerHeight="0"

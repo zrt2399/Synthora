@@ -7,7 +7,7 @@ using Avalonia.Media;
 namespace Synthora.Controls
 {
     /// <summary>
-    /// A custom control that displays a divider line with content (e.g., a label).
+    /// A custom control that displays a divider line with content.
     /// </summary>
     public class LabelDivider : ContentControl
     {

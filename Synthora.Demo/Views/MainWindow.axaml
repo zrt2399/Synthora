@@ -74,6 +74,19 @@
                                 <TextBox Text="{Binding Value}"
                                          TextBoxAttach.Title="TextBox"
                                          TextWrapping="Wrap" />
+                                <NumericUpDown TextBoxAttach.Title="NumericUpDown" Value="12" />
+                                <ComboBox TextBoxAttach.Title="ComboBox">
+                                    <ComboBoxItem>ComboBoxItemabcdefghijklmnopqrstuvwxyz</ComboBoxItem>
+                                    <ComboBoxItem>ComboBoxItemABCDEFGHIJKLMNOPQRSTUVWXYZ</ComboBoxItem>
+                                    <ComboBoxItem>ComboBoxItem1234567890</ComboBoxItem>
+                                </ComboBox>
+                                <ComboBox ItemsSource="{Binding Employees}" TextBoxAttach.Title="ComboBox with ItemTemplate">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Name}" />
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
                                 <CalendarDatePicker TextBoxAttach.Title="CalendarDatePicker" />
                                 <DatePicker TextBoxAttach.Title="DatePicker" />
                                 <TimePicker TextBoxAttach.Title="TimePicker" />
@@ -85,40 +98,8 @@
                                             SelectedPaths="{Binding SelectedFiles}"
                                             TextBoxAttach.Title="PathPicker with FilePickerFileTypes"
                                             Watermark="Pick files" />
-                                <NumericUpDown TextBoxAttach.Title="NumericUpDown" Value="12" />
-                                <ComboBox ItemsSource="{Binding Employees}" TextBoxAttach.Title="ComboBox with ItemTemplate">
-                                    <ComboBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Text="{Binding Name}" />
-                                        </DataTemplate>
-                                    </ComboBox.ItemTemplate>
-                                </ComboBox>
-                                <ComboBox TextBoxAttach.Title="ComboBox">
-                                    <ComboBoxItem>ComboBoxItemabcdefghijklmnopqrstuvwxyz</ComboBoxItem>
-                                    <ComboBoxItem>ComboBoxItemABCDEFGHIJKLMNOPQRSTUVWXYZ</ComboBoxItem>
-                                    <ComboBoxItem>ComboBoxItem1234567890</ComboBoxItem>
-                                </ComboBox>
-                                <SelectableTextBlock>SelectableTextBlock</SelectableTextBlock>
                                 <TextBlock>TextBlock</TextBlock>
-                                <StackPanel Orientation="Horizontal">
-                                    <CheckBox>CheckBox1</CheckBox>
-                                    <CheckBox Content="" />
-                                    <CheckBox>CheckBox2</CheckBox>
-                                    <CheckBox IsChecked="{x:Null}">CheckBox3</CheckBox>
-                                </StackPanel>
-                                <GridSplitter Height="4" />
-                                <StackPanel Orientation="Horizontal">
-                                    <RadioButton>RadioButton1</RadioButton>
-                                    <RadioButton Content="" />
-                                    <RadioButton>RadioButton2</RadioButton>
-                                    <RadioButton IsChecked="{x:Null}">RadioButton3</RadioButton>
-                                </StackPanel>
-
-                                <StackPanel Orientation="Horizontal">
-                                    <ToggleSwitch OffContent="{x:Null}" OnContent="{x:Null}" />
-                                    <ToggleSwitch OffContent="123" OnContent="456789" />
-                                    <ToggleSwitch />
-                                </StackPanel>
+                                <SelectableTextBlock>SelectableTextBlock</SelectableTextBlock>
                             </StackPanel>
                         </StackPanel>
                     </ScrollViewer>
@@ -128,6 +109,7 @@
                         <StackPanel Margin="10" Spacing="10">
                             <CheckBox Name="ButtonViewIsEnabled" IsChecked="True">IsEnabled</CheckBox>
                             <StackPanel IsEnabled="{Binding #ButtonViewIsEnabled.IsChecked}" Spacing="10">
+                                <LabelDivider Content="Button" />
                                 <StackPanel Orientation="Horizontal" Spacing="10">
                                     <Button Command="{Binding SwitchTheme}" CommandParameter="Default">DefaultMode</Button>
                                     <Button Command="{Binding SwitchTheme}"
@@ -141,165 +123,182 @@
                                         DarkMode
                                     </Button>
                                 </StackPanel>
-                                <StackPanel Orientation="Horizontal" Spacing="10">
-                                    <Button>Default</Button>
-                                    <Button Theme="{StaticResource SynthoraButtonTheme}">SynthoraButton</Button>
-                                    <Button Theme="{StaticResource CancelButtonTheme}">CancelButton</Button>
-                                    <Button Theme="{StaticResource SuccessButtonTheme}">SuccessButton</Button>
-                                    <Button Theme="{StaticResource WarningButtonTheme}">WarningButton</Button>
-                                    <Button Theme="{StaticResource DangerButtonTheme}">DangerButton</Button>
-                                    <Button Theme="{StaticResource ErrorButtonTheme}">ErrorButton</Button>
-                                </StackPanel>
-                                <Button Content="ContextMenuButton">
-                                    <Button.ContextMenu>
-                                        <ContextMenu>
-                                            <MenuItem Header="More menu">
-                                                <MenuItem Header="First" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="0123456789" />
-                                                <MenuItem Header="Last" />
-                                            </MenuItem>
-                                            <Separator />
-                                            <MenuItem Foreground="{StaticResource DangerBrush}"
-                                                      Header="131415"
-                                                      HotKey="Control+D"
-                                                      Icon="{materialIcons:MaterialIconExt Kind=Delete}"
-                                                      InputGesture="{Binding $self.HotKey}" />
-                                            <MenuItem Header="Checkable"
-                                                      InputGesture="Control+C"
-                                                      IsChecked="True"
-                                                      ToggleType="CheckBox" />
-                                            <MenuItem Foreground="{StaticResource DangerBrush}"
-                                                      Header="45678910"
-                                                      Icon="{materialIcons:MaterialIconExt Kind=Refresh}"
-                                                      IsEnabled="False" />
-                                            <MenuItem GroupName="Radioable"
-                                                      Header="Radioable1"
-                                                      IsChecked="True"
-                                                      StaysOpenOnClick="True"
-                                                      ToggleType="Radio" />
-                                            <MenuItem GroupName="Radioable"
-                                                      Header="Radioable2"
-                                                      StaysOpenOnClick="True"
-                                                      ToggleType="Radio" />
-                                        </ContextMenu>
-                                    </Button.ContextMenu>
-                                </Button>
-                                <Button Command="{Binding ClearEmployees}" Theme="{StaticResource DangerButtonTheme}">ClearEmployees</Button>
-                                <SplitButton Content="SplitButton">
-                                    <SplitButton.Flyout>
-                                        <Flyout>
-                                            <Button Margin="4">Button</Button>
-                                        </Flyout>
-                                    </SplitButton.Flyout>
-                                </SplitButton>
-                                <ToggleSplitButton Content="ToggleSplitButton">
-                                    <ToggleSplitButton.Flyout>
-                                        <Flyout Placement="BottomEdgeAlignedLeft">
-                                            <ListBox MaxHeight="400"
-                                                     Margin="0,4"
-                                                     BorderThickness="0"
-                                                     ItemsSource="{Binding Employees}" />
-                                        </Flyout>
-                                    </ToggleSplitButton.Flyout>
-                                </ToggleSplitButton>
-                                <DropDownButton Content="DropDownButton">
-                                    <DropDownButton.Flyout>
-                                        <Flyout Placement="BottomEdgeAlignedLeft">
-                                            <Button Margin="4">Button</Button>
-                                        </Flyout>
-                                    </DropDownButton.Flyout>
-                                </DropDownButton>
-                                <ToggleButton ToolTip.Tip="ToggleButton">ToggleButton</ToggleButton>
-                                <Separator Theme="{StaticResource HorizontalSeparatorTheme}" />
                                 <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
-                                    <RepeatButton>DefaultRepeatButton</RepeatButton>
-                                    <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
-                                    <RepeatButton Theme="{StaticResource SynthoraRepeatButtonTheme}">SynthoraRepeatButton</RepeatButton>
-                                    <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
-                                    <RepeatButton Theme="{StaticResource CancelRepeatButtonTheme}">CancelRepeatButton</RepeatButton>
-                                    <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
-                                    <RepeatButton Theme="{StaticResource SuccessRepeatButtonTheme}">SuccessRepeatButton</RepeatButton>
-                                    <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
-                                    <RepeatButton Theme="{StaticResource WarningRepeatButtonTheme}">WarningRepeatButton</RepeatButton>
-                                    <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
-                                    <RepeatButton Theme="{StaticResource DangerRepeatButtonTheme}">DangerRepeatButton</RepeatButton>
-                                    <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
-                                    <RepeatButton Theme="{StaticResource ErrorRepeatButtonTheme}">ErrorRepeatButton</RepeatButton>
+                                    <Button>Default</Button>
+                                    <Button Theme="{StaticResource SynthoraButtonTheme}">Synthora</Button>
+                                    <Button Theme="{StaticResource CancelButtonTheme}">Cancel</Button>
+                                    <Button Theme="{StaticResource SuccessButtonTheme}">Success</Button>
+                                    <Button Theme="{StaticResource WarningButtonTheme}">Warning</Button>
+                                    <Button Theme="{StaticResource DangerButtonTheme}">Danger</Button>
+                                    <Button Theme="{StaticResource ErrorButtonTheme}">Error</Button>
+                                </SpacingWrapPanel>
+                                <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
+                                    <Button Content="ContextMenuButton">
+                                        <Button.ContextMenu>
+                                            <ContextMenu>
+                                                <MenuItem Header="More menu">
+                                                    <MenuItem Header="First" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="0123456789" />
+                                                    <MenuItem Header="Last" />
+                                                </MenuItem>
+                                                <Separator />
+                                                <MenuItem Foreground="{StaticResource DangerBrush}"
+                                                          Header="131415"
+                                                          HotKey="Control+D"
+                                                          Icon="{materialIcons:MaterialIconExt Kind=Delete}"
+                                                          InputGesture="{Binding $self.HotKey}" />
+                                                <MenuItem Header="Checkable"
+                                                          InputGesture="Control+C"
+                                                          IsChecked="True"
+                                                          ToggleType="CheckBox" />
+                                                <MenuItem Foreground="{StaticResource DangerBrush}"
+                                                          Header="45678910"
+                                                          Icon="{materialIcons:MaterialIconExt Kind=Refresh}"
+                                                          IsEnabled="False" />
+                                                <MenuItem GroupName="Radioable"
+                                                          Header="Radioable1"
+                                                          IsChecked="True"
+                                                          StaysOpenOnClick="True"
+                                                          ToggleType="Radio" />
+                                                <MenuItem GroupName="Radioable"
+                                                          Header="Radioable2"
+                                                          StaysOpenOnClick="True"
+                                                          ToggleType="Radio" />
+                                            </ContextMenu>
+                                        </Button.ContextMenu>
+                                    </Button>
+                                    <Button Command="{Binding ClearEmployees}" Theme="{StaticResource DangerButtonTheme}">ClearEmployees</Button>
+                                    <SplitButton Content="SplitButton">
+                                        <SplitButton.Flyout>
+                                            <Flyout>
+                                                <Button Margin="4">Button</Button>
+                                            </Flyout>
+                                        </SplitButton.Flyout>
+                                    </SplitButton>
+                                    <ToggleSplitButton Content="ToggleSplitButton">
+                                        <ToggleSplitButton.Flyout>
+                                            <Flyout Placement="BottomEdgeAlignedLeft">
+                                                <ListBox MaxHeight="400"
+                                                         Margin="0,4"
+                                                         BorderThickness="0"
+                                                         ItemsSource="{Binding Employees}" />
+                                            </Flyout>
+                                        </ToggleSplitButton.Flyout>
+                                    </ToggleSplitButton>
+                                    <DropDownButton Content="DropDownButton">
+                                        <DropDownButton.Flyout>
+                                            <Flyout Placement="BottomEdgeAlignedLeft">
+                                                <Button Margin="4">Button</Button>
+                                            </Flyout>
+                                        </DropDownButton.Flyout>
+                                    </DropDownButton>
+                                    <ToggleButton ToolTip.Tip="ToggleButton">ToggleButton</ToggleButton>
+                                </SpacingWrapPanel>
+                                <LabelDivider Content="RepeatButton" />
+                                <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
+                                    <RepeatButton>Default</RepeatButton>
+                                    <RepeatButton Theme="{StaticResource SynthoraRepeatButtonTheme}">Synthora</RepeatButton>
+                                    <RepeatButton Theme="{StaticResource CancelRepeatButtonTheme}">Cancel</RepeatButton>
+                                    <RepeatButton Theme="{StaticResource SuccessRepeatButtonTheme}">Success</RepeatButton>
+                                    <RepeatButton Theme="{StaticResource WarningRepeatButtonTheme}">Warning</RepeatButton>
+                                    <RepeatButton Theme="{StaticResource DangerRepeatButtonTheme}">Danger</RepeatButton>
+                                    <RepeatButton Theme="{StaticResource ErrorRepeatButtonTheme}">Error</RepeatButton>
+                                </SpacingWrapPanel>
+                                <LabelDivider Content="CheckBox" />
+                                <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
+                                    <CheckBox>Unchecked</CheckBox>
+                                    <CheckBox IsChecked="True">Checked</CheckBox>
+                                    <CheckBox Content="" />
+                                    <CheckBox IsChecked="{x:Null}" IsThreeState="True">ThreeState</CheckBox>
+                                </SpacingWrapPanel>
+                                <LabelDivider Content="RadioButton" />
+                                <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
+                                    <RadioButton>Unchecked</RadioButton>
+                                    <RadioButton IsChecked="True">Checked</RadioButton>
+                                    <RadioButton Content="" />
+                                    <RadioButton IsChecked="{x:Null}" IsThreeState="True">ThreeState</RadioButton>
+                                </SpacingWrapPanel>
+                                <LabelDivider Content="ToggleSwitch" />
+                                <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
+                                    <ToggleSwitch OffContent="{x:Null}" OnContent="{x:Null}" />
+                                    <ToggleSwitch OffContent="123" OnContent="456789" />
+                                    <ToggleSwitch />
+                                    <ToggleSwitch IsChecked="True" />
                                 </SpacingWrapPanel>
                                 <HyperlinkButton>HyperlinkButton</HyperlinkButton>
                             </StackPanel>
@@ -524,23 +523,34 @@
                     </UniformGrid>
                 </TabItem>
                 <TabItem Header="DataGrid">
-                    <UniformGrid Columns="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition MinHeight="20" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition MinHeight="20" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition MinHeight="20" />
+                        </Grid.RowDefinitions>
                         <DataGrid x:Name="dataGrid"
                                   Margin="10"
                                   AutoGenerateColumns="True"
                                   GridLinesVisibility="All"
                                   HeadersVisibility="All"
                                   ItemsSource="{Binding DataGridCollectionView}" />
-                        <DataGrid Margin="10"
+                        <GridSplitter Grid.Row="1" Height="4" />
+                        <DataGrid Grid.Row="2"
+                                  Margin="10"
                                   AutoGenerateColumns="True"
                                   GridLinesVisibility="Vertical"
                                   ItemsSource="{Binding DataGridCollectionView}" />
-                        <DataGrid Margin="10"
+                        <GridSplitter Grid.Row="3" Height="4" />
+                        <DataGrid Grid.Row="4"
+                                  Margin="10"
                                   AutoGenerateColumns="True"
                                   BorderThickness="0"
                                   IsReadOnly="True"
                                   ItemsSource="{Binding Employees}" />
-                    </UniformGrid>
+                    </Grid>
                 </TabItem>
             </TabControl>
             <StatusBar Grid.Row="1">
