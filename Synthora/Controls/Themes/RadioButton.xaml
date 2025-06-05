@@ -29,8 +29,8 @@
                              Stretch="Uniform"
                              UseLayoutRounding="False" />
                     <Ellipse Name="indeterminateMark"
-                             Width="10"
-                             Height="10"
+                             Width="8"
+                             Height="8"
                              HorizontalAlignment="Center"
                              VerticalAlignment="Center"
                              Fill="{TemplateBinding Background}"
