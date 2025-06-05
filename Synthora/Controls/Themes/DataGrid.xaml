@@ -255,7 +255,9 @@
 
                         <DataGridColumnHeader Name="PART_TopLeftCornerHeader" />
                         <DataGridColumnHeadersPresenter Name="PART_ColumnHeadersPresenter" Grid.Column="1" />
-
+                        <DataGridColumnHeader Name="PART_TopRightCornerHeader"
+                                              Grid.Column="2"
+                                              BorderThickness="0,0,0,1" />
                         <Border Grid.ColumnSpan="3"
                                 BorderBrush="{Binding $parent[DataGrid].BorderBrush}"
                                 BorderThickness="0,0,0,1"
@@ -274,11 +276,11 @@
                         <Rectangle Name="PART_BottomRightCorner"
                                    Grid.Row="2"
                                    Grid.Column="2"
-                                   Fill="{DynamicResource ThemeControlMidHighBrush}" />
+                                   Fill="{DynamicResource ThemeControlMidBrush}" />
                         <Rectangle Name="BottomLeftCorner"
                                    Grid.Row="2"
                                    Grid.ColumnSpan="2"
-                                   Fill="{DynamicResource ThemeControlMidHighBrush}" />
+                                   Fill="{DynamicResource ThemeControlMidBrush}" />
                         <ScrollBar Name="PART_VerticalScrollbar"
                                    Grid.Row="1"
                                    Grid.Column="2"
