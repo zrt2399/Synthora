@@ -17,4 +17,5 @@ dotnet add package Synthora
 ```
 
 # 📷 Screenshot
-![Screenshot](Screenshots/ButtonView.png)
+![Screenshot](Screenshots/LightMode.png)
+![Screenshot](Screenshots/DarkMode.png)
