@@ -16,6 +16,6 @@ dotnet add package Synthora
 </Application.Styles>
 ```
 
-# 📷 Screenshot
-![Screenshot](Screenshots/LightMode.png)
-![Screenshot](Screenshots/DarkMode.png)
+# 📷 Screenshots
+![Light Mode](Screenshots/LightMode.png)
+![Dark Mode](Screenshots/DarkMode.png)
