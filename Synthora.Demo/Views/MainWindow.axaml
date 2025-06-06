@@ -32,31 +32,48 @@
         <Grid RowDefinitions="*,Auto">
             <TabControl>
                 <TabItem Header="Brush">
-                    <ItemsControl ItemsSource="{Binding BrushKeys}">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <SpacingWrapPanel Margin="10"
-                                                  HorizontalSpacing="10"
-                                                  VerticalSpacing="10" />
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <DropShadowChrome MinWidth="100"
-                                                  MinHeight="60"
-                                                  Background="{Binding Converter={StaticResource ResourceKeyToBrushConverter}}"
-                                                  BorderThickness="0">
-                                    <StackPanel Margin="10"
-                                                VerticalAlignment="Center"
-                                                Spacing="10"
-                                                TextElement.Foreground="{Binding $parent[DropShadowChrome].Background, Converter={x:Static SynthoraConverters.ContrastColorConverter}}">
-                                        <SelectableTextBlock HorizontalAlignment="Center" Text="{Binding}" />
-                                        <SelectableTextBlock HorizontalAlignment="Center" Text="{Binding $parent[DropShadowChrome].Background}" />
-                                    </StackPanel>
-                                </DropShadowChrome>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
+                    <StackPanel>
+                        <StackPanel Margin="10,10,0,0"
+                                    Orientation="Horizontal"
+                                    Spacing="10">
+                            <Button Command="{Binding SwitchTheme}" CommandParameter="Default">DefaultMode</Button>
+                            <Button Command="{Binding SwitchTheme}"
+                                    CommandParameter="Light"
+                                    Theme="{StaticResource SynthoraButtonTheme}">
+                                LightMode
+                            </Button>
+                            <Button Command="{Binding SwitchTheme}"
+                                    CommandParameter="Dark"
+                                    Theme="{StaticResource CancelButtonTheme}">
+                                DarkMode
+                            </Button>
+                        </StackPanel>
+                        <ItemsControl ItemsSource="{Binding BrushKeys}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <SpacingWrapPanel Margin="10"
+                                                      HorizontalSpacing="10"
+                                                      VerticalSpacing="10" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <DropShadowChrome MinWidth="100"
+                                                      MinHeight="60"
+                                                      Background="{Binding Converter={StaticResource ResourceKeyToBrushConverter}}"
+                                                      BorderThickness="0">
+                                        <StackPanel Margin="10"
+                                                    VerticalAlignment="Center"
+                                                    Spacing="10"
+                                                    TextElement.Foreground="{Binding $parent[DropShadowChrome].Background, Converter={x:Static SynthoraConverters.ContrastColorConverter}}">
+                                            <SelectableTextBlock HorizontalAlignment="Center" Text="{Binding}" />
+                                            <SelectableTextBlock HorizontalAlignment="Center" Text="{Binding $parent[DropShadowChrome].Background}" />
+                                        </StackPanel>
+                                    </DropShadowChrome>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
                 </TabItem>
                 <TabItem Header="Input">
                     <ScrollViewer>
@@ -110,19 +127,6 @@
                             <CheckBox Name="ButtonViewIsEnabled" IsChecked="True">IsEnabled</CheckBox>
                             <StackPanel IsEnabled="{Binding #ButtonViewIsEnabled.IsChecked}" Spacing="10">
                                 <LabelDivider Content="Button" />
-                                <StackPanel Orientation="Horizontal" Spacing="10">
-                                    <Button Command="{Binding SwitchTheme}" CommandParameter="Default">DefaultMode</Button>
-                                    <Button Command="{Binding SwitchTheme}"
-                                            CommandParameter="Light"
-                                            Theme="{StaticResource SynthoraButtonTheme}">
-                                        LightMode
-                                    </Button>
-                                    <Button Command="{Binding SwitchTheme}"
-                                            CommandParameter="Dark"
-                                            Theme="{StaticResource CancelButtonTheme}">
-                                        DarkMode
-                                    </Button>
-                                </StackPanel>
                                 <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
                                     <Button>Default</Button>
                                     <Button Theme="{StaticResource SynthoraButtonTheme}">Synthora</Button>
@@ -136,86 +140,7 @@
                                     <Button Content="ContextMenuButton">
                                         <Button.ContextMenu>
                                             <ContextMenu>
-                                                <MenuItem Header="More menu">
-                                                    <MenuItem Header="First" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="0123456789" />
-                                                    <MenuItem Header="Last" />
-                                                </MenuItem>
+                                                <MenuItem Header="More menu" ItemsSource="{Binding Employees}" />
                                                 <Separator />
                                                 <MenuItem Foreground="{StaticResource DangerBrush}"
                                                           Header="131415"
@@ -263,7 +188,7 @@
                                     <DropDownButton Content="DropDownButton">
                                         <DropDownButton.Flyout>
                                             <Flyout Placement="BottomEdgeAlignedLeft">
-                                                <Button Margin="4">Button</Button>
+                                                <Button Margin="10">Button</Button>
                                             </Flyout>
                                         </DropDownButton.Flyout>
                                     </DropDownButton>
@@ -300,7 +225,11 @@
                                     <ToggleSwitch />
                                     <ToggleSwitch IsChecked="True" />
                                 </SpacingWrapPanel>
-                                <HyperlinkButton>HyperlinkButton</HyperlinkButton>
+                                <LabelDivider Content="HyperlinkButton" />
+                                <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
+                                    <HyperlinkButton>HyperlinkButton</HyperlinkButton>
+                                    <HyperlinkButton NavigateUri="https://github.com/zrt2399/Synthora">GitHub</HyperlinkButton>
+                                </SpacingWrapPanel>
                             </StackPanel>
                         </StackPanel>
                     </ScrollViewer>
@@ -535,7 +464,7 @@
                                 <!-- <Setter Property="BorderThickness" Value="0" /> -->
                                 <Styles>
                                     <Style Selector="DataGridRow:nth-child(even)">
-                                        <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
+                                        <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
                                     </Style>
                                     <!--<Style Selector="DataGridRow:nth-child(odd)">
                                         <Setter Property="Background" Value="Transparent" />

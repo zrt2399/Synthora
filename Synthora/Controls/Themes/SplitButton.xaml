@@ -28,18 +28,26 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
-                    <ContentPresenter x:Name="PART_ContentPresenter"
-                                      Margin="{TemplateBinding Padding}"
-                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                      Content="{TemplateBinding Content}"
-                                      ContentTemplate="{TemplateBinding ContentTemplate}"
-                                      RecognizesAccessKey="True" />
-                </Border>
+                <Panel>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        <ContentPresenter x:Name="PART_ContentPresenter"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          RecognizesAccessKey="True" />
+
+                    </Border>
+                    <Border Name="checkedBorder"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="2"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            IsVisible="False" />
+                </Panel>
             </ControlTemplate>
         </Setter>
         <Style Selector="^:pressed">
@@ -55,11 +63,17 @@
         </Style>
 
         <Style Selector="^[Tag=checked]">
-            <Setter Property="Background" Value="{DynamicResource SynthoraVeryHighBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
+            <Style Selector="^ /template/ Border#checkedBorder">
+                <Setter Property="IsVisible" Value="True" />
+            </Style>
         </Style>
 
         <Style Selector="^[Tag=checked-flyout-open]">
-            <Setter Property="Background" Value="{DynamicResource SynthoraVeryHighBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
+            <Style Selector="^ /template/ Border#checkedBorder">
+                <Setter Property="IsVisible" Value="True" />
+            </Style>
         </Style>
     </ControlTheme>
 

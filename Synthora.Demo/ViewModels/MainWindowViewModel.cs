@@ -37,6 +37,10 @@ namespace Synthora.Demo.ViewModels
             DataGridCollectionView = new DataGridCollectionView(Employees);
             DataGridCollectionView.GroupDescriptions.Add(new DataGridPathGroupDescription(nameof(Employee.Age)));
             Dispatcher.UIThread.InvokeAsync(() => _notificationManager = new WindowNotificationManager(App.MainWindow));
+            if (Application.Current != null)
+            {
+                Application.Current.ActualThemeVariantChanged += Current_ActualThemeVariantChanged;
+            }
         }
 
         public ObservableCollection<Employee> Employees { get; }
@@ -62,7 +66,7 @@ namespace Synthora.Demo.ViewModels
 
         public DataGridCollectionView DataGridCollectionView { get; }
 
-        public ObservableCollection<string> BrushKeys { get; } = new ObservableCollection<string>
+        public ObservableCollection<string> BrushKeys { get; set; } = new ObservableCollection<string>
         {
             "PrimaryBrush",
             "OnPrimaryBrush",
@@ -78,6 +82,12 @@ namespace Synthora.Demo.ViewModels
             "ThemeBackgroundBrush",
             "ThemeForegroundBrush"
         };
+
+        private void Current_ActualThemeVariantChanged(object? sender, EventArgs e)
+        {
+            var temp = BrushKeys;
+            BrushKeys = new ObservableCollection<string>(temp);
+        }
 
         public void ClearEmployees()
         {

@@ -7,11 +7,14 @@
     </Design.PreviewWith>
 
     <MenuFlyout x:Key="SelectableTextBlockContextFlyout" Placement="Bottom">
-        <MenuItem x:Name="SelectableTextBlockContextFlyoutCopyItem"
-                  Command="{Binding $parent[SelectableTextBlock].Copy}"
+        <MenuItem Command="{Binding $parent[SelectableTextBlock].Copy}"
                   Header="{DynamicResource StringTextFlyoutCopyText}"
+                  Icon="{StaticResource TextCopyIcon}"
                   InputGesture="{x:Static TextBox.CopyGesture}"
                   IsEnabled="{Binding $parent[SelectableTextBlock].CanCopy}" />
+        <MenuItem Command="{Binding $parent[SelectableTextBlock].SelectAll}"
+                  Header="{DynamicResource StringTextFlyoutSelectAllText}"
+                  InputGesture="{x:Static GestureUtils.SelectAllGesture}" />
     </MenuFlyout>
 
     <ContextMenu x:Key="SelectableTextBlockContextMenu" Cursor="Arrow">
@@ -31,7 +34,7 @@
         <Style Selector="^[IsEnabled=True]">
             <Setter Property="Cursor" Value="IBeam" />
             <Setter Property="ContextFlyout" Value="{StaticResource SelectableTextBlockContextFlyout}" />
-            <Setter Property="ContextMenu" Value="{StaticResource SelectableTextBlockContextMenu}" />
+            <!--<Setter Property="ContextMenu" Value="{StaticResource SelectableTextBlockContextMenu}" />-->
         </Style>
         <Style Selector="^:disabled">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />

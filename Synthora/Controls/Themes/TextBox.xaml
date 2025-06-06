@@ -76,16 +76,22 @@
     <MenuFlyout x:Key="SimpleTextBoxContextFlyout" Placement="Bottom">
         <MenuItem Command="{Binding $parent[TextBox].Cut}"
                   Header="{DynamicResource StringTextFlyoutCutText}"
+                  Icon="{StaticResource TextCutIcon}"
                   InputGesture="{x:Static TextBox.CutGesture}"
                   IsEnabled="{Binding $parent[TextBox].CanCut}" />
         <MenuItem Command="{Binding $parent[TextBox].Copy}"
                   Header="{DynamicResource StringTextFlyoutCopyText}"
+                  Icon="{StaticResource TextCopyIcon}"
                   InputGesture="{x:Static TextBox.CopyGesture}"
                   IsEnabled="{Binding $parent[TextBox].CanCopy}" />
         <MenuItem Command="{Binding $parent[TextBox].Paste}"
                   Header="{DynamicResource StringTextFlyoutPasteText}"
+                  Icon="{StaticResource TextPasteIcon}"
                   InputGesture="{x:Static TextBox.PasteGesture}"
                   IsEnabled="{Binding $parent[TextBox].CanPaste}" />
+        <MenuItem Command="{Binding $parent[TextBox].SelectAll}"
+                  Header="{DynamicResource StringTextFlyoutSelectAllText}"
+                  InputGesture="{x:Static GestureUtils.SelectAllGesture}" />
     </MenuFlyout>
 
     <ContextMenu x:Key="SimpleTextBoxContextMenu">
@@ -185,7 +191,7 @@
         <!--<Setter Property="SelectionForegroundBrush" Value="{DynamicResource HighlightForegroundBrush}" />-->
         <Setter Property="Padding" Value="{DynamicResource ThemeBorderPadding}" />
         <Setter Property="ContextFlyout" Value="{StaticResource SimpleTextBoxContextFlyout}" />
-        <Setter Property="ContextMenu" Value="{StaticResource SimpleTextBoxContextMenu}" />
+        <!--<Setter Property="ContextMenu" Value="{StaticResource SimpleTextBoxContextMenu}" />-->
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
         <Setter Property="Template">
             <ControlTemplate>

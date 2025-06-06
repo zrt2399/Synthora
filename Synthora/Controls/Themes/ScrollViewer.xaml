@@ -38,6 +38,8 @@
 
     <ControlTheme x:Key="SimpleMenuScrollViewer" TargetType="ScrollViewer">
         <Setter Property="Background" Value="Transparent" />
+        <Setter Property="CornerRadius" Value="{Binding $parent[Border].CornerRadius}" />
+        <Setter Property="BorderThickness" Value="{Binding $parent[Border].BorderThickness}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <DockPanel>
@@ -46,6 +48,12 @@
                                   Command="{Binding LineUp, RelativeSource={RelativeSource TemplatedParent}}"
                                   DockPanel.Dock="Top"
                                   Theme="{StaticResource CancelRepeatButtonTheme}">
+                        <RepeatButton.CornerRadius>
+                            <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="TopLeft,TopRight">
+                                <Binding Path="BorderThickness" RelativeSource="{RelativeSource TemplatedParent}" />
+                                <Binding Path="CornerRadius" RelativeSource="{RelativeSource TemplatedParent}" />
+                            </MultiBinding>
+                        </RepeatButton.CornerRadius>
                         <RepeatButton.IsVisible>
                             <MultiBinding Converter="{x:Static converters:MenuScrollingVisibilityConverter.Instance}" ConverterParameter="0">
                                 <Binding Path="VerticalScrollBarVisibility" RelativeSource="{RelativeSource TemplatedParent}" />
@@ -61,6 +69,12 @@
                                   Command="{Binding LineDown, RelativeSource={RelativeSource TemplatedParent}}"
                                   DockPanel.Dock="Bottom"
                                   Theme="{StaticResource CancelRepeatButtonTheme}">
+                        <RepeatButton.CornerRadius>
+                            <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="BottomLeft,BottomRight">
+                                <Binding Path="BorderThickness" RelativeSource="{RelativeSource TemplatedParent}" />
+                                <Binding Path="CornerRadius" RelativeSource="{RelativeSource TemplatedParent}" />
+                            </MultiBinding>
+                        </RepeatButton.CornerRadius>
                         <RepeatButton.IsVisible>
                             <MultiBinding Converter="{x:Static converters:MenuScrollingVisibilityConverter.Instance}" ConverterParameter="100">
                                 <Binding Path="VerticalScrollBarVisibility" RelativeSource="{RelativeSource TemplatedParent}" />
