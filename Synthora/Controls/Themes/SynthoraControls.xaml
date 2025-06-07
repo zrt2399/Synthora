@@ -17,6 +17,7 @@
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ToggleButton.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/DropDownButton.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/DropShadowChrome.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/Divider.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/PathIcon.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/PathPicker.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/CheckBox.xaml" />
@@ -33,7 +34,6 @@
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/TextBox.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/TextBlock.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/AutoCompleteBox.xaml" />
-                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/LabelDivider.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/DataValidationErrors.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/FlyoutPresenter.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/MenuFlyoutPresenter.xaml" />

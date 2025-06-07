@@ -1,0 +1,47 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal">
+
+    <ControlTheme x:Key="{x:Type Divider}" TargetType="Divider">
+        <Setter Property="Padding" Value="4,0" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
+        <Setter Property="LineBrush" Value="{DynamicResource SynthoraBorderBrush}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <LayoutTransformControl x:Name="PART_LayoutTransformControl">
+                    <!--  Ignore col defs here, set in code  -->
+                    <Grid x:Name="PART_DividerContainer" Background="{TemplateBinding Background}">
+
+                        <Border Height="{TemplateBinding LineThickness}"
+                                VerticalAlignment="Center"
+                                Background="{TemplateBinding LineBrush}"
+                                CornerRadius="{TemplateBinding CornerRadius}" />
+
+                        <ContentPresenter Name="PART_ContentPresenter"
+                                          Grid.Column="1"
+                                          Margin="{TemplateBinding Padding}"
+                                          VerticalAlignment="Center"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}" />
+
+                        <Border Grid.Column="2"
+                                Height="{TemplateBinding LineThickness}"
+                                VerticalAlignment="Center"
+                                Background="{TemplateBinding LineBrush}"
+                                CornerRadius="{TemplateBinding CornerRadius}" />
+                    </Grid>
+                </LayoutTransformControl>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^[Orientation=Vertical] /template/ LayoutTransformControl#PART_LayoutTransformControl">
+            <Setter Property="LayoutTransform">
+                <RotateTransform Angle="90" />
+            </Setter>
+        </Style>
+        <Style Selector="^:no-content">
+            <Setter Property="Padding" Value="0" />
+        </Style>
+    </ControlTheme>
+
+</ResourceDictionary>

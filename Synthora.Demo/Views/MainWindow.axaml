@@ -128,7 +128,7 @@
                         <StackPanel Margin="10" Spacing="10">
                             <CheckBox Name="ButtonViewIsEnabled" IsChecked="True">IsEnabled</CheckBox>
                             <StackPanel IsEnabled="{Binding #ButtonViewIsEnabled.IsChecked}" Spacing="10">
-                                <LabelDivider Content="Button" />
+                                <Divider Content="Button" />
                                 <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
                                     <Button>Default</Button>
                                     <Button Theme="{StaticResource SynthoraButtonTheme}">Synthora</Button>
@@ -196,7 +196,7 @@
                                     </DropDownButton>
                                     <ToggleButton ToolTip.Tip="ToggleButton">ToggleButton</ToggleButton>
                                 </SpacingWrapPanel>
-                                <LabelDivider Content="RepeatButton" />
+                                <Divider Content="RepeatButton" />
                                 <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
                                     <RepeatButton>Default</RepeatButton>
                                     <RepeatButton Theme="{StaticResource SynthoraRepeatButtonTheme}">Synthora</RepeatButton>
@@ -206,28 +206,28 @@
                                     <RepeatButton Theme="{StaticResource DangerRepeatButtonTheme}">Danger</RepeatButton>
                                     <RepeatButton Theme="{StaticResource ErrorRepeatButtonTheme}">Error</RepeatButton>
                                 </SpacingWrapPanel>
-                                <LabelDivider Content="CheckBox" />
+                                <Divider Content="CheckBox" />
                                 <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
                                     <CheckBox>Unchecked</CheckBox>
                                     <CheckBox IsChecked="True">Checked</CheckBox>
-                                    <CheckBox Content="" />
+                                    <CheckBox />
                                     <CheckBox IsChecked="{x:Null}" IsThreeState="True">ThreeState</CheckBox>
                                 </SpacingWrapPanel>
-                                <LabelDivider Content="RadioButton" />
+                                <Divider Content="RadioButton" />
                                 <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
                                     <RadioButton>Unchecked</RadioButton>
                                     <RadioButton IsChecked="True">Checked</RadioButton>
-                                    <RadioButton Content="" />
+                                    <RadioButton />
                                     <RadioButton IsChecked="{x:Null}" IsThreeState="True">ThreeState</RadioButton>
                                 </SpacingWrapPanel>
-                                <LabelDivider Content="ToggleSwitch" />
+                                <Divider Content="ToggleSwitch" />
                                 <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
                                     <ToggleSwitch OffContent="{x:Null}" OnContent="{x:Null}" />
                                     <ToggleSwitch OffContent="123" OnContent="456789" />
                                     <ToggleSwitch />
                                     <ToggleSwitch IsChecked="True" />
                                 </SpacingWrapPanel>
-                                <LabelDivider Content="HyperlinkButton" />
+                                <Divider Content="HyperlinkButton" />
                                 <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
                                     <HyperlinkButton>HyperlinkButton</HyperlinkButton>
                                     <HyperlinkButton NavigateUri="https://github.com/zrt2399/Synthora">GitHub</HyperlinkButton>
@@ -241,7 +241,7 @@
                         <StackPanel Margin="10" Spacing="10">
                             <CheckBox Name="MessagingViewIsEnabled" IsChecked="True">IsEnabled</CheckBox>
                             <StackPanel IsEnabled="{Binding #MessagingViewIsEnabled.IsChecked}" Spacing="10">
-                                <LabelDivider Content="Notification" />
+                                <Divider Content="Notification" />
                                 <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
                                     <SpacingWrapPanel.Styles>
                                         <Style Selector="Button">
@@ -254,7 +254,7 @@
                                     <Button Content="Warning" Theme="{StaticResource WarningButtonTheme}" />
                                     <Button Content="Error" Theme="{StaticResource ErrorButtonTheme}" />
                                 </SpacingWrapPanel>
-                                <LabelDivider Content="MessageTip" />
+                                <Divider Content="MessageTip" />
                                 <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
                                     <SpacingWrapPanel.Styles>
                                         <Style Selector="Button">
@@ -268,7 +268,7 @@
                                     <Button Theme="{StaticResource WarningButtonTheme}">ShowWarning</Button>
                                     <Button Theme="{StaticResource ErrorButtonTheme}">ShowError</Button>
                                 </SpacingWrapPanel>
-                                <LabelDivider Content="AlertDialog" />
+                                <Divider Content="AlertDialog" />
                                 <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
                                     <SpacingWrapPanel.Styles>
                                         <Style Selector="Button">
@@ -313,7 +313,9 @@
                                         <EmptyBox />
                                         <EmptyBox GlyphHeight="60" GlyphWidth="90" />
                                         <EmptyBox GlyphHeight="80" GlyphWidth="120" />
-
+                                        <Divider Content="VerticalSlider"
+                                                 MinLineLength="10"
+                                                 Orientation="Vertical" />
                                         <Slider Name="VerticalSlider"
                                                 IsSnapToTickEnabled="True"
                                                 Maximum="10"
@@ -386,7 +388,7 @@
                                         <TextBlock>Calendar</TextBlock>
                                         <StackPanel Orientation="Horizontal">
                                             <Calendar />
-                                            <GroupBox Header="Calendar" />
+                                            <GroupBox BoxShadow="none" Header="Calendar" />
                                         </StackPanel>
                                     </StackPanel>
                                 </so:GroupBox>
