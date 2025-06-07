@@ -502,6 +502,25 @@
                                   ItemsSource="{Binding Employees}" />
                     </Grid>
                 </TabItem>
+                <TabItem Header="SplitView">
+                    <SplitView DisplayMode="CompactOverlay"
+                               IsPaneOpen="False"
+                               OpenPaneLength="300">
+                        <SplitView.Pane>
+                            <StackPanel VerticalAlignment="Top" Spacing="10">
+                                <ToggleButton IsChecked="{Binding $parent[SplitView].IsPaneOpen}">☰</ToggleButton>
+                                <TextBlock HorizontalAlignment="Center">Menu</TextBlock>
+                            </StackPanel>
+                        </SplitView.Pane>
+
+                        <Grid>
+                            <TextBlock HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontSize="24"
+                                       Text="Content" />
+                        </Grid>
+                    </SplitView>
+                </TabItem>
             </TabControl>
             <StatusBar Grid.Row="1">
                 <Panel>
