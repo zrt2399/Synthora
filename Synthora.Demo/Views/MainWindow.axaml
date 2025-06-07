@@ -94,7 +94,7 @@
                                 <ButtonSpinner ButtonSpinnerLocation="Left" TextBoxAttach.Title="ButtonSpinner with left ButtonSpinner">Left</ButtonSpinner>
                                 <ButtonSpinner TextBoxAttach.Title="ButtonSpinner">Right</ButtonSpinner>
                                 <NumericUpDown TextBoxAttach.Title="NumericUpDown" Value="12" />
-                                <ComboBox TextBoxAttach.Title="ComboBox">
+                                <ComboBox PlaceholderText="Please select" TextBoxAttach.Title="ComboBox">
                                     <ComboBoxItem>ComboBoxItemabcdefghijklmnopqrstuvwxyz</ComboBoxItem>
                                     <ComboBoxItem>ComboBoxItemABCDEFGHIJKLMNOPQRSTUVWXYZ</ComboBoxItem>
                                     <ComboBoxItem>ComboBoxItem1234567890</ComboBoxItem>

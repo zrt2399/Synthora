@@ -88,7 +88,7 @@
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Content="{TemplateBinding OffContent}"
                                           ContentTemplate="{TemplateBinding OffContentTemplate}"
-                                          IsVisible="{Binding RelativeSource={RelativeSource Self}, Path=Content, Converter={x:Static SynthoraConverters.IsNotNullOrEmpty}}" />
+                                          IsVisible="{Binding RelativeSource={RelativeSource Self}, Path=Content, Converter={x:Static ObjectConverters.IsNotNull}}" />
 
                         <ContentPresenter x:Name="PART_OnContentPresenter"
                                           Grid.RowSpan="3"
@@ -98,7 +98,7 @@
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Content="{TemplateBinding OnContent}"
                                           ContentTemplate="{TemplateBinding OnContentTemplate}"
-                                          IsVisible="{Binding RelativeSource={RelativeSource Self}, Path=Content, Converter={x:Static SynthoraConverters.IsNotNullOrEmpty}}" />
+                                          IsVisible="{Binding RelativeSource={RelativeSource Self}, Path=Content, Converter={x:Static ObjectConverters.IsNotNull}}" />
 
                         <Border x:Name="OuterBorder"
                                 Grid.Row="1"

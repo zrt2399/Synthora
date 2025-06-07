@@ -21,7 +21,7 @@
                         <Grid ColumnDefinitions="*,Auto,Auto,Auto">
                             <Grid.Styles>
                                 <Style Selector="Button.AutoHide">
-                                    <Setter Property="IsVisible" Value="{Binding RelativeSource={RelativeSource Self}, Path=Content, Converter={x:Static SynthoraConverters.IsNotNullOrEmpty}}" />
+                                    <Setter Property="IsVisible" Value="{Binding RelativeSource={RelativeSource Self}, Path=Content, Converter={x:Static ObjectConverters.IsNotNull}}" />
                                 </Style>
                             </Grid.Styles>
                             <TextBox x:Name="PART_TextBox"
