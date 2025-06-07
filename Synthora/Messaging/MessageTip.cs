@@ -151,7 +151,7 @@ namespace Synthora.Messaging
                     border.BorderBrush = borderBrush;
                     border.BoxShadow = new BoxShadows(new BoxShadow()
                     {
-                        Blur = 8,
+                        Blur = 6,
                         Color = borderBrush.Color
                     });
 
