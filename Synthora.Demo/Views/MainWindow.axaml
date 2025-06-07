@@ -91,6 +91,8 @@
                                 <TextBox Text="{Binding Value}"
                                          TextBoxAttach.Title="TextBox"
                                          TextWrapping="Wrap" />
+                                <ButtonSpinner ButtonSpinnerLocation="Left" TextBoxAttach.Title="ButtonSpinner with left ButtonSpinner">Left</ButtonSpinner>
+                                <ButtonSpinner TextBoxAttach.Title="ButtonSpinner">Right</ButtonSpinner>
                                 <NumericUpDown TextBoxAttach.Title="NumericUpDown" Value="12" />
                                 <ComboBox TextBoxAttach.Title="ComboBox">
                                     <ComboBoxItem>ComboBoxItemabcdefghijklmnopqrstuvwxyz</ComboBoxItem>

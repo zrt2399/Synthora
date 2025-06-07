@@ -17,7 +17,7 @@
                   InputGesture="{x:Static GestureUtils.SelectAllGesture}" />
     </MenuFlyout>
 
-    <ContextMenu x:Key="SelectableTextBlockContextMenu" Cursor="Arrow">
+    <ContextMenu x:Key="SelectableTextBlockContextMenu">
         <MenuItem Command="{Binding $parent[SelectableTextBlock].Copy}"
                   Header="{DynamicResource StringTextFlyoutCopyText}"
                   Icon="{StaticResource TextCopyIcon}"
@@ -30,12 +30,12 @@
 
     <ControlTheme x:Key="{x:Type SelectableTextBlock}" TargetType="SelectableTextBlock">
         <Setter Property="SelectionBrush" Value="{DynamicResource TextSelectionBrush}" />
+        <Setter Property="ContextFlyout" Value="{StaticResource SelectableTextBlockContextFlyout}" />
 
-        <Style Selector="^[IsEnabled=True]">
+        <Style Selector="^[IsPointerOver=True]">
             <Setter Property="Cursor" Value="IBeam" />
-            <Setter Property="ContextFlyout" Value="{StaticResource SelectableTextBlockContextFlyout}" />
-            <!--<Setter Property="ContextMenu" Value="{StaticResource SelectableTextBlockContextMenu}" />-->
         </Style>
+
         <Style Selector="^:disabled">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
         </Style>

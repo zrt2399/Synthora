@@ -22,71 +22,105 @@
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
+        <Setter Property="Padding" Value="{DynamicResource ThemeBorderPadding}" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Focusable" Value="True" />
         <Setter Property="Template">
             <ControlTemplate>
-                <DataValidationErrors>
+                <DockPanel>
+                    <ContentPresenter HorizontalAlignment="{TemplateBinding (TextBoxAttach.TitleHorizontalAlignment)}"
+                                      VerticalAlignment="{TemplateBinding (TextBoxAttach.TitleVerticalAlignment)}"
+                                      Content="{TemplateBinding (TextBoxAttach.Title)}"
+                                      DockPanel.Dock="{TemplateBinding (TextBoxAttach.TitlePlacement)}" />
                     <Border Name="border"
+                            Width="{TemplateBinding (TextBoxAttach.Width)}"
+                            MinWidth="{TemplateBinding (TextBoxAttach.MinWidth)}"
+                            MaxWidth="{TemplateBinding (TextBoxAttach.MaxWidth)}"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{TemplateBinding CornerRadius}">
-                        <Grid ColumnDefinitions="*,Auto">
-                            <ContentPresenter Name="PART_ContentPresenter"
-                                              Padding="{TemplateBinding Padding}"
-                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                              Content="{TemplateBinding Content}"
-                                              ContentTemplate="{TemplateBinding ContentTemplate}" />
-                            <UniformGrid Name="PART_SpinnerPanel"
-                                         Grid.Column="1"
-                                         IsVisible="{TemplateBinding ShowButtonSpinner}"
-                                         Rows="2">
-                                <RepeatButton Name="PART_IncreaseButton"
-                                              Padding="4,0"
-                                              IsTabStop="{TemplateBinding IsTabStop}"
-                                              Theme="{StaticResource SimpleButtonSpinnerRepeatButton}">
-                                    <RepeatButton.CornerRadius>
-                                        <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.TopRight}">
-                                            <Binding Path="BorderThickness" RelativeSource="{RelativeSource AncestorType=ButtonSpinner}" />
-                                            <Binding Path="CornerRadius" RelativeSource="{RelativeSource AncestorType=ButtonSpinner}" />
-                                        </MultiBinding>
-                                    </RepeatButton.CornerRadius>
-                                    <PathIcon Width="8"
-                                              Height="4"
-                                              HorizontalAlignment="Center"
-                                              VerticalAlignment="Center"
-                                              Data="{DynamicResource ArrowUpGlyph}"
-                                              Foreground="{DynamicResource ThemeForegroundBrush}" />
-                                </RepeatButton>
-                                <RepeatButton Name="PART_DecreaseButton"
-                                              Padding="4,0"
-                                              IsTabStop="{TemplateBinding IsTabStop}"
-                                              Theme="{StaticResource SimpleButtonSpinnerRepeatButton}">
-                                    <RepeatButton.CornerRadius>
-                                        <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.BottomRight}">
-                                            <Binding Path="BorderThickness" RelativeSource="{RelativeSource AncestorType=ButtonSpinner}" />
-                                            <Binding Path="CornerRadius" RelativeSource="{RelativeSource AncestorType=ButtonSpinner}" />
-                                        </MultiBinding>
-                                    </RepeatButton.CornerRadius>
-                                    <PathIcon Width="8"
-                                              Height="4"
-                                              HorizontalAlignment="Center"
-                                              VerticalAlignment="Center"
-                                              Data="{DynamicResource ArrowDownGlyph}"
-                                              Foreground="{DynamicResource ThemeForegroundBrush}" />
-                                </RepeatButton>
-                            </UniformGrid>
-                        </Grid>
+                        <DataValidationErrors>
+                            <DockPanel>
+                                <UniformGrid Name="PART_SpinnerPanel"
+                                             DockPanel.Dock="Right"
+                                             IsVisible="{TemplateBinding ShowButtonSpinner}"
+                                             Rows="2">
+                                    <RepeatButton Name="PART_IncreaseButton"
+                                                  Padding="4,0"
+                                                  IsTabStop="{TemplateBinding IsTabStop}"
+                                                  Theme="{StaticResource SimpleButtonSpinnerRepeatButton}">
+                                        <PathIcon Width="8"
+                                                  Height="4"
+                                                  HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"
+                                                  Data="{DynamicResource ArrowUpGlyph}"
+                                                  Foreground="{DynamicResource ThemeForegroundBrush}" />
+                                    </RepeatButton>
+                                    <RepeatButton Name="PART_DecreaseButton"
+                                                  Padding="4,0"
+                                                  IsTabStop="{TemplateBinding IsTabStop}"
+                                                  Theme="{StaticResource SimpleButtonSpinnerRepeatButton}">
+                                        <PathIcon Width="8"
+                                                  Height="4"
+                                                  HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"
+                                                  Data="{DynamicResource ArrowDownGlyph}"
+                                                  Foreground="{DynamicResource ThemeForegroundBrush}" />
+                                    </RepeatButton>
+                                </UniformGrid>
+                                <ContentPresenter Name="PART_ContentPresenter"
+                                                  Padding="{TemplateBinding Padding}"
+                                                  HorizontalAlignment="Stretch"
+                                                  VerticalAlignment="Stretch"
+                                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                  Content="{TemplateBinding Content}"
+                                                  ContentTemplate="{TemplateBinding ContentTemplate}" />
+                            </DockPanel>
+                        </DataValidationErrors>
                     </Border>
-                </DataValidationErrors>
+                </DockPanel>
             </ControlTemplate>
         </Setter>
         <Style Selector="^:left">
             <Style Selector="^ /template/ UniformGrid#PART_SpinnerPanel">
                 <Setter Property="DockPanel.Dock" Value="Left" />
+            </Style>
+            <Style Selector="^ /template/ RepeatButton#PART_IncreaseButton">
+                <Setter Property="CornerRadius">
+                    <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.TopLeft}">
+                        <Binding Path="$parent[ButtonSpinner].BorderThickness" />
+                        <Binding Path="$parent[ButtonSpinner].CornerRadius" />
+                    </MultiBinding>
+                </Setter>
+            </Style>
+            <Style Selector="^ /template/ RepeatButton#PART_DecreaseButton">
+                <Setter Property="CornerRadius">
+                    <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.BottomLeft}">
+                        <Binding Path="$parent[ButtonSpinner].BorderThickness" />
+                        <Binding Path="$parent[ButtonSpinner].CornerRadius" />
+                    </MultiBinding>
+                </Setter>
+            </Style>
+        </Style>
+        <Style Selector="^:right">
+            <Style Selector="^ /template/ RepeatButton#PART_IncreaseButton">
+                <Setter Property="CornerRadius">
+                    <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.TopRight}">
+                        <Binding Path="$parent[ButtonSpinner].BorderThickness" />
+                        <Binding Path="$parent[ButtonSpinner].CornerRadius" />
+                    </MultiBinding>
+                </Setter>
+            </Style>
+            <Style Selector="^ /template/ RepeatButton#PART_DecreaseButton">
+                <Setter Property="CornerRadius">
+                    <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.BottomRight}">
+                        <Binding Path="$parent[ButtonSpinner].BorderThickness" />
+                        <Binding Path="$parent[ButtonSpinner].CornerRadius" />
+                    </MultiBinding>
+                </Setter>
             </Style>
         </Style>
         <Style Selector="^:pointerover /template/ Border#border">
@@ -97,6 +131,9 @@
         </Style>
         <Style Selector="^:error /template/ Border#border">
             <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
+        </Style>
+        <Style Selector="^:disabled /template/ Border#border">
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
         </Style>
     </ControlTheme>
 

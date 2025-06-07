@@ -242,7 +242,7 @@
                                             <TextBlock Name="watermark"
                                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                                       Opacity="0.5"
+                                                       Opacity="0.6"
                                                        Text="{TemplateBinding Watermark}"
                                                        TextAlignment="{TemplateBinding TextAlignment}"
                                                        TextWrapping="{TemplateBinding TextWrapping}">

@@ -171,9 +171,9 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^:disabled /template/ Rectangle">
+        <!--<Style Selector="^:disabled /template/ Rectangle">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
-        </Style>
+        </Style>-->
 
         <!--  Changes foreground for watermark text when SelectedDate is null  -->
         <Style Selector="^:hasnodate /template/ Button#PART_FlyoutButton TextBlock">

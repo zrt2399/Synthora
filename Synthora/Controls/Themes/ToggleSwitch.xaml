@@ -196,7 +196,7 @@
 
         <!--  DisabledState  -->
         <Style Selector="^:disabled">
-            <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundLowColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundMidColor}" />
         </Style>
 
         <Style Selector="^:disabled /template/ Border#OuterBorder">
