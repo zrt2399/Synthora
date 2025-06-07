@@ -11,7 +11,7 @@
         <Setter Property="VerticalContentAlignment" Value="Stretch" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="VerticalAlignment" Value="Stretch" />
-        <Setter Property="BoxShadow" Value="0 0 20 0 DarkGray" />
+        <Setter Property="BoxShadow" Value="0 0 20 0 #80000000" />
         <Setter Property="OverlayBackground" Value="Transparent" />
         <!--<Setter Property="Focusable" Value="True" />-->
 
