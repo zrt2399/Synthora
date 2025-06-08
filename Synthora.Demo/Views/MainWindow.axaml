@@ -7,6 +7,7 @@
         xmlns:local="using:Synthora.Demo.Views"
         xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:messaging="using:Synthora.Messaging"
         xmlns:so="https://github.com/zrt2399/synthora"
         xmlns:vm="using:Synthora.Demo.ViewModels"
         Title="Synthora.Demo"
@@ -249,6 +250,10 @@
                                             <Setter Property="CommandParameter" Value="{Binding $self.Content}" />
                                         </Style>
                                     </SpacingWrapPanel.Styles>
+                                    <ComboBox ItemsSource="{EnumBindingSource NotificationPosition}"
+                                              SelectedItem="{Binding NotificationPosition}"
+                                              TextBoxAttach.Title="NotificationPosition: "
+                                              TextBoxAttach.TitlePlacement="Left" />
                                     <Button Content="Information" />
                                     <Button Content="Success" Theme="{StaticResource SuccessButtonTheme}" />
                                     <Button Content="Warning" Theme="{StaticResource WarningButtonTheme}" />
@@ -262,6 +267,10 @@
                                             <Setter Property="CommandParameter" Value="{Binding $self.Content}" />
                                         </Style>
                                     </SpacingWrapPanel.Styles>
+                                    <ComboBox ItemsSource="{EnumBindingSource PlacementMode}"
+                                              SelectedItem="{Binding MessageTipPlacement}"
+                                              TextBoxAttach.Title="PlacementMode: "
+                                              TextBoxAttach.TitlePlacement="Left" />
                                     <Button Theme="{StaticResource SynthoraButtonTheme}">Show</Button>
                                     <Button>ShowQuestion</Button>
                                     <Button Theme="{StaticResource SuccessButtonTheme}">ShowSuccess</Button>
@@ -277,6 +286,11 @@
                                             <Setter Property="CornerRadiusAttach.IsCircular" Value="True" />
                                         </Style>
                                     </SpacingWrapPanel.Styles>
+                                    <ComboBox ItemsSource="{EnumBindingSource messaging:DialogButton,
+                                                                              True}"
+                                              SelectedItem="{Binding DialogButton}"
+                                              TextBoxAttach.Title="DialogButton: "
+                                              TextBoxAttach.TitlePlacement="Left" />
                                     <Button Theme="{StaticResource SynthoraButtonTheme}">Information</Button>
                                     <Button>Question</Button>
                                     <Button Theme="{StaticResource WarningButtonTheme}">Warning</Button>

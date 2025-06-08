@@ -37,15 +37,19 @@ namespace Synthora.Demo.ViewModels
             DataGridCollectionView = new DataGridCollectionView(Employees);
             DataGridCollectionView.GroupDescriptions.Add(new DataGridPathGroupDescription(nameof(Employee.Age)));
             Dispatcher.UIThread.InvokeAsync(() => _notificationManager = new WindowNotificationManager(App.MainWindow));
-            if (Application.Current != null)
+            if (Application.Current is Application application)
             {
-                Application.Current.ActualThemeVariantChanged += Current_ActualThemeVariantChanged;
+                application.ActualThemeVariantChanged += Current_ActualThemeVariantChanged;
             }
         }
 
         public ObservableCollection<Employee> Employees { get; }
-
+        public DataGridCollectionView DataGridCollectionView { get; }
+ 
         public string Greeting { get; set; } = "Welcome to Avalonia!";
+        public NotificationPosition NotificationPosition { get; set; } = NotificationPosition.TopRight;
+        public PlacementMode MessageTipPlacement { get; set; } = PlacementMode.Pointer;
+        public DialogButton DialogButton { get; set; } = DialogButton.OK;
         public double Value { get; set; }
         public IList? SelectedFiles { get; set; }
         public IReadOnlyList<FilePickerFileType> FilePickerFileTypes { get; } = new List<FilePickerFileType>
@@ -63,8 +67,6 @@ namespace Synthora.Demo.ViewModels
                 Patterns = ["*"]
             }
         };
-
-        public DataGridCollectionView DataGridCollectionView { get; }
 
         public ObservableCollection<string> BrushKeys { get; set; } = new ObservableCollection<string>
         {
@@ -107,11 +109,11 @@ namespace Synthora.Demo.ViewModels
 
             var result = param switch
             {
-                nameof(IconType.Information) => await AlertDialog.ShowAsync("AlertDialogHost", message, "Information", DialogButton.OK, IconType.Information),
-                nameof(IconType.Question) => await AlertDialog.ShowAsync(message, "Question", DialogButton.OKCancel, IconType.Question),
-                nameof(IconType.Warning) => await AlertDialog.ShowAsync(message, "Warning", DialogButton.YesNo, IconType.Warning),
-                nameof(IconType.Error) => await AlertDialog.ShowAsync(message, "Error", DialogButton.YesNoCancel, IconType.Error),
-                _ => await AlertDialog.ShowAsync(message, "Abort", DialogButton.YesNoCancel | DialogButton.Abort, IconType.Error)
+                nameof(IconType.Information) => await AlertDialog.ShowAsync("AlertDialogHost", message, "Information", DialogButton, IconType.Information),
+                nameof(IconType.Question) => await AlertDialog.ShowAsync(message, "Question", DialogButton, IconType.Question),
+                nameof(IconType.Warning) => await AlertDialog.ShowAsync(message, "Warning", DialogButton, IconType.Warning),
+                nameof(IconType.Error) => await AlertDialog.ShowAsync(message, "Error", DialogButton, IconType.Error),
+                _ => await AlertDialog.ShowAsync(message, "Abort", DialogButton | DialogButton.Abort, IconType.Error)
             };
             await new Window()
             {
@@ -129,15 +131,11 @@ namespace Synthora.Demo.ViewModels
 
         public void ShowMessageTip(string param)
         {
+            MessageTip.Placement = MessageTipPlacement;
             switch (param)
             {
                 case nameof(MessageTip.Show):
-                    var stringBuilder = new StringBuilder();
-                    for (int i = 0; i < 100; i++)
-                    {
-                        stringBuilder.Append("MessageTip.ShowSuccess;");
-                    }
-                    MessageTip.Show(stringBuilder.ToString());
+                    MessageTip.Show("Show");
                     break;
                 case nameof(MessageTip.ShowSuccess):
                     MessageTip.ShowSuccess("ShowSuccess");
@@ -175,19 +173,20 @@ namespace Synthora.Demo.ViewModels
                 return;
             }
 
+            _notificationManager.Position = NotificationPosition;
             switch (param)
             {
                 case nameof(NotificationType.Information):
-                    _notificationManager.Show(new Notification("Information", "Save file locally completed.", NotificationType.Information));
+                    _notificationManager.Show(new Notification("Information", "This is an information message.", NotificationType.Information));
                     break;
                 case nameof(NotificationType.Success):
-                    _notificationManager.Show(new Notification("Success", "The file was saved locally.", NotificationType.Success));
+                    _notificationManager.Show(new Notification("Success", "This is a success message.", NotificationType.Success));
                     break;
                 case nameof(NotificationType.Warning):
-                    _notificationManager.Show(new Notification("Warning", "Failed to save file locally.", NotificationType.Warning));
+                    _notificationManager.Show(new Notification("Warning", "This is a warning message.", NotificationType.Warning));
                     break;
                 case nameof(NotificationType.Error):
-                    _notificationManager.Show(new Notification("Error", "Error saving file locally.", NotificationType.Error));
+                    _notificationManager.Show(new Notification("Error", "This is an error message.", NotificationType.Error));
                     break;
             }
         }
