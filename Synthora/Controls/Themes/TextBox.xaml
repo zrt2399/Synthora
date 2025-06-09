@@ -73,7 +73,7 @@
         </Rectangle.Fill>
     </Rectangle>
 
-    <MenuFlyout x:Key="SimpleTextBoxContextFlyout" Placement="Bottom">
+    <MenuFlyout x:Key="SimpleTextBoxContextFlyout">
         <MenuItem Command="{Binding $parent[TextBox].Cut}"
                   Header="{DynamicResource StringTextFlyoutCutText}"
                   Icon="{StaticResource TextCutIcon}"

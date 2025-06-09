@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     x:ClassModifier="internal">
 
-    <ContextMenu x:Key="SimpleScrollBarVerticalContextMenu">
+    <MenuFlyout x:Key="SimpleScrollBarVerticalContextFlyout">
         <MenuItem Command="{x:Static ScrollBarUtils.ScrollToHome}"
                   CommandParameter="{Binding $parent[ScrollBar]}"
                   Header="{DynamicResource StringScrollBarScrollToTop}" />
@@ -23,9 +23,9 @@
         <MenuItem Command="{x:Static ScrollBarUtils.SmallIncrement}"
                   CommandParameter="{Binding $parent[ScrollBar]}"
                   Header="{DynamicResource StringScrollBarLineDown}" />
-    </ContextMenu>
+    </MenuFlyout>
 
-    <ContextMenu x:Key="SimpleScrollBarHorizontalContextMenu">
+    <MenuFlyout x:Key="SimpleScrollBarHorizontalContextFlyout">
         <MenuItem Command="{x:Static ScrollBarUtils.ScrollToHome}"
                   CommandParameter="{Binding $parent[ScrollBar]}"
                   Header="{DynamicResource StringScrollBarScrollToLeftEdge}" />
@@ -46,13 +46,13 @@
         <MenuItem Command="{x:Static ScrollBarUtils.SmallIncrement}"
                   CommandParameter="{Binding $parent[ScrollBar]}"
                   Header="{DynamicResource StringScrollBarLineRight}" />
-    </ContextMenu>
+    </MenuFlyout>
 
     <ControlTheme x:Key="{x:Type ScrollBar}" TargetType="ScrollBar">
         <Setter Property="Cursor" Value="Arrow" />
 
         <Style Selector="^:horizontal">
-            <Setter Property="ContextMenu" Value="{StaticResource SimpleScrollBarHorizontalContextMenu}" />
+            <Setter Property="ContextFlyout" Value="{StaticResource SimpleScrollBarHorizontalContextFlyout}" />
             <Setter Property="Height" Value="{DynamicResource ScrollBarThickness}" />
             <Setter Property="Template">
                 <ControlTemplate>
@@ -107,7 +107,7 @@
             </Setter>
         </Style>
         <Style Selector="^:vertical">
-            <Setter Property="ContextMenu" Value="{StaticResource SimpleScrollBarVerticalContextMenu}" />
+            <Setter Property="ContextFlyout" Value="{StaticResource SimpleScrollBarVerticalContextFlyout}" />
             <Setter Property="Width" Value="{DynamicResource ScrollBarThickness}" />
             <Setter Property="Template">
                 <ControlTemplate>

@@ -6,7 +6,7 @@
         <SelectableTextBlock Text="Preview" />
     </Design.PreviewWith>
 
-    <MenuFlyout x:Key="SelectableTextBlockContextFlyout" Placement="Bottom">
+    <MenuFlyout x:Key="SelectableTextBlockContextFlyout">
         <MenuItem Command="{Binding $parent[SelectableTextBlock].Copy}"
                   Header="{DynamicResource StringTextFlyoutCopyText}"
                   Icon="{StaticResource TextCopyIcon}"
