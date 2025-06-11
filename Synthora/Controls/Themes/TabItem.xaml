@@ -12,27 +12,25 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <Panel>
-                        <ContentPresenter Name="PART_ContentPresenter"
-                                          Padding="{TemplateBinding Padding}"
-                                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                          Background="{TemplateBinding Background}"
-                                          BorderBrush="{TemplateBinding BorderBrush}"
-                                          BorderThickness="{TemplateBinding BorderThickness}"
-                                          Content="{TemplateBinding Header}"
-                                          ContentTemplate="{TemplateBinding HeaderTemplate}"
-                                          CornerRadius="{TemplateBinding CornerRadius}"
-                                          RecognizesAccessKey="True" />
-                        <Border Name="PART_SelectedPipe" CornerRadius="{DynamicResource ThemeBorderCornerRadius}">
-                            <Border.IsVisible>
-                                <MultiBinding Converter="{x:Static BoolConverters.Or}">
-                                    <Binding Path="IsSelected" RelativeSource="{RelativeSource TemplatedParent}" />
-                                    <Binding Path="IsPointerOver" RelativeSource="{RelativeSource TemplatedParent}" />
-                                </MultiBinding>
-                            </Border.IsVisible>
-                        </Border>
-                    </Panel>
+                    <Border Name="PART_LayoutRoot"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        <Panel>
+                            <ContentPresenter Name="PART_ContentPresenter"
+                                              Margin="{TemplateBinding Padding}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Content="{TemplateBinding Header}"
+                                              ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                              RecognizesAccessKey="True" />
+                            <Border Name="PART_SelectedPipe"
+                                    VerticalAlignment="Bottom"
+                                    CornerRadius="{DynamicResource ThemeBorderCornerRadius}"
+                                    IsVisible="False" />
+                        </Panel>
+                    </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -58,7 +56,7 @@
             <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="VerticalAlignment" Value="Bottom" />
             <Setter Property="Width" Value="NaN" />
-            <Setter Property="Height" Value="2" />
+            <Setter Property="Height" Value="3" />
         </Style>
 
         <Style Selector="^:disabled">
@@ -66,10 +64,12 @@
         </Style>
 
         <Style Selector="^:pointerover /template/ Border#PART_SelectedPipe">
+            <Setter Property="IsVisible" Value="True" />
             <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidColor}" />
         </Style>
 
         <Style Selector="^:selected /template/ Border#PART_SelectedPipe">
+            <Setter Property="IsVisible" Value="True" />
             <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
         </Style>
     </ControlTheme>

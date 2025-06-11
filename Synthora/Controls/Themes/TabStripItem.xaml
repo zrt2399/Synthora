@@ -5,26 +5,47 @@
 
     <ControlTheme x:Key="{x:Type TabStripItem}" TargetType="TabStripItem">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Margin" Value="16" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}" />
-        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundLowBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundMidBrush}" />
         <Setter Property="Template">
-            <ControlTemplate>
-                <Border Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
-                    <ContentPresenter Name="PART_ContentPresenter"
-                                      Margin="{TemplateBinding Padding}"
-                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                      Content="{TemplateBinding Content}"
-                                      ContentTemplate="{TemplateBinding ContentTemplate}" />
-                </Border>
-            </ControlTemplate>
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border Name="PART_LayoutRoot"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        <Panel>
+                            <ContentPresenter Name="PART_ContentPresenter"
+                                              Margin="{TemplateBinding Padding}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}" />
+                            <Border Name="PART_SelectedPipe"
+                                    Height="2"
+                                    VerticalAlignment="Bottom"
+                                    CornerRadius="{DynamicResource ThemeBorderCornerRadius}"
+                                    IsVisible="False" />
+                        </Panel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
         </Setter>
-        <Style Selector="^:selected">
-            <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
+
+        <!--<Style Selector="^:disabled /template/ Border#PART_LayoutRoot">
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+        </Style>-->
+
+        <Style Selector="^:pointerover /template/ Border#PART_SelectedPipe">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidColor}" />
+        </Style>
+
+        <Style Selector="^:selected /template/ Border#PART_SelectedPipe">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
         </Style>
     </ControlTheme>
+
 </ResourceDictionary>

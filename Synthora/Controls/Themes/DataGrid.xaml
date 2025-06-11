@@ -1,8 +1,7 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:collections="using:Avalonia.Collections"
-                    xmlns:controls="using:Synthora.Controls"
-                    xmlns:converters="using:Synthora.Converters"
+                    x:ClassModifier="internal"
                     x:CompileBindings="True">
 
     <ControlTheme x:Key="DataGridCellTextBlockTheme"
@@ -25,7 +24,7 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Stretch" />
-        <Setter Property="BorderThickness" Value="{Binding $parent[DataGrid].GridLinesVisibility, Converter={x:Static converters:DataGridLineThicknessConverter.Instance}, ConverterParameter={x:Static Orientation.Vertical}}" />
+        <Setter Property="BorderThickness" Value="{Binding $parent[DataGrid].GridLinesVisibility, Converter={x:Static DataGridLineThicknessConverter.Instance}, ConverterParameter={x:Static Orientation.Vertical}}" />
         <Setter Property="BorderBrush" Value="{Binding $parent[DataGrid].VerticalGridLinesBrush}" />
         <Setter Property="Template">
             <ControlTemplate>
@@ -54,15 +53,20 @@
         <Setter Property="Padding" Value="{DynamicResource ThemeBorderPadding}" />
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{Binding $parent[DataGrid].BorderBrush}" />
-        <Setter Property="BorderThickness" Value="0,0,1,1" />
+        <Setter Property="BorderThickness" Value="0,0,1,0" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border x:Name="HeaderBorder"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}"
                         UseLayoutRounding="False">
+                    <Border.BorderThickness>
+                        <MultiBinding Converter="{x:Static DataGridLastColumnVisibleConverter.Instance}">
+                            <TemplateBinding Property="BorderThickness" />
+                            <TemplateBinding Property="AreSeparatorsVisible" />
+                        </MultiBinding>
+                    </Border.BorderThickness>
                     <Grid Margin="{TemplateBinding Padding}"
                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
@@ -118,7 +122,7 @@
     <ControlTheme x:Key="{x:Type DataGridRowHeader}" TargetType="DataGridRowHeader">
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="BorderThickness" Value="{Binding $parent[DataGrid].GridLinesVisibility, Converter={x:Static converters:DataGridLineThicknessConverter.Instance}, ConverterParameter={x:Static Orientation.Vertical}}" />
+        <Setter Property="BorderThickness" Value="{Binding $parent[DataGrid].GridLinesVisibility, Converter={x:Static DataGridLineThicknessConverter.Instance}, ConverterParameter={x:Static Orientation.Vertical}}" />
         <Setter Property="BorderBrush" Value="{Binding $parent[DataGrid].VerticalGridLinesBrush}" />
         <Setter Property="Template">
             <ControlTemplate>
@@ -137,7 +141,7 @@
 
     <ControlTheme x:Key="{x:Type DataGridRow}" TargetType="DataGridRow">
         <Setter Property="Background" Value="{Binding $parent[DataGrid].RowBackground}" />
-        <Setter Property="BorderThickness" Value="{Binding $parent[DataGrid].GridLinesVisibility, Converter={x:Static converters:DataGridLineThicknessConverter.Instance}, ConverterParameter={x:Static Orientation.Horizontal}}" />
+        <Setter Property="BorderThickness" Value="{Binding $parent[DataGrid].GridLinesVisibility, Converter={x:Static DataGridLineThicknessConverter.Instance}, ConverterParameter={x:Static Orientation.Horizontal}}" />
         <Setter Property="BorderBrush" Value="{Binding $parent[DataGrid].HorizontalGridLinesBrush}" />
         <Setter Property="Template">
             <ControlTemplate>
@@ -256,6 +260,10 @@
 
                         <DataGridColumnHeader Name="PART_TopLeftCornerHeader" />
                         <DataGridColumnHeadersPresenter Name="PART_ColumnHeadersPresenter" Grid.Column="1" />
+                        <Border Grid.ColumnSpan="3"
+                                BorderBrush="{Binding $parent[DataGrid].BorderBrush}"
+                                BorderThickness="0,0,0,1"
+                                UseLayoutRounding="False" />
                         <DataGridColumnHeader Name="PART_TopRightCornerHeader"
                                               Grid.Column="2"
                                               BorderThickness="0,0,0,1" />

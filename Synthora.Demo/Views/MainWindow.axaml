@@ -192,13 +192,16 @@
                                 </SpacingWrapPanel>
                                 <Divider Content="DropDownButton" />
                                 <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
-                                    <DropDownButton Content="Default">
-                                        <DropDownButton.Flyout>
-                                            <Flyout Placement="BottomEdgeAlignedLeft">
-                                                <Button Margin="10">Button</Button>
-                                            </Flyout>
-                                        </DropDownButton.Flyout>
-                                    </DropDownButton>
+                                    <SpacingWrapPanel.Styles>
+                                        <Style Selector="DropDownButton">
+                                            <Setter Property="Flyout">
+                                                <Flyout Placement="BottomEdgeAlignedLeft">
+                                                    <Button Margin="10">Button</Button>
+                                                </Flyout>
+                                            </Setter>
+                                        </Style>
+                                    </SpacingWrapPanel.Styles>
+                                    <DropDownButton>Default</DropDownButton>
                                     <DropDownButton Theme="{StaticResource SynthoraDropDownButtonTheme}">Synthora</DropDownButton>
                                     <DropDownButton Theme="{StaticResource CancelDropDownButtonTheme}">Cancel</DropDownButton>
                                     <DropDownButton Theme="{StaticResource SuccessDropDownButtonTheme}">Success</DropDownButton>
@@ -487,7 +490,7 @@
                     <Grid>
                         <Grid.Styles>
                             <Style Selector="DataGrid">
-                                <!-- <Setter Property="BorderThickness" Value="0" /> -->
+                                <Setter Property="BorderThickness" Value="0" />
                                 <Styles>
                                     <Style Selector="DataGridRow:nth-child(even)">
                                         <Setter Property="Background" Value="{DynamicResource SynthoraMidBrush}" />
@@ -521,7 +524,6 @@
                         <DataGrid Grid.Row="4"
                                   Margin="10"
                                   AutoGenerateColumns="True"
-                                  BorderThickness="0"
                                   IsReadOnly="True"
                                   ItemsSource="{Binding Employees}" />
                     </Grid>
@@ -536,13 +538,17 @@
                                 <TextBlock HorizontalAlignment="Center">Menu</TextBlock>
                             </StackPanel>
                         </SplitView.Pane>
-
-                        <Grid>
-                            <TextBlock HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"
-                                       FontSize="24"
-                                       Text="Content" />
-                        </Grid>
+                        <TabStrip>
+                            <TabItem Header="Tab 1" IsEnabled="False">
+                                <Button>1</Button>
+                            </TabItem>
+                            <TabItem Header="Tab 2">
+                                <Button>2</Button>
+                            </TabItem>
+                            <TabItem Header="Tab 3">
+                                <Button>3</Button>
+                            </TabItem>
+                        </TabStrip>
                     </SplitView>
                 </TabItem>
             </TabControl>

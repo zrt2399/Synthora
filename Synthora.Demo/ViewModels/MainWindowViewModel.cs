@@ -33,7 +33,7 @@ namespace Synthora.Demo.ViewModels
                 .RuleFor(e => e.HireDate, f => f.Date.Past(10, DateTime.Now))
                 .RuleFor(e => e.Salary, f => Math.Round(f.Random.Decimal(5000, 50000), 2))
                 .RuleFor(e => e.IsActive, f => f.Random.Bool()); 
-            List<Employee> employees = employeeFaker.Generate(1000);
+            var employees = employeeFaker.Generate(1000);
 
 
             Employees = new ObservableCollection<Employee>(employees);
