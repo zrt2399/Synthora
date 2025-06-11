@@ -1,7 +1,8 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:converters="using:Avalonia.Controls.Converters"
-                    x:ClassModifier="internal">
+                    x:ClassModifier="internal"
+                    x:CompileBindings="True">
 
     <converters:MarginMultiplierConverter x:Key="DropDownButtonMarginMultiplier"
                                           Bottom="True"
@@ -9,55 +10,119 @@
                                           Right="True"
                                           Top="True" />
 
+    <ControlTemplate x:Key="DropDownButtonTemplate" TargetType="DropDownButton">
+        <Border Name="RootBorder"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}">
+            <Grid Name="InnerGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <ContentPresenter Name="PART_ContentPresenter"
+                                  Grid.Column="0"
+                                  Margin="{TemplateBinding Padding}"
+                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                  Content="{TemplateBinding Content}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  RecognizesAccessKey="True" />
+
+                <PathIcon Name="pathIcon"
+                          Grid.Column="1"
+                          Width="12"
+                          Height="12"
+                          Margin="{TemplateBinding Padding,
+                                                   Converter={StaticResource DropDownButtonMarginMultiplier}}"
+                          HorizontalAlignment="Right"
+                          VerticalAlignment="Center"
+                          Data="{DynamicResource ArrowDownGlyph}"
+                          Foreground="{TemplateBinding Foreground}"
+                          IsHitTestVisible="False"
+                          UseLayoutRounding="False" />
+
+            </Grid>
+        </Border>
+    </ControlTemplate>
+
     <ControlTheme x:Key="{x:Type DropDownButton}"
-                  BasedOn="{StaticResource SynthoraButtonTheme}"
+                  BasedOn="{StaticResource {x:Type Button}}"
                   TargetType="DropDownButton">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate>
-                    <Border Name="RootBorder"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{TemplateBinding CornerRadius}">
-                        <Grid Name="InnerGrid">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-
-                            <ContentPresenter Name="PART_ContentPresenter"
-                                              Grid.Column="0"
-                                              Margin="{TemplateBinding Padding}"
-                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                              Content="{TemplateBinding Content}"
-                                              ContentTemplate="{TemplateBinding ContentTemplate}"
-                                              RecognizesAccessKey="True" />
-
-                            <PathIcon Name="pathIcon"
-                                      Grid.Column="1"
-                                      Width="12"
-                                      Height="12"
-                                      Margin="{TemplateBinding Padding,
-                                                               Converter={StaticResource DropDownButtonMarginMultiplier}}"
-                                      HorizontalAlignment="Right"
-                                      VerticalAlignment="Center"
-                                      Data="{DynamicResource ArrowDownGlyph}"
-                                      Foreground="{TemplateBinding Foreground}"
-                                      IsHitTestVisible="False"
-                                      UseLayoutRounding="False" />
-
-                        </Grid>
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-
+        <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
         <Style Selector="^:flyout-open /template/ PathIcon#pathIcon">
             <Setter Property="RenderTransform">
                 <RotateTransform Angle="180" />
             </Setter>
         </Style>
     </ControlTheme>
+
+    <ControlTheme x:Key="SynthoraDropDownButtonTheme"
+                  BasedOn="{StaticResource SynthoraButtonTheme}"
+                  TargetType="DropDownButton">
+        <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
+        <Style Selector="^:flyout-open /template/ PathIcon#pathIcon">
+            <Setter Property="RenderTransform">
+                <RotateTransform Angle="180" />
+            </Setter>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="CancelDropDownButtonTheme"
+                  BasedOn="{StaticResource CancelButtonTheme}"
+                  TargetType="DropDownButton">
+        <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
+        <Style Selector="^:flyout-open /template/ PathIcon#pathIcon">
+            <Setter Property="RenderTransform">
+                <RotateTransform Angle="180" />
+            </Setter>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="SuccessDropDownButtonTheme"
+                  BasedOn="{StaticResource SuccessButtonTheme}"
+                  TargetType="DropDownButton">
+        <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
+        <Style Selector="^:flyout-open /template/ PathIcon#pathIcon">
+            <Setter Property="RenderTransform">
+                <RotateTransform Angle="180" />
+            </Setter>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="WarningDropDownButtonTheme"
+                  BasedOn="{StaticResource WarningButtonTheme}"
+                  TargetType="DropDownButton">
+        <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
+        <Style Selector="^:flyout-open /template/ PathIcon#pathIcon">
+            <Setter Property="RenderTransform">
+                <RotateTransform Angle="180" />
+            </Setter>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="DangerDropDownButtonTheme"
+                  BasedOn="{StaticResource DangerButtonTheme}"
+                  TargetType="DropDownButton">
+        <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
+        <Style Selector="^:flyout-open /template/ PathIcon#pathIcon">
+            <Setter Property="RenderTransform">
+                <RotateTransform Angle="180" />
+            </Setter>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ErrorDropDownButtonTheme"
+                  BasedOn="{StaticResource ErrorButtonTheme}"
+                  TargetType="DropDownButton">
+        <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
+        <Style Selector="^:flyout-open /template/ PathIcon#pathIcon">
+            <Setter Property="RenderTransform">
+                <RotateTransform Angle="180" />
+            </Setter>
+        </Style>
+    </ControlTheme>
+
 </ResourceDictionary>

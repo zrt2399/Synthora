@@ -1,6 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Avalonia;
@@ -90,8 +90,15 @@ namespace Synthora.Controls
 
         static PathPicker()
         {
+            PathSeparator = OperatingSystem.IsWindows() ? "|" : ":";
             SelectedPathsProperty.Changed.AddClassHandler<PathPicker, IList?>((s, e) => OnSelectedPathsChanged(e));
         }
+
+        /// <summary>
+        /// Gets the path separator character used to separate paths.
+        /// It is '|' on Windows and ':' on other platforms.
+        /// </summary>
+        public static string PathSeparator { get; }
 
         /// <summary>
         /// Gets or sets the title of the file dialog.
@@ -244,7 +251,7 @@ namespace Synthora.Controls
 
         protected virtual void OnSelectedPathsChanged(IList? oldSelectedPaths, IList? newSelectedPaths)
         {
-            SetCurrentValue(SelectedPathProperty, newSelectedPaths == null || newSelectedPaths.Count == 0 ? string.Empty : string.Join("|", newSelectedPaths.OfType<string>()));
+            SetCurrentValue(SelectedPathProperty, newSelectedPaths == null || newSelectedPaths.Count == 0 ? string.Empty : string.Join(PathSeparator, newSelectedPaths.OfType<string>()));
         }
 
         private async Task SetCommonOptionsAsync(PickerOptions pickerOptions, TopLevel topLevel)
@@ -283,7 +290,7 @@ namespace Synthora.Controls
                     List<string> folders = new List<string>(storageFolders.Count);
                     foreach (var item in storageFolders)
                     {
-                        folders.Add(GetStorageFullName(item) ?? string.Empty);
+                        folders.Add(item.TryGetLocalPath() ?? string.Empty);
                     }
                     SetCurrentValue(SelectedPathsProperty, folders);
                 }
@@ -303,7 +310,7 @@ namespace Synthora.Controls
                     {
                         SetCurrentValue(SelectedPathsProperty, new List<string>()
                         {
-                            GetStorageFullName(storageFile) ?? string.Empty
+                            storageFile.TryGetLocalPath() ?? string.Empty
                         });
                     }
                 }
@@ -321,7 +328,7 @@ namespace Synthora.Controls
                         List<string> files = new List<string>(storageFiles.Count);
                         foreach (var item in storageFiles)
                         {
-                            files.Add(GetStorageFullName(item) ?? string.Empty);
+                            files.Add(item.TryGetLocalPath() ?? string.Empty);
                         }
                         SetCurrentValue(SelectedPathsProperty, files);
                     }
@@ -362,15 +369,6 @@ namespace Synthora.Controls
                 }
             }
             base.OnGotFocus(e);
-        }
-
-        private static string? GetStorageFullName<T>(T? obj) where T : IStorageItem
-        {
-            if (obj?.GetType().GetProperty(nameof(FileSystemInfo))?.GetValue(obj) is FileSystemInfo fileSystemInfo)
-            {
-                return fileSystemInfo.FullName;
-            }
-            return null;
         }
     }
 }

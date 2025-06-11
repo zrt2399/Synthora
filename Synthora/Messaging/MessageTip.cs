@@ -72,7 +72,7 @@ namespace Synthora.Messaging
         /// <summary>
         /// Displays a transient message tip with a specified icon type.
         /// </summary>
-        public static void Show(string message, IconType iconType, int delay = Delay)
+        public static async void Show(string message, IconType iconType, int delay = Delay)
         {
             if (Application.Current is not Application application)
             {
@@ -80,99 +80,96 @@ namespace Synthora.Messaging
             }
             if (application.CheckAccess())
             {
-                Control? control = null;
+                Control? placementTarget = null;
                 if (application.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime classicDesktopStyleApplicationLifetime)
                 {
-                    control = classicDesktopStyleApplicationLifetime.MainWindow;
+                    placementTarget = classicDesktopStyleApplicationLifetime.MainWindow;
                 }
                 else if (application.ApplicationLifetime is ISingleViewApplicationLifetime singleViewApplicationLifetime)
                 {
-                    control = singleViewApplicationLifetime.MainView;
+                    placementTarget = singleViewApplicationLifetime.MainView;
                 }
-                if (control == null)
+                if (placementTarget == null)
                 {
                     return;
                 }
 
-                Dispatcher.UIThread.Invoke(async () =>
+                if (GlobalDelay > 0)
                 {
-                    if (GlobalDelay > 0)
+                    delay = GlobalDelay;
+                }
+
+                var borderBrush = iconType switch
+                {
+                    IconType.Information => SolidColorBrush.Parse("#8C8C8C"),
+                    IconType.Question => SolidColorBrush.Parse("#5A8CF0"),
+                    IconType.Success => SolidColorBrush.Parse("#6EBE28"),
+                    IconType.Warning => SolidColorBrush.Parse("#DC9B28"),
+                    _ => SolidColorBrush.Parse("#E65050")
+                };
+
+                Grid grid = new Grid();
+                grid.ColumnDefinitions.Add(new ColumnDefinition(GridLength.Auto));
+                grid.ColumnDefinitions.Add(new ColumnDefinition());
+
+                TextBlock textBlock = new TextBlock();
+                textBlock.TextWrapping = TextWrapping.Wrap;
+                textBlock.VerticalAlignment = VerticalAlignment.Center;
+                textBlock.Text = message;
+
+                if (!string.IsNullOrEmpty(textBlock.Text))
+                {
+                    textBlock.Margin = new Thickness(4, 0, 0, 0);
+                }
+
+                if (application.TryGetResource("FontSizeNormal", application.ActualThemeVariant, out var res) && res is double fontSize)
+                {
+                    textBlock.FontSize = fontSize;
+                }
+
+                textBlock.SetValue(Grid.ColumnProperty, 1);
+                grid.Children.Add(new Viewbox()
+                {
+                    Width = 16,
+                    Height = 16,
+                    Child = new StatusIcon()
                     {
-                        delay = GlobalDelay;
+                        IconType = iconType
                     }
-
-                    var borderBrush = iconType switch
-                    {
-                        IconType.Information => SolidColorBrush.Parse("#8C8C8C"),
-                        IconType.Question => SolidColorBrush.Parse("#5A8CF0"),
-                        IconType.Success => SolidColorBrush.Parse("#6EBE28"),
-                        IconType.Warning => SolidColorBrush.Parse("#DC9B28"),
-                        _ => SolidColorBrush.Parse("#E65050")
-                    };
-
-                    Grid grid = new Grid();
-                    grid.ColumnDefinitions.Add(new ColumnDefinition(GridLength.Auto));
-                    grid.ColumnDefinitions.Add(new ColumnDefinition());
-
-                    TextBlock textBlock = new TextBlock();
-                    textBlock.TextWrapping = TextWrapping.Wrap;
-                    textBlock.VerticalAlignment = VerticalAlignment.Center;
-                    textBlock.Text = message;
-
-                    if (!string.IsNullOrEmpty(textBlock.Text))
-                    {
-                        textBlock.Margin = new Thickness(4, 0, 0, 0);
-                    }
-
-                    if (application.TryGetResource("FontSizeNormal", application.ActualThemeVariant, out var res) && res is double fontSize)
-                    {
-                        textBlock.FontSize = fontSize;
-                    }
-                  
-                    textBlock.SetValue(Grid.ColumnProperty, 1);
-                    grid.Children.Add(new Viewbox()
-                    {
-                        Width = 16,
-                        Height = 16,
-                        Child = new StatusIcon()
-                        {
-                            IconType = iconType
-                        }
-                    });
-                    grid.Children.Add(textBlock);
-
-                    Border border = new Border();
-                    border.Margin = new Thickness(4);
-                    border.Padding = new Thickness(4);
-                    border.CornerRadius = TipCornerRadius;
-                    border.Child = grid;
-                    border.Background = SolidColorBrush.Parse("#FAFAFA");
-                    border.BorderThickness = new Thickness(1);
-                    border.BorderBrush = borderBrush;
-                    border.BoxShadow = new BoxShadows(new BoxShadow()
-                    {
-                        Blur = 6,
-                        Color = borderBrush.Color
-                    });
-
-                    Popup popup = new Popup();
-                    popup.Opened += Popup_Opened;
-                    popup.Child = border;
-                    popup.Placement = Placement;
-                    if (HorizontalOffset != 0)
-                    {
-                        popup.HorizontalOffset = HorizontalOffset;
-                    }
-                    if (VerticalOffset != 0)
-                    {
-                        popup.VerticalOffset = VerticalOffset;
-                    }
-                    popup.PlacementTarget = control;
-                    popup.IsOpen = true;
-                    await Task.Delay(delay);
-                    popup.IsOpen = false;
-                    popup.Opened -= Popup_Opened;
                 });
+                grid.Children.Add(textBlock);
+
+                Border border = new Border();
+                border.Margin = new Thickness(4);
+                border.Padding = new Thickness(4);
+                border.CornerRadius = TipCornerRadius;
+                border.Child = grid;
+                border.Background = SolidColorBrush.Parse("#FAFAFA");
+                border.BorderThickness = new Thickness(1);
+                border.BorderBrush = borderBrush;
+                border.BoxShadow = new BoxShadows(new BoxShadow()
+                {
+                    Blur = 6,
+                    Color = borderBrush.Color
+                });
+
+                Popup popup = new Popup();
+                popup.Opened += Popup_Opened;
+                popup.Child = border;
+                popup.Placement = Placement;
+                if (HorizontalOffset != 0)
+                {
+                    popup.HorizontalOffset = HorizontalOffset;
+                }
+                if (VerticalOffset != 0)
+                {
+                    popup.VerticalOffset = VerticalOffset;
+                }
+                popup.PlacementTarget = placementTarget;
+                popup.IsOpen = true;
+                await Task.Delay(delay);
+                popup.IsOpen = false;
+                popup.Opened -= Popup_Opened;
             }
             else
             {

@@ -1,16 +1,15 @@
 using System;
 using System.Linq;
+using System.Reflection;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
-using PropertyChanged;
 using Synthora.Demo.ViewModels;
 using Synthora.Demo.Views;
 
 namespace Synthora.Demo
 {
-    [DoNotNotify]
     public partial class App : Application
     {
         public static MainWindow MainWindow
@@ -25,8 +24,8 @@ namespace Synthora.Demo
             }
         }
 
-        public static string AppVersion => $"{typeof(SynthoraTheme).Assembly.GetName().Version}";
-        
+        public static string AppVersion => $"{Assembly.GetExecutingAssembly().GetName().Version}";
+
         public override void Initialize()
         {
             AvaloniaXamlLoader.Load(this);

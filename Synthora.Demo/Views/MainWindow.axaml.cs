@@ -1,9 +1,7 @@
 using Avalonia.Controls;
-using PropertyChanged;
 
 namespace Synthora.Demo.Views
-{
-    [DoNotNotify]
+{ 
     public partial class MainWindow : Window
     {
         public MainWindow()

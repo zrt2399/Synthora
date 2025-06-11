@@ -1,49 +1,50 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    x:ClassModifier="internal">
+                    x:ClassModifier="internal"
+                    x:CompileBindings="True">
 
     <MenuFlyout x:Key="SimpleScrollBarVerticalContextFlyout">
-        <MenuItem Command="{x:Static ScrollBarUtils.ScrollToHome}"
+        <MenuItem Command="{x:Static ScrollBarUtils.ScrollToHomeCommand}"
                   CommandParameter="{Binding $parent[ScrollBar]}"
                   Header="{DynamicResource StringScrollBarScrollToTop}" />
-        <MenuItem Command="{x:Static ScrollBarUtils.ScrollToEnd}"
+        <MenuItem Command="{x:Static ScrollBarUtils.ScrollToEndCommand}"
                   CommandParameter="{Binding $parent[ScrollBar]}"
                   Header="{DynamicResource StringScrollBarScrollToBottom}" />
         <Separator />
-        <MenuItem Command="{x:Static ScrollBarUtils.LargeDecrement}"
+        <MenuItem Command="{x:Static ScrollBarUtils.LargeDecrementCommand}"
                   CommandParameter="{Binding $parent[ScrollBar]}"
                   Header="{DynamicResource StringScrollBarPageUp}" />
-        <MenuItem Command="{x:Static ScrollBarUtils.LargeIncrement}"
+        <MenuItem Command="{x:Static ScrollBarUtils.LargeIncrementCommand}"
                   CommandParameter="{Binding $parent[ScrollBar]}"
                   Header="{DynamicResource StringScrollBarPageDown}" />
         <Separator />
-        <MenuItem Command="{x:Static ScrollBarUtils.SmallDecrement}"
+        <MenuItem Command="{x:Static ScrollBarUtils.SmallDecrementCommand}"
                   CommandParameter="{Binding $parent[ScrollBar]}"
                   Header="{DynamicResource StringScrollBarLineUp}" />
-        <MenuItem Command="{x:Static ScrollBarUtils.SmallIncrement}"
+        <MenuItem Command="{x:Static ScrollBarUtils.SmallIncrementCommand}"
                   CommandParameter="{Binding $parent[ScrollBar]}"
                   Header="{DynamicResource StringScrollBarLineDown}" />
     </MenuFlyout>
 
     <MenuFlyout x:Key="SimpleScrollBarHorizontalContextFlyout">
-        <MenuItem Command="{x:Static ScrollBarUtils.ScrollToHome}"
+        <MenuItem Command="{x:Static ScrollBarUtils.ScrollToHomeCommand}"
                   CommandParameter="{Binding $parent[ScrollBar]}"
                   Header="{DynamicResource StringScrollBarScrollToLeftEdge}" />
-        <MenuItem Command="{x:Static ScrollBarUtils.ScrollToEnd}"
+        <MenuItem Command="{x:Static ScrollBarUtils.ScrollToEndCommand}"
                   CommandParameter="{Binding $parent[ScrollBar]}"
                   Header="{DynamicResource StringScrollBarScrollToRightEdge}" />
         <Separator />
-        <MenuItem Command="{x:Static ScrollBarUtils.LargeDecrement}"
+        <MenuItem Command="{x:Static ScrollBarUtils.LargeDecrementCommand}"
                   CommandParameter="{Binding $parent[ScrollBar]}"
                   Header="{DynamicResource StringScrollBarPageLeft}" />
-        <MenuItem Command="{x:Static ScrollBarUtils.LargeIncrement}"
+        <MenuItem Command="{x:Static ScrollBarUtils.LargeIncrementCommand}"
                   CommandParameter="{Binding $parent[ScrollBar]}"
                   Header="{DynamicResource StringScrollBarPageRight}" />
         <Separator />
-        <MenuItem Command="{x:Static ScrollBarUtils.SmallDecrement}"
+        <MenuItem Command="{x:Static ScrollBarUtils.SmallDecrementCommand}"
                   CommandParameter="{Binding $parent[ScrollBar]}"
                   Header="{DynamicResource StringScrollBarLineLeft}" />
-        <MenuItem Command="{x:Static ScrollBarUtils.SmallIncrement}"
+        <MenuItem Command="{x:Static ScrollBarUtils.SmallIncrementCommand}"
                   CommandParameter="{Binding $parent[ScrollBar]}"
                   Header="{DynamicResource StringScrollBarLineRight}" />
     </MenuFlyout>

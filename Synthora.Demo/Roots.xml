@@ -1,0 +1,3 @@
+﻿<linker>
+	<assembly fullname="Synthora.Demo" preserve="All"/> 
+</linker>

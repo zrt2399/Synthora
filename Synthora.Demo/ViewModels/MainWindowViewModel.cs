@@ -12,17 +12,19 @@ using Avalonia.Platform.Storage;
 using Avalonia.Styling;
 using Avalonia.Threading;
 using Bogus;
+using CommunityToolkit.Mvvm.ComponentModel;
 using Synthora.Demo.Models;
 using Synthora.Messaging;
 
 namespace Synthora.Demo.ViewModels
 {
-    public class MainWindowViewModel : ViewModelBase
+    public partial class MainWindowViewModel : ViewModelBase
     {
         private WindowNotificationManager? _notificationManager;
 
         public MainWindowViewModel()
         {
+            //Comment below to enable Native AOT compilation
             var employeeFaker = new Faker<Employee>("zh_CN")
                 .RuleFor(e => e.Id, f => f.IndexGlobal + 1)
                 .RuleFor(e => e.Name, f => f.Name.LastName() + f.Name.FirstName())
@@ -30,9 +32,10 @@ namespace Synthora.Demo.ViewModels
                 .RuleFor(e => e.Age, f => f.Random.Int(18, 65))
                 .RuleFor(e => e.HireDate, f => f.Date.Past(10, DateTime.Now))
                 .RuleFor(e => e.Salary, f => Math.Round(f.Random.Decimal(5000, 50000), 2))
-                .RuleFor(e => e.IsActive, f => f.Random.Bool());
-
+                .RuleFor(e => e.IsActive, f => f.Random.Bool()); 
             List<Employee> employees = employeeFaker.Generate(1000);
+
+
             Employees = new ObservableCollection<Employee>(employees);
             DataGridCollectionView = new DataGridCollectionView(Employees);
             DataGridCollectionView.GroupDescriptions.Add(new DataGridPathGroupDescription(nameof(Employee.Age)));
@@ -43,15 +46,27 @@ namespace Synthora.Demo.ViewModels
             }
         }
 
-        public ObservableCollection<Employee> Employees { get; }
-        public DataGridCollectionView DataGridCollectionView { get; }
- 
-        public string Greeting { get; set; } = "Welcome to Avalonia!";
-        public NotificationPosition NotificationPosition { get; set; } = NotificationPosition.TopRight;
-        public PlacementMode MessageTipPlacement { get; set; } = PlacementMode.Pointer;
-        public DialogButton DialogButton { get; set; } = DialogButton.OK;
-        public double Value { get; set; }
-        public IList? SelectedFiles { get; set; }
+        [ObservableProperty]
+        public partial ObservableCollection<Employee> Employees { get; set; }
+        [ObservableProperty]
+        public partial DataGridCollectionView DataGridCollectionView { get; set; }
+
+        [ObservableProperty]
+        public partial string Greeting { get; set; } = "Welcome to Avalonia!";
+        [ObservableProperty]
+        public partial NotificationPosition NotificationPosition { get; set; } = NotificationPosition.TopRight;
+        public IEnumerable<NotificationPosition> NotificationPositions { get; } = Enum.GetValues<NotificationPosition>();
+        [ObservableProperty]
+        public partial PlacementMode MessageTipPlacement { get; set; } = PlacementMode.Pointer;
+        public IEnumerable<PlacementMode> MessageTipPlacements { get; } = Enum.GetValues<PlacementMode>();
+        [ObservableProperty]
+        public partial DialogButton DialogButton { get; set; } = DialogButton.OK;
+        public IEnumerable<DialogButton> DialogButtons { get; } = Enum.GetValues<DialogButton>();
+        [ObservableProperty]
+        public partial double Value { get; set; }
+        [ObservableProperty]
+        public partial IList? SelectedFiles { get; set; }
+
         public IReadOnlyList<FilePickerFileType> FilePickerFileTypes { get; } = new List<FilePickerFileType>
         {
             new FilePickerFileType("Image Files")
@@ -68,7 +83,8 @@ namespace Synthora.Demo.ViewModels
             }
         };
 
-        public ObservableCollection<string> BrushKeys { get; set; } = new ObservableCollection<string>
+        [ObservableProperty]
+        public partial ObservableCollection<string> BrushKeys { get; set; } = new ObservableCollection<string>
         {
             "PrimaryBrush",
             "OnPrimaryBrush",

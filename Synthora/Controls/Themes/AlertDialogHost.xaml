@@ -1,7 +1,8 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:messaging="using:Synthora.Messaging"
-                    x:ClassModifier="internal">
+                    x:ClassModifier="internal"
+                    x:CompileBindings="True">
 
     <ControlTheme x:Key="{x:Type AlertDialogHost}" TargetType="AlertDialogHost">
         <!--<Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
@@ -11,7 +12,7 @@
         <Setter Property="VerticalContentAlignment" Value="Stretch" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="VerticalAlignment" Value="Stretch" />
-        <Setter Property="BoxShadow" Value="0 0 20 0 #80000000" />
+        <Setter Property="BoxShadow" Value="0 0 20 0 #60000000" />
         <Setter Property="OverlayBackground" Value="Transparent" />
         <!--<Setter Property="Focusable" Value="True" />-->
 

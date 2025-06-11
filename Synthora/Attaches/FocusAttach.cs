@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using System.Reflection;
+using System.Runtime.CompilerServices;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
@@ -125,8 +125,11 @@ namespace Synthora.Attaches
             {
                 textBox.Focus(e.NavigationMethod, e.KeyModifiers);
                 textBox.SelectAll();
-                inputElement.GetType().GetMethod("OnGotFocus", BindingFlags.NonPublic | BindingFlags.Instance)?.Invoke(inputElement, [e]);
+                OnGotFocus(inputElement, e);
             }
         }
+
+        [UnsafeAccessor(UnsafeAccessorKind.Method, Name = nameof(OnGotFocus))]
+        private static extern void OnGotFocus(InputElement inputElement, GotFocusEventArgs e);
     }
 }

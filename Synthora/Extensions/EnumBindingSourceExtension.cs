@@ -4,6 +4,10 @@ using Avalonia.Markup.Xaml;
 
 namespace Synthora.Extensions
 {
+    /// <summary>
+    /// Provides enum values for binding in XAML.
+    /// Uses reflection (e.g., Enum.GetValues), and is not compatible with NativeAOT.
+    /// </summary>
     public class EnumBindingSourceExtension : MarkupExtension
     {
         private Type? _enumType;

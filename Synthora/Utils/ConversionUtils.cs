@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -86,7 +87,7 @@ namespace Synthora.Utils
         /// Retrieves the <see cref="DescriptionAttribute"/> text for an enum value, 
         /// or the enum's name if no description is found.
         /// </summary>
-        public static string GetDescription<T>(this T enumerationValue) where T : Enum
+        public static string GetDescription<T>([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields)] this T enumerationValue) where T : Enum
         {
             Type type = enumerationValue.GetType();
 
@@ -113,7 +114,7 @@ namespace Synthora.Utils
         {
             //R' = R - T/2 - T'/2
             double result = outerRadius - (outerBorderThickness / 2.0) - (innerBorderThickness / 2.0);
- 
+
             return Math.Max(0, result);
         }
 

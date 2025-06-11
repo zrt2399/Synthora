@@ -92,7 +92,7 @@
                                 <TextBox Text="{Binding Value}"
                                          TextBoxAttach.Title="TextBox"
                                          TextWrapping="Wrap" />
-                                <ButtonSpinner ButtonSpinnerLocation="Left" TextBoxAttach.Title="ButtonSpinner with left ButtonSpinner">Left</ButtonSpinner>
+                                <ButtonSpinner ButtonSpinnerLocation="Left" TextBoxAttach.Title="ButtonSpinner with left ButtonSpinnerLocation">Left</ButtonSpinner>
                                 <ButtonSpinner TextBoxAttach.Title="ButtonSpinner">Right</ButtonSpinner>
                                 <NumericUpDown TextBoxAttach.Title="NumericUpDown" Value="12" />
                                 <ComboBox PlaceholderText="Please select" TextBoxAttach.Title="ComboBox">
@@ -188,14 +188,23 @@
                                             </Flyout>
                                         </ToggleSplitButton.Flyout>
                                     </ToggleSplitButton>
-                                    <DropDownButton Content="DropDownButton">
+                                    <ToggleButton ToolTip.Tip="ToggleButton">ToggleButton</ToggleButton>
+                                </SpacingWrapPanel>
+                                <Divider Content="DropDownButton" />
+                                <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
+                                    <DropDownButton Content="Default">
                                         <DropDownButton.Flyout>
                                             <Flyout Placement="BottomEdgeAlignedLeft">
                                                 <Button Margin="10">Button</Button>
                                             </Flyout>
                                         </DropDownButton.Flyout>
                                     </DropDownButton>
-                                    <ToggleButton ToolTip.Tip="ToggleButton">ToggleButton</ToggleButton>
+                                    <DropDownButton Theme="{StaticResource SynthoraDropDownButtonTheme}">Synthora</DropDownButton>
+                                    <DropDownButton Theme="{StaticResource CancelDropDownButtonTheme}">Cancel</DropDownButton>
+                                    <DropDownButton Theme="{StaticResource SuccessDropDownButtonTheme}">Success</DropDownButton>
+                                    <DropDownButton Theme="{StaticResource WarningDropDownButtonTheme}">Warning</DropDownButton>
+                                    <DropDownButton Theme="{StaticResource DangerDropDownButtonTheme}">Danger</DropDownButton>
+                                    <DropDownButton Theme="{StaticResource ErrorDropDownButtonTheme}">Error</DropDownButton>
                                 </SpacingWrapPanel>
                                 <Divider Content="RepeatButton" />
                                 <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
@@ -250,7 +259,7 @@
                                             <Setter Property="CommandParameter" Value="{Binding $self.Content}" />
                                         </Style>
                                     </SpacingWrapPanel.Styles>
-                                    <ComboBox ItemsSource="{EnumBindingSource NotificationPosition}"
+                                    <ComboBox ItemsSource="{Binding NotificationPositions}"
                                               SelectedItem="{Binding NotificationPosition}"
                                               TextBoxAttach.Title="NotificationPosition: "
                                               TextBoxAttach.TitlePlacement="Left" />
@@ -267,7 +276,7 @@
                                             <Setter Property="CommandParameter" Value="{Binding $self.Content}" />
                                         </Style>
                                     </SpacingWrapPanel.Styles>
-                                    <ComboBox ItemsSource="{EnumBindingSource PlacementMode}"
+                                    <ComboBox ItemsSource="{Binding MessageTipPlacements}"
                                               SelectedItem="{Binding MessageTipPlacement}"
                                               TextBoxAttach.Title="PlacementMode: "
                                               TextBoxAttach.TitlePlacement="Left" />
@@ -286,8 +295,7 @@
                                             <Setter Property="CornerRadiusAttach.IsCircular" Value="True" />
                                         </Style>
                                     </SpacingWrapPanel.Styles>
-                                    <ComboBox ItemsSource="{EnumBindingSource messaging:DialogButton,
-                                                                              True}"
+                                    <ComboBox ItemsSource="{Binding DialogButtons}"
                                               SelectedItem="{Binding DialogButton}"
                                               TextBoxAttach.Title="DialogButton: "
                                               TextBoxAttach.TitlePlacement="Left" />
@@ -482,7 +490,7 @@
                                 <!-- <Setter Property="BorderThickness" Value="0" /> -->
                                 <Styles>
                                     <Style Selector="DataGridRow:nth-child(even)">
-                                        <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
+                                        <Setter Property="Background" Value="{DynamicResource SynthoraMidBrush}" />
                                     </Style>
                                     <!--<Style Selector="DataGridRow:nth-child(odd)">
                                         <Setter Property="Background" Value="Transparent" />

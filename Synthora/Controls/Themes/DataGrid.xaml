@@ -2,7 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:collections="using:Avalonia.Collections"
                     xmlns:controls="using:Synthora.Controls"
-                    xmlns:converters="using:Synthora.Converters">
+                    xmlns:converters="using:Synthora.Converters"
+                    x:CompileBindings="True">
 
     <ControlTheme x:Key="DataGridCellTextBlockTheme"
                   BasedOn="{StaticResource {x:Type TextBlock}}"
@@ -53,7 +54,7 @@
         <Setter Property="Padding" Value="{DynamicResource ThemeBorderPadding}" />
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{Binding $parent[DataGrid].BorderBrush}" />
-        <Setter Property="BorderThickness" Value="0,0,1,0" />
+        <Setter Property="BorderThickness" Value="0,0,1,1" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border x:Name="HeaderBorder"
@@ -258,10 +259,6 @@
                         <DataGridColumnHeader Name="PART_TopRightCornerHeader"
                                               Grid.Column="2"
                                               BorderThickness="0,0,0,1" />
-                        <Border Grid.ColumnSpan="3"
-                                BorderBrush="{Binding $parent[DataGrid].BorderBrush}"
-                                BorderThickness="0,0,0,1"
-                                UseLayoutRounding="False" />
 
                         <DataGridRowsPresenter Name="PART_RowsPresenter"
                                                Grid.Row="1"

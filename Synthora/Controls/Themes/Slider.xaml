@@ -1,6 +1,7 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    x:ClassModifier="internal">
+                    x:ClassModifier="internal"
+                    x:CompileBindings="True">
 
     <ControlTheme x:Key="SliderRepeatTrackTheme" TargetType="RepeatButton">
         <Setter Property="Background" Value="Transparent" />
@@ -16,6 +17,7 @@
     <ControlTheme x:Key="SliderThumbTheme" TargetType="Thumb">
         <Setter Property="MinWidth" Value="18" />
         <Setter Property="MinHeight" Value="18" />
+        <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
@@ -24,7 +26,14 @@
                              VerticalAlignment="Center"
                              Fill="{TemplateBinding Background}"
                              Stroke="{TemplateBinding BorderBrush}"
-                             StrokeThickness="1" />
+                             StrokeThickness="1">
+                        <Ellipse.Effect>
+                            <DropShadowEffect BlurRadius="4"
+                                              OffsetX="0"
+                                              OffsetY="0"
+                                              Color="#60000000" />
+                        </Ellipse.Effect>
+                    </Ellipse>
                     <Ellipse Width="10"
                              Height="10"
                              HorizontalAlignment="Center"
@@ -38,6 +47,7 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type Slider}" TargetType="Slider">
+        <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />

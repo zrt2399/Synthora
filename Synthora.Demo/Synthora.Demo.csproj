@@ -1,16 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-	
+
 	<PropertyGroup>
 		<OutputType>WinExe</OutputType>
 		<TargetFramework>net8.0</TargetFramework>
-		<Nullable>enable</Nullable> 
+		<Nullable>enable</Nullable>
 		<AvaloniaVersion>11.3.0</AvaloniaVersion>
 		<DebugType>embedded</DebugType>
 		<BuiltInComInteropSupport>true</BuiltInComInteropSupport>
 		<ApplicationManifest>app.manifest</ApplicationManifest>
 		<AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
 		<ApplicationIcon>Assets/avalonia-logo.ico</ApplicationIcon>
+		<LangVersion>preview</LangVersion>
 		<PublishReadyToRun>true</PublishReadyToRun>
+		<!-- Uncomment below to enable Native AOT compilation-->
+		<!--<PublishAot>true</PublishAot>
+		<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>-->
 	</PropertyGroup>
 
 	<!-- macOS packing -->
@@ -40,24 +44,25 @@
 
 	<ItemGroup>
 		<AvaloniaResource Include="Assets/**" />
+		<TrimmerRootDescriptor Include="Roots.xml" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(RuntimeIdentifier.StartsWith(osx))' == true">
 		<None Include="icon.icns" CopyToOutputDirectory="Always" />
+		<PackageReference Include="Dotnet.Bundle" Version="0.9.13" />
 	</ItemGroup>
+
 	<ItemGroup Condition="'$(Configuration)' == 'Debug'">
 		<PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />
 		<PackageReference Include="Avalonia.Themes.Simple" Version="$(AvaloniaVersion)" />
+		<PackageReference Include="ActiproSoftware.Controls.Avalonia" Version="25.2.0" />
+		<PackageReference Include="ActiproSoftware.Controls.Avalonia.Themes.DataGrid" Version="25.2.0" />
 	</ItemGroup>
-	
+
 	<ItemGroup>
-		<PackageReference Include="ActiproSoftware.Controls.Avalonia" Version="25.1.1" />
-		<PackageReference Include="ActiproSoftware.Controls.Avalonia.Themes.DataGrid" Version="25.1.1" />
 		<PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
 		<PackageReference Include="Avalonia.Controls.DataGrid" Version="$(AvaloniaVersion)" />
 		<PackageReference Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
-		<!--<PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />
-		<PackageReference Include="Avalonia.Themes.Simple" Version="$(AvaloniaVersion)" />-->
 		<!--<PackageReference Include="Avalonia.Fonts.Inter" Version="$(AvaloniaVersion)" />-->
 		<!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
 		<PackageReference Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)">
@@ -65,10 +70,8 @@
 			<PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
 		</PackageReference>
 		<PackageReference Include="Bogus" Version="35.6.3" />
-		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
-		<PackageReference Include="Dotnet.Bundle" Version="0.9.13" /> 
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
 		<PackageReference Include="Material.Icons.Avalonia" Version="2.3.1" />
-		<PackageReference Include="PropertyChanged.Fody" Version="4.1.0" PrivateAssets="All" />
 	</ItemGroup>
 
 	<ItemGroup>
