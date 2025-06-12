@@ -78,12 +78,12 @@
 
                         <PathIcon Name="SortIcon"
                                   Grid.Column="1"
-                                  Width="12"
-                                  Height="12"
-                                  Margin="4,0,0,0"
+                                  Width="10"
+                                  Height="10"
+                                  Margin="6,0,0,0"
                                   HorizontalAlignment="Left"
                                   VerticalAlignment="Center"
-                                  Data="{DynamicResource ArrowDownGlyph}"
+                                  Data="{DynamicResource ArrowUpGlyph}"
                                   Foreground="{TemplateBinding Foreground}"
                                   IsHitTestVisible="False"
                                   IsVisible="False"
@@ -256,11 +256,12 @@
                         CornerRadius="{TemplateBinding CornerRadius}">
                     <Grid ClipToBounds="True"
                           ColumnDefinitions="Auto,*,Auto"
-                          RowDefinitions="Auto,*,Auto,Auto">
+                          RowDefinitions="Auto,*,Auto">
 
                         <DataGridColumnHeader Name="PART_TopLeftCornerHeader" />
                         <DataGridColumnHeadersPresenter Name="PART_ColumnHeadersPresenter" Grid.Column="1" />
-                        <Border Grid.ColumnSpan="3"
+                        <Border Name="columnHeadersRowsSeparator"
+                                Grid.ColumnSpan="3"
                                 BorderBrush="{Binding $parent[DataGrid].BorderBrush}"
                                 BorderThickness="0,0,0,1"
                                 UseLayoutRounding="False" />
@@ -305,5 +306,19 @@
                 </Border>
             </ControlTemplate>
         </Setter>
+        <Style Selector="^:empty-columns">
+            <Style Selector="^ /template/ DataGridColumnHeader#PART_TopLeftCornerHeader">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+            <Style Selector="^ /template/ DataGridColumnHeader#PART_TopRightCornerHeader">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+            <Style Selector="^ /template/ DataGridColumnHeadersPresenter#PART_ColumnHeadersPresenter">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+            <Style Selector="^ /template/ Border#columnHeadersRowsSeparator">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+        </Style>
     </ControlTheme>
 </ResourceDictionary>

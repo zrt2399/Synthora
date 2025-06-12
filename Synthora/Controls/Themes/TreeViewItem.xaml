@@ -4,25 +4,28 @@
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
 
+    <converters:MarginMultiplierConverter x:Key="TreeViewItemExpanderButtonMarginMultiplier"
+                                          Indent="1"
+                                          Left="True" />
+
     <converters:MarginMultiplierConverter x:Key="LeftMarginConverter"
                                           Indent="16"
                                           Left="True" />
 
     <ControlTheme x:Key="SimpleExpanderButtonTheme" TargetType="ToggleButton">
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Width="12"
-                        Height="12"
-                        Margin="{TemplateBinding Padding}"
-                        HorizontalAlignment="Center"
+                <Border HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Background="Transparent"
+                        Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}">
                     <PathIcon Name="pathIcon"
                               Width="12"
                               Height="12"
+                              Margin="{TemplateBinding Padding}"
                               Data="{DynamicResource ArrowRightGlyph}"
                               Foreground="{TemplateBinding Foreground}"
                               IsHitTestVisible="False"
@@ -38,6 +41,9 @@
         </Style>
         <Style Selector="^:pointerover">
             <Setter Property="Opacity" Value="0.8" />
+        </Style>
+        <Style Selector="^:pressed">
+            <Setter Property="Opacity" Value="0.6" />
         </Style>
         <Style Selector="^:disabled">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
@@ -57,27 +63,24 @@
                             CornerRadius="{TemplateBinding CornerRadius}"
                             Focusable="True"
                             TemplatedControl.IsTemplateFocusTarget="True">
-                        <Grid Name="PART_Header"
-                              Margin="{TemplateBinding Level,
-                                                       Mode=OneWay,
-                                                       Converter={StaticResource LeftMarginConverter}}"
-                              ColumnDefinitions="16,*">
+                        <DockPanel Name="PART_Header" Margin="{TemplateBinding Level, Mode=OneWay, Converter={StaticResource LeftMarginConverter}}">
                             <ToggleButton Name="PART_ExpandCollapseChevron"
+                                          Margin="{TemplateBinding Padding,
+                                                                   Converter={StaticResource TreeViewItemExpanderButtonMarginMultiplier}}"
                                           HorizontalAlignment="Right"
-                                          Background="Transparent"
+                                          VerticalAlignment="Center"
+                                          DockPanel.Dock="Left"
                                           Focusable="False"
                                           IsChecked="{TemplateBinding IsExpanded,
                                                                       Mode=TwoWay}"
                                           Theme="{StaticResource SimpleExpanderButtonTheme}" />
                             <ContentPresenter Name="PART_HeaderPresenter"
-                                              Grid.Column="1"
                                               Margin="{TemplateBinding Padding}"
-                                              HorizontalContentAlignment="{TemplateBinding HorizontalAlignment}"
                                               Background="Transparent"
                                               Content="{TemplateBinding Header}"
                                               ContentTemplate="{TemplateBinding HeaderTemplate}"
                                               Focusable="False" />
-                        </Grid>
+                        </DockPanel>
                     </Border>
                     <ItemsPresenter Name="PART_ItemsPresenter"
                                     IsVisible="{TemplateBinding IsExpanded}"

@@ -10,7 +10,7 @@
         <!--<Setter Property="WindowManagerAddShadowHint" Value="False" />-->
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="Focusable" Value="True" />
-        <Setter Property="Padding" Value="{DynamicResource ThemeBorderPadding}" />
+        <Setter Property="Padding" Value="{DynamicResource ThemeMenuFlyoutPadding}" />
         <Setter Property="TextBlock.FontSize" Value="{DynamicResource FontSizeNormal}" />
         <Setter Property="TextBlock.FontWeight" Value="Normal" />
         <Setter Property="Template">

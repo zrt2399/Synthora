@@ -89,9 +89,12 @@
                                          TextWrapping="Wrap"
                                          UseFloatingWatermark="True"
                                          Watermark="Type a message" />
-                                <TextBox Text="{Binding Value}"
-                                         TextBoxAttach.Title="TextBox"
-                                         TextWrapping="Wrap" />
+                                <TextBox Classes="clearButton"
+                                         Text="{Binding Value}"
+                                         TextBoxAttach.Title="TextBox" />
+                                <TextBox Classes="revealPasswordButton"
+                                         PasswordChar="●"
+                                         TextBoxAttach.Title="PasswordBox" />
                                 <ButtonSpinner ButtonSpinnerLocation="Left" TextBoxAttach.Title="ButtonSpinner with left ButtonSpinnerLocation">Left</ButtonSpinner>
                                 <ButtonSpinner TextBoxAttach.Title="ButtonSpinner">Right</ButtonSpinner>
                                 <NumericUpDown TextBoxAttach.Title="NumericUpDown" Value="12" />
@@ -188,7 +191,21 @@
                                             </Flyout>
                                         </ToggleSplitButton.Flyout>
                                     </ToggleSplitButton>
-                                    <ToggleButton ToolTip.Tip="ToggleButton">ToggleButton</ToggleButton>
+                                </SpacingWrapPanel>
+                                <Divider Content="ToggleButton" />
+                                <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
+                                    <SpacingWrapPanel.Styles>
+                                        <Style Selector="ToggleButton">
+                                            <Setter Property="IsThreeState" Value="True" />
+                                        </Style>
+                                    </SpacingWrapPanel.Styles>
+                                    <ToggleButton>Default</ToggleButton>
+                                    <ToggleButton Theme="{StaticResource SynthoraToggleButtonTheme}">Synthora</ToggleButton>
+                                    <ToggleButton Theme="{StaticResource CancelToggleButtonTheme}">Cancel</ToggleButton>
+                                    <ToggleButton Theme="{StaticResource SuccessToggleButtonTheme}">Success</ToggleButton>
+                                    <ToggleButton Theme="{StaticResource WarningToggleButtonTheme}">Warning</ToggleButton>
+                                    <ToggleButton Theme="{StaticResource DangerToggleButtonTheme}">Danger</ToggleButton>
+                                    <ToggleButton Theme="{StaticResource ErrorToggleButtonTheme}">Error</ToggleButton>
                                 </SpacingWrapPanel>
                                 <Divider Content="DropDownButton" />
                                 <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">

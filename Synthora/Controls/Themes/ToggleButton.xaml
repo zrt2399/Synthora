@@ -3,13 +3,121 @@
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
 
+    <ControlTheme x:Key="ToggleButtonSolidTheme"
+                  BasedOn="{StaticResource {x:Type Button}}"
+                  TargetType="ToggleButton">
+        <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="LayoutRoot"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <ContentPresenter Name="PART_ContentPresenter"
+                                      Margin="{TemplateBinding Padding}"
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      RecognizesAccessKey="True"
+                                      TextElement.Foreground="{TemplateBinding Foreground}" />
+
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:focus,^:pointerover">
+            <Setter Property="Background" Value="{DynamicResource SynthoraMidBrush}" />
+        </Style>
+        <Style Selector="^:pressed">
+            <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
+        </Style>
+        <Style Selector="^:indeterminate">
+            <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
+        </Style>
+    </ControlTheme>
+
     <ControlTheme x:Key="{x:Type ToggleButton}"
-                  BasedOn="{StaticResource SynthoraButtonTheme}"
+                  BasedOn="{StaticResource ToggleButtonSolidTheme}"
+                  TargetType="ToggleButton">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
+        <Style Selector="^:checked:pressed /template/ Border#LayoutRoot">
+            <Setter Property="Background" Value="{DynamicResource PrimaryPressedBrush}" />
+        </Style>
+        <Style Selector="^:checked">
+            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="SuccessToggleButtonTheme"
+                  BasedOn="{StaticResource ToggleButtonSolidTheme}"
+                  TargetType="ToggleButton">
+        <Setter Property="Foreground" Value="{DynamicResource SuccessBrush}" />
+        <Style Selector="^:checked:pressed /template/ Border#LayoutRoot">
+            <Setter Property="Background" Value="#FF499F62" />
+        </Style>
+        <Style Selector="^:checked">
+            <Setter Property="Background" Value="{DynamicResource SuccessBrush}" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="WarningToggleButtonTheme"
+                  BasedOn="{StaticResource ToggleButtonSolidTheme}"
+                  TargetType="ToggleButton">
+        <Setter Property="Foreground" Value="{DynamicResource WarningBrush}" />
+        <Style Selector="^:checked:pressed /template/ Border#LayoutRoot">
+            <Setter Property="Background" Value="#FFF0AF3C" />
+        </Style>
+        <Style Selector="^:checked">
+            <Setter Property="Background" Value="{DynamicResource WarningBrush}" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="DangerToggleButtonTheme"
+                  BasedOn="{StaticResource ToggleButtonSolidTheme}"
+                  TargetType="ToggleButton">
+        <Setter Property="Foreground" Value="{DynamicResource DangerBrush}" />
+        <Style Selector="^:checked:pressed /template/ Border#LayoutRoot">
+            <Setter Property="Background" Value="#FFE9525D" />
+        </Style>
+        <Style Selector="^:checked">
+            <Setter Property="Background" Value="{DynamicResource DangerBrush}" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ErrorToggleButtonTheme"
+                  BasedOn="{StaticResource ToggleButtonSolidTheme}"
+                  TargetType="ToggleButton">
+        <Setter Property="Foreground" Value="{DynamicResource ErrorBrush}" />
+        <Style Selector="^:checked:pressed /template/ Border#LayoutRoot">
+            <Setter Property="Background" Value="#FFDB5757" />
+        </Style>
+        <Style Selector="^:checked">
+            <Setter Property="Background" Value="{DynamicResource ErrorBrush}" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonOutlineTheme"
+                  BasedOn="{StaticResource {x:Type Button}}"
                   TargetType="ToggleButton">
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
-                    <Border Background="{TemplateBinding Background}"
+                    <Rectangle Name="indeterminateRectangle"
+                               Fill="{TemplateBinding Background}"
+                               IsVisible="False"
+                               RadiusX="{Binding CornerRadius.TopLeft, RelativeSource={RelativeSource TemplatedParent}}"
+                               RadiusY="{Binding CornerRadius.TopLeft, RelativeSource={RelativeSource TemplatedParent}}"
+                               Stroke="{TemplateBinding BorderBrush}"
+                               StrokeDashArray="4,4"
+                               StrokeThickness="{Binding BorderThickness.Left, RelativeSource={RelativeSource TemplatedParent}}" />
+                    <Border Name="backgroundBorder"
+                            Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{TemplateBinding CornerRadius}">
@@ -31,11 +139,48 @@
                 </Panel>
             </ControlTemplate>
         </Setter>
+        <Style Selector="^:indeterminate">
+            <Style Selector="^ /template/ Rectangle#indeterminateRectangle">
+                <Setter Property="IsVisible" Value="True" />
+            </Style>
+            <Style Selector="^ /template/ Border#backgroundBorder">
+                <Setter Property="BorderBrush" Value="Transparent" />
+            </Style>
+        </Style>
         <Style Selector="^:checked">
-            <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
             <Style Selector="^ /template/ Border#checkedBorder">
                 <Setter Property="IsVisible" Value="True" />
             </Style>
         </Style>
     </ControlTheme>
+
+    <ControlTheme x:Key="SynthoraToggleButtonTheme"
+                  BasedOn="{StaticResource ToggleButtonOutlineTheme}"
+                  TargetType="ToggleButton">
+        <Setter Property="Background" Value="{DynamicResource SynthoraLowBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
+        <Style Selector="^:focus,^:pointerover">
+            <Setter Property="Background" Value="{DynamicResource SynthoraMidBrush}" />
+        </Style>
+        <Style Selector="^:pressed">
+            <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="CancelToggleButtonTheme"
+                  BasedOn="{StaticResource ToggleButtonOutlineTheme}"
+                  TargetType="ToggleButton">
+        <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
+        <Style Selector="^:focus,^:pointerover">
+            <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
+        </Style>
+        <Style Selector="^:pressed">
+            <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />
+        </Style>
+    </ControlTheme>
+
 </ResourceDictionary>

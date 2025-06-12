@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
-	
+
     <Design.PreviewWith>
         <StackPanel Width="250"
                     Margin="20"
@@ -25,12 +25,12 @@
         </StackPanel>
     </Design.PreviewWith>
 
-    <Thickness x:Key="ToggleSwitchTopHeaderMargin">0,0,0,6</Thickness>
+    <Thickness x:Key="ToggleSwitchTopHeaderMargin">0,0,0,4</Thickness>
     <GridLength x:Key="ToggleSwitchPreContentMargin">0</GridLength>
     <GridLength x:Key="ToggleSwitchPostContentMargin">0</GridLength>
     <x:Double x:Key="ToggleSwitchThemeMinWidth">0</x:Double>
     <Thickness x:Key="ToggleSwitchOnStrokeThickness">0</Thickness>
-    <Thickness x:Key="ToggleSwitchOffContentMargin">4,0,0,0</Thickness>
+    <Thickness x:Key="ToggleSwitchOffContentMargin">6,0,0,0</Thickness>
     <Thickness x:Key="ToggleSwitchOuterBorderStrokeThickness">1</Thickness>
 
     <ControlTheme x:Key="{x:Type ToggleSwitch}" TargetType="ToggleSwitch">

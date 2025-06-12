@@ -19,27 +19,21 @@
     <ControlTheme x:Key="{x:Type NotificationCard}" TargetType="NotificationCard">
         <Setter Property="UseLayoutRounding" Value="True" />
         <Setter Property="Padding" Value="12" />
-        <Setter Property="Width" Value="320" />
+        <Setter Property="Width" Value="300" />
         <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
         <!--<Setter Property="RenderTransformOrigin" Value="50%,75%" />-->
-        <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
+        <!-- <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" /> -->
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <LayoutTransformControl Name="PART_LayoutTransformControl" UseRenderTransform="True">
-                    <GroupBox Margin="5"
-                              Padding="0"
-                              Background="{TemplateBinding Background}"
-                              BorderBrush="{TemplateBinding BorderBrush}"
-                              BorderThickness="{TemplateBinding BorderThickness}"
-                              BoxShadow="{TemplateBinding BorderBrush,
-                                                          Converter={x:Static SynthoraConverters.BoxShadowConverter},
-                                                          ConverterParameter=0 0 4 0 #00000000}"
-                              CornerRadius="{TemplateBinding CornerRadius}"
-                              HeaderBackground="{TemplateBinding BorderBrush}"
-                              HeaderDividerHeight="0"
-                              HeaderPadding="1">
+                    <Border Margin="5"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            BoxShadow="0 0 4 0 #80000000"
+                            CornerRadius="{TemplateBinding CornerRadius}">
                         <DockPanel>
                             <TipIcon Name="icon"
                                      Margin="{TemplateBinding Padding,
@@ -49,7 +43,7 @@
                                               Margin="{TemplateBinding Padding}"
                                               Content="{TemplateBinding Content}" />
                         </DockPanel>
-                    </GroupBox>
+                    </Border>
                 </LayoutTransformControl>
             </ControlTemplate>
         </Setter>
@@ -114,25 +108,25 @@
             <Style Selector="^ /template/ TipIcon#icon">
                 <Setter Property="IconType" Value="Information" />
             </Style>
-            <Setter Property="BorderBrush" Value="{DynamicResource NotificationCardInformationBackgroundBrush}" />
+            <!-- <Setter Property="BorderBrush" Value="{DynamicResource NotificationCardInformationBackgroundBrush}" /> -->
         </Style>
         <Style Selector="^:success">
             <Style Selector="^ /template/ TipIcon#icon">
                 <Setter Property="IconType" Value="Success" />
             </Style>
-            <Setter Property="BorderBrush" Value="{DynamicResource NotificationCardSuccessBackgroundBrush}" />
+            <!-- <Setter Property="BorderBrush" Value="{DynamicResource NotificationCardSuccessBackgroundBrush}" /> -->
         </Style>
         <Style Selector="^:warning">
             <Style Selector="^ /template/ TipIcon#icon">
                 <Setter Property="IconType" Value="Warning" />
             </Style>
-            <Setter Property="BorderBrush" Value="{DynamicResource NotificationCardWarningBackgroundBrush}" />
+            <!-- <Setter Property="BorderBrush" Value="{DynamicResource NotificationCardWarningBackgroundBrush}" /> -->
         </Style>
         <Style Selector="^:error">
             <Style Selector="^ /template/ TipIcon#icon">
                 <Setter Property="IconType" Value="Error" />
             </Style>
-            <Setter Property="BorderBrush" Value="{DynamicResource NotificationCardErrorBackgroundBrush}" />
+            <!-- <Setter Property="BorderBrush" Value="{DynamicResource NotificationCardErrorBackgroundBrush}" /> -->
         </Style>
     </ControlTheme>
 </ResourceDictionary>

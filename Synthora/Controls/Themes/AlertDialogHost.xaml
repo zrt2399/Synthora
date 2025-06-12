@@ -53,7 +53,9 @@
                                       KeyboardNavigation.TabNavigation="Cycle"
                                       RowDefinitions="Auto,*,Auto">
                                     <SelectableTextBlock Name="title"
-                                                         HorizontalAlignment="Left"
+                                                         Margin="2,0"
+                                                         HorizontalAlignment="{OnPlatform Default=Left,
+                                                                                          macOS=Center}"
                                                          FontWeight="Bold"
                                                          IsVisible="{Binding $self.Text, Converter={x:Static SynthoraConverters.IsNotNullOrEmpty}}"
                                                          Text="{TemplateBinding Title}" />
@@ -67,7 +69,6 @@
                                                  IconType="{TemplateBinding IconType}" />
 
                                         <SelectableTextBlock Name="message"
-                                                             Grid.Column="1"
                                                              MinWidth="100"
                                                              MinHeight="40"
                                                              Margin="0,20,10,20"

@@ -1,5 +1,6 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="using:Avalonia.Controls.Converters"
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
 
@@ -44,6 +45,12 @@
         </Border>
     </Design.PreviewWith>
 
+    <converters:MarginMultiplierConverter x:Key="ExpanderToggleButtonMarginMultiplier"
+                                          Bottom="True"
+                                          Indent="1"
+                                          Left="True"
+                                          Top="True" />
+
     <ControlTheme x:Key="SimpleExpanderToggleButtonTheme" TargetType="ToggleButton">
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="Padding" Value="{DynamicResource ThemeBorderPadding}" />
@@ -74,7 +81,8 @@
                     <Grid ColumnDefinitions="Auto,*">
                         <PathIcon Width="12"
                                   Height="12"
-                                  Margin="4,4,0,4"
+                                  Margin="{TemplateBinding Padding,
+                                                           Converter={StaticResource ExpanderToggleButtonMarginMultiplier}}"
                                   HorizontalAlignment="Center"
                                   VerticalAlignment="Center"
                                   Data="{DynamicResource ArrowRightGlyph}"
