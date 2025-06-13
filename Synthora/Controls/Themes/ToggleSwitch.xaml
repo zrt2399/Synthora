@@ -30,7 +30,6 @@
     <GridLength x:Key="ToggleSwitchPostContentMargin">0</GridLength>
     <x:Double x:Key="ToggleSwitchThemeMinWidth">0</x:Double>
     <Thickness x:Key="ToggleSwitchOnStrokeThickness">0</Thickness>
-    <Thickness x:Key="ToggleSwitchOffContentMargin">6,0,0,0</Thickness>
     <Thickness x:Key="ToggleSwitchOuterBorderStrokeThickness">1</Thickness>
 
     <ControlTheme x:Key="{x:Type ToggleSwitch}" TargetType="ToggleSwitch">
@@ -85,7 +84,7 @@
                         <ContentPresenter x:Name="PART_OffContentPresenter"
                                           Grid.RowSpan="3"
                                           Grid.Column="1"
-                                          Margin="{DynamicResource ToggleSwitchOffContentMargin}"
+                                          Margin="{DynamicResource CheckableControlPadding}"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Content="{TemplateBinding OffContent}"
@@ -95,7 +94,7 @@
                         <ContentPresenter x:Name="PART_OnContentPresenter"
                                           Grid.RowSpan="3"
                                           Grid.Column="1"
-                                          Margin="{DynamicResource ToggleSwitchOffContentMargin}"
+                                          Margin="{DynamicResource CheckableControlPadding}"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Content="{TemplateBinding OnContent}"

@@ -38,12 +38,7 @@ namespace Synthora.Messaging
         /// Placement mode for the message tip (e.g., relative to a pointer or top).
         /// </summary>
         public static PlacementMode Placement { get; set; } = PlacementMode.Pointer;
-
-        /// <summary>
-        /// Corner radius used for rounding the corners of the message tip.
-        /// </summary>
-        public static CornerRadius TipCornerRadius { get; set; } = new CornerRadius(4);
-
+ 
         /// <summary>
         /// Displays a transient informational message tip with the default icon.
         /// </summary>
@@ -122,7 +117,7 @@ namespace Synthora.Messaging
                     textBlock.Margin = new Thickness(4, 0, 0, 0);
                 }
 
-                if (application.TryGetResource("FontSizeNormal", application.ActualThemeVariant, out var res) && res is double fontSize)
+                if (application.TryGetResource("FontSizeNormal", application.ActualThemeVariant, out var size) && size is double fontSize)
                 {
                     textBlock.FontSize = fontSize;
                 }
@@ -141,8 +136,11 @@ namespace Synthora.Messaging
 
                 Border border = new Border();
                 border.Margin = new Thickness(4);
-                border.Padding = new Thickness(4);
-                border.CornerRadius = TipCornerRadius;
+                border.Padding = new Thickness(4); 
+                if (application.TryGetResource("ThemeBorderCornerRadius", application.ActualThemeVariant, out var radius) && radius is CornerRadius cornerRadius)
+                {
+                    border.CornerRadius = cornerRadius;
+                } 
                 border.Child = grid;
                 border.Background = SolidColorBrush.Parse("#FAFAFA");
                 border.BorderThickness = new Thickness(1);

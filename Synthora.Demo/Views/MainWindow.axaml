@@ -551,7 +551,7 @@
                                OpenPaneLength="300">
                         <SplitView.Pane>
                             <StackPanel VerticalAlignment="Top" Spacing="10">
-                                <ToggleButton IsChecked="{Binding $parent[SplitView].IsPaneOpen}">☰</ToggleButton>
+                                <ToggleButton CornerRadius="0" IsChecked="{Binding $parent[SplitView].IsPaneOpen}">☰</ToggleButton>
                                 <TextBlock HorizontalAlignment="Center">Menu</TextBlock>
                             </StackPanel>
                         </SplitView.Pane>

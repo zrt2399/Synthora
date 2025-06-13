@@ -1,8 +1,13 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:collections="using:Avalonia.Collections"
+                    xmlns:converters="using:Avalonia.Controls.Converters"
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
+
+    <converters:MarginMultiplierConverter x:Key="DataGridColumnSortIconMarginMultiplier"
+                                          Indent="1"
+                                          Left="True" />
 
     <ControlTheme x:Key="DataGridCellTextBlockTheme"
                   BasedOn="{StaticResource {x:Type TextBlock}}"
@@ -80,7 +85,8 @@
                                   Grid.Column="1"
                                   Width="10"
                                   Height="10"
-                                  Margin="6,0,0,0"
+                                  Margin="{TemplateBinding Padding,
+                                                           Converter={StaticResource DataGridColumnSortIconMarginMultiplier}}"
                                   HorizontalAlignment="Left"
                                   VerticalAlignment="Center"
                                   Data="{DynamicResource ArrowUpGlyph}"

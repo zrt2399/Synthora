@@ -17,10 +17,7 @@
         <Setter Property="ClickMode" Value="Press" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Width="12"
-                        Height="12"
-                        Margin="{TemplateBinding Padding}"
-                        HorizontalAlignment="Center"
+                <Border HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
@@ -29,6 +26,7 @@
                     <PathIcon Name="pathIcon"
                               Width="12"
                               Height="12"
+                              Margin="{TemplateBinding Padding}"
                               Data="{DynamicResource ArrowDownGlyph}"
                               Foreground="{TemplateBinding Foreground}"
                               IsHitTestVisible="False"

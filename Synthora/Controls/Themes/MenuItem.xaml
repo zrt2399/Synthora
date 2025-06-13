@@ -83,7 +83,7 @@
                             <Border Name="Popup_Border"
                                     Margin="{DynamicResource PopupBoxShadowMargin}"
                                     Background="{DynamicResource ThemeBackgroundBrush}"
-                                    BorderBrush="{DynamicResource ThemeBorderMidBrush}"
+                                    BorderBrush="{DynamicResource ThemeBorderLowBrush}"
                                     BorderThickness="{DynamicResource ThemeBorderThickness}"
                                     BoxShadow="{DynamicResource PopupBoxShadow}"
                                     CornerRadius="{DynamicResource ThemeBorderCornerRadius}">

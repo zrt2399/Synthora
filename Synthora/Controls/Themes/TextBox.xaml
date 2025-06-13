@@ -148,9 +148,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ToggleButton">
-                    <Border x:Name="PART_ButtonLayoutBorder"
-                            Width="12"
-                            Background="{TemplateBinding Background}">
+                    <Border x:Name="PART_ButtonLayoutBorder" Background="{TemplateBinding Background}">
                         <Panel>
                             <Path x:Name="PART_GlyphElement_Reveal"
                                   Width="12"
@@ -174,17 +172,17 @@
             </Setter.Value>
         </Setter>
 
-        <Style Selector="^:unchecked /template/ Path#PART_GlyphElement_Hide">
-            <Setter Property="IsVisible" Value="False" />
-        </Style>
-        <Style Selector="^:checked /template/ Path#PART_GlyphElement_Reveal">
-            <Setter Property="IsVisible" Value="False" />
-        </Style>
-        <Style Selector="^[IsChecked=True]">
-            <Setter Property="ToolTip.Tip" Value="Hide Password" />
-        </Style>
-        <Style Selector="^[IsChecked=False]">
+        <Style Selector="^:unchecked">
+            <Style Selector="^ /template/ Path#PART_GlyphElement_Hide">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
             <Setter Property="ToolTip.Tip" Value="Show Password" />
+        </Style>
+        <Style Selector="^:checked">
+            <Style Selector="^ /template/ Path#PART_GlyphElement_Reveal">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+            <Setter Property="ToolTip.Tip" Value="Hide Password" />
         </Style>
     </ControlTheme>
 
@@ -324,7 +322,7 @@
             </Setter>
         </Style>
 
-        <Style Selector="^.revealPasswordButton[AcceptsReturn=False][IsReadOnly=False]:not(TextBox:empty)">
+        <Style Selector="^.revealPasswordButton[AcceptsReturn=False][IsReadOnly=False]">
             <Setter Property="InnerRightContent">
                 <Template>
                     <ToggleButton Margin="{Binding $parent[TextBox].Padding, Converter={StaticResource TextBoxInnerRightButtonMarginMultiplier}}"

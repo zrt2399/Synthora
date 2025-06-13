@@ -6,7 +6,7 @@
     <ControlTheme x:Key="{x:Type Button}" TargetType="Button">
         <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
         <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
-        <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -77,13 +77,13 @@
                   TargetType="Button">
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Background" Value="{DynamicResource SuccessBrush}" />
-        <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource SuccessBrush}" />
 
         <Style Selector="^:focus,^:pointerover">
-            <Setter Property="Background" Value="#FF359450" />
+            <Setter Property="Background" Value="{DynamicResource SuccessPointerOverBrush}" />
         </Style>
         <Style Selector="^:pressed">
-            <Setter Property="Background" Value="#FF499F62" />
+            <Setter Property="Background" Value="{DynamicResource SuccessPressedBrush}" />
         </Style>
     </ControlTheme>
 
@@ -92,13 +92,13 @@
                   TargetType="Button">
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Background" Value="{DynamicResource WarningBrush}" />
-        <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource WarningBrush}" />
 
         <Style Selector="^:focus,^:pointerover">
-            <Setter Property="Background" Value="#FFE6A532" />
+            <Setter Property="Background" Value="{DynamicResource WarningPointerOverBrush}" />
         </Style>
         <Style Selector="^:pressed">
-            <Setter Property="Background" Value="#FFF0AF3C" />
+            <Setter Property="Background" Value="{DynamicResource WarningPressedBrush}" />
         </Style>
     </ControlTheme>
 
@@ -107,13 +107,13 @@
                   TargetType="Button">
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Background" Value="{DynamicResource DangerBrush}" />
-        <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DangerBrush}" />
 
         <Style Selector="^:focus,^:pointerover">
-            <Setter Property="Background" Value="#FFDF4853" />
+            <Setter Property="Background" Value="{DynamicResource DangerPointerOverBrush}" />
         </Style>
         <Style Selector="^:pressed">
-            <Setter Property="Background" Value="#FFE9525D" />
+            <Setter Property="Background" Value="{DynamicResource DangerPressedBrush}" />
         </Style>
     </ControlTheme>
 
@@ -122,13 +122,13 @@
                   TargetType="Button">
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Background" Value="{DynamicResource ErrorBrush}" />
-        <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
 
         <Style Selector="^:focus,^:pointerover">
-            <Setter Property="Background" Value="#FFD74444" />
+            <Setter Property="Background" Value="{DynamicResource ErrorPointerOverBrush}" />
         </Style>
         <Style Selector="^:pressed">
-            <Setter Property="Background" Value="#FFDB5757" />
+            <Setter Property="Background" Value="{DynamicResource ErrorPressedBrush}" />
         </Style>
     </ControlTheme>
 

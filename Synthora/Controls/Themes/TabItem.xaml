@@ -67,10 +67,13 @@
             <Setter Property="IsVisible" Value="True" />
             <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidColor}" />
         </Style>
-
-        <Style Selector="^:selected /template/ Border#PART_SelectedPipe">
-            <Setter Property="IsVisible" Value="True" />
-            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+ 
+        <Style Selector="^:selected">
+			<Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
+			<Style Selector="^ /template/ Border#PART_SelectedPipe">
+				<Setter Property="IsVisible" Value="True" />
+				<Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+			</Style>
         </Style>
     </ControlTheme>
 

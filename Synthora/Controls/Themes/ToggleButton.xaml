@@ -6,7 +6,8 @@
     <ControlTheme x:Key="ToggleButtonSolidTheme"
                   BasedOn="{StaticResource {x:Type Button}}"
                   TargetType="ToggleButton">
-        <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
+        <Setter Property="Background" Value="{DynamicResource SynthoraMidBrush}" />
+        <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Name="LayoutRoot"
@@ -27,10 +28,10 @@
             </ControlTemplate>
         </Setter>
         <Style Selector="^:focus,^:pointerover">
-            <Setter Property="Background" Value="{DynamicResource SynthoraMidBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
         </Style>
         <Style Selector="^:pressed">
-            <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SynthoraVeryHighBrush}" />
         </Style>
         <Style Selector="^:indeterminate">
             <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
@@ -41,12 +42,15 @@
                   BasedOn="{StaticResource ToggleButtonSolidTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
+        <Style Selector="^:checked:pointerover /template/ Border#LayoutRoot">
+            <Setter Property="Background" Value="{DynamicResource PrimaryPointerOverBrush}" />
+        </Style>
         <Style Selector="^:checked:pressed /template/ Border#LayoutRoot">
             <Setter Property="Background" Value="{DynamicResource PrimaryPressedBrush}" />
         </Style>
         <Style Selector="^:checked">
-            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
             <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
         </Style>
     </ControlTheme>
 
@@ -54,12 +58,15 @@
                   BasedOn="{StaticResource ToggleButtonSolidTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Foreground" Value="{DynamicResource SuccessBrush}" />
+        <Style Selector="^:checked:pointerover /template/ Border#LayoutRoot">
+            <Setter Property="Background" Value="{DynamicResource SuccessPointerOverBrush}" />
+        </Style>
         <Style Selector="^:checked:pressed /template/ Border#LayoutRoot">
-            <Setter Property="Background" Value="#FF499F62" />
+            <Setter Property="Background" Value="{DynamicResource SuccessPressedBrush}" />
         </Style>
         <Style Selector="^:checked">
-            <Setter Property="Background" Value="{DynamicResource SuccessBrush}" />
             <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="{DynamicResource SuccessBrush}" />
         </Style>
     </ControlTheme>
 
@@ -67,12 +74,15 @@
                   BasedOn="{StaticResource ToggleButtonSolidTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Foreground" Value="{DynamicResource WarningBrush}" />
+        <Style Selector="^:checked:pointerover /template/ Border#LayoutRoot">
+            <Setter Property="Background" Value="{DynamicResource WarningPointerOverBrush}" />
+        </Style>
         <Style Selector="^:checked:pressed /template/ Border#LayoutRoot">
-            <Setter Property="Background" Value="#FFF0AF3C" />
+            <Setter Property="Background" Value="{DynamicResource WarningPressedBrush}" />
         </Style>
         <Style Selector="^:checked">
-            <Setter Property="Background" Value="{DynamicResource WarningBrush}" />
             <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="{DynamicResource WarningBrush}" />
         </Style>
     </ControlTheme>
 
@@ -80,12 +90,15 @@
                   BasedOn="{StaticResource ToggleButtonSolidTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Foreground" Value="{DynamicResource DangerBrush}" />
+        <Style Selector="^:checked:pointerover /template/ Border#LayoutRoot">
+            <Setter Property="Background" Value="{DynamicResource DangerPointerOverBrush}" />
+        </Style>
         <Style Selector="^:checked:pressed /template/ Border#LayoutRoot">
-            <Setter Property="Background" Value="#FFE9525D" />
+            <Setter Property="Background" Value="{DynamicResource DangerPressedBrush}" />
         </Style>
         <Style Selector="^:checked">
-            <Setter Property="Background" Value="{DynamicResource DangerBrush}" />
             <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="{DynamicResource DangerBrush}" />
         </Style>
     </ControlTheme>
 
@@ -93,12 +106,15 @@
                   BasedOn="{StaticResource ToggleButtonSolidTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Foreground" Value="{DynamicResource ErrorBrush}" />
+        <Style Selector="^:checked:pointerover /template/ Border#LayoutRoot">
+            <Setter Property="Background" Value="{DynamicResource ErrorPointerOverBrush}" />
+        </Style>
         <Style Selector="^:checked:pressed /template/ Border#LayoutRoot">
-            <Setter Property="Background" Value="#FFDB5757" />
+            <Setter Property="Background" Value="{DynamicResource ErrorPressedBrush}" />
         </Style>
         <Style Selector="^:checked">
-            <Setter Property="Background" Value="{DynamicResource ErrorBrush}" />
             <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="{DynamicResource ErrorBrush}" />
         </Style>
     </ControlTheme>
 
