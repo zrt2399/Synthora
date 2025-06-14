@@ -59,28 +59,6 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="SynthoraDropDownButtonTheme"
-                  BasedOn="{StaticResource SynthoraButtonTheme}"
-                  TargetType="DropDownButton">
-        <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
-        <Style Selector="^:flyout-open /template/ PathIcon#pathIcon">
-            <Setter Property="RenderTransform">
-                <RotateTransform Angle="180" />
-            </Setter>
-        </Style>
-    </ControlTheme>
-
-    <ControlTheme x:Key="CancelDropDownButtonTheme"
-                  BasedOn="{StaticResource CancelButtonTheme}"
-                  TargetType="DropDownButton">
-        <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
-        <Style Selector="^:flyout-open /template/ PathIcon#pathIcon">
-            <Setter Property="RenderTransform">
-                <RotateTransform Angle="180" />
-            </Setter>
-        </Style>
-    </ControlTheme>
-
     <ControlTheme x:Key="SuccessDropDownButtonTheme"
                   BasedOn="{StaticResource SuccessButtonTheme}"
                   TargetType="DropDownButton">
@@ -116,6 +94,28 @@
 
     <ControlTheme x:Key="ErrorDropDownButtonTheme"
                   BasedOn="{StaticResource ErrorButtonTheme}"
+                  TargetType="DropDownButton">
+        <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
+        <Style Selector="^:flyout-open /template/ PathIcon#pathIcon">
+            <Setter Property="RenderTransform">
+                <RotateTransform Angle="180" />
+            </Setter>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="SynthoraDropDownButtonTheme"
+                  BasedOn="{StaticResource SynthoraButtonTheme}"
+                  TargetType="DropDownButton">
+        <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
+        <Style Selector="^:flyout-open /template/ PathIcon#pathIcon">
+            <Setter Property="RenderTransform">
+                <RotateTransform Angle="180" />
+            </Setter>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="CancelDropDownButtonTheme"
+                  BasedOn="{StaticResource CancelButtonTheme}"
                   TargetType="DropDownButton">
         <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
         <Style Selector="^:flyout-open /template/ PathIcon#pathIcon">

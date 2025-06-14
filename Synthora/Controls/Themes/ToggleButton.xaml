@@ -3,7 +3,7 @@
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
 
-    <ControlTheme x:Key="ToggleButtonSolidTheme"
+    <ControlTheme x:Key="ToggleButtonSolidBaseTheme"
                   BasedOn="{StaticResource {x:Type Button}}"
                   TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource SynthoraMidBrush}" />
@@ -39,7 +39,7 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type ToggleButton}"
-                  BasedOn="{StaticResource ToggleButtonSolidTheme}"
+                  BasedOn="{StaticResource ToggleButtonSolidBaseTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
         <Style Selector="^:checked:pointerover /template/ Border#LayoutRoot">
@@ -55,7 +55,7 @@
     </ControlTheme>
 
     <ControlTheme x:Key="SuccessToggleButtonTheme"
-                  BasedOn="{StaticResource ToggleButtonSolidTheme}"
+                  BasedOn="{StaticResource ToggleButtonSolidBaseTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Foreground" Value="{DynamicResource SuccessBrush}" />
         <Style Selector="^:checked:pointerover /template/ Border#LayoutRoot">
@@ -71,7 +71,7 @@
     </ControlTheme>
 
     <ControlTheme x:Key="WarningToggleButtonTheme"
-                  BasedOn="{StaticResource ToggleButtonSolidTheme}"
+                  BasedOn="{StaticResource ToggleButtonSolidBaseTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Foreground" Value="{DynamicResource WarningBrush}" />
         <Style Selector="^:checked:pointerover /template/ Border#LayoutRoot">
@@ -87,7 +87,7 @@
     </ControlTheme>
 
     <ControlTheme x:Key="DangerToggleButtonTheme"
-                  BasedOn="{StaticResource ToggleButtonSolidTheme}"
+                  BasedOn="{StaticResource ToggleButtonSolidBaseTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Foreground" Value="{DynamicResource DangerBrush}" />
         <Style Selector="^:checked:pointerover /template/ Border#LayoutRoot">
@@ -103,7 +103,7 @@
     </ControlTheme>
 
     <ControlTheme x:Key="ErrorToggleButtonTheme"
-                  BasedOn="{StaticResource ToggleButtonSolidTheme}"
+                  BasedOn="{StaticResource ToggleButtonSolidBaseTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Foreground" Value="{DynamicResource ErrorBrush}" />
         <Style Selector="^:checked:pointerover /template/ Border#LayoutRoot">
@@ -118,7 +118,7 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="ToggleButtonOutlineTheme"
+    <ControlTheme x:Key="ToggleButtonOutlineBaseTheme"
                   BasedOn="{StaticResource {x:Type Button}}"
                   TargetType="ToggleButton">
         <Setter Property="Template">
@@ -171,7 +171,7 @@
     </ControlTheme>
 
     <ControlTheme x:Key="SynthoraToggleButtonTheme"
-                  BasedOn="{StaticResource ToggleButtonOutlineTheme}"
+                  BasedOn="{StaticResource ToggleButtonOutlineBaseTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource SynthoraLowBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
@@ -185,7 +185,7 @@
     </ControlTheme>
 
     <ControlTheme x:Key="CancelToggleButtonTheme"
-                  BasedOn="{StaticResource ToggleButtonOutlineTheme}"
+                  BasedOn="{StaticResource ToggleButtonOutlineBaseTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />

@@ -53,7 +53,7 @@ namespace Synthora.Controls
             AvaloniaProperty.Register<PathPicker, string?>(nameof(Watermark));
 
         public static readonly StyledProperty<object?> BrowseButtonContentProperty =
-            AvaloniaProperty.Register<PathPicker, object?>(nameof(BrowseButtonContent), "  ...  ");
+            AvaloniaProperty.Register<PathPicker, object?>(nameof(BrowseButtonContent), " ... ");
 
         public static readonly StyledProperty<object?> ExploreButtonContentProperty =
             AvaloniaProperty.Register<PathPicker, object?>(nameof(ExploreButtonContent));

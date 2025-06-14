@@ -34,7 +34,8 @@
                                               Color="#60000000" />
                         </Ellipse.Effect>
                     </Ellipse>
-                    <Ellipse Width="10"
+                    <Ellipse Name="innerEllipse"
+                             Width="10"
                              Height="10"
                              HorizontalAlignment="Center"
                              VerticalAlignment="Center"
@@ -44,6 +45,10 @@
                 </Panel>
             </ControlTemplate>
         </Setter>
+        <Style Selector="^[Tag=pressed] /template/ Ellipse#innerEllipse">
+            <Setter Property="Width" Value="12" />
+            <Setter Property="Height" Value="12" />
+        </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type Slider}" TargetType="Slider">
@@ -192,12 +197,12 @@
         </Style>
 
         <Style Selector="^:pointerover /template/ Thumb#thumb">
-            <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryPointerOverBrush}" />
         </Style>
         <Style Selector="^:pressed /template/ Thumb#thumb">
-            <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryPressedBrush}" />
+            <Setter Property="Tag" Value="pressed" />
         </Style>
-
         <Style Selector="^:disabled">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
         </Style>

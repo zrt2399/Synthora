@@ -13,33 +13,36 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid ColumnDefinitions="Auto,*">
-                    <Ellipse Name="border"
-                             Width="18"
-                             Height="18"
-                             VerticalAlignment="Center"
-                             Fill="{TemplateBinding Background}"
-                             Stroke="{TemplateBinding BorderBrush}"
-                             StrokeThickness="1" />
-                    <Ellipse Name="checkMark"
-                             Width="10"
-                             Height="10"
-                             HorizontalAlignment="Center"
-                             VerticalAlignment="Center"
-                             Fill="{DynamicResource OnPrimaryBrush}"
-                             IsVisible="False"
-                             Stretch="Uniform"
-                             UseLayoutRounding="False" />
-                    <Ellipse Name="indeterminateMark"
-                             Width="8"
-                             Height="8"
-                             HorizontalAlignment="Center"
-                             VerticalAlignment="Center"
-                             Fill="{TemplateBinding Background}"
-                             IsVisible="False"
-                             Stretch="Uniform"
-                             Stroke="{TemplateBinding BorderBrush}"
-                             StrokeThickness="2"
-                             UseLayoutRounding="False" />
+                    <Panel Name="backgroundPanel">
+                        <Ellipse Name="border"
+                                 Width="18"
+                                 Height="18"
+                                 VerticalAlignment="Center"
+                                 Fill="{TemplateBinding Background}"
+                                 Stroke="{TemplateBinding BorderBrush}"
+                                 StrokeThickness="1" />
+                        <Ellipse Name="checkMark"
+                                 Width="10"
+                                 Height="10"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Fill="{DynamicResource OnPrimaryBrush}"
+                                 IsVisible="False"
+                                 Stretch="Uniform"
+                                 UseLayoutRounding="False" />
+                        <Ellipse Name="indeterminateMark"
+                                 Width="8"
+                                 Height="8"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Fill="{TemplateBinding Background}"
+                                 IsVisible="False"
+                                 Stretch="Uniform"
+                                 Stroke="{TemplateBinding BorderBrush}"
+                                 StrokeThickness="2"
+                                 UseLayoutRounding="False" />
+                    </Panel>
+
                     <ContentPresenter Name="PART_ContentPresenter"
                                       Grid.Column="1"
                                       Margin="{TemplateBinding Padding}"
@@ -54,8 +57,11 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^:pointerover">
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighBrush}" />
+        <Style Selector="^:pointerover /template/ Panel#backgroundPanel">
+            <Setter Property="Opacity" Value="0.9" />
+        </Style>
+        <Style Selector="^:pressed /template/ Panel#backgroundPanel">
+            <Setter Property="Opacity" Value="0.8" />
         </Style>
 
         <Style Selector="^:checked">

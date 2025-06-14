@@ -26,23 +26,24 @@
         </Setter>
         <Setter Property="ErrorTemplate">
             <DataTemplate>
-                <Canvas Width="14"
-                        Height="14"
-                        Margin="4,0,1,0"
-                        Background="Transparent"
-                        Cursor="Arrow">
-                    <Canvas.Styles>
+                <PathIcon Width="12"
+                          Height="12"
+                          Margin="{DynamicResource CheckableControlPadding}"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                          Background="Transparent"
+                          Cursor="Arrow"
+                          Data="M13,13H11V7H13M13,17H11V15H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
+                          Foreground="{DynamicResource ErrorBrush}">
+                    <PathIcon.Styles>
                         <Style Selector="ToolTip">
                             <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
                         </Style>
-                    </Canvas.Styles>
+                    </PathIcon.Styles>
                     <ToolTip.Tip>
                         <ItemsControl x:DataType="DataValidationErrors" ItemsSource="{Binding}" />
                     </ToolTip.Tip>
-                    <Path Data="M14,7 A7,7 0 0,0 0,7 M0,7 A7,7 0 1,0 14,7 M7,3l0,5 M7,9l0,2"
-                          Stroke="{DynamicResource ErrorBrush}"
-                          StrokeThickness="2" />
-                </Canvas>
+                </PathIcon>
             </DataTemplate>
         </Setter>
     </ControlTheme>

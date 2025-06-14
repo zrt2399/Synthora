@@ -96,11 +96,11 @@ namespace Synthora.Messaging
 
                 var borderBrush = iconType switch
                 {
-                    IconType.Information => SolidColorBrush.Parse("#8C8C8C"),
-                    IconType.Question => SolidColorBrush.Parse("#5A8CF0"),
-                    IconType.Success => SolidColorBrush.Parse("#6EBE28"),
-                    IconType.Warning => SolidColorBrush.Parse("#DC9B28"),
-                    _ => SolidColorBrush.Parse("#E65050")
+                    IconType.Information => StatusIcon.InformationBackground,
+                    IconType.Question => StatusIcon.QuestionBackground,
+                    IconType.Success => StatusIcon.SuccessBackground,
+                    IconType.Warning => StatusIcon.WarningBackground,
+                    _ => StatusIcon.ErrorBackground 
                 };
 
                 Grid grid = new Grid();

@@ -7,14 +7,6 @@
                   BasedOn="{StaticResource {x:Type Button}}"
                   TargetType="RepeatButton" />
 
-    <ControlTheme x:Key="SynthoraRepeatButtonTheme"
-                  BasedOn="{StaticResource SynthoraButtonTheme}"
-                  TargetType="RepeatButton" />
-
-    <ControlTheme x:Key="CancelRepeatButtonTheme"
-                  BasedOn="{StaticResource CancelButtonTheme}"
-                  TargetType="RepeatButton" />
-
     <ControlTheme x:Key="SuccessRepeatButtonTheme"
                   BasedOn="{StaticResource SuccessButtonTheme}"
                   TargetType="RepeatButton" />
@@ -29,6 +21,14 @@
 
     <ControlTheme x:Key="ErrorRepeatButtonTheme"
                   BasedOn="{StaticResource ErrorButtonTheme}"
+                  TargetType="RepeatButton" />
+
+    <ControlTheme x:Key="SynthoraRepeatButtonTheme"
+                  BasedOn="{StaticResource SynthoraButtonTheme}"
+                  TargetType="RepeatButton" />
+
+    <ControlTheme x:Key="CancelRepeatButtonTheme"
+                  BasedOn="{StaticResource CancelButtonTheme}"
                   TargetType="RepeatButton" />
 
 </ResourceDictionary>

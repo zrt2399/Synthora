@@ -132,15 +132,22 @@
                         <StackPanel Margin="10" Spacing="10">
                             <CheckBox Name="ButtonViewIsEnabled" IsChecked="True">IsEnabled</CheckBox>
                             <StackPanel IsEnabled="{Binding #ButtonViewIsEnabled.IsChecked}" Spacing="10">
+                                <Divider Content="IconButton" />
+                                <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
+                                    <Button Content="{materialIcons:MaterialIconTextExt Kind=About, Text=About}" />
+                                    <Button Classes="IconButton" Content="{materialIcons:MaterialIconTextExt Kind=Dad}" />
+                                    <Button Content="{materialIcons:MaterialIconTextExt Kind=Mom}" />
+                                    <Button Content="{materialIcons:MaterialIconExt Kind=GraphPie}" />
+                                </SpacingWrapPanel>
                                 <Divider Content="Button" />
                                 <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
                                     <Button>Default</Button>
-                                    <Button Theme="{StaticResource SynthoraButtonTheme}">Synthora</Button>
-                                    <Button Theme="{StaticResource CancelButtonTheme}">Cancel</Button>
                                     <Button Theme="{StaticResource SuccessButtonTheme}">Success</Button>
                                     <Button Theme="{StaticResource WarningButtonTheme}">Warning</Button>
                                     <Button Theme="{StaticResource DangerButtonTheme}">Danger</Button>
                                     <Button Theme="{StaticResource ErrorButtonTheme}">Error</Button>
+                                    <Button Theme="{StaticResource SynthoraButtonTheme}">Synthora</Button>
+                                    <Button Theme="{StaticResource CancelButtonTheme}">Cancel</Button>
                                 </SpacingWrapPanel>
                                 <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
                                     <Button Content="ContextMenuButton">
@@ -185,7 +192,6 @@
                                         <ToggleSplitButton.Flyout>
                                             <Flyout Placement="BottomEdgeAlignedLeft">
                                                 <ListBox MaxHeight="400"
-                                                         Margin="0,4"
                                                          BorderThickness="0"
                                                          ItemsSource="{Binding Employees}" />
                                             </Flyout>
@@ -200,12 +206,12 @@
                                         </Style>
                                     </SpacingWrapPanel.Styles>
                                     <ToggleButton>Default</ToggleButton>
-                                    <ToggleButton Theme="{StaticResource SynthoraToggleButtonTheme}">Synthora</ToggleButton>
-                                    <ToggleButton Theme="{StaticResource CancelToggleButtonTheme}">Cancel</ToggleButton>
                                     <ToggleButton Theme="{StaticResource SuccessToggleButtonTheme}">Success</ToggleButton>
                                     <ToggleButton Theme="{StaticResource WarningToggleButtonTheme}">Warning</ToggleButton>
                                     <ToggleButton Theme="{StaticResource DangerToggleButtonTheme}">Danger</ToggleButton>
                                     <ToggleButton Theme="{StaticResource ErrorToggleButtonTheme}">Error</ToggleButton>
+                                    <ToggleButton Theme="{StaticResource SynthoraToggleButtonTheme}">Synthora</ToggleButton>
+                                    <ToggleButton Theme="{StaticResource CancelToggleButtonTheme}">Cancel</ToggleButton>
                                 </SpacingWrapPanel>
                                 <Divider Content="DropDownButton" />
                                 <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
@@ -213,28 +219,30 @@
                                         <Style Selector="DropDownButton">
                                             <Setter Property="Flyout">
                                                 <Flyout Placement="BottomEdgeAlignedLeft">
-                                                    <Button Margin="10">Button</Button>
+                                                    <ListBox MaxHeight="400"
+                                                             BorderThickness="0"
+                                                             ItemsSource="{Binding Employees}" />
                                                 </Flyout>
                                             </Setter>
                                         </Style>
                                     </SpacingWrapPanel.Styles>
                                     <DropDownButton>Default</DropDownButton>
-                                    <DropDownButton Theme="{StaticResource SynthoraDropDownButtonTheme}">Synthora</DropDownButton>
-                                    <DropDownButton Theme="{StaticResource CancelDropDownButtonTheme}">Cancel</DropDownButton>
                                     <DropDownButton Theme="{StaticResource SuccessDropDownButtonTheme}">Success</DropDownButton>
                                     <DropDownButton Theme="{StaticResource WarningDropDownButtonTheme}">Warning</DropDownButton>
                                     <DropDownButton Theme="{StaticResource DangerDropDownButtonTheme}">Danger</DropDownButton>
                                     <DropDownButton Theme="{StaticResource ErrorDropDownButtonTheme}">Error</DropDownButton>
+                                    <DropDownButton Theme="{StaticResource SynthoraDropDownButtonTheme}">Synthora</DropDownButton>
+                                    <DropDownButton Theme="{StaticResource CancelDropDownButtonTheme}">Cancel</DropDownButton>
                                 </SpacingWrapPanel>
                                 <Divider Content="RepeatButton" />
                                 <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
                                     <RepeatButton>Default</RepeatButton>
-                                    <RepeatButton Theme="{StaticResource SynthoraRepeatButtonTheme}">Synthora</RepeatButton>
-                                    <RepeatButton Theme="{StaticResource CancelRepeatButtonTheme}">Cancel</RepeatButton>
                                     <RepeatButton Theme="{StaticResource SuccessRepeatButtonTheme}">Success</RepeatButton>
                                     <RepeatButton Theme="{StaticResource WarningRepeatButtonTheme}">Warning</RepeatButton>
                                     <RepeatButton Theme="{StaticResource DangerRepeatButtonTheme}">Danger</RepeatButton>
                                     <RepeatButton Theme="{StaticResource ErrorRepeatButtonTheme}">Error</RepeatButton>
+                                    <RepeatButton Theme="{StaticResource SynthoraRepeatButtonTheme}">Synthora</RepeatButton>
+                                    <RepeatButton Theme="{StaticResource CancelRepeatButtonTheme}">Cancel</RepeatButton>
                                 </SpacingWrapPanel>
                                 <Divider Content="CheckBox" />
                                 <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
@@ -371,7 +379,7 @@
                                                      Value="{Binding #VerticalSlider.Value}" />
                                     </DockPanel>
 
-                                    <ProgressBar Value="{Binding #HorizontalSlider.Value}" />
+                                    <ProgressBar Height="4" Value="{Binding #HorizontalSlider.Value}" />
                                     <Slider Name="HorizontalSlider"
                                             IsSnapToTickEnabled="True"
                                             TickFrequency="1"

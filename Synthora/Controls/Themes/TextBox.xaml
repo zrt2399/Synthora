@@ -127,7 +127,10 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border x:Name="PART_ButtonLayoutBorder" Background="{TemplateBinding Background}">
+                    <Border x:Name="PART_ButtonLayoutBorder"
+                            Width="12"
+                            Height="12"
+                            Background="{TemplateBinding Background}">
                         <Path x:Name="PART_GlyphElement"
                               Width="10"
                               Height="10"

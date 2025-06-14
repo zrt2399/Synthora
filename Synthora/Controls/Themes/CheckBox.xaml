@@ -8,14 +8,15 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusSmall}" />
         <Setter Property="Padding" Value="{DynamicResource CheckableControlPadding}" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid ColumnDefinitions="Auto,*">
-                    <Border Width="18"
+                    <Border Name="backgroundBorder"
+                            Width="18"
                             Height="18"
                             VerticalAlignment="Center"
                             Background="{TemplateBinding Background}"
@@ -56,8 +57,12 @@
                 </Grid>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:pointerover">
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighBrush}" />
+
+        <Style Selector="^:pointerover /template/ Border#backgroundBorder">
+            <Setter Property="Opacity" Value="0.9" />
+        </Style>
+        <Style Selector="^:pressed /template/ Border#backgroundBorder">
+            <Setter Property="Opacity" Value="0.8" />
         </Style>
 
         <Style Selector="^:checked">

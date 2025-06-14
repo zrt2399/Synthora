@@ -104,21 +104,28 @@
                                 <Border MinWidth="{Binding Bounds.Width, ElementName=FocusTarget}"
                                         MaxHeight="{TemplateBinding MaxDropDownHeight}"
                                         Margin="{DynamicResource PopupBoxShadowMargin}"
-                                        Padding="0,4"
                                         Background="{TemplateBinding Background}"
                                         BorderBrush="{TemplateBinding BorderBrush}"
                                         BorderThickness="{TemplateBinding BorderThickness}"
                                         BoxShadow="{DynamicResource PopupBoxShadow}"
                                         CornerRadius="{TemplateBinding CornerRadius}">
-                                    <Panel>
-                                        <EmptyBox Margin="10" IsVisible="{Binding $parent[ComboBox].Items.Count, Converter={x:Static SynthoraConverters.IsZero}}" />
-                                        <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
-                                                      IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}"
-                                                      IsVisible="{Binding $parent[ComboBox].Items.Count, Converter={x:Static SynthoraConverters.IsNotZero}}"
-                                                      VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
-                                            <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
-                                        </ScrollViewer>
-                                    </Panel>
+                                    <Border ClipToBounds="True">
+                                        <Border.CornerRadius>
+                                            <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.All}">
+                                                <TemplateBinding Property="BorderThickness" />
+                                                <TemplateBinding Property="CornerRadius" />
+                                            </MultiBinding>
+                                        </Border.CornerRadius>
+                                        <Panel>
+                                            <EmptyBox Margin="10" IsVisible="{Binding $parent[ComboBox].Items.Count, Converter={x:Static SynthoraConverters.IsZero}}" />
+                                            <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                                          IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}"
+                                                          IsVisible="{Binding $parent[ComboBox].Items.Count, Converter={x:Static SynthoraConverters.IsNotZero}}"
+                                                          VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                                                <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+                                            </ScrollViewer>
+                                        </Panel>
+                                    </Border>
                                 </Border>
                             </Popup>
                         </Grid>

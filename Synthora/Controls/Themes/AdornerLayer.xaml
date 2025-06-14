@@ -7,6 +7,8 @@
         <Setter Property="DefaultFocusAdorner">
             <FocusAdornerTemplate>
                 <Rectangle Margin="1"
+                           RadiusX="6"
+                           RadiusY="6"
                            Stroke="Black"
                            StrokeDashArray="1,2"
                            StrokeThickness="1" />

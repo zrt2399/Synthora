@@ -14,7 +14,7 @@
             <Color x:Key="ThemeSelectedLowColor">#FFE8E8E8</Color>
             <Color x:Key="ThemeSelectedMidColor">#FFDEDEDE</Color>
 
-            <Color x:Key="SynthoraBorderColor">#FFD1D9E0</Color>
+            <Color x:Key="SynthoraBorderColor">#FFB4BEC8</Color>
             <Color x:Key="SynthoraLowColor">#FFF6F8FA</Color>
             <Color x:Key="SynthoraMidColor">#FFEFF2F5</Color>
             <Color x:Key="SynthoraHighColor">#FFE6EAEF</Color>
@@ -209,10 +209,12 @@
                      Color="{StaticResource ThemeAccentColor}" />
 
     <Thickness x:Key="ThemeBorderThickness">1</Thickness>
-    <Thickness x:Key="ThemeBorderPadding">4</Thickness>
+    <Thickness x:Key="ThemeBorderPaddingSmall">4</Thickness>
+    <Thickness x:Key="ThemeBorderPadding">6,4</Thickness>
     <Thickness x:Key="ThemeMenuFlyoutPadding">4</Thickness>
-    <Thickness x:Key="CheckableControlPadding">4,0,0,0</Thickness>
-    <CornerRadius x:Key="ThemeBorderCornerRadius">4</CornerRadius>
+    <Thickness x:Key="CheckableControlPadding">6,0,0,0</Thickness>
+    <CornerRadius x:Key="ThemeBorderCornerRadiusSmall">4</CornerRadius>
+    <CornerRadius x:Key="ThemeBorderCornerRadius">6</CornerRadius>
     <sys:Double x:Key="ThemeDisabledOpacity">0.7</sys:Double>
 
     <sys:Double x:Key="FontSizeSmall">10</sys:Double>
@@ -230,7 +232,7 @@
     <StreamGeometry x:Key="ArrowLeftGlyph">M1581 109L1491 19L486 1024L1491 2029L1581 1939L666 1024Z</StreamGeometry>
     <StreamGeometry x:Key="ArrowRightGlyph">M486 109L576 19L1581 1024L576 2029L486 1939L1401 1024L486 109Z</StreamGeometry>
 
-    <BoxShadows x:Key="PopupBoxShadow">2 2 4 0 #80000000</BoxShadows>
+    <BoxShadows x:Key="PopupBoxShadow">2 2 4 0 #88000000</BoxShadows>
     <Thickness x:Key="PopupBoxShadowMargin">0,0,4,4</Thickness>
 
     <BoxShadows x:Key="DefaultBoxShadow">0 0 4 0 #60000000</BoxShadows>
