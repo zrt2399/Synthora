@@ -155,7 +155,7 @@
                                PlacementTarget="{Binding ElementName=PART_FlyoutButton}"
                                WindowManagerAddShadowHint="False">
                             <!--  Add offset. ScrollViewerAttach.IsDisabled="True" fix mouse scrolling triggers parent  -->
-                            <Panel Margin="{Binding #borderRoot.Margin, Converter={x:Static DateTimeMarginConverter.Instance}}" ScrollViewerAttach.IsDisabled="True">
+                            <Panel Margin="{Binding #borderRoot.Margin, Converter={x:Static DateTimePickerPopupMarginConverter.Instance}}" ScrollViewerAttach.IsDisabled="True">
                                 <SystemDropShadowChrome Name="borderRoot"
                                                         Width="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
                                                         Background="{DynamicResource ThemeBackgroundBrush}"

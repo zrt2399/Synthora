@@ -5,9 +5,9 @@ using Avalonia.Data.Converters;
 
 namespace Synthora.Converters
 {
-    internal class DateTimeMarginConverter : IValueConverter
+    internal class DateTimePickerPopupMarginConverter : IValueConverter
     {
-        public static DateTimeMarginConverter Instance { get; } = new DateTimeMarginConverter();
+        public static DateTimePickerPopupMarginConverter Instance { get; } = new DateTimePickerPopupMarginConverter();
 
         public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
