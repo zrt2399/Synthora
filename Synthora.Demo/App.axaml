@@ -47,7 +47,10 @@
 
     <TrayIcon.Icons>
         <TrayIcons>
-            <TrayIcon Icon="/Assets/avalonia-logo.ico" ToolTipText="Synthora Demo App">
+            <TrayIcon Icon="/Assets/avalonia-logo.ico"
+                      IsVisible="{OnPlatform Default=False,
+                                             macOS=True}"
+                      ToolTipText="Synthora Demo App">
                 <TrayIcon.Menu>
                     <NativeMenu>
                         <NativeMenuItem Command="{x:Static vm:MainWindowViewModel.ShowMainWindowCommand}" Header="Open MainWindow" />
