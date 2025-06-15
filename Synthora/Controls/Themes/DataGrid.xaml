@@ -38,15 +38,35 @@
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}">
-                    <ContentPresenter Margin="{TemplateBinding Padding}"
-                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                      Content="{TemplateBinding Content}"
-                                      ContentTemplate="{TemplateBinding ContentTemplate}"
-                                      Foreground="{TemplateBinding Foreground}" />
+                    <Panel>
+                        <Rectangle Name="CurrencyVisual"
+                                   IsVisible="False"
+                                   Stroke="{DynamicResource ThemeBorderHighBrush}"
+                                   StrokeDashArray="4,4"
+                                   StrokeThickness="1" />
+                        <ContentPresenter Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          Foreground="{TemplateBinding Foreground}" />
+                        <Rectangle Name="InvalidVisualElement"
+                                   IsHitTestVisible="False"
+                                   IsVisible="False">
+                            <Rectangle.Fill>
+                                <SolidColorBrush Opacity="0.1" Color="Red" />
+                            </Rectangle.Fill>
+                        </Rectangle>
+                    </Panel>
                 </Border>
             </ControlTemplate>
         </Setter>
+        <Style Selector="^:current /template/ Rectangle#CurrencyVisual">
+            <Setter Property="IsVisible" Value="True" />
+        </Style>
+        <Style Selector="^:invalid /template/ Rectangle#InvalidVisualElement">
+            <Setter Property="IsVisible" Value="True" />
+        </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type DataGridColumnHeader}" TargetType="DataGridColumnHeader">
@@ -132,7 +152,8 @@
         <Setter Property="BorderBrush" Value="{Binding $parent[DataGrid].VerticalGridLinesBrush}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Background="{TemplateBinding Background}"
+                <Border x:Name="PART_Root"
+                        Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}">
@@ -160,6 +181,15 @@
                                         ColumnDefinitions="Auto,*"
                                         RowDefinitions="*,Auto">
 
+                        <Rectangle Name="InvalidVisualElement"
+                                   Grid.ColumnSpan="2"
+                                   IsHitTestVisible="False"
+                                   IsVisible="False">
+                            <Rectangle.Fill>
+                                <SolidColorBrush Opacity="0.1" Color="Red" />
+                            </Rectangle.Fill>
+                        </Rectangle>
+
                         <DataGridRowHeader Name="PART_RowHeader"
                                            Grid.RowSpan="2"
                                            DataGridFrozenGrid.IsFrozen="True" />
@@ -174,6 +204,10 @@
                 </Border>
             </ControlTemplate>
         </Setter>
+
+        <Style Selector="^:invalid /template/ Rectangle#InvalidVisualElement">
+            <Setter Property="IsVisible" Value="True" />
+        </Style>
 
         <Style Selector="^:pointerover /template/ Border#RowBorder">
             <Setter Property="Background" Value="{DynamicResource ThemeControlHighlightMidBrush}" />
@@ -197,7 +231,6 @@
         <Setter Property="BorderThickness" Value="0,0,0,1" />
         <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
-        <!--<Setter Property="Height" Value="20" />-->
         <Setter Property="Template">
             <ControlTemplate x:DataType="collections:DataGridCollectionViewGroup">
                 <Border Background="{TemplateBinding Background}"
