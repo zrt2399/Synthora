@@ -28,7 +28,7 @@
             <DataTemplate>
                 <PathIcon Width="12"
                           Height="12"
-                          Margin="{DynamicResource CheckableControlPadding}"
+                          Margin="{DynamicResource ThemeControlLeftPadding}"
                           HorizontalAlignment="Center"
                           VerticalAlignment="Center"
                           Background="Transparent"

@@ -9,7 +9,7 @@
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusSmall}" />
-        <Setter Property="Padding" Value="{DynamicResource CheckableControlPadding}" />
+        <Setter Property="Padding" Value="{DynamicResource ThemeControlLeftPadding}" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="Template">

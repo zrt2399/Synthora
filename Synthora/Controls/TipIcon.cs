@@ -108,10 +108,9 @@ namespace Synthora.Controls
                     ctx.EndFigure(true);
                 }
 
-                var pen = new Pen(WarningBackground, 1)
-                {
-                    LineJoin = PenLineJoin.Bevel
-                };
+                var pen = new Pen(WarningBackground, 2);
+                pen.LineJoin = PenLineJoin.Bevel;
+
                 drawingContext.DrawGeometry(WarningBackground, pen, geometry);
                 var exclamationPen = new Pen(IconForeground, 2);
                 drawingContext.DrawLine(exclamationPen, new Point(10, 5), new Point(10, 13));
