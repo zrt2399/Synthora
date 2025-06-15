@@ -61,7 +61,7 @@
                 </Border>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:current /template/ Rectangle#CurrencyVisual">
+        <Style Selector="^:current:focus /template/ Rectangle#CurrencyVisual">
             <Setter Property="IsVisible" Value="True" />
         </Style>
         <Style Selector="^:invalid /template/ Rectangle#InvalidVisualElement">

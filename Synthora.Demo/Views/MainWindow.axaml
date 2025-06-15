@@ -572,7 +572,7 @@
                                 <TextBlock HorizontalAlignment="Center">Menu</TextBlock>
                             </StackPanel>
                         </SplitView.Pane>
-                        <!--<TabStrip>
+                        <TabStrip>
                             <TabItem Header="Tab 1" IsEnabled="False">
                                 <Button>1</Button>
                             </TabItem>
@@ -582,12 +582,7 @@
                             <TabItem Header="Tab 3">
                                 <Button>3</Button>
                             </TabItem>
-                        </TabStrip>-->
-
-                        <NativeMenu>
-                            <NativeMenuItem Header="123" />
-                        </NativeMenu>
-
+                        </TabStrip>
                     </SplitView>
                 </TabItem>
             </TabControl>
