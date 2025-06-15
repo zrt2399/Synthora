@@ -240,9 +240,7 @@
                     <DataGridFrozenGrid Name="PART_Root"
                                         Margin="{TemplateBinding Padding}"
                                         ColumnDefinitions="Auto,Auto">
-                        <ToggleButton Name="PART_ExpanderButton"
-                                      Background="Transparent"
-                                      Theme="{DynamicResource SimpleExpanderButtonTheme}" />
+                        <ToggleButton Name="PART_ExpanderButton" Theme="{DynamicResource SimpleExpanderButtonTheme}" />
 
                         <StackPanel Grid.Column="1"
                                     Margin="{DynamicResource ThemeControlLeftPadding}"
