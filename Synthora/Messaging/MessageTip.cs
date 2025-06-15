@@ -38,7 +38,7 @@ namespace Synthora.Messaging
         /// Placement mode for the message tip (e.g., relative to a pointer or top).
         /// </summary>
         public static PlacementMode Placement { get; set; } = PlacementMode.Pointer;
- 
+
         /// <summary>
         /// Displays a transient informational message tip with the default icon.
         /// </summary>
@@ -100,7 +100,7 @@ namespace Synthora.Messaging
                     IconType.Question => StatusIcon.QuestionBackground,
                     IconType.Success => StatusIcon.SuccessBackground,
                     IconType.Warning => StatusIcon.WarningBackground,
-                    _ => StatusIcon.ErrorBackground 
+                    _ => StatusIcon.ErrorBackground
                 };
 
                 Grid grid = new Grid();
@@ -136,11 +136,11 @@ namespace Synthora.Messaging
 
                 Border border = new Border();
                 border.Margin = new Thickness(4);
-                border.Padding = new Thickness(4); 
+                border.Padding = new Thickness(4);
                 if (application.TryGetResource("ThemeBorderCornerRadius", application.ActualThemeVariant, out var radius) && radius is CornerRadius cornerRadius)
                 {
                     border.CornerRadius = cornerRadius;
-                } 
+                }
                 border.Child = grid;
                 border.Background = SolidColorBrush.Parse("#FAFAFA");
                 border.BorderThickness = new Thickness(1);

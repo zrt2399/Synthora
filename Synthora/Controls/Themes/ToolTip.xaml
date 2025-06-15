@@ -5,23 +5,21 @@
 
     <ControlTheme x:Key="{x:Type ToolTip}" TargetType="ToolTip">
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
         <Setter Property="Padding" Value="{DynamicResource ThemeBorderPadding}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Margin="{DynamicResource PopupBoxShadowMargin}"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        BoxShadow="{DynamicResource PopupBoxShadow}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
+                <SystemDropShadowChrome Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        CornerRadius="{TemplateBinding CornerRadius}">
                     <ContentPresenter Name="PART_ContentPresenter"
                                       Margin="{TemplateBinding Padding}"
                                       Content="{TemplateBinding Content}"
                                       ContentTemplate="{TemplateBinding ContentTemplate}" />
-                </Border>
+                </SystemDropShadowChrome>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

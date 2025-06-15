@@ -68,7 +68,7 @@
                                   Grid.Column="4"
                                   Width="12"
                                   Height="12"
-                                  Margin="20,0,0,0"
+                                  Margin="20,0,4,0"
                                   VerticalAlignment="Center"
                                   Data="{DynamicResource ArrowRightGlyph}"
                                   Foreground="{DynamicResource ThemeForegroundBrush}"
@@ -80,20 +80,18 @@
                                                         Mode=TwoWay}"
                                Placement="RightEdgeAlignedTop"
                                WindowManagerAddShadowHint="False">
-                            <Border Name="Popup_Border"
-                                    Margin="{DynamicResource PopupBoxShadowMargin}"
-                                    Background="{DynamicResource ThemeBackgroundBrush}"
-                                    BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-                                    BorderThickness="{DynamicResource ThemeBorderThickness}"
-                                    BoxShadow="{DynamicResource PopupBoxShadow}"
-                                    CornerRadius="{DynamicResource ThemeBorderCornerRadius}">
+                            <SystemDropShadowChrome Name="Popup_Border"
+                                                    Background="{DynamicResource ThemeBackgroundBrush}"
+                                                    BorderBrush="{DynamicResource ThemeBorderLowBrush}"
+                                                    BorderThickness="{DynamicResource ThemeBorderThickness}"
+                                                    CornerRadius="{DynamicResource ThemeBorderCornerRadius}">
                                 <ScrollViewer Theme="{StaticResource SimpleMenuScrollViewer}">
                                     <ItemsPresenter Name="PART_ItemsPresenter"
                                                     Margin="{DynamicResource ThemeMenuFlyoutPadding}"
                                                     Grid.IsSharedSizeScope="True"
                                                     ItemsPanel="{TemplateBinding ItemsPanel}" />
                                 </ScrollViewer>
-                            </Border>
+                            </SystemDropShadowChrome>
                         </Popup>
                     </Grid>
                 </Border>

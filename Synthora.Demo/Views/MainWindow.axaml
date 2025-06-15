@@ -33,8 +33,9 @@
         <Grid RowDefinitions="*,Auto">
             <TabControl>
                 <TabItem Header="Brush">
-                    <StackPanel>
+                    <DockPanel>
                         <StackPanel Margin="10,10,0,0"
+                                    DockPanel.Dock="Top"
                                     Orientation="Horizontal"
                                     Spacing="10">
                             <Button Command="{Binding SwitchTheme}" CommandParameter="Default">DefaultMode</Button>
@@ -50,13 +51,21 @@
                             </Button>
                         </StackPanel>
                         <ItemsControl ItemsSource="{Binding BrushKeys}">
-                            <ItemsControl.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <SpacingWrapPanel Margin="10"
-                                                      HorizontalSpacing="10"
-                                                      VerticalSpacing="10" />
-                                </ItemsPanelTemplate>
-                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.Template>
+                                <ControlTemplate>
+                                    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                                        <ItemsPresenter>
+                                            <ItemsPresenter.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <SpacingWrapPanel Margin="10"
+                                                                      HorizontalSpacing="10"
+                                                                      VerticalSpacing="10" />
+                                                </ItemsPanelTemplate>
+                                            </ItemsPresenter.ItemsPanel>
+                                        </ItemsPresenter>
+                                    </ScrollViewer>
+                                </ControlTemplate>
+                            </ItemsControl.Template>
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
                                     <DropShadowChrome MinWidth="100"
@@ -74,7 +83,7 @@
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
-                    </StackPanel>
+                    </DockPanel>
                 </TabItem>
                 <TabItem Header="Input">
                     <ScrollViewer>
@@ -268,7 +277,7 @@
                                 <Divider Content="HyperlinkButton" />
                                 <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
                                     <HyperlinkButton>HyperlinkButton</HyperlinkButton>
-                                    <HyperlinkButton NavigateUri="https://github.com/zrt2399/Synthora">GitHub</HyperlinkButton>
+                                    <HyperlinkButton NavigateUri="{x:Static vm:MainWindowViewModel.GitHubDepositoryUri}">GitHub</HyperlinkButton>
                                 </SpacingWrapPanel>
                             </StackPanel>
                         </StackPanel>
@@ -563,7 +572,7 @@
                                 <TextBlock HorizontalAlignment="Center">Menu</TextBlock>
                             </StackPanel>
                         </SplitView.Pane>
-                        <TabStrip>
+                        <!--<TabStrip>
                             <TabItem Header="Tab 1" IsEnabled="False">
                                 <Button>1</Button>
                             </TabItem>
@@ -573,7 +582,12 @@
                             <TabItem Header="Tab 3">
                                 <Button>3</Button>
                             </TabItem>
-                        </TabStrip>
+                        </TabStrip>-->
+
+                        <NativeMenu>
+                            <NativeMenuItem Header="123" />
+                        </NativeMenu>
+
                     </SplitView>
                 </TabItem>
             </TabControl>

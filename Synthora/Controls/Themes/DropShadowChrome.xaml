@@ -4,18 +4,16 @@
                     x:CompileBindings="True">
 
     <ControlTheme x:Key="{x:Type DropShadowChrome}" TargetType="DropShadowChrome">
-        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
         <Setter Property="BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
-        <!--<Setter Property="Padding" Value="10" />-->
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel Margin="{DynamicResource DefaultBoxShadowParentMargin}">
-                    <Border Name="PART_Border"
+                    <Border Name="rootBorder"
                             Margin="{DynamicResource DefaultBoxShadowMargin}"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
@@ -23,21 +21,24 @@
                             BoxShadow="{TemplateBinding BoxShadow}"
                             ClipToBounds="{TemplateBinding ClipToBounds}"
                             CornerRadius="{TemplateBinding CornerRadius}">
-                        <Panel Name="PART_Panel" ClipToBounds="True">
+                        <Border ClipToBounds="True">
+                            <Border.CornerRadius>
+                                <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.All}">
+                                    <TemplateBinding Property="BorderThickness" />
+                                    <TemplateBinding Property="CornerRadius" />
+                                </MultiBinding>
+                            </Border.CornerRadius>
                             <ContentPresenter Name="PART_ContentPresenter"
                                               Margin="{TemplateBinding Padding}"
                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                               Content="{TemplateBinding Content}"
                                               ContentTemplate="{TemplateBinding ContentTemplate}" />
-                        </Panel>
+                        </Border>
                     </Border>
                 </Panel>
             </ControlTemplate>
         </Setter>
-        <!--<Style Selector="^:disabled">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
-        </Style>-->
     </ControlTheme>
 
 </ResourceDictionary>

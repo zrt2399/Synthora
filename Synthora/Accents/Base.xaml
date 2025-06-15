@@ -73,7 +73,6 @@
             <SolidColorBrush x:Key="RefreshVisualizerBackground" Color="Transparent" />
             <SolidColorBrush x:Key="TextSelectionBrush" Color="{StaticResource ThemeAccentColor3}" />
 
-
             <!--  BaseResources for CaptionButtons.xaml  -->
             <SolidColorBrush x:Key="CaptionButtonForeground" Color="Black" />
             <SolidColorBrush x:Key="CaptionButtonBackground" Color="#ffe5e5e5" />
@@ -240,6 +239,7 @@
     <Thickness x:Key="DefaultBoxShadowMargin">2</Thickness>
     <Thickness x:Key="DefaultBoxShadowParentMargin">-2</Thickness>
 
+    <sys:Double x:Key="ThemeWatermarkOpacity">0.6</sys:Double>
     <sys:Double x:Key="MenuItemMinWidth">140</sys:Double>
 
 </ResourceDictionary>

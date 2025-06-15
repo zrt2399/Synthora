@@ -8,10 +8,6 @@
         <!--<Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />-->
         <Setter Property="BlurRadius" Value="1" />
-        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-        <Setter Property="VerticalContentAlignment" Value="Stretch" />
-        <Setter Property="HorizontalAlignment" Value="Stretch" />
-        <Setter Property="VerticalAlignment" Value="Stretch" />
         <Setter Property="BoxShadow" Value="0 0 20 0 #60000000" />
         <Setter Property="OverlayBackground" Value="Transparent" />
         <!--<Setter Property="Focusable" Value="True" />-->
@@ -41,6 +37,8 @@
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
                                     Background="{DynamicResource ThemeBackgroundBrush}"
+                                    BorderBrush="{DynamicResource ThemeBorderLowBrush}"
+                                    BorderThickness="{DynamicResource ThemeBorderThickness}"
                                     BoxShadow="{TemplateBinding BoxShadow}"
                                     CornerRadius="{DynamicResource ThemeBorderCornerRadius}">
                                 <Border.Transitions>
@@ -54,15 +52,14 @@
                                       RowDefinitions="Auto,*,Auto">
                                     <SelectableTextBlock Name="title"
                                                          Margin="2,0,2,10"
-                                                         HorizontalAlignment="{OnPlatform Default=Left,
-                                                                                          macOS=Center}"
+                                                         HorizontalAlignment="Left"
                                                          FontWeight="Bold"
                                                          IsVisible="{Binding $self.Text, Converter={x:Static SynthoraConverters.IsNotNullOrEmpty}}"
                                                          Text="{TemplateBinding Title}" />
                                     <DockPanel Grid.Row="1">
                                         <TipIcon Name="icon"
-                                                 Width="28"
-                                                 Height="28"
+                                                 Width="32"
+                                                 Height="32"
                                                  Margin="10"
                                                  VerticalAlignment="Top"
                                                  DockPanel.Dock="Left"

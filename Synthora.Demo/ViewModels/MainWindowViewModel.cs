@@ -2,7 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Linq;
 using System.Text;
+using System.Windows.Input;
 using Avalonia;
 using Avalonia.Collections;
 using Avalonia.Controls;
@@ -13,6 +16,7 @@ using Avalonia.Styling;
 using Avalonia.Threading;
 using Bogus;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using Synthora.Demo.Models;
 using Synthora.Messaging;
 
@@ -32,7 +36,7 @@ namespace Synthora.Demo.ViewModels
                 .RuleFor(e => e.Age, f => f.Random.Int(18, 65))
                 .RuleFor(e => e.HireDate, f => f.Date.Past(10, DateTime.Now))
                 .RuleFor(e => e.Salary, f => Math.Round(f.Random.Decimal(5000, 50000), 2))
-                .RuleFor(e => e.IsActive, f => f.Random.Bool()); 
+                .RuleFor(e => e.IsActive, f => f.Random.Bool());
             var employees = employeeFaker.Generate(1000);
 
 
@@ -44,6 +48,7 @@ namespace Synthora.Demo.ViewModels
             {
                 application.ActualThemeVariantChanged += Current_ActualThemeVariantChanged;
             }
+            InitializeBrushResources();
         }
 
         [ObservableProperty]
@@ -84,27 +89,40 @@ namespace Synthora.Demo.ViewModels
         };
 
         [ObservableProperty]
-        public partial ObservableCollection<string> BrushKeys { get; set; } = new ObservableCollection<string>
+        public partial ObservableCollection<string>? BrushKeys { get; set; }
+
+        public static Uri GitHubDepositoryUri { get; } = new Uri("https://github.com/zrt2399/Synthora");
+
+        private void InitializeBrushResources()
         {
-            "PrimaryBrush",
-            "OnPrimaryBrush",
-            "SuccessBrush",
-            "WarningBrush",
-            "DangerBrush",
-            "ErrorBrush",
-            "HighlightBrush",
-            "ThemeAccentBrush",
-            "ThemeAccentBrush2",
-            "ThemeAccentBrush3",
-            "ThemeAccentBrush4",
-            "ThemeBackgroundBrush",
-            "ThemeForegroundBrush"
-        };
+            if (Application.Current is not Application application
+                || application.Styles.FirstOrDefault(x => x is SynthoraTheme) is not SynthoraTheme synthoraTheme)
+            {
+                return;
+            }
+
+            List<string> keys = [];
+            keys.AddRange(synthoraTheme.Resources.Select(x => x.Key.ToString()!).Where(IsBrush));
+            if (synthoraTheme.Resources.ThemeDictionaries[ThemeVariant.Default] is ResourceDictionary dictionary)
+            {
+                keys.AddRange(dictionary.Keys.Select(x => x.ToString()!).Where(IsBrush));
+            }
+
+            BrushKeys = new ObservableCollection<string>(keys);
+        }
+
+        private static bool IsBrush(string? key)
+        {
+            return !string.IsNullOrEmpty(key) && (key.Contains("Brush") || key.Contains("Background") || key.Contains("Foreground")) && !key.Contains("Color");
+        }
 
         private void Current_ActualThemeVariantChanged(object? sender, EventArgs e)
         {
             var temp = BrushKeys;
-            BrushKeys = new ObservableCollection<string>(temp);
+            if (temp != null)
+            {
+                BrushKeys = new ObservableCollection<string>(temp);
+            }
         }
 
         public void ClearEmployees()
@@ -117,7 +135,7 @@ namespace Synthora.Demo.ViewModels
         public async void ShowAlertDialog(string param)
         {
             var stringBuilder = new StringBuilder();
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < 3; i++)
             {
                 stringBuilder.Append($"{param} Message;");
             }
@@ -206,5 +224,27 @@ namespace Synthora.Demo.ViewModels
                     break;
             }
         }
+
+        public static ICommand ShowMainWindowCommand { get; } = new RelayCommand(() =>
+        {
+            if (!App.MainWindow.IsVisible)
+            {
+                App.MainWindow.Show();
+            }
+            if (App.MainWindow.WindowState == WindowState.Minimized)
+            {
+                App.MainWindow.WindowState = WindowState.Normal;
+            }
+            else
+            {
+                App.MainWindow.Activate();
+            }
+        });
+
+        public static ICommand OpenGitHubCommand { get; } = new RelayCommand(() => Process.Start(new ProcessStartInfo
+        {
+            FileName = GitHubDepositoryUri.ToString(),
+            UseShellExecute = true
+        }));
     }
 }

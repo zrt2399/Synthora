@@ -1,0 +1,39 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
+                    x:CompileBindings="True">
+
+    <ControlTheme x:Key="{x:Type SystemDropShadowChrome}"
+                  BasedOn="{StaticResource {x:Type DropShadowChrome}}"
+                  TargetType="SystemDropShadowChrome">
+        <Setter Property="BoxShadow" Value="{DynamicResource PopupBoxShadow}" />
+        <Setter Property="Margin" Value="{DynamicResource PopupBoxShadowMargin}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="rootBorder"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        BoxShadow="{TemplateBinding BoxShadow}"
+                        ClipToBounds="{TemplateBinding ClipToBounds}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <Border ClipToBounds="True">
+                        <Border.CornerRadius>
+                            <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.All}">
+                                <TemplateBinding Property="BorderThickness" />
+                                <TemplateBinding Property="CornerRadius" />
+                            </MultiBinding>
+                        </Border.CornerRadius>
+                        <ContentPresenter Name="PART_ContentPresenter"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}" />
+                    </Border>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+</ResourceDictionary>

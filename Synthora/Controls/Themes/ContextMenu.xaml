@@ -15,20 +15,18 @@
         <Setter Property="TextBlock.FontWeight" Value="Normal" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Name="Popup_Border"
-                        Margin="{DynamicResource PopupBoxShadowMargin}"
-                        Padding="{TemplateBinding Padding}"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        BoxShadow="{DynamicResource PopupBoxShadow}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
+                <SystemDropShadowChrome Name="Popup_Border"
+                                        Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        CornerRadius="{TemplateBinding CornerRadius}">
                     <ScrollViewer Theme="{StaticResource SimpleMenuScrollViewer}">
                         <ItemsPresenter Name="PART_ItemsPresenter"
+                                        Margin="{TemplateBinding Padding}"
                                         ItemsPanel="{TemplateBinding ItemsPanel}"
                                         KeyboardNavigation.TabNavigation="Continue" />
                     </ScrollViewer>
-                </Border>
+                </SystemDropShadowChrome>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

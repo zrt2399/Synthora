@@ -32,21 +32,19 @@
                                OverlayInputPassThroughElement="{Binding $parent[Menu]}"
                                Placement="BottomEdgeAlignedLeft"
                                WindowManagerAddShadowHint="False">
-                            <Border Name="Popup_Border"
-                                    MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
-                                    Margin="{DynamicResource PopupBoxShadowMargin}"
-                                    Background="{DynamicResource ThemeBackgroundBrush}"
-                                    BorderBrush="{DynamicResource ThemeBorderMidBrush}"
-                                    BorderThickness="{DynamicResource ThemeBorderThickness}"
-                                    BoxShadow="{DynamicResource PopupBoxShadow}"
-                                    CornerRadius="{DynamicResource ThemeBorderCornerRadius}">
+                            <SystemDropShadowChrome Name="Popup_Border"
+                                                    MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                                                    Background="{DynamicResource ThemeBackgroundBrush}"
+                                                    BorderBrush="{DynamicResource ThemeBorderMidBrush}"
+                                                    BorderThickness="{DynamicResource ThemeBorderThickness}"
+                                                    CornerRadius="{DynamicResource ThemeBorderCornerRadius}">
                                 <ScrollViewer Theme="{StaticResource SimpleMenuScrollViewer}">
                                     <ItemsPresenter Name="PART_ItemsPresenter"
                                                     Margin="{DynamicResource ThemeMenuFlyoutPadding}"
                                                     Grid.IsSharedSizeScope="True"
                                                     ItemsPanel="{TemplateBinding ItemsPanel}" />
                                 </ScrollViewer>
-                            </Border>
+                            </SystemDropShadowChrome>
                         </Popup>
                     </Panel>
                 </Border>

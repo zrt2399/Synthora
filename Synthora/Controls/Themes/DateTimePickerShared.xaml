@@ -30,7 +30,7 @@
     <ControlTheme x:Key="SimpleDateTimePickerItem"
                   BasedOn="{StaticResource {x:Type ListBoxItem}}"
                   TargetType="ListBoxItem">
-        <Setter Property="Padding" Value="{DynamicResource DatePickerFlyoutPresenterItemPadding}" />
+        <Setter Property="Padding" Value="{DynamicResource DateTimePickerFlyoutPresenterItemPadding}" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
 

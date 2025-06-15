@@ -1,7 +1,6 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        x:ClassModifier="internal"
-        >
+        x:ClassModifier="internal">
 
     <Styles.Resources>
         <ResourceDictionary>
@@ -18,6 +17,7 @@
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ToggleButton.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/DropDownButton.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/DropShadowChrome.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/SystemDropShadowChrome.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/Divider.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/PathIcon.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/PathPicker.xaml" />
@@ -87,4 +87,4 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources>
-</Styles> 
+</Styles>
