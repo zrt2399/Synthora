@@ -49,6 +49,8 @@ namespace Synthora.Controls
         {
             MinLineLengthProperty.Changed.AddClassHandler<Divider, double>((s, e) => s.SetGrid());
             HorizontalContentAlignmentProperty.Changed.AddClassHandler<Divider, HorizontalAlignment>((s, e) => s.SetGrid());
+            VerticalContentAlignmentProperty.Changed.AddClassHandler<Divider, VerticalAlignment>((s, e) => s.SetGrid());
+            OrientationProperty.Changed.AddClassHandler<Divider, Orientation>((s, e) => s.SetGrid());
         }
 
         /// <summary>
@@ -119,25 +121,24 @@ namespace Synthora.Controls
                 return;
             }
 
+            var isHorizontal = Orientation == Orientation.Horizontal;
+
+            var isStartAligned = isHorizontal
+                ? HorizontalContentAlignment == HorizontalAlignment.Left
+                : VerticalContentAlignment == VerticalAlignment.Top;
+
+            var isEndAligned = isHorizontal
+                ? HorizontalContentAlignment == HorizontalAlignment.Right
+                : VerticalContentAlignment == VerticalAlignment.Bottom;
+
+            GridLength pixelLength = new GridLength(MinLineLength, GridUnitType.Pixel); 
+            GridLength firstSegment = isStartAligned ? pixelLength : GridLength.Star;
+            GridLength lastSegment = isEndAligned ? pixelLength : GridLength.Star;
+
             PART_DividerContainer.ColumnDefinitions.Clear();
-            switch (HorizontalContentAlignment)
-            {
-                case HorizontalAlignment.Left:
-                    PART_DividerContainer.ColumnDefinitions.Add(new ColumnDefinition(MinLineLength, GridUnitType.Pixel));
-                    PART_DividerContainer.ColumnDefinitions.Add(new ColumnDefinition(GridLength.Auto));
-                    PART_DividerContainer.ColumnDefinitions.Add(new ColumnDefinition(GridLength.Star));
-                    break;
-                case HorizontalAlignment.Right:
-                    PART_DividerContainer.ColumnDefinitions.Add(new ColumnDefinition(GridLength.Star));
-                    PART_DividerContainer.ColumnDefinitions.Add(new ColumnDefinition(GridLength.Auto));
-                    PART_DividerContainer.ColumnDefinitions.Add(new ColumnDefinition(MinLineLength, GridUnitType.Pixel));
-                    break;
-                default:
-                    PART_DividerContainer.ColumnDefinitions.Add(new ColumnDefinition(GridLength.Star));
-                    PART_DividerContainer.ColumnDefinitions.Add(new ColumnDefinition(GridLength.Auto));
-                    PART_DividerContainer.ColumnDefinitions.Add(new ColumnDefinition(GridLength.Star));
-                    break;
-            }
+            PART_DividerContainer.ColumnDefinitions.Add(new ColumnDefinition(firstSegment));
+            PART_DividerContainer.ColumnDefinitions.Add(new ColumnDefinition(GridLength.Auto));
+            PART_DividerContainer.ColumnDefinitions.Add(new ColumnDefinition(lastSegment));
         }
     }
 }
