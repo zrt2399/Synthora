@@ -7,11 +7,9 @@
     <ControlTheme x:Key="{x:Type AlertDialogHost}" TargetType="AlertDialogHost">
         <!--<Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />-->
-        <Setter Property="BlurRadius" Value="1" />
+        <Setter Property="BlurRadius" Value="{OnPlatform 1, Linux=1.5, x:TypeArguments=x:Double}" />
         <Setter Property="BoxShadow" Value="0 0 20 0 #60000000" />
         <Setter Property="OverlayBackground" Value="Transparent" />
-        <!--<Setter Property="Focusable" Value="True" />-->
-
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Background="{TemplateBinding Background}"
@@ -19,21 +17,23 @@
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}">
                     <Panel>
-                        <Panel Name="panelBackground">
-                            <Panel.Effect>
+                        <ContentPresenter x:Name="PART_ContentPresenter"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          TextElement.Foreground="{TemplateBinding Foreground}">
+                            <ContentPresenter.Effect>
                                 <BlurEffect Radius="{Binding BlurRadius, RelativeSource={RelativeSource TemplatedParent}}" />
-                            </Panel.Effect>
-                            <ContentPresenter x:Name="PART_ContentPresenter"
-                                              Margin="{TemplateBinding Padding}"
-                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                              Content="{TemplateBinding Content}"
-                                              ContentTemplate="{TemplateBinding ContentTemplate}"
-                                              TextElement.Foreground="{TemplateBinding Foreground}" />
-                        </Panel>
+                            </ContentPresenter.Effect>
+                        </ContentPresenter>
 
                         <Panel Background="{TemplateBinding OverlayBackground}" IsVisible="{TemplateBinding IsOpen}">
                             <Border Name="dialogBorder"
+                                    MinWidth="220"
+                                    MinHeight="140"
+                                    Padding="10"
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
                                     Background="{DynamicResource ThemeBackgroundBrush}"
@@ -41,21 +41,46 @@
                                     BorderThickness="{DynamicResource ThemeBorderThickness}"
                                     BoxShadow="{TemplateBinding BoxShadow}"
                                     CornerRadius="{DynamicResource ThemeBorderCornerRadius}">
+
                                 <Border.Transitions>
                                     <Transitions>
                                         <DoubleTransition Property="Opacity" Duration="0:0:0.3" />
                                     </Transitions>
                                 </Border.Transitions>
 
-                                <Grid Margin="10"
-                                      KeyboardNavigation.TabNavigation="Cycle"
-                                      RowDefinitions="Auto,*,Auto">
-                                    <SelectableTextBlock Name="title"
-                                                         Margin="2,0,2,10"
-                                                         HorizontalAlignment="Left"
-                                                         FontWeight="Bold"
-                                                         IsVisible="{Binding $self.Text, Converter={x:Static SynthoraConverters.IsNotNullOrEmpty}}"
-                                                         Text="{TemplateBinding Title}" />
+                                <Grid KeyboardNavigation.TabNavigation="Cycle" RowDefinitions="Auto,*,Auto">
+                                    <Grid.Styles>
+                                        <Style Selector="Button">
+                                            <Setter Property="CornerRadius">
+                                                <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.All}">
+                                                    <Binding Path="$parent[Border].CornerRadius" />
+                                                    <Binding Path="$parent[Border].BorderThickness" />
+                                                    <Binding Path="$parent[Border].Padding" />
+                                                </MultiBinding>
+                                            </Setter>
+                                        </Style>
+                                    </Grid.Styles>
+                                    <Panel>
+                                        <SelectableTextBlock Name="title"
+                                                             Margin="2,0,2,10"
+                                                             HorizontalAlignment="Left"
+                                                             FontWeight="Bold"
+                                                             IsVisible="{Binding $self.Text, Converter={x:Static SynthoraConverters.IsNotNullOrEmpty}}"
+                                                             Text="{TemplateBinding Title}" />
+                                        <Button Padding="4"
+                                                HorizontalAlignment="Right"
+                                                VerticalAlignment="Top"
+                                                Command="{Binding None, RelativeSource={RelativeSource TemplatedParent}}"
+                                                IsVisible="{TemplateBinding ShowCloseButton}"
+                                                Theme="{DynamicResource IconButtonTheme}">
+                                            <PathIcon Width="10"
+                                                      Height="10"
+                                                      HorizontalAlignment="Center"
+                                                      VerticalAlignment="Center"
+                                                      Data="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+                                        </Button>
+                                    </Panel>
+
                                     <DockPanel Grid.Row="1">
                                         <TipIcon Name="icon"
                                                  Width="32"
@@ -66,8 +91,6 @@
                                                  IconType="{TemplateBinding IconType}" />
 
                                         <SelectableTextBlock Name="message"
-                                                             MinWidth="100"
-                                                             MinHeight="40"
                                                              Margin="10"
                                                              HorizontalAlignment="Left"
                                                              VerticalAlignment="Top"
@@ -130,7 +153,7 @@
             </ControlTemplate>
         </Setter>
         <Style Selector="^[IsOpen=False]">
-            <Style Selector="^ /template/ Panel#panelBackground">
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Effect" Value="{x:Null}" />
             </Style>
             <Style Selector="^ /template/ Border#dialogBorder">
@@ -146,6 +169,9 @@
             <Style Selector="^ /template/ Border#dialogBorder">
                 <Setter Property="Opacity" Value="1" />
             </Style>
+        </Style>
+        <Style Selector="^:no-button /template/ StackPanel#PART_ButtonPanel">
+            <Setter Property="Margin" Value="0" />
         </Style>
     </ControlTheme>
 

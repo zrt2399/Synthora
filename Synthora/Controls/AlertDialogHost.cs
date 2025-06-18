@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Primitives;
 using Avalonia.Media;
 using Avalonia.Threading;
@@ -16,16 +17,19 @@ namespace Synthora.Controls
         public DialogResult DialogResult { get; } = dialogResult;
     }
 
-    public class AlertDialogParameter
+    public class AlertDialogDialogOptions
     {
         public string? Title { get; set; }
         public string? Message { get; set; }
         public DialogButton DialogButton { get; set; } = DialogButton.OK;
         public IconType IconType { get; set; }
+        public bool ShowCloseButton { get; set; }
     }
 
+    [PseudoClasses(pcNoButton)]
     public class AlertDialogHost : DropShadowChrome
     {
+        private const string pcNoButton = ":no-button";
         private StackPanel? PART_ButtonPanel;
         private static readonly HashSet<AlertDialogHost> _loadedInstances = [];
 
@@ -50,8 +54,11 @@ namespace Synthora.Controls
         public static readonly StyledProperty<string?> IdentifierProperty =
             AvaloniaProperty.Register<AlertDialogHost, string?>(nameof(Identifier));
 
-        public static readonly StyledProperty<IBrush> OverlayBackgroundProperty =
-            AvaloniaProperty.Register<AlertDialogHost, IBrush>(nameof(OverlayBackground));
+        public static readonly StyledProperty<IBrush?> OverlayBackgroundProperty =
+            AvaloniaProperty.Register<AlertDialogHost, IBrush?>(nameof(OverlayBackground));
+
+        public static readonly StyledProperty<bool> ShowCloseButtonProperty =
+            AvaloniaProperty.Register<AlertDialogHost, bool>(nameof(ShowCloseButton));
 
         public event EventHandler<AlertDialogClosedEventArgs>? DialogClosed;
 
@@ -97,10 +104,30 @@ namespace Synthora.Controls
             set => SetValue(IdentifierProperty, value);
         }
 
-        public IBrush OverlayBackground
+        public IBrush? OverlayBackground
         {
             get => GetValue(OverlayBackgroundProperty);
             set => SetValue(OverlayBackgroundProperty, value);
+        }
+
+        public bool ShowCloseButton
+        {
+            get => GetValue(ShowCloseButtonProperty);
+            set => SetValue(ShowCloseButtonProperty, value);
+        }
+
+        protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs e)
+        {
+            base.OnPropertyChanged(e);
+            if (e.Property == DialogButtonProperty)
+            {
+                UpdatePseudoClasses();
+            }
+        }
+
+        private void UpdatePseudoClasses()
+        {
+            PseudoClasses.Set(pcNoButton, DialogButton == DialogButton.None);
         }
 
         /// <summary>
@@ -135,14 +162,14 @@ namespace Synthora.Controls
         /// </summary>
         public static bool IsDialogOpen(string? dialogIdentifier) => GetInstance(dialogIdentifier).IsOpen;
 
-        internal static async Task<DialogResult> ShowAsync(string? dialogIdentifier, AlertDialogParameter alertDialogParameter)
+        internal static async Task<DialogResult> ShowAsync(string? dialogIdentifier, AlertDialogDialogOptions alertDialogDialogOptions)
         {
-            return await GetInstance(dialogIdentifier).ShowCore(alertDialogParameter);
+            return await GetInstance(dialogIdentifier).ShowCore(alertDialogDialogOptions);
         }
 
-        internal static async Task<DialogResult> ShowAsync(string? dialogIdentifier, string message, string title, DialogButton dialogButton, IconType iconType)
+        internal static async Task<DialogResult> ShowAsync(string? dialogIdentifier, string? message, string? title, DialogButton dialogButton, IconType iconType)
         {
-            return await GetInstance(dialogIdentifier).ShowCore(new AlertDialogParameter()
+            return await GetInstance(dialogIdentifier).ShowCore(new AlertDialogDialogOptions()
             {
                 Title = title,
                 Message = message,
@@ -151,11 +178,11 @@ namespace Synthora.Controls
             });
         }
 
-        private async Task<DialogResult> ShowCore(AlertDialogParameter alertDialogParameter)
+        private async Task<DialogResult> ShowCore(AlertDialogDialogOptions alertDialogDialogOptions)
         {
-            if (alertDialogParameter.DialogButton == DialogButton.None)
+            if (alertDialogDialogOptions.DialogButton == DialogButton.None)
             {
-                throw new InvalidOperationException("DialogButton cannot be None.");
+                alertDialogDialogOptions.ShowCloseButton = true;
             }
             if (IsOpen)
             {
@@ -166,15 +193,16 @@ namespace Synthora.Controls
             try
             {
                 DialogClosed += OnDialogClosed;
-                SetCurrentValue(TitleProperty, alertDialogParameter.Title);
-                SetCurrentValue(MessageProperty, alertDialogParameter.Message);
-                SetCurrentValue(DialogButtonProperty, alertDialogParameter.DialogButton);
-                SetCurrentValue(IconTypeProperty, alertDialogParameter.IconType);
+                SetCurrentValue(TitleProperty, alertDialogDialogOptions.Title);
+                SetCurrentValue(MessageProperty, alertDialogDialogOptions.Message);
+                SetCurrentValue(DialogButtonProperty, alertDialogDialogOptions.DialogButton);
+                SetCurrentValue(IconTypeProperty, alertDialogDialogOptions.IconType);
+                SetCurrentValue(ShowCloseButtonProperty, alertDialogDialogOptions.ShowCloseButton);
                 SetCurrentValue(IsOpenProperty, true);
 
                 _ = Dispatcher.UIThread.InvokeAsync(() =>
                 {
-                    if (PART_ButtonPanel != null && PART_ButtonPanel.Children.FirstOrDefault(x => x is Button && x.IsVisible) is Button button)
+                    if (PART_ButtonPanel?.Children.FirstOrDefault(x => x is Button && x.IsVisible) is Button button)
                     {
                         button.Focus();
                     }
@@ -244,6 +272,7 @@ namespace Synthora.Controls
         {
             base.OnApplyTemplate(e);
             PART_ButtonPanel = e.NameScope.Find<StackPanel>(nameof(PART_ButtonPanel));
+            UpdatePseudoClasses();
         }
 
         public void OK() => Close(DialogResult.OK);
@@ -251,5 +280,6 @@ namespace Synthora.Controls
         public void Yes() => Close(DialogResult.Yes);
         public void No() => Close(DialogResult.No);
         public void Abort() => Close(DialogResult.Abort);
+        public void None() => Close(DialogResult.None);
     }
 }

@@ -53,25 +53,49 @@ namespace Synthora.Messaging
     public static class AlertDialog
     {
         /// <summary>
-        /// Displays an alert dialog asynchronously,
-        /// using the <paramref name="dialogIdentifier"/> to locate the specific <see cref="AlertDialogHost"/> instance.
+        /// Displays an alert dialog asynchronously using the specified <paramref name="alertDialogDialogOptions"/>,
+        /// targeting the <see cref="AlertDialogHost"/> instance identified by <paramref name="dialogIdentifier"/>.
         /// </summary>
-        public static async Task<DialogResult> ShowAsync(string? dialogIdentifier, string message, string title, DialogButton dialogButton = DialogButton.OK, IconType iconType = IconType.Information)
+        public static async Task<DialogResult> ShowAsync(string? dialogIdentifier, AlertDialogDialogOptions alertDialogDialogOptions)
         {
             if (Dispatcher.UIThread.CheckAccess())
             {
-                return await AlertDialogHost.ShowAsync(dialogIdentifier, message, title, dialogButton, iconType);
+                return await AlertDialogHost.ShowAsync(dialogIdentifier, alertDialogDialogOptions);
             }
             else
             {
-                return await Dispatcher.UIThread.Invoke(() => ShowAsync(dialogIdentifier, message, title, dialogButton, iconType));
+                return await Dispatcher.UIThread.Invoke(() => ShowAsync(dialogIdentifier, alertDialogDialogOptions));
             }
+        }
+
+        /// <summary>
+        /// Displays an alert dialog asynchronously using the default <see cref="AlertDialogHost"/> instance
+        /// and the specified <paramref name="alertDialogDialogOptions"/>.
+        /// </summary>
+        public static async Task<DialogResult> ShowAsync(AlertDialogDialogOptions alertDialogDialogOptions)
+        {
+            return await ShowAsync(null, alertDialogDialogOptions);
+        }
+
+        /// <summary>
+        /// Displays an alert dialog asynchronously,
+        /// using the <paramref name="dialogIdentifier"/> to locate the specific <see cref="AlertDialogHost"/> instance.
+        /// </summary>
+        public static async Task<DialogResult> ShowAsync(string? dialogIdentifier, string? message, string? title, DialogButton dialogButton = DialogButton.OK, IconType iconType = IconType.Information)
+        {
+            return await ShowAsync(dialogIdentifier, new AlertDialogDialogOptions()
+            {
+                Message = message,
+                Title = title,
+                DialogButton = dialogButton,
+                IconType = iconType
+            });
         }
 
         /// <summary>
         /// Displays an alert dialog asynchronously using the default <see cref="AlertDialogHost"/> instance.
         /// </summary>
-        public static async Task<DialogResult> ShowAsync(string message, string title, DialogButton dialogButton = DialogButton.OK, IconType iconType = IconType.Information)
+        public static async Task<DialogResult> ShowAsync(string? message, string? title, DialogButton dialogButton = DialogButton.OK, IconType iconType = IconType.Information)
         {
             return await ShowAsync(null, message, title, dialogButton, iconType);
         }
