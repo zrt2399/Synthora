@@ -1,16 +1,18 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:conv="using:Avalonia.Controls.Converters"
+                    xmlns:converters="using:Avalonia.Controls.Converters"
                     xmlns:sys="using:System"
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
 
-    <conv:PlatformKeyGestureConverter x:Key="KeyGestureConverter" />
+    <converters:PlatformKeyGestureConverter x:Key="KeyGestureConverter" />
 
     <ControlTheme x:Key="{x:Type MenuItem}" TargetType="MenuItem">
         <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
         <Setter Property="Padding" Value="{DynamicResource ThemeMenuFlyoutPadding}" />
         <Setter Property="MinWidth" Value="{DynamicResource MenuItemMinWidth}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Name="root"
@@ -19,8 +21,8 @@
                         BorderThickness="{TemplateBinding BorderThickness}">
                     <Border.CornerRadius>
                         <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.All}">
-                            <Binding Path="#Popup_Border.BorderThickness" />
                             <Binding Path="#Popup_Border.CornerRadius" />
+                            <Binding Path="#Popup_Border.BorderThickness" />
                             <Binding Path="#PART_ItemsPresenter.Margin" />
                         </MultiBinding>
                     </Border.CornerRadius>
@@ -71,7 +73,7 @@
                                   Margin="20,0,4,0"
                                   VerticalAlignment="Center"
                                   Data="{DynamicResource ArrowRightGlyph}"
-                                  Foreground="{DynamicResource ThemeForegroundBrush}"
+                                  Foreground="{TemplateBinding Foreground}"
                                   IsHitTestVisible="False"
                                   UseLayoutRounding="False" />
                         <Popup Name="PART_Popup"
@@ -87,7 +89,7 @@
                                                     CornerRadius="{DynamicResource ThemeBorderCornerRadius}">
                                 <ScrollViewer Theme="{StaticResource SimpleMenuScrollViewer}">
                                     <ItemsPresenter Name="PART_ItemsPresenter"
-                                                    Margin="{DynamicResource ThemeMenuFlyoutPadding}"
+                                                    Margin="{TemplateBinding Padding}"
                                                     Grid.IsSharedSizeScope="True"
                                                     ItemsPanel="{TemplateBinding ItemsPanel}" />
                                 </ScrollViewer>
@@ -106,13 +108,19 @@
             </Setter>
         </Style>
 
-        <Style Selector="^:selected /template/ Border#root">
-            <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />
+        <Style Selector="^:selected">
+            <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+            <Style Selector="^ /template/ Border#root">
+                <Setter Property="Background" Value="{DynamicResource PrimaryPointerOverBrush}" />
+            </Style>
         </Style>
 
-        <!--  Listen for root:pointerover, so it will not be triggered when subitem is pressed  -->
-        <Style Selector="^:pressed /template/ Border#root:pointerover">
-            <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidBrush}" />
+        <Style Selector="^:pressed">
+            <!-- <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" /> -->
+            <!--  Listen for root:pointerover, so it will not be triggered when subitem is pressed  -->
+            <Style Selector="^ /template/ Border#root:pointerover">
+                <Setter Property="Background" Value="{DynamicResource PrimaryPressedBrush}" />
+            </Style>
         </Style>
 
         <Style Selector="^:empty /template/ PathIcon#rightArrow">

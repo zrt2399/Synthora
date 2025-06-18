@@ -24,8 +24,8 @@
                         <Border ClipToBounds="True">
                             <Border.CornerRadius>
                                 <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.All}">
-                                    <TemplateBinding Property="BorderThickness" />
                                     <TemplateBinding Property="CornerRadius" />
+                                    <TemplateBinding Property="BorderThickness" />
                                 </MultiBinding>
                             </Border.CornerRadius>
                             <ContentPresenter Name="PART_ContentPresenter"

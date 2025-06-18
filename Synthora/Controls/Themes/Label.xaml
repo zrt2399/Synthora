@@ -4,7 +4,7 @@
                     x:CompileBindings="True">
 
     <ControlTheme x:Key="{x:Type Label}" TargetType="Label">
-        <Setter Property="Padding" Value="{DynamicResource ThemeBorderPadding}" />
+        <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Background="{TemplateBinding Background}"

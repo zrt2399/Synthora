@@ -11,7 +11,7 @@
     <ControlTheme x:Key="{x:Type StatusBar}" TargetType="StatusBar">
         <Setter Property="Background" Value="{DynamicResource StatusBarDefaultBackground}" />
         <Setter Property="Foreground" Value="{DynamicResource StatusBarDefaultForeground}" />
-        <Setter Property="Padding" Value="{DynamicResource ThemeBorderPadding}" />
+        <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
 
         <Setter Property="Template">
             <ControlTemplate>

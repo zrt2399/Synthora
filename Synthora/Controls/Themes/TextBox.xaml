@@ -198,7 +198,7 @@
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
         <Setter Property="SelectionBrush" Value="{DynamicResource TextSelectionBrush}" />
         <!--<Setter Property="SelectionForegroundBrush" Value="{DynamicResource HighlightForegroundBrush}" />-->
-        <Setter Property="Padding" Value="{DynamicResource ThemeBorderPadding}" />
+        <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
         <Setter Property="ContextFlyout" Value="{StaticResource SimpleTextBoxContextFlyout}" />
         <!--<Setter Property="ContextMenu" Value="{StaticResource SimpleTextBoxContextMenu}" />-->
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />

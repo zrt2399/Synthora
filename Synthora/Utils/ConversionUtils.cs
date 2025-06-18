@@ -103,17 +103,35 @@ namespace Synthora.Utils
         /// </summary>
         /// <param name="outerRadius">The outer radius of the shape.</param>
         /// <param name="outerBorderThickness">The thickness of the outer border.</param>
-        /// <param name="innerBorderThickness">
-        /// Optional thickness of an inner border. Defaults to 0 if not specified.
+        /// <param name="outerBorderPadding">
+        /// Optional padding of an outer border. Defaults to 0 if not specified.
         /// </param>
         /// <returns>
         /// The computed inner radius after subtracting half of each border's thickness;
         /// returns 0 if the computed value would be negative.
         /// </returns>
-        public static double CalcInnerRadius(double outerRadius, double outerBorderThickness, double innerBorderThickness = 0)
+        public static double CalcInnerRadius(double outerRadius, double outerBorderThickness, double outerBorderPadding = 0)
         {
-            //R' = R - T/2 - T'/2
-            double result = outerRadius - (outerBorderThickness / 2.0) - (innerBorderThickness / 2.0);
+            double result;
+            if (outerBorderPadding < 0.5)
+            {
+                //R' = R - T/2 - T'/2
+                result = outerRadius - outerBorderThickness / 2 - outerBorderPadding / 2;
+            }
+            else
+            {
+                var shrink = outerBorderThickness + outerBorderPadding;
+                if (outerBorderPadding >= outerRadius || shrink >= outerRadius)
+                {
+                    result = outerRadius / 2 - outerBorderThickness / 2;
+                }
+                else
+                {
+                    // result = outerRadius - outerBorderPadding /*- outerBorderThickness / 2*/;
+                    // result = outerRadius - 0.7 * (outerBorderPadding + outerBorderThickness);
+                    result = outerRadius - shrink * Math.Sqrt(2) / 2;
+                }
+            }
 
             return Math.Max(0, result);
         }

@@ -209,8 +209,8 @@
 
     <Thickness x:Key="ThemeBorderThickness">1</Thickness>
 
-    <Thickness x:Key="ThemeBorderPaddingSmall">4</Thickness>
-    <Thickness x:Key="ThemeBorderPadding">6,4</Thickness>
+    <Thickness x:Key="ThemeControlPaddingSmall">4</Thickness>
+    <Thickness x:Key="ThemeControlPadding">6,4</Thickness>
     <Thickness x:Key="ThemeMenuFlyoutPadding">4</Thickness>
     <Thickness x:Key="ThemeControlLeftPadding">6,0,0,0</Thickness>
     <Thickness x:Key="ThemeControlRightPadding">0,0,0,6</Thickness>

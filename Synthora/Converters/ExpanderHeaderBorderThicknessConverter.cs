@@ -13,7 +13,7 @@ namespace Synthora.Converters
 
         public object? Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture)
         {
-            if (values.Count == 3 && values[0] is Thickness thickness && values[1] is ExpandDirection expandDirection && values[2] is bool isExpanded)
+            if (values.Count > 2 && values[0] is Thickness thickness && values[1] is ExpandDirection expandDirection && values[2] is bool isExpanded)
             {
                 if (!isExpanded)
                 {

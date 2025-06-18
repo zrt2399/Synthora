@@ -10,7 +10,7 @@
         <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Name="LayoutRoot"
+                <Border Name="RootBorder"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
@@ -42,10 +42,10 @@
                   BasedOn="{StaticResource ToggleButtonSolidBaseTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
-        <Style Selector="^:checked:pointerover /template/ Border#LayoutRoot">
+        <Style Selector="^:checked:pointerover /template/ Border#RootBorder">
             <Setter Property="Background" Value="{DynamicResource PrimaryPointerOverBrush}" />
         </Style>
-        <Style Selector="^:checked:pressed /template/ Border#LayoutRoot">
+        <Style Selector="^:checked:pressed /template/ Border#RootBorder">
             <Setter Property="Background" Value="{DynamicResource PrimaryPressedBrush}" />
         </Style>
         <Style Selector="^:checked">
@@ -58,10 +58,10 @@
                   BasedOn="{StaticResource ToggleButtonSolidBaseTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Foreground" Value="{DynamicResource SuccessBrush}" />
-        <Style Selector="^:checked:pointerover /template/ Border#LayoutRoot">
+        <Style Selector="^:checked:pointerover /template/ Border#RootBorder">
             <Setter Property="Background" Value="{DynamicResource SuccessPointerOverBrush}" />
         </Style>
-        <Style Selector="^:checked:pressed /template/ Border#LayoutRoot">
+        <Style Selector="^:checked:pressed /template/ Border#RootBorder">
             <Setter Property="Background" Value="{DynamicResource SuccessPressedBrush}" />
         </Style>
         <Style Selector="^:checked">
@@ -74,10 +74,10 @@
                   BasedOn="{StaticResource ToggleButtonSolidBaseTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Foreground" Value="{DynamicResource WarningBrush}" />
-        <Style Selector="^:checked:pointerover /template/ Border#LayoutRoot">
+        <Style Selector="^:checked:pointerover /template/ Border#RootBorder">
             <Setter Property="Background" Value="{DynamicResource WarningPointerOverBrush}" />
         </Style>
-        <Style Selector="^:checked:pressed /template/ Border#LayoutRoot">
+        <Style Selector="^:checked:pressed /template/ Border#RootBorder">
             <Setter Property="Background" Value="{DynamicResource WarningPressedBrush}" />
         </Style>
         <Style Selector="^:checked">
@@ -90,10 +90,10 @@
                   BasedOn="{StaticResource ToggleButtonSolidBaseTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Foreground" Value="{DynamicResource DangerBrush}" />
-        <Style Selector="^:checked:pointerover /template/ Border#LayoutRoot">
+        <Style Selector="^:checked:pointerover /template/ Border#RootBorder">
             <Setter Property="Background" Value="{DynamicResource DangerPointerOverBrush}" />
         </Style>
-        <Style Selector="^:checked:pressed /template/ Border#LayoutRoot">
+        <Style Selector="^:checked:pressed /template/ Border#RootBorder">
             <Setter Property="Background" Value="{DynamicResource DangerPressedBrush}" />
         </Style>
         <Style Selector="^:checked">
@@ -106,10 +106,10 @@
                   BasedOn="{StaticResource ToggleButtonSolidBaseTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Foreground" Value="{DynamicResource ErrorBrush}" />
-        <Style Selector="^:checked:pointerover /template/ Border#LayoutRoot">
+        <Style Selector="^:checked:pointerover /template/ Border#RootBorder">
             <Setter Property="Background" Value="{DynamicResource ErrorPointerOverBrush}" />
         </Style>
-        <Style Selector="^:checked:pressed /template/ Border#LayoutRoot">
+        <Style Selector="^:checked:pressed /template/ Border#RootBorder">
             <Setter Property="Background" Value="{DynamicResource ErrorPressedBrush}" />
         </Style>
         <Style Selector="^:checked">

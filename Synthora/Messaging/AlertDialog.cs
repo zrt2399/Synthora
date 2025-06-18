@@ -47,6 +47,15 @@ namespace Synthora.Messaging
         Error
     }
 
+    public class AlertDialogDialogOptions
+    {
+        public string? Title { get; set; }
+        public string? Message { get; set; }
+        public DialogButton DialogButton { get; set; } = DialogButton.OK;
+        public IconType IconType { get; set; }
+        public bool ShowCloseButton { get; set; }
+    }
+
     /// <summary>
     /// Provides methods to display alert dialogs with various buttons and icons.
     /// </summary>

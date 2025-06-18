@@ -51,7 +51,7 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type TreeViewItem}" TargetType="TreeViewItem">
-        <Setter Property="Padding" Value="{DynamicResource ThemeBorderPadding}" />
+        <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
             <ControlTemplate>

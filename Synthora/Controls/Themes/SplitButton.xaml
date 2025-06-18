@@ -89,7 +89,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="KeyboardNavigation.IsTabStop" Value="True" />
         <Setter Property="Focusable" Value="True" />
-        <Setter Property="Padding" Value="{DynamicResource ThemeBorderPadding}" />
+        <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid ColumnDefinitions="*,Auto">
@@ -112,8 +112,8 @@
                             Theme="{StaticResource SimpleSplitButtonComponent}">
                         <Button.CornerRadius>
                             <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="TopLeft,BottomLeft">
-                                <Binding Path="BorderThickness" RelativeSource="{RelativeSource TemplatedParent}" />
-                                <Binding Path="CornerRadius" RelativeSource="{RelativeSource TemplatedParent}" />
+                                <TemplateBinding Property="CornerRadius" />
+                                <TemplateBinding Property="BorderThickness" />
                             </MultiBinding>
                         </Button.CornerRadius>
                     </Button>
@@ -131,8 +131,8 @@
                             Theme="{StaticResource SimpleSplitButtonComponent}">
                         <Button.CornerRadius>
                             <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="TopRight,BottomRight">
-                                <Binding Path="BorderThickness" RelativeSource="{RelativeSource TemplatedParent}" />
-                                <Binding Path="CornerRadius" RelativeSource="{RelativeSource TemplatedParent}" />
+                                <TemplateBinding Property="CornerRadius" />
+                                <TemplateBinding Property="BorderThickness" />
                             </MultiBinding>
                         </Button.CornerRadius>
                         <PathIcon Name="pathIcon"

@@ -17,15 +17,6 @@ namespace Synthora.Controls
         public DialogResult DialogResult { get; } = dialogResult;
     }
 
-    public class AlertDialogDialogOptions
-    {
-        public string? Title { get; set; }
-        public string? Message { get; set; }
-        public DialogButton DialogButton { get; set; } = DialogButton.OK;
-        public IconType IconType { get; set; }
-        public bool ShowCloseButton { get; set; }
-    }
-
     [PseudoClasses(pcNoButton)]
     public class AlertDialogHost : DropShadowChrome
     {

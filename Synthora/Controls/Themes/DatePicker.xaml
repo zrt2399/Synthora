@@ -12,7 +12,7 @@
                     x:CompileBindings="True">
 
     <Design.PreviewWith>
-        <Border Height="500" Padding="20">
+        <Border Width="400" Padding="20">
             <StackPanel VerticalAlignment="Center" Spacing="20">
                 <DatePicker />
                 <DatePicker CornerRadius="10" />
@@ -80,7 +80,7 @@
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
-        <Setter Property="Padding" Value="{DynamicResource ThemeBorderPadding}" />
+        <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
         <!--<Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="MinWidth" Value="{DynamicResource DatePickerThemeMinWidth}" />

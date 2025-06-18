@@ -8,7 +8,7 @@
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
         <Setter Property="Padding" Value="10" />
-        <Setter Property="HeaderPadding" Value="{DynamicResource ThemeBorderPadding}" />
+        <Setter Property="HeaderPadding" Value="{DynamicResource ThemeControlPadding}" />
         <Setter Property="HeaderBackground" Value="{DynamicResource ThemeControlMidBrush}" />
         <Setter Property="BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
         <Setter Property="HeaderDividerHeight" Value="1" />
@@ -34,8 +34,8 @@
                                     DockPanel.Dock="Top">
                                 <Border.CornerRadius>
                                     <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="TopLeft,TopRight">
-                                        <Binding Path="BorderThickness" RelativeSource="{RelativeSource TemplatedParent}" />
-                                        <Binding Path="CornerRadius" RelativeSource="{RelativeSource TemplatedParent}" />
+                                        <TemplateBinding Property="CornerRadius" />
+                                        <TemplateBinding Property="BorderThickness" />
                                     </MultiBinding>
                                 </Border.CornerRadius>
                                 <ContentPresenter x:Name="PART_HeaderContentPresenter"

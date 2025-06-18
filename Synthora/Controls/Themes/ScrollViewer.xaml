@@ -51,8 +51,8 @@
                                   Theme="{StaticResource CancelRepeatButtonTheme}">
                         <RepeatButton.CornerRadius>
                             <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="TopLeft,TopRight">
-                                <Binding Path="BorderThickness" RelativeSource="{RelativeSource TemplatedParent}" />
-                                <Binding Path="CornerRadius" RelativeSource="{RelativeSource TemplatedParent}" />
+                                <TemplateBinding Property="CornerRadius" />
+                                <TemplateBinding Property="BorderThickness" />
                             </MultiBinding>
                         </RepeatButton.CornerRadius>
                         <RepeatButton.IsVisible>
@@ -72,8 +72,8 @@
                                   Theme="{StaticResource CancelRepeatButtonTheme}">
                         <RepeatButton.CornerRadius>
                             <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="BottomLeft,BottomRight">
-                                <Binding Path="BorderThickness" RelativeSource="{RelativeSource TemplatedParent}" />
-                                <Binding Path="CornerRadius" RelativeSource="{RelativeSource TemplatedParent}" />
+                                <TemplateBinding Property="CornerRadius" />
+                                <TemplateBinding Property="BorderThickness" />
                             </MultiBinding>
                         </RepeatButton.CornerRadius>
                         <RepeatButton.IsVisible>

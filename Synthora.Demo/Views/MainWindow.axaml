@@ -144,9 +144,11 @@
                                 <Divider Content="IconButton" />
                                 <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
                                     <Button Content="{materialIcons:MaterialIconTextExt Kind=About, Text=About}" />
-                                    <Button Classes="IconButton" Content="{materialIcons:MaterialIconTextExt Kind=Dad}" />
+                                    <Button Padding="{DynamicResource ThemeControlPaddingSmall}" Content="{materialIcons:MaterialIconTextExt Kind=Dad}" />
                                     <Button Content="{materialIcons:MaterialIconTextExt Kind=Mom}" />
                                     <Button Content="{materialIcons:MaterialIconExt Kind=GraphPie}" />
+                                    <Button Content="{materialIcons:MaterialIconExt Kind=Decrement}" />
+                                    <Button Content="{materialIcons:MaterialIconExt Kind=CloseBox}" Theme="{StaticResource IconButtonTheme}" />
                                 </SpacingWrapPanel>
                                 <Divider Content="Button" />
                                 <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
@@ -341,6 +343,7 @@
                                     <Button Theme="{StaticResource WarningButtonTheme}">Warning</Button>
                                     <Button Theme="{StaticResource ErrorButtonTheme}">Error</Button>
                                     <Button Theme="{StaticResource DangerButtonTheme}">Abort</Button>
+                                    <Button Theme="{StaticResource CancelButtonTheme}">None</Button>
                                 </SpacingWrapPanel>
                             </StackPanel>
                         </StackPanel>
@@ -354,7 +357,11 @@
                                     <MenuItem Header="MenuItem3" />
                                     <MenuItem Header="MenuItem4" />
                                     <MenuItem Header="MenuItem5" />
-                                    <MenuItem Header="MenuItem6" />
+                                    <MenuItem Header="MenuItem6">
+                                        <MenuItem Header="MenuItem7" />
+                                        <MenuItem Header="MenuItem8" />
+                                        <MenuItem Header="MenuItem9" />
+                                    </MenuItem>
                                 </MenuItem>
                             </MenuItem>
                             <MenuItem Header="MenuItema">

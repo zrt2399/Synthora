@@ -19,12 +19,12 @@ namespace Synthora.Converters
 
         public object? Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture)
         {
-            if (values.Count == 4 && values[0] is Thickness thickness && values[1] is CornerRadius cornerRadius && values[2] is ExpandDirection expandDirection && values[3] is bool isExpanded)
+            if (values.Count > 3 && values[0] is CornerRadius cornerRadius && values[1] is Thickness thickness && values[2] is ExpandDirection expandDirection && values[3] is bool isExpanded)
             {
                 if (!isExpanded)
                 {
                     return new CornerRadius(
-                        CalcInnerRadius(cornerRadius.TopLeft, thickness.Left), 
+                        CalcInnerRadius(cornerRadius.TopLeft, thickness.Left),
                         CalcInnerRadius(cornerRadius.TopRight, thickness.Top),
                         CalcInnerRadius(cornerRadius.BottomRight, thickness.Right),
                         CalcInnerRadius(cornerRadius.BottomLeft, thickness.Bottom));
