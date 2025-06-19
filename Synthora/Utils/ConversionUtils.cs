@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using System.Reflection;
 using System.Text;
 using Avalonia;
@@ -18,26 +17,29 @@ namespace Synthora.Utils
         /// <summary>
         /// Converts a sequence of bytes to a hexadecimal string, with an optional separator between byte values.
         /// </summary>
-        public static string ToHexString(this IEnumerable<byte> bytes, string separator = " ")
+        public static string ToHexString(this IEnumerable<byte> bytes, string? separator = " ")
         {
-            if (bytes == null)
+            ArgumentNullException.ThrowIfNull(bytes);
+
+            using var enumerator = bytes.GetEnumerator();
+            if (!enumerator.MoveNext())
             {
                 return string.Empty;
             }
-            var count = bytes.Count();
-            if (count == 0)
+
+            const string format = "X2";
+            var stringBuilder = new StringBuilder();
+            stringBuilder.Append(enumerator.Current.ToString(format));
+
+            while (enumerator.MoveNext())
             {
-                return string.Empty;
-            }
-            StringBuilder stringBuilder = new StringBuilder();
-            for (int i = 0; i < count; i++)
-            {
-                stringBuilder.Append(bytes.ElementAt(i).ToString("X2"));
-                if (i < count - 1)
+                if (!string.IsNullOrEmpty(separator))
                 {
                     stringBuilder.Append(separator);
                 }
+                stringBuilder.Append(enumerator.Current.ToString(format));
             }
+
             return stringBuilder.ToString();
         }
 
@@ -50,7 +52,7 @@ namespace Synthora.Utils
             {
                 return string.Empty;
             }
-            StringBuilder stringBuilder = new StringBuilder();
+            var stringBuilder = new StringBuilder();
             byte[] data = Encoding.UTF8.GetBytes(str);
             for (int i = 0; i < data.Length; i++)
             {
@@ -115,7 +117,7 @@ namespace Synthora.Utils
             double result;
             if (outerBorderPadding < 0.5)
             {
-                //R' = R - T/2 - T'/2
+                // R' = R - T/2 - T'/2
                 result = outerRadius - outerBorderThickness / 2 - outerBorderPadding / 2;
             }
             else
