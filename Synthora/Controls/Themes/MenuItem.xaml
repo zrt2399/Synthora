@@ -109,9 +109,8 @@
         </Style>
 
         <Style Selector="^:selected">
-            <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
             <Style Selector="^ /template/ Border#root">
-                <Setter Property="Background" Value="{DynamicResource PrimaryPointerOverBrush}" />
+                <Setter Property="Background" Value="{DynamicResource MenuItemPointerOverBrush}" />
             </Style>
         </Style>
 
@@ -119,7 +118,7 @@
             <!-- <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" /> -->
             <!--  Listen for root:pointerover, so it will not be triggered when subitem is pressed  -->
             <Style Selector="^ /template/ Border#root:pointerover">
-                <Setter Property="Background" Value="{DynamicResource PrimaryPressedBrush}" />
+                <Setter Property="Background" Value="{DynamicResource MenuItemPressedBrush}" />
             </Style>
         </Style>
 
