@@ -40,6 +40,14 @@ namespace Synthora.Messaging
         public static PlacementMode Placement { get; set; } = PlacementMode.Pointer;
 
         /// <summary>
+        /// The element to which the message tip will be attached.
+        /// If not explicitly set, defaults at runtime to:
+        /// • the <see cref="IClassicDesktopStyleApplicationLifetime.MainWindow"/> for desktop apps, or  
+        /// • the <see cref="ISingleViewApplicationLifetime.MainView"/> for single‐view apps.
+        /// </summary>
+        public static Control? PlacementTarget { get; set; }
+
+        /// <summary>
         /// Displays a transient informational message tip with the default icon.
         /// </summary>
         public static void Show(string message, int delay = Delay) => Show(message, IconType.Information, delay);
@@ -75,18 +83,20 @@ namespace Synthora.Messaging
             }
             if (application.CheckAccess())
             {
-                Control? placementTarget = null;
-                if (application.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime classicDesktopStyleApplicationLifetime)
+                if (PlacementTarget == null)
                 {
-                    placementTarget = classicDesktopStyleApplicationLifetime.MainWindow;
-                }
-                else if (application.ApplicationLifetime is ISingleViewApplicationLifetime singleViewApplicationLifetime)
-                {
-                    placementTarget = singleViewApplicationLifetime.MainView;
-                }
-                if (placementTarget == null)
-                {
-                    return;
+                    if (application.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime classicDesktopStyleApplicationLifetime)
+                    {
+                        PlacementTarget = classicDesktopStyleApplicationLifetime.MainWindow;
+                    }
+                    else if (application.ApplicationLifetime is ISingleViewApplicationLifetime singleViewApplicationLifetime)
+                    {
+                        PlacementTarget = singleViewApplicationLifetime.MainView;
+                    }
+                    if (PlacementTarget == null)
+                    {
+                        return;
+                    }
                 }
 
                 if (GlobalDelay > 0)
@@ -163,7 +173,7 @@ namespace Synthora.Messaging
                 {
                     popup.VerticalOffset = VerticalOffset;
                 }
-                popup.PlacementTarget = placementTarget;
+                popup.PlacementTarget = PlacementTarget;
                 popup.IsOpen = true;
                 await Task.Delay(delay);
                 popup.IsOpen = false;

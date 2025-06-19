@@ -67,7 +67,7 @@
                                                              FontWeight="Bold"
                                                              IsVisible="{Binding $self.Text, Converter={x:Static SynthoraConverters.IsNotNullOrEmpty}}"
                                                              Text="{TemplateBinding Title}" />
-                                        <Button Padding="4"
+                                        <Button Padding="{DynamicResource ThemeControlPaddingSmall}"
                                                 HorizontalAlignment="Right"
                                                 VerticalAlignment="Top"
                                                 Command="{Binding None, RelativeSource={RelativeSource TemplatedParent}}"

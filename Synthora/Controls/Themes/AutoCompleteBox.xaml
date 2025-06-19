@@ -30,6 +30,7 @@
                                                               Mode=TwoWay}"
                                  CornerRadius="{TemplateBinding CornerRadius}"
                                  DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
+                                 Foreground="{TemplateBinding Foreground}"
                                  InnerLeftContent="{TemplateBinding InnerLeftContent}"
                                  InnerRightContent="{TemplateBinding InnerRightContent}"
                                  MaxLength="{TemplateBinding MaxLength}"
