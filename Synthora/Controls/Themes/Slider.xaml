@@ -69,6 +69,7 @@
                                  Height="4"
                                  Margin="9,0"
                                  Fill="{TemplateBinding Foreground}"
+                                 IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
                                  IsVisible="False"
                                  Maximum="{TemplateBinding Maximum}"
                                  Minimum="{TemplateBinding Minimum}"
@@ -80,6 +81,7 @@
                                  Height="4"
                                  Margin="9,0"
                                  Fill="{TemplateBinding Foreground}"
+                                 IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
                                  IsVisible="False"
                                  Maximum="{TemplateBinding Maximum}"
                                  Minimum="{TemplateBinding Minimum}"
@@ -112,7 +114,8 @@
                                    Background="{TemplateBinding Background}"
                                    BorderBrush="{TemplateBinding BorderBrush}"
                                    Foreground="{TemplateBinding Foreground}"
-                                   Theme="{DynamicResource SliderThumbTheme}" />
+                                   Theme="{DynamicResource SliderThumbTheme}"
+                                   ToolTip.Tip="{TemplateBinding Value}" />
                         </Track>
                     </Grid>
                 </ControlTemplate>
@@ -130,6 +133,7 @@
                                  Width="4"
                                  Margin="0,9"
                                  Fill="{TemplateBinding Foreground}"
+                                 IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
                                  IsVisible="False"
                                  Maximum="{TemplateBinding Maximum}"
                                  Minimum="{TemplateBinding Minimum}"
@@ -141,6 +145,7 @@
                                  Width="4"
                                  Margin="0,9"
                                  Fill="{TemplateBinding Foreground}"
+                                 IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
                                  IsVisible="False"
                                  Maximum="{TemplateBinding Maximum}"
                                  Minimum="{TemplateBinding Minimum}"
@@ -173,7 +178,8 @@
                                    Background="{TemplateBinding Background}"
                                    BorderBrush="{TemplateBinding BorderBrush}"
                                    Foreground="{TemplateBinding Foreground}"
-                                   Theme="{DynamicResource SliderThumbTheme}" />
+                                   Theme="{DynamicResource SliderThumbTheme}"
+                                   ToolTip.Tip="{TemplateBinding Value}" />
                         </Track>
                     </Grid>
                 </ControlTemplate>
