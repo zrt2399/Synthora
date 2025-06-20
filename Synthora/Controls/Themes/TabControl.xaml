@@ -12,7 +12,10 @@
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}">
                     <DockPanel>
-                        <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+                        <ItemsPresenter Name="PART_ItemsPresenter"
+                                        HorizontalAlignment="{TemplateBinding TabControlAttach.HorizontalHeaderAlignment}"
+                                        VerticalAlignment="{TemplateBinding TabControlAttach.VerticalHeaderAlignment}"
+                                        ItemsPanel="{TemplateBinding ItemsPanel}" />
                         <ContentPresenter Name="PART_SelectedContentHost"
                                           Margin="{TemplateBinding Padding}"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"

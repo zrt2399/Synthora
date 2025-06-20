@@ -31,7 +31,7 @@
 
     <AlertDialogHost Identifier="AlertDialogHost">
         <Grid RowDefinitions="*,Auto">
-            <TabControl>
+            <TabControl TabControlAttach.HorizontalHeaderAlignment="Center">
                 <TabItem Header="Brush">
                     <DockPanel>
                         <StackPanel Margin="10,10,0,0"
@@ -397,9 +397,11 @@
 
                                     <ProgressBar Height="4" Value="{Binding #HorizontalSlider.Value}" />
                                     <Slider Name="HorizontalSlider"
+                                            IsDirectionReversed="True"
                                             IsSnapToTickEnabled="True"
                                             TickFrequency="1"
-                                            TickPlacement="Outside" />
+                                            TickPlacement="Outside"
+                                            Ticks="5,10,20" />
                                     <ProgressBar ShowProgressText="True" Value="{Binding #HorizontalSlider.Value}" />
 
                                     <Expander CornerRadius="2"
