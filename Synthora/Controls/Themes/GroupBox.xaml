@@ -16,7 +16,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel Margin="{DynamicResource DefaultBoxShadowParentMargin}">
-                    <Border Name="root"
+                    <Border Name="RootBorder"
                             Margin="{DynamicResource DefaultBoxShadowMargin}"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"

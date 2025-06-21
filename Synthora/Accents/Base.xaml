@@ -115,8 +115,8 @@
             <Color x:Key="ThemeControlHighlightHighColor">#FF202020</Color>
             <Color x:Key="HighlightColor">#FF119EDA</Color>
             <Color x:Key="HyperlinkVisitedColor">#FFC58AF9</Color>
-            <Color x:Key="MenuItemPointerOverColor">#FF205FD2</Color>
-            <Color x:Key="MenuItemPressedColor">#FF366FD6</Color>
+            <Color x:Key="MenuItemPointerOverColor">#FF006CBE</Color>
+            <Color x:Key="MenuItemPressedColor">#FF1A7BC5</Color>
 
             <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource PrimaryColor}" />
             <SolidColorBrush x:Key="PrimaryPointerOverBrush" Color="{StaticResource PrimaryPointerOverColor}" />

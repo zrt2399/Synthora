@@ -401,7 +401,7 @@
                                             IsSnapToTickEnabled="True"
                                             TickFrequency="1"
                                             TickPlacement="Outside"
-                                            Ticks="5,10,20" />
+                                            Ticks="0,5,10,20,100" />
                                     <ProgressBar ShowProgressText="True" Value="{Binding #HorizontalSlider.Value}" />
 
                                     <Expander CornerRadius="2"
@@ -593,6 +593,25 @@
                             </TabItem>
                         </TabStrip>
                     </SplitView>
+                </TabItem>
+                <TabItem Header="TabControl">
+                    <TabControl TabControlAttach.HorizontalHeaderAlignment="Center"
+                                TabControlAttach.VerticalHeaderAlignment="Center"
+                                TabStripPlacement="Top"
+                                Theme="{StaticResource SolidHeaderTabControlTheme}">
+                        <TabItem Header="Tab 1">
+                            <SelectableTextBlock>Content 1</SelectableTextBlock>
+                        </TabItem>
+                        <TabItem Header="Tab 2" IsEnabled="False">
+                            <SelectableTextBlock>Content 2</SelectableTextBlock>
+                        </TabItem>
+                        <TabItem Header="Tab 3">
+                            <SelectableTextBlock>Content 3</SelectableTextBlock>
+                        </TabItem>
+                        <TabItem Header="Tab 4">
+                            <SelectableTextBlock>Content 4</SelectableTextBlock>
+                        </TabItem>
+                    </TabControl>
                 </TabItem>
             </TabControl>
             <StatusBar Grid.Row="1">

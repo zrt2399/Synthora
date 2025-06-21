@@ -8,6 +8,7 @@
         <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}" />
         <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundMidBrush}" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Padding" Value="8,6" />
         <Setter Property="Template">
             <Setter.Value>
@@ -59,21 +60,74 @@
             <Setter Property="Height" Value="3" />
         </Style>
 
-        <Style Selector="^:disabled">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
-        </Style>
-
         <Style Selector="^:pointerover /template/ Border#PART_SelectedPipe">
             <Setter Property="IsVisible" Value="True" />
             <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidColor}" />
         </Style>
- 
+
         <Style Selector="^:selected">
-			<Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
-			<Style Selector="^ /template/ Border#PART_SelectedPipe">
-				<Setter Property="IsVisible" Value="True" />
-				<Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
-			</Style>
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
+            <Style Selector="^ /template/ Border#PART_SelectedPipe">
+                <Setter Property="IsVisible" Value="True" />
+                <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="SolidHeaderTabItemTheme" TargetType="TabItem">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
+        <Setter Property="Margin" Value="3" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="CornerRadius">
+            <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.All}">
+                <Binding Path="CornerRadius" RelativeSource="{RelativeSource Tree=Visual, AncestorType=Border}" />
+                <Binding Path="BorderThickness" RelativeSource="{RelativeSource Tree=Visual, AncestorType=Border}" />
+                <Binding Path="$self.Margin" />
+            </MultiBinding>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <DropShadowChrome Name="PART_LayoutRoot"
+                                      Background="{TemplateBinding Background}"
+                                      BorderBrush="{TemplateBinding BorderBrush}"
+                                      BorderThickness="{TemplateBinding BorderThickness}"
+                                      BoxShadow="{DynamicResource EmptyBoxShadow}"
+                                      CornerRadius="{TemplateBinding CornerRadius}">
+                        <ContentPresenter Name="PART_ContentPresenter"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding Header}"
+                                          ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                          RecognizesAccessKey="True" />
+                    </DropShadowChrome>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidColor}" />
+        </Style>
+
+        <Style Selector="^:selected">
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
+            <Style Selector="^ /template/ DropShadowChrome#PART_LayoutRoot">
+                <Setter Property="BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
         </Style>
     </ControlTheme>
 

@@ -53,6 +53,7 @@
 
     <ControlTheme x:Key="SimpleExpanderToggleButtonTheme" TargetType="ToggleButton">
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
         <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
@@ -63,28 +64,27 @@
                 <Binding Path="IsExpanded" RelativeSource="{RelativeSource AncestorType=Expander}" />
             </MultiBinding>
         </Setter>
-        <Setter Property="CornerRadius" Value="{Binding $parent[Expander].CornerRadius}" />
+        <Setter Property="CornerRadius">
+            <MultiBinding Converter="{x:Static ExpanderHeaderBorderCornerRadiusConverter.Instance}">
+                <Binding Path="CornerRadius" RelativeSource="{RelativeSource AncestorType=Expander}" />
+                <Binding Path="BorderThickness" RelativeSource="{RelativeSource AncestorType=Expander}" />
+                <Binding Path="ExpandDirection" RelativeSource="{RelativeSource AncestorType=Expander}" />
+                <Binding Path="IsExpanded" RelativeSource="{RelativeSource AncestorType=Expander}" />
+            </MultiBinding>
+        </Setter>
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}">
-                    <!--  Setting CornerRadius in setter is invalid, it can only be set here  -->
-                    <Border.CornerRadius>
-                        <MultiBinding Converter="{x:Static ExpanderHeaderBorderCornerRadiusConverter.Instance}">
-                            <Binding Path="CornerRadius" RelativeSource="{RelativeSource AncestorType=Expander}" />
-                            <Binding Path="BorderThickness" RelativeSource="{RelativeSource AncestorType=Expander}" />
-                            <Binding Path="ExpandDirection" RelativeSource="{RelativeSource AncestorType=Expander}" />
-                            <Binding Path="IsExpanded" RelativeSource="{RelativeSource AncestorType=Expander}" />
-                        </MultiBinding>
-                    </Border.CornerRadius>
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
                     <Grid ColumnDefinitions="Auto,*">
                         <PathIcon Width="12"
                                   Height="12"
                                   Margin="{TemplateBinding Padding,
                                                            Converter={StaticResource ExpanderToggleButtonMarginMultiplier}}"
                                   HorizontalAlignment="Center"
-                                  VerticalAlignment="Center"
+                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                   Data="{DynamicResource ArrowRightGlyph}"
                                   Foreground="{TemplateBinding Foreground}"
                                   IsHitTestVisible="False"
@@ -93,7 +93,7 @@
                                           Grid.Column="1"
                                           Margin="{TemplateBinding Padding}"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                          VerticalAlignment="Center"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Background="Transparent"
                                           Content="{TemplateBinding Content}"
                                           ContentTemplate="{Binding $parent[Expander].HeaderTemplate}" />
@@ -177,7 +177,6 @@
                                           VerticalAlignment="{TemplateBinding VerticalAlignment}"
                                           Content="{TemplateBinding Header}"
                                           ContentTemplate="{TemplateBinding HeaderTemplate}"
-                                          CornerRadius="{TemplateBinding CornerRadius}"
                                           IsChecked="{TemplateBinding IsExpanded,
                                                                       Mode=TwoWay}" />
                             <ContentPresenter Name="PART_ContentPresenter"
