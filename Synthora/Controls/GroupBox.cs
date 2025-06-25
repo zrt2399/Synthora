@@ -1,4 +1,5 @@
 ﻿using Avalonia;
+using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Media;
 
@@ -15,13 +16,16 @@ namespace Synthora.Controls
         public static readonly StyledProperty<BoxShadows> BoxShadowProperty =
             AvaloniaProperty.Register<GroupBox, BoxShadows>(nameof(BoxShadow));
 
-        public static readonly StyledProperty<double> HeaderDividerHeightProperty =
-            AvaloniaProperty.Register<GroupBox, double>(nameof(HeaderDividerHeight));
+        public static readonly StyledProperty<double> HeaderDividerThicknessProperty =
+            AvaloniaProperty.Register<GroupBox, double>(nameof(HeaderDividerThickness));
+
+        public static readonly StyledProperty<Dock> HeaderPlacementProperty =
+            AvaloniaProperty.Register<GroupBox, Dock>(nameof(HeaderPlacement));
 
         public Thickness HeaderPadding
         {
             get => GetValue(HeaderPaddingProperty);
-            set => SetValue(HeaderPaddingProperty, value);
+            set => SetValue(HeaderPaddingProperty, value); 
         }
 
         public IBrush? HeaderBackground
@@ -36,10 +40,16 @@ namespace Synthora.Controls
             set => SetValue(BoxShadowProperty, value);
         }
 
-        public double HeaderDividerHeight
+        public double HeaderDividerThickness
         {
-            get => GetValue(HeaderDividerHeightProperty);
-            set => SetValue(HeaderDividerHeightProperty, value);
+            get => GetValue(HeaderDividerThicknessProperty);
+            set => SetValue(HeaderDividerThicknessProperty, value);
+        }
+
+        public Dock HeaderPlacement
+        {
+            get => GetValue(HeaderPlacementProperty);
+            set => SetValue(HeaderPlacementProperty, value);
         }
     }
 }

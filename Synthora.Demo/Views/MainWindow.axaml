@@ -12,7 +12,7 @@
         xmlns:vm="using:Synthora.Demo.ViewModels"
         Title="Synthora.Demo"
         Width="900"
-        Height="500"
+        Height="550"
         x:DataType="vm:MainWindowViewModel"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d">
@@ -460,6 +460,29 @@
                                         </StackPanel>
                                     </StackPanel>
                                 </so:GroupBox>
+                                <GroupBox Padding="0"
+                                          Header="Left Header"
+                                          HeaderPlacement="Left">
+                                    <Button Height="100" CornerRadius="0">Button</Button>
+                                </GroupBox>
+                                <GroupBox Padding="0" Header="ClipToBounds with Shadow">
+                                    <ScrollViewer Height="100">
+                                        <StackPanel>
+                                            <Button Height="100" CornerRadius="0">Button</Button>
+                                            <Button Height="100" CornerRadius="0">Button</Button>
+                                        </StackPanel>
+                                    </ScrollViewer>
+                                </GroupBox>
+                                <GroupBox Padding="0"
+                                          Header="Right Header"
+                                          HeaderPlacement="Right">
+                                    <Button Height="100" CornerRadius="0">Button</Button>
+                                </GroupBox>
+                                <GroupBox Padding="0"
+                                          Header="Bottom Header"
+                                          HeaderPlacement="Bottom">
+                                    <Button Height="100" CornerRadius="0">Button</Button>
+                                </GroupBox>
                                 <GroupBox Header="GroupBox">
                                     <GroupBox>
                                         <DropShadowChrome Padding="10">

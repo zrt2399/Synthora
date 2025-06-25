@@ -11,12 +11,13 @@
                     x:CompileBindings="True">
 
     <ControlTheme x:Key="{x:Type CalendarItem}" TargetType="CalendarItem">
+        <Setter Property="BoxShadowAttach.BoxShadow" Value="{DynamicResource EmptyBoxShadow}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <GroupBox Background="{TemplateBinding Background}"
                           BorderBrush="{TemplateBinding BorderBrush}"
                           BorderThickness="{TemplateBinding BorderThickness}"
-                          BoxShadow="{DynamicResource EmptyBoxShadow}"
+                          BoxShadow="{TemplateBinding BoxShadowAttach.BoxShadow}"
                           CornerRadius="{TemplateBinding CornerRadius}"
                           HeaderBackground="{TemplateBinding HeaderBackground}">
                     <GroupBox.Header>

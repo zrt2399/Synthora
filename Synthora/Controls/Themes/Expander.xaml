@@ -64,14 +64,6 @@
                 <Binding Path="IsExpanded" RelativeSource="{RelativeSource AncestorType=Expander}" />
             </MultiBinding>
         </Setter>
-        <Setter Property="CornerRadius">
-            <MultiBinding Converter="{x:Static ExpanderHeaderBorderCornerRadiusConverter.Instance}">
-                <Binding Path="CornerRadius" RelativeSource="{RelativeSource AncestorType=Expander}" />
-                <Binding Path="BorderThickness" RelativeSource="{RelativeSource AncestorType=Expander}" />
-                <Binding Path="ExpandDirection" RelativeSource="{RelativeSource AncestorType=Expander}" />
-                <Binding Path="IsExpanded" RelativeSource="{RelativeSource AncestorType=Expander}" />
-            </MultiBinding>
-        </Setter>
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Background="{TemplateBinding Background}"
@@ -155,6 +147,7 @@
                 <CrossFade Duration="00:00:00.25" />
             </Setter.Value>
         </Setter>-->
+        <Setter Property="BoxShadowAttach.BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
@@ -162,40 +155,37 @@
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel Margin="{DynamicResource DefaultBoxShadowParentMargin}">
-                    <Border Name="PART_Border"
-                            Margin="{DynamicResource DefaultBoxShadowMargin}"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            BoxShadow="{DynamicResource DefaultBoxShadow}"
-                            ClipToBounds="{TemplateBinding ClipToBounds}"
-                            CornerRadius="{TemplateBinding CornerRadius}">
-                        <DockPanel Name="PART_DockPanel" ClipToBounds="True">
-                            <ToggleButton Name="PART_toggle"
-                                          HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
-                                          VerticalAlignment="{TemplateBinding VerticalAlignment}"
-                                          Content="{TemplateBinding Header}"
-                                          ContentTemplate="{TemplateBinding HeaderTemplate}"
-                                          IsChecked="{TemplateBinding IsExpanded,
-                                                                      Mode=TwoWay}" />
-                            <ContentPresenter Name="PART_ContentPresenter"
-                                              Margin="{TemplateBinding Padding}"
-                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                              Content="{TemplateBinding Content}"
-                                              ContentTemplate="{TemplateBinding ContentTemplate}"
-                                              IsVisible="{TemplateBinding IsExpanded}"
-                                              Opacity="0">
-                                <ContentPresenter.Transitions>
-                                    <Transitions>
-                                        <DoubleTransition Property="Opacity" Duration="0:0:0.3" />
-                                    </Transitions>
-                                </ContentPresenter.Transitions>
-                            </ContentPresenter>
-                        </DockPanel>
-                    </Border>
-                </Panel>
+                <DropShadowChrome Name="RootChrome"
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  BoxShadow="{TemplateBinding BoxShadowAttach.BoxShadow}"
+                                  ClipToBounds="{TemplateBinding ClipToBounds}"
+                                  CornerRadius="{TemplateBinding CornerRadius}">
+                    <DockPanel Name="PART_DockPanel">
+                        <ToggleButton Name="PART_toggle"
+                                      HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                      VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                      Content="{TemplateBinding Header}"
+                                      ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                      IsChecked="{TemplateBinding IsExpanded,
+                                                                  Mode=TwoWay}" />
+                        <ContentPresenter Name="PART_ContentPresenter"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          IsVisible="{TemplateBinding IsExpanded}"
+                                          Opacity="0">
+                            <ContentPresenter.Transitions>
+                                <Transitions>
+                                    <DoubleTransition Property="Opacity" Duration="0:0:0.3" />
+                                </Transitions>
+                            </ContentPresenter.Transitions>
+                        </ContentPresenter>
+                    </DockPanel>
+                </DropShadowChrome>
             </ControlTemplate>
         </Setter>
         <Style Selector="^:expanded /template/ ContentPresenter#PART_ContentPresenter">

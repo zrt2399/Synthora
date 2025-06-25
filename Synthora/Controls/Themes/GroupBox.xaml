@@ -8,50 +8,46 @@
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
         <Setter Property="Padding" Value="10" />
+        <Setter Property="HeaderPlacement" Value="Top" />
         <Setter Property="HeaderPadding" Value="{DynamicResource ThemeControlPadding}" />
         <Setter Property="HeaderBackground" Value="{DynamicResource ThemeControlMidBrush}" />
         <Setter Property="BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
-        <Setter Property="HeaderDividerHeight" Value="1" />
+        <Setter Property="HeaderDividerThickness" Value="1" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel Margin="{DynamicResource DefaultBoxShadowParentMargin}">
-                    <Border Name="RootBorder"
-                            Margin="{DynamicResource DefaultBoxShadowMargin}"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            BoxShadow="{TemplateBinding BoxShadow}"
-                            ClipToBounds="{TemplateBinding ClipToBounds}"
-                            CornerRadius="{TemplateBinding CornerRadius}">
-                        <DockPanel Name="PART_DockPanel" ClipToBounds="True">
-                            <Border Name="headerBorder"
-                                    Padding="{TemplateBinding HeaderPadding}"
-                                    Background="{TemplateBinding HeaderBackground}"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding HeaderDividerHeight,
-                                                                      Converter={x:Static HeaderDividerHeightConverter.Instance}}"
-                                    DockPanel.Dock="Top">
-                                <Border.CornerRadius>
-                                    <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="TopLeft,TopRight">
-                                        <TemplateBinding Property="CornerRadius" />
-                                        <TemplateBinding Property="BorderThickness" />
-                                    </MultiBinding>
-                                </Border.CornerRadius>
-                                <ContentPresenter x:Name="PART_HeaderContentPresenter"
-                                                  Content="{TemplateBinding Header}"
-                                                  ContentTemplate="{TemplateBinding HeaderTemplate}"
-                                                  RecognizesAccessKey="True" />
-                            </Border>
-                            <ContentPresenter Name="PART_ContentPresenter"
-                                              Margin="{TemplateBinding Padding}"
-                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                              Content="{TemplateBinding Content}"
-                                              ContentTemplate="{TemplateBinding ContentTemplate}" />
-                        </DockPanel>
-                    </Border>
-                </Panel>
+                <DropShadowChrome Name="RootChrome"
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  BoxShadow="{TemplateBinding BoxShadow}"
+                                  ClipToBounds="{TemplateBinding ClipToBounds}"
+                                  CornerRadius="{TemplateBinding CornerRadius}">
+                    <DockPanel Name="PART_DockPanel">
+                        <Border Name="headerBorder"
+                                Padding="{TemplateBinding HeaderPadding}"
+                                Background="{TemplateBinding HeaderBackground}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                DockPanel.Dock="{TemplateBinding HeaderPlacement}">
+                            <Border.BorderThickness>
+                                <MultiBinding Converter="{x:Static HeaderDividerThicknessConverter.Instance}">
+                                    <TemplateBinding Property="HeaderPlacement" />
+                                    <TemplateBinding Property="HeaderDividerThickness" />
+                                </MultiBinding>
+                            </Border.BorderThickness>
+                            <ContentPresenter x:Name="PART_HeaderContentPresenter"
+                                              Content="{TemplateBinding Header}"
+                                              ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                              RecognizesAccessKey="True" />
+                        </Border>
+                        <ContentPresenter Name="PART_ContentPresenter"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}" />
+                    </DockPanel>
+                </DropShadowChrome>
             </ControlTemplate>
         </Setter>
         <Style Selector="^:disabled /template/ Border#headerBorder">
