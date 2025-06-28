@@ -29,42 +29,36 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Stretch" />
-        <!-- <Setter Property="BorderThickness" Value="{Binding $parent[DataGrid].GridLinesVisibility, Converter={x:Static DataGridLineThicknessConverter.Instance}, ConverterParameter={x:Static Orientation.Vertical}}" /> -->
+        <Setter Property="BorderThickness" Value="{Binding $parent[DataGrid].GridLinesVisibility, Converter={x:Static DataGridLineThicknessConverter.Instance}, ConverterParameter={x:Static Orientation.Vertical}}" />
         <Setter Property="BorderBrush" Value="{Binding $parent[DataGrid].VerticalGridLinesBrush}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <DockPanel>
-                    <PixelAlignedRectangle Name="PART_RightGridLine"
-                                           Width="1"
-                                           VerticalAlignment="Stretch"
-                                           DockPanel.Dock="Right" />
-                    <Border x:Name="CellBorder"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{TemplateBinding CornerRadius}">
-                        <Panel>
-                            <Rectangle Name="CurrencyVisual"
-                                       IsVisible="False"
-                                       Stroke="{DynamicResource ThemeBorderHighBrush}"
-                                       StrokeDashArray="4,4"
-                                       StrokeThickness="1" />
-                            <ContentPresenter Margin="{TemplateBinding Padding}"
-                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                              Content="{TemplateBinding Content}"
-                                              ContentTemplate="{TemplateBinding ContentTemplate}"
-                                              Foreground="{TemplateBinding Foreground}" />
-                            <Rectangle Name="InvalidVisualElement"
-                                       IsHitTestVisible="False"
-                                       IsVisible="False">
-                                <Rectangle.Fill>
-                                    <SolidColorBrush Opacity="0.1" Color="Red" />
-                                </Rectangle.Fill>
-                            </Rectangle>
-                        </Panel>
-                    </Border>
-                </DockPanel>
+                <Border x:Name="CellBorder"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <Panel>
+                        <Rectangle Name="CurrencyVisual"
+                                   IsVisible="False"
+                                   Stroke="{DynamicResource ThemeBorderHighBrush}"
+                                   StrokeDashArray="4,4"
+                                   StrokeThickness="1" />
+                        <ContentPresenter Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          Foreground="{TemplateBinding Foreground}" />
+                        <Rectangle Name="InvalidVisualElement"
+                                   IsHitTestVisible="False"
+                                   IsVisible="False">
+                            <Rectangle.Fill>
+                                <SolidColorBrush Opacity="0.1" Color="Red" />
+                            </Rectangle.Fill>
+                        </Rectangle>
+                    </Panel>
+                </Border>
             </ControlTemplate>
         </Setter>
         <Style Selector="^:current:focus /template/ Rectangle#CurrencyVisual">
