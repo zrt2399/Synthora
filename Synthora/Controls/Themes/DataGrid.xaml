@@ -36,8 +36,13 @@
                 <Border x:Name="CellBorder"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}">
+                    <Border.BorderThickness>
+                        <MultiBinding Converter="{x:Static DataGridLastColumnVisibleConverter.Instance}">
+                            <TemplateBinding Property="BorderThickness" />
+                            <Binding Path="#PART_RightGridLine.IsVisible" />
+                        </MultiBinding>
+                    </Border.BorderThickness>
                     <Panel>
                         <Rectangle Name="CurrencyVisual"
                                    IsVisible="False"
@@ -57,6 +62,11 @@
                                 <SolidColorBrush Opacity="0.1" Color="Red" />
                             </Rectangle.Fill>
                         </Rectangle>
+                        <Rectangle x:Name="PART_RightGridLine"
+                                   Width="0"
+                                   Height="0"
+                                   HorizontalAlignment="Right"
+                                   IsHitTestVisible="False" />
                     </Panel>
                 </Border>
             </ControlTemplate>
