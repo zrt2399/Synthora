@@ -8,7 +8,7 @@ namespace Synthora.Converters
 {
     internal class BorderCircularConverter : IMultiValueConverter
     {
-        public static BorderCircularConverter Instance = new BorderCircularConverter();
+        public static BorderCircularConverter Instance { get; } = new BorderCircularConverter();
 
         public object? Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture)
         {
