@@ -36,6 +36,11 @@
         </Style>
         <Style Selector="^:indeterminate">
             <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
+            <Style Selector="^:focus,^:pointerover">
+                <Style Selector="^ /template/ DropShadowChrome#RootChrome">
+                    <Setter Property="BoxShadow" Value="{TemplateBinding Background, Converter={x:Static SynthoraConverters.BoxShadowConverter}, ConverterParameter=0 0 4 0 #00000000}" />
+                </Style>
+            </Style>
         </Style>
     </ControlTheme>
 
@@ -158,19 +163,17 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^:indeterminate:pointerover /template/ DropShadowChrome#RootChrome">
-            <Setter Property="BoxShadow" Value="{TemplateBinding Background, Converter={x:Static SynthoraConverters.BoxShadowConverter}, ConverterParameter=0 0 4 0 #00000000}" />
-        </Style>
-        <Style Selector="^:indeterminate:focus /template/ DropShadowChrome#RootChrome">
-            <Setter Property="BoxShadow" Value="{TemplateBinding Background, Converter={x:Static SynthoraConverters.BoxShadowConverter}, ConverterParameter=0 0 4 0 #00000000}" />
-        </Style>
-
         <Style Selector="^:indeterminate">
             <Style Selector="^ /template/ Rectangle#indeterminateRectangle">
                 <Setter Property="IsVisible" Value="True" />
             </Style>
             <Style Selector="^ /template/ DropShadowChrome#RootChrome">
                 <Setter Property="BorderBrush" Value="Transparent" />
+            </Style>
+            <Style Selector="^:focus,^:pointerover">
+                <Style Selector="^ /template/ DropShadowChrome#RootChrome">
+                    <Setter Property="BoxShadow" Value="{TemplateBinding Background, Converter={x:Static SynthoraConverters.BoxShadowConverter}, ConverterParameter=0 0 4 0 #00000000}" />
+                </Style>
             </Style>
         </Style>
 

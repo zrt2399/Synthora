@@ -194,6 +194,7 @@
         <Style Selector="^ /template/ RepeatButton.repeat">
             <Setter Property="Padding" Value="2" />
             <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="ClipToBounds" Value="True" />
         </Style>
         <Style Selector="^ /template/ RepeatButton.repeattrack">
             <Setter Property="Template">
