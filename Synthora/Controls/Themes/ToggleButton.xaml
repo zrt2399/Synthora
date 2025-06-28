@@ -10,11 +10,12 @@
         <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Name="RootBorder"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
+                <DropShadowChrome Name="RootChrome"
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  BoxShadow="{DynamicResource EmptyBoxShadow}"
+                                  CornerRadius="{TemplateBinding CornerRadius}">
                     <ContentPresenter Name="PART_ContentPresenter"
                                       Margin="{TemplateBinding Padding}"
                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -24,7 +25,7 @@
                                       RecognizesAccessKey="True"
                                       TextElement.Foreground="{TemplateBinding Foreground}" />
 
-                </Border>
+                </DropShadowChrome>
             </ControlTemplate>
         </Setter>
         <Style Selector="^:focus,^:pointerover">
@@ -42,10 +43,10 @@
                   BasedOn="{StaticResource ToggleButtonSolidBaseTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
-        <Style Selector="^:checked:pointerover /template/ Border#RootBorder">
+        <Style Selector="^:checked:pointerover /template/ DropShadowChrome#RootChrome">
             <Setter Property="Background" Value="{DynamicResource PrimaryPointerOverBrush}" />
         </Style>
-        <Style Selector="^:checked:pressed /template/ Border#RootBorder">
+        <Style Selector="^:checked:pressed /template/ DropShadowChrome#RootChrome">
             <Setter Property="Background" Value="{DynamicResource PrimaryPressedBrush}" />
         </Style>
         <Style Selector="^:checked">
@@ -58,10 +59,10 @@
                   BasedOn="{StaticResource ToggleButtonSolidBaseTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Foreground" Value="{DynamicResource SuccessBrush}" />
-        <Style Selector="^:checked:pointerover /template/ Border#RootBorder">
+        <Style Selector="^:checked:pointerover /template/ DropShadowChrome#RootChrome">
             <Setter Property="Background" Value="{DynamicResource SuccessPointerOverBrush}" />
         </Style>
-        <Style Selector="^:checked:pressed /template/ Border#RootBorder">
+        <Style Selector="^:checked:pressed /template/ DropShadowChrome#RootChrome">
             <Setter Property="Background" Value="{DynamicResource SuccessPressedBrush}" />
         </Style>
         <Style Selector="^:checked">
@@ -74,10 +75,10 @@
                   BasedOn="{StaticResource ToggleButtonSolidBaseTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Foreground" Value="{DynamicResource WarningBrush}" />
-        <Style Selector="^:checked:pointerover /template/ Border#RootBorder">
+        <Style Selector="^:checked:pointerover /template/ DropShadowChrome#RootChrome">
             <Setter Property="Background" Value="{DynamicResource WarningPointerOverBrush}" />
         </Style>
-        <Style Selector="^:checked:pressed /template/ Border#RootBorder">
+        <Style Selector="^:checked:pressed /template/ DropShadowChrome#RootChrome">
             <Setter Property="Background" Value="{DynamicResource WarningPressedBrush}" />
         </Style>
         <Style Selector="^:checked">
@@ -90,10 +91,10 @@
                   BasedOn="{StaticResource ToggleButtonSolidBaseTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Foreground" Value="{DynamicResource DangerBrush}" />
-        <Style Selector="^:checked:pointerover /template/ Border#RootBorder">
+        <Style Selector="^:checked:pointerover /template/ DropShadowChrome#RootChrome">
             <Setter Property="Background" Value="{DynamicResource DangerPointerOverBrush}" />
         </Style>
-        <Style Selector="^:checked:pressed /template/ Border#RootBorder">
+        <Style Selector="^:checked:pressed /template/ DropShadowChrome#RootChrome">
             <Setter Property="Background" Value="{DynamicResource DangerPressedBrush}" />
         </Style>
         <Style Selector="^:checked">
@@ -106,10 +107,10 @@
                   BasedOn="{StaticResource ToggleButtonSolidBaseTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Foreground" Value="{DynamicResource ErrorBrush}" />
-        <Style Selector="^:checked:pointerover /template/ Border#RootBorder">
+        <Style Selector="^:checked:pointerover /template/ DropShadowChrome#RootChrome">
             <Setter Property="Background" Value="{DynamicResource ErrorPointerOverBrush}" />
         </Style>
-        <Style Selector="^:checked:pressed /template/ Border#RootBorder">
+        <Style Selector="^:checked:pressed /template/ DropShadowChrome#RootChrome">
             <Setter Property="Background" Value="{DynamicResource ErrorPressedBrush}" />
         </Style>
         <Style Selector="^:checked">
@@ -132,11 +133,12 @@
                                Stroke="{TemplateBinding BorderBrush}"
                                StrokeDashArray="4,4"
                                StrokeThickness="{Binding BorderThickness.Left, RelativeSource={RelativeSource TemplatedParent}}" />
-                    <Border Name="backgroundBorder"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{TemplateBinding CornerRadius}">
+                    <DropShadowChrome Name="RootChrome"
+                                      Background="{TemplateBinding Background}"
+                                      BorderBrush="{TemplateBinding BorderBrush}"
+                                      BorderThickness="{TemplateBinding BorderThickness}"
+                                      BoxShadow="{DynamicResource EmptyBoxShadow}"
+                                      CornerRadius="{TemplateBinding CornerRadius}">
                         <ContentPresenter Name="PART_ContentPresenter"
                                           Margin="{TemplateBinding Padding}"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -146,7 +148,7 @@
                                           RecognizesAccessKey="True"
                                           TextElement.Foreground="{TemplateBinding Foreground}" />
 
-                    </Border>
+                    </DropShadowChrome>
                     <Border Name="checkedBorder"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="2"
@@ -155,14 +157,23 @@
                 </Panel>
             </ControlTemplate>
         </Setter>
+
+        <Style Selector="^:indeterminate:pointerover /template/ DropShadowChrome#RootChrome">
+            <Setter Property="BoxShadow" Value="{TemplateBinding Background, Converter={x:Static SynthoraConverters.BoxShadowConverter}, ConverterParameter=0 0 4 0 #00000000}" />
+        </Style>
+        <Style Selector="^:indeterminate:focus /template/ DropShadowChrome#RootChrome">
+            <Setter Property="BoxShadow" Value="{TemplateBinding Background, Converter={x:Static SynthoraConverters.BoxShadowConverter}, ConverterParameter=0 0 4 0 #00000000}" />
+        </Style>
+
         <Style Selector="^:indeterminate">
             <Style Selector="^ /template/ Rectangle#indeterminateRectangle">
                 <Setter Property="IsVisible" Value="True" />
             </Style>
-            <Style Selector="^ /template/ Border#backgroundBorder">
+            <Style Selector="^ /template/ DropShadowChrome#RootChrome">
                 <Setter Property="BorderBrush" Value="Transparent" />
             </Style>
         </Style>
+
         <Style Selector="^:checked">
             <Style Selector="^ /template/ Border#checkedBorder">
                 <Setter Property="IsVisible" Value="True" />

@@ -11,11 +11,12 @@
                                           Top="True" />
 
     <ControlTemplate x:Key="DropDownButtonTemplate" TargetType="DropDownButton">
-        <Border Name="RootBorder"
-                Background="{TemplateBinding Background}"
-                BorderBrush="{TemplateBinding BorderBrush}"
-                BorderThickness="{TemplateBinding BorderThickness}"
-                CornerRadius="{TemplateBinding CornerRadius}">
+        <DropShadowChrome Name="RootChrome"
+                          Background="{TemplateBinding Background}"
+                          BorderBrush="{TemplateBinding BorderBrush}"
+                          BorderThickness="{TemplateBinding BorderThickness}"
+                          BoxShadow="{DynamicResource EmptyBoxShadow}"
+                          CornerRadius="{TemplateBinding CornerRadius}">
             <Grid Name="InnerGrid">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -23,7 +24,6 @@
                 </Grid.ColumnDefinitions>
 
                 <ContentPresenter Name="PART_ContentPresenter"
-                                  Grid.Column="0"
                                   Margin="{TemplateBinding Padding}"
                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
@@ -45,7 +45,7 @@
                           UseLayoutRounding="False" />
 
             </Grid>
-        </Border>
+        </DropShadowChrome>
     </ControlTemplate>
 
     <ControlTheme x:Key="{x:Type DropDownButton}"

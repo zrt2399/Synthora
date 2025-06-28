@@ -10,7 +10,7 @@
         <Setter Property="Margin" Value="{DynamicResource PopupBoxShadowMargin}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Name="rootBorder"
+                <Border Name="RootBorder"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"

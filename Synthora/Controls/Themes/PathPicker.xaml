@@ -5,6 +5,7 @@
 
     <ControlTheme x:Key="{x:Type PathPicker}" TargetType="{x:Type PathPicker}">
         <Setter Property="Focusable" Value="True" />
+        <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
                 <DockPanel>

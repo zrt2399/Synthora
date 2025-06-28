@@ -10,45 +10,36 @@
         </Border>
     </Design.PreviewWith>
 
-    <converters:MarginMultiplierConverter x:Key="PrimaryButtonBorderMultiplier"
+    <!--<converters:MarginMultiplierConverter x:Key="PrimaryButtonBorderMultiplier"
                                           Bottom="True"
                                           Indent="1"
                                           Left="True"
-                                          Top="True" />
+                                          Top="True" />-->
     <converters:MarginMultiplierConverter x:Key="SecondaryButtonBorderMultiplier"
-                                          Bottom="True"
                                           Indent="1"
-                                          Left="True"
-                                          Right="True"
-                                          Top="True" />
+                                          Left="True" />
 
     <ControlTheme x:Key="SimpleSplitButtonComponent" TargetType="Button">
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="VerticalAlignment" Value="Stretch" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel>
-                    <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{TemplateBinding CornerRadius}">
-                        <ContentPresenter x:Name="PART_ContentPresenter"
-                                          Margin="{TemplateBinding Padding}"
-                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                          Content="{TemplateBinding Content}"
-                                          ContentTemplate="{TemplateBinding ContentTemplate}"
-                                          RecognizesAccessKey="True" />
+                <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <ContentPresenter x:Name="PART_ContentPresenter"
+                                      Margin="{TemplateBinding Padding}"
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      RecognizesAccessKey="True" />
 
-                    </Border>
-                    <Border Name="checkedBorder"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="2"
-                            CornerRadius="{TemplateBinding CornerRadius}"
-                            IsVisible="False" />
-                </Panel>
+                </Border>
             </ControlTemplate>
         </Setter>
         <Style Selector="^:pressed">
@@ -65,16 +56,10 @@
 
         <Style Selector="^[Tag=checked]">
             <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
-            <Style Selector="^ /template/ Border#checkedBorder">
-                <Setter Property="IsVisible" Value="True" />
-            </Style>
         </Style>
 
         <Style Selector="^[Tag=checked-flyout-open]">
             <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
-            <Style Selector="^ /template/ Border#checkedBorder">
-                <Setter Property="IsVisible" Value="True" />
-            </Style>
         </Style>
     </ControlTheme>
 
@@ -89,64 +74,58 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="KeyboardNavigation.IsTabStop" Value="True" />
         <Setter Property="Focusable" Value="True" />
+        <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Grid ColumnDefinitions="*,Auto">
-                    <Button x:Name="PART_PrimaryButton"
-                            Padding="{TemplateBinding Padding}"
-                            Background="{TemplateBinding Background}"
+                <Panel>
+                    <DropShadowChrome Name="RootChrome"
+                                      Background="{TemplateBinding Background}"
+                                      BorderBrush="{TemplateBinding BorderBrush}"
+                                      BorderThickness="{TemplateBinding BorderThickness}"
+                                      BoxShadow="{DynamicResource EmptyBoxShadow}"
+                                      ClipToBounds="{TemplateBinding ClipToBounds}">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Button x:Name="PART_PrimaryButton"
+                                    Padding="{TemplateBinding Padding}"
+                                    Command="{TemplateBinding Command}"
+                                    CommandParameter="{TemplateBinding CommandParameter}"
+                                    Content="{TemplateBinding Content}"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                    Focusable="False"
+                                    KeyboardNavigation.IsTabStop="False"
+                                    Theme="{StaticResource SimpleSplitButtonComponent}" />
+                            <Button x:Name="PART_SecondaryButton"
+                                    Grid.Column="1"
+                                    Padding="{TemplateBinding Padding}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness,
+                                                                      Converter={StaticResource SecondaryButtonBorderMultiplier}}"
+                                    Focusable="False"
+                                    KeyboardNavigation.IsTabStop="False"
+                                    Theme="{StaticResource SimpleSplitButtonComponent}">
+                                <PathIcon Name="pathIcon"
+                                          Width="12"
+                                          Height="12"
+                                          Data="{DynamicResource ArrowDownGlyph}"
+                                          Foreground="{Binding $parent[Button].Foreground}" />
+                            </Button>
+                        </Grid>
+                    </DropShadowChrome>
+                    <Border Name="checkedBorder"
                             BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness,
-                                                              Converter={StaticResource PrimaryButtonBorderMultiplier}}"
-                            Command="{TemplateBinding Command}"
-                            CommandParameter="{TemplateBinding CommandParameter}"
-                            Content="{TemplateBinding Content}"
-                            ContentTemplate="{TemplateBinding ContentTemplate}"
-                            Focusable="False"
-                            FontFamily="{TemplateBinding FontFamily}"
-                            FontSize="{TemplateBinding FontSize}"
-                            FontWeight="{TemplateBinding FontWeight}"
-                            Foreground="{TemplateBinding Foreground}"
-                            KeyboardNavigation.IsTabStop="False"
-                            Theme="{StaticResource SimpleSplitButtonComponent}">
-                        <Button.CornerRadius>
-                            <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="TopLeft,BottomLeft">
-                                <TemplateBinding Property="CornerRadius" />
-                                <TemplateBinding Property="BorderThickness" />
-                            </MultiBinding>
-                        </Button.CornerRadius>
-                    </Button>
-
-                    <Button x:Name="PART_SecondaryButton"
-                            Grid.Column="1"
-                            Padding="{TemplateBinding Padding}"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness,
-                                                              Converter={StaticResource SecondaryButtonBorderMultiplier}}"
-                            Focusable="False"
-                            Foreground="{TemplateBinding Foreground}"
-                            KeyboardNavigation.IsTabStop="False"
-                            Theme="{StaticResource SimpleSplitButtonComponent}">
-                        <Button.CornerRadius>
-                            <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="TopRight,BottomRight">
-                                <TemplateBinding Property="CornerRadius" />
-                                <TemplateBinding Property="BorderThickness" />
-                            </MultiBinding>
-                        </Button.CornerRadius>
-                        <PathIcon Name="pathIcon"
-                                  Width="12"
-                                  Height="12"
-                                  Data="{DynamicResource ArrowDownGlyph}"
-                                  Foreground="{Binding $parent[Button].Foreground}" />
-                    </Button>
-                </Grid>
+                            BorderThickness="2"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            IsVisible="False" />
+                </Panel>
             </ControlTemplate>
         </Setter>
 
         <Style Selector="^:focus,^:pointerover">
             <Setter Property="Background" Value="{DynamicResource SynthoraMidBrush}" />
+            <Style Selector="^ /template/ DropShadowChrome#RootChrome">
+                <Setter Property="BoxShadow" Value="{TemplateBinding BorderBrush, Converter={x:Static SynthoraConverters.BoxShadowConverter}, ConverterParameter=0 0 4 0 #00000000}" />
+            </Style>
         </Style>
 
         <Style Selector="^:flyout-open">
@@ -161,8 +140,13 @@
             </Style>
         </Style>
 
-        <Style Selector="^:checked /template/ Button#PART_SecondaryButton">
-            <Setter Property="Tag" Value="checked" />
+        <Style Selector="^:checked">
+            <Style Selector="^ /template/ Button#PART_SecondaryButton">
+                <Setter Property="Tag" Value="checked" />
+            </Style>
+            <Style Selector="^ /template/ Border#checkedBorder">
+                <Setter Property="IsVisible" Value="True" />
+            </Style>
         </Style>
 
         <Style Selector="^:checked:flyout-open">
