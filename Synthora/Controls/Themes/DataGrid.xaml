@@ -21,7 +21,7 @@
         <Setter Property="VerticalAlignment" Value="Stretch" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="CornerRadius" Value="0" />
-        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Background" Value="{Binding $parent[DataGridRow].Background}" />
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type DataGridCell}" TargetType="DataGridCell">
@@ -44,11 +44,6 @@
                         </MultiBinding>
                     </Border.BorderThickness>
                     <Panel>
-                        <Rectangle Name="CurrencyVisual"
-                                   IsVisible="False"
-                                   Stroke="{DynamicResource ThemeBorderHighBrush}"
-                                   StrokeDashArray="4,4"
-                                   StrokeThickness="1" />
                         <ContentPresenter Margin="{TemplateBinding Padding}"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
@@ -62,6 +57,12 @@
                                 <SolidColorBrush Opacity="0.1" Color="Red" />
                             </Rectangle.Fill>
                         </Rectangle>
+                        <Rectangle Name="CurrencyVisual"
+                                   IsHitTestVisible="False"
+                                   IsVisible="False"
+                                   Stroke="{DynamicResource ThemeBorderHighBrush}"
+                                   StrokeDashArray="4,4"
+                                   StrokeThickness="1" />
                         <Rectangle x:Name="PART_RightGridLine"
                                    Width="0"
                                    Height="0"
@@ -71,9 +72,15 @@
                 </Border>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:current:focus /template/ Rectangle#CurrencyVisual">
-            <Setter Property="IsVisible" Value="True" />
+        <Style Selector="^:current">
+            <Style Selector="^:focus /template/ Rectangle#CurrencyVisual">
+                <Setter Property="IsVisible" Value="True" />
+            </Style>
+            <Style Selector="^:selected:focus-within /template/ Rectangle#CurrencyVisual">
+                <Setter Property="IsVisible" Value="True" />
+            </Style>
         </Style>
+
         <Style Selector="^:invalid /template/ Rectangle#InvalidVisualElement">
             <Setter Property="IsVisible" Value="True" />
         </Style>

@@ -147,7 +147,7 @@ namespace Synthora.Demo.ViewModels
                 nameof(IconType.Question) => await AlertDialog.ShowAsync(message, "Question", DialogButton, IconType.Question),
                 nameof(IconType.Warning) => await AlertDialog.ShowAsync(message, "Warning", DialogButton, IconType.Warning),
                 nameof(IconType.Error) => await AlertDialog.ShowAsync(message, "Error", DialogButton, IconType.Error),
-                nameof(DialogButton.None) => await AlertDialog.ShowAsync(new AlertDialogDialogOptions() { DialogButton = DialogButton.None, Title = "None", Message = message }),
+                nameof(DialogButton.None) => await AlertDialog.ShowAsync(new AlertDialogArguments() { DialogButton = DialogButton.None, Title = "None", Message = message }),
                 _ => await AlertDialog.ShowAsync(message, "Abort", DialogButton | DialogButton.Abort, IconType.Error)
             };
             await new Window()

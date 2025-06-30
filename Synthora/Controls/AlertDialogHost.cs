@@ -153,14 +153,14 @@ namespace Synthora.Controls
         /// </summary>
         public static bool IsDialogOpen(string? dialogIdentifier) => GetInstance(dialogIdentifier).IsOpen;
 
-        internal static async Task<DialogResult> ShowAsync(string? dialogIdentifier, AlertDialogDialogOptions alertDialogDialogOptions)
+        internal static async Task<DialogResult> ShowAsync(string? dialogIdentifier, AlertDialogArguments alertDialogArguments)
         {
-            return await GetInstance(dialogIdentifier).ShowCore(alertDialogDialogOptions);
+            return await GetInstance(dialogIdentifier).ShowCore(alertDialogArguments);
         }
 
-        internal static async Task<DialogResult> ShowAsync(string? dialogIdentifier, string? message, string? title, DialogButton dialogButton, IconType iconType)
+        internal static async Task<DialogResult> ShowAsync(string? dialogIdentifier, string message, string? title, DialogButton dialogButton, IconType iconType)
         {
-            return await GetInstance(dialogIdentifier).ShowCore(new AlertDialogDialogOptions()
+            return await GetInstance(dialogIdentifier).ShowCore(new AlertDialogArguments()
             {
                 Title = title,
                 Message = message,
@@ -169,11 +169,11 @@ namespace Synthora.Controls
             });
         }
 
-        private async Task<DialogResult> ShowCore(AlertDialogDialogOptions alertDialogDialogOptions)
+        private async Task<DialogResult> ShowCore(AlertDialogArguments alertDialogArguments)
         {
-            if (alertDialogDialogOptions.DialogButton == DialogButton.None)
+            if (alertDialogArguments.DialogButton == DialogButton.None)
             {
-                alertDialogDialogOptions.ShowCloseButton = true;
+                alertDialogArguments.ShowCloseButton = true;
             }
             if (IsOpen)
             {
@@ -184,11 +184,11 @@ namespace Synthora.Controls
             try
             {
                 DialogClosed += OnDialogClosed;
-                SetCurrentValue(TitleProperty, alertDialogDialogOptions.Title);
-                SetCurrentValue(MessageProperty, alertDialogDialogOptions.Message);
-                SetCurrentValue(DialogButtonProperty, alertDialogDialogOptions.DialogButton);
-                SetCurrentValue(IconTypeProperty, alertDialogDialogOptions.IconType);
-                SetCurrentValue(ShowCloseButtonProperty, alertDialogDialogOptions.ShowCloseButton);
+                SetCurrentValue(TitleProperty, alertDialogArguments.Title);
+                SetCurrentValue(MessageProperty, alertDialogArguments.Message);
+                SetCurrentValue(DialogButtonProperty, alertDialogArguments.DialogButton);
+                SetCurrentValue(IconTypeProperty, alertDialogArguments.IconType);
+                SetCurrentValue(ShowCloseButtonProperty, alertDialogArguments.ShowCloseButton);
                 SetCurrentValue(IsOpenProperty, true);
 
                 _ = Dispatcher.UIThread.InvokeAsync(() =>

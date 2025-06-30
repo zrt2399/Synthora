@@ -47,10 +47,10 @@ namespace Synthora.Messaging
         Error
     }
 
-    public class AlertDialogDialogOptions
+    public class AlertDialogArguments
     {
         public string? Title { get; set; }
-        public string? Message { get; set; }
+        public string Message { get; set; } = string.Empty;
         public DialogButton DialogButton { get; set; } = DialogButton.OK;
         public IconType IconType { get; set; }
         public bool ShowCloseButton { get; set; }
@@ -62,37 +62,37 @@ namespace Synthora.Messaging
     public static class AlertDialog
     {
         /// <summary>
-        /// Displays an alert dialog asynchronously using the specified <paramref name="alertDialogDialogOptions"/>,
+        /// Displays an alert dialog asynchronously using the specified <paramref name="alertDialogArguments"/>,
         /// targeting the <see cref="AlertDialogHost"/> instance identified by <paramref name="dialogIdentifier"/>.
         /// </summary>
-        public static async Task<DialogResult> ShowAsync(string? dialogIdentifier, AlertDialogDialogOptions alertDialogDialogOptions)
+        public static async Task<DialogResult> ShowAsync(string? dialogIdentifier, AlertDialogArguments alertDialogArguments)
         {
             if (Dispatcher.UIThread.CheckAccess())
             {
-                return await AlertDialogHost.ShowAsync(dialogIdentifier, alertDialogDialogOptions);
+                return await AlertDialogHost.ShowAsync(dialogIdentifier, alertDialogArguments);
             }
             else
             {
-                return await Dispatcher.UIThread.Invoke(() => ShowAsync(dialogIdentifier, alertDialogDialogOptions));
+                return await Dispatcher.UIThread.Invoke(() => ShowAsync(dialogIdentifier, alertDialogArguments));
             }
         }
 
         /// <summary>
         /// Displays an alert dialog asynchronously using the default <see cref="AlertDialogHost"/> instance
-        /// and the specified <paramref name="alertDialogDialogOptions"/>.
+        /// and the specified <paramref name="alertDialogArguments"/>.
         /// </summary>
-        public static async Task<DialogResult> ShowAsync(AlertDialogDialogOptions alertDialogDialogOptions)
+        public static async Task<DialogResult> ShowAsync(AlertDialogArguments alertDialogArguments)
         {
-            return await ShowAsync(null, alertDialogDialogOptions);
+            return await ShowAsync(null, alertDialogArguments);
         }
 
         /// <summary>
         /// Displays an alert dialog asynchronously,
         /// using the <paramref name="dialogIdentifier"/> to locate the specific <see cref="AlertDialogHost"/> instance.
         /// </summary>
-        public static async Task<DialogResult> ShowAsync(string? dialogIdentifier, string? message, string? title, DialogButton dialogButton = DialogButton.OK, IconType iconType = IconType.Information)
+        public static async Task<DialogResult> ShowAsync(string? dialogIdentifier, string message, string? title, DialogButton dialogButton = DialogButton.OK, IconType iconType = IconType.Information)
         {
-            return await ShowAsync(dialogIdentifier, new AlertDialogDialogOptions()
+            return await ShowAsync(dialogIdentifier, new AlertDialogArguments()
             {
                 Message = message,
                 Title = title,
@@ -104,7 +104,7 @@ namespace Synthora.Messaging
         /// <summary>
         /// Displays an alert dialog asynchronously using the default <see cref="AlertDialogHost"/> instance.
         /// </summary>
-        public static async Task<DialogResult> ShowAsync(string? message, string? title, DialogButton dialogButton = DialogButton.OK, IconType iconType = IconType.Information)
+        public static async Task<DialogResult> ShowAsync(string message, string? title, DialogButton dialogButton = DialogButton.OK, IconType iconType = IconType.Information)
         {
             return await ShowAsync(null, message, title, dialogButton, iconType);
         }
