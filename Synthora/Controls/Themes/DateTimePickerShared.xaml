@@ -52,7 +52,7 @@
 
     <!--  This is used for both the accept/dismiss & repeatbuttons in the presenter  -->
     <ControlTheme x:Key="SimpleDateTimePickerButton" TargetType="Button">
-        <Setter Property="Background" Value="{DynamicResource ThemeControlTransparentBrush}" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="{DynamicResource DateTimeFlyoutButtonBorderThickness}" />
         <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
         <Setter Property="Height" Value="22" />

@@ -207,7 +207,7 @@
     <SolidColorBrush x:Key="NotificationCardSuccessBackgroundBrush" Color="{StaticResource SuccessColor}" />
     <SolidColorBrush x:Key="NotificationCardWarningBackgroundBrush" Color="{StaticResource WarningColor}" />
     <SolidColorBrush x:Key="NotificationCardErrorBackgroundBrush" Color="{StaticResource DangerColor}" />
-    <SolidColorBrush x:Key="ThemeControlTransparentBrush" Color="Transparent" />
+
     <SolidColorBrush x:Key="DatePickerFlyoutPresenterHighlightFill"
                      Opacity="0.4"
                      Color="{StaticResource ThemeAccentColor}" />

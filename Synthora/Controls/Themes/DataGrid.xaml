@@ -76,7 +76,10 @@
             <Style Selector="^:focus /template/ Rectangle#CurrencyVisual">
                 <Setter Property="IsVisible" Value="True" />
             </Style>
-            <Style Selector="^:selected:focus-within /template/ Rectangle#CurrencyVisual">
+            <Style Selector="^:focus-within /template/ Rectangle#CurrencyVisual">
+                <Setter Property="IsVisible" Value="True" />
+            </Style>
+            <Style Selector="^:pointerover /template/ Rectangle#CurrencyVisual">
                 <Setter Property="IsVisible" Value="True" />
             </Style>
         </Style>
