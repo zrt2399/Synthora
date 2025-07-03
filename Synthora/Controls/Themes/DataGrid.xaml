@@ -158,9 +158,7 @@
         <Style Selector="^:sortdescending /template/ PathIcon#SortIcon">
             <Setter Property="IsVisible" Value="True" />
             <Setter Property="RenderTransform">
-                <Setter.Value>
-                    <ScaleTransform ScaleX="1" ScaleY="-1" />
-                </Setter.Value>
+                <ScaleTransform ScaleX="1" ScaleY="-1" />
             </Setter>
         </Style>
     </ControlTheme>
@@ -275,7 +273,7 @@
                 </Border>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:pointerover">
+        <Style Selector="^:pointerover,^:focus-within">
             <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />
         </Style>
     </ControlTheme>

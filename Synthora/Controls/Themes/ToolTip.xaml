@@ -18,9 +18,15 @@
                     <ContentPresenter Name="PART_ContentPresenter"
                                       Margin="{TemplateBinding Padding}"
                                       Content="{TemplateBinding Content}"
-                                      ContentTemplate="{TemplateBinding ContentTemplate}" />
+                                      ContentTemplate="{TemplateBinding ContentTemplate}">
+                        <ContentPresenter.DataTemplates>
+                            <DataTemplate DataType="x:String">
+                                <TextBlock Text="{Binding}" TextWrapping="Wrap" />
+                            </DataTemplate>
+                        </ContentPresenter.DataTemplates>
+                    </ContentPresenter>
                 </SystemDropShadowChrome>
             </ControlTemplate>
         </Setter>
     </ControlTheme>
-</ResourceDictionary> 
+</ResourceDictionary>

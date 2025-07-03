@@ -8,26 +8,24 @@
         <Setter Property="Background" Value="{DynamicResource HighlightBrush}" />
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate>
-                    <Grid>
-                        <PathIcon Name="PART_HandlePathIcon"
-                                  Height="{DynamicResource TextSelectHandleSize}"
-                                  HorizontalAlignment="Stretch"
-                                  Cursor="Arrow"
-                                  Foreground="{TemplateBinding Background}">
-                            <PathIcon.Data>
-                                <GeometryGroup FillRule="NonZero">
-                                    <RectangleGeometry Rect="0,0,16,16" />
-                                    <EllipseGeometry Center="16,16"
-                                                     RadiusX="16"
-                                                     RadiusY="16" />
-                                </GeometryGroup>
-                            </PathIcon.Data>
-                        </PathIcon>
-                    </Grid>
-                </ControlTemplate>
-            </Setter.Value>
+            <ControlTemplate>
+                <Grid>
+                    <PathIcon Name="PART_HandlePathIcon"
+                              Height="{DynamicResource TextSelectHandleSize}"
+                              HorizontalAlignment="Stretch"
+                              Cursor="Arrow"
+                              Foreground="{TemplateBinding Background}">
+                        <PathIcon.Data>
+                            <GeometryGroup FillRule="NonZero">
+                                <RectangleGeometry Rect="0,0,16,16" />
+                                <EllipseGeometry Center="16,16"
+                                                 RadiusX="16"
+                                                 RadiusY="16" />
+                            </GeometryGroup>
+                        </PathIcon.Data>
+                    </PathIcon>
+                </Grid>
+            </ControlTemplate>
         </Setter>
         <Style Selector="^.caret /template/ PathIcon#PART_HandlePathIcon">
             <Setter Property="Data">

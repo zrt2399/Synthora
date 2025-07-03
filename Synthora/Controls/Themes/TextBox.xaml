@@ -125,23 +125,21 @@
         <Setter Property="Cursor" Value="Arrow" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Border x:Name="PART_ButtonLayoutBorder"
-                            Width="12"
-                            Height="12"
-                            Background="{TemplateBinding Background}">
-                        <Path x:Name="PART_GlyphElement"
-                              Width="10"
-                              Height="10"
-                              HorizontalAlignment="Center"
-                              VerticalAlignment="Center"
-                              Data="{StaticResource TextBoxClearButtonData}"
-                              Fill="{TemplateBinding Foreground}"
-                              Stretch="Uniform" />
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
+            <ControlTemplate TargetType="Button">
+                <Border x:Name="PART_ButtonLayoutBorder"
+                        Width="12"
+                        Height="12"
+                        Background="{TemplateBinding Background}">
+                    <Path x:Name="PART_GlyphElement"
+                          Width="10"
+                          Height="10"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                          Data="{StaticResource TextBoxClearButtonData}"
+                          Fill="{TemplateBinding Foreground}"
+                          Stretch="Uniform" />
+                </Border>
+            </ControlTemplate>
         </Setter>
     </ControlTheme>
 
@@ -149,30 +147,28 @@
         <Setter Property="Cursor" Value="Arrow" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="ToggleButton">
-                    <Border x:Name="PART_ButtonLayoutBorder" Background="{TemplateBinding Background}">
-                        <Panel>
-                            <Path x:Name="PART_GlyphElement_Reveal"
-                                  Width="12"
-                                  Height="8"
-                                  HorizontalAlignment="Center"
-                                  VerticalAlignment="Center"
-                                  Data="{DynamicResource PasswordBoxRevealButtonData}"
-                                  Fill="{TemplateBinding Foreground}"
-                                  Stretch="Uniform" />
-                            <Path x:Name="PART_GlyphElement_Hide"
-                                  Width="12"
-                                  Height="12"
-                                  HorizontalAlignment="Center"
-                                  VerticalAlignment="Center"
-                                  Data="{DynamicResource PasswordBoxHideButtonData}"
-                                  Fill="{TemplateBinding Foreground}"
-                                  Stretch="Uniform" />
-                        </Panel>
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
+            <ControlTemplate TargetType="ToggleButton">
+                <Border x:Name="PART_ButtonLayoutBorder" Background="{TemplateBinding Background}">
+                    <Panel>
+                        <Path x:Name="PART_GlyphElement_Reveal"
+                              Width="12"
+                              Height="8"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Data="{DynamicResource PasswordBoxRevealButtonData}"
+                              Fill="{TemplateBinding Foreground}"
+                              Stretch="Uniform" />
+                        <Path x:Name="PART_GlyphElement_Hide"
+                              Width="12"
+                              Height="12"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Data="{DynamicResource PasswordBoxHideButtonData}"
+                              Fill="{TemplateBinding Foreground}"
+                              Stretch="Uniform" />
+                    </Panel>
+                </Border>
+            </ControlTemplate>
         </Setter>
 
         <Style Selector="^:unchecked">

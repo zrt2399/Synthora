@@ -11,29 +11,27 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Padding" Value="8,6" />
         <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate>
-                    <Border Name="PART_LayoutRoot"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{TemplateBinding CornerRadius}">
-                        <Panel>
-                            <ContentPresenter Name="PART_ContentPresenter"
-                                              Margin="{TemplateBinding Padding}"
-                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                              Content="{TemplateBinding Header}"
-                                              ContentTemplate="{TemplateBinding HeaderTemplate}"
-                                              RecognizesAccessKey="True" />
-                            <Border Name="PART_SelectedPipe"
-                                    VerticalAlignment="Bottom"
-                                    CornerRadius="{DynamicResource ThemeBorderCornerRadius}"
-                                    IsVisible="False" />
-                        </Panel>
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
+            <ControlTemplate>
+                <Border Name="PART_LayoutRoot"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <Panel>
+                        <ContentPresenter Name="PART_ContentPresenter"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding Header}"
+                                          ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                          RecognizesAccessKey="True" />
+                        <Border Name="PART_SelectedPipe"
+                                VerticalAlignment="Bottom"
+                                CornerRadius="{DynamicResource ThemeBorderCornerRadius}"
+                                IsVisible="False" />
+                    </Panel>
+                </Border>
+            </ControlTemplate>
         </Setter>
         <Style Selector="^[TabStripPlacement=Top] /template/ Border#PART_SelectedPipe">
             <Setter Property="HorizontalAlignment" Value="Stretch" />
@@ -94,24 +92,22 @@
             </MultiBinding>
         </Setter>
         <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate>
-                    <DropShadowChrome Name="PART_LayoutRoot"
-                                      Background="{TemplateBinding Background}"
-                                      BorderBrush="{TemplateBinding BorderBrush}"
-                                      BorderThickness="{TemplateBinding BorderThickness}"
-                                      BoxShadow="{DynamicResource EmptyBoxShadow}"
-                                      CornerRadius="{TemplateBinding CornerRadius}">
-                        <ContentPresenter Name="PART_ContentPresenter"
-                                          Margin="{TemplateBinding Padding}"
-                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                          Content="{TemplateBinding Header}"
-                                          ContentTemplate="{TemplateBinding HeaderTemplate}"
-                                          RecognizesAccessKey="True" />
-                    </DropShadowChrome>
-                </ControlTemplate>
-            </Setter.Value>
+            <ControlTemplate>
+                <DropShadowChrome Name="PART_LayoutRoot"
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  BoxShadow="{DynamicResource EmptyBoxShadow}"
+                                  CornerRadius="{TemplateBinding CornerRadius}">
+                    <ContentPresenter Name="PART_ContentPresenter"
+                                      Margin="{TemplateBinding Padding}"
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      Content="{TemplateBinding Header}"
+                                      ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                      RecognizesAccessKey="True" />
+                </DropShadowChrome>
+            </ControlTemplate>
         </Setter>
 
         <Style Selector="^:pointerover">
@@ -130,5 +126,4 @@
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
         </Style>
     </ControlTheme>
-
 </ResourceDictionary>

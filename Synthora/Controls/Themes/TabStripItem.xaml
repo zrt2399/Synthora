@@ -8,29 +8,27 @@
         <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}" />
         <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundMidBrush}" />
         <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate>
-                    <Border Name="PART_LayoutRoot"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{TemplateBinding CornerRadius}">
-                        <Panel>
-                            <ContentPresenter Name="PART_ContentPresenter"
-                                              Margin="{TemplateBinding Padding}"
-                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                              Content="{TemplateBinding Content}"
-                                              ContentTemplate="{TemplateBinding ContentTemplate}" />
-                            <Border Name="PART_SelectedPipe"
-                                    Height="2"
-                                    VerticalAlignment="Bottom"
-                                    CornerRadius="{DynamicResource ThemeBorderCornerRadius}"
-                                    IsVisible="False" />
-                        </Panel>
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
+            <ControlTemplate>
+                <Border Name="PART_LayoutRoot"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <Panel>
+                        <ContentPresenter Name="PART_ContentPresenter"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}" />
+                        <Border Name="PART_SelectedPipe"
+                                Height="2"
+                                VerticalAlignment="Bottom"
+                                CornerRadius="{DynamicResource ThemeBorderCornerRadius}"
+                                IsVisible="False" />
+                    </Panel>
+                </Border>
+            </ControlTemplate>
         </Setter>
 
         <!--<Style Selector="^:disabled /template/ Border#PART_LayoutRoot">

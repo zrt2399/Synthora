@@ -170,11 +170,9 @@
             <Setter Property="Background" Value="{DynamicResource ThemeControlMidHighBrush}" />
             <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
             <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate>
-                        <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}" />
-                    </ControlTemplate>
-                </Setter.Value>
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}" />
+                </ControlTemplate>
             </Setter>
         </Style>
         <Style Selector="^ /template/ Thumb#thumb:pointerover">
