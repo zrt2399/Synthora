@@ -33,7 +33,7 @@
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            BoxShadow="0 0 6 0 #60000000"
+                            BoxShadow="0 0 6 0 #40000000"
                             CornerRadius="{TemplateBinding CornerRadius}">
                         <DockPanel>
                             <TipIcon Name="icon"
