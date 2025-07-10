@@ -35,6 +35,7 @@
         <Setter Property="VerticalContentAlignment" Value="Stretch" />
         <Setter Property="BorderThickness" Value="{Binding $parent[DataGrid].GridLinesVisibility, Converter={x:Static DataGridLineThicknessConverter.Instance}, ConverterParameter={x:Static Orientation.Vertical}}" />
         <Setter Property="BorderBrush" Value="{Binding $parent[DataGrid].VerticalGridLinesBrush}" />
+        <Setter Property="MinHeight" Value="{DynamicResource DataGridRowMinHeight}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border x:Name="CellBorder"
@@ -193,7 +194,7 @@
         <Setter Property="Background" Value="{Binding $parent[DataGrid].RowBackground}" />
         <Setter Property="BorderThickness" Value="{Binding $parent[DataGrid].GridLinesVisibility, Converter={x:Static DataGridLineThicknessConverter.Instance}, ConverterParameter={x:Static Orientation.Horizontal}}" />
         <Setter Property="BorderBrush" Value="{Binding $parent[DataGrid].HorizontalGridLinesBrush}" />
-        <Setter Property="MinHeight" Value="{DynamicResource DataGridRowMinHeight}" />
+        <!--<Setter Property="MinHeight" Value="{DynamicResource DataGridRowMinHeight}" />-->
         <Setter Property="Template">
             <ControlTemplate>
                 <Border x:Name="RowBorder"
