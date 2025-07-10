@@ -9,16 +9,20 @@
                                           Indent="1"
                                           Left="True" />
 
+    <x:Double x:Key="DataGridRowMinHeight">28</x:Double>
+
     <ControlTheme x:Key="DataGridCellTextBlockTheme"
                   BasedOn="{StaticResource {x:Type TextBlock}}"
                   TargetType="TextBlock">
         <Setter Property="Margin" Value="{DynamicResource ThemeControlPadding}" />
-        <!--<Setter Property="VerticalAlignment" Value="Center" />-->
+        <Setter Property="VerticalAlignment" Value="Center" />
     </ControlTheme>
     <ControlTheme x:Key="DataGridCellTextBoxTheme"
                   BasedOn="{StaticResource {x:Type TextBox}}"
                   TargetType="TextBox">
         <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="CornerRadius" Value="0" />
         <Setter Property="Background" Value="{Binding $parent[DataGridRow].Background}" />
@@ -99,6 +103,7 @@
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{Binding $parent[DataGrid].VerticalGridLinesBrush}" />
         <Setter Property="BorderThickness" Value="0,0,1,0" />
+        <Setter Property="MinHeight" Value="{DynamicResource DataGridRowMinHeight}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border x:Name="HeaderBorder"
@@ -188,6 +193,7 @@
         <Setter Property="Background" Value="{Binding $parent[DataGrid].RowBackground}" />
         <Setter Property="BorderThickness" Value="{Binding $parent[DataGrid].GridLinesVisibility, Converter={x:Static DataGridLineThicknessConverter.Instance}, ConverterParameter={x:Static Orientation.Horizontal}}" />
         <Setter Property="BorderBrush" Value="{Binding $parent[DataGrid].HorizontalGridLinesBrush}" />
+        <Setter Property="MinHeight" Value="{DynamicResource DataGridRowMinHeight}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border x:Name="RowBorder"
@@ -249,6 +255,7 @@
         <Setter Property="BorderThickness" Value="0,0,0,1" />
         <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
+        <Setter Property="MinHeight" Value="{DynamicResource DataGridRowMinHeight}" />
         <Setter Property="Template">
             <ControlTemplate x:DataType="collections:DataGridCollectionViewGroup">
                 <Border Background="{TemplateBinding Background}"
