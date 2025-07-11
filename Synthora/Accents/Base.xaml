@@ -219,6 +219,7 @@
 
     <Thickness x:Key="ThemeControlPaddingSmall">4</Thickness>
     <Thickness x:Key="ThemeControlPadding">6,4</Thickness>
+    <Thickness x:Key="ThemeHeaderControlPadding">8,6</Thickness>
     <Thickness x:Key="ThemeMenuFlyoutPadding">4</Thickness>
     <Thickness x:Key="ThemeControlLeftPadding">6,0,0,0</Thickness>
     <Thickness x:Key="ThemeControlRightPadding">0,0,0,6</Thickness>
@@ -239,7 +240,7 @@
     <sys:Double x:Key="IconElementThemeHeight">20</sys:Double>
     <sys:Double x:Key="IconElementThemeWidth">20</sys:Double>
 
-    <BoxShadows x:Key="PopupBoxShadow">2 2 4 0 #88000000</BoxShadows>
+    <BoxShadows x:Key="PopupBoxShadow">2 2 4 0 #80000000</BoxShadows>
     <Thickness x:Key="PopupBoxShadowMargin">0,0,4,4</Thickness>
 
     <BoxShadows x:Key="DefaultBoxShadow">0 0 4 0 #60000000</BoxShadows>

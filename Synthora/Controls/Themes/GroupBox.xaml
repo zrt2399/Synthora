@@ -9,7 +9,7 @@
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
         <Setter Property="Padding" Value="10" />
         <Setter Property="HeaderPlacement" Value="Top" />
-        <Setter Property="HeaderPadding" Value="{DynamicResource ThemeControlPadding}" />
+        <Setter Property="HeaderPadding" Value="{DynamicResource ThemeHeaderControlPadding}" />
         <Setter Property="HeaderBackground" Value="{DynamicResource ThemeControlMidBrush}" />
         <Setter Property="BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
         <Setter Property="HeaderDividerThickness" Value="1" />
