@@ -10,7 +10,7 @@ namespace Synthora.Attaches
 {
     public class DataGridAttach
     {
-        private static readonly ConcurrentDictionary<object, DataGrid> CollectionToDataGridMap = new();
+        private static readonly ConcurrentDictionary<object, DataGrid> CollectionToDataGridMap = [];
 
         public static readonly AttachedProperty<IList?> SelectedItemsProperty =
             AvaloniaProperty.RegisterAttached<DataGridAttach, DataGrid, IList?>("SelectedItems", defaultBindingMode: BindingMode.TwoWay);

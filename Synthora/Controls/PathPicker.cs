@@ -90,7 +90,6 @@ namespace Synthora.Controls
 
         static PathPicker()
         {
-            PathSeparator = OperatingSystem.IsWindows() ? "|" : ":";
             SelectedPathsProperty.Changed.AddClassHandler<PathPicker, IList?>((s, e) => OnSelectedPathsChanged(e));
         }
 
@@ -98,7 +97,7 @@ namespace Synthora.Controls
         /// Gets the path separator character used to separate paths.
         /// It is '|' on Windows and ':' on other platforms.
         /// </summary>
-        public static string PathSeparator { get; }
+        public static string PathSeparator { get; } = OperatingSystem.IsWindows() ? "|" : ":";
 
         /// <summary>
         /// Gets or sets the title of the file dialog.

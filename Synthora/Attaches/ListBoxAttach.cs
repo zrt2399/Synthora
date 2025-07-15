@@ -11,7 +11,7 @@ namespace Synthora.Attaches
 {
     public class ListBoxAttach
     {
-        private static readonly ConcurrentDictionary<object, ListBox> CollectionToListBoxMap = new();
+        private static readonly ConcurrentDictionary<object, ListBox> CollectionToListBoxMap = [];
 
         public static readonly AttachedProperty<bool> IsAutoScrollToEndProperty =
             AvaloniaProperty.RegisterAttached<ListBoxAttach, ListBox, bool>("IsAutoScrollToEnd");
