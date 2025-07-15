@@ -172,6 +172,7 @@
     <ControlTheme x:Key="{x:Type DataGridRowHeader}" TargetType="DataGridRowHeader">
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
         <Setter Property="BorderThickness" Value="{Binding $parent[DataGrid].GridLinesVisibility, Converter={x:Static DataGridLineThicknessConverter.Instance}, ConverterParameter={x:Static Orientation.Vertical}}" />
         <Setter Property="BorderBrush" Value="{Binding $parent[DataGrid].VerticalGridLinesBrush}" />
         <Setter Property="Template">
@@ -286,6 +287,29 @@
         </Style>
     </ControlTheme>
 
+    <ControlTheme x:Key="DataGridTopLeftColumnHeader"
+                  BasedOn="{StaticResource {x:Type DataGridColumnHeader}}"
+                  TargetType="DataGridColumnHeader">
+        <Setter Property="HorizontalContentAlignment" Value="Right" />
+        <Setter Property="VerticalContentAlignment" Value="Bottom" />
+        <Setter Property="PointerPressAttach.PointerPressMode" Value="Left" />
+        <Setter Property="PointerPressAttach.Command" Value="{x:Static DataGridUtils.SelectAllCommand}" />
+        <Setter Property="PointerPressAttach.CommandParameter" Value="{Binding $parent[DataGrid]}" />
+        <Setter Property="Padding" Value="0,0,2,3" />
+        <Setter Property="Content">
+            <Template>
+                <Polygon x:Name="Arrow"
+                         Margin="{TemplateBinding Padding}"
+                         HorizontalAlignment="Right"
+                         VerticalAlignment="Bottom"
+                         Fill="{DynamicResource ThemeForegroundBrush}"
+                         Opacity="0.5"
+                         Points="0,10 10,10 10,0"
+                         Stretch="None" />
+            </Template>
+        </Setter>
+    </ControlTheme>
+
     <ControlTheme x:Key="{x:Type DataGrid}" TargetType="DataGrid">
         <Setter Property="RowBackground" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
@@ -317,7 +341,7 @@
                           ColumnDefinitions="Auto,*,Auto"
                           RowDefinitions="Auto,*,Auto">
 
-                        <DataGridColumnHeader Name="PART_TopLeftCornerHeader" />
+                        <DataGridColumnHeader Name="PART_TopLeftCornerHeader" Theme="{StaticResource DataGridTopLeftColumnHeader}" />
                         <DataGridColumnHeadersPresenter Name="PART_ColumnHeadersPresenter" Grid.Column="1" />
                         <Border Name="columnHeadersRowsSeparator"
                                 Grid.ColumnSpan="3"
