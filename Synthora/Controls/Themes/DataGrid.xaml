@@ -290,11 +290,12 @@
     <ControlTheme x:Key="DataGridTopLeftColumnHeader"
                   BasedOn="{StaticResource {x:Type DataGridColumnHeader}}"
                   TargetType="DataGridColumnHeader">
-        <Setter Property="HorizontalContentAlignment" Value="Right" />
-        <Setter Property="VerticalContentAlignment" Value="Bottom" />
         <Setter Property="PointerPressAttach.PointerPressMode" Value="Left" />
         <Setter Property="PointerPressAttach.Command" Value="{x:Static DataGridUtils.SelectAllCommand}" />
         <Setter Property="PointerPressAttach.CommandParameter" Value="{Binding $parent[DataGrid]}" />
+        <Setter Property="HorizontalContentAlignment" Value="Right" />
+        <Setter Property="VerticalContentAlignment" Value="Bottom" />
+        <Setter Property="UseLayoutRounding" Value="False" />
         <Setter Property="Padding" Value="0,0,2,3" />
         <Setter Property="Content">
             <Template>
