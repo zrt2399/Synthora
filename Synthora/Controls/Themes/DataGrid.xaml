@@ -146,11 +146,11 @@
         </Setter>
 
         <Style Selector="^:pointerover">
-            <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowColor}" />
+            <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />
         </Style>
 
         <Style Selector="^:pressed">
-            <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidColor}" />
+            <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidBrush}" />
         </Style>
 
         <Style Selector="^:dragIndicator">
@@ -322,13 +322,13 @@
         <Setter Property="CanUserReorderColumns" Value="True" />
         <Setter Property="CanUserResizeColumns" Value="True" />
         <Setter Property="CanUserSortColumns" Value="True" />
-        <Setter Property="HorizontalGridLinesBrush" Value="{DynamicResource ThemeBorderLowColor}" />
-        <Setter Property="VerticalGridLinesBrush" Value="{DynamicResource ThemeBorderLowColor}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowColor}" />
+        <Setter Property="HorizontalGridLinesBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
+        <Setter Property="VerticalGridLinesBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="DropLocationIndicatorTemplate">
             <Template>
-                <Rectangle Width="2" Fill="{DynamicResource ThemeBorderLowColor}" />
+                <Rectangle Width="2" Fill="{DynamicResource ThemeBorderLowBrush}" />
             </Template>
         </Setter>
         <Setter Property="Template">
@@ -390,6 +390,11 @@
                 </Border>
             </ControlTemplate>
         </Setter>
+        <Style Selector="^[HeadersVisibility=None],^[HeadersVisibility=Row]">
+            <Style Selector="^ /template/ Border#columnHeadersRowsSeparator">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+        </Style>
         <Style Selector="^:empty-columns">
             <Style Selector="^ /template/ DataGridColumnHeader#PART_TopLeftCornerHeader">
                 <Setter Property="IsVisible" Value="False" />
