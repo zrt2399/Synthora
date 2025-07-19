@@ -98,7 +98,9 @@
                                          TextWrapping="Wrap"
                                          UseFloatingWatermark="True"
                                          Watermark="Type a message" />
-                                <TextBox Classes="clearButton"
+                                <TextBox MaxHeight="100"
+                                         AcceptsReturn="True"
+                                         Classes="clearButton"
                                          Text="{Binding Value}"
                                          TextBoxAttach.Title="TextBox" />
                                 <TextBox Classes="revealPasswordButton"

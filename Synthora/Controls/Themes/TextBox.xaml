@@ -308,30 +308,32 @@
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
         </Style>
 
-        <Style Selector="^.clearButton[AcceptsReturn=False][IsReadOnly=False]:focus:not(TextBox:empty)">
-            <Setter Property="InnerRightContent">
-                <Template>
-                    <Button Margin="{Binding $parent[TextBox].Padding, Converter={StaticResource TextBoxInnerRightButtonMarginMultiplier}}"
-                            ClipToBounds="True"
-                            Command="{Binding $parent[TextBox].Clear}"
-                            Focusable="False"
-                            Foreground="{Binding $parent[TextBox].Foreground}"
-                            Theme="{StaticResource SimpleTextBoxClearButtonTheme}" />
-                </Template>
-            </Setter>
+        <Style Selector="^.clearButton,^.ClearButton">
+            <Style Selector="^[IsReadOnly=False]:focus:not(TextBox:empty),^[IsReadOnly=False]:pointerover:not(TextBox:empty)">
+                <Setter Property="InnerRightContent">
+                    <Template>
+                        <Button Margin="{Binding $parent[TextBox].Padding, Converter={StaticResource TextBoxInnerRightButtonMarginMultiplier}}"
+                                Command="{Binding $parent[TextBox].Clear}"
+                                Focusable="False"
+                                Foreground="{Binding $parent[TextBox].Foreground}"
+                                Theme="{StaticResource SimpleTextBoxClearButtonTheme}" />
+                    </Template>
+                </Setter>
+            </Style>
         </Style>
 
-        <Style Selector="^.revealPasswordButton[AcceptsReturn=False][IsReadOnly=False]">
-            <Setter Property="InnerRightContent">
-                <Template>
-                    <ToggleButton Margin="{Binding $parent[TextBox].Padding, Converter={StaticResource TextBoxInnerRightButtonMarginMultiplier}}"
-                                  ClipToBounds="True"
-                                  Focusable="False"
-                                  Foreground="{Binding $parent[TextBox].Foreground}"
-                                  IsChecked="{Binding $parent[TextBox].RevealPassword, Mode=TwoWay}"
-                                  Theme="{StaticResource SimplePasswordBoxRevealButtonTheme}" />
-                </Template>
-            </Setter>
+        <Style Selector="^.revealPasswordButton,^.RevealPasswordButton">
+            <Style Selector="^[AcceptsReturn=False][IsReadOnly=False]">
+                <Setter Property="InnerRightContent">
+                    <Template>
+                        <ToggleButton Margin="{Binding $parent[TextBox].Padding, Converter={StaticResource TextBoxInnerRightButtonMarginMultiplier}}"
+                                      Focusable="False"
+                                      Foreground="{Binding $parent[TextBox].Foreground}"
+                                      IsChecked="{Binding $parent[TextBox].RevealPassword, Mode=TwoWay}"
+                                      Theme="{StaticResource SimplePasswordBoxRevealButtonTheme}" />
+                    </Template>
+                </Setter>
+            </Style>
         </Style>
     </ControlTheme>
 </ResourceDictionary>
