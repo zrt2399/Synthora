@@ -342,7 +342,7 @@
                           ColumnDefinitions="Auto,*,Auto"
                           RowDefinitions="Auto,*,Auto">
 
-                        <DataGridColumnHeader Name="PART_TopLeftCornerHeader" Theme="{StaticResource DataGridTopLeftColumnHeader}" />
+                        <DataGridColumnHeader Name="PART_TopLeftCornerHeader" Theme="{DynamicResource DataGridTopLeftColumnHeader}" />
                         <DataGridColumnHeadersPresenter Name="PART_ColumnHeadersPresenter" Grid.Column="1" />
                         <Border Name="columnHeadersRowsSeparator"
                                 Grid.ColumnSpan="3"
