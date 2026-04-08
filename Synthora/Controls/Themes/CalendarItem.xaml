@@ -14,13 +14,13 @@
         <Setter Property="BoxShadowAttach.BoxShadow" Value="{DynamicResource EmptyBoxShadow}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <GroupBox Background="{TemplateBinding Background}"
+                <GroupBoxEx Background="{TemplateBinding Background}"
                           BorderBrush="{TemplateBinding BorderBrush}"
                           BorderThickness="{TemplateBinding BorderThickness}"
                           BoxShadow="{TemplateBinding BoxShadowAttach.BoxShadow}"
                           CornerRadius="{TemplateBinding CornerRadius}"
                           HeaderBackground="{TemplateBinding HeaderBackground}">
-                    <GroupBox.Header>
+                    <GroupBoxEx.Header>
                         <Grid ColumnDefinitions="Auto,*,Auto">
                             <Grid.Styles>
                                 <Style Selector="Button.CalendarHeader">
@@ -66,7 +66,7 @@
                                           UseLayoutRounding="False" />
                             </Button>
                         </Grid>
-                    </GroupBox.Header>
+                    </GroupBoxEx.Header>
                     <Grid RowDefinitions="Auto,*">
 
                         <Grid Name="PART_MonthView"
@@ -108,7 +108,7 @@
                             </Grid.ColumnDefinitions>
                         </Grid>
                     </Grid>
-                </GroupBox>
+                </GroupBoxEx>
             </ControlTemplate>
         </Setter>
         <Setter Property="DayTitleTemplate">

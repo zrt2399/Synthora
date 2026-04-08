@@ -9,6 +9,7 @@
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
+        <Setter Property="PlaceholderForeground" Value="{DynamicResource ThemeForegroundBrush}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <ButtonSpinner Name="PART_Spinner"
@@ -40,11 +41,12 @@
                              InnerLeftContent="{Binding InnerLeftContent, RelativeSource={RelativeSource TemplatedParent}}"
                              InnerRightContent="{Binding InnerRightContent, RelativeSource={RelativeSource TemplatedParent}}"
                              IsReadOnly="{TemplateBinding IsReadOnly}"
+                             PlaceholderForeground="{TemplateBinding PlaceholderForeground}"
+                             PlaceholderText="{TemplateBinding PlaceholderText}"
                              ScrollViewer.VerticalScrollBarVisibility="Disabled"
                              Text="{TemplateBinding Text}"
                              TextAlignment="{TemplateBinding TextAlignment}"
-                             TextWrapping="NoWrap"
-                             Watermark="{TemplateBinding Watermark}" />
+                             TextWrapping="NoWrap" />
                 </ButtonSpinner>
             </ControlTemplate>
         </Setter>

@@ -109,7 +109,7 @@ namespace Synthora.Attaches
             }
         }
 
-        private static void InputElement_GotFocus(object? sender, GotFocusEventArgs e)
+        private static void InputElement_GotFocus(object? sender, FocusChangedEventArgs e)
         {
             if (sender is not InputElement inputElement)
             {
@@ -130,6 +130,6 @@ namespace Synthora.Attaches
         }
 
         [UnsafeAccessor(UnsafeAccessorKind.Method, Name = nameof(OnGotFocus))]
-        private static extern void OnGotFocus(InputElement inputElement, GotFocusEventArgs e);
+        private static extern void OnGotFocus(InputElement inputElement, FocusChangedEventArgs e);
     }
 }

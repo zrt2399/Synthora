@@ -187,11 +187,24 @@ namespace Synthora.Messaging
 
         private static void Popup_Opened(object? sender, EventArgs e)
         {
-            if (sender is Popup popup && popup.Host is PopupRoot popupRoot)
+            //if (sender is Popup popup && popup.Host is PopupRoot popupRoot)
+            //{
+            //    popupRoot.Background = null;
+            //    popupRoot.TransparencyBackgroundFallback = Brushes.Transparent;
+            //    popupRoot.TransparencyLevelHint = [WindowTransparencyLevel.Transparent];
+            //}
+             
+            if (sender is Popup popup && popup.Child != null)//Avalonia 12
             {
-                popupRoot.Background = null;
-                popupRoot.TransparencyBackgroundFallback = Brushes.Transparent;
-                popupRoot.TransparencyLevelHint = [WindowTransparencyLevel.Transparent];
+                // 获取 PopupRoot 的现代方法
+                var topLevel = TopLevel.GetTopLevel(popup.Child);
+
+                if (topLevel != null)
+                {
+                    topLevel.Background = null;
+                    topLevel.TransparencyBackgroundFallback = Brushes.Transparent;
+                    topLevel.TransparencyLevelHint = new[] { WindowTransparencyLevel.Transparent };
+                } 
             }
         }
     }

@@ -227,7 +227,7 @@
     <CornerRadius x:Key="ThemeBorderCornerRadiusSmall">4</CornerRadius>
     <CornerRadius x:Key="ThemeBorderCornerRadius">6</CornerRadius>
 
-    <sys:Double x:Key="ThemeWatermarkOpacity">0.6</sys:Double>
+    <sys:Double x:Key="ThemePlaceholderTextOpacity">0.6</sys:Double> 
     <sys:Double x:Key="ThemeDisabledOpacity">0.7</sys:Double>
 
     <sys:Double x:Key="FontSizeSmall">10</sys:Double>

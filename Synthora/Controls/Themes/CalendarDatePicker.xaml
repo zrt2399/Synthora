@@ -45,6 +45,7 @@
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
+        <Setter Property="PlaceholderForeground" Value="{DynamicResource ThemeForegroundBrush}" />
         <Setter Property="IsTodayHighlighted" Value="True" />
         <!--  Fix CalendarDatePicker.Focus method does not work.  -->
         <Setter Property="FocusAttach.UseCorrectFocusBehavior" Value="True" />
@@ -70,9 +71,10 @@
                                  CornerRadius="{TemplateBinding CornerRadius}"
                                  DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
                                  Foreground="{TemplateBinding Foreground}"
+                                 PlaceholderForeground="{TemplateBinding PlaceholderForeground}"
+                                 PlaceholderText="{TemplateBinding PlaceholderText}"
                                  TemplatedControl.IsTemplateFocusTarget="True"
-                                 UseFloatingWatermark="{TemplateBinding UseFloatingWatermark}"
-                                 Watermark="{TemplateBinding Watermark}">
+                                 UseFloatingPlaceholder="{TemplateBinding UseFloatingPlaceholder}">
                             <TextBox.InnerRightContent>
                                 <Button Name="PART_Button"
                                         Cursor="Arrow"

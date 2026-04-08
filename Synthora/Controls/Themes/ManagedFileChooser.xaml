@@ -48,7 +48,9 @@
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}">
                     <DockPanel Margin="5">
-                        <DockPanel Margin="0,0,0,5" DockPanel.Dock="Top">
+                        <DockPanel Margin="0,0,0,5"
+                                   DockPanel.Dock="Top"
+                                   HorizontalSpacing="5">
                             <internal:ChildFitter Width="{Binding ElementName=Location, Path=Bounds.Height}" DockPanel.Dock="Right">
                                 <Button Command="{Binding GoUp}">
                                     <Image Stretch="Fill">
@@ -63,9 +65,7 @@
                                     </Image>
                                 </Button>
                             </internal:ChildFitter>
-                            <TextBox x:Name="Location"
-                                     Margin="0,0,5,0"
-                                     Text="{Binding Location}">
+                            <TextBox x:Name="Location" Text="{Binding Location}">
                                 <TextBox.KeyBindings>
                                     <KeyBinding Command="{Binding EnterPressed}" Gesture="Enter" />
                                 </TextBox.KeyBindings>
@@ -73,7 +73,7 @@
                         </DockPanel>
                         <DockPanel Margin="0,5,0,0" DockPanel.Dock="Bottom">
                             <StackPanel DockPanel.Dock="Left" Orientation="Horizontal">
-                                <CheckBox IsChecked="{Binding ShowHiddenFiles}">
+                                <CheckBox Margin="5,0,0,0" IsChecked="{Binding ShowHiddenFiles}">
                                     <TextBlock Text="{DynamicResource StringManagedFileChooserShowHiddenFilesText}" />
                                 </CheckBox>
                             </StackPanel>
@@ -102,8 +102,8 @@
 
                         <TextBox DockPanel.Dock="Bottom"
                                  IsVisible="{Binding !SelectingFolder}"
-                                 Text="{Binding FileName}"
-                                 Watermark="{DynamicResource StringManagedFileChooserFileNameWatermark}" />
+                                 PlaceholderText="{DynamicResource StringManagedFileChooserFileNamePlaceholder}"
+                                 Text="{Binding FileName}" />
 
                         <ListBox x:Name="PART_QuickLinks"
                                  MaxWidth="200"

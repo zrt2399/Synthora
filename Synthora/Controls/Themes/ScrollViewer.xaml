@@ -39,8 +39,8 @@
 
     <ControlTheme x:Key="SimpleMenuScrollViewer" TargetType="ScrollViewer">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="CornerRadius" Value="{Binding $parent[Border].CornerRadius}" />
-        <Setter Property="BorderThickness" Value="{Binding $parent[Border].BorderThickness}" />
+        <Setter Property="CornerRadius" Value="{Binding $parent[SystemDropShadowChrome].CornerRadius}" />
+        <Setter Property="BorderThickness" Value="{Binding $parent[SystemDropShadowChrome].BorderThickness}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <DockPanel>

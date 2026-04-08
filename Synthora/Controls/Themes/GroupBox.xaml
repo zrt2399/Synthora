@@ -1,58 +1,84 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls"
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
+    <Design.PreviewWith>
+        <GroupBox Margin="10" Padding="10">
+            <TextBlock Text="Hello World" />
+        </GroupBox>
+    </Design.PreviewWith>
+    <converters:BorderGapMaskConverter x:Key="BorderGapMaskConverter" />
 
     <ControlTheme x:Key="{x:Type GroupBox}" TargetType="GroupBox">
-        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
-        <Setter Property="Padding" Value="10" />
-        <Setter Property="HeaderPlacement" Value="Top" />
-        <Setter Property="HeaderPadding" Value="{DynamicResource ThemeHeaderControlPadding}" />
-        <Setter Property="HeaderBackground" Value="{DynamicResource ThemeControlMidBrush}" />
-        <Setter Property="BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
-        <Setter Property="HeaderDividerThickness" Value="1" />
-        <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
-                <DropShadowChrome Name="RootChrome"
-                                  Background="{TemplateBinding Background}"
-                                  BorderBrush="{TemplateBinding BorderBrush}"
-                                  BorderThickness="{TemplateBinding BorderThickness}"
-                                  BoxShadow="{TemplateBinding BoxShadow}"
-                                  ClipToBounds="{TemplateBinding ClipToBounds}"
-                                  CornerRadius="{TemplateBinding CornerRadius}">
-                    <DockPanel Name="PART_DockPanel">
-                        <Border Name="headerBorder"
-                                Padding="{TemplateBinding HeaderPadding}"
-                                Background="{TemplateBinding HeaderBackground}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                DockPanel.Dock="{TemplateBinding HeaderPlacement}">
-                            <Border.BorderThickness>
-                                <MultiBinding Converter="{x:Static HeaderDividerThicknessConverter.Instance}">
-                                    <TemplateBinding Property="HeaderPlacement" />
-                                    <TemplateBinding Property="HeaderDividerThickness" />
-                                </MultiBinding>
-                            </Border.BorderThickness>
-                            <ContentPresenter x:Name="PART_HeaderContentPresenter"
-                                              Content="{TemplateBinding Header}"
-                                              ContentTemplate="{TemplateBinding HeaderTemplate}"
-                                              RecognizesAccessKey="True" />
-                        </Border>
-                        <ContentPresenter Name="PART_ContentPresenter"
-                                          Margin="{TemplateBinding Padding}"
-                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                          Content="{TemplateBinding Content}"
-                                          ContentTemplate="{TemplateBinding ContentTemplate}" />
-                    </DockPanel>
-                </DropShadowChrome>
+                <Grid x:Name="RootGrid"
+                      ColumnDefinitions="6,Auto,*,6"
+                      RowDefinitions="Auto,Auto,*,6">
+                    <!--  Separate Border for the background because if the background is set in the Border with the Header the opacity mask will be applied to the background as well.  -->
+                    <Border Grid.Row="1"
+                            Grid.RowSpan="3"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="4"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="Transparent"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}" />
+
+                    <Border Grid.Row="1"
+                            Grid.RowSpan="3"
+                            Grid.ColumnSpan="4"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            UseLayoutRounding="false">
+                        <Border.OpacityMask>
+                            <MultiBinding Converter="{StaticResource BorderGapMaskConverter}" ConverterParameter="6">
+                                <Binding ElementName="Header" Path="Bounds.Width" />
+                                <Binding Path="Bounds.Width" RelativeSource="{RelativeSource Self}" />
+                                <Binding Path="Bounds.Height" RelativeSource="{RelativeSource Self}" />
+                            </MultiBinding>
+                        </Border.OpacityMask>
+                    </Border>
+
+                    <!--  ContentPresenter for the header  -->
+                    <Border x:Name="Header"
+                            Grid.Row="0"
+                            Grid.RowSpan="2"
+                            Grid.Column="1"
+                            Padding="3,0,3,0">
+                        <ContentPresenter Name="PART_HeaderPresenter"
+                                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding Header}"
+                                          ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                          UseLayoutRounding="{TemplateBinding UseLayoutRounding}" />
+                    </Border>
+                    <!--  Primary content for GroupBox  -->
+                    <ContentPresenter Name="PART_ContentPresenter"
+                                      Grid.Row="2"
+                                      Grid.Column="1"
+                                      Grid.ColumnSpan="2"
+                                      Margin="{TemplateBinding Padding}"
+                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      UseLayoutRounding="{TemplateBinding UseLayoutRounding}" />
+                </Grid>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:disabled /template/ Border#headerBorder">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
+
+        <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
         </Style>
     </ControlTheme>
-
-</ResourceDictionary>
+</ResourceDictionary> 

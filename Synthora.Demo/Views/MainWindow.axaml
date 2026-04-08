@@ -96,8 +96,8 @@
                                          TextAlignment="Right"
                                          TextBoxAttach.Title="TextBox with InnerRightContent"
                                          TextWrapping="Wrap"
-                                         UseFloatingWatermark="True"
-                                         Watermark="Type a message" />
+                                         UseFloatingPlaceholder="True"
+                                         PlaceholderText="Type a message" />
                                 <TextBox MaxHeight="100"
                                          AcceptsReturn="True"
                                          Classes="clearButton"
@@ -126,12 +126,12 @@
                                 <TimePicker TextBoxAttach.Title="TimePicker" />
                                 <PathPicker TextBoxAttach.Title="PathPicker"
                                             UseFolderDialog="True"
-                                            Watermark="Pick a folder" />
+                                            PlaceholderText="Pick a folder" />
                                 <PathPicker AllowMultiple="True"
                                             FilePickerFileTypes="{Binding FilePickerFileTypes}"
                                             SelectedPaths="{Binding SelectedFiles}"
                                             TextBoxAttach.Title="PathPicker with FilePickerFileTypes"
-                                            Watermark="Pick files" />
+                                            PlaceholderText="Pick files" />
                                 <TextBlock>TextBlock</TextBlock>
                                 <SelectableTextBlock>SelectableTextBlock</SelectableTextBlock>
                             </StackPanel>
@@ -210,7 +210,7 @@
                                             </Flyout>
                                         </ToggleSplitButton.Flyout>
                                     </ToggleSplitButton>
-                                </SpacingWrapPanel>
+                                </SpacingWrapPanel> 
                                 <Divider Content="ToggleButton" />
                                 <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
                                     <SpacingWrapPanel.Styles>
@@ -433,13 +433,13 @@
                                     <Expander CornerRadius="5"
                                               ExpandDirection="Down"
                                               Header="Expander">
-                                        <GroupBox>
+                                        <GroupBoxEx>
                                             <DropShadowChrome Padding="10">
                                                 <DropShadowChrome>
                                                     <TextBlock>DropShadowChrome</TextBlock>
                                                 </DropShadowChrome>
                                             </DropShadowChrome>
-                                        </GroupBox>
+                                        </GroupBoxEx>
                                     </Expander>
                                 </StackPanel>
                             </StackPanel>
@@ -453,40 +453,39 @@
                                       Content="IsEnabled"
                                       IsChecked="True" />
                             <StackPanel IsEnabled="{Binding #ExtViewIsEnabled.IsChecked}" Spacing="10">
-                                <so:GroupBox HorizontalContentAlignment="Left" Header="so:GroupBox">
+                                <so:GroupBoxEx HorizontalContentAlignment="Left" Header="so:GroupBoxEx">
                                     <StackPanel>
                                         <TextBlock>Calendar</TextBlock>
                                         <StackPanel Orientation="Horizontal">
                                             <Calendar />
-                                            <GroupBox BoxShadow="none" Header="Calendar" />
+                                            <GroupBoxEx BoxShadow="none" Header="Calendar" />
                                         </StackPanel>
                                     </StackPanel>
-                                </so:GroupBox>
-                                <GroupBox Padding="0"
-                                          Header="Left Header"
-                                          HeaderPlacement="Left">
+                                </so:GroupBoxEx>
+                                <GroupBox Padding="10"
+                                          Header="Left Header">
                                     <Button Height="100" CornerRadius="0">Button</Button>
                                 </GroupBox>
-                                <GroupBox Padding="0" Header="ClipToBounds with Shadow">
+                                <GroupBoxEx Padding="0" Header="ClipToBounds with Shadow">
                                     <ScrollViewer Height="100">
                                         <StackPanel>
                                             <Button Height="100" CornerRadius="0">Button</Button>
                                             <Button Height="100" CornerRadius="0">Button</Button>
                                         </StackPanel>
                                     </ScrollViewer>
-                                </GroupBox>
-                                <GroupBox Padding="0"
+                                </GroupBoxEx>
+                                <GroupBoxEx Padding="0"
                                           Header="Right Header"
                                           HeaderPlacement="Right">
                                     <Button Height="100" CornerRadius="0">Button</Button>
-                                </GroupBox>
-                                <GroupBox Padding="0"
+                                </GroupBoxEx>
+                                <GroupBoxEx Padding="0"
                                           Header="Bottom Header"
                                           HeaderPlacement="Bottom">
                                     <Button Height="100" CornerRadius="0">Button</Button>
-                                </GroupBox>
-                                <GroupBox Header="GroupBox">
-                                    <GroupBox>
+                                </GroupBoxEx>
+                                <GroupBoxEx Header="GroupBoxEx">
+                                    <GroupBoxEx>
                                         <DropShadowChrome Padding="10">
                                             <DropShadowChrome>
                                                 <TextBox Padding="0"
@@ -499,28 +498,28 @@
                                                 </TextBox>
                                             </DropShadowChrome>
                                         </DropShadowChrome>
-                                    </GroupBox>
-                                </GroupBox>
+                                    </GroupBoxEx>
+                                </GroupBoxEx>
                                 <ContentControl>
-                                    <GroupBox>
-                                        <GroupBox>
+                                    <GroupBoxEx>
+                                        <GroupBoxEx>
                                             <DropShadowChrome Padding="10">
                                                 <DropShadowChrome>
                                                     <TextBlock>DropShadowChrome</TextBlock>
                                                 </DropShadowChrome>
                                             </DropShadowChrome>
-                                        </GroupBox>
-                                    </GroupBox>
+                                        </GroupBoxEx>
+                                    </GroupBoxEx>
                                 </ContentControl>
                                 <DropShadowChrome>
                                     <TextBlock>DropShadowChrome</TextBlock>
                                 </DropShadowChrome>
                                 <StackPanel Orientation="Horizontal" Spacing="10">
-                                    <GroupBox Width="50" Header="GroupBox">
+                                    <GroupBoxEx Width="50" Header="GroupBoxEx">
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock>TextBlockTextBlock</TextBlock>
                                         </StackPanel>
-                                    </GroupBox>
+                                    </GroupBoxEx>
                                     <Expander Header="Expander">Content</Expander>
                                 </StackPanel>
                             </StackPanel>

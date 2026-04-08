@@ -79,7 +79,7 @@
                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                        Foreground="{TemplateBinding PlaceholderForeground}"
-                                       Opacity="{DynamicResource ThemeWatermarkOpacity}"
+                                       Opacity="{DynamicResource ThemePlaceholderTextOpacity}"
                                        Text="{TemplateBinding PlaceholderText}">
                                 <TextBlock.IsVisible>
                                     <MultiBinding Converter="{x:Static BoolConverters.And}">
@@ -105,9 +105,10 @@
                                      BorderThickness="0"
                                      Foreground="{TemplateBinding Foreground}"
                                      IsVisible="{TemplateBinding IsEditable}"
+                                     PlaceholderForeground="{TemplateBinding PlaceholderForeground}"
+                                     PlaceholderText="{TemplateBinding PlaceholderText}"
                                      Text="{TemplateBinding Text,
-                                                            Mode=TwoWay}"
-                                     Watermark="{TemplateBinding PlaceholderText}" />
+                                                            Mode=TwoWay}" />
 
                             <ToggleButton Grid.Column="1"
                                           IsChecked="{TemplateBinding IsDropDownOpen,

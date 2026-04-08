@@ -1,0 +1,58 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
+                    x:CompileBindings="True">
+
+    <ControlTheme x:Key="{x:Type GroupBoxEx}" TargetType="GroupBoxEx">
+        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
+        <Setter Property="Padding" Value="10" />
+        <Setter Property="HeaderPlacement" Value="Top" />
+        <Setter Property="HeaderPadding" Value="{DynamicResource ThemeHeaderControlPadding}" />
+        <Setter Property="HeaderBackground" Value="{DynamicResource ThemeControlMidBrush}" />
+        <Setter Property="BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
+        <Setter Property="HeaderDividerThickness" Value="1" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <DropShadowChrome Name="RootChrome"
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  BoxShadow="{TemplateBinding BoxShadow}"
+                                  ClipToBounds="{TemplateBinding ClipToBounds}"
+                                  CornerRadius="{TemplateBinding CornerRadius}">
+                    <DockPanel Name="PART_DockPanel">
+                        <Border Name="headerBorder"
+                                Padding="{TemplateBinding HeaderPadding}"
+                                Background="{TemplateBinding HeaderBackground}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                DockPanel.Dock="{TemplateBinding HeaderPlacement}">
+                            <Border.BorderThickness>
+                                <MultiBinding Converter="{x:Static HeaderDividerThicknessConverter.Instance}">
+                                    <TemplateBinding Property="HeaderPlacement" />
+                                    <TemplateBinding Property="HeaderDividerThickness" />
+                                </MultiBinding>
+                            </Border.BorderThickness>
+                            <ContentPresenter x:Name="PART_HeaderContentPresenter"
+                                              Content="{TemplateBinding Header}"
+                                              ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                              RecognizesAccessKey="True" />
+                        </Border>
+                        <ContentPresenter Name="PART_ContentPresenter"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}" />
+                    </DockPanel>
+                </DropShadowChrome>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:disabled /template/ Border#headerBorder">
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+        </Style>
+    </ControlTheme>
+
+</ResourceDictionary>

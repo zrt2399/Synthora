@@ -9,6 +9,7 @@
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
+        <Setter Property="PlaceholderForeground" Value="{DynamicResource ThemeForegroundBrush}" />
         <Setter Property="MaxDropDownHeight" Value="200" />
         <Setter Property="Template">
             <ControlTemplate>
@@ -30,11 +31,11 @@
                                                               Mode=TwoWay}"
                                  CornerRadius="{TemplateBinding CornerRadius}"
                                  DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
-                                 Foreground="{TemplateBinding Foreground}"
                                  InnerLeftContent="{TemplateBinding InnerLeftContent}"
                                  InnerRightContent="{TemplateBinding InnerRightContent}"
                                  MaxLength="{TemplateBinding MaxLength}"
-                                 Watermark="{TemplateBinding Watermark}" />
+                                 PlaceholderForeground="{TemplateBinding PlaceholderForeground}"
+                                 PlaceholderText="{TemplateBinding PlaceholderText}" />
 
                         <Popup Name="PART_Popup"
                                InheritsTransform="True"

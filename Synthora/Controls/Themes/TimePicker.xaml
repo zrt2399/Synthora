@@ -209,7 +209,7 @@
         </Style>-->
 
         <Style Selector="^:hasnotime /template/ Button#PART_FlyoutButton TextBlock">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeWatermarkOpacity}" />
+            <Setter Property="Opacity" Value="{DynamicResource ThemePlaceholderTextOpacity}" />
         </Style>
     </ControlTheme>
 

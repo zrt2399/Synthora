@@ -16,6 +16,10 @@ namespace Synthora.Demo
         public static AppBuilder BuildAvaloniaApp()
             => AppBuilder.Configure<App>()
                 .UsePlatformDetect()
+                //.UseManagedSystemDialogs()
+#if DEBUG
+                .WithDeveloperTools()
+#endif
                 .With(new FontManagerOptions() { DefaultFamilyName = "avares://Synthora.Demo/Assets/Fonts/OPPOSans-M.ttf#OPPOSans M" })
                 .LogToTrace();
     }

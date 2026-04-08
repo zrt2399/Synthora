@@ -49,9 +49,12 @@ namespace Synthora.Controls
         public static readonly StyledProperty<IReadOnlyList<FilePickerFileType>> FilePickerFileTypesProperty =
             AvaloniaProperty.Register<PathPicker, IReadOnlyList<FilePickerFileType>>(nameof(FilePickerFileTypes));
 
-        public static readonly StyledProperty<string?> WatermarkProperty =
-            AvaloniaProperty.Register<PathPicker, string?>(nameof(Watermark));
+        public static readonly StyledProperty<string?> PlaceholderTextProperty =
+            AvaloniaProperty.Register<PathPicker, string?>(nameof(PlaceholderText));
 
+        public static readonly StyledProperty<IBrush?> PlaceholderForegroundProperty = 
+            AvaloniaProperty.Register<TextBox, IBrush?>(nameof(PlaceholderForeground));
+         
         public static readonly StyledProperty<object?> BrowseButtonContentProperty =
             AvaloniaProperty.Register<PathPicker, object?>(nameof(BrowseButtonContent), " ... ");
 
@@ -162,10 +165,16 @@ namespace Synthora.Controls
             set => SetValue(FilePickerFileTypesProperty, value);
         }
 
-        public string? Watermark
+        public string? PlaceholderText
         {
-            get => GetValue(WatermarkProperty);
-            set => SetValue(WatermarkProperty, value);
+            get => GetValue(PlaceholderTextProperty);
+            set => SetValue(PlaceholderTextProperty, value);
+        }
+
+        public IBrush? PlaceholderForeground
+        {
+            get => GetValue(PlaceholderForegroundProperty);
+            set => SetValue(PlaceholderForegroundProperty, value);
         }
 
         public object? BrowseButtonContent
@@ -357,7 +366,7 @@ namespace Synthora.Controls
             PART_TextBox = e.NameScope.Find<TextBox>(nameof(PART_TextBox));
         }
 
-        protected override void OnGotFocus(GotFocusEventArgs e)
+        protected override void OnGotFocus(FocusChangedEventArgs e)
         {
             if (!e.Handled && PART_TextBox != null)
             {
