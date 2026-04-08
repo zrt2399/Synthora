@@ -79,15 +79,36 @@
                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                        Foreground="{TemplateBinding PlaceholderForeground}"
-                                       IsVisible="{TemplateBinding SelectionBoxItem,
-                                                                   Converter={x:Static ObjectConverters.IsNull}}"
                                        Opacity="{DynamicResource ThemeWatermarkOpacity}"
-                                       Text="{TemplateBinding PlaceholderText}" />
+                                       Text="{TemplateBinding PlaceholderText}">
+                                <TextBlock.IsVisible>
+                                    <MultiBinding Converter="{x:Static BoolConverters.And}">
+                                        <Binding Converter="{x:Static ObjectConverters.IsNull}"
+                                                 Path="SelectionBoxItem"
+                                                 RelativeSource="{RelativeSource TemplatedParent}" />
+                                        <Binding Path="!IsEditable" RelativeSource="{RelativeSource TemplatedParent}" />
+                                    </MultiBinding>
+                                </TextBlock.IsVisible>
+                            </TextBlock>
                             <ContentPresenter Margin="{TemplateBinding Padding}"
                                               HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                               VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                               Content="{TemplateBinding SelectionBoxItem}"
-                                              ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" />
+                                              ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                              IsVisible="{TemplateBinding IsEditable,
+                                                                          Converter={x:Static BoolConverters.Not}}" />
+                            <TextBox Name="PART_EditableTextBox"
+                                     Padding="{TemplateBinding Padding}"
+                                     HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                     VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                     Background="Transparent"
+                                     BorderThickness="0"
+                                     Foreground="{TemplateBinding Foreground}"
+                                     IsVisible="{TemplateBinding IsEditable}"
+                                     Text="{TemplateBinding Text,
+                                                            Mode=TwoWay}"
+                                     Watermark="{TemplateBinding PlaceholderText}" />
+
                             <ToggleButton Grid.Column="1"
                                           IsChecked="{TemplateBinding IsDropDownOpen,
                                                                       Mode=TwoWay}"
@@ -129,6 +150,10 @@
         </Style>
         <Style Selector="^:disabled /template/ Border#FocusTarget">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+        </Style>
+        <Style Selector="^[IsEditable=true]">
+            <Setter Property="IsTabStop" Value="False" />
+            <Setter Property="KeyboardNavigation.TabNavigation" Value="Local" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

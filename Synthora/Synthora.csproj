@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
 		<Nullable>enable</Nullable>
-		<AvaloniaVersion>11.2.1</AvaloniaVersion>
+		<AvaloniaVersion>11.3.10</AvaloniaVersion>
 		<DebugType>embedded</DebugType> 
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<Title>AvaloniaUI Theme</Title>
