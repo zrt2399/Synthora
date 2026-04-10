@@ -326,6 +326,7 @@
         <Setter Property="VerticalGridLinesBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
+        <Setter Property="ScrollViewer.AllowAutoHide" Value="True" />
         <Setter Property="DropLocationIndicatorTemplate">
             <Template>
                 <Rectangle Width="2" Fill="{DynamicResource ThemeBorderLowBrush}" />
@@ -355,7 +356,9 @@
 
                         <DataGridRowsPresenter Name="PART_RowsPresenter"
                                                Grid.Row="1"
-                                               Grid.ColumnSpan="2"
+                                               Grid.RowSpan="2"
+                                               Grid.Column="0"
+                                               Grid.ColumnSpan="3"
                                                ScrollViewer.IsScrollInertiaEnabled="{TemplateBinding IsScrollInertiaEnabled}">
                             <DataGridRowsPresenter.GestureRecognizers>
                                 <ScrollGestureRecognizer CanHorizontallyScroll="True"
@@ -365,16 +368,16 @@
                         </DataGridRowsPresenter>
                         <Rectangle Name="PART_BottomRightCorner"
                                    Grid.Row="2"
-                                   Grid.Column="2"
-                                   Fill="{DynamicResource ThemeControlMidBrush}" />
-                        <Rectangle Name="BottomLeftCorner"
+                                   Grid.Column="2" />
+                        <!--<Rectangle Name="BottomLeftCorner"
                                    Grid.Row="2"
                                    Grid.ColumnSpan="2"
-                                   Fill="{DynamicResource ThemeControlMidBrush}" />
+                                   Fill="{DynamicResource ThemeControlMidBrush}" />-->
                         <ScrollBar Name="PART_VerticalScrollbar"
                                    Grid.Row="1"
                                    Grid.Column="2"
                                    Width="{DynamicResource ScrollBarThickness}"
+                                   AllowAutoHide="{Binding Path=(ScrollViewer.AllowAutoHide), RelativeSource={RelativeSource TemplatedParent}}"
                                    Orientation="Vertical" />
 
                         <Grid Grid.Row="2"
@@ -384,6 +387,7 @@
                             <ScrollBar Name="PART_HorizontalScrollbar"
                                        Grid.Column="1"
                                        Height="{DynamicResource ScrollBarThickness}"
+                                       AllowAutoHide="{Binding Path=(ScrollViewer.AllowAutoHide), RelativeSource={RelativeSource TemplatedParent}}"
                                        Orientation="Horizontal" />
                         </Grid>
                     </Grid>

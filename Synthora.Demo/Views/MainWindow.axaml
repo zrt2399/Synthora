@@ -540,7 +540,7 @@
                 </TabItem>
                 <TabItem Header="Collection">
                     <UniformGrid Margin="10" Columns="1">
-                        <ListBox ItemsSource="{Binding Employees}" ScrollViewerAttach.Orientation="Horizontal" />
+                        <ListBox ItemsSource="{Binding Employees}" />
                         <TreeView Margin="0,10,0,0">
                             <TreeViewItem Header="abcdefghijklmnopqrstuvwxyz">
                                 <TreeViewItem Header="1234567890">
