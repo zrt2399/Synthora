@@ -79,12 +79,13 @@
         </Rectangle.Fill>
     </Rectangle>
 
-    <MenuFlyout x:Key="SimpleTextBoxContextFlyout">
+    <MenuFlyout x:Key="DefaultTextBoxContextFlyout">
         <MenuItem Command="{Binding $parent[TextBox].Cut}"
                   Header="{DynamicResource StringTextFlyoutCutText}"
                   Icon="{StaticResource TextCutIcon}"
                   InputGesture="{x:Static TextBox.CutGesture}"
                   IsEnabled="{Binding $parent[TextBox].CanCut}" />
+        <Separator />
         <MenuItem Command="{Binding $parent[TextBox].Copy}"
                   Header="{DynamicResource StringTextFlyoutCopyText}"
                   Icon="{StaticResource TextCopyIcon}"
@@ -100,7 +101,7 @@
                   InputGesture="{x:Static GestureUtils.SelectAllGesture}" />
     </MenuFlyout>
 
-    <ContextMenu x:Key="SimpleTextBoxContextMenu">
+    <ContextMenu x:Key="DefaultTextBoxContextMenu">
         <MenuItem Command="{Binding $parent[TextBox].Cut}"
                   Header="{DynamicResource StringTextFlyoutCutText}"
                   Icon="{StaticResource TextCutIcon}"
@@ -120,6 +121,28 @@
                   Header="{DynamicResource StringTextFlyoutSelectAllText}"
                   InputGesture="{x:Static GestureUtils.SelectAllGesture}" />
     </ContextMenu>
+
+    <MenuFlyout x:Key="HorizontalTextBoxContextFlyout"
+                FlyoutPresenterTheme="{DynamicResource HorizontalMenuFlyoutPresenter}"
+                ItemContainerTheme="{DynamicResource HorizontalMenuItem}"
+                ShowMode="{OnFormFactor Desktop=Standard,
+                                        Mobile=Transient}">
+        <MenuItem Command="{Binding $parent[TextBox].Cut}"
+                  Header="{DynamicResource StringTextFlyoutCutText}"
+                  IsEnabled="{Binding $parent[TextBox].CanCut}"
+                  IsVisible="{Binding $parent[TextBox].CanCut}" />
+        <!--<Separator IsVisible="{Binding $parent[TextBox].CanCut}" Theme="{DynamicResource VerticalSeparatorTheme}" />-->
+        <MenuItem Command="{Binding $parent[TextBox].Copy}"
+                  Header="{DynamicResource StringTextFlyoutCopyText}"
+                  IsEnabled="{Binding $parent[TextBox].CanCopy}"
+                  IsVisible="{Binding $parent[TextBox].CanCopy}" />
+        <!--<Separator IsVisible="{Binding $parent[TextBox].CanCopy}" Theme="{DynamicResource VerticalSeparatorTheme}" />-->
+        <MenuItem Command="{Binding $parent[TextBox].Paste}"
+                  Header="{DynamicResource StringTextFlyoutPasteText}"
+                  IsEnabled="{Binding $parent[TextBox].CanPaste}" />
+        <!--<Separator Theme="{DynamicResource VerticalSeparatorTheme}" />-->
+        <MenuItem Command="{Binding $parent[TextBox].SelectAll}" Header="{DynamicResource StringTextFlyoutSelectAllText}" />
+    </MenuFlyout>
 
     <ControlTheme x:Key="SimpleTextBoxClearButtonTheme" TargetType="Button">
         <Setter Property="Cursor" Value="Arrow" />
@@ -196,8 +219,8 @@
         <!--<Setter Property="SelectionForegroundBrush" Value="{DynamicResource HighlightForegroundBrush}" />-->
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
         <Setter Property="PlaceholderForeground" Value="{DynamicResource ThemeForegroundBrush}" />
-        <Setter Property="ContextFlyout" Value="{StaticResource SimpleTextBoxContextFlyout}" />
-        <!--<Setter Property="ContextMenu" Value="{StaticResource SimpleTextBoxContextMenu}" />-->
+        <Setter Property="ContextFlyout" Value="{OnFormFactor Desktop={StaticResource DefaultTextBoxContextFlyout}, Mobile={StaticResource HorizontalTextBoxContextFlyout}}" />
+        <!--<Setter Property="ContextMenu" Value="{StaticResource DefaultTextBoxContextMenu}" />-->
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
         <Setter Property="Template">
             <ControlTemplate>
@@ -296,6 +319,10 @@
                 </DockPanel>
             </ControlTemplate>
         </Setter>
+        <Style Selector="^:touch-mode">
+            <Setter Property="ContextFlyout" Value="{StaticResource HorizontalTextBoxContextFlyout}" />
+        </Style>
+
         <Style Selector="^:focus,^:pointerover">
             <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighlightBrush}" />
         </Style>

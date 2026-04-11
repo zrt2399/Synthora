@@ -221,6 +221,7 @@
     <Thickness x:Key="ThemeControlPadding">6,4</Thickness>
     <Thickness x:Key="ThemeHeaderControlPadding">8,6</Thickness>
     <Thickness x:Key="ThemeMenuFlyoutPadding">4</Thickness>
+    <Thickness x:Key="ThemeMenuFlyoutItemPadding">6,4</Thickness>
     <Thickness x:Key="ThemeControlLeftPadding">6,0,0,0</Thickness>
     <Thickness x:Key="ThemeControlRightPadding">0,0,0,6</Thickness>
 
@@ -251,6 +252,8 @@
     <Thickness x:Key="DefaultBoxShadowParentMargin">-2</Thickness>
 
     <sys:Double x:Key="MenuItemMinWidth">140</sys:Double>
+    <!--  Mobile Resources for MenuFlyout.xaml  -->
+    <x:Double x:Key="HorizontalMenuFlyoutThemeMinWidth">32</x:Double>
 
     <StreamGeometry x:Key="ArrowUpGlyph">M1939 1114L2029 1024L1024 19L19 1024L109 1114L1024 199L1939 1114Z</StreamGeometry>
     <StreamGeometry x:Key="ArrowDownGlyph">M1939 486L2029 576L1024 1581L19 576L109 486L1024 1401L1939 486Z</StreamGeometry>
