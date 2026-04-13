@@ -7,7 +7,22 @@
         <SelectableTextBlock Text="Preview" />
     </Design.PreviewWith>
 
-    <MenuFlyout x:Key="SelectableTextBlockContextFlyout">
+    <MenuFlyout x:Key="DefaultSelectableTextBlockContextFlyout">
+        <MenuItem Command="{Binding $parent[SelectableTextBlock].Copy}"
+                  Header="{DynamicResource StringTextFlyoutCopyText}"
+                  Icon="{StaticResource TextCopyIcon}"
+                  InputGesture="{x:Static TextBox.CopyGesture}"
+                  IsEnabled="{Binding $parent[SelectableTextBlock].CanCopy}" />
+        <MenuItem Command="{Binding $parent[SelectableTextBlock].SelectAll}"
+                  Header="{DynamicResource StringTextFlyoutSelectAllText}"
+                  InputGesture="{x:Static GestureUtils.SelectAllGesture}" />
+    </MenuFlyout>
+
+    <MenuFlyout x:Key="HorizontalSelectableTextBlockContextFlyout"
+                FlyoutPresenterTheme="{DynamicResource HorizontalMenuFlyoutPresenter}"
+                ItemContainerTheme="{DynamicResource HorizontalMenuItem}"
+                ShowMode="{OnFormFactor Desktop=Standard,
+                                        Mobile=Transient}">
         <MenuItem Command="{Binding $parent[SelectableTextBlock].Copy}"
                   Header="{DynamicResource StringTextFlyoutCopyText}"
                   Icon="{StaticResource TextCopyIcon}"
@@ -31,8 +46,7 @@
 
     <ControlTheme x:Key="{x:Type SelectableTextBlock}" TargetType="SelectableTextBlock">
         <Setter Property="SelectionBrush" Value="{DynamicResource TextSelectionBrush}" />
-        <Setter Property="ContextFlyout" Value="{StaticResource SelectableTextBlockContextFlyout}" />
-
+        <Setter Property="ContextFlyout" Value="{OnFormFactor Desktop={StaticResource DefaultSelectableTextBlockContextFlyout}, Mobile={StaticResource HorizontalSelectableTextBlockContextFlyout}}" />
         <Style Selector="^[IsPointerOver=True]">
             <Setter Property="Cursor" Value="IBeam" />
         </Style>

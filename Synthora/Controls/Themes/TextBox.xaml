@@ -85,7 +85,6 @@
                   Icon="{StaticResource TextCutIcon}"
                   InputGesture="{x:Static TextBox.CutGesture}"
                   IsEnabled="{Binding $parent[TextBox].CanCut}" />
-        <Separator />
         <MenuItem Command="{Binding $parent[TextBox].Copy}"
                   Header="{DynamicResource StringTextFlyoutCopyText}"
                   Icon="{StaticResource TextCopyIcon}"
@@ -100,27 +99,6 @@
                   Header="{DynamicResource StringTextFlyoutSelectAllText}"
                   InputGesture="{x:Static GestureUtils.SelectAllGesture}" />
     </MenuFlyout>
-
-    <ContextMenu x:Key="DefaultTextBoxContextMenu">
-        <MenuItem Command="{Binding $parent[TextBox].Cut}"
-                  Header="{DynamicResource StringTextFlyoutCutText}"
-                  Icon="{StaticResource TextCutIcon}"
-                  InputGesture="{x:Static TextBox.CutGesture}"
-                  IsEnabled="{Binding $parent[TextBox].CanCut}" />
-        <MenuItem Command="{Binding $parent[TextBox].Copy}"
-                  Header="{DynamicResource StringTextFlyoutCopyText}"
-                  Icon="{StaticResource TextCopyIcon}"
-                  InputGesture="{x:Static TextBox.CopyGesture}"
-                  IsEnabled="{Binding $parent[TextBox].CanCopy}" />
-        <MenuItem Command="{Binding $parent[TextBox].Paste}"
-                  Header="{DynamicResource StringTextFlyoutPasteText}"
-                  Icon="{StaticResource TextPasteIcon}"
-                  InputGesture="{x:Static TextBox.PasteGesture}"
-                  IsEnabled="{Binding $parent[TextBox].CanPaste}" />
-        <MenuItem Command="{Binding $parent[TextBox].SelectAll}"
-                  Header="{DynamicResource StringTextFlyoutSelectAllText}"
-                  InputGesture="{x:Static GestureUtils.SelectAllGesture}" />
-    </ContextMenu>
 
     <MenuFlyout x:Key="HorizontalTextBoxContextFlyout"
                 FlyoutPresenterTheme="{DynamicResource HorizontalMenuFlyoutPresenter}"
@@ -143,6 +121,27 @@
         <!--<Separator Theme="{DynamicResource VerticalSeparatorTheme}" />-->
         <MenuItem Command="{Binding $parent[TextBox].SelectAll}" Header="{DynamicResource StringTextFlyoutSelectAllText}" />
     </MenuFlyout>
+
+    <ContextMenu x:Key="DefaultTextBoxContextMenu">
+        <MenuItem Command="{Binding $parent[TextBox].Cut}"
+                  Header="{DynamicResource StringTextFlyoutCutText}"
+                  Icon="{StaticResource TextCutIcon}"
+                  InputGesture="{x:Static TextBox.CutGesture}"
+                  IsEnabled="{Binding $parent[TextBox].CanCut}" />
+        <MenuItem Command="{Binding $parent[TextBox].Copy}"
+                  Header="{DynamicResource StringTextFlyoutCopyText}"
+                  Icon="{StaticResource TextCopyIcon}"
+                  InputGesture="{x:Static TextBox.CopyGesture}"
+                  IsEnabled="{Binding $parent[TextBox].CanCopy}" />
+        <MenuItem Command="{Binding $parent[TextBox].Paste}"
+                  Header="{DynamicResource StringTextFlyoutPasteText}"
+                  Icon="{StaticResource TextPasteIcon}"
+                  InputGesture="{x:Static TextBox.PasteGesture}"
+                  IsEnabled="{Binding $parent[TextBox].CanPaste}" />
+        <MenuItem Command="{Binding $parent[TextBox].SelectAll}"
+                  Header="{DynamicResource StringTextFlyoutSelectAllText}"
+                  InputGesture="{x:Static GestureUtils.SelectAllGesture}" />
+    </ContextMenu>
 
     <ControlTheme x:Key="SimpleTextBoxClearButtonTheme" TargetType="Button">
         <Setter Property="Cursor" Value="Arrow" />
