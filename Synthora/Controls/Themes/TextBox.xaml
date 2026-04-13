@@ -12,72 +12,29 @@
     <StreamGeometry x:Key="PasswordBoxRevealButtonData">m10.051 7.0032c2.215 0 4.0105 1.7901 4.0105 3.9984s-1.7956 3.9984-4.0105 3.9984c-2.215 0-4.0105-1.7901-4.0105-3.9984s1.7956-3.9984 4.0105-3.9984zm0 1.4994c-1.3844 0-2.5066 1.1188-2.5066 2.499s1.1222 2.499 2.5066 2.499 2.5066-1.1188 2.5066-2.499-1.1222-2.499-2.5066-2.499zm0-5.0026c4.6257 0 8.6188 3.1487 9.7267 7.5613 0.10085 0.40165-0.14399 0.80877-0.54686 0.90931-0.40288 0.10054-0.81122-0.14355-0.91208-0.54521-0.94136-3.7492-4.3361-6.4261-8.2678-6.4261-3.9334 0-7.3292 2.6792-8.2689 6.4306-0.10063 0.40171-0.50884 0.64603-0.91177 0.54571s-0.648-0.5073-0.54737-0.90901c1.106-4.4152 5.1003-7.5667 9.728-7.5667z</StreamGeometry>
     <StreamGeometry x:Key="PasswordBoxHideButtonData">m0.21967 0.21965c-0.26627 0.26627-0.29047 0.68293-0.07262 0.97654l0.07262 0.08412 4.0346 4.0346c-1.922 1.3495-3.3585 3.365-3.9554 5.7495-0.10058 0.4018 0.14362 0.8091 0.54543 0.9097 0.40182 0.1005 0.80909-0.1436 0.90968-0.5455 0.52947-2.1151 1.8371-3.8891 3.5802-5.0341l1.8096 1.8098c-0.70751 0.7215-1.1438 1.71-1.1438 2.8003 0 2.2092 1.7909 4 4 4 1.0904 0 2.0788-0.4363 2.8004-1.1438l5.9193 5.9195c0.2929 0.2929 0.7677 0.2929 1.0606 0 0.2663-0.2662 0.2905-0.6829 0.0726-0.9765l-0.0726-0.0841-6.1135-6.1142 0.0012-0.0015-1.2001-1.1979-2.8699-2.8693 2e-3 -8e-4 -2.8812-2.8782 0.0012-0.0018-1.1333-1.1305-4.3064-4.3058c-0.29289-0.29289-0.76777-0.29289-1.0607 0zm7.9844 9.0458 3.5351 3.5351c-0.45 0.4358-1.0633 0.704-1.7392 0.704-1.3807 0-2.5-1.1193-2.5-2.5 0-0.6759 0.26824-1.2892 0.7041-1.7391zm1.7959-5.7655c-1.0003 0-1.9709 0.14807-2.8889 0.425l1.237 1.2362c0.5358-0.10587 1.0883-0.16119 1.6519-0.16119 3.9231 0 7.3099 2.6803 8.2471 6.4332 0.1004 0.4018 0.5075 0.6462 0.9094 0.5459 0.4019-0.1004 0.6463-0.5075 0.5459-0.9094-1.103-4.417-5.0869-7.5697-9.7024-7.5697zm0.1947 3.5093 3.8013 3.8007c-0.1018-2.0569-1.7488-3.7024-3.8013-3.8007z</StreamGeometry>
 
-    <SolidColorBrush x:Key="Light-DefaultGray-10"
-                     Opacity="0.1"
-                     Color="{DynamicResource ThemeForegroundColor}" />
-    <SolidColorBrush x:Key="Light-DefaultGray"
-                     Opacity="1"
-                     Color="{DynamicResource ThemeForegroundColor}" />
+    <PathIcon x:Key="TextCopyIcon"
+              Width="16"
+              Height="16"
+              x:Shared="False"
+              Background="Transparent"
+              Data="M4.00029 4.08525L4 10.5C4 11.8255 5.03154 12.91 6.33562 12.9947L6.5 13L10.9144 13.0007C10.7083 13.5829 10.1528 14 9.5 14H6C4.34315 14 3 12.6569 3 11V5.5C3 4.84678 3.41754 4.29109 4.00029 4.08525ZM11.5 2C12.3284 2 13 2.67157 13 3.5V10.5C13 11.3284 12.3284 12 11.5 12H6.5C5.67157 12 5 11.3284 5 10.5V3.5C5 2.67157 5.67157 2 6.5 2H11.5ZM11.5 3H6.5C6.22386 3 6 3.22386 6 3.5V10.5C6 10.7761 6.22386 11 6.5 11H11.5C11.7761 11 12 10.7761 12 10.5V3.5C12 3.22386 11.7761 3 11.5 3Z"
+              Foreground="{DynamicResource ThemeForegroundBrush}" />
 
-    <Rectangle x:Key="TextCopyIcon"
-               Width="16"
-               Height="16"
-               x:Shared="False">
-        <Rectangle.Fill>
-            <DrawingBrush Stretch="None">
-                <DrawingBrush.Drawing>
-                    <DrawingGroup>
-                        <DrawingGroup Opacity="0.75">
-                            <GeometryDrawing Brush="{DynamicResource Light-DefaultGray-10}" Geometry="F1M14.5,1.5v10H10v-7L9.5,4h-3V1.5Z" />
-                            <GeometryDrawing Brush="{DynamicResource Light-DefaultGray}" Geometry="F1M6.5,1h8l.5.5v10l-.5.5H10V11h4V2H7V4H6V1.5Z" />
-                        </DrawingGroup>
-                        <GeometryDrawing Brush="{DynamicResource Light-DefaultGray-10}" Geometry="F1M9.5,4.5v10h-8V4.5Z" />
-                        <GeometryDrawing Brush="{DynamicResource Light-DefaultGray}" Geometry="F1M1,4.5v10l.5.5h8l.5-.5V4.5L9.5,4h-8ZM2,5H9v9H2Z" />
-                    </DrawingGroup>
-                </DrawingBrush.Drawing>
-            </DrawingBrush>
-        </Rectangle.Fill>
-    </Rectangle>
+    <PathIcon x:Key="TextPasteIcon"
+              Width="16"
+              Height="16"
+              x:Shared="False"
+              Background="Transparent"
+              Data="M4.08535 2H3.5C3.10218 2 2.72064 2.15804 2.43934 2.43934C2.15804 2.72064 2 3.10218 2 3.5V13.5C2 13.8978 2.15804 14.2794 2.43934 14.5607C2.72064 14.842 3.10217 15 3.5 15H6.1115V14H3.5C3.36739 14 3.24021 13.9473 3.14645 13.8536C3.05268 13.7598 3 13.6326 3 13.5V3.5C3 3.36739 3.05268 3.24021 3.14645 3.14645C3.24021 3.05268 3.36739 3 3.5 3H4.08535C4.29127 3.5826 4.84689 4 5.5 4H8.5C9.15311 4 9.70873 3.5826 9.91465 3H10.5C10.6326 3 10.7598 3.05268 10.8536 3.14645C10.9473 3.24022 11 3.36739 11 3.5V5H12V3.5C12 3.10217 11.842 2.72064 11.5607 2.43934C11.2794 2.15804 10.8978 2 10.5 2H9.91465C9.70873 1.4174 9.15311 1 8.5 1H5.5C4.84689 1 4.29127 1.4174 4.08535 2ZM5 2.5C5 2.22386 5.22386 2 5.5 2H8.5C8.77614 2 9 2.22386 9 2.5C9 2.77614 8.77614 3 8.5 3H5.5C5.22386 3 5 2.77614 5 2.5ZM8.5 6C7.67157 6 7 6.67157 7 7.5V13.5C7 14.3284 7.67157 15 8.5 15H12.5C13.3284 15 14 14.3284 14 13.5V7.5C14 6.67157 13.3284 6 12.5 6H8.5ZM8 7.5C8 7.22386 8.22386 7 8.5 7H12.5C12.7761 7 13 7.22386 13 7.5V13.5C13 13.7761 12.7761 14 12.5 14H8.5C8.22386 14 8 13.7761 8 13.5V7.5Z"
+              Foreground="{DynamicResource ThemeForegroundBrush}" />
 
-    <Rectangle x:Key="TextPasteIcon"
-               Width="16"
-               Height="16"
-               x:Shared="False">
-        <Rectangle.Fill>
-            <DrawingBrush Stretch="None">
-                <DrawingBrush.Drawing>
-                    <DrawingGroup>
-                        <GeometryDrawing Brush="{DynamicResource Light-DefaultGray-10}" Geometry="F1M7,14.5H2.5V3.5h10V7H8.086L7,8.086Z" />
-                        <GeometryDrawing Brush="{DynamicResource Light-DefaultGray-10}" Geometry="F1M14.5,8.5v7h-6v-7Z" />
-                        <GeometryDrawing Brush="{DynamicResource Light-DefaultGray}" Geometry="F1M14.5,8h-6L8,8.5v7l.5.5h6l.5-.5v-7ZM14,15H9V9h5Z" />
-                        <GeometryDrawing Brush="{DynamicResource Light-DefaultGray}" Geometry="F1M7,15H2.5L2,14.5V3.5L2.5,3h10l.5.5V7H12V4H3V14H7Z" />
-                        <GeometryDrawing Brush="{DynamicResource Light-DefaultGray}" Geometry="F1M9.5,2a2,2,0,0,0-4,0H4V4h7V2Zm-2,1a1,1,0,1,1,1-1A1,1,0,0,1,7.5,3Z" />
-                    </DrawingGroup>
-                </DrawingBrush.Drawing>
-            </DrawingBrush>
-        </Rectangle.Fill>
-    </Rectangle>
-
-    <Rectangle x:Key="TextCutIcon"
-               Width="16"
-               Height="16"
-               x:Shared="False">
-        <Rectangle.Fill>
-            <DrawingBrush Stretch="None">
-                <DrawingBrush.Drawing>
-                    <DrawingGroup>
-                        <DrawingGroup Opacity="0.75">
-                            <GeometryDrawing Brush="{DynamicResource Light-DefaultGray}" Geometry="F1M10.673,11.748l-.9.438L4.839,2.065,5.249.627Z" />
-                            <GeometryDrawing Brush="{DynamicResource Light-DefaultGray}" Geometry="F1M11.161,2.065,6.225,12.186l-.9-.438L10.751.627Z" />
-                        </DrawingGroup>
-                        <GeometryDrawing Brush="{DynamicResource Light-DefaultGray-10}" Geometry="F1M6.5,13A1.5,1.5,0,1,1,5,11.5,1.5,1.5,0,0,1,6.5,13Zm6,0A1.5,1.5,0,1,1,11,11.5,1.5,1.5,0,0,1,12.5,13Z" />
-                        <GeometryDrawing Brush="{DynamicResource Light-DefaultGray}" Geometry="F1M5,11a2,2,0,1,0,2,2A2,2,0,0,0,5,11Zm0,3a1,1,0,1,1,1-1A1,1,0,0,1,5,14Zm6-3a2,2,0,1,0,2,2A2,2,0,0,0,11,11Zm0,3a1,1,0,1,1,1-1A1,1,0,0,1,11,14Z" />
-                        <GeometryDrawing Brush="{DynamicResource Light-DefaultGray}" Geometry="F1M9,7.5a1,1,0,1,1-1-1A1,1,0,0,1,9,7.5Z" />
-                    </DrawingGroup>
-                </DrawingBrush.Drawing>
-            </DrawingBrush>
-        </Rectangle.Fill>
-    </Rectangle>
+    <PathIcon x:Key="TextCutIcon"
+              Width="16"
+              Height="16"
+              x:Shared="False"
+              Background="Transparent"
+              Data="M11.78 1.07996C12.01 1.23996 12.07 1.54996 11.92 1.77996L9.21 5.84996L8.6 4.93996L11.08 1.21996C11.24 0.98996 11.55 0.92996 11.78 1.07996ZM10.829 10.092C11.043 10.033 11.268 10 11.5 10V10.001C12.879 10.001 14 11.123 14 12.501C14 13.879 12.879 15.001 11.5 15.001C10.121 15.001 9 13.879 9 12.501C9 11.715 9.365 11.013 9.934 10.554L8.001 7.65405L6.069 10.556C6.636 11.014 7 11.715 7 12.5C7 13.878 5.879 15 4.5 15C3.121 15 2 13.878 2 12.5C2 11.122 3.121 10 4.5 10C4.731 10 4.954 10.032 5.166 10.091L7.395 6.74305L4.084 1.77705C3.931 1.54705 3.994 1.23705 4.223 1.08405C4.45 0.931048 4.762 0.992049 4.916 1.22305L10.829 10.092ZM3 12.5C3 13.327 3.673 14 4.5 14C5.327 14 6 13.327 6 12.5C6 11.673 5.327 11 4.5 11C3.673 11 3 11.673 3 12.5ZM10 12.5C10 13.327 10.673 14 11.5 14C12.327 14 13 13.327 13 12.5C13 11.673 12.327 11 11.5 11C10.673 11 10 11.673 10 12.5Z"
+              Foreground="{DynamicResource ThemeForegroundBrush}" />
 
     <MenuFlyout x:Key="DefaultTextBoxContextFlyout">
         <MenuItem Command="{Binding $parent[TextBox].Cut}"
