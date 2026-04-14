@@ -42,6 +42,7 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="CornerRadius" Value="{Binding $parent[SystemDropShadowChrome].CornerRadius}" />
         <Setter Property="BorderThickness" Value="{Binding $parent[SystemDropShadowChrome].BorderThickness}" />
+        <Setter Property="IsScrollChainingEnabled" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
                 <DockPanel>

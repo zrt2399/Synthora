@@ -1,6 +1,7 @@
 <Project>
 	<PropertyGroup> 
-		<Version>2.0.3.0</Version>
+		<Version>2.0.5.0</Version>
+		<AvaloniaVersion>12.0.0</AvaloniaVersion>
 		<FileVersion>$(Version)</FileVersion>
 		<AssemblyVersion>$(Version)</AssemblyVersion>
 	</PropertyGroup>

@@ -4,13 +4,7 @@
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
 
-    <converters:MarginMultiplierConverter x:Key="TreeViewItemExpanderButtonMarginMultiplier"
-                                          Indent="1"
-                                          Left="True" />
-
-    <converters:MarginMultiplierConverter x:Key="LeftMarginConverter"
-                                          Indent="16"
-                                          Left="True" />
+    <x:Double x:Key="TreeViewItemIndent">16</x:Double>
 
     <ControlTheme x:Key="SimpleExpanderButtonTheme" TargetType="ToggleButton">
         <Setter Property="Background" Value="Transparent" />
@@ -63,24 +57,28 @@
                             CornerRadius="{TemplateBinding CornerRadius}"
                             Focusable="True"
                             TemplatedControl.IsTemplateFocusTarget="True">
-                        <DockPanel Name="PART_Header" Margin="{TemplateBinding Level, Mode=OneWay, Converter={StaticResource LeftMarginConverter}}">
+                        <Grid Name="PART_Header" ColumnDefinitions="16, *">
+                            <Grid.Margin>
+                                <MultiBinding Converter="{x:Static converters:TreeViewItemIndentConverter.Instance}">
+                                    <Binding Path="Level" RelativeSource="{RelativeSource TemplatedParent}" />
+                                    <DynamicResource ResourceKey="TreeViewItemIndent" />
+                                </MultiBinding>
+                            </Grid.Margin>
                             <ToggleButton Name="PART_ExpandCollapseChevron"
-                                          Margin="{TemplateBinding Padding,
-                                                                   Converter={StaticResource TreeViewItemExpanderButtonMarginMultiplier}}"
                                           HorizontalAlignment="Right"
-                                          VerticalAlignment="Center"
-                                          DockPanel.Dock="Left"
                                           Focusable="False"
                                           IsChecked="{TemplateBinding IsExpanded,
                                                                       Mode=TwoWay}"
                                           Theme="{StaticResource SimpleExpanderButtonTheme}" />
                             <ContentPresenter Name="PART_HeaderPresenter"
-                                              Margin="{TemplateBinding Padding}"
+                                              Grid.Column="1"
+                                              Padding="{TemplateBinding Padding}"
+                                              HorizontalContentAlignment="{TemplateBinding HorizontalAlignment}"
                                               Background="Transparent"
                                               Content="{TemplateBinding Header}"
                                               ContentTemplate="{TemplateBinding HeaderTemplate}"
                                               Focusable="False" />
-                        </DockPanel>
+                        </Grid>
                     </Border>
                     <ItemsPresenter Name="PART_ItemsPresenter"
                                     IsVisible="{TemplateBinding IsExpanded}"

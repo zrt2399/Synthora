@@ -1,0 +1,23 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 mc:Ignorable="d"
+			 d:DesignWidth="800"
+			 d:DesignHeight="450"
+			 x:Class="Synthora.Demo.Views.LoadingView">
+
+	<StackPanel HorizontalAlignment="Center"
+				VerticalAlignment="Center"
+				Spacing="10">
+		<TextBlock FontSize="40" Text="Welcome To Avalonia!">
+			<TextBlock.Foreground>
+				<LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,100%">
+					<GradientStop Offset="0" Color="#FF7814C8" />
+					<GradientStop Offset="1" Color="#FFAB0DB7" />
+				</LinearGradientBrush>
+			</TextBlock.Foreground>
+		</TextBlock>
+		<TextBlock HorizontalAlignment="Center" FontSize="20">Loading...</TextBlock>
+	</StackPanel>
+</UserControl> 

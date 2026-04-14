@@ -48,6 +48,7 @@
                                         BorderThickness="{TemplateBinding BorderThickness}"
                                         CornerRadius="{TemplateBinding CornerRadius}">
                     <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                                  ScrollViewer.IsScrollChainingEnabled="False"
                                   ScrollViewerAttach.Orientation="Horizontal"
                                   VerticalScrollBarVisibility="Disabled">
                         <ItemsPresenter Name="PART_ItemsPresenter"

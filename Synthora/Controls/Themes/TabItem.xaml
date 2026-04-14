@@ -53,7 +53,7 @@
         </Style>
         <Style Selector="^[TabStripPlacement=Bottom] /template/ Border#PART_SelectedPipe">
             <Setter Property="HorizontalAlignment" Value="Stretch" />
-            <Setter Property="VerticalAlignment" Value="Bottom" />
+            <Setter Property="VerticalAlignment" Value="Top" />
             <Setter Property="Width" Value="NaN" />
             <Setter Property="Height" Value="3" />
         </Style>

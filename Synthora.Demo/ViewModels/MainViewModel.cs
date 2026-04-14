@@ -22,11 +22,11 @@ using Synthora.Messaging;
 
 namespace Synthora.Demo.ViewModels
 {
-    public partial class MainWindowViewModel : ViewModelBase
+    public partial class MainViewModel : ViewModelBase
     {
         private WindowNotificationManager? _notificationManager;
 
-        public MainWindowViewModel()
+        public MainViewModel()
         {
             //Comment below to enable Native AOT compilation
             var employeeFaker = new Faker<Employee>("zh_CN")

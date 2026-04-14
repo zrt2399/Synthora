@@ -53,8 +53,8 @@
                       ToolTipText="Synthora Demo App">
                 <TrayIcon.Menu>
                     <NativeMenu>
-                        <NativeMenuItem Command="{x:Static vm:MainWindowViewModel.ShowMainWindowCommand}" Header="Open MainWindow" />
-                        <NativeMenuItem Command="{x:Static vm:MainWindowViewModel.OpenGitHubCommand}" Header="GitHub" />
+                        <NativeMenuItem Command="{x:Static vm:MainViewModel.ShowMainWindowCommand}" Header="Open MainWindow" />
+                        <NativeMenuItem Command="{x:Static vm:MainViewModel.OpenGitHubCommand}" Header="GitHub" />
                     </NativeMenu>
                 </TrayIcon.Menu>
             </TrayIcon>

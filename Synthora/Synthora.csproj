@@ -3,7 +3,6 @@
 	<PropertyGroup>
 		<TargetFramework>net10.0</TargetFramework>
 		<Nullable>enable</Nullable>
-		<AvaloniaVersion>12.0.0</AvaloniaVersion>
 		<DebugType>embedded</DebugType> 
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<Title>AvaloniaUI Theme</Title>
@@ -37,35 +36,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <AvaloniaResource Update="Controls\Themes\CarouselPage.xaml">
-	    <SubType>Designer</SubType>
-	    <Generator>MSBuild:Compile</Generator>
-	  </AvaloniaResource>
-	  <AvaloniaResource Update="Controls\Themes\CommandBar.xaml">
-	    <SubType>Designer</SubType>
-	    <Generator>MSBuild:Compile</Generator>
-	  </AvaloniaResource>
-	  <AvaloniaResource Update="Controls\Themes\ContentPage.xaml">
-	    <SubType>Designer</SubType>
-	    <Generator>MSBuild:Compile</Generator>
-	  </AvaloniaResource>
-	  <AvaloniaResource Update="Controls\Themes\DrawerPage.xaml">
-	    <SubType>Designer</SubType>
-	    <Generator>MSBuild:Compile</Generator>
-	  </AvaloniaResource>
-	  <AvaloniaResource Update="Controls\Themes\GroupBox.xaml">
-	    <SubType>Designer</SubType>
-	    <Generator>MSBuild:Compile</Generator>
-	  </AvaloniaResource>
-	  <AvaloniaResource Update="Controls\Themes\NavigationPage.xaml">
-	    <SubType>Designer</SubType>
-	    <Generator>MSBuild:Compile</Generator>
-	  </AvaloniaResource>
-	  <AvaloniaResource Update="Controls\Themes\TabbedPage.xaml">
-	    <SubType>Designer</SubType>
-	    <Generator>MSBuild:Compile</Generator>
-	  </AvaloniaResource>
-	  <AvaloniaResource Update="Controls\Themes\WindowDrawnDecorations.xaml">
+	  <AvaloniaResource Update="Controls\Themes\PipsPager.xaml">
 	    <SubType>Designer</SubType>
 	    <Generator>MSBuild:Compile</Generator>
 	  </AvaloniaResource>

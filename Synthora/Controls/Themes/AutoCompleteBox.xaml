@@ -55,6 +55,7 @@
                                          Foreground="{TemplateBinding Foreground}"
                                          ItemTemplate="{TemplateBinding ItemTemplate}"
                                          ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                                         ScrollViewer.IsScrollChainingEnabled="False"
                                          ScrollViewer.VerticalScrollBarVisibility="Auto" />
                             </SystemDropShadowChrome>
                         </Popup>
