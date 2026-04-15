@@ -50,6 +50,7 @@
             <TrayIcon Icon="/Assets/avalonia-logo.ico"
                       IsVisible="{OnPlatform False,
                                              macOS=True}"
+                      MacOSProperties.IsTemplateIcon="True"
                       ToolTipText="Synthora Demo App">
                 <TrayIcon.Menu>
                     <NativeMenu>
