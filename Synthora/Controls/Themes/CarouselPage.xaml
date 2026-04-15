@@ -20,7 +20,7 @@
     </Design.PreviewWith>
 
     <ControlTheme x:Key="{x:Type CarouselPage}" TargetType="CarouselPage">
-        <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
+        <!-- <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" /> -->
         <Setter Property="Template">
             <ControlTemplate>
                 <Carousel Name="PART_Carousel"

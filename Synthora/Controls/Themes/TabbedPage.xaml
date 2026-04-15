@@ -46,24 +46,13 @@
 
     <!--  Icon + text header layout  -->
     <x:Double x:Key="TabbedPageTabItemHeaderIconSize">24</x:Double>
-    <!--<x:Double x:Key="TabbedPageTabItemHeaderFontSize">12</x:Double>-->
     <x:Double x:Key="TabbedPageTabItemHeaderSpacing">2</x:Double>
 
     <!--  Tab strip (bar) styling  -->
-    <SolidColorBrush x:Key="TabbedPageTabStripBackground" Color="Transparent" />
-    <CornerRadius x:Key="TabbedPageTabStripCornerRadius">0</CornerRadius>
-    <Thickness x:Key="TabbedPageTabStripBorderThickness">0</Thickness>
-    <SolidColorBrush x:Key="TabbedPageTabStripBorderBrush" Color="Transparent" />
     <Thickness x:Key="TabbedPageTabStripMargin">0</Thickness>
-    <Thickness x:Key="TabbedPageTabStripPadding">0</Thickness>
 
     <!--  TabbedPage TabControl theme  -->
     <ControlTheme x:Key="TabbedPageTabControlTheme" TargetType="TabControl">
-        <Setter Property="Background" Value="{DynamicResource TabbedPageTabStripBackground}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource TabbedPageTabStripCornerRadius}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource TabbedPageTabStripBorderBrush}" />
-        <Setter Property="BorderThickness" Value="{DynamicResource TabbedPageTabStripBorderThickness}" />
-        <Setter Property="Padding" Value="{DynamicResource TabbedPageTabStripPadding}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <DockPanel>
@@ -274,17 +263,20 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type TabbedPage}" TargetType="TabbedPage">
-        <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
+        <!-- <Setter Property="Background" Value="Transparent" /> -->
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel Background="{TemplateBinding Background}">
-                    <TabControl Name="PART_TabControl"
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch"
-                                ItemContainerTheme="{StaticResource TabbedPageTabItemTheme}"
-                                Theme="{StaticResource TabbedPageTabControlTheme}" />
-                </Panel>
+                <TabControl Name="PART_TabControl"
+                            Padding="{TemplateBinding Padding}"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            ItemContainerTheme="{StaticResource TabbedPageTabItemTheme}"
+                            Theme="{StaticResource TabbedPageTabControlTheme}" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>
-</ResourceDictionary> 
+</ResourceDictionary>

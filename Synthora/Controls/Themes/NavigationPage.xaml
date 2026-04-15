@@ -16,7 +16,7 @@
     <SolidColorBrush x:Key="NavigationBarForeground" Color="{DynamicResource ThemeForegroundColor}" />
 
     <ControlTheme x:Key="{x:Type NavigationPage}" TargetType="NavigationPage">
-        <Setter Property="Background" Value="Transparent" />
+        <!-- <Setter Property="Background" Value="Transparent" /> -->
         <Setter Property="PageTransition">
             <Setter.Value>
                 <PageSlide FillMode="Forward"

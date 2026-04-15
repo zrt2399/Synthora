@@ -8,10 +8,10 @@
     </Design.PreviewWith>
 
     <ControlTheme x:Key="{x:Type PipsPager}" TargetType="PipsPager">
-        <!--<Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />-->
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="BorderThickness" Value="0" />
+        <!-- <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" /> -->
+        <!-- <Setter Property="Background" Value="Transparent" /> -->
+        <!-- <Setter Property="BorderBrush" Value="Transparent" /> -->
+        <!-- <Setter Property="BorderThickness" Value="0" /> -->
         <Setter Property="IsTabStop" Value="False" />
         <Setter Property="PreviousButtonTheme" Value="{StaticResource {x:Type Button}}" />
         <Setter Property="NextButtonTheme" Value="{StaticResource {x:Type Button}}" />
