@@ -74,17 +74,20 @@
                                 Spacing="8">
                         <Button Command="{Binding SwitchTheme}"
                                 CommandParameter="Default"
+                                Padding="6"
                                 ToolTip.Tip="切换为跟随系统（默认）主题">
                             <materialIcons:MaterialIconExt Kind="ThemeLightDark" />
                         </Button>
                         <Button Command="{Binding SwitchTheme}"
                                 CommandParameter="Light"
+                                Padding="6"
                                 Theme="{StaticResource SynthoraButtonTheme}"
                                 ToolTip.Tip="切换为浅色主题">
                             <materialIcons:MaterialIconExt Kind="WhiteBalanceSunny" />
                         </Button>
                         <Button Command="{Binding SwitchTheme}"
                                 CommandParameter="Dark"
+                                Padding="6"
                                 Theme="{StaticResource CancelButtonTheme}"
                                 ToolTip.Tip="切换为深色主题">
                             <materialIcons:MaterialIconExt Kind="WeatherNight" />
