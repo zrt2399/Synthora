@@ -74,7 +74,8 @@
         <!--<Separator IsVisible="{Binding $parent[TextBox].CanCopy}" Theme="{DynamicResource VerticalSeparatorTheme}" />-->
         <MenuItem Command="{Binding $parent[TextBox].Paste}"
                   Header="{DynamicResource StringTextFlyoutPasteText}"
-                  IsEnabled="{Binding $parent[TextBox].CanPaste}" />
+                  IsEnabled="{Binding $parent[TextBox].CanPaste}"
+                  IsVisible="{Binding $parent[TextBox].CanPaste}" />
         <!--<Separator Theme="{DynamicResource VerticalSeparatorTheme}" />-->
         <MenuItem Command="{Binding $parent[TextBox].SelectAll}" Header="{DynamicResource StringTextFlyoutSelectAllText}" />
     </MenuFlyout>

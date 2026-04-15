@@ -49,18 +49,11 @@
                   Header="{DynamicResource StringScrollBarLineRight}" />
     </MenuFlyout>
 
-    <StreamGeometry x:Key="ScrollBarDownGlyph">
-        M6.95 7.72h10.13c.4 0 .64.45.42.78l-5.07 7.6a.5.5 0 0 1-.83 0L6.54 8.5a.5.5 0 0 1 .41-.78Z
-    </StreamGeometry>
-    <StreamGeometry x:Key="ScrollBarLeftGlyph">
-        M16.32 6.96v10.13a.5.5 0 0 1-.78.41l-7.6-5.06a.5.5 0 0 1 0-.83l7.6-5.07a.5.5 0 0 1 .78.42Z
-    </StreamGeometry>
-    <StreamGeometry x:Key="ScrollBarRightGlyph">
-        M9 17.07V6.93c0-.4.45-.63.78-.41l7.6 5.06c.3.2.3.64 0 .84l-7.6 5.06a.5.5 0 0 1-.78-.41Z
-    </StreamGeometry>
-    <StreamGeometry x:Key="ScrollBarUpGlyph">
-        M17.08 16.32H6.95a.5.5 0 0 1-.41-.78l5.06-7.6c.2-.3.64-.3.83 0l5.07 7.6a.5.5 0 0 1-.42.78Z
-    </StreamGeometry>
+    <StreamGeometry x:Key="ScrollBarLeftGlyph">M16,7 v10 a0.5,0.5 0 0 1 -0.78,0.41 l-7.6,-5.06 a0.5,0.5 0 0 1 0,-0.83 l7.6,-5.07 a0.5,0.5 0 0 1 0.78,0.42 Z</StreamGeometry>
+    <StreamGeometry x:Key="ScrollBarRightGlyph">M8,17 v-10 a0.5,0.5 0 0 1 0.78,-0.41 l7.6,5.06 a0.5,0.5 0 0 1 0,0.83 l-7.6,5.07 a0.5,0.5 0 0 1 -0.78,-0.42 Z</StreamGeometry>
+
+    <StreamGeometry x:Key="ScrollBarDownGlyph">M7,8 h10 a0.5,0.5 0 0 1 0.41,0.78 l-5.06,7.6 a0.5,0.5 0 0 1 -0.83,0 l-5.07,-7.6 a0.5,0.5 0 0 1 0.41,-0.78 Z</StreamGeometry>
+    <StreamGeometry x:Key="ScrollBarUpGlyph">M17,16 h-10 a0.5,0.5 0 0 1 -0.41,-0.78 l5.06,-7.6 a0.5,0.5 0 0 1 0.83,0 l5.07,7.6 a0.5,0.5 0 0 1 -0.42,0.78 Z</StreamGeometry>
 
     <ControlTheme x:Key="InnerPathIcon" TargetType="PathIcon">
         <Setter Property="Width" Value="20" />

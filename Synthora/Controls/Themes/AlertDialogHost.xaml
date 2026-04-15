@@ -7,7 +7,7 @@
     <ControlTheme x:Key="{x:Type AlertDialogHost}" TargetType="AlertDialogHost">
         <!--<Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />-->
-        <Setter Property="BlurRadius" Value="{OnPlatform 1, Linux=1.5, macOS=4, x:TypeArguments=x:Double}" />
+        <Setter Property="BlurRadius" Value="{OnPlatform 1, macOS=4, x:TypeArguments=x:Double}" />
         <Setter Property="BoxShadow" Value="0 0 20 0 #60000000" />
         <Setter Property="OverlayBackground" Value="Transparent" />
         <Setter Property="Template">
@@ -53,28 +53,36 @@
                                         <Style Selector="Button">
                                             <Setter Property="CornerRadius">
                                                 <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.All}">
-                                                    <Binding Path="$parent[Border].CornerRadius" />
-                                                    <Binding Path="$parent[Border].BorderThickness" />
-                                                    <Binding Path="$parent[Border].Padding" />
+                                                    <Binding Path="#dialogBorder.CornerRadius" />
+                                                    <Binding Path="#dialogBorder.BorderThickness" />
+                                                    <Binding Path="#dialogBorder.Padding" />
                                                 </MultiBinding>
                                             </Setter>
                                         </Style>
+                                        <Style Selector="TextBox">
+                                            <Setter Property="IsReadOnly" Value="True" />
+                                            <Setter Property="Background" Value="Transparent" />
+                                            <Setter Property="BorderBrush" Value="{x:Null}" />
+                                            <Setter Property="BorderThickness" Value="0" />
+                                            <Setter Property="Padding" Value="0" />
+                                        </Style>
                                     </Grid.Styles>
                                     <Panel>
-                                        <SelectableTextBlock Name="title"
-                                                             Margin="2,0,2,10"
-                                                             HorizontalAlignment="Left"
-                                                             FontWeight="Bold"
-                                                             IsVisible="{Binding $self.Text, Converter={x:Static SynthoraConverters.IsNotNullOrEmpty}}"
-                                                             Text="{TemplateBinding Title}" />
+                                        <TextBox Name="title"
+                                                 Margin="2,0,2,10"
+                                                 HorizontalAlignment="Left"
+                                                 FontWeight="Bold"
+                                                 IsVisible="{Binding $self.Text, Converter={x:Static SynthoraConverters.IsNotNullOrEmpty}}"
+                                                 Text="{TemplateBinding Title}" />
                                         <Button Padding="{DynamicResource ThemeControlPaddingSmall}"
                                                 HorizontalAlignment="Right"
                                                 VerticalAlignment="Top"
+                                                Background="{DynamicResource ThemeBackgroundBrush}"
                                                 Command="{Binding None, RelativeSource={RelativeSource TemplatedParent}}"
                                                 IsVisible="{TemplateBinding ShowCloseButton}"
                                                 Theme="{DynamicResource IconButtonTheme}">
-                                            <PathIcon Width="10"
-                                                      Height="10"
+                                            <PathIcon Width="12"
+                                                      Height="12"
                                                       HorizontalAlignment="Center"
                                                       VerticalAlignment="Center"
                                                       Data="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
@@ -90,12 +98,12 @@
                                                  DockPanel.Dock="Left"
                                                  IconType="{TemplateBinding IconType}" />
 
-                                        <SelectableTextBlock Name="message"
-                                                             Margin="10"
-                                                             HorizontalAlignment="Left"
-                                                             VerticalAlignment="Top"
-                                                             Text="{TemplateBinding Message}"
-                                                             TextWrapping="Wrap" />
+                                        <TextBox Name="message"
+                                                 Margin="10"
+                                                 HorizontalAlignment="Left"
+                                                 VerticalAlignment="Top"
+                                                 Text="{TemplateBinding Message}"
+                                                 TextWrapping="Wrap" />
                                     </DockPanel>
                                     <StackPanel x:Name="PART_ButtonPanel"
                                                 Grid.Row="2"

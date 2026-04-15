@@ -580,11 +580,11 @@
 								  GridLinesVisibility="All"
 								  HeadersVisibility="All"
 								  ItemsSource="{Binding DataGridCollectionView}" />
-						<GridSplitter Grid.Row="1" Height="4" />
+						<GridSplitter Grid.Row="1" />
 						<DataGrid Grid.Row="2"
 								  GridLinesVisibility="Vertical"
 								  ItemsSource="{Binding DataGridCollectionView}" />
-						<GridSplitter Grid.Row="3" Height="4" />
+						<GridSplitter Grid.Row="3" />
 						<DataGrid Grid.Row="4"
 								  IsReadOnly="True"
 								  ItemsSource="{Binding Employees}" />
