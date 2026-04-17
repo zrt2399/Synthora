@@ -25,12 +25,12 @@
     <SolidColorBrush x:Key="TabbedPageTabItemHeaderBackgroundSelectedPointerOver" Color="Transparent" />
     <SolidColorBrush x:Key="TabbedPageTabItemHeaderBackgroundUnselectedPressed" Color="{DynamicResource ThemeControlHighlightMidColor}" />
     <SolidColorBrush x:Key="TabbedPageTabItemHeaderBackgroundSelectedPressed" Color="Transparent" />
-    <SolidColorBrush x:Key="TabbedPageTabItemHeaderBackgroundDisabled" Color="Transparent" />
+    <!-- <SolidColorBrush x:Key="TabbedPageTabItemHeaderBackgroundDisabled" Color="Transparent" /> -->
 
     <!--  Foregrounds (override via TabbedPageTabItemHeaderForegroundSelected / TabbedPageTabItemHeaderForegroundUnselected resources)  -->
     <SolidColorBrush x:Key="TabbedPageTabItemHeaderForegroundUnselected" Color="{DynamicResource ThemeForegroundMidColor}" />
     <SolidColorBrush x:Key="TabbedPageTabItemHeaderForegroundSelected" Color="{DynamicResource ThemeAccentColor}" />
-    <SolidColorBrush x:Key="TabbedPageTabItemHeaderForegroundDisabled" Color="{DynamicResource ThemeDisabledColor}" />
+    <!-- <SolidColorBrush x:Key="TabbedPageTabItemHeaderForegroundDisabled" Color="{DynamicResource ThemeDisabledColor}" /> -->
 
     <x:Double x:Key="TabbedPageTabItemHeaderMinHeight">36</x:Double>
     <x:Double x:Key="TabbedPageTabItemHeaderVerticalPipeHeight">18</x:Double>
@@ -55,37 +55,38 @@
     <ControlTheme x:Key="TabbedPageTabControlTheme" TargetType="TabControl">
         <Setter Property="Template">
             <ControlTemplate>
-                <DockPanel>
-                    <Border Name="PART_TabStrip"
-                            Margin="{DynamicResource TabbedPageTabStripMargin}"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{TemplateBinding CornerRadius}"
-                            DockPanel.Dock="{TemplateBinding TabStripPlacement}">
-                        <ItemsPresenter Name="PART_ItemsPresenter">
-                            <ItemsPresenter.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <UniformGrid Rows="1" />
-                                </ItemsPanelTemplate>
-                            </ItemsPresenter.ItemsPanel>
-                        </ItemsPresenter>
-                    </Border>
-                    <Border Name="Border_Root"
-                            Margin="{TemplateBinding Padding}"
-                            BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-                            ClipToBounds="True">
-                        <Panel>
-                            <ContentPresenter Name="PART_SelectedContentHost2"
-                                              HorizontalContentAlignment="Stretch"
-                                              VerticalContentAlignment="Stretch"
-                                              IsVisible="False" />
-                            <ContentPresenter Name="PART_SelectedContentHost"
-                                              HorizontalContentAlignment="Stretch"
-                                              VerticalContentAlignment="Stretch" />
-                        </Panel>
-                    </Border>
-                </DockPanel>
+                <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <DockPanel>
+                        <Border Name="PART_TabStrip"
+                                Margin="{DynamicResource TabbedPageTabStripMargin}"
+                                DockPanel.Dock="{TemplateBinding TabStripPlacement}">
+                            <ItemsPresenter Name="PART_ItemsPresenter">
+                                <ItemsPresenter.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <UniformGrid Rows="1" />
+                                    </ItemsPanelTemplate>
+                                </ItemsPresenter.ItemsPanel>
+                            </ItemsPresenter>
+                        </Border>
+                        <Border Name="Border_Root"
+                                Margin="{TemplateBinding Padding}"
+                                BorderBrush="{DynamicResource ThemeBorderLowBrush}"
+                                ClipToBounds="True">
+                            <Panel>
+                                <ContentPresenter Name="PART_SelectedContentHost2"
+                                                  HorizontalContentAlignment="Stretch"
+                                                  VerticalContentAlignment="Stretch"
+                                                  IsVisible="False" />
+                                <ContentPresenter Name="PART_SelectedContentHost"
+                                                  HorizontalContentAlignment="Stretch"
+                                                  VerticalContentAlignment="Stretch" />
+                            </Panel>
+                        </Border>
+                    </DockPanel>
+                </Border>
             </ControlTemplate>
         </Setter>
 
@@ -250,10 +251,10 @@
         </Style>
 
         <!--  Disabled  -->
-        <Style Selector="^:disabled /template/ Border#PART_LayoutRoot">
+        <!--<Style Selector="^:disabled /template/ Border#PART_LayoutRoot">
             <Setter Property="Background" Value="{DynamicResource TabbedPageTabItemHeaderBackgroundDisabled}" />
             <Setter Property="TextElement.Foreground" Value="{DynamicResource TabbedPageTabItemHeaderForegroundDisabled}" />
-        </Style>
+        </Style>-->
 
         <!--  Focus visible  -->
         <Style Selector="^:focus-visible /template/ Border#PART_LayoutRoot">

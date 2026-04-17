@@ -34,34 +34,38 @@
         <Style Selector="^:left">
             <Setter Property="Template">
                 <ControlTemplate TargetType="SplitView">
-                    <Grid Name="Container" Background="{TemplateBinding Background}">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.PaneColumnGridLength}" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        <Grid Name="Container">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.PaneColumnGridLength}" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
 
-                        <Panel Name="PART_PaneRoot"
-                               HorizontalAlignment="Left"
-                               Background="{TemplateBinding PaneBackground}"
-                               ClipToBounds="True"
-                               ZIndex="100">
-                            <ContentPresenter x:Name="PART_PanePresenter"
-                                              Content="{TemplateBinding Pane}"
-                                              ContentTemplate="{TemplateBinding PaneTemplate}" />
-                            <Rectangle Name="HCPaneBorder"
-                                       Width="1"
-                                       HorizontalAlignment="Right"
-                                       Fill="Transparent" />
-                        </Panel>
+                            <Panel Name="PART_PaneRoot"
+                                   HorizontalAlignment="Left"
+                                   Background="{TemplateBinding PaneBackground}"
+                                   ClipToBounds="True"
+                                   ZIndex="100">
+                                <ContentPresenter x:Name="PART_PanePresenter"
+                                                  Content="{TemplateBinding Pane}"
+                                                  ContentTemplate="{TemplateBinding PaneTemplate}" />
+                                <Rectangle Name="HCPaneBorder"
+                                           Width="1"
+                                           HorizontalAlignment="Right"
+                                           Fill="Transparent" />
+                            </Panel>
 
-                        <Panel Name="ContentRoot" Grid.Column="1">
-                            <ContentPresenter x:Name="PART_ContentPresenter"
-                                              Content="{TemplateBinding Content}"
-                                              ContentTemplate="{TemplateBinding ContentTemplate}" />
-                            <Rectangle Name="LightDismissLayer" IsVisible="False" />
-                        </Panel>
-
-                    </Grid>
+                            <Panel Name="ContentRoot" Grid.Column="1">
+                                <ContentPresenter x:Name="PART_ContentPresenter"
+                                                  Content="{TemplateBinding Content}"
+                                                  ContentTemplate="{TemplateBinding ContentTemplate}" />
+                                <Rectangle Name="LightDismissLayer" IsVisible="False" />
+                            </Panel>
+                        </Grid>
+                    </Border>
                 </ControlTemplate>
             </Setter>
         </Style>
@@ -114,34 +118,38 @@
         <Style Selector="^:right">
             <Setter Property="Template">
                 <ControlTemplate TargetType="SplitView">
-                    <Grid Name="Container" Background="{TemplateBinding Background}">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.PaneColumnGridLength}" />
-                        </Grid.ColumnDefinitions>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        <Grid Name="Container">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.PaneColumnGridLength}" />
+                            </Grid.ColumnDefinitions>
 
-                        <Panel Name="PART_PaneRoot"
-                               HorizontalAlignment="Right"
-                               Background="{TemplateBinding PaneBackground}"
-                               ClipToBounds="True"
-                               ZIndex="100">
-                            <ContentPresenter x:Name="PART_PanePresenter"
-                                              Content="{TemplateBinding Pane}"
-                                              ContentTemplate="{TemplateBinding PaneTemplate}" />
-                            <Rectangle Name="HCPaneBorder"
-                                       Width="1"
-                                       HorizontalAlignment="Left"
-                                       Fill="Transparent" />
-                        </Panel>
+                            <Panel Name="PART_PaneRoot"
+                                   HorizontalAlignment="Right"
+                                   Background="{TemplateBinding PaneBackground}"
+                                   ClipToBounds="True"
+                                   ZIndex="100">
+                                <ContentPresenter x:Name="PART_PanePresenter"
+                                                  Content="{TemplateBinding Pane}"
+                                                  ContentTemplate="{TemplateBinding PaneTemplate}" />
+                                <Rectangle Name="HCPaneBorder"
+                                           Width="1"
+                                           HorizontalAlignment="Left"
+                                           Fill="Transparent" />
+                            </Panel>
 
-                        <Panel Name="ContentRoot" Grid.Column="0">
-                            <ContentPresenter x:Name="PART_ContentPresenter"
-                                              Content="{TemplateBinding Content}"
-                                              ContentTemplate="{TemplateBinding ContentTemplate}" />
-                            <Rectangle Name="LightDismissLayer" IsVisible="False" />
-                        </Panel>
-
-                    </Grid>
+                            <Panel Name="ContentRoot" Grid.Column="0">
+                                <ContentPresenter x:Name="PART_ContentPresenter"
+                                                  Content="{TemplateBinding Content}"
+                                                  ContentTemplate="{TemplateBinding ContentTemplate}" />
+                                <Rectangle Name="LightDismissLayer" IsVisible="False" />
+                            </Panel>
+                        </Grid>
+                    </Border>
                 </ControlTemplate>
             </Setter>
         </Style>
@@ -194,33 +202,38 @@
         <Style Selector="^:top">
             <Setter Property="Template">
                 <ControlTemplate TargetType="SplitView">
-                    <Grid Name="Container" Background="{TemplateBinding Background}">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.PaneRowGridLength}" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        <Grid Name="Container">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.PaneRowGridLength}" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
 
-                        <Panel Name="PART_PaneRoot"
-                               VerticalAlignment="Top"
-                               Background="{TemplateBinding PaneBackground}"
-                               ClipToBounds="True"
-                               ZIndex="100">
-                            <ContentPresenter x:Name="PART_PanePresenter"
-                                              Content="{TemplateBinding Pane}"
-                                              ContentTemplate="{TemplateBinding PaneTemplate}" />
-                            <Rectangle Name="HCPaneBorder"
-                                       Height="1"
-                                       VerticalAlignment="Bottom"
-                                       Fill="Transparent" />
-                        </Panel>
+                            <Panel Name="PART_PaneRoot"
+                                   VerticalAlignment="Top"
+                                   Background="{TemplateBinding PaneBackground}"
+                                   ClipToBounds="True"
+                                   ZIndex="100">
+                                <ContentPresenter x:Name="PART_PanePresenter"
+                                                  Content="{TemplateBinding Pane}"
+                                                  ContentTemplate="{TemplateBinding PaneTemplate}" />
+                                <Rectangle Name="HCPaneBorder"
+                                           Height="1"
+                                           VerticalAlignment="Bottom"
+                                           Fill="Transparent" />
+                            </Panel>
 
-                        <Panel Name="ContentRoot" Grid.Row="1">
-                            <ContentPresenter x:Name="PART_ContentPresenter"
-                                              Content="{TemplateBinding Content}"
-                                              ContentTemplate="{TemplateBinding ContentTemplate}" />
-                            <Rectangle Name="LightDismissLayer" IsVisible="False" />
-                        </Panel>
-                    </Grid>
+                            <Panel Name="ContentRoot" Grid.Row="1">
+                                <ContentPresenter x:Name="PART_ContentPresenter"
+                                                  Content="{TemplateBinding Content}"
+                                                  ContentTemplate="{TemplateBinding ContentTemplate}" />
+                                <Rectangle Name="LightDismissLayer" IsVisible="False" />
+                            </Panel>
+                        </Grid>
+                    </Border>
                 </ControlTemplate>
             </Setter>
         </Style>
@@ -273,33 +286,38 @@
         <Style Selector="^:bottom">
             <Setter Property="Template">
                 <ControlTemplate TargetType="SplitView">
-                    <Grid Name="Container" Background="{TemplateBinding Background}">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.PaneRowGridLength}" />
-                        </Grid.RowDefinitions>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        <Grid Name="Container">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.PaneRowGridLength}" />
+                            </Grid.RowDefinitions>
 
-                        <Panel Name="PART_PaneRoot"
-                               VerticalAlignment="Bottom"
-                               Background="{TemplateBinding PaneBackground}"
-                               ClipToBounds="True"
-                               ZIndex="100">
-                            <ContentPresenter x:Name="PART_PanePresenter"
-                                              Content="{TemplateBinding Pane}"
-                                              ContentTemplate="{TemplateBinding PaneTemplate}" />
-                            <Rectangle Name="HCPaneBorder"
-                                       Height="1"
-                                       VerticalAlignment="Top"
-                                       Fill="Transparent" />
-                        </Panel>
+                            <Panel Name="PART_PaneRoot"
+                                   VerticalAlignment="Bottom"
+                                   Background="{TemplateBinding PaneBackground}"
+                                   ClipToBounds="True"
+                                   ZIndex="100">
+                                <ContentPresenter x:Name="PART_PanePresenter"
+                                                  Content="{TemplateBinding Pane}"
+                                                  ContentTemplate="{TemplateBinding PaneTemplate}" />
+                                <Rectangle Name="HCPaneBorder"
+                                           Height="1"
+                                           VerticalAlignment="Top"
+                                           Fill="Transparent" />
+                            </Panel>
 
-                        <Panel Name="ContentRoot" Grid.Row="0">
-                            <ContentPresenter x:Name="PART_ContentPresenter"
-                                              Content="{TemplateBinding Content}"
-                                              ContentTemplate="{TemplateBinding ContentTemplate}" />
-                            <Rectangle Name="LightDismissLayer" IsVisible="False" />
-                        </Panel>
-                    </Grid>
+                            <Panel Name="ContentRoot" Grid.Row="0">
+                                <ContentPresenter x:Name="PART_ContentPresenter"
+                                                  Content="{TemplateBinding Content}"
+                                                  ContentTemplate="{TemplateBinding ContentTemplate}" />
+                                <Rectangle Name="LightDismissLayer" IsVisible="False" />
+                            </Panel>
+                        </Grid>
+                    </Border>
                 </ControlTemplate>
             </Setter>
         </Style>

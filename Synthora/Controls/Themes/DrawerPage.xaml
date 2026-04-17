@@ -12,7 +12,7 @@
         </DrawerPage>
     </Design.PreviewWith>
 
-    <x:Double x:Key="NavigationControlNavBarHeight">48</x:Double>
+    <x:Double x:Key="NavigationControlNavBarHeight">36</x:Double>
 
     <StreamGeometry x:Key="DrawerPaneButtonIcon">M3 17h18a1 1 0 0 1 .117 1.993L21 19H3a1 1 0 0 1-.117-1.993L3 17h18H3Zm0-6 18-.002a1 1 0 0 1 .117 1.993l-.117.007L3 13a1 1 0 0 1-.117-1.993L3 11l18-.002L3 11Zm0-6h18a1 1 0 0 1 .117 1.993L21 7H3a1 1 0 0 1-.117-1.993L3 5h18H3Z</StreamGeometry>
 
@@ -22,7 +22,11 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <SplitView Name="PART_SplitView"
+                           Background="{TemplateBinding Background}"
+                           BorderBrush="{TemplateBinding BorderBrush}"
+                           BorderThickness="{TemplateBinding BorderThickness}"
                            CompactPaneLength="{TemplateBinding CompactDrawerLength}"
+                           CornerRadius="{TemplateBinding CornerRadius}"
                            DisplayMode="{TemplateBinding DisplayMode}"
                            IsPaneOpen="{Binding IsOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
                            OpenPaneLength="{TemplateBinding DrawerLength}"
@@ -74,17 +78,18 @@
                                               ContentTemplate="{TemplateBinding DrawerTemplate}" />
                         </DockPanel>
                     </SplitView.Pane>
-                    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Panel>
                         <DockPanel Name="PART_ContentDock">
                             <Border Name="PART_TopBar"
                                     Height="{DynamicResource NavigationControlNavBarHeight}"
-                                    Padding="5"
-                                    Background="{DynamicResource ThemeBackgroundBrush}"
+                                    Padding="4"
+                                    Background="{DynamicResource SynthoraMidBrush}"
                                     DockPanel.Dock="Top">
-                                <DockPanel HorizontalAlignment="Stretch">
+                                <DockPanel HorizontalAlignment="Stretch" HorizontalSpacing="6">
                                     <ToggleButton x:Name="PART_PaneButton"
                                                   AutomationProperties.Name="Toggle navigation drawer"
                                                   Background="Transparent"
+                                                  CornerRadius="4"
                                                   DockPanel.Dock="Left"
                                                   IsChecked="{Binding #PART_SplitView.IsPaneOpen, Mode=TwoWay}"
                                                   ToolTip.Tip="Toggle navigation drawer">
@@ -101,27 +106,26 @@
                                                               IsVisible="{Binding DrawerIcon, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNotNull}}" />
                                         </Panel>
                                     </ToggleButton>
-                                    <ContentControl x:Name="PART_TitlePresenter"
-                                                    Margin="8,0,0,0"
-                                                    VerticalAlignment="Center"
-                                                    VerticalContentAlignment="Center"
-                                                    Content="{TemplateBinding Header}"
-                                                    FontSize="16"
-                                                    FontWeight="SemiBold"
-                                                    IsVisible="{TemplateBinding Header,
-                                                                                Converter={x:Static ObjectConverters.IsNotNull}}" />
+                                    <ContentPresenter x:Name="PART_TitlePresenter"
+                                                      VerticalAlignment="Center"
+                                                      VerticalContentAlignment="Center"
+                                                      Content="{TemplateBinding Header}"
+                                                      FontSize="{DynamicResource FontSizeLarge}"
+                                                      IsVisible="{TemplateBinding Header,
+                                                                                  Converter={x:Static ObjectConverters.IsNotNull}}" />
                                 </DockPanel>
                             </Border>
                             <Border Name="PART_BottomBar"
                                     Height="{DynamicResource NavigationControlNavBarHeight}"
-                                    Padding="5"
-                                    Background="{DynamicResource ThemeBackgroundBrush}"
+                                    Padding="6"
+                                    Background="{DynamicResource SynthoraMidBrush}"
                                     DockPanel.Dock="Bottom"
                                     IsVisible="False">
-                                <DockPanel HorizontalAlignment="Stretch">
+                                <DockPanel HorizontalAlignment="Stretch" HorizontalSpacing="6">
                                     <ToggleButton x:Name="PART_BottomPaneButton"
                                                   AutomationProperties.Name="Toggle navigation drawer"
                                                   Background="Transparent"
+                                                  CornerRadius="4"
                                                   DockPanel.Dock="Left"
                                                   IsChecked="{Binding #PART_SplitView.IsPaneOpen, Mode=TwoWay}"
                                                   ToolTip.Tip="Toggle navigation drawer">
@@ -138,23 +142,19 @@
                                                               IsVisible="{Binding DrawerIcon, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNotNull}}" />
                                         </Panel>
                                     </ToggleButton>
-                                    <ContentControl x:Name="PART_BottomTitlePresenter"
-                                                    Margin="8,0,0,0"
-                                                    VerticalAlignment="Center"
-                                                    VerticalContentAlignment="Center"
-                                                    Content="{TemplateBinding Header}"
-                                                    FontSize="16"
-                                                    FontWeight="SemiBold"
-                                                    IsVisible="{TemplateBinding Header,
-                                                                                Converter={x:Static ObjectConverters.IsNotNull}}" />
+                                    <ContentPresenter x:Name="PART_BottomTitlePresenter"
+                                                      Margin="8,0,0,0"
+                                                      VerticalAlignment="Center"
+                                                      VerticalContentAlignment="Center"
+                                                      Content="{TemplateBinding Header}"
+                                                      FontSize="{DynamicResource FontSizeLarge}"
+                                                      IsVisible="{TemplateBinding Header,
+                                                                                  Converter={x:Static ObjectConverters.IsNotNull}}" />
                                 </DockPanel>
                             </Border>
                             <ContentPresenter Name="PART_ContentPresenter"
                                               HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                               VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                              Background="{TemplateBinding Background}"
-                                              BorderBrush="{TemplateBinding BorderBrush}"
-                                              BorderThickness="{TemplateBinding BorderThickness}"
                                               Content="{TemplateBinding Content}"
                                               ContentTemplate="{TemplateBinding ContentTemplate}"
                                               CornerRadius="{TemplateBinding CornerRadius}" />
@@ -163,7 +163,7 @@
                                 Background="{TemplateBinding BackdropBrush}"
                                 IsHitTestVisible="False"
                                 IsVisible="False" />
-                    </Grid>
+                    </Panel>
                 </SplitView>
             </ControlTemplate>
         </Setter>

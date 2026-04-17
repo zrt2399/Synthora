@@ -21,12 +21,12 @@
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             ClipToBounds="False"
-                            Orientation="{TemplateBinding Orientation}">
+                            Orientation="{TemplateBinding Orientation}"
+                            Spacing="6">
 
                     <Button Name="PART_PreviousButton"
                             Width="24"
                             Height="24"
-                            Margin="4"
                             Padding="0"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
@@ -57,7 +57,7 @@
                                 <StackPanel HorizontalAlignment="Center"
                                             VerticalAlignment="Center"
                                             Orientation="{Binding Orientation, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=PipsPager}}"
-                                            Spacing="4" />
+                                            Spacing="6" />
                             </ItemsPanelTemplate>
                         </ListBox.ItemsPanel>
                         <ListBox.Styles>
@@ -113,7 +113,6 @@
                     <Button Name="PART_NextButton"
                             Width="24"
                             Height="24"
-                            Margin="4"
                             Padding="0"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
