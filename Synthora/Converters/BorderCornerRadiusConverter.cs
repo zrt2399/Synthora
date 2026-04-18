@@ -51,6 +51,22 @@ namespace Synthora.Converters
                         }
                     }
 
+                    if (values.Count == 4)
+                    {
+                        if (values[3] is Thickness innerMargin)
+                        {
+                            outerLeft += innerMargin.Left;
+                            outerRight += innerMargin.Right;
+                            outerTop += innerMargin.Top;
+                            outerBottom += innerMargin.Bottom;
+                        }
+                        else if (double.TryParse(values[3]?.ToString(), out var result))
+                        {
+                            outerLeft += result;
+                            outerRight = outerTop = outerBottom = outerLeft;
+                        }
+                    }
+
                     return new CornerRadius(
                         cornerRadiusType.HasFlag(CornerRadiusType.TopLeft) ? ConversionUtils.CalcInnerRadius(cornerRadius.TopLeft, thickness.Left, outerLeft) : 0,
                         cornerRadiusType.HasFlag(CornerRadiusType.TopRight) ? ConversionUtils.CalcInnerRadius(cornerRadius.TopRight, thickness.Top, outerTop) : 0,
