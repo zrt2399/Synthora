@@ -35,11 +35,19 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^:checked /template/ PathIcon#pathIcon">
-            <Setter Property="RenderTransform">
-                <RotateTransform Angle="180" />
+        <Style Selector="^ /template/ PathIcon#pathIcon">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <TransformOperationsTransition Easing="CubicEaseInOut"
+                                                   Property="RenderTransform"
+                                                   Duration="0:0:0.2" />
+                </Transitions>
             </Setter>
         </Style>
+        <Style Selector="^:checked /template/ PathIcon#pathIcon">
+            <Setter Property="RenderTransform" Value="rotate(180deg)" />
+        </Style>
+
         <Style Selector="^:pointerover">
             <Setter Property="Opacity" Value="0.8" />
         </Style>
