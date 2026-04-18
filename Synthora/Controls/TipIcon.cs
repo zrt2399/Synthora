@@ -39,8 +39,8 @@ namespace Synthora.Controls
     internal class StatusIcon : IconBase
     {
         public static SolidColorBrush IconForeground { get; } = new SolidColorBrush(Color.FromRgb(245, 245, 245));
-        public static SolidColorBrush InformationBackground { get; } = new SolidColorBrush(Color.FromRgb(92, 138, 206));
-        public static SolidColorBrush QuestionBackground { get; } = new SolidColorBrush(Color.FromRgb(60, 140, 240));
+        public static SolidColorBrush InformationBackground { get; } = new SolidColorBrush(Color.FromRgb(60, 140, 240));
+        public static SolidColorBrush QuestionBackground { get; } = new SolidColorBrush(Color.FromRgb(92, 138, 206));
         public static SolidColorBrush SuccessBackground { get; } = new SolidColorBrush(Color.FromRgb(110, 190, 40));
         public static SolidColorBrush WarningBackground { get; } = new SolidColorBrush(Color.FromRgb(220, 155, 40));
         public static SolidColorBrush ErrorBackground { get; } = new SolidColorBrush(Color.FromRgb(230, 80, 80));
