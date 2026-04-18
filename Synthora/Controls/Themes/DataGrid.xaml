@@ -25,7 +25,10 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="CornerRadius" Value="0" />
-        <Setter Property="Background" Value="{Binding $parent[DataGridRow].Background}" />
+        <Setter Property="Background" Value="Transparent" />
+        <!--  Temporary solution  https://github.com/AvaloniaUI/Avalonia.Controls.DataGrid/issues/234  -->
+        <Setter Property="ContextFlyout" Value="{x:Null}" />
+        <Setter Property="ContextMenu" Value="{x:Null}" />
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type DataGridCell}" TargetType="DataGridCell">
@@ -241,11 +244,11 @@
         <Style Selector="^:selected /template/ Border#RowBorder">
             <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush4}" />
         </Style>
-        <Style Selector="^:selected:focus-within /template/ Border#RowBorder">
-            <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush3}" />
-        </Style>
         <Style Selector="^:selected:pointerover /template/ Border#RowBorder">
             <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush3}" />
+        </Style>
+        <Style Selector="^:selected:focus-within /template/ Border#RowBorder">
+            <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush2}" />
         </Style>
         <Style Selector="^:selected:focus-within:pointerover /template/ Border#RowBorder">
             <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush2}" />
@@ -370,9 +373,9 @@
                                    Grid.Row="2"
                                    Grid.Column="2" />
                         <!--<Rectangle Name="BottomLeftCorner"
-                                   Grid.Row="2"
-                                   Grid.ColumnSpan="2"
-                                   Fill="{DynamicResource ThemeControlMidBrush}" />-->
+						Grid.Row="2"
+						Grid.ColumnSpan="2"
+						Fill="{DynamicResource ThemeControlMidBrush}" />-->
                         <ScrollBar Name="PART_VerticalScrollbar"
                                    Grid.Row="1"
                                    Grid.Column="2"
