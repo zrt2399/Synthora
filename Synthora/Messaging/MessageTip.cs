@@ -48,11 +48,6 @@ namespace Synthora.Messaging
         public static Control? PlacementTarget { get; set; }
 
         /// <summary>
-        /// Displays a transient informational message tip with the default icon.
-        /// </summary>
-        public static void Show(string message, int delay = Delay) => Show(message, IconType.Information, delay);
-
-        /// <summary>
         /// Displays a transient message tip with a question icon.
         /// </summary>
         public static void ShowQuestion(string message, int delay = Delay) => Show(message, IconType.Question, delay);
@@ -75,7 +70,7 @@ namespace Synthora.Messaging
         /// <summary>
         /// Displays a transient message tip with a specified icon type.
         /// </summary>
-        public static async void Show(string message, IconType iconType, int delay = Delay)
+        public static async void Show(string message, IconType iconType = IconType.Information, int delay = Delay)
         {
             if (Application.Current is not Application application)
             {
@@ -110,7 +105,8 @@ namespace Synthora.Messaging
                     IconType.Question => StatusIcon.QuestionBackground,
                     IconType.Success => StatusIcon.SuccessBackground,
                     IconType.Warning => StatusIcon.WarningBackground,
-                    _ => StatusIcon.ErrorBackground
+                    IconType.Error => StatusIcon.ErrorBackground,
+                    _ => StatusIcon.QuestionBackground
                 };
 
                 Grid grid = new Grid();
@@ -122,7 +118,7 @@ namespace Synthora.Messaging
                 textBlock.VerticalAlignment = VerticalAlignment.Center;
                 textBlock.Text = message;
 
-                if (!string.IsNullOrEmpty(textBlock.Text))
+                if (!string.IsNullOrEmpty(textBlock.Text) && iconType != IconType.None)
                 {
                     textBlock.Margin = new Thickness(4, 0, 0, 0);
                 }
@@ -133,15 +129,19 @@ namespace Synthora.Messaging
                 }
 
                 textBlock.SetValue(Grid.ColumnProperty, 1);
-                grid.Children.Add(new Viewbox()
+                if (iconType != IconType.None)
                 {
-                    Width = 16,
-                    Height = 16,
-                    Child = new StatusIcon()
+                    grid.Children.Add(new Viewbox()
                     {
-                        IconType = iconType
-                    }
-                });
+                        Width = 16,
+                        Height = 16,
+                        Child = new StatusIcon()
+                        {
+                            IconType = iconType
+                        }
+                    });
+                }
+
                 grid.Children.Add(textBlock);
 
                 Border border = new Border();
@@ -174,10 +174,16 @@ namespace Synthora.Messaging
                     popup.VerticalOffset = VerticalOffset;
                 }
                 popup.PlacementTarget = PlacementTarget;
-                popup.IsOpen = true;
-                await Task.Delay(delay);
-                popup.IsOpen = false;
-                popup.Opened -= Popup_Opened;
+                try
+                {
+                    popup.IsOpen = true;
+                    await Task.Delay(delay);
+                }
+                finally
+                {
+                    popup.IsOpen = false;
+                    popup.Opened -= Popup_Opened;
+                }
             }
             else
             {
@@ -193,7 +199,7 @@ namespace Synthora.Messaging
             //    popupRoot.TransparencyBackgroundFallback = Brushes.Transparent;
             //    popupRoot.TransparencyLevelHint = [WindowTransparencyLevel.Transparent];
             //}
-             
+
             if (sender is Popup popup && popup.Child != null)//Avalonia 12
             {
                 // 获取 PopupRoot 的现代方法
@@ -204,7 +210,7 @@ namespace Synthora.Messaging
                     topLevel.Background = null;
                     topLevel.TransparencyBackgroundFallback = Brushes.Transparent;
                     topLevel.TransparencyLevelHint = new[] { WindowTransparencyLevel.Transparent };
-                } 
+                }
             }
         }
     }

@@ -74,7 +74,7 @@
                                         <TextBox Name="title"
                                                  Margin="2,0,2,10"
                                                  HorizontalAlignment="Left"
-                                                 FontWeight="Bold"
+                                                 FontWeight="SemiBold"
                                                  IsVisible="{Binding $self.Text, Converter={x:Static SynthoraConverters.IsNotNullOrEmpty}}"
                                                  Text="{TemplateBinding Title}" />
                                         <Button Padding="{DynamicResource ThemeControlPaddingSmall}"
@@ -190,6 +190,9 @@
         </Style>
         <Style Selector="^:no-button /template/ StackPanel#PART_ButtonPanel">
             <Setter Property="Margin" Value="0" />
+        </Style>
+        <Style Selector="^[IconType=None] /template/ TipIcon#icon">
+            <Setter Property="IsVisible" Value="False" />
         </Style>
     </ControlTheme>
 

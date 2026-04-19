@@ -40,6 +40,7 @@ namespace Synthora.Messaging
     /// </summary>
     public enum IconType
     {
+        None,
         Information,
         Question,
         Success,

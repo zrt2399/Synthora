@@ -143,11 +143,12 @@ namespace Synthora.Demo.ViewModels
 
             var result = param switch
             {
+                nameof(IconType.None) => await AlertDialog.ShowAsync("AlertDialogHost", message, "None", DialogButton, IconType.None),
                 nameof(IconType.Information) => await AlertDialog.ShowAsync("AlertDialogHost", message, "Information", DialogButton, IconType.Information),
                 nameof(IconType.Question) => await AlertDialog.ShowAsync(message, "Question", DialogButton, IconType.Question),
                 nameof(IconType.Warning) => await AlertDialog.ShowAsync(message, "Warning", DialogButton, IconType.Warning),
                 nameof(IconType.Error) => await AlertDialog.ShowAsync(message, "Error", DialogButton, IconType.Error),
-                nameof(DialogButton.None) => await AlertDialog.ShowAsync(new AlertDialogArguments() { DialogButton = DialogButton.None, Title = "None", Message = message }),
+                //nameof(DialogButton.None) => await AlertDialog.ShowAsync(new AlertDialogArguments() { DialogButton = DialogButton.None, Title = "None", Message = message }),
                 _ => await AlertDialog.ShowAsync(message, "Abort", DialogButton | DialogButton.Abort, IconType.Error)
             };
             await new Window()
@@ -183,6 +184,9 @@ namespace Synthora.Demo.ViewModels
                     break;
                 case nameof(MessageTip.ShowError):
                     MessageTip.ShowError("ShowError");
+                    break;
+                case nameof(IconType.None):
+                    MessageTip.Show("None", IconType.None);
                     break;
             }
         }

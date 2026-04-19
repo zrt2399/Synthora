@@ -58,6 +58,7 @@ namespace Synthora.Controls
 
         public override void Render(DrawingContext drawingContext)
         {
+            base.Render(drawingContext);
             if (IconType == IconType.Information)
             {
                 drawingContext.DrawEllipse(InformationBackground, null, new Point(ActualHeight / 2, ActualWidth / 2), ActualHeight / 2, ActualWidth / 2);
