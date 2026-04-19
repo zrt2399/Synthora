@@ -4,6 +4,7 @@
              xmlns:actipro="http://schemas.actiprosoftware.com/avaloniaui"
              xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
              xmlns:vm="using:Synthora.Demo.ViewModels"
+             Name="SynthoraDemo"
              RequestedThemeVariant="Default">
     <!--  "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options.  -->
 

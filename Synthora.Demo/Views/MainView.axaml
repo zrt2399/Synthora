@@ -1,1592 +1,1262 @@
 <UserControl x:Class="Synthora.Demo.Views.MainView"
-			 xmlns="https://github.com/avaloniaui"
-			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-			 xmlns:converters="using:Synthora.Demo.Converters"
-			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-			 xmlns:demo="using:Synthora.Demo"
-			 xmlns:local="using:Synthora.Demo.Views"
-			 xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
-			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-			 xmlns:messaging="using:Synthora.Messaging"
-			 xmlns:so="https://github.com/zrt2399/synthora"
-			 xmlns:vm="using:Synthora.Demo.ViewModels"
-			 d:DesignHeight="550"
-			 d:DesignWidth="900"
-			 x:DataType="vm:MainViewModel"
-			 mc:Ignorable="d">
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:converters="using:Synthora.Demo.Converters"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:demo="using:Synthora.Demo"
+             xmlns:local="using:Synthora.Demo.Views"
+             xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:so="https://github.com/zrt2399/synthora"
+             xmlns:vm="using:Synthora.Demo.ViewModels"
+             d:DesignHeight="550"
+             d:DesignWidth="900"
+             x:DataType="vm:MainViewModel"
+             mc:Ignorable="d">
 
-	<Design.DataContext>
-		<!--
-		This only sets the DataContext for the previewer in an IDE,
-		to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs)
-		-->
-		<vm:MainViewModel />
-	</Design.DataContext>
+    <Design.DataContext>
+        <!--
+            This only sets the DataContext for the previewer in an IDE,
+            to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs)
+        -->
+        <vm:MainViewModel />
+    </Design.DataContext>
 
-	<UserControl.Resources>
-		<converters:ResourceKeyToBrushConverter x:Key="ResourceKeyToBrushConverter" />
-		<LinearGradientBrush x:Key="BackdropBrush" StartPoint="0,0" EndPoint="1,1">
-			<GradientStop Offset="0" Color="{DynamicResource ThemeBackgroundColor}" />
-			<GradientStop Offset="0.45" Color="{DynamicResource SynthoraLowColor}" />
-			<GradientStop Offset="1" Color="{DynamicResource ThemeBackgroundColor}" />
-		</LinearGradientBrush>
-	</UserControl.Resources>
+    <UserControl.Resources>
+        <converters:ResourceKeyToBrushConverter x:Key="ResourceKeyToBrushConverter" />
+        <LinearGradientBrush x:Key="BackdropBrush" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Offset="0" Color="{DynamicResource ThemeBackgroundColor}" />
+            <GradientStop Offset="0.45" Color="{DynamicResource SynthoraLowColor}" />
+            <GradientStop Offset="1" Color="{DynamicResource ThemeBackgroundColor}" />
+        </LinearGradientBrush>
+    </UserControl.Resources>
 
-	<AlertDialogHost Identifier="AlertDialogHost">
-		<Grid RowDefinitions="Auto,*,Auto">
-			<Border Grid.RowSpan="3" Background="{StaticResource BackdropBrush}" />
-			<Canvas Grid.RowSpan="3"
-					IsHitTestVisible="False"
-					Opacity="0.5">
-				<Ellipse Canvas.Left="-120"
-						 Canvas.Top="-100"
-						 Width="430"
-						 Height="430"
-						 Fill="#7A007DFF" />
-				<Ellipse Canvas.Top="130"
-						 Canvas.Right="-150"
-						 Width="390"
-						 Height="390"
-						 Fill="#8A008BFF" />
-				<Ellipse Canvas.Left="220"
-						 Canvas.Bottom="-210"
-						 Width="540"
-						 Height="540"
-						 Fill="#72006FFF" />
-			</Canvas>
-			<Border Margin="12"
-					Padding="16,14"
-					Background="{DynamicResource ThemeBackgroundBrush}"
-					BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-					BorderThickness="1"
-					CornerRadius="12">
-				<Grid ColumnDefinitions="*,Auto" ColumnSpacing="16">
-					<StackPanel Spacing="3">
-						<SelectableTextBlock FontSize="21"
-											 FontWeight="SemiBold"
-											 Text="Synthora Component Gallery" />
-						<SelectableTextBlock Foreground="{DynamicResource ThemeForegroundLowBrush}" Text="A UI library where every detail is polished to perfection—from consistent spacing to fluid micro-interactions." />
-					</StackPanel>
-					<StackPanel Grid.Column="1"
-								VerticalAlignment="Center"
-								Orientation="Horizontal"
-								Spacing="6">
-						<Button Padding="6"
-								Command="{Binding SwitchTheme}"
-								CommandParameter="Default"
-								ToolTip.Tip="切换为跟随系统（默认）主题">
-							<materialIcons:MaterialIconExt Kind="ThemeLightDark" />
-						</Button>
-						<Button Padding="6"
-								Command="{Binding SwitchTheme}"
-								CommandParameter="Light"
-								Theme="{StaticResource SynthoraButtonTheme}"
-								ToolTip.Tip="切换为浅色主题">
-							<materialIcons:MaterialIconExt Kind="WhiteBalanceSunny" />
-						</Button>
-						<Button Padding="6"
-								Command="{Binding SwitchTheme}"
-								CommandParameter="Dark"
-								Theme="{StaticResource CancelButtonTheme}"
-								ToolTip.Tip="切换为深色主题">
-							<materialIcons:MaterialIconExt Kind="WeatherNight" />
-						</Button>
-					</StackPanel>
-				</Grid>
-			</Border>
+    <UserControl.Styles>
+        <!--  InfoBar: top header bar in each tab  -->
+        <Style Selector="Border.infoBar">
+            <Setter Property="Padding" Value="12,10" />
+            <Setter Property="Background" Value="{DynamicResource SynthoraLowBrush}" />
+            <Setter Property="CornerRadius" Value="10" />
+        </Style>
+        <!--  Card: content section card  -->
+        <Style Selector="Border.card">
+            <Setter Property="Padding" Value="14" />
+            <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="10" />
+        </Style>
+        <!--  Section header row (first sub-section in a card)  -->
+        <Style Selector="StackPanel.sectionHeader">
+            <Setter Property="Orientation" Value="Horizontal" />
+            <Setter Property="Spacing" Value="6" />
+            <Setter Property="Margin" Value="0,0,0,4" />
+        </Style>
+        <!--  Section sub-header row (subsequent sub-sections)  -->
+        <Style Selector="StackPanel.sectionSubHeader">
+            <Setter Property="Orientation" Value="Horizontal" />
+            <Setter Property="Spacing" Value="6" />
+            <Setter Property="Margin" Value="0,6,0,4" />
+        </Style>
+        <!--  Icon inside an info bar (DockPanel header)  -->
+        <Style Selector="materialIcons|MaterialIcon.infoIcon">
+            <Setter Property="Margin" Value="0,0,8,0" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="DockPanel.Dock" Value="Left" />
+            <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
+            <Setter Property="IconSize" Value="18" />
+        </Style>
+        <!--  Icon inside a section header  -->
+        <Style Selector="materialIcons|MaterialIcon.sectionIcon">
+            <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
+            <Setter Property="IconSize" Value="13" />
+        </Style>
+        <!--  Label inside a section header  -->
+        <Style Selector="TextBlock.sectionLabel">
+            <Setter Property="FontSize" Value="11" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundLowBrush}" />
+        </Style>
+    </UserControl.Styles>
 
-			<TabControl Grid.Row="1"
-						Margin="12,0,12,12"
-						Background="Transparent"
-						BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-						BorderThickness="1"
-						CornerRadius="12"
-						TabControlAttach.HorizontalHeaderAlignment="Center">
-				<TabItem Header="Brush">
-					<ItemsControl ItemsSource="{Binding BrushKeys}">
-						<ItemsControl.Template>
-							<ControlTemplate>
-								<ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-									<ItemsPresenter>
-										<ItemsPresenter.ItemsPanel>
-											<ItemsPanelTemplate>
-												<SpacingWrapPanel Margin="10"
-																  HorizontalSpacing="10"
-																  VerticalSpacing="10" />
-											</ItemsPanelTemplate>
-										</ItemsPresenter.ItemsPanel>
-									</ItemsPresenter>
-								</ScrollViewer>
-							</ControlTemplate>
-						</ItemsControl.Template>
-						<ItemsControl.ItemTemplate>
-							<DataTemplate>
-								<DropShadowChrome MinWidth="100"
-												  MinHeight="60"
-												  Background="{Binding Converter={StaticResource ResourceKeyToBrushConverter}}"
-												  BorderThickness="0">
-									<StackPanel Margin="10"
-												VerticalAlignment="Center"
-												Spacing="10">
-										<SelectableTextBlock HorizontalAlignment="Center"
-															 Foreground="{Binding $parent[DropShadowChrome].Background, Converter={x:Static SynthoraConverters.ContrastColorConverter}}"
-															 Text="{Binding}" />
-										<SelectableTextBlock HorizontalAlignment="Center"
-															 Foreground="{Binding $parent[DropShadowChrome].Background, Converter={x:Static SynthoraConverters.ContrastColorConverter}}"
-															 Text="{Binding $parent[DropShadowChrome].Background}" />
-									</StackPanel>
-								</DropShadowChrome>
-							</DataTemplate>
-						</ItemsControl.ItemTemplate>
-					</ItemsControl>
-				</TabItem>
-				<TabItem Header="Input">
-					<ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-						<StackPanel Margin="16" Spacing="16">
-							<!--  顶部工具栏  -->
-							<Border Padding="12,10"
-									Background="{DynamicResource SynthoraLowBrush}"
-									CornerRadius="10">
-								<Grid ColumnDefinitions="Auto,8,*,Auto">
-									<materialIcons:MaterialIcon Grid.Column="0"
-																VerticalAlignment="Center"
-																Foreground="{DynamicResource SynthoraBrush}"
-																IconSize="18"
-																Kind="FormTextbox" />
-									<StackPanel Grid.Column="2"
-												VerticalAlignment="Center"
-												Spacing="1">
-										<TextBlock FontSize="13"
-												   FontWeight="SemiBold"
-												   Text="Input Controls" />
-										<TextBlock FontSize="11"
-												   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-												   Text="All standard input components in one place" />
-									</StackPanel>
-									<CheckBox Name="InputViewIsEnabled"
-											  Grid.Column="3"
-											  VerticalAlignment="Center"
-											  Content="IsEnabled"
-											  IsChecked="True" />
-								</Grid>
-							</Border>
+    <AlertDialogHost Identifier="AlertDialogHost">
+        <Grid RowDefinitions="Auto,*,Auto">
+            <Border Grid.RowSpan="3" Background="{StaticResource BackdropBrush}" />
+            <Canvas Grid.RowSpan="3"
+                    IsHitTestVisible="False"
+                    Opacity="0.5">
+                <Ellipse Canvas.Left="-120"
+                         Canvas.Top="-100"
+                         Width="430"
+                         Height="430"
+                         Fill="#7A007DFF" />
+                <Ellipse Canvas.Top="130"
+                         Canvas.Right="-150"
+                         Width="390"
+                         Height="390"
+                         Fill="#8A008BFF" />
+                <Ellipse Canvas.Left="220"
+                         Canvas.Bottom="-210"
+                         Width="540"
+                         Height="540"
+                         Fill="#72006FFF" />
+            </Canvas>
+            <Border Margin="12"
+                    Padding="16,14"
+                    Background="{DynamicResource ThemeBackgroundBrush}"
+                    BorderBrush="{DynamicResource ThemeBorderLowBrush}"
+                    BorderThickness="1"
+                    CornerRadius="12">
+                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="16">
+                    <StackPanel Spacing="3">
+                        <SelectableTextBlock FontSize="21"
+                                             FontWeight="SemiBold"
+                                             Text="Synthora Component Gallery" />
+                        <SelectableTextBlock Foreground="{DynamicResource ThemeForegroundLowBrush}" Text="A UI library where every detail is polished to perfection—from consistent spacing to fluid micro-interactions." />
+                    </StackPanel>
+                    <StackPanel Grid.Column="1"
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal"
+                                Spacing="6">
+                        <Button Padding="6"
+                                Command="{Binding SwitchTheme}"
+                                CommandParameter="Default"
+                                Content="{materialIcons:MaterialIconExt Kind=ThemeLightDark}"
+                                ToolTip.Tip="切换为跟随系统（默认）主题" />
+                        <Button Padding="6"
+                                Command="{Binding SwitchTheme}"
+                                CommandParameter="Light"
+                                Content="{materialIcons:MaterialIconExt Kind=WhiteBalanceSunny}"
+                                Theme="{StaticResource SynthoraButtonTheme}"
+                                ToolTip.Tip="切换为浅色主题" />
+                        <Button Padding="6"
+                                Command="{Binding SwitchTheme}"
+                                CommandParameter="Dark"
+                                Content="{materialIcons:MaterialIconExt Kind=WeatherNight}"
+                                Theme="{StaticResource CancelButtonTheme}"
+                                ToolTip.Tip="切换为深色主题" />
+                    </StackPanel>
+                </Grid>
+            </Border>
 
-							<StackPanel IsEnabled="{Binding #InputViewIsEnabled.IsChecked}" Spacing="12">
+            <TabControl Grid.Row="1"
+                        Margin="12,0,12,12"
+                        Background="Transparent"
+                        BorderBrush="{DynamicResource ThemeBorderLowBrush}"
+                        BorderThickness="1"
+                        CornerRadius="12"
+                        TabControlAttach.HorizontalHeaderAlignment="Center">
+                <TabItem Header="Brush">
+                    <ItemsControl ItemsSource="{Binding BrushKeys}">
+                        <ItemsControl.Template>
+                            <ControlTemplate>
+                                <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                                    <ItemsPresenter>
+                                        <ItemsPresenter.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <SpacingWrapPanel Margin="10"
+                                                                  HorizontalSpacing="10"
+                                                                  VerticalSpacing="10" />
+                                            </ItemsPanelTemplate>
+                                        </ItemsPresenter.ItemsPanel>
+                                    </ItemsPresenter>
+                                </ScrollViewer>
+                            </ControlTemplate>
+                        </ItemsControl.Template>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <DropShadowChrome MinWidth="100"
+                                                  MinHeight="60"
+                                                  Background="{Binding Converter={StaticResource ResourceKeyToBrushConverter}}"
+                                                  BorderThickness="0">
+                                    <StackPanel Margin="10"
+                                                VerticalAlignment="Center"
+                                                Spacing="10">
+                                        <SelectableTextBlock HorizontalAlignment="Center"
+                                                             Foreground="{Binding $parent[DropShadowChrome].Background, Converter={x:Static SynthoraConverters.ContrastColorConverter}}"
+                                                             Text="{Binding}" />
+                                        <SelectableTextBlock HorizontalAlignment="Center"
+                                                             Foreground="{Binding $parent[DropShadowChrome].Background, Converter={x:Static SynthoraConverters.ContrastColorConverter}}"
+                                                             Text="{Binding $parent[DropShadowChrome].Background}" />
+                                    </StackPanel>
+                                </DropShadowChrome>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </TabItem>
+                <TabItem Header="Input">
+                    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                        <StackPanel Margin="16" Spacing="16">
+                            <!--  顶部工具栏  -->
+                            <Border Classes="infoBar">
+                                <DockPanel>
+                                    <materialIcons:MaterialIcon Classes="infoIcon" Kind="FormTextbox" />
+                                    <CheckBox Name="InputViewIsEnabled"
+                                              VerticalAlignment="Center"
+                                              Content="IsEnabled"
+                                              DockPanel.Dock="Right"
+                                              IsChecked="True" />
+                                    <StackPanel VerticalAlignment="Center" Spacing="1">
+                                        <TextBlock FontSize="13"
+                                                   FontWeight="SemiBold"
+                                                   Text="Input Controls" />
+                                        <TextBlock FontSize="11"
+                                                   Foreground="{DynamicResource ThemeForegroundLowBrush}"
+                                                   Text="All standard input components in one place" />
+                                    </StackPanel>
+                                </DockPanel>
+                            </Border>
 
-								<!--  文本输入  -->
-								<Border Padding="14"
-										Background="{DynamicResource ThemeBackgroundBrush}"
-										BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-										BorderThickness="1"
-										CornerRadius="10">
-									<StackPanel Spacing="10">
-										<StackPanel Margin="0,0,0,4"
-													Orientation="Horizontal"
-													Spacing="6">
-											<materialIcons:MaterialIcon Foreground="{DynamicResource SynthoraBrush}"
-																		IconSize="13"
-																		Kind="TextBoxOutline" />
-											<TextBlock FontSize="11"
-													   FontWeight="SemiBold"
-													   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-													   Text="TEXT INPUT" />
-										</StackPanel>
-										<AutoCompleteBox ItemsSource="{Binding Employees}" TextBoxAttach.Title="AutoCompleteBox" />
-										<TextBox InnerRightContent="Ω"
-												 PlaceholderText="Type a message"
-												 Text="{Binding Greeting}"
-												 TextAlignment="Right"
-												 TextBoxAttach.Title="TextBox with InnerRightContent"
-												 TextWrapping="Wrap"
-												 UseFloatingPlaceholder="True" />
-										<TextBox MaxHeight="100"
-												 AcceptsReturn="True"
-												 Classes="clearButton"
-												 Text="{Binding Value}"
-												 TextBoxAttach.Title="Multiline TextBox" />
-										<TextBox Classes="revealPasswordButton"
-												 PasswordChar="●"
-												 TextBoxAttach.Title="PasswordBox" />
-										<StackPanel Orientation="Horizontal" Spacing="6">
-											<TextBlock VerticalAlignment="Center"
-													   FontSize="12"
-													   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-													   Text="Quick preview:" />
-											<TextBlock VerticalAlignment="Center"
-													   FontWeight="Medium"
-													   Text="TextBlock" />
-											<Separator Theme="{StaticResource VerticalSeparatorTheme}" />
-											<SelectableTextBlock VerticalAlignment="Center" Text="SelectableTextBlock" />
-										</StackPanel>
-									</StackPanel>
-								</Border>
+                            <StackPanel IsEnabled="{Binding #InputViewIsEnabled.IsChecked}" Spacing="12">
 
-								<!--  数字 & 下拉  -->
-								<Border Padding="14"
-										Background="{DynamicResource ThemeBackgroundBrush}"
-										BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-										BorderThickness="1"
-										CornerRadius="10">
-									<StackPanel Spacing="10">
-										<StackPanel Margin="0,0,0,4"
-													Orientation="Horizontal"
-													Spacing="6">
-											<materialIcons:MaterialIcon Foreground="{DynamicResource SynthoraBrush}"
-																		IconSize="13"
-																		Kind="FormatListNumbered" />
-											<TextBlock FontSize="11"
-													   FontWeight="SemiBold"
-													   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-													   Text="NUMERIC &amp; SPINNER" />
-										</StackPanel>
-										<Grid ColumnDefinitions="*,12,*" RowDefinitions="Auto,8,Auto">
-											<ButtonSpinner Grid.Row="0"
-														   Grid.Column="0"
-														   ButtonSpinnerLocation="Left"
-														   TextBoxAttach.Title="ButtonSpinner (Left)">
-												Left
-											</ButtonSpinner>
-											<ButtonSpinner Grid.Row="0"
-														   Grid.Column="2"
-														   TextBoxAttach.Title="ButtonSpinner (Right)">
-												Right
-											</ButtonSpinner>
-											<NumericUpDown Grid.Row="2"
-														   Grid.Column="0"
-														   Grid.ColumnSpan="3"
-														   TextBoxAttach.Title="NumericUpDown"
-														   Value="12" />
-										</Grid>
-										<ComboBox HorizontalAlignment="Stretch"
-												  PlaceholderText="Please select"
-												  TextBoxAttach.Title="ComboBox">
-											<ComboBoxItem>ComboBoxItemabcdefghijklmnopqrstuvwxyz</ComboBoxItem>
-											<ComboBoxItem>ComboBoxItemABCDEFGHIJKLMNOPQRSTUVWXYZ</ComboBoxItem>
-											<ComboBoxItem>ComboBoxItem1234567890</ComboBoxItem>
-										</ComboBox>
-										<ComboBox HorizontalAlignment="Stretch"
-												  ItemsSource="{Binding Employees}"
-												  TextBoxAttach.Title="ComboBox with ItemTemplate">
-											<ComboBox.ItemTemplate>
-												<DataTemplate>
-													<TextBlock Text="{Binding Name}" />
-												</DataTemplate>
-											</ComboBox.ItemTemplate>
-										</ComboBox>
-									</StackPanel>
-								</Border>
+                                <!--  文本输入  -->
+                                <Border Classes="card">
+                                    <StackPanel Spacing="10">
+                                        <StackPanel Classes="sectionHeader">
+                                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="TextBoxOutline" />
+                                            <TextBlock Classes="sectionLabel" Text="TEXT INPUT" />
+                                        </StackPanel>
+                                        <AutoCompleteBox ItemsSource="{Binding Employees}" TextBoxAttach.Title="AutoCompleteBox" />
+                                        <TextBox InnerRightContent="Ω"
+                                                 PlaceholderText="Type a message"
+                                                 Text="{Binding Greeting}"
+                                                 TextAlignment="Right"
+                                                 TextBoxAttach.Title="TextBox with InnerRightContent"
+                                                 TextWrapping="Wrap"
+                                                 UseFloatingPlaceholder="True" />
+                                        <TextBox MaxHeight="100"
+                                                 AcceptsReturn="True"
+                                                 Classes="clearButton"
+                                                 Text="{Binding Value}"
+                                                 TextBoxAttach.Title="Multiline TextBox" />
+                                        <TextBox Classes="revealPasswordButton"
+                                                 PasswordChar="●"
+                                                 TextBoxAttach.Title="PasswordBox" />
+                                        <StackPanel Orientation="Horizontal" Spacing="6">
+                                            <TextBlock VerticalAlignment="Center"
+                                                       FontSize="12"
+                                                       Foreground="{DynamicResource ThemeForegroundLowBrush}"
+                                                       Text="Quick preview:" />
+                                            <TextBlock VerticalAlignment="Center"
+                                                       FontWeight="Medium"
+                                                       Text="TextBlock" />
+                                            <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
+                                            <SelectableTextBlock VerticalAlignment="Center" Text="SelectableTextBlock" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
 
-								<!--  日期 & 时间  -->
-								<Border Padding="14"
-										Background="{DynamicResource ThemeBackgroundBrush}"
-										BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-										BorderThickness="1"
-										CornerRadius="10">
-									<StackPanel Spacing="10">
-										<StackPanel Margin="0,0,0,4"
-													Orientation="Horizontal"
-													Spacing="6">
-											<materialIcons:MaterialIcon Foreground="{DynamicResource SynthoraBrush}"
-																		IconSize="13"
-																		Kind="CalendarMonth" />
-											<TextBlock FontSize="11"
-													   FontWeight="SemiBold"
-													   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-													   Text="DATE &amp; TIME" />
-										</StackPanel>
-										<Grid ColumnDefinitions="*,12,*" RowDefinitions="Auto,8,Auto,8,Auto">
-											<CalendarDatePicker Grid.Row="0"
-																Grid.Column="0"
-																Grid.ColumnSpan="3"
-																HorizontalAlignment="Stretch"
-																TextBoxAttach.Title="CalendarDatePicker" />
-											<DatePicker Grid.Row="2"
-														Grid.Column="0"
-														HorizontalAlignment="Stretch"
-														TextBoxAttach.Title="DatePicker" />
-											<TimePicker Grid.Row="2"
-														Grid.Column="2"
-														HorizontalAlignment="Stretch"
-														TextBoxAttach.Title="TimePicker" />
-										</Grid>
-									</StackPanel>
-								</Border>
+                                <!--  数字 & 下拉  -->
+                                <Border Classes="card">
+                                    <StackPanel Spacing="10">
+                                        <StackPanel Classes="sectionHeader">
+                                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="FormatListNumbered" />
+                                            <TextBlock Classes="sectionLabel" Text="NUMERIC &amp; SPINNER" />
+                                        </StackPanel>
+                                        <Grid ColumnDefinitions="*,12,*" RowDefinitions="Auto,8,Auto">
+                                            <ButtonSpinner Grid.Row="0"
+                                                           Grid.Column="0"
+                                                           ButtonSpinnerLocation="Left"
+                                                           TextBoxAttach.Title="ButtonSpinner (Left)">
+                                                Left
+                                            </ButtonSpinner>
+                                            <ButtonSpinner Grid.Row="0"
+                                                           Grid.Column="2"
+                                                           TextBoxAttach.Title="ButtonSpinner (Right)">
+                                                Right
+                                            </ButtonSpinner>
+                                            <NumericUpDown Grid.Row="2"
+                                                           Grid.Column="0"
+                                                           Grid.ColumnSpan="3"
+                                                           TextBoxAttach.Title="NumericUpDown"
+                                                           Value="12" />
+                                        </Grid>
+                                        <ComboBox HorizontalAlignment="Stretch"
+                                                  PlaceholderText="Please select"
+                                                  TextBoxAttach.Title="ComboBox">
+                                            <ComboBoxItem>ComboBoxItemabcdefghijklmnopqrstuvwxyz</ComboBoxItem>
+                                            <ComboBoxItem>ComboBoxItemABCDEFGHIJKLMNOPQRSTUVWXYZ</ComboBoxItem>
+                                            <ComboBoxItem>ComboBoxItem1234567890</ComboBoxItem>
+                                        </ComboBox>
+                                        <ComboBox HorizontalAlignment="Stretch"
+                                                  ItemsSource="{Binding Employees}"
+                                                  TextBoxAttach.Title="ComboBox with ItemTemplate">
+                                            <ComboBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding Name}" />
+                                                </DataTemplate>
+                                            </ComboBox.ItemTemplate>
+                                        </ComboBox>
+                                    </StackPanel>
+                                </Border>
 
-								<!--  文件选择  -->
-								<Border Padding="14"
-										Background="{DynamicResource ThemeBackgroundBrush}"
-										BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-										BorderThickness="1"
-										CornerRadius="10">
-									<StackPanel Spacing="10">
-										<StackPanel Margin="0,0,0,4"
-													Orientation="Horizontal"
-													Spacing="6">
-											<materialIcons:MaterialIcon Foreground="{DynamicResource SynthoraBrush}"
-																		IconSize="13"
-																		Kind="FolderOpen" />
-											<TextBlock FontSize="11"
-													   FontWeight="SemiBold"
-													   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-													   Text="FILE PICKER" />
-										</StackPanel>
-										<PathPicker PlaceholderText="Pick a folder"
-													TextBoxAttach.Title="PathPicker (Folder)"
-													UseFolderDialog="True" />
-										<PathPicker AllowMultiple="True"
-													FilePickerFileTypes="{Binding FilePickerFileTypes}"
-													PlaceholderText="Pick files"
-													SelectedPaths="{Binding SelectedFiles}"
-													TextBoxAttach.Title="PathPicker (Multiple Files)" />
-									</StackPanel>
-								</Border>
-							</StackPanel>
-						</StackPanel>
-					</ScrollViewer>
-				</TabItem>
-				<TabItem Header="Button">
-					<ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-						<StackPanel Margin="16" Spacing="16">
-							<Border Padding="12,10"
-									Background="{DynamicResource SynthoraLowBrush}"
-									CornerRadius="10">
-								<Grid ColumnDefinitions="Auto,8,*,Auto">
-									<materialIcons:MaterialIcon Grid.Column="0"
-																VerticalAlignment="Center"
-																Foreground="{DynamicResource SynthoraBrush}"
-																IconSize="18"
-																Kind="GestureTap" />
-									<StackPanel Grid.Column="2"
-												VerticalAlignment="Center"
-												Spacing="1">
-										<TextBlock FontSize="13"
-												   FontWeight="SemiBold"
-												   Text="Button Controls" />
-										<TextBlock FontSize="11"
-												   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-												   Text="Buttons, toggles, checkboxes and more" />
-									</StackPanel>
-									<CheckBox Name="ButtonViewIsEnabled"
-											  Grid.Column="3"
-											  VerticalAlignment="Center"
-											  Content="IsEnabled"
-											  IsChecked="True" />
-								</Grid>
-							</Border>
-							<StackPanel IsEnabled="{Binding #ButtonViewIsEnabled.IsChecked}" Spacing="12">
-								<!--  Icon & Standard Buttons  -->
-								<Border Padding="14"
-										Background="{DynamicResource ThemeBackgroundBrush}"
-										BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-										BorderThickness="1"
-										CornerRadius="10">
-									<StackPanel Spacing="10">
-										<StackPanel Margin="0,0,0,4"
-													Orientation="Horizontal"
-													Spacing="6">
-											<materialIcons:MaterialIcon Foreground="{DynamicResource SynthoraBrush}"
-																		IconSize="13"
-																		Kind="CursorDefaultClick" />
-											<TextBlock FontSize="11"
-													   FontWeight="SemiBold"
-													   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-													   Text="ICON BUTTON" />
-										</StackPanel>
-										<SpacingWrapPanel HorizontalSpacing="8" VerticalSpacing="6">
-											<Button Content="{materialIcons:MaterialIconTextExt Kind=About, Text=About}" />
-											<Button Padding="{DynamicResource ThemeControlPaddingSmall}" Content="{materialIcons:MaterialIconTextExt Kind=Dad}" />
-											<Button Content="{materialIcons:MaterialIconTextExt Kind=Mom}" />
-											<Button Content="{materialIcons:MaterialIconExt Kind=GraphPie}" />
-											<Button Content="{materialIcons:MaterialIconExt Kind=Decrement}" />
-											<Button Content="{materialIcons:MaterialIconExt Kind=CloseBox}" Theme="{StaticResource IconButtonTheme}" />
-										</SpacingWrapPanel>
-										<StackPanel Margin="0,6,0,4"
-													Orientation="Horizontal"
-													Spacing="6">
-											<materialIcons:MaterialIcon Foreground="{DynamicResource SynthoraBrush}"
-																		IconSize="13"
-																		Kind="RectangleOutline" />
-											<TextBlock FontSize="11"
-													   FontWeight="SemiBold"
-													   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-													   Text="BUTTON VARIANTS" />
-										</StackPanel>
-										<SpacingWrapPanel HorizontalSpacing="8" VerticalSpacing="6">
-											<Button>Default</Button>
-											<Button Theme="{StaticResource SuccessButtonTheme}">Success</Button>
-											<Button Theme="{StaticResource WarningButtonTheme}">Warning</Button>
-											<Button Theme="{StaticResource DangerButtonTheme}">Danger</Button>
-											<Button Theme="{StaticResource ErrorButtonTheme}">Error</Button>
-											<Button Theme="{StaticResource SynthoraButtonTheme}">Synthora</Button>
-											<Button Theme="{StaticResource CancelButtonTheme}">Cancel</Button>
-										</SpacingWrapPanel>
-										<SpacingWrapPanel HorizontalSpacing="8" VerticalSpacing="6">
-											<Button Content="ContextMenuButton">
-												<Button.ContextMenu>
-													<ContextMenu>
-														<MenuItem Header="More menu" ItemsSource="{Binding Employees}" />
-														<Separator />
-														<MenuItem Foreground="{StaticResource DangerBrush}"
-																  Header="131415"
-																  HotKey="Control+D"
-																  Icon="{materialIcons:MaterialIconExt Kind=Delete}"
-																  InputGesture="{Binding $self.HotKey}" />
-														<MenuItem Header="Checkable"
-																  InputGesture="Control+C"
-																  IsChecked="True"
-																  ToggleType="CheckBox" />
-														<MenuItem Foreground="{StaticResource DangerBrush}"
-																  Header="45678910"
-																  Icon="{materialIcons:MaterialIconExt Kind=Refresh}"
-																  IsEnabled="False" />
-														<MenuItem GroupName="Radioable"
-																  Header="Radioable1"
-																  IsChecked="True"
-																  StaysOpenOnClick="True"
-																  ToggleType="Radio" />
-														<MenuItem GroupName="Radioable"
-																  Header="Radioable2"
-																  StaysOpenOnClick="True"
-																  ToggleType="Radio" />
-													</ContextMenu>
-												</Button.ContextMenu>
-											</Button>
-											<Button Command="{Binding ClearEmployees}" Theme="{StaticResource DangerButtonTheme}">ClearEmployees</Button>
-											<SplitButton Content="SplitButton">
-												<SplitButton.Flyout>
-													<Flyout>
-														<Button Margin="8" CornerRadius="3">Button</Button>
-													</Flyout>
-												</SplitButton.Flyout>
-											</SplitButton>
-											<ToggleSplitButton Content="ToggleSplitButton">
-												<ToggleSplitButton.Flyout>
-													<Flyout Placement="BottomEdgeAlignedLeft">
-														<ListBox MaxHeight="400"
-																 BorderThickness="0"
-																 ItemsSource="{Binding Employees}" />
-													</Flyout>
-												</ToggleSplitButton.Flyout>
-											</ToggleSplitButton>
-										</SpacingWrapPanel>
-									</StackPanel>
-								</Border>
-								<!--  Toggle & DropDown Buttons  -->
-								<Border Padding="14"
-										Background="{DynamicResource ThemeBackgroundBrush}"
-										BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-										BorderThickness="1"
-										CornerRadius="10">
-									<StackPanel Spacing="10">
-										<StackPanel Margin="0,0,0,4"
-													Orientation="Horizontal"
-													Spacing="6">
-											<materialIcons:MaterialIcon Foreground="{DynamicResource SynthoraBrush}"
-																		IconSize="13"
-																		Kind="ToggleSwitch" />
-											<TextBlock FontSize="11"
-													   FontWeight="SemiBold"
-													   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-													   Text="TOGGLE BUTTON" />
-										</StackPanel>
-										<SpacingWrapPanel HorizontalSpacing="8" VerticalSpacing="6">
-											<SpacingWrapPanel.Styles>
-												<Style Selector="ToggleButton">
-													<Setter Property="IsThreeState" Value="True" />
-												</Style>
-											</SpacingWrapPanel.Styles>
-											<ToggleButton>Default</ToggleButton>
-											<ToggleButton Theme="{StaticResource SuccessToggleButtonTheme}">Success</ToggleButton>
-											<ToggleButton Theme="{StaticResource WarningToggleButtonTheme}">Warning</ToggleButton>
-											<ToggleButton Theme="{StaticResource DangerToggleButtonTheme}">Danger</ToggleButton>
-											<ToggleButton Theme="{StaticResource ErrorToggleButtonTheme}">Error</ToggleButton>
-											<ToggleButton Theme="{StaticResource SynthoraToggleButtonTheme}">Synthora</ToggleButton>
-											<ToggleButton Theme="{StaticResource CancelToggleButtonTheme}">Cancel</ToggleButton>
-										</SpacingWrapPanel>
-										<StackPanel Margin="0,6,0,4"
-													Orientation="Horizontal"
-													Spacing="6">
-											<materialIcons:MaterialIcon Foreground="{DynamicResource SynthoraBrush}"
-																		IconSize="13"
-																		Kind="ChevronDown" />
-											<TextBlock FontSize="11"
-													   FontWeight="SemiBold"
-													   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-													   Text="DROPDOWN BUTTON" />
-										</StackPanel>
-										<SpacingWrapPanel HorizontalSpacing="8" VerticalSpacing="6">
-											<SpacingWrapPanel.Styles>
-												<Style Selector="DropDownButton">
-													<Setter Property="Flyout">
-														<Flyout Placement="BottomEdgeAlignedLeft">
-															<ListBox MaxHeight="400"
-																	 BorderThickness="0"
-																	 ItemsSource="{Binding Employees}" />
-														</Flyout>
-													</Setter>
-												</Style>
-											</SpacingWrapPanel.Styles>
-											<DropDownButton>Default</DropDownButton>
-											<DropDownButton Theme="{StaticResource SuccessDropDownButtonTheme}">Success</DropDownButton>
-											<DropDownButton Theme="{StaticResource WarningDropDownButtonTheme}">Warning</DropDownButton>
-											<DropDownButton Theme="{StaticResource DangerDropDownButtonTheme}">Danger</DropDownButton>
-											<DropDownButton Theme="{StaticResource ErrorDropDownButtonTheme}">Error</DropDownButton>
-											<DropDownButton Theme="{StaticResource SynthoraDropDownButtonTheme}">Synthora</DropDownButton>
-											<DropDownButton Theme="{StaticResource CancelDropDownButtonTheme}">Cancel</DropDownButton>
-										</SpacingWrapPanel>
-										<StackPanel Margin="0,6,0,4"
-													Orientation="Horizontal"
-													Spacing="6">
-											<materialIcons:MaterialIcon Foreground="{DynamicResource SynthoraBrush}"
-																		IconSize="13"
-																		Kind="Refresh" />
-											<TextBlock FontSize="11"
-													   FontWeight="SemiBold"
-													   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-													   Text="REPEAT BUTTON" />
-										</StackPanel>
-										<SpacingWrapPanel HorizontalSpacing="8" VerticalSpacing="6">
-											<RepeatButton>Default</RepeatButton>
-											<RepeatButton Theme="{StaticResource SuccessRepeatButtonTheme}">Success</RepeatButton>
-											<RepeatButton Theme="{StaticResource WarningRepeatButtonTheme}">Warning</RepeatButton>
-											<RepeatButton Theme="{StaticResource DangerRepeatButtonTheme}">Danger</RepeatButton>
-											<RepeatButton Theme="{StaticResource ErrorRepeatButtonTheme}">Error</RepeatButton>
-											<RepeatButton Theme="{StaticResource SynthoraRepeatButtonTheme}">Synthora</RepeatButton>
-											<RepeatButton Theme="{StaticResource CancelRepeatButtonTheme}">Cancel</RepeatButton>
-										</SpacingWrapPanel>
-									</StackPanel>
-								</Border>
-								<!--  Selection Controls  -->
-								<Border Padding="14"
-										Background="{DynamicResource ThemeBackgroundBrush}"
-										BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-										BorderThickness="1"
-										CornerRadius="10">
-									<StackPanel Spacing="10">
-										<StackPanel Margin="0,0,0,4"
-													Orientation="Horizontal"
-													Spacing="6">
-											<materialIcons:MaterialIcon Foreground="{DynamicResource SynthoraBrush}"
-																		IconSize="13"
-																		Kind="CheckboxMarkedOutline" />
-											<TextBlock FontSize="11"
-													   FontWeight="SemiBold"
-													   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-													   Text="SELECTION CONTROLS" />
-										</StackPanel>
-										<Grid ColumnDefinitions="*,16,*" RowDefinitions="Auto,12,Auto,12,Auto,12,Auto">
-											<!--  CheckBox  -->
-											<TextBlock Grid.Row="0"
-													   Grid.Column="0"
-													   Grid.ColumnSpan="3"
-													   FontSize="11"
-													   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-													   Text="CheckBox" />
-											<SpacingWrapPanel Grid.Row="2"
-															  Grid.Column="0"
-															  Grid.ColumnSpan="3"
-															  HorizontalSpacing="10"
-															  VerticalSpacing="6">
-												<CheckBox>Unchecked</CheckBox>
-												<CheckBox IsChecked="True">Checked</CheckBox>
-												<CheckBox />
-												<CheckBox IsChecked="{x:Null}" IsThreeState="True">ThreeState</CheckBox>
-											</SpacingWrapPanel>
-											<!--  RadioButton  -->
-											<TextBlock Grid.Row="4"
-													   Grid.Column="0"
-													   Grid.ColumnSpan="3"
-													   FontSize="11"
-													   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-													   Text="RadioButton" />
-											<SpacingWrapPanel Grid.Row="6"
-															  Grid.Column="0"
-															  Grid.ColumnSpan="3"
-															  HorizontalSpacing="10"
-															  VerticalSpacing="6">
-												<RadioButton>Unchecked</RadioButton>
-												<RadioButton IsChecked="True">Checked</RadioButton>
-												<RadioButton />
-												<RadioButton IsChecked="{x:Null}" IsThreeState="True">ThreeState</RadioButton>
-											</SpacingWrapPanel>
-										</Grid>
-										<StackPanel Margin="0,6,0,4"
-													Orientation="Horizontal"
-													Spacing="6">
-											<materialIcons:MaterialIcon Foreground="{DynamicResource SynthoraBrush}"
-																		IconSize="13"
-																		Kind="ToggleSwitchOutline" />
-											<TextBlock FontSize="11"
-													   FontWeight="SemiBold"
-													   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-													   Text="TOGGLE SWITCH" />
-										</StackPanel>
-										<SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="6">
-											<ToggleSwitch OffContent="{x:Null}" OnContent="{x:Null}" />
-											<ToggleSwitch OffContent="123" OnContent="456789" />
-											<ToggleSwitch />
-											<ToggleSwitch IsChecked="True" />
-										</SpacingWrapPanel>
-										<StackPanel Margin="0,6,0,4"
-													Orientation="Horizontal"
-													Spacing="6">
-											<materialIcons:MaterialIcon Foreground="{DynamicResource SynthoraBrush}"
-																		IconSize="13"
-																		Kind="LinkVariant" />
-											<TextBlock FontSize="11"
-													   FontWeight="SemiBold"
-													   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-													   Text="HYPERLINK BUTTON" />
-										</StackPanel>
-										<SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="6">
-											<HyperlinkButton>HyperlinkButton</HyperlinkButton>
-											<HyperlinkButton NavigateUri="{x:Static vm:MainViewModel.GitHubDepositoryUri}">GitHub</HyperlinkButton>
-										</SpacingWrapPanel>
-									</StackPanel>
-								</Border>
-							</StackPanel>
-						</StackPanel>
-					</ScrollViewer>
-				</TabItem>
-				<TabItem Header="Messaging">
-					<ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-						<StackPanel Margin="16" Spacing="16">
-							<Border Padding="12,10"
-									Background="{DynamicResource SynthoraLowBrush}"
-									CornerRadius="10">
-								<Grid ColumnDefinitions="Auto,8,*,Auto">
-									<materialIcons:MaterialIcon Grid.Column="0"
-																VerticalAlignment="Center"
-																Foreground="{DynamicResource SynthoraBrush}"
-																IconSize="18"
-																Kind="BellOutline" />
-									<StackPanel Grid.Column="2"
-												VerticalAlignment="Center"
-												Spacing="1">
-										<TextBlock FontSize="13"
-												   FontWeight="SemiBold"
-												   Text="Messaging" />
-										<TextBlock FontSize="11"
-												   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-												   Text="Notifications, tips and dialogs" />
-									</StackPanel>
-									<CheckBox Name="MessagingViewIsEnabled"
-											  Grid.Column="3"
-											  VerticalAlignment="Center"
-											  Content="IsEnabled"
-											  IsChecked="True" />
-								</Grid>
-							</Border>
-							<StackPanel IsEnabled="{Binding #MessagingViewIsEnabled.IsChecked}" Spacing="12">
-								<!--  Notification  -->
-								<Border Padding="14"
-										Background="{DynamicResource ThemeBackgroundBrush}"
-										BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-										BorderThickness="1"
-										CornerRadius="10">
-									<StackPanel Spacing="10">
-										<StackPanel Margin="0,0,0,4"
-													Orientation="Horizontal"
-													Spacing="6">
-											<materialIcons:MaterialIcon Foreground="{DynamicResource SynthoraBrush}"
-																		IconSize="13"
-																		Kind="Bell" />
-											<TextBlock FontSize="11"
-													   FontWeight="SemiBold"
-													   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-													   Text="NOTIFICATION" />
-										</StackPanel>
-										<SpacingWrapPanel HorizontalSpacing="8" VerticalSpacing="6">
-											<SpacingWrapPanel.Styles>
-												<Style Selector="Button">
-													<Setter Property="Command" Value="{Binding ShowNotification}" />
-													<Setter Property="CommandParameter" Value="{Binding $self.Content}" />
-												</Style>
-											</SpacingWrapPanel.Styles>
-											<ComboBox ItemsSource="{Binding NotificationPositions}"
-													  SelectedItem="{Binding NotificationPosition}"
-													  TextBoxAttach.Title="NotificationPosition: "
-													  TextBoxAttach.TitlePlacement="Left" />
-											<Button Content="Information" />
-											<Button Content="Success" Theme="{StaticResource SuccessButtonTheme}" />
-											<Button Content="Warning" Theme="{StaticResource WarningButtonTheme}" />
-											<Button Content="Error" Theme="{StaticResource ErrorButtonTheme}" />
-										</SpacingWrapPanel>
-									</StackPanel>
-								</Border>
-								<!--  MessageTip  -->
-								<Border Padding="14"
-										Background="{DynamicResource ThemeBackgroundBrush}"
-										BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-										BorderThickness="1"
-										CornerRadius="10">
-									<StackPanel Spacing="10">
-										<StackPanel Margin="0,0,0,4"
-													Orientation="Horizontal"
-													Spacing="6">
-											<materialIcons:MaterialIcon Foreground="{DynamicResource SynthoraBrush}"
-																		IconSize="13"
-																		Kind="MessageText" />
-											<TextBlock FontSize="11"
-													   FontWeight="SemiBold"
-													   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-													   Text="MESSAGE TIP" />
-										</StackPanel>
-										<SpacingWrapPanel HorizontalSpacing="8" VerticalSpacing="6">
-											<SpacingWrapPanel.Styles>
-												<Style Selector="Button">
-													<Setter Property="Command" Value="{Binding ShowMessageTip}" />
-													<Setter Property="CommandParameter" Value="{Binding $self.Content}" />
-												</Style>
-											</SpacingWrapPanel.Styles>
-											<ComboBox ItemsSource="{Binding MessageTipPlacements}"
-													  SelectedItem="{Binding MessageTipPlacement}"
-													  TextBoxAttach.Title="PlacementMode: "
-													  TextBoxAttach.TitlePlacement="Left" />
-											<Button>Show</Button>
-											<Button Theme="{StaticResource SynthoraButtonTheme}">ShowQuestion</Button>
-											<Button Theme="{StaticResource SuccessButtonTheme}">ShowSuccess</Button>
-											<Button Theme="{StaticResource WarningButtonTheme}">ShowWarning</Button>
-											<Button Theme="{StaticResource ErrorButtonTheme}">ShowError</Button>
-											<Button Theme="{StaticResource CancelButtonTheme}">None</Button>
-										</SpacingWrapPanel>
-									</StackPanel>
-								</Border>
-								<!--  AlertDialog  -->
-								<Border Padding="14"
-										Background="{DynamicResource ThemeBackgroundBrush}"
-										BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-										BorderThickness="1"
-										CornerRadius="10">
-									<StackPanel Spacing="10">
-										<StackPanel Margin="0,0,0,4"
-													Orientation="Horizontal"
-													Spacing="6">
-											<materialIcons:MaterialIcon Foreground="{DynamicResource SynthoraBrush}"
-																		IconSize="13"
-																		Kind="AlertCircle" />
-											<TextBlock FontSize="11"
-													   FontWeight="SemiBold"
-													   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-													   Text="ALERT DIALOG" />
-										</StackPanel>
-										<SpacingWrapPanel HorizontalSpacing="8" VerticalSpacing="6">
-											<SpacingWrapPanel.Styles>
-												<Style Selector="Button">
-													<Setter Property="Command" Value="{Binding ShowAlertDialog}" />
-													<Setter Property="CommandParameter" Value="{Binding $self.Content}" />
-													<Setter Property="CornerRadiusAttach.IsCircular" Value="True" />
-												</Style>
-											</SpacingWrapPanel.Styles>
-											<ComboBox ItemsSource="{Binding DialogButtons}"
-													  SelectedItem="{Binding DialogButton}"
-													  TextBoxAttach.Title="DialogButton: "
-													  TextBoxAttach.TitlePlacement="Left" />
-											<Button>Information</Button>
-											<Button Theme="{StaticResource SynthoraButtonTheme}">Question</Button>
-											<Button Theme="{StaticResource WarningButtonTheme}">Warning</Button>
-											<Button Theme="{StaticResource ErrorButtonTheme}">Error</Button>
-											<Button Theme="{StaticResource DangerButtonTheme}">Abort</Button>
-											<Button Theme="{StaticResource CancelButtonTheme}">None</Button>
-										</SpacingWrapPanel>
-									</StackPanel>
-								</Border>
-							</StackPanel>
-						</StackPanel>
-					</ScrollViewer>
-				</TabItem>
-				<TabItem Header="Other">
-					<ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-						<StackPanel Margin="16" Spacing="16">
-							<Border Padding="12,10"
-									Background="{DynamicResource SynthoraLowBrush}"
-									CornerRadius="10"
-									DockPanel.Dock="Top">
-								<Grid ColumnDefinitions="Auto,8,*,Auto">
-									<materialIcons:MaterialIcon Grid.Column="0"
-																VerticalAlignment="Center"
-																Foreground="{DynamicResource SynthoraBrush}"
-																IconSize="18"
-																Kind="ViewDashboardOutline" />
-									<StackPanel Grid.Column="2"
-												VerticalAlignment="Center"
-												Spacing="1">
-										<TextBlock FontSize="13"
-												   FontWeight="SemiBold"
-												   Text="Other Controls" />
-										<TextBlock FontSize="11"
-												   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-												   Text="Sliders, progress bars, expanders and menus" />
-									</StackPanel>
-									<CheckBox Name="OtherViewIsEnabled"
-											  Grid.Column="3"
-											  VerticalAlignment="Center"
-											  Content="IsEnabled"
-											  IsChecked="True" />
-								</Grid>
-							</Border>
-							<Border Padding="14"
-									Background="{DynamicResource ThemeBackgroundBrush}"
-									BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-									BorderThickness="1"
-									CornerRadius="10">
-								<StackPanel Spacing="10">
-									<StackPanel Margin="0,0,0,4"
-												Orientation="Horizontal"
-												Spacing="6">
-										<materialIcons:MaterialIcon Foreground="{DynamicResource SynthoraBrush}"
-																	IconSize="13"
-																	Kind="Menu" />
-										<TextBlock FontSize="11"
-												   FontWeight="SemiBold"
-												   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-												   Text="MENU" />
-									</StackPanel>
-									<Menu>
-										<MenuItem Header="MenuItem1">
-											<MenuItem Header="MenuItem2">
-												<MenuItem Header="MenuItem3" />
-												<MenuItem Header="MenuItem4" />
-												<MenuItem Header="MenuItem5" />
-												<MenuItem Header="MenuItem6">
-													<MenuItem Header="MenuItem7" />
-													<MenuItem Header="MenuItem8" />
-													<MenuItem Header="MenuItem9" />
-												</MenuItem>
-											</MenuItem>
-										</MenuItem>
-										<MenuItem Header="MenuItema">
-											<MenuItem Header="MenuItemb" />
-										</MenuItem>
-										<MenuItem Header="MenuItemc">
-											<MenuItem Header="1" />
-										</MenuItem>
-									</Menu>
-								</StackPanel>
-							</Border>
-							<ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-								<StackPanel IsEnabled="{Binding #OtherViewIsEnabled.IsChecked}" Spacing="12">
-									<!--  Sliders & Progress  -->
-									<Border Padding="14"
-											Background="{DynamicResource ThemeBackgroundBrush}"
-											BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-											BorderThickness="1"
-											CornerRadius="10">
-										<StackPanel Spacing="10">
-											<StackPanel Margin="0,0,0,4"
-														Orientation="Horizontal"
-														Spacing="6">
-												<materialIcons:MaterialIcon Foreground="{DynamicResource SynthoraBrush}"
-																			IconSize="13"
-																			Kind="TuneVariant" />
-												<TextBlock FontSize="11"
-														   FontWeight="SemiBold"
-														   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-														   Text="SLIDER &amp; PROGRESS" />
-											</StackPanel>
-											<DockPanel Height="120">
-												<EmptyBox />
-												<EmptyBox GlyphHeight="60" GlyphWidth="90" />
-												<EmptyBox GlyphHeight="80" GlyphWidth="120" />
-												<Divider Content="Vertical"
-														 MinLineLength="10"
-														 Orientation="Vertical" />
-												<Slider Name="VerticalSlider"
-														IsSnapToTickEnabled="True"
-														Maximum="10"
-														Orientation="Vertical"
-														TickFrequency="1"
-														TickPlacement="BottomRight" />
-												<ProgressBar Margin="10,0,0,0"
-															 Maximum="{Binding #VerticalSlider.Maximum}"
-															 Orientation="Vertical"
-															 ShowProgressText="True"
-															 Value="{Binding #VerticalSlider.Value}" />
-											</DockPanel>
-											<ProgressBar Height="4" Value="{Binding #HorizontalSlider.Value}" />
-											<Slider Name="HorizontalSlider"
-													IsDirectionReversed="True"
-													IsSnapToTickEnabled="True"
-													TickFrequency="1"
-													TickPlacement="Outside"
-													Ticks="0,5,10,20,100" />
-											<ProgressBar ShowProgressText="True" Value="{Binding #HorizontalSlider.Value}" />
-										</StackPanel>
-									</Border>
-									<!--  Expanders  -->
-									<Border Padding="14"
-											Background="{DynamicResource ThemeBackgroundBrush}"
-											BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-											BorderThickness="1"
-											CornerRadius="10">
-										<StackPanel Spacing="10">
-											<StackPanel Margin="0,0,0,4"
-														Orientation="Horizontal"
-														Spacing="6">
-												<materialIcons:MaterialIcon Foreground="{DynamicResource SynthoraBrush}"
-																			IconSize="13"
-																			Kind="ArrowExpandAll" />
-												<TextBlock FontSize="11"
-														   FontWeight="SemiBold"
-														   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-														   Text="EXPANDER" />
-											</StackPanel>
-											<Grid ColumnDefinitions="*,8,*" RowDefinitions="Auto,8,Auto">
-												<Expander Grid.Row="0"
-														  Grid.Column="0"
-														  ExpandDirection="Left"
-														  Header="← Left">
-													<StackPanel Margin="8" Spacing="4">
-														<Button>1</Button>
-														<Button>2</Button>
-													</StackPanel>
-												</Expander>
-												<Expander Grid.Row="0"
-														  Grid.Column="2"
-														  ExpandDirection="Right"
-														  Header="Right →">
-													<StackPanel Margin="8" Spacing="4">
-														<Button>1</Button>
-														<Button>2</Button>
-													</StackPanel>
-												</Expander>
-												<Expander Grid.Row="2"
-														  Grid.Column="0"
-														  ExpandDirection="Up"
-														  Header="↑ Up">
-													<StackPanel Margin="8" Spacing="4">
-														<Button>1</Button>
-														<Button>2</Button>
-													</StackPanel>
-												</Expander>
-												<Expander Grid.Row="2"
-														  Grid.Column="2"
-														  ExpandDirection="Down"
-														  Header="Down ↓">
-													<GroupBoxEx>
-														<DropShadowChrome Padding="10">
-															<DropShadowChrome>
-																<TextBlock>DropShadowChrome</TextBlock>
-															</DropShadowChrome>
-														</DropShadowChrome>
-													</GroupBoxEx>
-												</Expander>
-											</Grid>
-										</StackPanel>
-									</Border>
-								</StackPanel>
-							</ScrollViewer>
-						</StackPanel>
-					</ScrollViewer>
-				</TabItem>
-				<TabItem Header="Ext">
-					<ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-						<StackPanel Margin="16" Spacing="16">
-							<Border Padding="12,10"
-									Background="{DynamicResource SynthoraLowBrush}"
-									CornerRadius="10">
-								<Grid ColumnDefinitions="Auto,8,*,Auto">
-									<materialIcons:MaterialIcon Grid.Column="0"
-																VerticalAlignment="Center"
-																Foreground="{DynamicResource SynthoraBrush}"
-																IconSize="18"
-																Kind="WidgetsOutline" />
-									<StackPanel Grid.Column="2"
-												VerticalAlignment="Center"
-												Spacing="1">
-										<TextBlock FontSize="13"
-												   FontWeight="SemiBold"
-												   Text="Extended Controls" />
-										<TextBlock FontSize="11"
-												   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-												   Text="GroupBox, DropShadow and layout utilities" />
-									</StackPanel>
-									<CheckBox Name="ExtViewIsEnabled"
-											  Grid.Column="3"
-											  VerticalAlignment="Center"
-											  Content="IsEnabled"
-											  IsChecked="True" />
-								</Grid>
-							</Border>
-							<StackPanel IsEnabled="{Binding #ExtViewIsEnabled.IsChecked}" Spacing="12">
-								<!--  GroupBox showcase  -->
-								<Border Padding="14"
-										Background="{DynamicResource ThemeBackgroundBrush}"
-										BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-										BorderThickness="1"
-										CornerRadius="10">
-									<StackPanel Spacing="10">
-										<StackPanel Margin="0,0,0,4"
-													Orientation="Horizontal"
-													Spacing="6">
-											<materialIcons:MaterialIcon Foreground="{DynamicResource SynthoraBrush}"
-																		IconSize="13"
-																		Kind="CardOutline" />
-											<TextBlock FontSize="11"
-													   FontWeight="SemiBold"
-													   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-													   Text="GROUP BOX" />
-										</StackPanel>
-										<so:GroupBoxEx HorizontalContentAlignment="Left" Header="so:GroupBoxEx">
-											<StackPanel>
-												<TextBlock>Calendar</TextBlock>
-												<StackPanel Orientation="Horizontal">
-													<Calendar />
-													<GroupBoxEx BoxShadow="none" Header="Calendar" />
-												</StackPanel>
-											</StackPanel>
-										</so:GroupBoxEx>
-										<Grid ColumnDefinitions="*,8,*" RowDefinitions="Auto,8,Auto">
-											<GroupBox Grid.Row="0"
-													  Grid.Column="0"
-													  Padding="10"
-													  Header="Left Header">
-												<Button Height="60" CornerRadius="0">Button</Button>
-											</GroupBox>
-											<GroupBoxEx Grid.Row="0"
-														Grid.Column="2"
-														Padding="0"
-														Header="Right Header"
-														HeaderPlacement="Right">
-												<Button Height="60" CornerRadius="0">Button</Button>
-											</GroupBoxEx>
-											<GroupBoxEx Grid.Row="2"
-														Grid.Column="0"
-														Padding="0"
-														Header="ClipToBounds + Shadow">
-												<ScrollViewer Height="60">
-													<StackPanel>
-														<Button Height="60" CornerRadius="0">Button</Button>
-														<Button Height="60" CornerRadius="0">Button</Button>
-													</StackPanel>
-												</ScrollViewer>
-											</GroupBoxEx>
-											<GroupBoxEx Grid.Row="2"
-														Grid.Column="2"
-														Padding="0"
-														Header="Bottom Header"
-														HeaderPlacement="Bottom">
-												<Button Height="60" CornerRadius="0">Button</Button>
-											</GroupBoxEx>
-										</Grid>
-										<GroupBoxEx Header="Nested GroupBoxEx">
-											<GroupBoxEx>
-												<DropShadowChrome Padding="10">
-													<DropShadowChrome>
-														<TextBox Padding="0"
-																 Background="Transparent"
-																 BorderThickness="0"
-																 Foreground="{DynamicResource ErrorBrush}"
-																 IsReadOnly="True"
-																 TextWrapping="Wrap">
-															DropShadowChrome
-														</TextBox>
-													</DropShadowChrome>
-												</DropShadowChrome>
-											</GroupBoxEx>
-										</GroupBoxEx>
-									</StackPanel>
-								</Border>
-								<!--  DropShadowChrome showcase  -->
-								<Border Padding="14"
-										Background="{DynamicResource ThemeBackgroundBrush}"
-										BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-										BorderThickness="1"
-										CornerRadius="10">
-									<StackPanel Spacing="10">
-										<StackPanel Margin="0,0,0,4"
-													Orientation="Horizontal"
-													Spacing="6">
-											<materialIcons:MaterialIcon Foreground="{DynamicResource SynthoraBrush}"
-																		IconSize="13"
-																		Kind="BoxShadow" />
-											<TextBlock FontSize="11"
-													   FontWeight="SemiBold"
-													   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-													   Text="DROP SHADOW CHROME" />
-										</StackPanel>
-										<ContentControl>
-											<GroupBoxEx>
-												<GroupBoxEx>
-													<DropShadowChrome Padding="10">
-														<DropShadowChrome>
-															<TextBlock>DropShadowChrome nested</TextBlock>
-														</DropShadowChrome>
-													</DropShadowChrome>
-												</GroupBoxEx>
-											</GroupBoxEx>
-										</ContentControl>
-										<DropShadowChrome>
-											<TextBlock Margin="10">DropShadowChrome standalone</TextBlock>
-										</DropShadowChrome>
-										<StackPanel Orientation="Horizontal" Spacing="10">
-											<GroupBoxEx Width="120" Header="GroupBoxEx">
-												<StackPanel Orientation="Horizontal">
-													<TextBlock>TextBlockTextBlock</TextBlock>
-												</StackPanel>
-											</GroupBoxEx>
-											<Expander Header="Expander">Content</Expander>
-										</StackPanel>
-									</StackPanel>
-								</Border>
-								<!--  Layout mix  -->
-								<Border Padding="14"
-										Background="{DynamicResource ThemeBackgroundBrush}"
-										BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-										BorderThickness="1"
-										CornerRadius="10">
-									<StackPanel Spacing="10">
-										<StackPanel Margin="0,0,0,4"
-													Orientation="Horizontal"
-													Spacing="6">
-											<materialIcons:MaterialIcon Foreground="{DynamicResource SynthoraBrush}"
-																		IconSize="13"
-																		Kind="ViewDashboard" />
-											<TextBlock FontSize="11"
-													   FontWeight="SemiBold"
-													   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-													   Text="LAYOUT MIX" />
-										</StackPanel>
-										<SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
-											<StackPanel Orientation="Horizontal">
-												<TextBlock VerticalAlignment="Center">TextBlock</TextBlock>
-												<TextBox Margin="6,0,0,0">TextBox</TextBox>
-											</StackPanel>
-											<Button>Button</Button>
-											<ComboBox SelectedIndex="0">
-												<ComboBoxItem>ComboBoxItem-1</ComboBoxItem>
-												<ComboBoxItem>ComboBoxItem-2</ComboBoxItem>
-											</ComboBox>
-											<DropDownButton>DropDownButton</DropDownButton>
-										</SpacingWrapPanel>
-									</StackPanel>
-								</Border>
-							</StackPanel>
-						</StackPanel>
-					</ScrollViewer>
-				</TabItem>
-				<TabItem Header="Collection">
-					<Grid Margin="16"
-						  RowDefinitions="Auto,*"
-						  RowSpacing="16">
-						<!--  顶部信息栏  -->
-						<Border Padding="12,10"
-								Background="{DynamicResource SynthoraLowBrush}"
-								CornerRadius="10">
-							<Grid ColumnDefinitions="Auto,8,*,Auto">
-								<materialIcons:MaterialIcon Grid.Column="0"
-															VerticalAlignment="Center"
-															Foreground="{DynamicResource SynthoraBrush}"
-															IconSize="18"
-															Kind="FormatListBulleted" />
-								<StackPanel Grid.Column="2"
-											VerticalAlignment="Center"
-											Spacing="1">
-									<TextBlock FontSize="13"
-											   FontWeight="SemiBold"
-											   Text="Collection Controls" />
-									<TextBlock FontSize="11"
-											   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-											   Text="ListBox and TreeView side by side" />
-								</StackPanel>
-								<CheckBox Name="CollectionViewIsEnabled"
-										  Grid.Column="3"
-										  VerticalAlignment="Center"
-										  Content="IsEnabled"
-										  IsChecked="True" />
-							</Grid>
-						</Border>
+                                <!--  日期 & 时间  -->
+                                <Border Classes="card">
+                                    <StackPanel Spacing="10">
+                                        <StackPanel Classes="sectionHeader">
+                                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="CalendarMonth" />
+                                            <TextBlock Classes="sectionLabel" Text="DATE &amp; TIME" />
+                                        </StackPanel>
+                                        <Grid ColumnDefinitions="*,12,*" RowDefinitions="Auto,8,Auto,8,Auto">
+                                            <CalendarDatePicker Grid.Row="0"
+                                                                Grid.Column="0"
+                                                                Grid.ColumnSpan="3"
+                                                                HorizontalAlignment="Stretch"
+                                                                TextBoxAttach.Title="CalendarDatePicker" />
+                                            <DatePicker Grid.Row="2"
+                                                        Grid.Column="0"
+                                                        HorizontalAlignment="Stretch"
+                                                        TextBoxAttach.Title="DatePicker" />
+                                            <TimePicker Grid.Row="2"
+                                                        Grid.Column="2"
+                                                        HorizontalAlignment="Stretch"
+                                                        TextBoxAttach.Title="TimePicker" />
+                                        </Grid>
+                                    </StackPanel>
+                                </Border>
 
-						<!--  主内容：ListBox + TreeView 双列  -->
-						<Grid Grid.Row="1"
-							  ColumnDefinitions="*,12,*"
-							  IsEnabled="{Binding #CollectionViewIsEnabled.IsChecked}">
-							<!--  ListBox 卡片  -->
-							<Border Grid.Column="0"
-									Padding="14"
-									Background="{DynamicResource ThemeBackgroundBrush}"
-									BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-									BorderThickness="1"
-									CornerRadius="10">
-								<Grid RowDefinitions="Auto,8,*">
-									<StackPanel Orientation="Horizontal" Spacing="6">
-										<materialIcons:MaterialIcon Foreground="{DynamicResource SynthoraBrush}"
-																	IconSize="15"
-																	Kind="ViewList" />
-										<TextBlock FontSize="11"
-												   FontWeight="SemiBold"
-												   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-												   Text="LIST BOX" />
-									</StackPanel>
-									<ListBox Grid.Row="2"
-											 BorderThickness="0"
-											 ItemsSource="{Binding Employees}" />
-								</Grid>
-							</Border>
+                                <!--  文件选择  -->
+                                <Border Classes="card">
+                                    <StackPanel Spacing="10">
+                                        <StackPanel Classes="sectionHeader">
+                                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="FolderOpen" />
+                                            <TextBlock Classes="sectionLabel" Text="FILE PICKER" />
+                                        </StackPanel>
+                                        <PathPicker PlaceholderText="Pick a folder"
+                                                    TextBoxAttach.Title="PathPicker (Folder)"
+                                                    UseFolderDialog="True" />
+                                        <PathPicker AllowMultiple="True"
+                                                    FilePickerFileTypes="{Binding FilePickerFileTypes}"
+                                                    PlaceholderText="Pick files"
+                                                    SelectedPaths="{Binding SelectedFiles}"
+                                                    TextBoxAttach.Title="PathPicker (Multiple Files)" />
+                                    </StackPanel>
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+                <TabItem Header="Button">
+                    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                        <StackPanel Margin="16" Spacing="16">
+                            <Border Classes="infoBar">
+                                <DockPanel>
+                                    <materialIcons:MaterialIcon Classes="infoIcon" Kind="GestureTap" />
+                                    <CheckBox Name="ButtonViewIsEnabled"
+                                              VerticalAlignment="Center"
+                                              Content="IsEnabled"
+                                              DockPanel.Dock="Right"
+                                              IsChecked="True" />
+                                    <StackPanel VerticalAlignment="Center" Spacing="1">
+                                        <TextBlock FontSize="13"
+                                                   FontWeight="SemiBold"
+                                                   Text="Button Controls" />
+                                        <TextBlock FontSize="11"
+                                                   Foreground="{DynamicResource ThemeForegroundLowBrush}"
+                                                   Text="Buttons, toggles, checkboxes and more" />
+                                    </StackPanel>
+                                </DockPanel>
+                            </Border>
+                            <StackPanel IsEnabled="{Binding #ButtonViewIsEnabled.IsChecked}" Spacing="12">
+                                <!--  Icon & Standard Buttons  -->
+                                <Border Classes="card">
+                                    <StackPanel Spacing="10">
+                                        <StackPanel Classes="sectionHeader">
+                                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="CursorDefaultClick" />
+                                            <TextBlock Classes="sectionLabel" Text="ICON BUTTON" />
+                                        </StackPanel>
+                                        <SpacingWrapPanel HorizontalSpacing="8" VerticalSpacing="6">
+                                            <Button Content="{materialIcons:MaterialIconTextExt Kind=About, Text=About}" />
+                                            <Button Padding="{DynamicResource ThemeControlPaddingSmall}" Content="{materialIcons:MaterialIconTextExt Kind=Dad}" />
+                                            <Button Content="{materialIcons:MaterialIconTextExt Kind=Mom}" />
+                                            <Button Content="{materialIcons:MaterialIconExt Kind=GraphPie}" />
+                                            <Button Content="{materialIcons:MaterialIconExt Kind=Decrement}" />
+                                            <Button Content="{materialIcons:MaterialIconExt Kind=CloseBox}" Theme="{StaticResource IconButtonTheme}" />
+                                        </SpacingWrapPanel>
+                                        <StackPanel Classes="sectionSubHeader">
+                                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="RectangleOutline" />
+                                            <TextBlock Classes="sectionLabel" Text="BUTTON VARIANTS" />
+                                        </StackPanel>
+                                        <SpacingWrapPanel HorizontalSpacing="8" VerticalSpacing="6">
+                                            <Button>Default</Button>
+                                            <Button Theme="{StaticResource SuccessButtonTheme}">Success</Button>
+                                            <Button Theme="{StaticResource WarningButtonTheme}">Warning</Button>
+                                            <Button Theme="{StaticResource DangerButtonTheme}">Danger</Button>
+                                            <Button Theme="{StaticResource ErrorButtonTheme}">Error</Button>
+                                            <Button Theme="{StaticResource SynthoraButtonTheme}">Synthora</Button>
+                                            <Button Theme="{StaticResource CancelButtonTheme}">Cancel</Button>
+                                        </SpacingWrapPanel>
+                                        <SpacingWrapPanel HorizontalSpacing="8" VerticalSpacing="6">
+                                            <Button Content="ContextMenuButton">
+                                                <Button.ContextMenu>
+                                                    <ContextMenu>
+                                                        <MenuItem Header="More menu" ItemsSource="{Binding Employees}" />
+                                                        <Separator />
+                                                        <MenuItem Foreground="{StaticResource DangerBrush}"
+                                                                  Header="131415"
+                                                                  HotKey="Control+D"
+                                                                  Icon="{materialIcons:MaterialIconExt Kind=Delete}"
+                                                                  InputGesture="{Binding $self.HotKey}" />
+                                                        <MenuItem Header="Checkable"
+                                                                  InputGesture="Control+C"
+                                                                  IsChecked="True"
+                                                                  ToggleType="CheckBox" />
+                                                        <MenuItem Foreground="{StaticResource DangerBrush}"
+                                                                  Header="45678910"
+                                                                  Icon="{materialIcons:MaterialIconExt Kind=Refresh}"
+                                                                  IsEnabled="False" />
+                                                        <MenuItem GroupName="Radioable"
+                                                                  Header="Radioable1"
+                                                                  IsChecked="True"
+                                                                  StaysOpenOnClick="True"
+                                                                  ToggleType="Radio" />
+                                                        <MenuItem GroupName="Radioable"
+                                                                  Header="Radioable2"
+                                                                  StaysOpenOnClick="True"
+                                                                  ToggleType="Radio" />
+                                                    </ContextMenu>
+                                                </Button.ContextMenu>
+                                            </Button>
+                                            <Button Command="{Binding ClearEmployees}" Theme="{StaticResource DangerButtonTheme}">ClearEmployees</Button>
+                                            <SplitButton Content="SplitButton">
+                                                <SplitButton.Flyout>
+                                                    <Flyout>
+                                                        <Button Margin="8" CornerRadius="3">Button</Button>
+                                                    </Flyout>
+                                                </SplitButton.Flyout>
+                                            </SplitButton>
+                                            <ToggleSplitButton Content="ToggleSplitButton">
+                                                <ToggleSplitButton.Flyout>
+                                                    <Flyout Placement="BottomEdgeAlignedLeft">
+                                                        <ListBox MaxHeight="400"
+                                                                 BorderThickness="0"
+                                                                 ItemsSource="{Binding Employees}" />
+                                                    </Flyout>
+                                                </ToggleSplitButton.Flyout>
+                                            </ToggleSplitButton>
+                                        </SpacingWrapPanel>
+                                    </StackPanel>
+                                </Border>
+                                <!--  Toggle & DropDown Buttons  -->
+                                <Border Classes="card">
+                                    <StackPanel Spacing="10">
+                                        <StackPanel Classes="sectionHeader">
+                                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ToggleSwitch" />
+                                            <TextBlock Classes="sectionLabel" Text="TOGGLE BUTTON" />
+                                        </StackPanel>
+                                        <SpacingWrapPanel HorizontalSpacing="8" VerticalSpacing="6">
+                                            <SpacingWrapPanel.Styles>
+                                                <Style Selector="ToggleButton">
+                                                    <Setter Property="IsThreeState" Value="True" />
+                                                </Style>
+                                            </SpacingWrapPanel.Styles>
+                                            <ToggleButton>Default</ToggleButton>
+                                            <ToggleButton Theme="{StaticResource SuccessToggleButtonTheme}">Success</ToggleButton>
+                                            <ToggleButton Theme="{StaticResource WarningToggleButtonTheme}">Warning</ToggleButton>
+                                            <ToggleButton Theme="{StaticResource DangerToggleButtonTheme}">Danger</ToggleButton>
+                                            <ToggleButton Theme="{StaticResource ErrorToggleButtonTheme}">Error</ToggleButton>
+                                            <ToggleButton Theme="{StaticResource SynthoraToggleButtonTheme}">Synthora</ToggleButton>
+                                            <ToggleButton Theme="{StaticResource CancelToggleButtonTheme}">Cancel</ToggleButton>
+                                        </SpacingWrapPanel>
+                                        <StackPanel Classes="sectionSubHeader">
+                                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ChevronDown" />
+                                            <TextBlock Classes="sectionLabel" Text="DROPDOWN BUTTON" />
+                                        </StackPanel>
+                                        <SpacingWrapPanel HorizontalSpacing="8" VerticalSpacing="6">
+                                            <SpacingWrapPanel.Styles>
+                                                <Style Selector="DropDownButton">
+                                                    <Setter Property="Flyout">
+                                                        <Flyout Placement="BottomEdgeAlignedLeft">
+                                                            <ListBox MaxHeight="400"
+                                                                     BorderThickness="0"
+                                                                     ItemsSource="{Binding Employees}" />
+                                                        </Flyout>
+                                                    </Setter>
+                                                </Style>
+                                            </SpacingWrapPanel.Styles>
+                                            <DropDownButton>Default</DropDownButton>
+                                            <DropDownButton Theme="{StaticResource SuccessDropDownButtonTheme}">Success</DropDownButton>
+                                            <DropDownButton Theme="{StaticResource WarningDropDownButtonTheme}">Warning</DropDownButton>
+                                            <DropDownButton Theme="{StaticResource DangerDropDownButtonTheme}">Danger</DropDownButton>
+                                            <DropDownButton Theme="{StaticResource ErrorDropDownButtonTheme}">Error</DropDownButton>
+                                            <DropDownButton Theme="{StaticResource SynthoraDropDownButtonTheme}">Synthora</DropDownButton>
+                                            <DropDownButton Theme="{StaticResource CancelDropDownButtonTheme}">Cancel</DropDownButton>
+                                        </SpacingWrapPanel>
+                                        <StackPanel Classes="sectionSubHeader">
+                                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="Refresh" />
+                                            <TextBlock Classes="sectionLabel" Text="REPEAT BUTTON" />
+                                        </StackPanel>
+                                        <SpacingWrapPanel HorizontalSpacing="8" VerticalSpacing="6">
+                                            <RepeatButton>Default</RepeatButton>
+                                            <RepeatButton Theme="{StaticResource SuccessRepeatButtonTheme}">Success</RepeatButton>
+                                            <RepeatButton Theme="{StaticResource WarningRepeatButtonTheme}">Warning</RepeatButton>
+                                            <RepeatButton Theme="{StaticResource DangerRepeatButtonTheme}">Danger</RepeatButton>
+                                            <RepeatButton Theme="{StaticResource ErrorRepeatButtonTheme}">Error</RepeatButton>
+                                            <RepeatButton Theme="{StaticResource SynthoraRepeatButtonTheme}">Synthora</RepeatButton>
+                                            <RepeatButton Theme="{StaticResource CancelRepeatButtonTheme}">Cancel</RepeatButton>
+                                        </SpacingWrapPanel>
+                                    </StackPanel>
+                                </Border>
+                                <!--  Selection Controls  -->
+                                <Border Classes="card">
+                                    <StackPanel Spacing="10">
+                                        <StackPanel Classes="sectionHeader">
+                                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="CheckboxMarkedOutline" />
+                                            <TextBlock Classes="sectionLabel" Text="SELECTION CONTROLS" />
+                                        </StackPanel>
+                                        <Grid ColumnDefinitions="*,16,*" RowDefinitions="Auto,12,Auto,12,Auto,12,Auto">
+                                            <!--  CheckBox  -->
+                                            <TextBlock Grid.Row="0"
+                                                       Grid.Column="0"
+                                                       Grid.ColumnSpan="3"
+                                                       FontSize="11"
+                                                       Foreground="{DynamicResource ThemeForegroundLowBrush}"
+                                                       Text="CheckBox" />
+                                            <SpacingWrapPanel Grid.Row="2"
+                                                              Grid.Column="0"
+                                                              Grid.ColumnSpan="3"
+                                                              HorizontalSpacing="10"
+                                                              VerticalSpacing="6">
+                                                <CheckBox>Unchecked</CheckBox>
+                                                <CheckBox IsChecked="True">Checked</CheckBox>
+                                                <CheckBox />
+                                                <CheckBox IsChecked="{x:Null}" IsThreeState="True">ThreeState</CheckBox>
+                                            </SpacingWrapPanel>
+                                            <!--  RadioButton  -->
+                                            <TextBlock Grid.Row="4"
+                                                       Grid.Column="0"
+                                                       Grid.ColumnSpan="3"
+                                                       FontSize="11"
+                                                       Foreground="{DynamicResource ThemeForegroundLowBrush}"
+                                                       Text="RadioButton" />
+                                            <SpacingWrapPanel Grid.Row="6"
+                                                              Grid.Column="0"
+                                                              Grid.ColumnSpan="3"
+                                                              HorizontalSpacing="10"
+                                                              VerticalSpacing="6">
+                                                <RadioButton>Unchecked</RadioButton>
+                                                <RadioButton IsChecked="True">Checked</RadioButton>
+                                                <RadioButton />
+                                                <RadioButton IsChecked="{x:Null}" IsThreeState="True">ThreeState</RadioButton>
+                                            </SpacingWrapPanel>
+                                        </Grid>
+                                        <StackPanel Classes="sectionSubHeader">
+                                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ToggleSwitchOutline" />
+                                            <TextBlock Classes="sectionLabel" Text="TOGGLE SWITCH" />
+                                        </StackPanel>
+                                        <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="6">
+                                            <ToggleSwitch OffContent="{x:Null}" OnContent="{x:Null}" />
+                                            <ToggleSwitch OffContent="123" OnContent="456789" />
+                                            <ToggleSwitch />
+                                            <ToggleSwitch IsChecked="True" />
+                                        </SpacingWrapPanel>
+                                        <StackPanel Classes="sectionSubHeader">
+                                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="LinkVariant" />
+                                            <TextBlock Classes="sectionLabel" Text="HYPERLINK BUTTON" />
+                                        </StackPanel>
+                                        <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="6">
+                                            <HyperlinkButton>HyperlinkButton</HyperlinkButton>
+                                            <HyperlinkButton NavigateUri="{x:Static vm:MainViewModel.GitHubDepositoryUri}">GitHub</HyperlinkButton>
+                                        </SpacingWrapPanel>
+                                    </StackPanel>
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+                <TabItem Header="Messaging">
+                    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                        <StackPanel Margin="16" Spacing="16">
+                            <Border Classes="infoBar">
+                                <DockPanel>
+                                    <materialIcons:MaterialIcon Classes="infoIcon" Kind="BellOutline" />
+                                    <CheckBox Name="MessagingViewIsEnabled"
+                                              VerticalAlignment="Center"
+                                              Content="IsEnabled"
+                                              DockPanel.Dock="Right"
+                                              IsChecked="True" />
+                                    <StackPanel VerticalAlignment="Center" Spacing="1">
+                                        <TextBlock FontSize="13"
+                                                   FontWeight="SemiBold"
+                                                   Text="Messaging" />
+                                        <TextBlock FontSize="11"
+                                                   Foreground="{DynamicResource ThemeForegroundLowBrush}"
+                                                   Text="Notifications, tips and dialogs" />
+                                    </StackPanel>
+                                </DockPanel>
+                            </Border>
+                            <StackPanel IsEnabled="{Binding #MessagingViewIsEnabled.IsChecked}" Spacing="12">
+                                <!--  Notification  -->
+                                <Border Classes="card">
+                                    <StackPanel Spacing="10">
+                                        <StackPanel Classes="sectionHeader">
+                                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="Bell" />
+                                            <TextBlock Classes="sectionLabel" Text="NOTIFICATION" />
+                                        </StackPanel>
+                                        <SpacingWrapPanel HorizontalSpacing="8" VerticalSpacing="6">
+                                            <SpacingWrapPanel.Styles>
+                                                <Style Selector="Button">
+                                                    <Setter Property="Command" Value="{Binding ShowNotification}" />
+                                                    <Setter Property="CommandParameter" Value="{Binding $self.Content}" />
+                                                </Style>
+                                            </SpacingWrapPanel.Styles>
+                                            <ComboBox ItemsSource="{Binding NotificationPositions}"
+                                                      SelectedItem="{Binding NotificationPosition}"
+                                                      TextBoxAttach.Title="NotificationPosition: "
+                                                      TextBoxAttach.TitlePlacement="Left" />
+                                            <Button Content="Information" />
+                                            <Button Content="Success" Theme="{StaticResource SuccessButtonTheme}" />
+                                            <Button Content="Warning" Theme="{StaticResource WarningButtonTheme}" />
+                                            <Button Content="Error" Theme="{StaticResource ErrorButtonTheme}" />
+                                        </SpacingWrapPanel>
+                                    </StackPanel>
+                                </Border>
+                                <!--  MessageTip  -->
+                                <Border Classes="card">
+                                    <StackPanel Spacing="10">
+                                        <StackPanel Classes="sectionHeader">
+                                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="MessageText" />
+                                            <TextBlock Classes="sectionLabel" Text="MESSAGE TIP" />
+                                        </StackPanel>
+                                        <SpacingWrapPanel HorizontalSpacing="8" VerticalSpacing="6">
+                                            <SpacingWrapPanel.Styles>
+                                                <Style Selector="Button">
+                                                    <Setter Property="Command" Value="{Binding ShowMessageTip}" />
+                                                    <Setter Property="CommandParameter" Value="{Binding $self.Content}" />
+                                                </Style>
+                                            </SpacingWrapPanel.Styles>
+                                            <ComboBox ItemsSource="{Binding MessageTipPlacements}"
+                                                      SelectedItem="{Binding MessageTipPlacement}"
+                                                      TextBoxAttach.Title="PlacementMode: "
+                                                      TextBoxAttach.TitlePlacement="Left" />
+                                            <Button>Show</Button>
+                                            <Button Theme="{StaticResource SynthoraButtonTheme}">ShowQuestion</Button>
+                                            <Button Theme="{StaticResource SuccessButtonTheme}">ShowSuccess</Button>
+                                            <Button Theme="{StaticResource WarningButtonTheme}">ShowWarning</Button>
+                                            <Button Theme="{StaticResource ErrorButtonTheme}">ShowError</Button>
+                                            <Button Theme="{StaticResource CancelButtonTheme}">None</Button>
+                                        </SpacingWrapPanel>
+                                    </StackPanel>
+                                </Border>
+                                <!--  AlertDialog  -->
+                                <Border Classes="card">
+                                    <StackPanel Spacing="10">
+                                        <StackPanel Classes="sectionHeader">
+                                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="AlertCircle" />
+                                            <TextBlock Classes="sectionLabel" Text="ALERT DIALOG" />
+                                        </StackPanel>
+                                        <SpacingWrapPanel HorizontalSpacing="8" VerticalSpacing="6">
+                                            <SpacingWrapPanel.Styles>
+                                                <Style Selector="Button">
+                                                    <Setter Property="Command" Value="{Binding ShowAlertDialog}" />
+                                                    <Setter Property="CommandParameter" Value="{Binding $self.Content}" />
+                                                    <Setter Property="CornerRadiusAttach.IsCircular" Value="True" />
+                                                </Style>
+                                            </SpacingWrapPanel.Styles>
+                                            <ComboBox ItemsSource="{Binding DialogButtons}"
+                                                      SelectedItem="{Binding DialogButton}"
+                                                      TextBoxAttach.Title="DialogButton: "
+                                                      TextBoxAttach.TitlePlacement="Left" />
+                                            <Button>Information</Button>
+                                            <Button Theme="{StaticResource SynthoraButtonTheme}">Question</Button>
+                                            <Button Theme="{StaticResource WarningButtonTheme}">Warning</Button>
+                                            <Button Theme="{StaticResource ErrorButtonTheme}">Error</Button>
+                                            <Button Theme="{StaticResource DangerButtonTheme}">Abort</Button>
+                                            <Button Theme="{StaticResource CancelButtonTheme}">None</Button>
+                                        </SpacingWrapPanel>
+                                    </StackPanel>
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+                <TabItem Header="Other">
+                    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                        <StackPanel Margin="16" Spacing="16">
+                            <Border Classes="infoBar" DockPanel.Dock="Top">
+                                <DockPanel>
+                                    <materialIcons:MaterialIcon Classes="infoIcon" Kind="ViewDashboardOutline" />
+                                    <CheckBox Name="OtherViewIsEnabled"
+                                              VerticalAlignment="Center"
+                                              Content="IsEnabled"
+                                              DockPanel.Dock="Right"
+                                              IsChecked="True" />
+                                    <StackPanel VerticalAlignment="Center" Spacing="1">
+                                        <TextBlock FontSize="13"
+                                                   FontWeight="SemiBold"
+                                                   Text="Other Controls" />
+                                        <TextBlock FontSize="11"
+                                                   Foreground="{DynamicResource ThemeForegroundLowBrush}"
+                                                   Text="Sliders, progress bars, expanders and menus" />
+                                    </StackPanel>
+                                </DockPanel>
+                            </Border>
+                            <Border Classes="card">
+                                <StackPanel Spacing="10">
+                                    <StackPanel Classes="sectionHeader">
+                                        <materialIcons:MaterialIcon Classes="sectionIcon" Kind="Menu" />
+                                        <TextBlock Classes="sectionLabel" Text="MENU" />
+                                    </StackPanel>
+                                    <Menu>
+                                        <MenuItem Header="MenuItem1">
+                                            <MenuItem Header="MenuItem2">
+                                                <MenuItem Header="MenuItem3" />
+                                                <MenuItem Header="MenuItem4" />
+                                                <MenuItem Header="MenuItem5" />
+                                                <MenuItem Header="MenuItem6">
+                                                    <MenuItem Header="MenuItem7" />
+                                                    <MenuItem Header="MenuItem8" />
+                                                    <MenuItem Header="MenuItem9" />
+                                                </MenuItem>
+                                            </MenuItem>
+                                        </MenuItem>
+                                        <MenuItem Header="MenuItema">
+                                            <MenuItem Header="MenuItemb" />
+                                        </MenuItem>
+                                        <MenuItem Header="MenuItemc">
+                                            <MenuItem Header="1" />
+                                        </MenuItem>
+                                    </Menu>
+                                </StackPanel>
+                            </Border>
+                            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                                <StackPanel IsEnabled="{Binding #OtherViewIsEnabled.IsChecked}" Spacing="12">
+                                    <!--  Sliders & Progress  -->
+                                    <Border Classes="card">
+                                        <StackPanel Spacing="10">
+                                            <StackPanel Classes="sectionHeader">
+                                                <materialIcons:MaterialIcon Classes="sectionIcon" Kind="TuneVariant" />
+                                                <TextBlock Classes="sectionLabel" Text="SLIDER &amp; PROGRESS" />
+                                            </StackPanel>
+                                            <DockPanel Height="120">
+                                                <EmptyBox />
+                                                <EmptyBox GlyphHeight="60" GlyphWidth="90" />
+                                                <EmptyBox GlyphHeight="80" GlyphWidth="120" />
+                                                <Divider Content="Vertical"
+                                                         MinLineLength="10"
+                                                         Orientation="Vertical" />
+                                                <Slider Name="VerticalSlider"
+                                                        IsSnapToTickEnabled="True"
+                                                        Maximum="10"
+                                                        Orientation="Vertical"
+                                                        TickFrequency="1"
+                                                        TickPlacement="BottomRight" />
+                                                <ProgressBar Margin="10,0,0,0"
+                                                             Maximum="{Binding #VerticalSlider.Maximum}"
+                                                             Orientation="Vertical"
+                                                             ShowProgressText="True"
+                                                             Value="{Binding #VerticalSlider.Value}" />
+                                            </DockPanel>
+                                            <ProgressBar Height="4" Value="{Binding #HorizontalSlider.Value}" />
+                                            <Slider Name="HorizontalSlider"
+                                                    IsDirectionReversed="True"
+                                                    IsSnapToTickEnabled="True"
+                                                    TickFrequency="1"
+                                                    TickPlacement="Outside"
+                                                    Ticks="0,5,10,20,100" />
+                                            <ProgressBar ShowProgressText="True" Value="{Binding #HorizontalSlider.Value}" />
+                                        </StackPanel>
+                                    </Border>
+                                    <!--  Expanders  -->
+                                    <Border Classes="card">
+                                        <StackPanel Spacing="10">
+                                            <StackPanel Classes="sectionHeader">
+                                                <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ArrowExpandAll" />
+                                                <TextBlock Classes="sectionLabel" Text="EXPANDER" />
+                                            </StackPanel>
+                                            <UniformGrid Columns="2">
+                                                <Expander Margin="0,0,4,4"
+                                                          ExpandDirection="Left"
+                                                          Header="← Left">
+                                                    <StackPanel Margin="8" Spacing="4">
+                                                        <Button>1</Button>
+                                                        <Button>2</Button>
+                                                    </StackPanel>
+                                                </Expander>
+                                                <Expander Margin="4,0,0,4"
+                                                          ExpandDirection="Right"
+                                                          Header="Right →">
+                                                    <StackPanel Margin="8" Spacing="4">
+                                                        <Button>1</Button>
+                                                        <Button>2</Button>
+                                                    </StackPanel>
+                                                </Expander>
+                                                <Expander Margin="0,4,4,0"
+                                                          ExpandDirection="Up"
+                                                          Header="↑ Up">
+                                                    <StackPanel Margin="8" Spacing="4">
+                                                        <Button>1</Button>
+                                                        <Button>2</Button>
+                                                    </StackPanel>
+                                                </Expander>
+                                                <Expander Margin="4,4,0,0"
+                                                          ExpandDirection="Down"
+                                                          Header="Down ↓">
+                                                    <GroupBoxEx>
+                                                        <DropShadowChrome Padding="10">
+                                                            <DropShadowChrome>
+                                                                <TextBlock>DropShadowChrome</TextBlock>
+                                                            </DropShadowChrome>
+                                                        </DropShadowChrome>
+                                                    </GroupBoxEx>
+                                                </Expander>
+                                            </UniformGrid>
+                                        </StackPanel>
+                                    </Border>
+                                </StackPanel>
+                            </ScrollViewer>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+                <TabItem Header="Ext">
+                    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                        <StackPanel Margin="16" Spacing="16">
+                            <Border Classes="infoBar">
+                                <DockPanel>
+                                    <materialIcons:MaterialIcon Classes="infoIcon" Kind="WidgetsOutline" />
+                                    <CheckBox Name="ExtViewIsEnabled"
+                                              VerticalAlignment="Center"
+                                              Content="IsEnabled"
+                                              DockPanel.Dock="Right"
+                                              IsChecked="True" />
+                                    <StackPanel VerticalAlignment="Center" Spacing="1">
+                                        <TextBlock FontSize="13"
+                                                   FontWeight="SemiBold"
+                                                   Text="Extended Controls" />
+                                        <TextBlock FontSize="11"
+                                                   Foreground="{DynamicResource ThemeForegroundLowBrush}"
+                                                   Text="GroupBox, DropShadow and layout utilities" />
+                                    </StackPanel>
+                                </DockPanel>
+                            </Border>
+                            <StackPanel IsEnabled="{Binding #ExtViewIsEnabled.IsChecked}" Spacing="12">
+                                <!--  GroupBox showcase  -->
+                                <Border Classes="card">
+                                    <StackPanel Spacing="10">
+                                        <StackPanel Classes="sectionHeader">
+                                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="CardOutline" />
+                                            <TextBlock Classes="sectionLabel" Text="GROUP BOX" />
+                                        </StackPanel>
+                                        <so:GroupBoxEx HorizontalContentAlignment="Left" Header="so:GroupBoxEx">
+                                            <StackPanel>
+                                                <TextBlock>Calendar</TextBlock>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <Calendar />
+                                                    <GroupBoxEx BoxShadow="none" Header="Calendar" />
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </so:GroupBoxEx>
+                                        <UniformGrid Columns="2">
+                                            <GroupBox Margin="0,0,4,4"
+                                                      Padding="10"
+                                                      Header="Left Header">
+                                                <Button Height="60" CornerRadius="0">Button</Button>
+                                            </GroupBox>
+                                            <GroupBoxEx Margin="4,0,0,4"
+                                                        Padding="0"
+                                                        Header="Right Header"
+                                                        HeaderPlacement="Right">
+                                                <Button Height="60" CornerRadius="0">Button</Button>
+                                            </GroupBoxEx>
+                                            <GroupBoxEx Margin="0,4,4,0"
+                                                        Padding="0"
+                                                        Header="ClipToBounds + Shadow">
+                                                <ScrollViewer Height="60">
+                                                    <StackPanel>
+                                                        <Button Height="60" CornerRadius="0">Button</Button>
+                                                        <Button Height="60" CornerRadius="0">Button</Button>
+                                                    </StackPanel>
+                                                </ScrollViewer>
+                                            </GroupBoxEx>
+                                            <GroupBoxEx Margin="4,4,0,0"
+                                                        Padding="0"
+                                                        Header="Bottom Header"
+                                                        HeaderPlacement="Bottom">
+                                                <Button Height="60" CornerRadius="0">Button</Button>
+                                            </GroupBoxEx>
+                                        </UniformGrid>
+                                        <GroupBoxEx Header="Nested GroupBoxEx">
+                                            <GroupBoxEx>
+                                                <DropShadowChrome Padding="10">
+                                                    <DropShadowChrome>
+                                                        <TextBox Padding="0"
+                                                                 Background="Transparent"
+                                                                 BorderThickness="0"
+                                                                 Foreground="{DynamicResource ErrorBrush}"
+                                                                 IsReadOnly="True"
+                                                                 TextWrapping="Wrap">
+                                                            DropShadowChrome
+                                                        </TextBox>
+                                                    </DropShadowChrome>
+                                                </DropShadowChrome>
+                                            </GroupBoxEx>
+                                        </GroupBoxEx>
+                                    </StackPanel>
+                                </Border>
+                                <!--  DropShadowChrome showcase  -->
+                                <Border Classes="card">
+                                    <StackPanel Spacing="10">
+                                        <StackPanel Classes="sectionHeader">
+                                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="BoxShadow" />
+                                            <TextBlock Classes="sectionLabel" Text="DROP SHADOW CHROME" />
+                                        </StackPanel>
+                                        <ContentControl>
+                                            <GroupBoxEx>
+                                                <GroupBoxEx>
+                                                    <DropShadowChrome Padding="10">
+                                                        <DropShadowChrome>
+                                                            <TextBlock>DropShadowChrome nested</TextBlock>
+                                                        </DropShadowChrome>
+                                                    </DropShadowChrome>
+                                                </GroupBoxEx>
+                                            </GroupBoxEx>
+                                        </ContentControl>
+                                        <DropShadowChrome>
+                                            <TextBlock Margin="10">DropShadowChrome standalone</TextBlock>
+                                        </DropShadowChrome>
+                                        <StackPanel Orientation="Horizontal" Spacing="10">
+                                            <GroupBoxEx Width="120" Header="GroupBoxEx">
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock>TextBlockTextBlock</TextBlock>
+                                                </StackPanel>
+                                            </GroupBoxEx>
+                                            <Expander Header="Expander">Content</Expander>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                                <!--  Layout mix  -->
+                                <Border Classes="card">
+                                    <StackPanel Spacing="10">
+                                        <StackPanel Classes="sectionHeader">
+                                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ViewDashboard" />
+                                            <TextBlock Classes="sectionLabel" Text="LAYOUT MIX" />
+                                        </StackPanel>
+                                        <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock VerticalAlignment="Center">TextBlock</TextBlock>
+                                                <TextBox Margin="6,0,0,0">TextBox</TextBox>
+                                            </StackPanel>
+                                            <Button>Button</Button>
+                                            <ComboBox SelectedIndex="0">
+                                                <ComboBoxItem>ComboBoxItem-1</ComboBoxItem>
+                                                <ComboBoxItem>ComboBoxItem-2</ComboBoxItem>
+                                            </ComboBox>
+                                            <DropDownButton>DropDownButton</DropDownButton>
+                                        </SpacingWrapPanel>
+                                    </StackPanel>
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+                <TabItem Header="Collection">
+                    <Grid Margin="16"
+                          RowDefinitions="Auto,*"
+                          RowSpacing="16">
+                        <!--  顶部信息栏  -->
+                        <Border Classes="infoBar">
+                            <DockPanel>
+                                <materialIcons:MaterialIcon Classes="infoIcon" Kind="FormatListBulleted" />
+                                <CheckBox Name="CollectionViewIsEnabled"
+                                          VerticalAlignment="Center"
+                                          Content="IsEnabled"
+                                          DockPanel.Dock="Right"
+                                          IsChecked="True" />
+                                <StackPanel VerticalAlignment="Center" Spacing="1">
+                                    <TextBlock FontSize="13"
+                                               FontWeight="SemiBold"
+                                               Text="Collection Controls" />
+                                    <TextBlock FontSize="11"
+                                               Foreground="{DynamicResource ThemeForegroundLowBrush}"
+                                               Text="ListBox and TreeView side by side" />
+                                </StackPanel>
+                            </DockPanel>
+                        </Border>
 
-							<!--  TreeView 卡片  -->
-							<Border Grid.Column="2"
-									Padding="14"
-									Background="{DynamicResource ThemeBackgroundBrush}"
-									BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-									BorderThickness="1"
-									CornerRadius="10">
-								<Grid RowDefinitions="Auto,8,*">
-									<StackPanel Orientation="Horizontal" Spacing="6">
-										<materialIcons:MaterialIcon Foreground="{DynamicResource SynthoraBrush}"
-																	IconSize="15"
-																	Kind="FileTree" />
-										<TextBlock FontSize="11"
-												   FontWeight="SemiBold"
-												   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-												   Text="TREE VIEW" />
-									</StackPanel>
-									<TreeView Grid.Row="2" BorderThickness="0">
-										<TreeViewItem Header="abcdefghijklmnopqrstuvwxyz">
-											<TreeViewItem Header="1234567890">
-												<TreeViewItem Header="11121314151617181920" />
-											</TreeViewItem>
-										</TreeViewItem>
-										<TreeViewItem Header="/*-+">
-											<TreeViewItem Header="~!@#$%^" />
-										</TreeViewItem>
-									</TreeView>
-								</Grid>
-							</Border>
-						</Grid>
-					</Grid>
-				</TabItem>
-				<TabItem Header="DataGrid">
-					<Grid Margin="16"
-						  RowDefinitions="Auto,*,Auto,*"
-						  RowSpacing="16">
-						<Grid.Styles>
-							<Style Selector="DataGrid">
-								<Setter Property="BorderThickness" Value="0" />
-								<Setter Property="AutoGenerateColumns" Value="True" />
-								<Styles>
-									<Style Selector="DataGridRow:nth-child(even)">
-										<Setter Property="Background" Value="{DynamicResource SynthoraMidBrush}" />
-									</Style>
-								</Styles>
-							</Style>
-						</Grid.Styles>
+                        <!--  主内容：ListBox + TreeView 双列  -->
+                        <UniformGrid Grid.Row="1"
+                                     Columns="2"
+                                     IsEnabled="{Binding #CollectionViewIsEnabled.IsChecked}">
+                            <!--  ListBox 卡片  -->
+                            <Border Margin="0,0,8,0" Classes="card">
+                                <DockPanel VerticalSpacing="8">
+                                    <StackPanel DockPanel.Dock="Top"
+                                                Orientation="Horizontal"
+                                                Spacing="6">
+                                        <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ViewList" />
+                                        <TextBlock Classes="sectionLabel" Text="LIST BOX" />
+                                    </StackPanel>
+                                    <ListBox BorderThickness="0" ItemsSource="{Binding Employees}" />
+                                </DockPanel>
+                            </Border>
 
-						<!--  顶部信息栏  -->
-						<Border Grid.Row="0"
-								Padding="12,10"
-								Background="{DynamicResource SynthoraLowBrush}"
-								CornerRadius="10">
-							<Grid ColumnDefinitions="Auto,8,*,Auto">
-								<materialIcons:MaterialIcon Grid.Column="0"
-															VerticalAlignment="Center"
-															Foreground="{DynamicResource SynthoraBrush}"
-															IconSize="18"
-															Kind="TableLarge" />
-								<StackPanel Grid.Column="2"
-											VerticalAlignment="Center"
-											Spacing="1">
-									<TextBlock FontSize="13"
-											   FontWeight="SemiBold"
-											   Text="DataGrid" />
-									<TextBlock FontSize="11"
-											   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-											   Text="Three DataGrid variants with different configurations" />
-								</StackPanel>
-								<CheckBox Name="DataGridViewIsEnabled"
-										  Grid.Column="3"
-										  VerticalAlignment="Center"
-										  Content="IsEnabled"
-										  IsChecked="True" />
-							</Grid>
-						</Border>
+                            <!--  TreeView 卡片  -->
+                            <Border Margin="8,0,0,0" Classes="card">
+                                <DockPanel VerticalSpacing="8">
+                                    <StackPanel DockPanel.Dock="Top"
+                                                Orientation="Horizontal"
+                                                Spacing="6">
+                                        <materialIcons:MaterialIcon Classes="sectionIcon" Kind="FileTree" />
+                                        <TextBlock Classes="sectionLabel" Text="TREE VIEW" />
+                                    </StackPanel>
+                                    <TreeView BorderThickness="0">
+                                        <TreeViewItem Header="abcdefghijklmnopqrstuvwxyz">
+                                            <TreeViewItem Header="1234567890">
+                                                <TreeViewItem Header="11121314151617181920" />
+                                            </TreeViewItem>
+                                        </TreeViewItem>
+                                        <TreeViewItem Header="/*-+">
+                                            <TreeViewItem Header="~!@#$%^" />
+                                        </TreeViewItem>
+                                    </TreeView>
+                                </DockPanel>
+                            </Border>
+                        </UniformGrid>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="DataGrid">
+                    <Grid Margin="16"
+                          RowDefinitions="Auto,*,Auto,*"
+                          RowSpacing="16">
+                        <Grid.Styles>
+                            <Style Selector="DataGrid">
+                                <Setter Property="BorderThickness" Value="0" />
+                                <Setter Property="AutoGenerateColumns" Value="True" />
+                                <Styles>
+                                    <Style Selector="DataGridRow:nth-child(even)">
+                                        <Setter Property="Background" Value="{DynamicResource SynthoraMidBrush}" />
+                                    </Style>
+                                </Styles>
+                            </Style>
+                        </Grid.Styles>
 
-						<!--  DataGrid 1: All gridlines  -->
-						<Border Grid.Row="1"
-								Padding="14"
-								Background="{DynamicResource ThemeBackgroundBrush}"
-								BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-								BorderThickness="1"
-								CornerRadius="10"
-								IsEnabled="{Binding #DataGridViewIsEnabled.IsChecked}">
-							<Grid RowDefinitions="Auto,6,*">
-								<StackPanel Orientation="Horizontal" Spacing="6">
-									<materialIcons:MaterialIcon Foreground="{DynamicResource SynthoraBrush}"
-																IconSize="13"
-																Kind="TableBorder" />
-									<TextBlock FontSize="11"
-											   FontWeight="SemiBold"
-											   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-											   Text="ALL GRIDLINES · WITH HEADERS" />
-								</StackPanel>
-								<DataGrid x:Name="dataGrid"
-										  Grid.Row="2"
-										  GridLinesVisibility="All"
-										  HeadersVisibility="All"
-										  ItemsSource="{Binding DataGridCollectionView}" />
-							</Grid>
-						</Border>
+                        <!--  顶部信息栏  -->
+                        <Border Grid.Row="0" Classes="infoBar">
+                            <DockPanel>
+                                <materialIcons:MaterialIcon Classes="infoIcon" Kind="TableLarge" />
+                                <CheckBox Name="DataGridViewIsEnabled"
+                                          VerticalAlignment="Center"
+                                          Content="IsEnabled"
+                                          DockPanel.Dock="Right"
+                                          IsChecked="True" />
+                                <StackPanel VerticalAlignment="Center" Spacing="1">
+                                    <TextBlock FontSize="13"
+                                               FontWeight="SemiBold"
+                                               Text="DataGrid" />
+                                    <TextBlock FontSize="11"
+                                               Foreground="{DynamicResource ThemeForegroundLowBrush}"
+                                               Text="Three DataGrid variants with different configurations" />
+                                </StackPanel>
+                            </DockPanel>
+                        </Border>
 
-						<GridSplitter Grid.Row="2" />
+                        <!--  DataGrid 1: All gridlines  -->
+                        <Border Grid.Row="1"
+                                Classes="card"
+                                IsEnabled="{Binding #DataGridViewIsEnabled.IsChecked}">
+                            <Grid RowDefinitions="Auto,6,*">
+                                <StackPanel Orientation="Horizontal" Spacing="6">
+                                    <materialIcons:MaterialIcon Classes="sectionIcon" Kind="TableBorder" />
+                                    <TextBlock Classes="sectionLabel" Text="ALL GRIDLINES · WITH HEADERS" />
+                                </StackPanel>
+                                <DataGrid x:Name="dataGrid"
+                                          Grid.Row="2"
+                                          GridLinesVisibility="All"
+                                          HeadersVisibility="All"
+                                          ItemsSource="{Binding DataGridCollectionView}" />
+                            </Grid>
+                        </Border>
 
-						<Grid Grid.Row="3"
-							  ColumnDefinitions="*,Auto,*"
-							  ColumnSpacing="16">
-							<!--  DataGrid 2: Vertical gridlines  -->
-							<Border Grid.Column="0"
-									Padding="14"
-									Background="{DynamicResource ThemeBackgroundBrush}"
-									BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-									BorderThickness="1"
-									CornerRadius="10"
-									IsEnabled="{Binding #DataGridViewIsEnabled.IsChecked}">
-								<Grid RowDefinitions="Auto,6,*">
-									<StackPanel Orientation="Horizontal" Spacing="6">
-										<materialIcons:MaterialIcon Foreground="{DynamicResource SynthoraBrush}"
-																	IconSize="13"
-																	Kind="TableColumnPlusAfter" />
-										<TextBlock FontSize="11"
-												   FontWeight="SemiBold"
-												   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-												   Text="VERTICAL GRIDLINES ONLY" />
-									</StackPanel>
-									<DataGrid Grid.Row="2"
-											  GridLinesVisibility="Vertical"
-											  ItemsSource="{Binding DataGridCollectionView}" />
-								</Grid>
-							</Border>
+                        <GridSplitter Grid.Row="2" />
 
-							<GridSplitter Grid.Column="1" />
+                        <Grid Grid.Row="3"
+                              ColumnDefinitions="*,Auto,*"
+                              ColumnSpacing="16">
+                            <!--  DataGrid 2: Vertical gridlines  -->
+                            <Border Grid.Column="0"
+                                    Classes="card"
+                                    IsEnabled="{Binding #DataGridViewIsEnabled.IsChecked}">
+                                <Grid RowDefinitions="Auto,6,*">
+                                    <StackPanel Orientation="Horizontal" Spacing="6">
+                                        <materialIcons:MaterialIcon Classes="sectionIcon" Kind="TableColumnPlusAfter" />
+                                        <TextBlock Classes="sectionLabel" Text="VERTICAL GRIDLINES ONLY" />
+                                    </StackPanel>
+                                    <DataGrid Grid.Row="2"
+                                              GridLinesVisibility="Vertical"
+                                              ItemsSource="{Binding DataGridCollectionView}" />
+                                </Grid>
+                            </Border>
 
-							<!--  DataGrid 3: ReadOnly  -->
-							<Border Grid.Column="2"
-									Padding="14"
-									Background="{DynamicResource ThemeBackgroundBrush}"
-									BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-									BorderThickness="1"
-									CornerRadius="10"
-									IsEnabled="{Binding #DataGridViewIsEnabled.IsChecked}">
-								<Grid RowDefinitions="Auto,6,*">
-									<StackPanel Orientation="Horizontal" Spacing="6">
-										<materialIcons:MaterialIcon Foreground="{DynamicResource SynthoraBrush}"
-																	IconSize="13"
-																	Kind="TableEye" />
-										<TextBlock FontSize="11"
-												   FontWeight="SemiBold"
-												   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-												   Text="READ ONLY · EMPLOYEES" />
-									</StackPanel>
-									<DataGrid Grid.Row="2"
-											  IsReadOnly="True"
-											  ItemsSource="{Binding Employees}" />
-								</Grid>
-							</Border>
-						</Grid>
-					</Grid>
-				</TabItem>
-				<TabItem Header="TabControl">
-					<ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-						<StackPanel Margin="16" Spacing="16">
-							<!--  顶部信息栏  -->
-							<Border Padding="12,10"
-									Background="{DynamicResource SynthoraLowBrush}"
-									CornerRadius="10">
-								<Grid ColumnDefinitions="Auto,8,*,Auto">
-									<materialIcons:MaterialIcon Grid.Column="0"
-																VerticalAlignment="Center"
-																Foreground="{DynamicResource SynthoraBrush}"
-																IconSize="18"
-																Kind="TabUnselected" />
-									<StackPanel Grid.Column="2"
-												VerticalAlignment="Center"
-												Spacing="1">
-										<TextBlock FontSize="13"
-												   FontWeight="SemiBold"
-												   Text="TabControl" />
-										<TextBlock FontSize="11"
-												   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-												   Text="SplitView · TabControl · TabbedPage · DrawerPage components" />
-									</StackPanel>
-									<CheckBox Name="TabControlViewIsEnabled"
-											  Grid.Column="3"
-											  VerticalAlignment="Center"
-											  Content="IsEnabled"
-											  IsChecked="True" />
-								</Grid>
-							</Border>
+                            <GridSplitter Grid.Column="1" />
 
-							<StackPanel IsEnabled="{Binding #TabControlViewIsEnabled.IsChecked}" Spacing="16">
-								<!--  SplitView  -->
-								<Border Padding="14"
-										Background="{DynamicResource ThemeBackgroundBrush}"
-										BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-										BorderThickness="1"
-										CornerRadius="10">
-									<StackPanel Spacing="10">
-										<StackPanel Margin="0,0,0,4"
-													Orientation="Horizontal"
-													Spacing="6">
-											<materialIcons:MaterialIcon Foreground="{DynamicResource SynthoraBrush}"
-																		IconSize="13"
-																		Kind="ViewSplitVertical" />
-											<TextBlock FontSize="11"
-													   FontWeight="SemiBold"
-													   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-													   Text="SPLIT VIEW" />
-										</StackPanel>
-										<SplitView Height="200"
-												   BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-												   BorderThickness="1"
-												   DisplayMode="CompactOverlay"
-												   IsPaneOpen="False"
-												   OpenPaneLength="200">
-											<SplitView.Pane>
-												<StackPanel VerticalAlignment="Top" Spacing="10">
-													<ToggleButton CornerRadius="0" IsChecked="{Binding $parent[SplitView].IsPaneOpen}">☰</ToggleButton>
-													<TextBlock HorizontalAlignment="Center">Menu</TextBlock>
-												</StackPanel>
-											</SplitView.Pane>
-											<TabStrip>
-												<TabItem Header="Tab 1" IsEnabled="False">
-													<Button>1</Button>
-												</TabItem>
-												<TabItem Header="Tab 2">
-													<Button>2</Button>
-												</TabItem>
-												<TabItem Header="Tab 3">
-													<Button>3</Button>
-												</TabItem>
-											</TabStrip>
-										</SplitView>
-									</StackPanel>
-								</Border>
+                            <!--  DataGrid 3: ReadOnly  -->
+                            <Border Grid.Column="2"
+                                    Classes="card"
+                                    IsEnabled="{Binding #DataGridViewIsEnabled.IsChecked}">
+                                <Grid RowDefinitions="Auto,6,*">
+                                    <StackPanel Orientation="Horizontal" Spacing="6">
+                                        <materialIcons:MaterialIcon Classes="sectionIcon" Kind="TableEye" />
+                                        <TextBlock Classes="sectionLabel" Text="READ ONLY · EMPLOYEES" />
+                                    </StackPanel>
+                                    <DataGrid Grid.Row="2"
+                                              IsReadOnly="True"
+                                              ItemsSource="{Binding Employees}" />
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="TabControl">
+                    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                        <StackPanel Margin="16" Spacing="16">
+                            <!--  顶部信息栏  -->
+                            <Border Classes="infoBar">
+                                <DockPanel>
+                                    <materialIcons:MaterialIcon Classes="infoIcon" Kind="TabUnselected" />
+                                    <CheckBox Name="TabControlViewIsEnabled"
+                                              VerticalAlignment="Center"
+                                              Content="IsEnabled"
+                                              DockPanel.Dock="Right"
+                                              IsChecked="True" />
+                                    <StackPanel VerticalAlignment="Center" Spacing="1">
+                                        <TextBlock FontSize="13"
+                                                   FontWeight="SemiBold"
+                                                   Text="TabControl" />
+                                        <TextBlock FontSize="11"
+                                                   Foreground="{DynamicResource ThemeForegroundLowBrush}"
+                                                   Text="SplitView · TabControl · TabbedPage · DrawerPage components" />
+                                    </StackPanel>
+                                </DockPanel>
+                            </Border>
 
-								<!--  TabControl  -->
-								<Border Padding="14"
-										Background="{DynamicResource ThemeBackgroundBrush}"
-										BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-										BorderThickness="1"
-										CornerRadius="10">
-									<StackPanel Spacing="10">
-										<StackPanel Margin="0,0,0,4"
-													Orientation="Horizontal"
-													Spacing="6">
-											<materialIcons:MaterialIcon Foreground="{DynamicResource SynthoraBrush}"
-																		IconSize="13"
-																		Kind="Tab" />
-											<TextBlock FontSize="11"
-													   FontWeight="SemiBold"
-													   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-													   Text="TAB CONTROL · SOLID HEADER THEME" />
-										</StackPanel>
-										<TabControl Height="200"
-													BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-													BorderThickness="1"
-													TabControlAttach.HorizontalHeaderAlignment="Center"
-													TabControlAttach.VerticalHeaderAlignment="Center"
-													TabStripPlacement="Top"
-													Theme="{StaticResource SolidHeaderTabControlTheme}">
-											<TabItem Header="Tab 1">
-												<SelectableTextBlock Margin="10">Content 1</SelectableTextBlock>
-											</TabItem>
-											<TabItem Header="Tab 2" IsEnabled="False">
-												<SelectableTextBlock Margin="10">Content 2</SelectableTextBlock>
-											</TabItem>
-											<TabItem Header="Tab 3">
-												<SelectableTextBlock Margin="10">Content 3</SelectableTextBlock>
-											</TabItem>
-											<TabItem Header="Tab 4">
-												<SelectableTextBlock Margin="10">Content 4</SelectableTextBlock>
-											</TabItem>
-										</TabControl>
-									</StackPanel>
-								</Border>
+                            <StackPanel IsEnabled="{Binding #TabControlViewIsEnabled.IsChecked}" Spacing="16">
+                                <!--  SplitView  -->
+                                <Border Classes="card">
+                                    <StackPanel Spacing="10">
+                                        <StackPanel Classes="sectionHeader">
+                                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ViewSplitVertical" />
+                                            <TextBlock Classes="sectionLabel" Text="SPLIT VIEW" />
+                                        </StackPanel>
+                                        <SplitView Height="200"
+                                                   BorderBrush="{DynamicResource ThemeBorderLowBrush}"
+                                                   BorderThickness="1"
+                                                   DisplayMode="CompactOverlay"
+                                                   IsPaneOpen="False"
+                                                   OpenPaneLength="200">
+                                            <SplitView.Pane>
+                                                <StackPanel VerticalAlignment="Top" Spacing="10">
+                                                    <ToggleButton CornerRadius="0" IsChecked="{Binding $parent[SplitView].IsPaneOpen}">☰</ToggleButton>
+                                                    <TextBlock HorizontalAlignment="Center">Menu</TextBlock>
+                                                </StackPanel>
+                                            </SplitView.Pane>
+                                            <TabStrip>
+                                                <TabItem Header="Tab 1" IsEnabled="False">
+                                                    <Button>1</Button>
+                                                </TabItem>
+                                                <TabItem Header="Tab 2">
+                                                    <Button>2</Button>
+                                                </TabItem>
+                                                <TabItem Header="Tab 3">
+                                                    <Button>3</Button>
+                                                </TabItem>
+                                            </TabStrip>
+                                        </SplitView>
+                                    </StackPanel>
+                                </Border>
 
-								<!--  TabbedPage  -->
-								<Border Padding="14"
-										Background="{DynamicResource ThemeBackgroundBrush}"
-										BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-										BorderThickness="1"
-										CornerRadius="10">
-									<StackPanel Spacing="10">
-										<StackPanel Margin="0,0,0,4"
-													Orientation="Horizontal"
-													Spacing="6">
-											<materialIcons:MaterialIcon Foreground="{DynamicResource SynthoraBrush}"
-																		IconSize="13"
-																		Kind="BookOpenPageVariantOutline" />
-											<TextBlock FontSize="11"
-													   FontWeight="SemiBold"
-													   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-													   Text="TABBED PAGE" />
-										</StackPanel>
-										<TabbedPage Height="200"
-													BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-													BorderThickness="1">
-											<ContentPage Header="Home" Icon="{OnFormFactor Desktop={x:Null}, Mobile={materialIcons:MaterialIconExt Kind=Home, IconSize=24}}">
-												ContentPage1
-											</ContentPage>
-											<ContentPage Header="Settings" Icon="{OnFormFactor Desktop={x:Null}, Mobile={materialIcons:MaterialIconExt Kind=Settings, IconSize=24}}">
-												ContentPage2
-											</ContentPage>
-										</TabbedPage>
-									</StackPanel>
-								</Border>
+                                <!--  TabControl  -->
+                                <Border Classes="card">
+                                    <StackPanel Spacing="10">
+                                        <StackPanel Classes="sectionHeader">
+                                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="Tab" />
+                                            <TextBlock Classes="sectionLabel" Text="TAB CONTROL · SOLID HEADER THEME" />
+                                        </StackPanel>
+                                        <TabControl Height="200"
+                                                    BorderBrush="{DynamicResource ThemeBorderLowBrush}"
+                                                    BorderThickness="1"
+                                                    TabControlAttach.HorizontalHeaderAlignment="Center"
+                                                    TabControlAttach.VerticalHeaderAlignment="Center"
+                                                    TabStripPlacement="Top"
+                                                    Theme="{StaticResource SolidHeaderTabControlTheme}">
+                                            <TabItem Header="Tab 1">
+                                                <SelectableTextBlock Margin="10">Content 1</SelectableTextBlock>
+                                            </TabItem>
+                                            <TabItem Header="Tab 2" IsEnabled="False">
+                                                <SelectableTextBlock Margin="10">Content 2</SelectableTextBlock>
+                                            </TabItem>
+                                            <TabItem Header="Tab 3">
+                                                <SelectableTextBlock Margin="10">Content 3</SelectableTextBlock>
+                                            </TabItem>
+                                            <TabItem Header="Tab 4">
+                                                <SelectableTextBlock Margin="10">Content 4</SelectableTextBlock>
+                                            </TabItem>
+                                        </TabControl>
+                                    </StackPanel>
+                                </Border>
 
-								<!--  DrawerPage  -->
-								<Border Padding="14"
-										Background="{DynamicResource ThemeBackgroundBrush}"
-										BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-										BorderThickness="1"
-										CornerRadius="10">
-									<StackPanel Spacing="10">
-										<StackPanel Margin="0,0,0,4"
-													Orientation="Horizontal"
-													Spacing="6">
-											<materialIcons:MaterialIcon Foreground="{DynamicResource SynthoraBrush}"
-																		IconSize="13"
-																		Kind="PageLayoutHeader" />
-											<TextBlock FontSize="11"
-													   FontWeight="SemiBold"
-													   Foreground="{DynamicResource ThemeForegroundLowBrush}"
-													   Text="DRAWER PAGE" />
-										</StackPanel>
-										<DrawerPage Height="200"
-													BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-													BorderThickness="1"
-													Header="DrawerPage">
-											<DrawerPage.Drawer>
-												<Border BorderBrush="{DynamicResource ThemeBorderLowBrush}" BorderThickness="0,0,1,0">
-													<StackPanel Margin="10"
-																VerticalAlignment="Top"
-																Spacing="10">
-														<TextBlock HorizontalAlignment="Center" FontSize="13">Menu</TextBlock>
-														<Button>Item 1</Button>
-														<Button>Item 2</Button>
-														<Button>Item 3</Button>
-													</StackPanel>
-												</Border>
-											</DrawerPage.Drawer>
-											Content
-										</DrawerPage>
-									</StackPanel>
-								</Border>
-							</StackPanel>
-						</StackPanel>
-					</ScrollViewer>
-				</TabItem>
-			</TabControl>
+                                <!--  TabbedPage  -->
+                                <Border Classes="card">
+                                    <StackPanel Spacing="10">
+                                        <StackPanel Classes="sectionHeader">
+                                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="BookOpenPageVariantOutline" />
+                                            <TextBlock Classes="sectionLabel" Text="TABBED PAGE" />
+                                        </StackPanel>
+                                        <TabbedPage Height="200"
+                                                    BorderBrush="{DynamicResource ThemeBorderLowBrush}"
+                                                    BorderThickness="1">
+                                            <ContentPage Header="Home" Icon="{OnFormFactor Desktop={x:Null}, Mobile={materialIcons:MaterialIconExt Kind=Home, IconSize=24}}">
+                                                ContentPage1
+                                            </ContentPage>
+                                            <ContentPage Header="Settings" Icon="{OnFormFactor Desktop={x:Null}, Mobile={materialIcons:MaterialIconExt Kind=Settings, IconSize=24}}">
+                                                ContentPage2
+                                            </ContentPage>
+                                        </TabbedPage>
+                                    </StackPanel>
+                                </Border>
 
-			<StatusBar Grid.Row="2">
-				<Panel>
-					<StackPanel Orientation="Horizontal" Spacing="10">
-						<TextBlock VerticalAlignment="Center">StatusBar</TextBlock>
-						<Separator Theme="{StaticResource VerticalSeparatorTheme}" />
-						<CheckBox Foreground="White" IsChecked="{Binding $parent[StatusBar].IsRunning}">IsRunning</CheckBox>
-					</StackPanel>
-					<TextBlock HorizontalAlignment="Right" Text="{x:Static demo:App.AppVersion}" />
-				</Panel>
-			</StatusBar>
-		</Grid>
-	</AlertDialogHost>
+                                <!--  DrawerPage  -->
+                                <Border Classes="card">
+                                    <StackPanel Spacing="10">
+                                        <StackPanel Classes="sectionHeader">
+                                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="PageLayoutHeader" />
+                                            <TextBlock Classes="sectionLabel" Text="DRAWER PAGE" />
+                                        </StackPanel>
+                                        <DrawerPage Height="200"
+                                                    BorderBrush="{DynamicResource ThemeBorderLowBrush}"
+                                                    BorderThickness="1"
+                                                    Header="DrawerPage">
+                                            <DrawerPage.Drawer>
+                                                <Border BorderBrush="{DynamicResource ThemeBorderLowBrush}" BorderThickness="0,0,1,0">
+                                                    <StackPanel Margin="10"
+                                                                VerticalAlignment="Top"
+                                                                Spacing="10">
+                                                        <TextBlock HorizontalAlignment="Center" FontSize="13">Menu</TextBlock>
+                                                        <Button>Item 1</Button>
+                                                        <Button>Item 2</Button>
+                                                        <Button>Item 3</Button>
+                                                    </StackPanel>
+                                                </Border>
+                                            </DrawerPage.Drawer>
+                                            Content
+                                        </DrawerPage>
+                                    </StackPanel>
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+            </TabControl>
+
+            <StatusBar Grid.Row="2">
+                <Panel>
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <TextBlock VerticalAlignment="Center">StatusBar</TextBlock>
+                        <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
+                        <CheckBox Foreground="White" IsChecked="{Binding $parent[StatusBar].IsRunning}">IsRunning</CheckBox>
+                    </StackPanel>
+                    <TextBlock HorizontalAlignment="Right" Text="{x:Static demo:App.AppVersion}" />
+                </Panel>
+            </StatusBar>
+        </Grid>
+    </AlertDialogHost>
 </UserControl>
