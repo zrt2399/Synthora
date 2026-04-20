@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net10.0</TargetFramework>
@@ -29,17 +29,10 @@
 			<PackagePath>\</PackagePath>
 		</None>
 	</ItemGroup>
-
+	
 	<ItemGroup>
 		<PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
 		<PackageReference Include="Avalonia.Controls.DataGrid" Version="$(AvaloniaDataGridVersion)" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <AvaloniaResource Update="Controls\Themes\PipsPager.xaml">
-	    <SubType>Designer</SubType>
-	    <Generator>MSBuild:Compile</Generator>
-	  </AvaloniaResource>
 	</ItemGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
