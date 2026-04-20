@@ -19,6 +19,7 @@
     <ControlTheme x:Key="{x:Type DrawerPage}" TargetType="DrawerPage">
         <!--<Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />-->
+        <Setter Property="CompactDrawerLength" Value="{DynamicResource NavigationControlNavBarHeight}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <SplitView Name="PART_SplitView"
@@ -40,6 +41,7 @@
                                           HorizontalAlignment="Left"
                                           AutomationProperties.Name="Toggle navigation drawer"
                                           Background="Transparent"
+                                          CornerRadius="0"
                                           DockPanel.Dock="Top"
                                           IsChecked="{Binding #PART_SplitView.IsPaneOpen, Mode=TwoWay}"
                                           IsVisible="False"
@@ -82,14 +84,14 @@
                         <DockPanel Name="PART_ContentDock">
                             <Border Name="PART_TopBar"
                                     Height="{DynamicResource NavigationControlNavBarHeight}"
-                                    Padding="4"
                                     Background="{DynamicResource SynthoraMidBrush}"
                                     DockPanel.Dock="Top">
                                 <DockPanel HorizontalAlignment="Stretch" HorizontalSpacing="6">
                                     <ToggleButton x:Name="PART_PaneButton"
+                                                  Width="{Binding $self.Bounds.Height}"
                                                   AutomationProperties.Name="Toggle navigation drawer"
                                                   Background="Transparent"
-                                                  CornerRadius="4"
+                                                  CornerRadius="0"
                                                   DockPanel.Dock="Left"
                                                   IsChecked="{Binding #PART_SplitView.IsPaneOpen, Mode=TwoWay}"
                                                   ToolTip.Tip="Toggle navigation drawer">
@@ -117,15 +119,15 @@
                             </Border>
                             <Border Name="PART_BottomBar"
                                     Height="{DynamicResource NavigationControlNavBarHeight}"
-                                    Padding="6"
                                     Background="{DynamicResource SynthoraMidBrush}"
                                     DockPanel.Dock="Bottom"
                                     IsVisible="False">
                                 <DockPanel HorizontalAlignment="Stretch" HorizontalSpacing="6">
                                     <ToggleButton x:Name="PART_BottomPaneButton"
+                                                  Width="{Binding $self.Bounds.Height}"
                                                   AutomationProperties.Name="Toggle navigation drawer"
                                                   Background="Transparent"
-                                                  CornerRadius="4"
+                                                  CornerRadius="0"
                                                   DockPanel.Dock="Left"
                                                   IsChecked="{Binding #PART_SplitView.IsPaneOpen, Mode=TwoWay}"
                                                   ToolTip.Tip="Toggle navigation drawer">
@@ -143,7 +145,6 @@
                                         </Panel>
                                     </ToggleButton>
                                     <ContentPresenter x:Name="PART_BottomTitlePresenter"
-                                                      Margin="8,0,0,0"
                                                       VerticalAlignment="Center"
                                                       VerticalContentAlignment="Center"
                                                       Content="{TemplateBinding Header}"
