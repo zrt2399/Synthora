@@ -106,16 +106,11 @@
                     Background="{DynamicResource ThemeBackgroundBrush}"
                     BorderBrush="{DynamicResource ThemeBorderLowBrush}"
                     BorderThickness="1"
+                    ClipToBounds="True"
                     CornerRadius="12">
-                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="16">
-                    <StackPanel Spacing="3">
-                        <SelectableTextBlock FontSize="21"
-                                             FontWeight="SemiBold"
-                                             Text="Synthora Component Gallery" />
-                        <SelectableTextBlock Foreground="{DynamicResource ThemeForegroundLowBrush}" Text="A UI library where every detail is polished to perfection—from consistent spacing to fluid micro-interactions." />
-                    </StackPanel>
-                    <StackPanel Grid.Column="1"
-                                VerticalAlignment="Center"
+                <DockPanel HorizontalSpacing="16">
+                    <StackPanel VerticalAlignment="Center"
+                                DockPanel.Dock="Right"
                                 Orientation="Horizontal"
                                 Spacing="6">
                         <Button Padding="6"
@@ -136,7 +131,13 @@
                                 Theme="{StaticResource CancelButtonTheme}"
                                 ToolTip.Tip="切换为深色主题" />
                     </StackPanel>
-                </Grid>
+                    <StackPanel Spacing="3">
+                        <SelectableTextBlock FontSize="21"
+                                             FontWeight="SemiBold"
+                                             Text="Synthora Component Gallery" />
+                        <SelectableTextBlock Foreground="{DynamicResource ThemeForegroundLowBrush}" Text="A UI library where every detail is polished to perfection—from consistent spacing to fluid micro-interactions." />
+                    </StackPanel>
+                </DockPanel>
             </Border>
 
             <TabControl Grid.Row="1"
