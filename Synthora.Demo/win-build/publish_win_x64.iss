@@ -3,9 +3,9 @@
 
 #define Year GetDateTimeString('yyyy','#0', '#0')
 #define Is64Or86 "x64"
-#define MyAppExeName "Synthora.Demo.exe"
+#define MyAppExeName "SynthoraDemo.exe"
 
-#define WorkPath "output\win-" + Is64Or86
+#define WorkPath "artifacts\win-" + Is64Or86
 #define MyAppName "SynthoraDemo"
 #define MyAppVersion GetFileVersion(WorkPath + "\" + MyAppExeName)
 #define MyAppPublisher "Yoyo"
@@ -31,7 +31,7 @@ ChangesAssociations=yes
 DisableProgramGroupPage=yes
 ; 以下行取消注释，以在非管理安装模式下运行（仅为当前用户安装）。
 ;PrivilegesRequired=lowest
-;OutputDir=.\
+OutputDir=.\artifacts
 OutputBaseFilename={#MyAppName}.{#MyAppVersion}.win-{#Is64Or86}
 SetupIconFile={#IconPath}
 UninstallDisplayIcon={uninstallexe}

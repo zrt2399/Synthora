@@ -20,7 +20,7 @@ namespace Synthora.Demo
 #if DEBUG
                 .WithDeveloperTools()
 #endif
-                .With(new FontManagerOptions() { DefaultFamilyName = "avares://Synthora.Demo/Assets/Fonts/OPPOSans-M.ttf#OPPOSans M" })
+                .With(new FontManagerOptions() { DefaultFamilyName = "avares://SynthoraDemo/Assets/Fonts/OPPOSans-M.ttf#OPPOSans M" })
                 .LogToTrace();
     }
 }

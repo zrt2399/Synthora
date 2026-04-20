@@ -2,7 +2,7 @@ cd ..
 
 set RID=win-x64
 set BuildDir=win-build
-set OutputDir=output
+set OutputDir=artifacts
 
 dotnet publish -p:PublishReadyToRun=true ^
   -p:RuntimeIdentifier=%RID% ^

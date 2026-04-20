@@ -5,7 +5,7 @@ cd "$(dirname "$0")/.."
 # 设置目标平台 Runtime Identifier
 RID="osx-arm64"
 BuildDir="mac-build"
-OutputDir="output"
+OutputDir="artifacts"
 DMG_PROJECT="$BuildDir/package.dmgcanvas"
 DMG_OUTPUT="$BuildDir/$OutputDir/SynthoraDemoInstaller.dmg"
 

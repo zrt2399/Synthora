@@ -10,6 +10,7 @@
 		<AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
 		<ApplicationIcon>Assets/avalonia-logo.ico</ApplicationIcon>
 		<LangVersion>preview</LangVersion>
+		<AssemblyName>SynthoraDemo</AssemblyName>
 		<PublishReadyToRun>true</PublishReadyToRun>
 		<!-- Uncomment below to enable Native AOT compilation-->
 		<!--<PublishAot>true</PublishAot>
@@ -24,8 +25,8 @@
 	<!-- Clear all file attributes -->
 	<PropertyGroup>
 		<!-- Also defines .app file name -->
-		<CFBundleName>SynthoraDemo</CFBundleName>
-		<CFBundleDisplayName>SynthoraDemo</CFBundleDisplayName>
+		<CFBundleName>$(AssemblyName)</CFBundleName>
+		<CFBundleDisplayName>$(AssemblyName)</CFBundleDisplayName>
 		<CFBundleIdentifier>com.yoyo.synthora</CFBundleIdentifier>
 		<CFBundleShortVersionString>$(Version)</CFBundleShortVersionString>
 		<CFBundleVersion>1.0</CFBundleVersion>
