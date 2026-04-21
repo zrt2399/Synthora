@@ -1,14 +1,16 @@
 <Styles x:Class="Synthora.SynthoraTheme"
-        xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Styles.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <MergeResourceInclude Source="/Accents/Base.xaml" />
-                <MergeResourceInclude Source="/Strings/InvariantResources.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Styles.Resources>
- 
-    <StyleInclude Source="/Controls/Themes/SynthoraControls.xaml" />
+		xmlns="https://github.com/avaloniaui"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Styles.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<MergeResourceInclude Source="/Accents/Base.xaml" />
+				<MergeResourceInclude Source="/Strings/InvariantResources.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<ResourceInclude x:Key="DensityCompact" Source="/DensityStyles/Compact.xaml" />
+			<ResourceInclude x:Key="DensityNormal" Source="/DensityStyles/Normal.xaml" />
+		</ResourceDictionary>
+	</Styles.Resources>
+
+	<StyleInclude Source="/Controls/Themes/SynthoraControls.xaml" />
 </Styles>

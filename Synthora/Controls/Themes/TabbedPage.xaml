@@ -41,7 +41,7 @@
 
     <!--  Tab item sizing & shape  -->
     <CornerRadius x:Key="TabbedPageTabItemHeaderCornerRadius">0</CornerRadius>
-    <Thickness x:Key="TabbedPageTabItemHeaderPadding">10,6</Thickness>
+    <!--<Thickness x:Key="TabbedPageTabItemHeaderPadding">10,6</Thickness>-->
     <Thickness x:Key="TabbedPageTabItemHeaderMargin">0</Thickness>
 
     <!--  Icon + text header layout  -->
@@ -123,7 +123,7 @@
         <!--<Setter Property="FontWeight" Value="Normal" />-->
         <Setter Property="Background" Value="{DynamicResource TabbedPageTabItemHeaderBackgroundUnselected}" />
         <Setter Property="Foreground" Value="{DynamicResource TabbedPageTabItemHeaderForegroundUnselected}" />
-        <Setter Property="Padding" Value="{DynamicResource TabbedPageTabItemHeaderPadding}" />
+        <Setter Property="Padding" Value="{DynamicResource ThemeHeaderControlPadding}" />
         <Setter Property="Margin" Value="{DynamicResource TabbedPageTabItemHeaderMargin}" />
         <Setter Property="MinHeight" Value="{DynamicResource TabbedPageTabItemHeaderMinHeight}" />
         <Setter Property="CornerRadius" Value="{DynamicResource TabbedPageTabItemHeaderCornerRadius}" />

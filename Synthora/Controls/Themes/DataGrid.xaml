@@ -103,7 +103,7 @@
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <!--<Setter Property="SeparatorBrush" Value="{DynamicResource ThemeBorderLowBrush}" />-->
-        <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
+        <Setter Property="Padding" Value="{DynamicResource ThemeHeaderControlPadding}" />
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{Binding $parent[DataGrid].VerticalGridLinesBrush}" />
         <Setter Property="BorderThickness" Value="0,0,1,0" />

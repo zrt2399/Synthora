@@ -109,6 +109,7 @@ namespace Synthora.Messaging
                     _ => StatusIcon.QuestionBackground
                 };
 
+                int padding = SynthoraTheme.GetCurrentDensity() == DensityStyle.Compact ? 4 : 6;
                 Grid grid = new Grid();
                 grid.ColumnDefinitions.Add(new ColumnDefinition(GridLength.Auto));
                 grid.ColumnDefinitions.Add(new ColumnDefinition());
@@ -118,9 +119,9 @@ namespace Synthora.Messaging
                 textBlock.VerticalAlignment = VerticalAlignment.Center;
                 textBlock.Text = message;
 
-                if (!string.IsNullOrEmpty(textBlock.Text) && iconType != IconType.None)
+                if (!string.IsNullOrEmpty(textBlock.Text))
                 {
-                    textBlock.Margin = new Thickness(4, 0, 0, 0);
+                    textBlock.Margin = iconType == IconType.None ? new Thickness(2, 0) : new Thickness(padding, 0, 0, 0);
                 }
 
                 if (application.TryGetResource("FontSizeNormal", application.ActualThemeVariant, out var size) && size is double fontSize)
@@ -146,7 +147,7 @@ namespace Synthora.Messaging
 
                 Border border = new Border();
                 border.Margin = new Thickness(4);
-                border.Padding = new Thickness(4);
+                border.Padding = new Thickness(padding);
                 if (application.TryGetResource("ThemeBorderCornerRadius", application.ActualThemeVariant, out var radius) && radius is CornerRadius cornerRadius)
                 {
                     border.CornerRadius = cornerRadius;

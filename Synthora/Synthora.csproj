@@ -20,6 +20,8 @@
 		<AvaloniaResource Include="Accents\**" />
 		<AvaloniaResource Include="Controls\Themes\**" />
 		<AvaloniaResource Include="Strings\**" />
+		<AvaloniaResource Include="DensityStyles\**" />
+
 		<None Include="logo.png">
 			<Pack>true</Pack>
 			<PackagePath>\</PackagePath>
@@ -34,7 +36,7 @@
 		<PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
 		<PackageReference Include="Avalonia.Controls.DataGrid" Version="$(AvaloniaDataGridVersion)" />
 	</ItemGroup>
-
+	
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
 		<NoWarn>1591</NoWarn>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>

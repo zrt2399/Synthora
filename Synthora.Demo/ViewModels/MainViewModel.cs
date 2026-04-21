@@ -191,6 +191,11 @@ namespace Synthora.Demo.ViewModels
             }
         }
 
+        public void ToggleDensity()
+        {
+            SynthoraTheme.SetDensity(SynthoraTheme.GetCurrentDensity() == DensityStyle.Normal ? DensityStyle.Compact : DensityStyle.Normal);
+        }
+
         public void SwitchTheme(string param)
         {
             if (Application.Current is Application application)

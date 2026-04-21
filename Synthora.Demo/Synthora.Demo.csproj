@@ -55,8 +55,8 @@
 	<ItemGroup Condition="'$(Configuration)' == 'Debug'">
 		<PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />
 		<PackageReference Include="Avalonia.Themes.Simple" Version="$(AvaloniaVersion)" />
-		<PackageReference Include="ActiproSoftware.Controls.Avalonia" Version="25.2.0" />
-		<PackageReference Include="ActiproSoftware.Controls.Avalonia.Themes.DataGrid" Version="25.2.0" />
+		<PackageReference Include="ActiproSoftware.Controls.Avalonia" Version="25.2.3" />
+		<PackageReference Include="ActiproSoftware.Controls.Avalonia.Themes.DataGrid" Version="25.2.3" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -69,7 +69,7 @@
 		</PackageReference>
 		<PackageReference Include="Bogus" Version="35.6.5" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
-		<PackageReference Include="Material.Icons.Avalonia" Version="3.0.1" />
+		<PackageReference Include="Material.Icons.Avalonia" Version="3.0.2" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -1,6 +1,5 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:sys="using:System"
                     x:ClassModifier="internal">
 
     <ResourceDictionary.ThemeDictionaries>
@@ -218,30 +217,24 @@
     <Thickness x:Key="ThemeBorderThickness">1</Thickness>
 
     <Thickness x:Key="ThemeControlPaddingSmall">4</Thickness>
-    <Thickness x:Key="ThemeControlPadding">6,4</Thickness>
-    <Thickness x:Key="ThemeHeaderControlPadding">8,6</Thickness>
-    <Thickness x:Key="ThemeMenuFlyoutPadding">4</Thickness>
-    <Thickness x:Key="ThemeMenuFlyoutItemPadding">6,4</Thickness>
-    <Thickness x:Key="ThemeControlLeftPadding">6,0,0,0</Thickness>
-    <Thickness x:Key="ThemeControlRightPadding">0,0,0,6</Thickness>
-
+     
     <CornerRadius x:Key="ThemeBorderCornerRadiusSmall">4</CornerRadius>
     <CornerRadius x:Key="ThemeBorderCornerRadius">6</CornerRadius>
 
-    <sys:Double x:Key="ThemePlaceholderTextOpacity">0.6</sys:Double>
-    <sys:Double x:Key="ThemeDisabledOpacity">0.7</sys:Double>
+    <x:Double x:Key="ThemePlaceholderTextOpacity">0.6</x:Double>
+    <x:Double x:Key="ThemeDisabledOpacity">0.7</x:Double>
 
-    <sys:Double x:Key="FontSizeSmall">10</sys:Double>
-    <sys:Double x:Key="FontSizeNormal">12</sys:Double>
-    <sys:Double x:Key="FontSizeLarge">14</sys:Double>
+    <x:Double x:Key="FontSizeSmall">10</x:Double>
+    <x:Double x:Key="FontSizeNormal">12</x:Double>
+    <x:Double x:Key="FontSizeLarge">14</x:Double>
 
-    <!--<sys:Double x:Key="ScrollBarThickness">16</sys:Double>-->
-    <sys:Double x:Key="ScrollBarThickness">8</sys:Double>
-    <sys:Double x:Key="ScrollBarThumbThickness">8</sys:Double>
-    <sys:Double x:Key="ScrollBarMinLength">24</sys:Double>
+    <!--<x:Double x:Key="ScrollBarThickness">16</x:Double>-->
+    <x:Double x:Key="ScrollBarThickness">8</x:Double>
+    <x:Double x:Key="ScrollBarThumbThickness">8</x:Double>
+    <x:Double x:Key="ScrollBarMinLength">24</x:Double>
 
-    <sys:Double x:Key="IconElementThemeHeight">20</sys:Double>
-    <sys:Double x:Key="IconElementThemeWidth">20</sys:Double>
+    <x:Double x:Key="IconElementThemeHeight">20</x:Double>
+    <x:Double x:Key="IconElementThemeWidth">20</x:Double>
 
     <BoxShadows x:Key="PopupBoxShadow">2 2 4 0 #80000000</BoxShadows>
     <Thickness x:Key="PopupBoxShadowMargin">0,0,4,4</Thickness>
@@ -251,7 +244,7 @@
     <Thickness x:Key="DefaultBoxShadowMargin">2</Thickness>
     <Thickness x:Key="DefaultBoxShadowParentMargin">-2</Thickness>
 
-    <sys:Double x:Key="MenuItemMinWidth">140</sys:Double>
+    <x:Double x:Key="MenuItemMinWidth">140</x:Double>
     <!--  Mobile Resources for MenuFlyout.xaml  -->
     <x:Double x:Key="HorizontalMenuFlyoutThemeMinWidth">32</x:Double>
 

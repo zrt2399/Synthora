@@ -4,6 +4,10 @@
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
 
+    <converters:MarginMultiplierConverter x:Key="TreeViewItemExpanderButtonMarginMultiplier"
+                                          Indent="1"
+                                          Left="True" />
+
     <x:Double x:Key="TreeViewItemIndent">16</x:Double>
 
     <ControlTheme x:Key="SimpleExpanderButtonTheme" TargetType="ToggleButton">
@@ -65,7 +69,7 @@
                             CornerRadius="{TemplateBinding CornerRadius}"
                             Focusable="True"
                             TemplatedControl.IsTemplateFocusTarget="True">
-                        <Grid Name="PART_Header" ColumnDefinitions="16, *">
+                        <Grid Name="PART_Header" ColumnDefinitions="Auto,*">
                             <Grid.Margin>
                                 <MultiBinding Converter="{x:Static converters:TreeViewItemIndentConverter.Instance}">
                                     <Binding Path="Level" RelativeSource="{RelativeSource TemplatedParent}" />
@@ -73,6 +77,8 @@
                                 </MultiBinding>
                             </Grid.Margin>
                             <ToggleButton Name="PART_ExpandCollapseChevron"
+                                          Margin="{TemplateBinding Padding,
+                                                                   Converter={StaticResource TreeViewItemExpanderButtonMarginMultiplier}}"
                                           HorizontalAlignment="Right"
                                           Focusable="False"
                                           IsChecked="{TemplateBinding IsExpanded,
@@ -81,7 +87,6 @@
                             <ContentPresenter Name="PART_HeaderPresenter"
                                               Grid.Column="1"
                                               Padding="{TemplateBinding Padding}"
-                                              HorizontalContentAlignment="{TemplateBinding HorizontalAlignment}"
                                               Background="Transparent"
                                               Content="{TemplateBinding Header}"
                                               ContentTemplate="{TemplateBinding HeaderTemplate}"

@@ -1,0 +1,10 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal">
+    <Thickness x:Key="ThemeControlPadding">6,4</Thickness>
+    <Thickness x:Key="ThemeHeaderControlPadding">8,6</Thickness>
+    <Thickness x:Key="ThemeMenuFlyoutPadding">4</Thickness>
+    <Thickness x:Key="ThemeMenuFlyoutItemPadding">6,4</Thickness>
+    <Thickness x:Key="ThemeControlLeftPadding">6,0,0,0</Thickness>
+    <Thickness x:Key="ThemeControlRightPadding">0,0,0,6</Thickness>
+</ResourceDictionary> 
