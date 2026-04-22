@@ -42,8 +42,15 @@
                           Data="{DynamicResource ArrowDownGlyph}"
                           Foreground="{TemplateBinding Foreground}"
                           IsHitTestVisible="False"
-                          UseLayoutRounding="False" />
-
+                          UseLayoutRounding="False">
+                    <PathIcon.Transitions>
+                        <Transitions>
+                            <TransformOperationsTransition Easing="CubicEaseInOut"
+                                                           Property="RenderTransform"
+                                                           Duration="0:0:0.2" />
+                        </Transitions>
+                    </PathIcon.Transitions>
+                </PathIcon>
             </Grid>
         </DropShadowChrome>
     </ControlTemplate>
@@ -53,9 +60,7 @@
                   TargetType="DropDownButton">
         <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
         <Style Selector="^:flyout-open /template/ PathIcon#pathIcon">
-            <Setter Property="RenderTransform">
-                <RotateTransform Angle="180" />
-            </Setter>
+            <Setter Property="RenderTransform" Value="rotate(180deg)" />
         </Style>
     </ControlTheme>
 
@@ -64,9 +69,7 @@
                   TargetType="DropDownButton">
         <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
         <Style Selector="^:flyout-open /template/ PathIcon#pathIcon">
-            <Setter Property="RenderTransform">
-                <RotateTransform Angle="180" />
-            </Setter>
+            <Setter Property="RenderTransform" Value="rotate(180deg)" />
         </Style>
     </ControlTheme>
 
@@ -75,9 +78,7 @@
                   TargetType="DropDownButton">
         <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
         <Style Selector="^:flyout-open /template/ PathIcon#pathIcon">
-            <Setter Property="RenderTransform">
-                <RotateTransform Angle="180" />
-            </Setter>
+            <Setter Property="RenderTransform" Value="rotate(180deg)" />
         </Style>
     </ControlTheme>
 
@@ -86,9 +87,7 @@
                   TargetType="DropDownButton">
         <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
         <Style Selector="^:flyout-open /template/ PathIcon#pathIcon">
-            <Setter Property="RenderTransform">
-                <RotateTransform Angle="180" />
-            </Setter>
+            <Setter Property="RenderTransform" Value="rotate(180deg)" />
         </Style>
     </ControlTheme>
 
@@ -97,9 +96,7 @@
                   TargetType="DropDownButton">
         <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
         <Style Selector="^:flyout-open /template/ PathIcon#pathIcon">
-            <Setter Property="RenderTransform">
-                <RotateTransform Angle="180" />
-            </Setter>
+            <Setter Property="RenderTransform" Value="rotate(180deg)" />
         </Style>
     </ControlTheme>
 
@@ -108,9 +105,7 @@
                   TargetType="DropDownButton">
         <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
         <Style Selector="^:flyout-open /template/ PathIcon#pathIcon">
-            <Setter Property="RenderTransform">
-                <RotateTransform Angle="180" />
-            </Setter>
+            <Setter Property="RenderTransform" Value="rotate(180deg)" />
         </Style>
     </ControlTheme>
 
@@ -119,9 +114,7 @@
                   TargetType="DropDownButton">
         <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
         <Style Selector="^:flyout-open /template/ PathIcon#pathIcon">
-            <Setter Property="RenderTransform">
-                <RotateTransform Angle="180" />
-            </Setter>
+            <Setter Property="RenderTransform" Value="rotate(180deg)" />
         </Style>
     </ControlTheme>
 
