@@ -121,6 +121,16 @@
             </ControlTemplate>
         </Setter>
 
+        <Style Selector="^ /template/ PathIcon#pathIcon">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <TransformOperationsTransition Easing="CubicEaseInOut"
+                                                   Property="RenderTransform"
+                                                   Duration="0:0:0.2" />
+                </Transitions>
+            </Setter>
+        </Style>
+
         <Style Selector="^:focus,^:pointerover">
             <Setter Property="Background" Value="{DynamicResource SynthoraMidBrush}" />
             <Style Selector="^ /template/ DropShadowChrome#RootChrome">
@@ -134,9 +144,7 @@
             </Style>
 
             <Style Selector="^ /template/ PathIcon#pathIcon">
-                <Setter Property="RenderTransform">
-                    <RotateTransform Angle="180" />
-                </Setter>
+                <Setter Property="RenderTransform" Value="rotate(180deg)" />
             </Style>
         </Style>
 
@@ -155,9 +163,7 @@
             </Style>
 
             <Style Selector="^ /template/ PathIcon#pathIcon">
-                <Setter Property="RenderTransform">
-                    <RotateTransform Angle="180" />
-                </Setter>
+                <Setter Property="RenderTransform" Value="rotate(180deg)" />
             </Style>
         </Style>
     </ControlTheme>
