@@ -80,6 +80,11 @@
             <SolidColorBrush x:Key="CaptionButtonForeground" Color="Black" />
             <SolidColorBrush x:Key="CaptionButtonBackground" Color="#ffe5e5e5" />
             <SolidColorBrush x:Key="CaptionButtonBorderBrush" Color="#ffcacaca" />
+
+            <Pen x:Key="TextEditorTextAreaSelectionBorder" Brush="#FF0078D7" />
+            <SolidColorBrush x:Key="TextEditorTextAreaSelectionBrush">#FF4CA0E3</SolidColorBrush>
+            <SolidColorBrush x:Key="TextEditorTextAreaSelectionForeground">#FFFFFFFF</SolidColorBrush>
+            <SolidColorBrush x:Key="TextEditorSearchResultsBrush">#FF9B5FFF</SolidColorBrush>
         </ResourceDictionary>
 
         <ResourceDictionary x:Key="Dark">
@@ -158,6 +163,11 @@
             <SolidColorBrush x:Key="CaptionButtonForeground" Color="White" />
             <SolidColorBrush x:Key="CaptionButtonBackground" Color="#ffe5e5e5" />
             <SolidColorBrush x:Key="CaptionButtonBorderBrush" Color="#ffcacaca" />
+
+            <Pen x:Key="TextEditorTextAreaSelectionBorder" Brush="#FF0078D7" />
+            <SolidColorBrush x:Key="TextEditorTextAreaSelectionBrush">#095DA0</SolidColorBrush>
+            <SolidColorBrush x:Key="TextEditorTextAreaSelectionForeground">#FFFFFFFF</SolidColorBrush>
+            <SolidColorBrush x:Key="TextEditorSearchResultsBrush">#FF9B5FFF</SolidColorBrush>
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
 
@@ -217,7 +227,7 @@
     <Thickness x:Key="ThemeBorderThickness">1</Thickness>
 
     <Thickness x:Key="ThemeControlPaddingSmall">4</Thickness>
-     
+
     <CornerRadius x:Key="ThemeBorderCornerRadiusSmall">4</CornerRadius>
     <CornerRadius x:Key="ThemeBorderCornerRadius">6</CornerRadius>
 
