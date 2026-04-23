@@ -22,7 +22,7 @@
         <Setter Property="Width" Value="300" />
         <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
         <!--<Setter Property="RenderTransformOrigin" Value="50%,75%" />-->
-        <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
+        <!-- <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" /> -->
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
@@ -33,7 +33,7 @@
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            BoxShadow="0 0 6 0 #40000000"
+                            BoxShadow="0 0 6 0 #60000000"
                             CornerRadius="{TemplateBinding CornerRadius}">
                         <DockPanel>
                             <TipIcon Name="icon"
