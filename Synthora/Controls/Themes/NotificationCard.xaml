@@ -21,9 +21,9 @@
         <Setter Property="Padding" Value="12" />
         <Setter Property="Width" Value="300" />
         <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
-        <!--<Setter Property="RenderTransformOrigin" Value="50%,75%" />-->
-        <!-- <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" /> -->
-        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
+        <!--  <Setter Property="RenderTransformOrigin" Value="50%,75%" />  -->
+        <!--<Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />-->
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
         <Setter Property="Template">
