@@ -1,72 +1,72 @@
 <Application x:Class="Synthora.Demo.App"
-			 xmlns="https://github.com/avaloniaui"
-			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-			 xmlns:actipro="http://schemas.actiprosoftware.com/avaloniaui"
-			 xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
-			 xmlns:vm="using:Synthora.Demo.ViewModels"
-			 Name="SynthoraDemo"
-			 RequestedThemeVariant="Default">
-	<!--  "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options.  -->
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:actipro="http://schemas.actiprosoftware.com/avaloniaui"
+             xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:vm="using:Synthora.Demo.ViewModels"
+             Name="SynthoraDemo"
+             RequestedThemeVariant="Default">
+    <!--  "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options.  -->
 
-	<Application.Styles>
-		<!--<SimpleTheme />
+    <Application.Styles>
+        <!--<SimpleTheme />
 		<StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Simple.xaml" />-->
 
-		<!--<FluentTheme />
+        <!--<FluentTheme />
 		<StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml" />-->
 
-		<SynthoraTheme DensityStyle="Compact"/>
+        <SynthoraTheme DensityStyle="Compact" />
 
-		<!--<actipro:ModernTheme Includes="NativeDataGrid" />-->
-		<materialIcons:MaterialIconStyles />
-		<Style Selector="materialIcons|MaterialIcon">
-			<Setter Property="IconSize" Value="16" />
-		</Style>
-		<Style Selector="materialIcons|MaterialIconText">
-			<Setter Property="IconSize" Value="16" />
-		</Style>
-	</Application.Styles>
+        <!--<actipro:ModernTheme Includes="NativeDataGrid" />-->
+        <materialIcons:MaterialIconStyles />
+        <Style Selector="materialIcons|MaterialIcon">
+            <Setter Property="IconSize" Value="16" />
+        </Style>
+        <Style Selector="materialIcons|MaterialIconText">
+            <Setter Property="IconSize" Value="16" />
+        </Style>
+    </Application.Styles>
 
-	<Application.Resources>
-		<x:String x:Key="StringTextFlyoutCutText">剪切</x:String>
-		<x:String x:Key="StringTextFlyoutCopyText">复制</x:String>
-		<x:String x:Key="StringTextFlyoutPasteText">粘贴</x:String>
-		<x:String x:Key="StringTextFlyoutSelectAllText">全选</x:String>
-		<x:String x:Key="StringAlertDialogButtonOK">确定</x:String>
-		<x:String x:Key="StringAlertDialogButtonYes">是</x:String>
-		<x:String x:Key="StringAlertDialogButtonNo">否</x:String>
-		<x:String x:Key="StringAlertDialogButtonCancel">取消</x:String>
-		<x:String x:Key="StringAlertDialogButtonAbort">中止</x:String>
-		<x:String x:Key="StringScrollBarScrollToTop">顶部</x:String>
-		<x:String x:Key="StringScrollBarScrollToBottom">底部</x:String>
-		<x:String x:Key="StringScrollBarPageUp">向上翻页</x:String>
-		<x:String x:Key="StringScrollBarPageDown">向下翻页</x:String>
-		<x:String x:Key="StringScrollBarLineUp">向上滚动</x:String>
-		<x:String x:Key="StringScrollBarLineDown">向下滚动</x:String>
-		<x:String x:Key="StringScrollBarScrollToLeftEdge">左边缘</x:String>
-		<x:String x:Key="StringScrollBarScrollToRightEdge">右边缘</x:String>
-		<x:String x:Key="StringScrollBarPageLeft">向左翻页</x:String>
-		<x:String x:Key="StringScrollBarPageRight">向右翻页</x:String>
-		<x:String x:Key="StringScrollBarLineLeft">向左滚动</x:String>
-		<x:String x:Key="StringScrollBarLineRight">向右滚动</x:String>
-		<x:String x:Key="StringEmptyBoxDescription">暂无数据</x:String>
-	</Application.Resources>
+    <Application.Resources>
+        <x:String x:Key="StringTextFlyoutCutText">剪切</x:String>
+        <x:String x:Key="StringTextFlyoutCopyText">复制</x:String>
+        <x:String x:Key="StringTextFlyoutPasteText">粘贴</x:String>
+        <x:String x:Key="StringTextFlyoutSelectAllText">全选</x:String>
+        <x:String x:Key="StringAlertDialogButtonOK">确定</x:String>
+        <x:String x:Key="StringAlertDialogButtonYes">是</x:String>
+        <x:String x:Key="StringAlertDialogButtonNo">否</x:String>
+        <x:String x:Key="StringAlertDialogButtonCancel">取消</x:String>
+        <x:String x:Key="StringAlertDialogButtonAbort">中止</x:String>
+        <x:String x:Key="StringScrollBarScrollToTop">顶部</x:String>
+        <x:String x:Key="StringScrollBarScrollToBottom">底部</x:String>
+        <x:String x:Key="StringScrollBarPageUp">向上翻页</x:String>
+        <x:String x:Key="StringScrollBarPageDown">向下翻页</x:String>
+        <x:String x:Key="StringScrollBarLineUp">向上滚动</x:String>
+        <x:String x:Key="StringScrollBarLineDown">向下滚动</x:String>
+        <x:String x:Key="StringScrollBarScrollToLeftEdge">左边缘</x:String>
+        <x:String x:Key="StringScrollBarScrollToRightEdge">右边缘</x:String>
+        <x:String x:Key="StringScrollBarPageLeft">向左翻页</x:String>
+        <x:String x:Key="StringScrollBarPageRight">向右翻页</x:String>
+        <x:String x:Key="StringScrollBarLineLeft">向左滚动</x:String>
+        <x:String x:Key="StringScrollBarLineRight">向右滚动</x:String>
+        <x:String x:Key="StringEmptyBoxDescription">暂无数据</x:String>
+    </Application.Resources>
 
-	<TrayIcon.Icons>
-		<TrayIcons>
-			<TrayIcon Icon="/Assets/avalonia-logo.ico"
-					  IsVisible="{OnPlatform False,
-					  macOS=True}"
-					  MacOSProperties.IsTemplateIcon="True"
-					  ToolTipText="Synthora Demo App">
-				<TrayIcon.Menu>
-					<NativeMenu>
-						<NativeMenuItem Command="{x:Static vm:MainViewModel.ShowMainWindowCommand}" Header="Open MainWindow" />
-						<NativeMenuItem Command="{x:Static vm:MainViewModel.OpenGitHubCommand}" Header="GitHub" />
-					</NativeMenu>
-				</TrayIcon.Menu>
-			</TrayIcon>
-		</TrayIcons>
-	</TrayIcon.Icons>
+    <TrayIcon.Icons>
+        <TrayIcons>
+            <TrayIcon Icon="/Assets/avalonia-logo.ico"
+                      IsVisible="{OnPlatform False,
+                                             macOS=True}"
+                      MacOSProperties.IsTemplateIcon="True"
+                      ToolTipText="Synthora Demo App">
+                <TrayIcon.Menu>
+                    <NativeMenu>
+                        <NativeMenuItem Command="{x:Static vm:MainViewModel.ShowMainWindowCommand}" Header="Open MainWindow" />
+                        <NativeMenuItem Command="{x:Static vm:MainViewModel.OpenGitHubCommand}" Header="GitHub" />
+                    </NativeMenu>
+                </TrayIcon.Menu>
+            </TrayIcon>
+        </TrayIcons>
+    </TrayIcon.Icons>
 
 </Application>

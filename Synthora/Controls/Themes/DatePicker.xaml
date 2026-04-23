@@ -30,14 +30,12 @@
         </Border>
     </Design.PreviewWith>
 
-    <x:Double x:Key="DatePickerFlyoutPresenterHighlightHeight">28</x:Double>
-    <x:Double x:Key="DatePickerFlyoutPresenterItemHeight">28</x:Double>
     <x:Double x:Key="DatePickerFlyoutPresenterAcceptDismissHostGridHeight">28</x:Double>
     <!--<x:Double x:Key="DatePickerThemeMinWidth">296</x:Double>
     <x:Double x:Key="DatePickerThemeMaxWidth">456</x:Double>-->
-    <Thickness x:Key="DateTimePickerFlyoutPresenterItemPadding">4</Thickness>
+
     <x:Double x:Key="DatePickerSpacerThemeWidth">1</x:Double>
-    <x:Double x:Key="DatePickerPresenterThemeMaxHeight">398</x:Double>
+    <x:Double x:Key="DatePickerPresenterThemeMaxHeight">400</x:Double>
 
     <ControlTheme x:Key="SimpleDatePickerFlyoutButton" TargetType="Button">
         <Setter Property="RenderTransform" Value="none" />
@@ -198,7 +196,7 @@
                         <Panel Name="PART_MonthHost">
                             <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
                                 <DateTimePickerPanel Name="PART_MonthSelector"
-                                                     ItemHeight="{DynamicResource DatePickerFlyoutPresenterItemHeight}"
+                                                     ItemHeight="{DynamicResource DateTimePickerFlyoutPresenterItemHeight}"
                                                      PanelType="Month"
                                                      ShouldLoop="True" />
                             </ScrollViewer>
@@ -209,7 +207,7 @@
                         <Panel Name="PART_DayHost">
                             <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
                                 <DateTimePickerPanel Name="PART_DaySelector"
-                                                     ItemHeight="{DynamicResource DatePickerFlyoutPresenterItemHeight}"
+                                                     ItemHeight="{DynamicResource DateTimePickerFlyoutPresenterItemHeight}"
                                                      PanelType="Day"
                                                      ShouldLoop="True" />
                             </ScrollViewer>
@@ -220,25 +218,13 @@
                         <Panel Name="PART_YearHost">
                             <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
                                 <DateTimePickerPanel Name="PART_YearSelector"
-                                                     ItemHeight="{DynamicResource DatePickerFlyoutPresenterItemHeight}"
+                                                     ItemHeight="{DynamicResource DateTimePickerFlyoutPresenterItemHeight}"
                                                      PanelType="Year"
                                                      ShouldLoop="False" />
                             </ScrollViewer>
                             <RepeatButton Name="PART_YearUpButton" Theme="{StaticResource SimpleDateTimePickerUpButton}" />
                             <RepeatButton Name="PART_YearDownButton" Theme="{StaticResource SimpleDateTimePickerDownButton}" />
                         </Panel>
-
-                        <Rectangle Name="HighlightRect"
-                                   Grid.Column="0"
-                                   Grid.ColumnSpan="5"
-                                   Height="{DynamicResource DatePickerFlyoutPresenterHighlightHeight}"
-                                   VerticalAlignment="Center"
-                                   IsHitTestVisible="False"
-                                   ZIndex="-1">
-                            <Rectangle.Fill>
-                                <SolidColorBrush Opacity="0.6" Color="{DynamicResource ThemeAccentColor}" />
-                            </Rectangle.Fill>
-                        </Rectangle>
 
                         <Rectangle Name="PART_FirstSpacer"
                                    Grid.Column="1"
