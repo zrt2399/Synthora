@@ -15,11 +15,11 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <GroupBoxEx Background="{TemplateBinding Background}"
-                          BorderBrush="{TemplateBinding BorderBrush}"
-                          BorderThickness="{TemplateBinding BorderThickness}"
-                          BoxShadow="{TemplateBinding BoxShadowAttach.BoxShadow}"
-                          CornerRadius="{TemplateBinding CornerRadius}"
-                          HeaderBackground="{TemplateBinding HeaderBackground}">
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            BoxShadow="{TemplateBinding BoxShadowAttach.BoxShadow}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            HeaderBackground="{TemplateBinding HeaderBackground}">
                     <GroupBoxEx.Header>
                         <Grid ColumnDefinitions="Auto,*,Auto">
                             <Grid.Styles>

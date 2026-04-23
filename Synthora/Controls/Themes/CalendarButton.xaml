@@ -16,8 +16,8 @@
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="MinWidth" Value="38" />
-        <Setter Property="MinHeight" Value="38" />
+        <Setter Property="MinWidth" Value="44" />
+        <Setter Property="MinHeight" Value="44" />
         <Setter Property="Focusable" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
