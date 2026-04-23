@@ -67,11 +67,8 @@
                             </Button>
                         </Grid>
                     </GroupBoxEx.Header>
-                    <Grid RowDefinitions="Auto,*">
-
-                        <Grid Name="PART_MonthView"
-                              Grid.Row="1"
-                              IsVisible="False">
+                    <Panel Name="panel">
+                        <Grid Name="PART_MonthView" IsVisible="False">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="Auto" />
@@ -93,21 +90,22 @@
                         </Grid>
 
                         <Grid Name="PART_YearView"
-                              Grid.Row="1"
+                              Width="{Binding #PART_MonthView.Bounds.Width, Mode=OneWay}"
+                              Height="{Binding #PART_MonthView.Bounds.Height, Mode=OneWay}"
                               IsVisible="False">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
                         </Grid>
-                    </Grid>
+                    </Panel>
                 </GroupBoxEx>
             </ControlTemplate>
         </Setter>

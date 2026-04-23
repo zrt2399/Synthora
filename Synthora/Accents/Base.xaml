@@ -254,7 +254,6 @@
     <Thickness x:Key="DefaultBoxShadowMargin">2</Thickness>
     <Thickness x:Key="DefaultBoxShadowParentMargin">-2</Thickness>
 
-    <x:Double x:Key="MenuItemMinWidth">140</x:Double>
     <!--  Mobile Resources for MenuFlyout.xaml  -->
     <x:Double x:Key="HorizontalMenuFlyoutThemeMinWidth">32</x:Double>
 

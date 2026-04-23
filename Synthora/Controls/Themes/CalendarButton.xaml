@@ -16,12 +16,12 @@
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="MinWidth" Value="44" />
-        <Setter Property="MinHeight" Value="44" />
+        <Setter Property="MinWidth" Value="40" />
+        <Setter Property="MinHeight" Value="40" />
         <Setter Property="Focusable" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel>
+                <Panel Name="panel" Background="Transparent">
                     <Rectangle Name="SelectedBackground"
                                Fill="{TemplateBinding Background}"
                                IsVisible="False"
@@ -34,7 +34,6 @@
 
                     <!--  Focusable="False"  -->
                     <ContentPresenter x:Name="PART_ContentPresenter"
-                                      Margin="1,0,1,1"
                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                       Content="{TemplateBinding Content}"
