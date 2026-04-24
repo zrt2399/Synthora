@@ -615,6 +615,7 @@
                                             <Button Content="Success" Theme="{StaticResource SuccessButtonTheme}" />
                                             <Button Content="Warning" Theme="{StaticResource WarningButtonTheme}" />
                                             <Button Content="Error" Theme="{StaticResource ErrorButtonTheme}" />
+                                            <Button Content="Multiline" Theme="{StaticResource CancelButtonTheme}" />
                                         </SpacingWrapPanel>
                                     </StackPanel>
                                 </Border>

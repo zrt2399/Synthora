@@ -232,6 +232,15 @@ namespace Synthora.Demo.ViewModels
                 case nameof(NotificationType.Error):
                     _notificationManager.Show(new Notification("Error", "This is an error message.", NotificationType.Error));
                     break;
+                case "Multiline":
+                    StringBuilder stringBuilder = new StringBuilder();  
+                    for (int i = 0; i < 100; i++)
+                    {
+                        stringBuilder.Append("Multiline;");
+                    }
+                    var message = stringBuilder.ToString();
+                    _notificationManager.Show(new Notification(message, message, NotificationType.Error));
+                    break;
             }
         }
 

@@ -1,7 +1,14 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="using:Avalonia.Controls.Converters"
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
+
+    <converters:MarginMultiplierConverter x:Key="WindowNotificationManagerMessageMarginMultiplier"
+                                          Indent="1"
+                                          Top="True" />
+
+    <x:Double x:Key="WindowNotificationManagerMessageMaxHeight">120</x:Double>
 
     <ControlTheme x:Key="{x:Type WindowNotificationManager}" TargetType="WindowNotificationManager">
         <Setter Property="Margin" Value="5" />
@@ -10,9 +17,13 @@
                 <ReversibleStackPanel Name="PART_Items">
                     <ReversibleStackPanel.DataTemplates>
                         <DataTemplate DataType="INotification">
-                            <StackPanel Spacing="8">
-                                <TextBlock FontWeight="Bold" Text="{Binding Title}" />
-                                <TextBlock MaxHeight="80"
+                            <StackPanel Margin="2,0">
+                                <TextBlock FontWeight="SemiBold"
+                                           Text="{Binding Title}"
+                                           TextTrimming="CharacterEllipsis" />
+                                <TextBlock MaxHeight="{DynamicResource WindowNotificationManagerMessageMaxHeight}"
+                                           Margin="{Binding $self.Tag, Converter={StaticResource WindowNotificationManagerMessageMarginMultiplier}}"
+                                           Tag="{DynamicResource NotificationCardPadding}"
                                            Text="{Binding Message}"
                                            TextTrimming="CharacterEllipsis"
                                            TextWrapping="Wrap" />
