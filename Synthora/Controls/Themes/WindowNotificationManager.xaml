@@ -11,7 +11,7 @@
     <x:Double x:Key="WindowNotificationManagerMessageMaxHeight">120</x:Double>
 
     <ControlTheme x:Key="{x:Type WindowNotificationManager}" TargetType="WindowNotificationManager">
-        <Setter Property="Margin" Value="5" />
+        <Setter Property="Margin" Value="5,5,5,10" />
         <Setter Property="Template">
             <ControlTemplate>
                 <ReversibleStackPanel Name="PART_Items">
