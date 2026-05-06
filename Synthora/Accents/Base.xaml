@@ -85,6 +85,24 @@
             <SolidColorBrush x:Key="TextEditorTextAreaSelectionBrush">#FF4CA0E3</SolidColorBrush>
             <SolidColorBrush x:Key="TextEditorTextAreaSelectionForeground">#FFFFFFFF</SolidColorBrush>
             <SolidColorBrush x:Key="TextEditorSearchResultsBrush">#FF9B5FFF</SolidColorBrush>
+
+            <SolidColorBrush x:Key="DragTabControlBackgroundBrush" Color="#E3E3E3" />
+            <SolidColorBrush x:Key="DragTabItemBackgroundBrush" Color="Transparent" />
+
+            <SolidColorBrush x:Key="DragTabItemSelectedBackgroundBrush" Color="#FFFFFF" />
+
+            <SolidColorBrush x:Key="DragTabItemHeaderBackgroundUnselectedPointerOver" Color="#BBBBBB" />
+            <SolidColorBrush x:Key="DragTabItemRightSeparatorBackgroundBrush" Color="#999999" />
+
+            <SolidColorBrush x:Key="AddItemCommandButtonForegroundPointerOverBrush" Color="#0C0C0C" />
+            <SolidColorBrush x:Key="AddItemCommandButtonBackgroundPointerOverBrush" Color="#C7C7C7" />
+            <SolidColorBrush x:Key="AddItemCommandButtonBackgroundPressedBrush" Color="#BCBCBC" />
+
+            <SolidColorBrush x:Key="CloseItemButtonForegroundPointerOverBrush" Color="#272320" />
+            <SolidColorBrush x:Key="CloseItemButtonBackgroundPointerOverBrush" Color="#E0E0E0" />
+            <SolidColorBrush x:Key="CloseItemButtonForegroundPressedBrush" Color="#272320" />
+            <SolidColorBrush x:Key="CloseItemButtonBackgroundPressedBrush" Color="#CECECE" />
+            <SolidColorBrush x:Key="CloseItemButtonForeground" Color="#272320" />
         </ResourceDictionary>
 
         <ResourceDictionary x:Key="Dark">
@@ -168,6 +186,24 @@
             <SolidColorBrush x:Key="TextEditorTextAreaSelectionBrush">#095DA0</SolidColorBrush>
             <SolidColorBrush x:Key="TextEditorTextAreaSelectionForeground">#FFFFFFFF</SolidColorBrush>
             <SolidColorBrush x:Key="TextEditorSearchResultsBrush">#FF9B5FFF</SolidColorBrush>
+
+            <SolidColorBrush x:Key="DragTabControlBackgroundBrush" Color="#000000" />
+            <SolidColorBrush x:Key="DragTabItemBackgroundBrush" Color="Transparent" />
+
+            <SolidColorBrush x:Key="DragTabItemSelectedBackgroundBrush" Color="#333333" />
+
+            <SolidColorBrush x:Key="DragTabItemHeaderBackgroundUnselectedPointerOver" Color="#2A2A2A" />
+            <SolidColorBrush x:Key="DragTabItemRightSeparatorBackgroundBrush" Color="#777777" />
+
+            <SolidColorBrush x:Key="AddItemCommandButtonForegroundPointerOverBrush" Color="#FAFAFA" />
+            <SolidColorBrush x:Key="AddItemCommandButtonBackgroundPointerOverBrush" Color="#1F1F1F" />
+            <SolidColorBrush x:Key="AddItemCommandButtonBackgroundPressedBrush" Color="#2C2C2C" />
+
+            <SolidColorBrush x:Key="CloseItemButtonForegroundPointerOverBrush" Color="#FAFAFA" />
+            <SolidColorBrush x:Key="CloseItemButtonBackgroundPointerOverBrush" Color="#4C4C4C" />
+            <SolidColorBrush x:Key="CloseItemButtonForegroundPressedBrush" Color="#FAFAFA" />
+            <SolidColorBrush x:Key="CloseItemButtonBackgroundPressedBrush" Color="#5A5A5A" />
+            <SolidColorBrush x:Key="CloseItemButtonForeground" Color="#FAFAFA" />
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
 
@@ -256,6 +292,9 @@
 
     <!--  Mobile Resources for MenuFlyout.xaml  -->
     <x:Double x:Key="HorizontalMenuFlyoutThemeMinWidth">32</x:Double>
+
+    <x:Double x:Key="DragTabItemMinHeight">32</x:Double>
+    <Thickness x:Key="DragTabItemPadding">10,0</Thickness>
 
     <StreamGeometry x:Key="ArrowUpGlyph">M1939 1114L2029 1024L1024 19L19 1024L109 1114L1024 199L1939 1114Z</StreamGeometry>
     <StreamGeometry x:Key="ArrowDownGlyph">M1939 486L2029 576L1024 1581L19 576L109 486L1024 1401L1939 486Z</StreamGeometry>

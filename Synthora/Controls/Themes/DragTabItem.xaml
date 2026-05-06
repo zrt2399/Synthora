@@ -1,0 +1,199 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
+                    x:CompileBindings="True">
+
+    <!-- <Style Selector="ContentPresenter.HasCloseButton">
+    <Setter Property="Margin" Value="0,0,16,0" />
+    </Style>-->
+    <ControlTheme x:Key="CloseItemButtonTheme" TargetType="Button">
+        <Setter Property="Width" Value="16" />
+        <Setter Property="Height" Value="16" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource CloseItemButtonForeground}" />
+        <Setter Property="CornerRadius" Value="8" />
+
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+
+                    <Viewbox Width="8" Height="8">
+                        <Path Data="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z"
+                              Fill="{TemplateBinding Foreground}"
+                              Stretch="Uniform" />
+                    </Viewbox>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+ 
+        <Style Selector="^:pointerover">
+            <Setter Property="Foreground" Value="{DynamicResource CloseItemButtonForegroundPointerOverBrush}" />
+            <Setter Property="Background" Value="{DynamicResource CloseItemButtonBackgroundPointerOverBrush}" />
+        </Style>
+
+        <Style Selector="^:pressed">
+            <Setter Property="Foreground" Value="{DynamicResource CloseItemButtonForegroundPressedBrush}" />
+            <Setter Property="Background" Value="{DynamicResource CloseItemButtonBackgroundPressedBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type LeftPressedThumb}" TargetType="LeftPressedThumb">
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="IsHitTestVisible" Value="True" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}" />
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type DragTabItem}" TargetType="DragTabItem">
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}" />
+        <Setter Property="Background" Value="{DynamicResource DragTabItemBackgroundBrush}" />
+
+        <Setter Property="Padding" Value="{DynamicResource DragTabItemPadding}" />
+        <!-- <Setter Property="Margin" Value="0" />-->
+        <Setter Property="MinHeight" Value="{DynamicResource DragTabItemMinHeight}" />
+        <Setter Property="Height" Value="{DynamicResource DragTabItemMinHeight}" />
+
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="CornerRadius" Value="6,6,0,0" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid ColumnDefinitions="Auto, *, Auto">
+
+                    <Path Name="PART_LeftCorner"
+                          Height="4"
+                          VerticalAlignment="Bottom"
+                          Fill="{TemplateBinding Background}"
+                          Stretch="Uniform">
+                        <Path.Data>
+                            <PathGeometry>
+                                <PathFigure IsClosed="True" StartPoint="0 0">
+                                    <ArcSegment Point="4 -4"
+                                                Size="4 4"
+                                                SweepDirection="CounterClockwise" />
+                                    <LineSegment Point="4 0" />
+                                </PathFigure>
+                            </PathGeometry>
+                        </Path.Data>
+                    </Path>
+
+                    <Border Name="PART_LayoutRoot"
+                            Grid.Column="1"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        <Panel>
+                            <Panel Margin="{TemplateBinding Padding}">
+                                <ContentPresenter Name="PART_ContentPresenter"
+                                                  Margin="{Binding #closeButton.IsVisible, Converter={x:Static CloseButtonMarginConverter.Instance}}"
+                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                  Content="{TemplateBinding Header}"
+                                                  ContentTemplate="{TemplateBinding HeaderTemplate}" />
+                            </Panel>
+
+                            <LeftPressedThumb Name="PART_Thumb" />
+
+                            <Button Name="closeButton"
+                                    Margin="{TemplateBinding Padding}"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Command="{Binding $parent[DragTabControl].CloseItemCommand}"
+                                    CommandParameter="{Binding RelativeSource={RelativeSource TemplatedParent}}"
+                                    Theme="{StaticResource CloseItemButtonTheme}">
+                                <Button.IsVisible>
+                                    <MultiBinding Converter="{x:Static ShowCloseButtonConverter.Instance}">
+                                        <Binding Path="ShowCloseButton" RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type DragTabControl}}" />
+                                        <Binding Path="FixedHeaderCount" RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type DragTabControl}}" />
+                                        <Binding Path="LogicalIndex" RelativeSource="{RelativeSource TemplatedParent}" />
+                                    </MultiBinding>
+                                </Button.IsVisible>
+                            </Button>
+                        </Panel>
+                    </Border>
+
+                    <Border Name="PART_RightBorder"
+                            Grid.Column="2"
+                            Height="20"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Background="{DynamicResource DragTabItemRightSeparatorBackgroundBrush}"
+                            BorderThickness="0,0,1,0" />
+
+                    <Path Name="PART_RightCorner"
+                          Grid.Column="2"
+                          Height="4"
+                          VerticalAlignment="Bottom"
+                          Fill="{TemplateBinding Background}"
+                          Stretch="Uniform">
+                        <Path.Data>
+                            <PathGeometry>
+                                <PathFigure IsClosed="True" StartPoint="0 -4">
+                                    <ArcSegment Point="4 0"
+                                                Size="4 4"
+                                                SweepDirection="CounterClockwise" />
+                                    <LineSegment Point="0 0" />
+                                </PathFigure>
+                            </PathGeometry>
+                        </Path.Data>
+                    </Path>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+
+        <!--  Selected state  -->
+        <Style Selector="^:selected">
+            <Setter Property="Background" Value="{DynamicResource DragTabItemSelectedBackgroundBrush}" />
+            <!--<Setter Property="TextBlock.Foreground" Value="{DynamicResource TabItemHeaderForegroundSelected}" />-->
+        </Style>
+
+        <Style Selector="^:selected /template/ Border#PART_RightBorder">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+
+        <!--  PointerOver state  -->
+        <Style Selector="^:pointerover">
+            <Setter Property="Background" Value="{DynamicResource DragTabItemHeaderBackgroundUnselectedPointerOver}" />
+            <!--<Setter Property="TextBlock.Foreground" Value="{DynamicResource TabItemHeaderForegroundUnselectedPointerOver}" />-->
+        </Style>
+        <Style Selector="^:pointerover /template/ Border#PART_RightBorder">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+
+        <!--  Selected PointerOver state  -->
+        <Style Selector="^:selected:pointerover">
+            <Setter Property="Background" Value="{DynamicResource DragTabItemSelectedBackgroundBrush}" />
+            <!--<Setter Property="TextBlock.Foreground" Value="{DynamicResource TabItemHeaderForegroundSelectedPointerOver}" />-->
+        </Style>
+        <Style Selector="^:selected:pointerover /template/ Border#PART_RightBorder">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+
+        <Style Selector="^[TabStripPlacement=Left] /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Margin" Value="8,0,0,0" />
+        </Style>
+
+        <Style Selector="^[TabStripPlacement=Right] /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Margin" Value="0,0,8,0" />
+        </Style>
+
+        <Style Selector="^[TabStripPlacement=Right]">
+            <Setter Property="HorizontalContentAlignment" Value="Right" />
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary> 

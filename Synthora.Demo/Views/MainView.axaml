@@ -16,8 +16,8 @@
 
     <Design.DataContext>
         <!--
-            This only sets the DataContext for the previewer in an IDE,
-            to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs)
+        This only sets the DataContext for the previewer in an IDE,
+        to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs)
         -->
         <vm:MainViewModel />
     </Design.DataContext>
@@ -1140,7 +1140,7 @@
                                                    Text="TabControl" />
                                         <TextBlock FontSize="11"
                                                    Foreground="{DynamicResource ThemeForegroundLowBrush}"
-                                                   Text="SplitView · TabControl · TabbedPage · DrawerPage components" />
+                                                   Text="SplitView · TabControl · DragTabControl · TabbedPage · DrawerPage components" />
                                     </StackPanel>
                                 </DockPanel>
                             </Border>
@@ -1207,6 +1207,32 @@
                                                 <SelectableTextBlock>Content 4</SelectableTextBlock>
                                             </TabItem>
                                         </TabControl>
+                                    </StackPanel>
+                                </Border>
+
+                                <!--  DragTabControl  -->
+                                <Border Classes="card" Background="{DynamicResource DragTabControlBackgroundBrush}">
+                                    <StackPanel Spacing="10">
+                                        <StackPanel Classes="sectionHeader">
+                                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="SelectionDrag" />
+                                            <TextBlock Classes="sectionLabel" Text="DRAGGABLE TAB CONTROL" /> 
+                                        </StackPanel>
+                                        <DragTabControl Height="200"
+                                                        LeftThumbWidth="0"
+                                                        RightThumbWidth="0">
+                                            <DragTabItem Header="Tab 1">
+                                                <SelectableTextBlock>Content 1</SelectableTextBlock>
+                                            </DragTabItem>
+                                            <DragTabItem Header="Tab 2" IsEnabled="False">
+                                                <SelectableTextBlock>Content 2</SelectableTextBlock>
+                                            </DragTabItem>
+                                            <DragTabItem Header="Tab 3">
+                                                <SelectableTextBlock>Content 3</SelectableTextBlock>
+                                            </DragTabItem>
+                                            <DragTabItem Header="Tab 4">
+                                                <SelectableTextBlock>Content 4</SelectableTextBlock>
+                                            </DragTabItem>
+                                        </DragTabControl>
                                     </StackPanel>
                                 </Border>
 

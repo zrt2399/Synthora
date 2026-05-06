@@ -20,6 +20,8 @@
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/SystemDropShadowChrome.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/Divider.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/DrawerPage.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/DragTabControl.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/DragTabItem.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/PathIcon.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/PathPicker.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/PipsPager.xaml" />
