@@ -238,7 +238,7 @@
                 </Transitions>
             </Setter>
             <Setter Property="Foreground" Value="{DynamicResource ThemeBorderMidBrush}" />
-            <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
+            <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
             <Setter Property="Template">
                 <ControlTemplate TargetType="Thumb">
                     <Border Background="{TemplateBinding Foreground}"

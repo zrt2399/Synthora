@@ -7,7 +7,7 @@
         <Setter Property="Padding" Value="4,0" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Top" />
-        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
         <Setter Property="LineBrush" Value="{DynamicResource SynthoraBorderBrush}" />
         <Setter Property="Template">
             <ControlTemplate>

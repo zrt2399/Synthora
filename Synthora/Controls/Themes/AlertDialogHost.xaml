@@ -42,7 +42,7 @@
                                     BorderBrush="{DynamicResource ThemeBorderLowBrush}"
                                     BorderThickness="{DynamicResource ThemeBorderThickness}"
                                     BoxShadow="{TemplateBinding BoxShadow}"
-                                    CornerRadius="{DynamicResource ThemeBorderCornerRadius}">
+                                    CornerRadius="{DynamicResource ThemeBorderCornerRadiusNormal}">
 
                                 <Border.Transitions>
                                     <Transitions>

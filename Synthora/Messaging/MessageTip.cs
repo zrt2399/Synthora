@@ -148,7 +148,7 @@ namespace Synthora.Messaging
                 Border border = new Border();
                 border.Margin = new Thickness(4);
                 border.Padding = new Thickness(padding);
-                if (application.TryGetResource("ThemeBorderCornerRadius", application.ActualThemeVariant, out var radius) && radius is CornerRadius cornerRadius)
+                if (application.TryGetResource("ThemeBorderCornerRadiusNormal", application.ActualThemeVariant, out var radius) && radius is CornerRadius cornerRadius)
                 {
                     border.CornerRadius = cornerRadius;
                 }

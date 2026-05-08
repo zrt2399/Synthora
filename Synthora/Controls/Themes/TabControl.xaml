@@ -94,7 +94,7 @@
                                 VerticalAlignment="{TemplateBinding TabControlAttach.VerticalHeaderAlignment}"
                                 Background="{DynamicResource ThemeControlMidBrush}"
                                 BorderThickness="{DynamicResource ThemeBorderThickness}"
-                                CornerRadius="{DynamicResource ThemeBorderCornerRadius}">
+                                CornerRadius="{DynamicResource ThemeBorderCornerRadiusNormal}">
                             <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
                         </Border>
                         <ContentPresenter Name="PART_SelectedContentHost"

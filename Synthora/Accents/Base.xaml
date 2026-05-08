@@ -265,7 +265,7 @@
     <Thickness x:Key="ThemeControlPaddingSmall">4</Thickness>
 
     <CornerRadius x:Key="ThemeBorderCornerRadiusSmall">4</CornerRadius>
-    <CornerRadius x:Key="ThemeBorderCornerRadius">6</CornerRadius>
+    <CornerRadius x:Key="ThemeBorderCornerRadiusNormal">6</CornerRadius>
     <CornerRadius x:Key="ThemeBorderCornerRadiusLarge">8</CornerRadius>
 
     <x:Double x:Key="ThemePlaceholderTextOpacity">0.6</x:Double>
