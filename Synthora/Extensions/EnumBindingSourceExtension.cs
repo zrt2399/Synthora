@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Avalonia.Markup.Xaml;
 
@@ -6,17 +7,18 @@ namespace Synthora.Extensions
 {
     /// <summary>
     /// Provides enum values for binding in XAML.
-    /// Uses reflection (e.g., Enum.GetValues), and is not compatible with NativeAOT.
+    /// Potentially incompatible with Native AOT.
     /// </summary>
     public class EnumBindingSourceExtension : MarkupExtension
     {
-        private Type? _enumType;
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicFields)]
+        [field: DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicFields)]
         public Type? EnumType
         {
-            get => _enumType;
+            get;
             set
             {
-                if (value != _enumType)
+                if (value != field)
                 {
                     if (value != null)
                     {
@@ -26,19 +28,19 @@ namespace Synthora.Extensions
                             throw new ArgumentException("Type must be an enum.", nameof(value));
                         }
                     }
-                    _enumType = value;
+                    field = value;
                 }
             }
         }
 
         public EnumBindingSourceExtension() { }
 
-        public EnumBindingSourceExtension(Type enumType) : this()
+        public EnumBindingSourceExtension([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicFields)] Type enumType) : this()
         {
             EnumType = enumType;
         }
 
-        public EnumBindingSourceExtension(Type enumType, bool ignoreZero) : this(enumType)
+        public EnumBindingSourceExtension([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicFields)] Type enumType, bool ignoreZero) : this(enumType)
         {
             IgnoreZero = ignoreZero;
         }
@@ -53,20 +55,28 @@ namespace Synthora.Extensions
             }
 
             Type actualEnumType = Nullable.GetUnderlyingType(EnumType) ?? EnumType;
-            Array enumValues = Enum.GetValues(actualEnumType);
+            Array enumValues = Enum.GetValuesAsUnderlyingType(actualEnumType);
+            object?[] boxedValues = new object?[enumValues.Length + (actualEnumType == EnumType ? 0 : 1)];
 
-            if (actualEnumType == EnumType)
+            int offset = 0;
+            if (actualEnumType != EnumType)
             {
-                if (IgnoreZero)
-                {
-                    return enumValues.Cast<object>().Where(x => Convert.ToInt64(x) != 0);
-                }
-                return enumValues;
+                boxedValues[0] = null;
+                offset = 1;
             }
 
-            Array tempArray = Array.CreateInstance(actualEnumType, enumValues.Length + 1);
-            enumValues.CopyTo(tempArray, 1);
-            return tempArray;
+            for (int i = 0; i < enumValues.Length; i++)
+            {
+                object rawValue = enumValues.GetValue(i)!;
+                boxedValues[i + offset] = Enum.ToObject(actualEnumType, rawValue);
+            }
+
+            if (IgnoreZero)
+            {
+                return boxedValues.Where(x => Convert.ToInt64(x) != 0);
+            }
+
+            return boxedValues;
         }
     }
 }

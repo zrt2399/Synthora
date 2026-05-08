@@ -89,15 +89,18 @@ namespace Synthora.Utils
         /// Retrieves the <see cref="DescriptionAttribute"/> text for an enum value, 
         /// or the enum's name if no description is found.
         /// </summary>
-        public static string GetDescription<T>([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields)] this T enumerationValue) where T : Enum
+        public static string GetDescription<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicFields)] T>
+            (this T t) where T : Enum
         {
-            Type type = enumerationValue.GetType();
+            Type type = t.GetType();
+            string enumName = t.ToString();
 
-            if (type.GetField(enumerationValue.ToString())?.GetCustomAttribute<DescriptionAttribute>() is DescriptionAttribute descriptionAttribute)
+            if (type.GetField(enumName)?.GetCustomAttribute<DescriptionAttribute>() is { } descriptionAttribute)
             {
                 return descriptionAttribute.Description;
             }
-            return enumerationValue.ToString();
+
+            return enumName;
         }
 
         /// <summary>
