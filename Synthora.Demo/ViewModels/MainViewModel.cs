@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -44,9 +45,10 @@ namespace Synthora.Demo.ViewModels
             DataGridCollectionView = new DataGridCollectionView(Employees);
             DataGridCollectionView.GroupDescriptions.Add(new DataGridPathGroupDescription(nameof(Employee.Age)));
             Dispatcher.UIThread.InvokeAsync(() => _notificationManager = new WindowNotificationManager(App.MainWindow));
-            if (Application.Current is Application application)
+            if (Application.Current is { } application)
             {
                 application.ActualThemeVariantChanged += Current_ActualThemeVariantChanged;
+                SelectedThemeMode = ToAppThemeMode(application.RequestedThemeVariant);
             }
             InitializeBrushResources();
         }
@@ -58,6 +60,13 @@ namespace Synthora.Demo.ViewModels
 
         [ObservableProperty]
         public partial string Greeting { get; set; } = "Welcome to Avalonia!";
+
+        [ObservableProperty]
+        public partial AppThemeMode SelectedEnumDescriptionMode { get; set; }
+
+        [ObservableProperty]
+        public partial AppThemeMode SelectedThemeMode { get; set; }
+
         [ObservableProperty]
         public partial NotificationPosition NotificationPosition { get; set; } = NotificationPosition.TopRight;
         public IEnumerable<NotificationPosition> NotificationPositions { get; } = Enum.GetValues<NotificationPosition>();
@@ -123,6 +132,33 @@ namespace Synthora.Demo.ViewModels
             {
                 BrushKeys = new ObservableCollection<string>(temp);
             }
+        }
+
+        partial void OnSelectedThemeModeChanged(AppThemeMode value)
+        {
+            if (Application.Current is { } application)
+            {
+                application.RequestedThemeVariant = ToThemeVariant(value);
+            }
+        }
+
+        private static AppThemeMode ToAppThemeMode(ThemeVariant? themeVariant)
+        {
+            if (themeVariant == ThemeVariant.Default)
+            {
+                return AppThemeMode.Default;
+            }
+            return themeVariant == ThemeVariant.Light ? AppThemeMode.Light : AppThemeMode.Dark;
+        }
+
+        private static ThemeVariant ToThemeVariant(AppThemeMode mode)
+        {
+            return mode switch
+            {
+                AppThemeMode.Light => ThemeVariant.Light,
+                AppThemeMode.Dark => ThemeVariant.Dark,
+                _ => ThemeVariant.Default
+            };
         }
 
         public void ClearEmployees()
@@ -198,16 +234,12 @@ namespace Synthora.Demo.ViewModels
 
         public void SwitchTheme(string param)
         {
-            if (Application.Current is Application application)
+            SelectedThemeMode = param switch
             {
-                application.RequestedThemeVariant = param switch
-                {
-                    nameof(ThemeVariant.Default) => ThemeVariant.Default,
-                    nameof(ThemeVariant.Light) => ThemeVariant.Light,
-                    nameof(ThemeVariant.Dark) => ThemeVariant.Dark,
-                    _ => application.RequestedThemeVariant
-                };
-            }
+                nameof(ThemeVariant.Light) => AppThemeMode.Light,
+                nameof(ThemeVariant.Dark) => AppThemeMode.Dark,
+                _ => AppThemeMode.Default
+            };
         }
 
         public void ShowNotification(string param)
@@ -233,7 +265,7 @@ namespace Synthora.Demo.ViewModels
                     _notificationManager.Show(new Notification("Error", "This is an error message.", NotificationType.Error));
                     break;
                 case "Multiline":
-                    StringBuilder stringBuilder = new StringBuilder();  
+                    StringBuilder stringBuilder = new StringBuilder();
                     for (int i = 0; i < 100; i++)
                     {
                         stringBuilder.Append("Multiline;");
@@ -265,5 +297,15 @@ namespace Synthora.Demo.ViewModels
             FileName = GitHubDepositoryUri.ToString(),
             UseShellExecute = true
         }));
+    }
+
+    public enum AppThemeMode
+    {
+        [Description("系统")]
+        Default,
+        [Description("浅色")]
+        Light,
+        [Description("深色")]
+        Dark
     }
 }

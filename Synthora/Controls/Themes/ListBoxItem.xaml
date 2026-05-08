@@ -44,4 +44,46 @@
             <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush2}" />
         </Style>
     </ControlTheme>
+
+    <ControlTheme x:Key="SegmentedListBoxItemTheme" TargetType="ListBoxItem">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Padding" Value="{DynamicResource ThemeHeaderControlPadding}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="CornerRadius">
+            <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.All}">
+                <Binding Path="CornerRadius" RelativeSource="{RelativeSource AncestorType=ListBox}" />
+                <Binding Path="BorderThickness" RelativeSource="{RelativeSource AncestorType=ListBox}" />
+                <Binding Path="Padding" RelativeSource="{RelativeSource AncestorType=ListBox}" />
+            </MultiBinding>
+        </Setter>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="PART_LayoutRoot"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <ContentPresenter Name="PART_ContentPresenter"
+                                      Margin="{TemplateBinding Padding}"
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:selected">
+            <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />
+        </Style>
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />
+        </Style>
+
+        <Style Selector="^:pressed">
+            <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidBrush}" />
+        </Style>
+    </ControlTheme>
 </ResourceDictionary>

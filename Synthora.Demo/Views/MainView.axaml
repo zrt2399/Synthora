@@ -16,13 +16,14 @@
 
     <Design.DataContext>
         <!--
-        This only sets the DataContext for the previewer in an IDE,
-        to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs)
+            This only sets the DataContext for the previewer in an IDE,
+            to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs)
         -->
         <vm:MainViewModel />
     </Design.DataContext>
 
     <UserControl.Resources>
+        <converters:AppThemeModeToIconKindConverter x:Key="AppThemeModeToIconKindConverter" />
         <converters:ResourceKeyToBrushConverter x:Key="ResourceKeyToBrushConverter" />
         <LinearGradientBrush x:Key="BackdropBrush" StartPoint="0,0" EndPoint="1,1">
             <GradientStop Offset="0" Color="{DynamicResource ThemeBackgroundColor}" />
@@ -296,6 +297,25 @@
                                     </StackPanel>
                                 </Border>
 
+                                <Border Classes="card">
+                                    <StackPanel Spacing="10">
+                                        <StackPanel Classes="sectionHeader">
+                                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="TestTube" />
+                                            <TextBlock Classes="sectionLabel" Text="ENUM AOT TEST" />
+                                        </StackPanel>
+                                        <ComboBox HorizontalAlignment="Stretch"
+                                                  ItemsSource="{EnumBindingSource EnumType={x:Type vm:AppThemeMode}}"
+                                                  SelectedItem="{Binding SelectedEnumDescriptionMode}"
+                                                  TextBoxAttach.Title="ComboBox with GetDescription and EnumBindingSourceExtension">
+                                            <ComboBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding Converter={x:Static SynthoraConverters.EnumDescriptionConverter}}" />
+                                                </DataTemplate>
+                                            </ComboBox.ItemTemplate>
+                                        </ComboBox>
+                                    </StackPanel>
+                                </Border>
+
                                 <!--  日期 & 时间  -->
                                 <Border Classes="card">
                                     <StackPanel Spacing="10">
@@ -511,47 +531,54 @@
                                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="CheckboxMarkedOutline" />
                                             <TextBlock Classes="sectionLabel" Text="SELECTION CONTROLS" />
                                         </StackPanel>
-                                        <Grid ColumnDefinitions="*,16,*" RowDefinitions="Auto,12,Auto,12,Auto,12,Auto">
+                                        <StackPanel Spacing="8">
                                             <!--  CheckBox  -->
-                                            <TextBlock Grid.Row="0"
-                                                       Grid.Column="0"
-                                                       Grid.ColumnSpan="3"
-                                                       FontSize="11"
+                                            <TextBlock FontSize="11"
                                                        Foreground="{DynamicResource ThemeForegroundLowBrush}"
                                                        Text="CheckBox" />
-                                            <SpacingWrapPanel Grid.Row="2"
-                                                              Grid.Column="0"
-                                                              Grid.ColumnSpan="3"
-                                                              HorizontalSpacing="10"
-                                                              VerticalSpacing="6">
+                                            <SpacingWrapPanel HorizontalSpacing="8" VerticalSpacing="6">
                                                 <CheckBox>Unchecked</CheckBox>
                                                 <CheckBox IsChecked="True">Checked</CheckBox>
                                                 <CheckBox />
                                                 <CheckBox IsChecked="{x:Null}" IsThreeState="True">ThreeState</CheckBox>
                                             </SpacingWrapPanel>
                                             <!--  RadioButton  -->
-                                            <TextBlock Grid.Row="4"
-                                                       Grid.Column="0"
-                                                       Grid.ColumnSpan="3"
-                                                       FontSize="11"
+                                            <TextBlock FontSize="11"
                                                        Foreground="{DynamicResource ThemeForegroundLowBrush}"
                                                        Text="RadioButton" />
-                                            <SpacingWrapPanel Grid.Row="6"
-                                                              Grid.Column="0"
-                                                              Grid.ColumnSpan="3"
-                                                              HorizontalSpacing="10"
-                                                              VerticalSpacing="6">
+                                            <SpacingWrapPanel HorizontalSpacing="8" VerticalSpacing="6">
                                                 <RadioButton>Unchecked</RadioButton>
                                                 <RadioButton IsChecked="True">Checked</RadioButton>
                                                 <RadioButton />
                                                 <RadioButton IsChecked="{x:Null}" IsThreeState="True">ThreeState</RadioButton>
                                             </SpacingWrapPanel>
-                                        </Grid>
+                                            <!--  Segmented RadioButton  -->
+                                            <TextBlock FontSize="11"
+                                                       Foreground="{DynamicResource ThemeForegroundLowBrush}"
+                                                       Text="Segmented RadioButton" />
+                                            <ListBox HorizontalAlignment="Left"
+                                                     ItemsSource="{EnumBindingSource EnumType={x:Type vm:AppThemeMode}}"
+                                                     SelectedItem="{Binding SelectedThemeMode}"
+                                                     Theme="{StaticResource SegmentedListBoxTheme}">
+                                                <ListBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackPanel Orientation="Horizontal" Spacing="10">
+                                                            <materialIcons:MaterialIcon Classes="sectionIcon"
+                                                                                        IconSize="16"
+                                                                                        Kind="{Binding Converter={StaticResource AppThemeModeToIconKindConverter}}" />
+                                                            <TextBlock VerticalAlignment="Center"
+                                                                       FontSize="14"
+                                                                       Text="{Binding Converter={x:Static SynthoraConverters.EnumDescriptionConverter}}" />
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </ListBox.ItemTemplate>
+                                            </ListBox>
+                                        </StackPanel>
                                         <StackPanel Classes="sectionSubHeader">
                                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ToggleSwitchOutline" />
                                             <TextBlock Classes="sectionLabel" Text="TOGGLE SWITCH" />
                                         </StackPanel>
-                                        <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="6">
+                                        <SpacingWrapPanel HorizontalSpacing="8" VerticalSpacing="6">
                                             <ToggleSwitch OffContent="{x:Null}" OnContent="{x:Null}" />
                                             <ToggleSwitch OffContent="123" OnContent="456789" />
                                             <ToggleSwitch />
@@ -561,7 +588,7 @@
                                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="LinkVariant" />
                                             <TextBlock Classes="sectionLabel" Text="HYPERLINK BUTTON" />
                                         </StackPanel>
-                                        <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="6">
+                                        <SpacingWrapPanel HorizontalSpacing="8" VerticalSpacing="6">
                                             <HyperlinkButton>HyperlinkButton</HyperlinkButton>
                                             <HyperlinkButton NavigateUri="{x:Static vm:MainViewModel.GitHubDepositoryUri}">GitHub</HyperlinkButton>
                                         </SpacingWrapPanel>
@@ -1211,11 +1238,11 @@
                                 </Border>
 
                                 <!--  DragTabControl  -->
-                                <Border Classes="card" Background="{DynamicResource DragTabControlBackgroundBrush}">
+                                <Border Background="{DynamicResource DragTabControlBackgroundBrush}" Classes="card">
                                     <StackPanel Spacing="10">
                                         <StackPanel Classes="sectionHeader">
                                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="SelectionDrag" />
-                                            <TextBlock Classes="sectionLabel" Text="DRAGGABLE TAB CONTROL" /> 
+                                            <TextBlock Classes="sectionLabel" Text="DRAGGABLE TAB CONTROL" />
                                         </StackPanel>
                                         <DragTabControl Height="200"
                                                         LeftThumbWidth="0"
