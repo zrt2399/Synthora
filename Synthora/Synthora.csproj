@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<TargetFramework>net10.0</TargetFramework>
 		<Nullable>enable</Nullable>
-		<DebugType>embedded</DebugType> 
+		<DebugType>embedded</DebugType>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<Title>AvaloniaUI Theme</Title>
 		<Authors>Yoyo</Authors>
@@ -31,23 +31,12 @@
 			<PackagePath>\</PackagePath>
 		</None>
 	</ItemGroup>
-	
+
 	<ItemGroup>
 		<PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
 		<PackageReference Include="Avalonia.Controls.DataGrid" Version="$(AvaloniaDataGridVersion)" />
 	</ItemGroup>
-	
-	<ItemGroup>
-	  <AvaloniaResource Update="Controls\Themes\DragTabItem.xaml">
-	    <SubType>Designer</SubType>
-	    <Generator>MSBuild:Compile</Generator>
-	  </AvaloniaResource>
-	  <AvaloniaResource Update="Controls\Themes\DragTabControl.xaml">
-	    <SubType>Designer</SubType>
-	    <Generator>MSBuild:Compile</Generator>
-	  </AvaloniaResource>
-	</ItemGroup>
-	
+
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
 		<NoWarn>1591</NoWarn>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
