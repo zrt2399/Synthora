@@ -562,7 +562,7 @@
                                                      Theme="{StaticResource SegmentedListBoxTheme}">
                                                 <ListBox.ItemTemplate>
                                                     <DataTemplate>
-                                                        <StackPanel Orientation="Horizontal" Spacing="10">
+                                                        <StackPanel Orientation="Horizontal" Spacing="8">
                                                             <materialIcons:MaterialIcon Classes="sectionIcon"
                                                                                         IconSize="16"
                                                                                         Kind="{Binding Converter={StaticResource AppThemeModeToIconKindConverter}}" />
