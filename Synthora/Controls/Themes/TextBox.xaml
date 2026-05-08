@@ -266,6 +266,9 @@
                                             <Style Selector="ScrollContentPresenter#PART_ContentPresenter">
                                                 <Setter Property="Cursor" Value="IBeam" />
                                             </Style>
+                                            <Style Selector="ScrollContentPresenter#PART_ContentPresenter &gt; ScrollBar">
+                                                <Setter Property="ScrollBarAttach.InnerOffsetEnabled" Value="False" />
+                                            </Style>
                                         </ScrollViewer.Styles>
                                     </ScrollViewer>
                                     <ContentPresenter Grid.Column="2" Content="{TemplateBinding InnerRightContent}" />

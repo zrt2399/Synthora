@@ -284,6 +284,13 @@
                 <Setter Property="Height" Value="2" />
             </Style>
         </Style>
+
+        <Style Selector="^[(ScrollBarAttach.InnerOffsetEnabled)=False]">
+            <Setter Property="Margin" Value="0" />
+            <Style Selector="^ /template/ RepeatButton">
+                <Setter Property="Margin" Value="0" />
+            </Style>
+        </Style>
     </ControlTheme>
 
 </ResourceDictionary>
