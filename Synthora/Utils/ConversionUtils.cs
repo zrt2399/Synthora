@@ -88,6 +88,7 @@ namespace Synthora.Utils
         /// <summary>
         /// Retrieves the <see cref="DescriptionAttribute"/> text for an enum value, 
         /// or the enum's name if no description is found.
+        /// Potentially incompatible with Native AOT.
         /// </summary>
         public static string GetDescription<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicFields)] T>
             (this T t) where T : Enum
