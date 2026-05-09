@@ -18,7 +18,7 @@ namespace Synthora.Controls
     }
 
     [PseudoClasses(pcNoButton)]
-    public class AlertDialogHost : DropShadowChrome
+    public class AlertDialogHost : ContentControl
     {
         private const string pcNoButton = ":no-button";
         private StackPanel? PART_ButtonPanel;
@@ -50,6 +50,9 @@ namespace Synthora.Controls
 
         public static readonly StyledProperty<bool> ShowCloseButtonProperty =
             AvaloniaProperty.Register<AlertDialogHost, bool>(nameof(ShowCloseButton));
+        
+        public static readonly StyledProperty<BoxShadows> DialogBoxShadowProperty = 
+            AvaloniaProperty.Register<DropShadowChrome, BoxShadows>(nameof(DialogBoxShadow));
 
         public event EventHandler<AlertDialogClosedEventArgs>? DialogClosed;
 
@@ -105,6 +108,12 @@ namespace Synthora.Controls
         {
             get => GetValue(ShowCloseButtonProperty);
             set => SetValue(ShowCloseButtonProperty, value);
+        }
+ 
+        public BoxShadows DialogBoxShadow
+        {
+            get => GetValue(DialogBoxShadowProperty);
+            set => SetValue(DialogBoxShadowProperty, value);
         }
 
         protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs e)

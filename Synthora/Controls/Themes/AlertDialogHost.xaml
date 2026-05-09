@@ -9,7 +9,7 @@
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />-->
         <!-- <Setter Property="BlurRadius" Value="{OnPlatform 1, macOS=4, x:TypeArguments=x:Double}" /> -->
         <Setter Property="BlurRadius" Value="1" />
-        <Setter Property="BoxShadow" Value="0 0 20 0 #60000000" />
+        <Setter Property="DialogBoxShadow" Value="{DynamicResource DialogBoxShadow}" />
         <Setter Property="OverlayBackground" Value="Transparent" />
         <Setter Property="Template">
             <ControlTemplate>
@@ -41,8 +41,8 @@
                                     Background="{DynamicResource ThemeBackgroundBrush}"
                                     BorderBrush="{DynamicResource ThemeBorderLowBrush}"
                                     BorderThickness="{DynamicResource ThemeBorderThickness}"
-                                    BoxShadow="{TemplateBinding BoxShadow}"
-                                    CornerRadius="{DynamicResource ThemeBorderCornerRadiusNormal}">
+                                    BoxShadow="{TemplateBinding DialogBoxShadow}"
+                                    CornerRadius="{DynamicResource ThemeBorderCornerRadiusLarge}">
 
                                 <Border.Transitions>
                                     <Transitions>
