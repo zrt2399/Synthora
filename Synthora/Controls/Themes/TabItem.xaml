@@ -81,7 +81,7 @@
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
-        <Setter Property="Margin" Value="3" />
+        <Setter Property="Margin" Value="{DynamicResource ThemeControlBorderPadding}" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="CornerRadius">
             <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.All}">
