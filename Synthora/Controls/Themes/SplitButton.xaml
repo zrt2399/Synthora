@@ -84,7 +84,8 @@
                                       BorderBrush="{TemplateBinding BorderBrush}"
                                       BorderThickness="{TemplateBinding BorderThickness}"
                                       BoxShadow="{DynamicResource EmptyBoxShadow}"
-                                      ClipToBounds="{TemplateBinding ClipToBounds}">
+                                      ClipToBounds="{TemplateBinding ClipToBounds}"
+                                      CornerRadius="{TemplateBinding CornerRadius}">
                         <Grid ColumnDefinitions="*,Auto">
                             <Button x:Name="PART_PrimaryButton"
                                     Padding="{TemplateBinding Padding}"

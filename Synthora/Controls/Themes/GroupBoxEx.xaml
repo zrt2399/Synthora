@@ -6,7 +6,7 @@
     <ControlTheme x:Key="{x:Type GroupBoxEx}" TargetType="GroupBoxEx">
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusLarge}" />
         <Setter Property="Padding" Value="10" />
         <Setter Property="HeaderPlacement" Value="Top" />
         <Setter Property="HeaderPadding" Value="{DynamicResource ThemeHeaderControlPadding}" />
