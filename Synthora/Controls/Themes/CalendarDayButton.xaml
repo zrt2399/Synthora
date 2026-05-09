@@ -23,16 +23,18 @@
         <Setter Property="Focusable" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel Background="Transparent">
-
-                    <Rectangle Name="TodayBackground"
-                               Fill="{TemplateBinding Background}"
-                               IsVisible="False"
-                               Opacity="0.75" />
+                <Panel Name="panel" Background="Transparent">
 
                     <Rectangle Name="SelectedBackground"
                                Fill="{DynamicResource PrimaryBrush}"
                                IsVisible="False" />
+
+                    <Rectangle Name="TodayBackground"
+                               Fill="{TemplateBinding Background}"
+                               IsVisible="False"
+                               Opacity="0.75"
+                               Stroke="{DynamicResource ThemeBorderMidBrush}"
+                               StrokeThickness="2" />
 
                     <Rectangle Name="Background"
                                Fill="{TemplateBinding Background}"
@@ -46,8 +48,7 @@
                                       Content="{TemplateBinding Content}"
                                       ContentTemplate="{TemplateBinding ContentTemplate}"
                                       FontSize="{TemplateBinding FontSize}"
-                                      Foreground="{TemplateBinding Foreground}"
-                                      Opacity="1" />
+                                      Foreground="{TemplateBinding Foreground}" />
 
                     <Path Name="BlackoutVisual"
                           Margin="3"

@@ -873,11 +873,18 @@
                                             <TextBlock Classes="sectionLabel" Text="GROUP BOX" />
                                         </StackPanel>
                                         <so:GroupBoxEx HorizontalContentAlignment="Left" Header="so:GroupBoxEx">
-                                            <StackPanel>
-                                                <TextBlock>Calendar</TextBlock>
-                                                <StackPanel Orientation="Horizontal">
+                                            <StackPanel Orientation="Horizontal">
+                                                <StackPanel>
+                                                    <TextBlock>Calendar</TextBlock>
                                                     <Calendar />
+                                                </StackPanel>
+                                                <DockPanel>
+                                                    <TextBlock DockPanel.Dock="Top">none</TextBlock>
                                                     <GroupBoxEx BoxShadow="none" Header="Calendar" />
+                                                </DockPanel>
+                                                <StackPanel Margin="8,0,0,0">
+                                                    <TextBlock>Calendar with BoxShadow</TextBlock>
+                                                    <Calendar BoxShadowAttach.BoxShadow="{DynamicResource DefaultBoxShadow}" />
                                                 </StackPanel>
                                             </StackPanel>
                                         </so:GroupBoxEx>

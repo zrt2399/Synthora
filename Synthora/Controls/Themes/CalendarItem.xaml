@@ -11,7 +11,7 @@
                     x:CompileBindings="True">
 
     <ControlTheme x:Key="{x:Type CalendarItem}" TargetType="CalendarItem">
-        <Setter Property="BoxShadowAttach.BoxShadow" Value="{DynamicResource EmptyBoxShadow}" />
+        <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
                 <GroupBoxEx Background="{TemplateBinding Background}"

@@ -11,7 +11,7 @@
                     x:CompileBindings="True">
 
     <ControlTheme x:Key="{x:Type Calendar}" TargetType="Calendar">
-        <!--<Setter Property="Focusable" Value="False" />-->
+        <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
@@ -19,13 +19,12 @@
         <Setter Property="HeaderBackground" Value="{DynamicResource ThemeControlMidBrush}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <StackPanel Name="PART_Root"
-                            HorizontalAlignment="Center"
-                            ClipToBounds="True">
+                <StackPanel Name="PART_Root">
                     <CalendarItem Name="PART_CalendarItem"
                                   Background="{TemplateBinding Background}"
                                   BorderBrush="{TemplateBinding BorderBrush}"
                                   BorderThickness="{TemplateBinding BorderThickness}"
+                                  BoxShadowAttach.BoxShadow="{TemplateBinding BoxShadowAttach.BoxShadow}"
                                   CornerRadius="{TemplateBinding CornerRadius}"
                                   HeaderBackground="{TemplateBinding HeaderBackground}" />
                 </StackPanel>
