@@ -232,8 +232,8 @@
     <ControlTheme x:Key="{x:Type CommandBar}" TargetType="CommandBar">
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="IsDynamicOverflowEnabled" Value="True" />
-        <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
+        <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ThemeControlMidBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusLarge}" />
         <Setter Property="Padding" Value="{DynamicResource ThemeControlBorderPadding}" />

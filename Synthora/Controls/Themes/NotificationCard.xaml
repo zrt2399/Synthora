@@ -22,10 +22,11 @@
         <Setter Property="Width" Value="{DynamicResource NotificationCardWidth}" />
         <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
         <!--  <Setter Property="RenderTransformOrigin" Value="50%,75%" />  -->
-        <!--<Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />-->
+        <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ThemeControlMidBrush}" />
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusLarge}" />
+        <Setter Property="BoxShadowAttach.BoxShadow" Value="0 0 6 0 #60000000" />
         <Setter Property="Template">
             <ControlTemplate>
                 <LayoutTransformControl Name="PART_LayoutTransformControl" UseRenderTransform="True">
@@ -33,7 +34,7 @@
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            BoxShadow="0 0 6 0 #60000000"
+                            BoxShadow="{TemplateBinding BoxShadowAttach.BoxShadow}"
                             CornerRadius="{TemplateBinding CornerRadius}">
                         <DockPanel>
                             <TipIcon Name="icon"
