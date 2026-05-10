@@ -23,10 +23,10 @@
             <Color x:Key="ThemeForegroundMidColor">#FF606060</Color>
             <Color x:Key="ThemeForegroundColor">#FF25292E</Color>
             <Color x:Key="ThemeBackgroundColor">#FFFFFFFF</Color>
-            <Color x:Key="ThemeBorderLowColor">#FFC8C8C8</Color>
+            <Color x:Key="ThemeBorderLowColor">#FFCCCCCC</Color>
             <Color x:Key="ThemeBorderMidColor">#FF999999</Color>
             <Color x:Key="ThemeBorderHighColor">#FF666666</Color>
-            <Color x:Key="ThemeControlLowColor">#FF868686</Color>
+            <Color x:Key="ThemeControlLowColor">#FFF5F5F5</Color>
             <Color x:Key="ThemeControlMidColor">#FFEEEFF0</Color>
             <Color x:Key="ThemeControlMidHighColor">#FFC2C3C9</Color>
             <Color x:Key="ThemeControlHighColor">#FF8C8C8C</Color>
@@ -76,16 +76,18 @@
             <SolidColorBrush x:Key="RefreshVisualizerBackground" Color="Transparent" />
             <SolidColorBrush x:Key="TextSelectionBrush" Color="{StaticResource ThemeAccentColor3}" />
 
-            <!--  BaseResources for CaptionButtons.xaml  -->
+            <!--  BaseResources for WindowDrawnDecorations  -->
             <SolidColorBrush x:Key="CaptionButtonForeground" Color="Black" />
             <SolidColorBrush x:Key="CaptionButtonBackground" Color="#ffe5e5e5" />
             <SolidColorBrush x:Key="CaptionButtonBorderBrush" Color="#ffcacaca" />
 
+            <!--  BaseResources for AvaloniaEdit  -->
             <Pen x:Key="TextEditorTextAreaSelectionBorder" Brush="#FF0078D7" />
             <SolidColorBrush x:Key="TextEditorTextAreaSelectionBrush">#FF4CA0E3</SolidColorBrush>
             <SolidColorBrush x:Key="TextEditorTextAreaSelectionForeground">#FFFFFFFF</SolidColorBrush>
             <SolidColorBrush x:Key="TextEditorSearchResultsBrush">#FF9B5FFF</SolidColorBrush>
 
+            <!--  BaseResources for DragTabControl  -->
             <SolidColorBrush x:Key="DragTabControlBackgroundBrush" Color="#E3E3E3" />
             <SolidColorBrush x:Key="DragTabItemBackgroundBrush" Color="Transparent" />
 
@@ -177,16 +179,18 @@
             <SolidColorBrush x:Key="RefreshVisualizerBackground" Color="Transparent" />
             <SolidColorBrush x:Key="TextSelectionBrush" Color="{StaticResource ThemeAccentColor2}" />
 
-            <!--  BaseResources for CaptionButtons.xaml  -->
+            <!--  BaseResources for WindowDrawnDecorations  -->
             <SolidColorBrush x:Key="CaptionButtonForeground" Color="White" />
             <SolidColorBrush x:Key="CaptionButtonBackground" Color="#ffe5e5e5" />
             <SolidColorBrush x:Key="CaptionButtonBorderBrush" Color="#ffcacaca" />
 
+            <!--  BaseResources for AvaloniaEdit  -->
             <Pen x:Key="TextEditorTextAreaSelectionBorder" Brush="#FF0078D7" />
             <SolidColorBrush x:Key="TextEditorTextAreaSelectionBrush">#095DA0</SolidColorBrush>
             <SolidColorBrush x:Key="TextEditorTextAreaSelectionForeground">#FFFFFFFF</SolidColorBrush>
             <SolidColorBrush x:Key="TextEditorSearchResultsBrush">#FF9B5FFF</SolidColorBrush>
 
+            <!--  BaseResources for DragTabControl  -->
             <SolidColorBrush x:Key="DragTabControlBackgroundBrush" Color="#000000" />
             <SolidColorBrush x:Key="DragTabItemBackgroundBrush" Color="Transparent" />
 

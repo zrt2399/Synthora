@@ -10,10 +10,10 @@
 
     <Application.Styles>
         <!--<SimpleTheme />
-		<StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Simple.xaml" />-->
+        <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Simple.xaml" />-->
 
         <!--<FluentTheme />
-		<StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml" />-->
+        <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml" />-->
 
         <SynthoraTheme DensityStyle="Compact" />
 
@@ -51,13 +51,14 @@
         <x:String x:Key="StringScrollBarLineRight">向右滚动</x:String>
         <x:String x:Key="StringEmptyBoxDescription">暂无数据</x:String>
         <x:String x:Key="StringCommandBarMore">更多</x:String>
+        <x:String x:Key="StringDrawerPageToggleNavigationDrawer">切换抽屉显示</x:String>
     </Application.Resources>
 
     <TrayIcon.Icons>
         <TrayIcons>
             <TrayIcon Icon="/Assets/avalonia-logo.ico"
                       IsVisible="{OnPlatform False,
-                                             macOS=True}"
+                      macOS=True}"
                       MacOSProperties.IsTemplateIcon="True"
                       ToolTipText="Synthora Demo App">
                 <TrayIcon.Menu>

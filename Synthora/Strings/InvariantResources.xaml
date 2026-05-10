@@ -49,5 +49,7 @@
     <x:String x:Key="StringEmptyBoxDescription">No data</x:String>
     <!--  CommandBar  -->
     <x:String x:Key="StringCommandBarMore">More</x:String>
+    <!--  DrawerPage  -->
+    <x:String x:Key="StringDrawerPageToggleNavigationDrawer">Toggle navigation drawer</x:String>
 
 </ResourceDictionary>
