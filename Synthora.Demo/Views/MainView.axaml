@@ -827,6 +827,7 @@
                                                              ShowProgressText="True"
                                                              Value="{Binding #VerticalSlider.Value}" />
                                             </DockPanel>
+                                            <Divider Content="Horizontal" Orientation="Horizontal" />
                                             <ProgressBar Height="4" Value="{Binding #HorizontalSlider.Value}" />
                                             <Slider Name="HorizontalSlider"
                                                     IsDirectionReversed="True"
@@ -1009,6 +1010,9 @@
                                         <DropShadowChrome>
                                             <TextBlock Margin="10">DropShadowChrome standalone</TextBlock>
                                         </DropShadowChrome>
+                                        <DropShadowChrome Classes="ShowShadowOnPointerOver">
+                                            <TextBlock Margin="10">DropShadowChrome with class ShowShadowOnPointerOver</TextBlock>
+                                        </DropShadowChrome>
                                         <StackPanel Orientation="Horizontal" Spacing="10">
                                             <GroupBoxEx Width="120" Header="GroupBoxEx">
                                                 <StackPanel Orientation="Horizontal">
@@ -1019,12 +1023,12 @@
                                         </StackPanel>
                                     </StackPanel>
                                 </Border>
-                                <!--  Layout mix  -->
+                                <!--  SpacingWrapPanel  -->
                                 <Border Classes="card">
                                     <StackPanel Spacing="10">
                                         <StackPanel Classes="sectionHeader">
                                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ViewDashboard" />
-                                            <TextBlock Classes="sectionLabel" Text="LAYOUT MIX" />
+                                            <TextBlock Classes="sectionLabel" Text="SPACING WRAPPANEL" />
                                         </StackPanel>
                                         <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
                                             <StackPanel Orientation="Horizontal">
@@ -1201,14 +1205,14 @@
                         </Grid>
                     </Grid>
                 </TabItem>
-                <TabItem Header="TabControl">
+                <TabItem Header="Navigation">
                     <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
                         <StackPanel Margin="16" Spacing="16">
                             <!--  顶部信息栏  -->
                             <Border Classes="infoBar">
                                 <DockPanel>
                                     <materialIcons:MaterialIcon Classes="infoIcon" Kind="TabUnselected" />
-                                    <CheckBox Name="TabControlViewIsEnabled"
+                                    <CheckBox Name="NavigationViewIsEnabled"
                                               VerticalAlignment="Center"
                                               Content="IsEnabled"
                                               DockPanel.Dock="Right"
@@ -1216,15 +1220,15 @@
                                     <StackPanel VerticalAlignment="Center" Spacing="1">
                                         <TextBlock FontSize="13"
                                                    FontWeight="SemiBold"
-                                                   Text="TabControl" />
+                                                   Text="Navigation" />
                                         <TextBlock FontSize="11"
                                                    Foreground="{DynamicResource ThemeForegroundLowBrush}"
-                                                   Text="SplitView · TabControl · DragTabControl · TabbedPage · DrawerPage components" />
+                                                   Text="SplitView · TabControl · DragTabControl · TabbedPage · DrawerPage · NavigationPage components" />
                                     </StackPanel>
                                 </DockPanel>
                             </Border>
 
-                            <StackPanel IsEnabled="{Binding #TabControlViewIsEnabled.IsChecked}" Spacing="16">
+                            <StackPanel IsEnabled="{Binding #NavigationViewIsEnabled.IsChecked}" Spacing="16">
                                 <!--  SplitView  -->
                                 <Border Classes="card">
                                     <StackPanel Spacing="10">
@@ -1240,7 +1244,9 @@
                                                    OpenPaneLength="200">
                                             <SplitView.Pane>
                                                 <StackPanel VerticalAlignment="Top" Spacing="10">
-                                                    <ToggleButton CornerRadius="0" IsChecked="{Binding $parent[SplitView].IsPaneOpen}">☰</ToggleButton>
+                                                    <ToggleButton Content="{materialIcons:MaterialIconExt Kind=Menu}"
+                                                                  CornerRadius="0"
+                                                                  IsChecked="{Binding $parent[SplitView].IsPaneOpen}" />
                                                     <TextBlock HorizontalAlignment="Center">Menu</TextBlock>
                                                 </StackPanel>
                                             </SplitView.Pane>
@@ -1360,6 +1366,50 @@
                                             </DrawerPage.Drawer>
                                             Content
                                         </DrawerPage>
+                                    </StackPanel>
+                                </Border>
+
+                                <!--  NavigationPage  -->
+                                <Border Classes="card">
+                                    <StackPanel Spacing="10">
+                                        <StackPanel Classes="sectionHeader">
+                                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="Navigation" />
+                                            <TextBlock Classes="sectionLabel" Text="NAVIGATION PAGE" />
+                                        </StackPanel>
+                                        <StackPanel Spacing="8">
+                                            <CommandBar DefaultLabelPosition="Bottom">
+                                                <CommandBarButton Click="PushAsync"
+                                                                  Icon="{materialIcons:MaterialIconExt Kind=ArrowRight}"
+                                                                  Label="{Binding $self.(ToolTip.Tip)}"
+                                                                  ToolTip.Tip="PushAsync" />
+                                                <CommandBarButton Click="PopAsync"
+                                                                  Icon="{materialIcons:MaterialIconExt Kind=ArrowLeft}"
+                                                                  Label="{Binding $self.(ToolTip.Tip)}"
+                                                                  ToolTip.Tip="PopAsync" />
+                                                <CommandBarButton Click="PopToRootAsync"
+                                                                  Icon="{materialIcons:MaterialIconExt Kind=Home}"
+                                                                  Label="{Binding $self.(ToolTip.Tip)}"
+                                                                  ToolTip.Tip="PopToRootAsync" />
+                                                <CommandBarSeparator />
+                                                <CommandBarButton Click="PushModalAsync"
+                                                                  Icon="{materialIcons:MaterialIconExt Kind=OpenInNew}"
+                                                                  Label="{Binding $self.(ToolTip.Tip)}"
+                                                                  ToolTip.Tip="PushModalAsync" />
+                                                <CommandBarButton Click="PopModalAsync"
+                                                                  Icon="{materialIcons:MaterialIconExt Kind=Close}"
+                                                                  Label="{Binding $self.(ToolTip.Tip)}"
+                                                                  ToolTip.Tip="PopModalAsync" />
+                                                <CommandBarButton Click="PopAllModalsAsync"
+                                                                  Icon="{materialIcons:MaterialIconExt Kind=CloseBoxMultiple}"
+                                                                  Label="{Binding $self.(ToolTip.Tip)}"
+                                                                  ToolTip.Tip="PopAllModalsAsync" />
+                                            </CommandBar>
+                                            <NavigationPage Name="navigationPage"
+                                                            Height="200"
+                                                            BorderBrush="{DynamicResource ThemeBorderLowBrush}"
+                                                            BorderThickness="1"
+                                                            Header="NavigationPage123" />
+                                        </StackPanel>
                                     </StackPanel>
                                 </Border>
                             </StackPanel>
