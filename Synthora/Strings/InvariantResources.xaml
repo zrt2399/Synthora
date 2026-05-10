@@ -47,5 +47,7 @@
     <x:String x:Key="StringAlertDialogButtonAbort">Abort</x:String>
     <!--  EmptyBox  -->
     <x:String x:Key="StringEmptyBoxDescription">No data</x:String>
+    <!--  CommandBar  -->
+    <x:String x:Key="StringCommandBarMore">More</x:String>
 
 </ResourceDictionary>

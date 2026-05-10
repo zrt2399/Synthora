@@ -395,27 +395,34 @@
                                                 <ComboBox ItemsSource="{EnumBindingSource CommandBarDefaultLabelPosition}" SelectedItem="{Binding #commandBar.DefaultLabelPosition}" />
                                             </CommandBar.Content>
                                             <CommandBar.PrimaryCommands>
-                                                <CommandBarButton Label="Back">
-                                                    <CommandBarButton.Icon>
-                                                        <materialIcons:MaterialIcon Kind="ArrowLeft" />
-                                                    </CommandBarButton.Icon>
-                                                </CommandBarButton>
+                                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=ArrowLeft}"
+                                                                  Label="{Binding $self.(ToolTip.Tip)}"
+                                                                  ToolTip.Tip="Back" />
                                                 <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=ArrowRight}"
                                                                   IsEnabled="False"
-                                                                  Label="Forward" />
+                                                                  Label="{Binding $self.(ToolTip.Tip)}"
+                                                                  ToolTip.Tip="Forward" />
                                                 <CommandBarSeparator />
-                                                <CommandBarToggleButton Icon="{materialIcons:MaterialIconExt Kind=File}" Label="File" />
+                                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=File}"
+                                                                  Label="{Binding $self.(ToolTip.Tip)}"
+                                                                  ToolTip.Tip="File" />
                                                 <CommandBarToggleButton Icon="{materialIcons:MaterialIconExt Kind=LetterBBox}"
                                                                         IsCompact="True"
-                                                                        Label="Bold" />
+                                                                        Label="{Binding $self.(ToolTip.Tip)}"
+                                                                        ToolTip.Tip="Bold" />
                                             </CommandBar.PrimaryCommands>
                                             <CommandBar.SecondaryCommands>
-                                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=ContentSave}" Label="Save" />
-                                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=Undo}" Label="Undo" />
+                                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=ContentSave}"
+                                                                  Label="{Binding $self.(ToolTip.Tip)}"
+                                                                  ToolTip.Tip="Save" />
+                                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=Undo}"
+                                                                  Label="{Binding $self.(ToolTip.Tip)}"
+                                                                  ToolTip.Tip="Undo" />
                                                 <CommandBarSeparator />
                                                 <CommandBarToggleButton Icon="{materialIcons:MaterialIconExt Kind=LetterBBox}"
                                                                         IsCompact="True"
-                                                                        Label="Bold" />
+                                                                        Label="{Binding $self.(ToolTip.Tip)}"
+                                                                        ToolTip.Tip="Bold" />
                                             </CommandBar.SecondaryCommands>
                                         </CommandBar>
                                     </StackPanel>
@@ -922,7 +929,7 @@
                                                 </DockPanel>
                                                 <StackPanel Margin="8,0,0,0">
                                                     <TextBlock>Calendar with BoxShadow</TextBlock>
-                                                    <Calendar BoxShadowAttach.BoxShadow="{DynamicResource DefaultBoxShadow}" />
+                                                    <Calendar BoxShadowAttach.BoxShadow="{DynamicResource DefaultBoxShadow}" SelectionMode="SingleRange" />
                                                 </StackPanel>
                                             </StackPanel>
                                         </so:GroupBoxEx>

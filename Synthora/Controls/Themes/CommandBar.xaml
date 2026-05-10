@@ -133,6 +133,9 @@
         <Style Selector="^[IsCompact=True] /template/ TextBlock#PART_Label">
             <Setter Property="IsVisible" Value="False" />
         </Style>
+        <Style Selector="^[IsCompact=False][LabelPosition=Right] /template/ TextBlock#PART_Label">
+            <Setter Property="IsVisible" Value="{Binding $self.Text, Converter={x:Static ObjectConverters.IsNotNull}}" />
+        </Style>
 
         <Style Selector="^[LabelPosition=Right] /template/ StackPanel#PART_LayoutRoot">
             <Setter Property="Orientation" Value="Horizontal" />
@@ -174,6 +177,9 @@
         </Style>
         <Style Selector="^[IsCompact=True] /template/ TextBlock#PART_Label">
             <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style Selector="^[IsCompact=False] /template/ TextBlock#PART_Label">
+            <Setter Property="IsVisible" Value="{Binding $self.Text, Converter={x:Static ObjectConverters.IsNotNull}}" />
         </Style>
 
         <Style Selector="^[LabelPosition=Right] /template/ StackPanel#PART_LayoutRoot">
@@ -231,17 +237,19 @@
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusLarge}" />
         <Setter Property="Padding" Value="{DynamicResource ThemeControlBorderPadding}" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="BoxShadowAttach.BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
         <!-- <Setter Property="ItemWidthBottom" Value="42" /> -->
         <!-- <Setter Property="ItemWidthRight" Value="102" /> -->
         <!-- <Setter Property="ItemWidthCollapsed" Value="42" /> -->
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Padding="{TemplateBinding Padding}"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        BoxShadow="{TemplateBinding BoxShadowAttach.BoxShadow}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
+                <DropShadowChrome Padding="{TemplateBinding Padding}"
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  BoxShadow="{TemplateBinding BoxShadowAttach.BoxShadow}"
+                                  CornerRadius="{TemplateBinding CornerRadius}">
                     <Panel KeyboardNavigation.TabNavigation="Cycle">
                         <Grid ColumnDefinitions="Auto,*,Auto">
                             <!--  Custom content area (docked left)  -->
@@ -269,7 +277,8 @@
                                     Margin="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CommandBarOverflowButtonMarginMultiplier}}"
                                     VerticalAlignment="Stretch"
                                     IsVisible="{TemplateBinding IsOverflowButtonVisible}"
-                                    Theme="{StaticResource CommandBarOverflowButtonTheme}">
+                                    Theme="{StaticResource CommandBarOverflowButtonTheme}"
+                                    ToolTip.Tip="{DynamicResource StringCommandBarMore}">
                                 <PathIcon Width="16"
                                           Height="16"
                                           HorizontalAlignment="Center"
@@ -309,7 +318,7 @@
                             </SystemDropShadowChrome>
                         </Popup>
                     </Panel>
-                </Border>
+                </DropShadowChrome>
             </ControlTemplate>
         </Setter>
         <Style Selector="^[DefaultLabelPosition=Collapsed] /template/ SystemDropShadowChrome#systemDropShadowChrome">
