@@ -6,7 +6,7 @@
 
     <ControlTheme x:Key="{x:Type Separator}" TargetType="Separator">
         <Setter Property="Focusable" Value="False" />
-        <Setter Property="Background" Value="{DynamicResource ThemeBorderMidBrush}" />
+        <Setter Property="Background" Value="{DynamicResource ThemeBorderLowBrush}" />
         <Setter Property="Margin" Value="{DynamicResource IconMenuItemHorizontalSeparatorMargin}" />
         <Setter Property="Height" Value="1" />
         <Setter Property="Template">
