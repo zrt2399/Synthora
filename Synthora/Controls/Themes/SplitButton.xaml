@@ -134,7 +134,7 @@
 
         <Style Selector="^:focus,^:pointerover">
             <Setter Property="Background" Value="{DynamicResource SynthoraMidBrush}" />
-            <Style Selector="^ /template/ DropShadowChrome#RootChrome">
+            <Style Selector="^[(ButtonAttach.ShowShadow)=True] /template/ DropShadowChrome#RootChrome">
                 <Setter Property="BoxShadow" Value="{TemplateBinding BorderBrush, Converter={x:Static SynthoraConverters.BoxShadowConverter}, ConverterParameter=0 0 4 0 #00000000}" />
             </Style>
         </Style>

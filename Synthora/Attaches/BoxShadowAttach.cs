@@ -6,7 +6,7 @@ namespace Synthora.Attaches
 {
     public class BoxShadowAttach
     {
-        public static readonly AttachedProperty<BoxShadows> BoxShadowProperty = 
+        public static readonly AttachedProperty<BoxShadows> BoxShadowProperty =
             AvaloniaProperty.RegisterAttached<BoxShadowAttach, Control, BoxShadows>("BoxShadow");
 
         public static BoxShadows GetBoxShadow(Control obj) => obj.GetValue(BoxShadowProperty);

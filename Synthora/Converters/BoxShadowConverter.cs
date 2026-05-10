@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Globalization;
-using Avalonia;
 using Avalonia.Data.Converters;
 using Avalonia.Media;
 
@@ -8,6 +7,8 @@ namespace Synthora.Converters
 {
     public class BoxShadowConverter : IValueConverter
     {
+        public const string DefaultParameter = "0 0 4 0 #00000000";
+
         public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             if (value is ISolidColorBrush solidColorBrush)
@@ -25,7 +26,11 @@ namespace Synthora.Converters
                         Color = solidColorBrush.Color
                     });
                 }
-                return new BoxShadows(new BoxShadow() { Blur = 8, Color = solidColorBrush.Color, });
+                return new BoxShadows(new BoxShadow()
+                {
+                    Blur = 8,
+                    Color = solidColorBrush.Color,
+                });
             }
             return new BoxShadows();
         }

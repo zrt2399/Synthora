@@ -30,17 +30,15 @@
         </Setter>
         <Style Selector="^:focus,^:pointerover">
             <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
+            <Style Selector="^[(ButtonAttach.ShowShadow)=True] /template/ DropShadowChrome#RootChrome">
+                <Setter Property="BoxShadow" Value="{Binding $self.BorderBrush, Converter={x:Static SynthoraConverters.BoxShadowConverter}, ConverterParameter=0 0 4 0 #00000000}" />
+            </Style>
         </Style>
         <Style Selector="^:pressed">
             <Setter Property="Background" Value="{DynamicResource SynthoraVeryHighBrush}" />
         </Style>
         <Style Selector="^:indeterminate">
             <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
-            <Style Selector="^:focus,^:pointerover">
-                <Style Selector="^ /template/ DropShadowChrome#RootChrome">
-                    <Setter Property="BoxShadow" Value="{TemplateBinding Background, Converter={x:Static SynthoraConverters.BoxShadowConverter}, ConverterParameter=0 0 4 0 #00000000}" />
-                </Style>
-            </Style>
         </Style>
     </ControlTheme>
 
@@ -48,10 +46,10 @@
                   BasedOn="{StaticResource ToggleButtonSolidBaseTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
-        <Style Selector="^:checked:pointerover /template/ DropShadowChrome#RootChrome">
+        <Style Selector="^:checked:pointerover">
             <Setter Property="Background" Value="{DynamicResource PrimaryPointerOverBrush}" />
         </Style>
-        <Style Selector="^:checked:pressed /template/ DropShadowChrome#RootChrome">
+        <Style Selector="^:checked:pressed">
             <Setter Property="Background" Value="{DynamicResource PrimaryPressedBrush}" />
         </Style>
         <Style Selector="^:checked">
@@ -64,10 +62,10 @@
                   BasedOn="{StaticResource ToggleButtonSolidBaseTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Foreground" Value="{DynamicResource SuccessBrush}" />
-        <Style Selector="^:checked:pointerover /template/ DropShadowChrome#RootChrome">
+        <Style Selector="^:checked:pointerover">
             <Setter Property="Background" Value="{DynamicResource SuccessPointerOverBrush}" />
         </Style>
-        <Style Selector="^:checked:pressed /template/ DropShadowChrome#RootChrome">
+        <Style Selector="^:checked:pressed">
             <Setter Property="Background" Value="{DynamicResource SuccessPressedBrush}" />
         </Style>
         <Style Selector="^:checked">
@@ -80,10 +78,10 @@
                   BasedOn="{StaticResource ToggleButtonSolidBaseTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Foreground" Value="{DynamicResource WarningBrush}" />
-        <Style Selector="^:checked:pointerover /template/ DropShadowChrome#RootChrome">
+        <Style Selector="^:checked:pointerover">
             <Setter Property="Background" Value="{DynamicResource WarningPointerOverBrush}" />
         </Style>
-        <Style Selector="^:checked:pressed /template/ DropShadowChrome#RootChrome">
+        <Style Selector="^:checked:pressed">
             <Setter Property="Background" Value="{DynamicResource WarningPressedBrush}" />
         </Style>
         <Style Selector="^:checked">
@@ -96,10 +94,10 @@
                   BasedOn="{StaticResource ToggleButtonSolidBaseTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Foreground" Value="{DynamicResource DangerBrush}" />
-        <Style Selector="^:checked:pointerover /template/ DropShadowChrome#RootChrome">
+        <Style Selector="^:checked:pointerover">
             <Setter Property="Background" Value="{DynamicResource DangerPointerOverBrush}" />
         </Style>
-        <Style Selector="^:checked:pressed /template/ DropShadowChrome#RootChrome">
+        <Style Selector="^:checked:pressed">
             <Setter Property="Background" Value="{DynamicResource DangerPressedBrush}" />
         </Style>
         <Style Selector="^:checked">
@@ -112,10 +110,10 @@
                   BasedOn="{StaticResource ToggleButtonSolidBaseTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Foreground" Value="{DynamicResource ErrorBrush}" />
-        <Style Selector="^:checked:pointerover /template/ DropShadowChrome#RootChrome">
+        <Style Selector="^:checked:pointerover">
             <Setter Property="Background" Value="{DynamicResource ErrorPointerOverBrush}" />
         </Style>
-        <Style Selector="^:checked:pressed /template/ DropShadowChrome#RootChrome">
+        <Style Selector="^:checked:pressed">
             <Setter Property="Background" Value="{DynamicResource ErrorPressedBrush}" />
         </Style>
         <Style Selector="^:checked">
@@ -170,11 +168,6 @@
             <Style Selector="^ /template/ DropShadowChrome#RootChrome">
                 <Setter Property="BorderBrush" Value="Transparent" />
             </Style>
-            <Style Selector="^:focus,^:pointerover">
-                <Style Selector="^ /template/ DropShadowChrome#RootChrome">
-                    <Setter Property="BoxShadow" Value="{TemplateBinding Background, Converter={x:Static SynthoraConverters.BoxShadowConverter}, ConverterParameter=0 0 4 0 #00000000}" />
-                </Style>
-            </Style>
         </Style>
 
         <Style Selector="^:checked">
@@ -192,6 +185,9 @@
         <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
         <Style Selector="^:focus,^:pointerover">
             <Setter Property="Background" Value="{DynamicResource SynthoraMidBrush}" />
+            <Style Selector="^[(ButtonAttach.ShowShadow)=True] /template/ DropShadowChrome#RootChrome">
+                <Setter Property="BoxShadow" Value="{Binding $self.BorderBrush, Converter={x:Static SynthoraConverters.BoxShadowConverter}, ConverterParameter=0 0 4 0 #00000000}" />
+            </Style>
         </Style>
         <Style Selector="^:pressed">
             <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
@@ -207,6 +203,9 @@
         <Style Selector="^:focus,^:pointerover">
             <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
             <!--<Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />-->
+            <Style Selector="^[(ButtonAttach.ShowShadow)=True] /template/ DropShadowChrome#RootChrome">
+                <Setter Property="BoxShadow" Value="{Binding $self.BorderBrush, Converter={x:Static SynthoraConverters.BoxShadowConverter}, ConverterParameter=0 0 4 0 #00000000}" />
+            </Style>
         </Style>
         <Style Selector="^:pressed">
             <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />
