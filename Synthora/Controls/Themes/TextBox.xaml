@@ -312,6 +312,7 @@
         </Style>
 
         <Style Selector="^.revealPasswordButton,^.RevealPasswordButton">
+            <Setter Property="PasswordChar" Value="●" />
             <Style Selector="^[AcceptsReturn=False][IsReadOnly=False]">
                 <Setter Property="InnerRightContent">
                     <Template>
