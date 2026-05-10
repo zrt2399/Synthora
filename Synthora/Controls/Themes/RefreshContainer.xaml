@@ -6,11 +6,11 @@
     <ControlTheme x:Key="{x:Type RefreshContainer}" TargetType="RefreshContainer">
         <Setter Property="Template">
             <ControlTemplate>
-                <Grid>
+                <Panel>
                     <ContentPresenter Name="PART_ContentPresenter"
-                                      Padding="{TemplateBinding Padding}"
-                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      Margin="{TemplateBinding Padding}"
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                       Background="{TemplateBinding Background}"
                                       BorderBrush="{TemplateBinding BorderBrush}"
                                       BorderThickness="{TemplateBinding BorderThickness}"
@@ -18,7 +18,7 @@
                                       ContentTemplate="{TemplateBinding ContentTemplate}"
                                       CornerRadius="{TemplateBinding CornerRadius}" />
                     <Grid Name="PART_RefreshVisualizerPresenter" />
-                </Grid>
+                </Panel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

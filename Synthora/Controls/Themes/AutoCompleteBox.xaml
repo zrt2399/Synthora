@@ -24,11 +24,13 @@
                                  MinWidth="{TemplateBinding (TextBoxAttach.MinWidth)}"
                                  MaxWidth="{TemplateBinding (TextBoxAttach.MaxWidth)}"
                                  Padding="{TemplateBinding Padding}"
+                                 VerticalContentAlignment="Center"
                                  Background="{TemplateBinding Background}"
                                  BorderBrush="{TemplateBinding BorderBrush}"
                                  BorderThickness="{TemplateBinding BorderThickness}"
                                  CaretIndex="{TemplateBinding CaretIndex,
                                                               Mode=TwoWay}"
+                                 ClearSelectionOnLostFocus="{TemplateBinding ClearSelectionOnLostFocus}"
                                  CornerRadius="{TemplateBinding CornerRadius}"
                                  DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
                                  InnerLeftContent="{TemplateBinding InnerLeftContent}"
