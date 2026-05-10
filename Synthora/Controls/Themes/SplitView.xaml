@@ -459,7 +459,7 @@
         </Style>
         <Style Selector="^:lightDismiss /template/ Rectangle#LightDismissLayer">
             <Setter Property="Fill">
-                <SolidColorBrush Opacity="0.4" Color="{DynamicResource ThemeControlHighColor}" />
+                <SolidColorBrush Opacity="0.5" Color="{DynamicResource ThemeControlHighColor}" />
             </Setter>
         </Style>
 
