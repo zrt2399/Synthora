@@ -236,9 +236,7 @@
                                                  Classes="clearButton"
                                                  Text="{Binding Value}"
                                                  TextBoxAttach.Title="Multiline TextBox" />
-                                        <TextBox Classes="revealPasswordButton"
-                                                 PasswordChar="●"
-                                                 TextBoxAttach.Title="PasswordBox" />
+                                        <TextBox Classes="revealPasswordButton" TextBoxAttach.Title="PasswordBox" />
                                         <StackPanel Orientation="Horizontal" Spacing="6">
                                             <TextBlock VerticalAlignment="Center"
                                                        FontSize="12"
@@ -385,6 +383,43 @@
                                 </DockPanel>
                             </Border>
                             <StackPanel IsEnabled="{Binding #ButtonViewIsEnabled.IsChecked}" Spacing="12">
+                                <Border Classes="card">
+                                    <StackPanel Spacing="10">
+                                        <StackPanel Classes="sectionHeader">
+                                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="AppleKeyboardCommand" />
+                                            <TextBlock Classes="sectionLabel" Text="COMMAND BAR" />
+                                        </StackPanel>
+                                        <!--  CommandBar  -->
+                                        <CommandBar Name="commandBar" DefaultLabelPosition="Collapsed">
+                                            <CommandBar.Content>
+                                                <ComboBox ItemsSource="{EnumBindingSource CommandBarDefaultLabelPosition}" SelectedItem="{Binding #commandBar.DefaultLabelPosition}" />
+                                            </CommandBar.Content>
+                                            <CommandBar.PrimaryCommands>
+                                                <CommandBarButton Label="Back">
+                                                    <CommandBarButton.Icon>
+                                                        <materialIcons:MaterialIcon Kind="ArrowLeft" />
+                                                    </CommandBarButton.Icon>
+                                                </CommandBarButton>
+                                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=ArrowRight}"
+                                                                  IsEnabled="False"
+                                                                  Label="Forward" />
+                                                <CommandBarSeparator />
+                                                <CommandBarToggleButton Icon="{materialIcons:MaterialIconExt Kind=File}" Label="File" />
+                                                <CommandBarToggleButton Icon="{materialIcons:MaterialIconExt Kind=LetterBBox}"
+                                                                        IsCompact="True"
+                                                                        Label="Bold" />
+                                            </CommandBar.PrimaryCommands>
+                                            <CommandBar.SecondaryCommands>
+                                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=ContentSave}" Label="Save" />
+                                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=Undo}" Label="Undo" />
+                                                <CommandBarSeparator />
+                                                <CommandBarToggleButton Icon="{materialIcons:MaterialIconExt Kind=LetterBBox}"
+                                                                        IsCompact="True"
+                                                                        Label="Bold" />
+                                            </CommandBar.SecondaryCommands>
+                                        </CommandBar>
+                                    </StackPanel>
+                                </Border>
                                 <!--  Icon & Standard Buttons  -->
                                 <Border Classes="card">
                                     <StackPanel Spacing="10">
@@ -556,8 +591,7 @@
                                             <TextBlock FontSize="11"
                                                        Foreground="{DynamicResource ThemeForegroundLowBrush}"
                                                        Text="Segmented RadioButton" />
-                                            <ListBox HorizontalAlignment="Left"
-                                                     ItemsSource="{EnumBindingSource EnumType={x:Type vm:AppThemeMode}}"
+                                            <ListBox ItemsSource="{EnumBindingSource EnumType={x:Type vm:AppThemeMode}}"
                                                      SelectedItem="{Binding SelectedThemeMode}"
                                                      Theme="{StaticResource SegmentedListBoxTheme}">
                                                 <ListBox.ItemTemplate>
@@ -567,7 +601,7 @@
                                                                                         IconSize="16"
                                                                                         Kind="{Binding Converter={StaticResource AppThemeModeToIconKindConverter}}" />
                                                             <TextBlock VerticalAlignment="Center"
-                                                                       FontSize="14"
+                                                                       FontSize="13"
                                                                        Text="{Binding Converter={x:Static SynthoraConverters.EnumDescriptionConverter}}" />
                                                         </StackPanel>
                                                     </DataTemplate>
@@ -736,12 +770,16 @@
                                         <MenuItem Header="MenuItem1">
                                             <MenuItem Header="MenuItem2">
                                                 <MenuItem Header="MenuItem3" />
+                                                <Separator />
                                                 <MenuItem Header="MenuItem4" />
+                                                <Separator />
                                                 <MenuItem Header="MenuItem5" />
                                                 <MenuItem Header="MenuItem6">
                                                     <MenuItem Header="MenuItem7" />
+                                                    <Separator />
                                                     <MenuItem Header="MenuItem8" />
                                                     <MenuItem Header="MenuItem9" />
+                                                    <MenuItem Header="MenuItem10" />
                                                 </MenuItem>
                                             </MenuItem>
                                         </MenuItem>

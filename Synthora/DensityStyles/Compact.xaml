@@ -10,6 +10,8 @@
     <Thickness x:Key="ThemeControlLeftPadding">6,0,0,0</Thickness>
     <Thickness x:Key="ThemeControlRightPadding">0,0,0,6</Thickness>
     <x:Double x:Key="MenuItemMinWidth">140</x:Double>
+    <Thickness x:Key="IconMenuItemHorizontalSeparatorMargin">24,4,0,4</Thickness>
+    <Thickness x:Key="MenuItemHorizontalSeparatorMargin">0,4</Thickness>
     <x:Double x:Key="DateTimePickerFlyoutPresenterItemHeight">32</x:Double>
     <Thickness x:Key="NotificationCardPadding">12</Thickness>
     <x:Double x:Key="NotificationCardWidth">300</x:Double>
