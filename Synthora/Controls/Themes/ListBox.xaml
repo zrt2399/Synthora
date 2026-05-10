@@ -40,6 +40,7 @@
     </ControlTheme>
 
     <ControlTheme x:Key="SegmentedListBoxTheme" TargetType="ListBox">
+        <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
