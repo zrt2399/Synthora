@@ -39,6 +39,12 @@
                 </Panel>
             </ControlTemplate>
         </Setter>
+        <Style Selector="^.ShowShadowOnPointerOver">
+            <Setter Property="BoxShadow" Value="{DynamicResource EmptyBoxShadow}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
+            </Style>
+        </Style>
     </ControlTheme>
 
 </ResourceDictionary>
