@@ -137,7 +137,7 @@
                                         ButtonAttach.ShowShadow="False"
                                         CornerRadius="0"
                                         IsVisible="{TemplateBinding IsBackButtonEffectivelyVisible}"
-                                        Theme="{StaticResource CancelButtonTheme}">
+                                        Theme="{StaticResource SecondaryButtonTheme}">
                                     <Panel>
                                         <PathIcon x:Name="PART_BackButtonDefaultIcon"
                                                   HorizontalAlignment="Center"

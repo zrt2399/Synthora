@@ -122,7 +122,7 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="ToggleButtonOutlineBaseTheme"
+    <ControlTheme x:Key="SecondaryButtonBaseTheme"
                   BasedOn="{StaticResource {x:Type Button}}"
                   TargetType="ToggleButton">
         <Setter Property="Template">
@@ -177,8 +177,8 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="SynthoraToggleButtonTheme"
-                  BasedOn="{StaticResource ToggleButtonOutlineBaseTheme}"
+    <ControlTheme x:Key="TonalToggleButtonTheme"
+                  BasedOn="{StaticResource SecondaryButtonBaseTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource SynthoraLowBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
@@ -194,8 +194,8 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="CancelToggleButtonTheme"
-                  BasedOn="{StaticResource ToggleButtonOutlineBaseTheme}"
+    <ControlTheme x:Key="SecondaryToggleButtonTheme"
+                  BasedOn="{StaticResource SecondaryButtonBaseTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />

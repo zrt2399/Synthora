@@ -108,7 +108,7 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="SynthoraButtonTheme"
+    <ControlTheme x:Key="TonalButtonTheme"
                   BasedOn="{StaticResource {x:Type Button}}"
                   TargetType="Button">
         <Setter Property="Background" Value="{DynamicResource SynthoraLowBrush}" />
@@ -123,7 +123,7 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="CancelButtonTheme"
+    <ControlTheme x:Key="SecondaryButtonTheme"
                   BasedOn="{StaticResource {x:Type Button}}"
                   TargetType="Button">
         <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />

@@ -50,7 +50,7 @@
                                   BorderThickness="0"
                                   Command="{Binding LineUp, RelativeSource={RelativeSource TemplatedParent}}"
                                   DockPanel.Dock="Top"
-                                  Theme="{StaticResource CancelRepeatButtonTheme}">
+                                  Theme="{StaticResource SecondaryRepeatButtonTheme}">
                         <RepeatButton.CornerRadius>
                             <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="TopLeft,TopRight">
                                 <TemplateBinding Property="CornerRadius" />
@@ -71,7 +71,7 @@
                                   BorderThickness="0"
                                   Command="{Binding LineDown, RelativeSource={RelativeSource TemplatedParent}}"
                                   DockPanel.Dock="Bottom"
-                                  Theme="{StaticResource CancelRepeatButtonTheme}">
+                                  Theme="{StaticResource SecondaryRepeatButtonTheme}">
                         <RepeatButton.CornerRadius>
                             <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="BottomLeft,BottomRight">
                                 <TemplateBinding Property="CornerRadius" />

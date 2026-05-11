@@ -128,13 +128,13 @@
                                 Command="{Binding SwitchTheme}"
                                 CommandParameter="Light"
                                 Content="{materialIcons:MaterialIconExt Kind=WhiteBalanceSunny}"
-                                Theme="{StaticResource SynthoraButtonTheme}"
+                                Theme="{StaticResource TonalButtonTheme}"
                                 ToolTip.Tip="切换为浅色主题" />
                         <Button Padding="6"
                                 Command="{Binding SwitchTheme}"
                                 CommandParameter="Dark"
                                 Content="{materialIcons:MaterialIconExt Kind=WeatherNight}"
-                                Theme="{StaticResource CancelButtonTheme}"
+                                Theme="{StaticResource SecondaryButtonTheme}"
                                 ToolTip.Tip="切换为深色主题" />
                     </StackPanel>
                     <StackPanel Spacing="3">
@@ -452,8 +452,8 @@
                                             <Button Theme="{StaticResource WarningButtonTheme}">Warning</Button>
                                             <Button Theme="{StaticResource DangerButtonTheme}">Danger</Button>
                                             <Button Theme="{StaticResource ErrorButtonTheme}">Error</Button>
-                                            <Button Theme="{StaticResource SynthoraButtonTheme}">Synthora</Button>
-                                            <Button Theme="{StaticResource CancelButtonTheme}">Cancel</Button>
+                                            <Button Theme="{StaticResource TonalButtonTheme}">Tonal</Button>
+                                            <Button Theme="{StaticResource SecondaryButtonTheme}">Secondary</Button>
                                         </SpacingWrapPanel>
                                         <SpacingWrapPanel HorizontalSpacing="8" VerticalSpacing="6">
                                             <Button Content="ContextMenuButton">
@@ -524,8 +524,8 @@
                                             <ToggleButton Theme="{StaticResource WarningToggleButtonTheme}">Warning</ToggleButton>
                                             <ToggleButton Theme="{StaticResource DangerToggleButtonTheme}">Danger</ToggleButton>
                                             <ToggleButton Theme="{StaticResource ErrorToggleButtonTheme}">Error</ToggleButton>
-                                            <ToggleButton Theme="{StaticResource SynthoraToggleButtonTheme}">Synthora</ToggleButton>
-                                            <ToggleButton Theme="{StaticResource CancelToggleButtonTheme}">Cancel</ToggleButton>
+                                            <ToggleButton Theme="{StaticResource TonalToggleButtonTheme}">Tonal</ToggleButton>
+                                            <ToggleButton Theme="{StaticResource SecondaryToggleButtonTheme}">Secondary</ToggleButton>
                                         </SpacingWrapPanel>
                                         <StackPanel Classes="sectionSubHeader">
                                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ChevronDown" />
@@ -548,8 +548,8 @@
                                             <DropDownButton Theme="{StaticResource WarningDropDownButtonTheme}">Warning</DropDownButton>
                                             <DropDownButton Theme="{StaticResource DangerDropDownButtonTheme}">Danger</DropDownButton>
                                             <DropDownButton Theme="{StaticResource ErrorDropDownButtonTheme}">Error</DropDownButton>
-                                            <DropDownButton Theme="{StaticResource SynthoraDropDownButtonTheme}">Synthora</DropDownButton>
-                                            <DropDownButton Theme="{StaticResource CancelDropDownButtonTheme}">Cancel</DropDownButton>
+                                            <DropDownButton Theme="{StaticResource TonalDropDownButtonTheme}">Tonal</DropDownButton>
+                                            <DropDownButton Theme="{StaticResource SecondaryDropDownButtonTheme}">Secondary</DropDownButton>
                                         </SpacingWrapPanel>
                                         <StackPanel Classes="sectionSubHeader">
                                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="Refresh" />
@@ -561,8 +561,8 @@
                                             <RepeatButton Theme="{StaticResource WarningRepeatButtonTheme}">Warning</RepeatButton>
                                             <RepeatButton Theme="{StaticResource DangerRepeatButtonTheme}">Danger</RepeatButton>
                                             <RepeatButton Theme="{StaticResource ErrorRepeatButtonTheme}">Error</RepeatButton>
-                                            <RepeatButton Theme="{StaticResource SynthoraRepeatButtonTheme}">Synthora</RepeatButton>
-                                            <RepeatButton Theme="{StaticResource CancelRepeatButtonTheme}">Cancel</RepeatButton>
+                                            <RepeatButton Theme="{StaticResource TonalRepeatButtonTheme}">Tonal</RepeatButton>
+                                            <RepeatButton Theme="{StaticResource SecondaryRepeatButtonTheme}">Secondary</RepeatButton>
                                         </SpacingWrapPanel>
                                     </StackPanel>
                                 </Border>
@@ -683,7 +683,7 @@
                                             <Button Content="Success" Theme="{StaticResource SuccessButtonTheme}" />
                                             <Button Content="Warning" Theme="{StaticResource WarningButtonTheme}" />
                                             <Button Content="Error" Theme="{StaticResource ErrorButtonTheme}" />
-                                            <Button Content="Multiline" Theme="{StaticResource CancelButtonTheme}" />
+                                            <Button Content="Multiline" Theme="{StaticResource SecondaryButtonTheme}" />
                                         </SpacingWrapPanel>
                                     </StackPanel>
                                 </Border>
@@ -706,11 +706,11 @@
                                                       TextBoxAttach.Title="PlacementMode: "
                                                       TextBoxAttach.TitlePlacement="Left" />
                                             <Button>Show</Button>
-                                            <Button Theme="{StaticResource SynthoraButtonTheme}">ShowQuestion</Button>
+                                            <Button Theme="{StaticResource TonalButtonTheme}">ShowQuestion</Button>
                                             <Button Theme="{StaticResource SuccessButtonTheme}">ShowSuccess</Button>
                                             <Button Theme="{StaticResource WarningButtonTheme}">ShowWarning</Button>
                                             <Button Theme="{StaticResource ErrorButtonTheme}">ShowError</Button>
-                                            <Button Theme="{StaticResource CancelButtonTheme}">None</Button>
+                                            <Button Theme="{StaticResource SecondaryButtonTheme}">None</Button>
                                         </SpacingWrapPanel>
                                     </StackPanel>
                                 </Border>
@@ -734,11 +734,11 @@
                                                       TextBoxAttach.Title="DialogButton: "
                                                       TextBoxAttach.TitlePlacement="Left" />
                                             <Button>Information</Button>
-                                            <Button Theme="{StaticResource SynthoraButtonTheme}">Question</Button>
+                                            <Button Theme="{StaticResource TonalButtonTheme}">Question</Button>
                                             <Button Theme="{StaticResource WarningButtonTheme}">Warning</Button>
                                             <Button Theme="{StaticResource ErrorButtonTheme}">Error</Button>
                                             <Button Theme="{StaticResource DangerButtonTheme}">Abort</Button>
-                                            <Button Theme="{StaticResource CancelButtonTheme}">None</Button>
+                                            <Button Theme="{StaticResource SecondaryButtonTheme}">None</Button>
                                         </SpacingWrapPanel>
                                     </StackPanel>
                                 </Border>
@@ -1278,7 +1278,7 @@
                                                     TabControlAttach.HorizontalHeaderAlignment="Center"
                                                     TabControlAttach.VerticalHeaderAlignment="Center"
                                                     TabStripPlacement="Top"
-                                                    Theme="{StaticResource SolidHeaderTabControlTheme}">
+                                                    Theme="{StaticResource SegmentedTabControlTheme}">
                                             <TabItem Header="Tab 1">
                                                 <SelectableTextBlock>Content 1</SelectableTextBlock>
                                             </TabItem>

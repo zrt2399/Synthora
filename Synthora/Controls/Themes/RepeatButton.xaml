@@ -23,12 +23,12 @@
                   BasedOn="{StaticResource ErrorButtonTheme}"
                   TargetType="RepeatButton" />
 
-    <ControlTheme x:Key="SynthoraRepeatButtonTheme"
-                  BasedOn="{StaticResource SynthoraButtonTheme}"
+    <ControlTheme x:Key="TonalRepeatButtonTheme"
+                  BasedOn="{StaticResource TonalButtonTheme}"
                   TargetType="RepeatButton" />
 
-    <ControlTheme x:Key="CancelRepeatButtonTheme"
-                  BasedOn="{StaticResource CancelButtonTheme}"
+    <ControlTheme x:Key="SecondaryRepeatButtonTheme"
+                  BasedOn="{StaticResource SecondaryButtonTheme}"
                   TargetType="RepeatButton" />
 
 </ResourceDictionary>

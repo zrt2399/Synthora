@@ -146,7 +146,7 @@
                                                 IsVisible="{TemplateBinding DialogButton,
                                                                             Converter={x:Static SynthoraConverters.HasFlag},
                                                                             ConverterParameter={x:Static messaging:DialogButton.No}}"
-                                                Theme="{StaticResource CancelButtonTheme}" />
+                                                Theme="{StaticResource SecondaryButtonTheme}" />
                                         <Button Name="CancelButton"
                                                 Command="{Binding Cancel, RelativeSource={RelativeSource TemplatedParent}}"
                                                 Content="{DynamicResource StringAlertDialogButtonCancel}"
@@ -154,7 +154,7 @@
                                                 IsVisible="{TemplateBinding DialogButton,
                                                                             Converter={x:Static SynthoraConverters.HasFlag},
                                                                             ConverterParameter={x:Static messaging:DialogButton.Cancel}}"
-                                                Theme="{StaticResource CancelButtonTheme}" />
+                                                Theme="{StaticResource SecondaryButtonTheme}" />
                                         <Button Name="AbortButton"
                                                 Command="{Binding Abort, RelativeSource={RelativeSource TemplatedParent}}"
                                                 Content="{DynamicResource StringAlertDialogButtonAbort}"

@@ -77,10 +77,10 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="SolidHeaderTabControlTheme" TargetType="TabControl">
+    <ControlTheme x:Key="SegmentedTabControlTheme" TargetType="TabControl">
         <Setter Property="TabControlAttach.HorizontalHeaderAlignment" Value="Left" />
         <Setter Property="TabControlAttach.VerticalHeaderAlignment" Value="Top" />
-        <Setter Property="ItemContainerTheme" Value="{DynamicResource SolidHeaderTabItemTheme}" />
+        <Setter Property="ItemContainerTheme" Value="{DynamicResource SegmentedTabItemTheme}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Name="PART_LayoutRoot"

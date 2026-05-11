@@ -104,7 +104,7 @@ namespace Synthora.Demo.ViewModels
 
         private void InitializeBrushResources()
         {
-            if (Application.Current is not Application application
+            if (Application.Current is not { } application
                 || application.Styles.FirstOrDefault(x => x is SynthoraTheme) is not SynthoraTheme synthoraTheme)
             {
                 return;
