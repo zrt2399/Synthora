@@ -406,15 +406,18 @@
                                                 <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=File}"
                                                                   Label="{Binding $self.(ToolTip.Tip)}"
                                                                   ToolTip.Tip="File" />
+                                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=ContentSave}"
+                                                                  Label="{Binding $self.(ToolTip.Tip)}"
+                                                                  ToolTip.Tip="Save" />
                                                 <CommandBarToggleButton Icon="{materialIcons:MaterialIconExt Kind=LetterBBox}"
                                                                         IsCompact="True"
                                                                         Label="{Binding $self.(ToolTip.Tip)}"
                                                                         ToolTip.Tip="Bold" />
                                             </CommandBar.PrimaryCommands>
                                             <CommandBar.SecondaryCommands>
-                                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=ContentSave}"
+                                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=Redo}"
                                                                   Label="{Binding $self.(ToolTip.Tip)}"
-                                                                  ToolTip.Tip="Save" />
+                                                                  ToolTip.Tip="Redo" />
                                                 <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=Undo}"
                                                                   Label="{Binding $self.(ToolTip.Tip)}"
                                                                   ToolTip.Tip="Undo" />
