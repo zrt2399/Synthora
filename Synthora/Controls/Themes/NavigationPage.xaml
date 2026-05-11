@@ -133,6 +133,7 @@
                             <Grid ColumnDefinitions="Auto, *, Auto">
                                 <Button x:Name="PART_BackButton"
                                         Grid.Column="0"
+                                        Width="{Binding $self.Bounds.Height}"
                                         BorderThickness="0"
                                         ButtonAttach.ShowShadow="False"
                                         CornerRadius="0"
@@ -140,6 +141,8 @@
                                         Theme="{StaticResource SecondaryButtonTheme}">
                                     <Panel>
                                         <PathIcon x:Name="PART_BackButtonDefaultIcon"
+                                                  Width="16"
+                                                  Height="16"
                                                   HorizontalAlignment="Center"
                                                   VerticalAlignment="Center"
                                                   Data="{DynamicResource ArrowLeftGlyph}" />
