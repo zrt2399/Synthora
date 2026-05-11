@@ -11,28 +11,37 @@ namespace Synthora.Converters
 
         public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
-            if (value is ISolidColorBrush solidColorBrush)
+            Color color;
+            switch (value)
             {
-                if (parameter is string param && !string.IsNullOrEmpty(param))
-                {
-                    var boxShadow = BoxShadow.Parse(param);
-                    return new BoxShadows(new BoxShadow()
-                    {
-                        IsInset = boxShadow.IsInset,
-                        OffsetX = boxShadow.OffsetX,
-                        OffsetY = boxShadow.OffsetY,
-                        Blur = boxShadow.Blur,
-                        Spread = boxShadow.Spread,
-                        Color = solidColorBrush.Color
-                    });
-                }
+                case ISolidColorBrush solidColorBrush:
+                    color = solidColorBrush.Color;
+                    break;
+                case Color c:
+                    color = c;
+                    break;
+                default:
+                    return new BoxShadows();
+            }
+
+            if (parameter is string param && !string.IsNullOrEmpty(param))
+            {
+                var boxShadow = BoxShadow.Parse(param);
                 return new BoxShadows(new BoxShadow()
                 {
-                    Blur = 8,
-                    Color = solidColorBrush.Color,
+                    IsInset = boxShadow.IsInset,
+                    OffsetX = boxShadow.OffsetX,
+                    OffsetY = boxShadow.OffsetY,
+                    Blur = boxShadow.Blur,
+                    Spread = boxShadow.Spread,
+                    Color = color
                 });
             }
-            return new BoxShadows();
+            return new BoxShadows(new BoxShadow()
+            {
+                Blur = 8,
+                Color = color,
+            });
         }
 
         public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
