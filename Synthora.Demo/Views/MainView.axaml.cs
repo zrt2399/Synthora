@@ -9,6 +9,7 @@ public partial class MainView : UserControl
     {
         InitializeComponent();
         dataGrid.LoadingRow += DataGrid_LoadingRow;
+        navigationPage.PushAsync(new ContentPage(){Header = "Home",Content = new TextBlock(){Text = "HomePage"}}); 
     }
 
     private void DataGrid_LoadingRow(object? sender, DataGridRowEventArgs e)

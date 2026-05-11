@@ -1270,7 +1270,7 @@
                                     <StackPanel Spacing="10">
                                         <StackPanel Classes="sectionHeader">
                                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="Tab" />
-                                            <TextBlock Classes="sectionLabel" Text="TAB CONTROL · SOLID HEADER THEME" />
+                                            <TextBlock Classes="sectionLabel" Text="TAB CONTROL · SEGMENTED HEADER THEME" />
                                         </StackPanel>
                                         <TabControl Height="200"
                                                     BorderBrush="{DynamicResource ThemeBorderLowBrush}"
@@ -1380,28 +1380,28 @@
                                             <CommandBar DefaultLabelPosition="Bottom">
                                                 <CommandBarButton Click="PushAsync"
                                                                   Icon="{materialIcons:MaterialIconExt Kind=ArrowRight}"
-                                                                  Label="{Binding $self.(ToolTip.Tip)}"
+                                                                  Label="Push"
                                                                   ToolTip.Tip="PushAsync" />
                                                 <CommandBarButton Click="PopAsync"
                                                                   Icon="{materialIcons:MaterialIconExt Kind=ArrowLeft}"
-                                                                  Label="{Binding $self.(ToolTip.Tip)}"
+                                                                  Label="Pop"
                                                                   ToolTip.Tip="PopAsync" />
                                                 <CommandBarButton Click="PopToRootAsync"
                                                                   Icon="{materialIcons:MaterialIconExt Kind=Home}"
-                                                                  Label="{Binding $self.(ToolTip.Tip)}"
+                                                                  Label="PopToRoot"
                                                                   ToolTip.Tip="PopToRootAsync" />
                                                 <CommandBarSeparator />
                                                 <CommandBarButton Click="PushModalAsync"
                                                                   Icon="{materialIcons:MaterialIconExt Kind=OpenInNew}"
-                                                                  Label="{Binding $self.(ToolTip.Tip)}"
+                                                                  Label="PushModal"
                                                                   ToolTip.Tip="PushModalAsync" />
                                                 <CommandBarButton Click="PopModalAsync"
                                                                   Icon="{materialIcons:MaterialIconExt Kind=Close}"
-                                                                  Label="{Binding $self.(ToolTip.Tip)}"
+                                                                  Label="PopModal"
                                                                   ToolTip.Tip="PopModalAsync" />
                                                 <CommandBarButton Click="PopAllModalsAsync"
                                                                   Icon="{materialIcons:MaterialIconExt Kind=CloseBoxMultiple}"
-                                                                  Label="{Binding $self.(ToolTip.Tip)}"
+                                                                  Label="PopAllModals"
                                                                   ToolTip.Tip="PopAllModalsAsync" />
                                             </CommandBar>
                                             <NavigationPage Name="navigationPage"
