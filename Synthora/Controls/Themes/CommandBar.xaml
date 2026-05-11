@@ -24,6 +24,9 @@
         </Border>
     </Design.PreviewWith>
 
+    <x:Double x:Key="CommandBarButtonLabelBottomWidth">50</x:Double>
+    <x:Double x:Key="CommandBarButtonMaxWidth">100</x:Double>
+
     <converters:MarginMultiplierConverter x:Key="CommandBarContentPresenterMarginMultiplier"
                                           Indent="1"
                                           Right="True" />
@@ -37,7 +40,7 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Padding" Value="{DynamicResource ThemeControlBorderPadding}" />
-        <Setter Property="MaxWidth" Value="100" />
+        <Setter Property="MaxWidth" Value="{DynamicResource CommandBarButtonMaxWidth}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="CornerRadius">
@@ -137,6 +140,9 @@
             <Setter Property="IsVisible" Value="{Binding $self.Text, Converter={x:Static ObjectConverters.IsNotNull}}" />
         </Style>
 
+        <Style Selector="^[LabelPosition=Bottom] /template/ StackPanel#PART_LayoutRoot">
+            <Setter Property="Width" Value="{DynamicResource CommandBarButtonLabelBottomWidth}" />
+        </Style>
         <Style Selector="^[LabelPosition=Right] /template/ StackPanel#PART_LayoutRoot">
             <Setter Property="Orientation" Value="Horizontal" />
         </Style>
@@ -182,12 +188,12 @@
             <Setter Property="IsVisible" Value="{Binding $self.Text, Converter={x:Static ObjectConverters.IsNotNull}}" />
         </Style>
 
+        <Style Selector="^[LabelPosition=Bottom] /template/ StackPanel#PART_LayoutRoot">
+            <Setter Property="Width" Value="{DynamicResource CommandBarButtonLabelBottomWidth}" />
+        </Style>
         <Style Selector="^[LabelPosition=Right] /template/ StackPanel#PART_LayoutRoot">
             <Setter Property="Orientation" Value="Horizontal" />
         </Style>
-        <!--<Style Selector="^[LabelPosition=Bottom]">
-            <Setter Property="Height" Value="{Binding $self.Bounds.Width}" />
-        </Style>-->
 
         <!--  IsInOverflow: full-width horizontal layout  -->
         <Style Selector="^[IsInOverflow=True]">
@@ -224,7 +230,7 @@
             <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="Height" Value="1" />
             <Setter Property="Width" Value="NaN" />
-            <Setter Property="Margin" Value="{DynamicResource MenuItemHorizontalSeparatorMargin}" />
+            <Setter Property="Margin" Value="{DynamicResource CommandBarButtonWidth}" />
         </Style>
     </ControlTheme>
 
@@ -274,6 +280,7 @@
                             <!--  Overflow button (docked right)  -->
                             <Button x:Name="PART_OverflowButton"
                                     Grid.Column="2"
+                                    MaxWidth="{DynamicResource CommandBarButtonMaxWidth}"
                                     Margin="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CommandBarOverflowButtonMarginMultiplier}}"
                                     VerticalAlignment="Stretch"
                                     IsVisible="{TemplateBinding IsOverflowButtonVisible}"
@@ -323,6 +330,9 @@
         </Setter>
         <Style Selector="^[DefaultLabelPosition=Collapsed] /template/ SystemDropShadowChrome#systemDropShadowChrome">
             <Setter Property="MinWidth" Value="0" />
+        </Style>
+        <Style Selector="^[DefaultLabelPosition=Bottom] /template/ Button#PART_OverflowButton">
+            <Setter Property="Width" Value="{DynamicResource CommandBarButtonLabelBottomWidth}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary> 
