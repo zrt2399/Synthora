@@ -92,12 +92,11 @@
         </Setter>
         <Setter Property="Template">
             <ControlTemplate>
-                <DropShadowChrome Name="PART_LayoutRoot"
-                                  Background="{TemplateBinding Background}"
-                                  BorderBrush="{TemplateBinding BorderBrush}"
-                                  BorderThickness="{TemplateBinding BorderThickness}"
-                                  BoxShadow="{DynamicResource EmptyBoxShadow}"
-                                  CornerRadius="{TemplateBinding CornerRadius}">
+                <Border Name="PART_LayoutRoot"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
                     <ContentPresenter Name="PART_ContentPresenter"
                                       Margin="{TemplateBinding Padding}"
                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -105,7 +104,7 @@
                                       Content="{TemplateBinding Header}"
                                       ContentTemplate="{TemplateBinding HeaderTemplate}"
                                       RecognizesAccessKey="True" />
-                </DropShadowChrome>
+                </Border>
             </ControlTemplate>
         </Setter>
 
@@ -116,7 +115,7 @@
         <Style Selector="^:selected">
             <!--<Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />-->
             <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
-            <Style Selector="^ /template/ DropShadowChrome#PART_LayoutRoot">
+            <Style Selector="^ /template/ Border#PART_LayoutRoot">
                 <Setter Property="BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
             </Style>
         </Style>
