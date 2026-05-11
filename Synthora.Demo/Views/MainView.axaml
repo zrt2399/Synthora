@@ -459,7 +459,7 @@
                                             <Button Theme="{StaticResource SecondaryButtonTheme}">Secondary</Button>
                                         </SpacingWrapPanel>
                                         <SpacingWrapPanel HorizontalSpacing="8" VerticalSpacing="6">
-                                            <Button Content="ContextMenuButton">
+                                            <Button Content="ButtonWithContextMenu">
                                                 <Button.ContextMenu>
                                                     <ContextMenu>
                                                         <MenuItem Header="More menu" ItemsSource="{Binding Employees}" />
@@ -490,28 +490,56 @@
                                                 </Button.ContextMenu>
                                             </Button>
                                             <Button Command="{Binding ClearEmployees}" Theme="{StaticResource DangerButtonTheme}">ClearEmployees</Button>
-                                            <SplitButton Content="SplitButton">
-                                                <SplitButton.Flyout>
-                                                    <Flyout>
-                                                        <Button Margin="8" CornerRadius="3">Button</Button>
-                                                    </Flyout>
-                                                </SplitButton.Flyout>
-                                            </SplitButton>
-                                            <ToggleSplitButton Content="ToggleSplitButton">
-                                                <ToggleSplitButton.Flyout>
-                                                    <Flyout Placement="BottomEdgeAlignedLeft">
-                                                        <ListBox MaxHeight="400"
-                                                                 BorderThickness="0"
-                                                                 ItemsSource="{Binding Employees}" />
-                                                    </Flyout>
-                                                </ToggleSplitButton.Flyout>
-                                            </ToggleSplitButton>
                                         </SpacingWrapPanel>
                                     </StackPanel>
                                 </Border>
                                 <!--  Toggle & DropDown Buttons  -->
                                 <Border Classes="card">
                                     <StackPanel Spacing="10">
+                                        <StackPanel Classes="sectionHeader">
+                                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ArrowSplitHorizontal" />
+                                            <TextBlock Classes="sectionLabel" Text="SPLIT BUTTON" />
+                                        </StackPanel>
+                                        <SpacingWrapPanel HorizontalSpacing="8" VerticalSpacing="6">
+                                            <SpacingWrapPanel.Styles>
+                                                <Style Selector="SplitButton">
+                                                    <Setter Property="Flyout">
+                                                        <Flyout Placement="BottomEdgeAlignedLeft">
+                                                            <Button Margin="8" CornerRadius="3">Button</Button>
+                                                        </Flyout>
+                                                    </Setter>
+                                                </Style>
+                                            </SpacingWrapPanel.Styles>
+                                            <SplitButton>Default</SplitButton>
+                                            <SplitButton Theme="{StaticResource SuccessSplitButtonTheme}">Success</SplitButton>
+                                            <SplitButton Theme="{StaticResource WarningSplitButtonTheme}">Warning</SplitButton>
+                                            <SplitButton Theme="{StaticResource DangerSplitButtonTheme}">Danger</SplitButton>
+                                            <SplitButton Theme="{StaticResource ErrorSplitButtonTheme}">Error</SplitButton>
+                                            <SplitButton Theme="{StaticResource TonalSplitButtonTheme}">Tonal</SplitButton>
+                                            <SplitButton Theme="{StaticResource SecondarySplitButtonTheme}">Secondary</SplitButton>
+                                        </SpacingWrapPanel>
+                                        <StackPanel Classes="sectionHeader">
+                                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ToggleSwitchOutline" />
+                                            <TextBlock Classes="sectionLabel" Text="TOGGLESPLIT BUTTON" />
+                                        </StackPanel>
+                                        <SpacingWrapPanel HorizontalSpacing="8" VerticalSpacing="6">
+                                            <SpacingWrapPanel.Styles>
+                                                <Style Selector="SplitButton">
+                                                    <Setter Property="Flyout">
+                                                        <Flyout Placement="BottomEdgeAlignedLeft">
+                                                            <TextBox Margin="8" CornerRadius="3">TextBox</TextBox>
+                                                        </Flyout>
+                                                    </Setter>
+                                                </Style>
+                                            </SpacingWrapPanel.Styles>
+                                            <ToggleSplitButton>Default</ToggleSplitButton>
+                                            <ToggleSplitButton Theme="{StaticResource SuccessToggleSplitButtonTheme}">Success</ToggleSplitButton>
+                                            <ToggleSplitButton Theme="{StaticResource WarningToggleSplitButtonTheme}">Warning</ToggleSplitButton>
+                                            <ToggleSplitButton Theme="{StaticResource DangerToggleSplitButtonTheme}">Danger</ToggleSplitButton>
+                                            <ToggleSplitButton Theme="{StaticResource ErrorToggleSplitButtonTheme}">Error</ToggleSplitButton>
+                                            <ToggleSplitButton Theme="{StaticResource TonalToggleSplitButtonTheme}">Tonal</ToggleSplitButton>
+                                            <ToggleSplitButton Theme="{StaticResource SecondaryToggleSplitButtonTheme}">Secondary</ToggleSplitButton>
+                                        </SpacingWrapPanel>
                                         <StackPanel Classes="sectionHeader">
                                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ToggleSwitch" />
                                             <TextBlock Classes="sectionLabel" Text="TOGGLE BUTTON" />

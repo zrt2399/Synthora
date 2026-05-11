@@ -89,6 +89,7 @@
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/StatusBar.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ManagedFileChooser.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/SplitButton.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ToggleSplitButton.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/SelectableTextBlock.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/RefreshContainer.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/RefreshVisualizer.xaml" />
