@@ -713,6 +713,7 @@
                                                       TextBoxAttach.Title="NotificationPosition: "
                                                       TextBoxAttach.TitlePlacement="Left" />
                                             <Button Content="Information" />
+                                            <Button Content="WithoutTitle" Theme="{StaticResource TonalButtonTheme}" />
                                             <Button Content="Success" Theme="{StaticResource SuccessButtonTheme}" />
                                             <Button Content="Warning" Theme="{StaticResource WarningButtonTheme}" />
                                             <Button Content="Error" Theme="{StaticResource ErrorButtonTheme}" />

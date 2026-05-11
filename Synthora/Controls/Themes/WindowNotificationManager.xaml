@@ -17,13 +17,15 @@
                 <ReversibleStackPanel Name="PART_Items">
                     <ReversibleStackPanel.DataTemplates>
                         <DataTemplate DataType="INotification">
-                            <StackPanel Margin="2,0">
+                            <StackPanel Margin="2,0"
+                                        VerticalAlignment="Center"
+                                        Spacing="{DynamicResource NotificationCardPaddingDouble}">
                                 <TextBlock FontWeight="SemiBold"
+                                           IsVisible="{Binding $self.Text, Converter={x:Static ObjectConverters.IsNotNull}}"
                                            Text="{Binding Title}"
                                            TextTrimming="CharacterEllipsis" />
                                 <TextBlock MaxHeight="{DynamicResource WindowNotificationManagerMessageMaxHeight}"
-                                           Margin="{Binding $self.Tag, Converter={StaticResource WindowNotificationManagerMessageMarginMultiplier}}"
-                                           Tag="{DynamicResource NotificationCardPadding}"
+                                           IsVisible="{Binding $self.Text, Converter={x:Static ObjectConverters.IsNotNull}}"
                                            Text="{Binding Message}"
                                            TextTrimming="CharacterEllipsis"
                                            TextWrapping="Wrap" />

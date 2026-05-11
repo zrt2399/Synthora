@@ -28,7 +28,7 @@ namespace Synthora.Demo.ViewModels
         private WindowNotificationManager? _notificationManager;
 
         public MainViewModel()
-        { 
+        {
             Dispatcher.UIThread.InvokeAsync(() =>
             {
                 _notificationManager = new WindowNotificationManager(App.MainWindow);
@@ -261,6 +261,9 @@ namespace Synthora.Demo.ViewModels
             _notificationManager.Position = NotificationPosition;
             switch (param)
             {
+                case "WithoutTitle" :
+                    _notificationManager.Show(new Notification(null, "This is a without title message.", NotificationType.Information));
+                    break;
                 case nameof(NotificationType.Information):
                     _notificationManager.Show(new Notification("Information", "This is an information message.", NotificationType.Information));
                     break;
