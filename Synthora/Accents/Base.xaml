@@ -24,8 +24,8 @@
             <Color x:Key="ThemeForegroundColor">#FF25292E</Color>
             <Color x:Key="ThemeBackgroundColor">#FFFFFFFF</Color>
             <Color x:Key="ThemeBorderLowColor">#FFCCCCCC</Color>
-            <Color x:Key="ThemeBorderMidColor">#FF999999</Color>
-            <Color x:Key="ThemeBorderHighColor">#FF666666</Color>
+            <Color x:Key="ThemeBorderMidColor">#FFAAAAAA</Color>
+            <Color x:Key="ThemeBorderHighColor">#FF777777</Color>
             <Color x:Key="ThemeControlLowColor">#FFF5F5F5</Color>
             <Color x:Key="ThemeControlMidColor">#FFEEEFF0</Color>
             <Color x:Key="ThemeControlMidHighColor">#FFC2C3C9</Color>
@@ -126,9 +126,9 @@
             <Color x:Key="ThemeForegroundMidColor">#FFB0B0B0</Color>
             <Color x:Key="ThemeForegroundColor">#FFDEDEDE</Color>
             <Color x:Key="ThemeBackgroundColor">#FF202020</Color>
-            <Color x:Key="ThemeBorderLowColor">#FF505050</Color>
-            <Color x:Key="ThemeBorderMidColor">#FF808080</Color>
-            <Color x:Key="ThemeBorderHighColor">#FFA0A0A0</Color>
+            <Color x:Key="ThemeBorderLowColor">#FF444444</Color>
+            <Color x:Key="ThemeBorderMidColor">#FF666666</Color>
+            <Color x:Key="ThemeBorderHighColor">#FF999999</Color>
             <Color x:Key="ThemeControlLowColor">#FF282828</Color>
             <Color x:Key="ThemeControlMidColor">#FF313233</Color>
             <Color x:Key="ThemeControlMidHighColor">#FF686868</Color>
