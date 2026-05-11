@@ -32,6 +32,8 @@
         <x:String x:Key="StringTextFlyoutCopyText">复制</x:String>
         <x:String x:Key="StringTextFlyoutPasteText">粘贴</x:String>
         <x:String x:Key="StringTextFlyoutSelectAllText">全选</x:String>
+        <x:String x:Key="StringShowPasswordText">显示密码</x:String>
+        <x:String x:Key="StringHidePasswordText">隐藏密码</x:String>
         <x:String x:Key="StringAlertDialogButtonOK">确定</x:String>
         <x:String x:Key="StringAlertDialogButtonYes">是</x:String>
         <x:String x:Key="StringAlertDialogButtonNo">否</x:String>

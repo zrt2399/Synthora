@@ -14,6 +14,9 @@
     <x:String x:Key="StringTextFlyoutCopyText">Copy</x:String>
     <x:String x:Key="StringTextFlyoutPasteText">Paste</x:String>
     <x:String x:Key="StringTextFlyoutSelectAllText">Select All</x:String>
+    <x:String x:Key="StringShowPasswordText">Show Password</x:String>
+    <x:String x:Key="StringHidePasswordText">Hide Password</x:String>
+
     <!--  ManagedFileChooser  -->
     <x:String x:Key="StringManagedFileChooserFileNamePlaceholder">File name</x:String>
     <x:String x:Key="StringManagedFileChooserShowHiddenFilesText">Show hidden files</x:String>

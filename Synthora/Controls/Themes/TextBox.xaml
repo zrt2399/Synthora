@@ -155,13 +155,13 @@
             <Style Selector="^ /template/ Path#PART_GlyphElement_Hide">
                 <Setter Property="IsVisible" Value="False" />
             </Style>
-            <Setter Property="ToolTip.Tip" Value="Show Password" />
+            <Setter Property="ToolTip.Tip" Value="{DynamicResource StringShowPasswordText}" />
         </Style>
         <Style Selector="^:checked">
             <Style Selector="^ /template/ Path#PART_GlyphElement_Reveal">
                 <Setter Property="IsVisible" Value="False" />
             </Style>
-            <Setter Property="ToolTip.Tip" Value="Hide Password" />
+            <Setter Property="ToolTip.Tip" Value="{DynamicResource StringHidePasswordText}" />
         </Style>
     </ControlTheme>
 
