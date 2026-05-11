@@ -3,6 +3,7 @@ using System.Globalization;
 using Avalonia;
 using Avalonia.Data.Converters;
 using Avalonia.Media;
+using Avalonia.Styling;
 
 namespace Synthora.Converters
 {
@@ -24,24 +25,24 @@ namespace Synthora.Converters
         /// <returns>SolidColorBrush of White or Black.</returns>
         public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
-            Color bgColor;
-
-            switch (value)
+            Color? bgColor = value switch
             {
-                case ISolidColorBrush scb:
-                    bgColor = scb.Color;
-                    break;
-                case Color c:
-                    bgColor = c;
-                    break;
-                default:
-                    return AvaloniaProperty.UnsetValue;
+                ISolidColorBrush scb => scb.Color,
+                Color c => c,
+                _ => null
+            };
+
+            if (bgColor == null || bgColor.Value.A == 0)
+            {
+                var variant = Application.Current?.ActualThemeVariant;
+                // Dark theme → return White; Light (or default) theme → return Black
+                return variant == ThemeVariant.Dark ? WhiteBrush : BlackBrush;
             }
 
             // Calculate relative luminance per WCAG
-            double r = bgColor.R / 255.0;
-            double g = bgColor.G / 255.0;
-            double b = bgColor.B / 255.0;
+            double r = bgColor.Value.R / 255.0;
+            double g = bgColor.Value.G / 255.0;
+            double b = bgColor.Value.B / 255.0;
 
             // Apply gamma correction
             r = (r <= 0.03928) ? r / 12.92 : Math.Pow((r + 0.055) / 1.055, 2.4);
@@ -57,7 +58,7 @@ namespace Synthora.Converters
 
         public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
-            throw new NotSupportedException();
+            throw new NotImplementedException();
         }
     }
 }
