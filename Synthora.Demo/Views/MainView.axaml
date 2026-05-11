@@ -490,6 +490,7 @@
                                                 </Button.ContextMenu>
                                             </Button>
                                             <Button Command="{Binding ClearEmployees}" Theme="{StaticResource DangerButtonTheme}">ClearEmployees</Button>
+                                            <Button Command="{Binding ResetEmployees}" Theme="{StaticResource WarningButtonTheme}">ResetEmployees</Button>
                                         </SpacingWrapPanel>
                                     </StackPanel>
                                 </Border>
@@ -629,7 +630,8 @@
                                             <TextBlock FontSize="11"
                                                        Foreground="{DynamicResource ThemeForegroundLowBrush}"
                                                        Text="Segmented RadioButton" />
-                                            <ListBox ItemsSource="{EnumBindingSource EnumType={x:Type vm:AppThemeMode}}"
+                                            <ListBox AutoScrollToSelectedItem="False"
+                                                     ItemsSource="{EnumBindingSource EnumType={x:Type vm:AppThemeMode}}"
                                                      SelectedItem="{Binding SelectedThemeMode}"
                                                      Theme="{StaticResource SegmentedListBoxTheme}">
                                                 <ListBox.ItemTemplate>

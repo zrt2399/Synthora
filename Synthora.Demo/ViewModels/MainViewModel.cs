@@ -28,23 +28,12 @@ namespace Synthora.Demo.ViewModels
         private WindowNotificationManager? _notificationManager;
 
         public MainViewModel()
-        {
-            //Comment below to enable Native AOT compilation
-            var employeeFaker = new Faker<Employee>("zh_CN")
-                .RuleFor(e => e.Id, f => f.IndexGlobal + 1)
-                .RuleFor(e => e.Name, f => f.Name.LastName() + f.Name.FirstName())
-                .RuleFor(e => e.Email, (f, e) => f.Internet.Email(f.Random.AlphaNumeric(8)))
-                .RuleFor(e => e.Age, f => f.Random.Int(18, 65))
-                .RuleFor(e => e.HireDate, f => f.Date.Past(10, DateTime.Now))
-                .RuleFor(e => e.Salary, f => Math.Round(f.Random.Decimal(5000, 50000), 2))
-                .RuleFor(e => e.IsActive, f => f.Random.Bool());
-            var employees = employeeFaker.Generate(1000);
-
-
-            Employees = new ObservableCollection<Employee>(employees);
-            DataGridCollectionView = new DataGridCollectionView(Employees);
-            DataGridCollectionView.GroupDescriptions.Add(new DataGridPathGroupDescription(nameof(Employee.Age)));
-            Dispatcher.UIThread.InvokeAsync(() => _notificationManager = new WindowNotificationManager(App.MainWindow));
+        { 
+            Dispatcher.UIThread.InvokeAsync(() =>
+            {
+                _notificationManager = new WindowNotificationManager(App.MainWindow);
+                ResetEmployees();
+            });
             if (Application.Current is { } application)
             {
                 application.ActualThemeVariantChanged += Current_ActualThemeVariantChanged;
@@ -54,9 +43,9 @@ namespace Synthora.Demo.ViewModels
         }
 
         [ObservableProperty]
-        public partial ObservableCollection<Employee> Employees { get; set; }
+        public partial ObservableCollection<Employee>? Employees { get; set; }
         [ObservableProperty]
-        public partial DataGridCollectionView DataGridCollectionView { get; set; }
+        public partial DataGridCollectionView? DataGridCollectionView { get; set; }
 
         [ObservableProperty]
         public partial string Greeting { get; set; } = "Welcome to Avalonia!";
@@ -165,6 +154,26 @@ namespace Synthora.Demo.ViewModels
         {
             Employees.Clear();
         }
+
+        public void ResetEmployees()
+        {
+            //Comment below to enable Native AOT compilation
+            var employeeFaker = new Faker<Employee>("zh_CN")
+                .RuleFor(e => e.Id, f => f.IndexGlobal + 1)
+                .RuleFor(e => e.Name, f => f.Name.LastName() + f.Name.FirstName())
+                .RuleFor(e => e.Email, (f, e) => f.Internet.Email(f.Random.AlphaNumeric(8)))
+                .RuleFor(e => e.Age, f => f.Random.Int(18, 65))
+                .RuleFor(e => e.HireDate, f => f.Date.Past(10, DateTime.Now))
+                .RuleFor(e => e.Salary, f => Math.Round(f.Random.Decimal(5000, 50000), 2))
+                .RuleFor(e => e.IsActive, f => f.Random.Bool());
+            var employees = employeeFaker.Generate(1000);
+
+
+            Employees = new ObservableCollection<Employee>(employees);
+            DataGridCollectionView = new DataGridCollectionView(Employees);
+            DataGridCollectionView.GroupDescriptions.Add(new DataGridPathGroupDescription(nameof(Employee.Age)));
+        }
+
 
         public void Test() => Greeting = "Test";
 
