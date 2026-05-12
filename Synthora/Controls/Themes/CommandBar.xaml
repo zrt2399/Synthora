@@ -27,10 +27,6 @@
     <x:Double x:Key="CommandBarButtonLabelBottomWidth">52</x:Double>
     <x:Double x:Key="CommandBarButtonMaxWidth">100</x:Double>
 
-    <converters:MarginMultiplierConverter x:Key="CommandBarContentPresenterMarginMultiplier"
-                                          Indent="1"
-                                          Right="True" />
-
     <converters:MarginMultiplierConverter x:Key="CommandBarOverflowButtonMarginMultiplier"
                                           Indent="1"
                                           Left="True" />
@@ -131,7 +127,7 @@
         </Style>
         <!--  Compact: hide label, reduce width  -->
         <!--<Style Selector="^[IsCompact=True]">
-            <Setter Property="MaxWidth" Value="NaN" />
+        <Setter Property="MaxWidth" Value="NaN" />
         </Style>-->
         <Style Selector="^[IsCompact=True] /template/ TextBlock#PART_Label">
             <Setter Property="IsVisible" Value="False" />
@@ -178,7 +174,7 @@
         </Style>
         <!--  Compact: hide label, reduce width  -->
         <!--<Style Selector="^[IsCompact=True]">
-            <Setter Property="MaxWidth" Value="NaN" />
+        <Setter Property="MaxWidth" Value="NaN" />
         </Style>-->
         <Style Selector="^[IsCompact=True] /template/ TextBlock#PART_Label">
             <Setter Property="IsVisible" Value="False" />

@@ -84,8 +84,8 @@
                     </Grid>
 
                     <Ellipse Name="checkedEllipse"
-                             Width="2"
-                             Height="2"
+                             Width="3"
+                             Height="3"
                              Margin="4,4,0,0"
                              HorizontalAlignment="Left"
                              VerticalAlignment="Top"
