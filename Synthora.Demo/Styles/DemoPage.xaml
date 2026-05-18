@@ -22,17 +22,19 @@
                             <CheckBox VerticalAlignment="Center"
                                       Content="IsEnabled"
                                       DockPanel.Dock="Right"
-                                      IsChecked="{Binding IsContentEnabled, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" />
+                                      IsChecked="{TemplateBinding IsContentEnabled,
+                                                                  Mode=TwoWay}" />
                             <StackPanel VerticalAlignment="Center"
                                         DockPanel.Dock="Left"
                                         Spacing="2">
-                                <TextBlock FontSize="14"
-                                           FontWeight="SemiBold"
-                                           Text="{TemplateBinding Title}" />
-                                <TextBlock FontSize="11"
-                                           Foreground="{DynamicResource ThemeForegroundLowBrush}"
-                                           IsVisible="{Binding Description, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNotNull}}"
-                                           Text="{TemplateBinding Description}" />
+                                <SelectableTextBlock FontSize="14"
+                                                     FontWeight="SemiBold"
+                                                     Text="{TemplateBinding Title}" />
+                                <SelectableTextBlock FontSize="11"
+                                                     Foreground="{DynamicResource ThemeForegroundLowBrush}"
+                                                     IsVisible="{TemplateBinding Description,
+                                                                                 Converter={x:Static ObjectConverters.IsNotNull}}"
+                                                     Text="{TemplateBinding Description}" />
                             </StackPanel>
                         </DockPanel>
                     </Border>
@@ -42,9 +44,8 @@
                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                       Content="{TemplateBinding Content}"
                                       ContentTemplate="{TemplateBinding ContentTemplate}"
-                                      IsEnabled="{Binding IsContentEnabled, RelativeSource={RelativeSource TemplatedParent}}"
+                                      IsEnabled="{TemplateBinding IsContentEnabled}"
                                       TextElement.Foreground="{TemplateBinding Foreground}" />
-
                 </DockPanel>
             </ControlTemplate>
         </Setter>

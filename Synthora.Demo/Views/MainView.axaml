@@ -169,7 +169,7 @@
                     <TextBlock Margin="32"
                                FontSize="13"
                                Foreground="{DynamicResource ThemeForegroundLowBrush}"
-                               Text="Synthora Component Gallery"
+                               Text="Avalonia Component Gallery"
                                TextAlignment="Center"
                                TextWrapping="Wrap" />
                 </TreeMenu.PaneFooter>
