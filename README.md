@@ -19,3 +19,33 @@ dotnet add package Synthora
 # 📷 Screenshots
 ![Light Mode](Screenshots/LightMode.png)
 ![Dark Mode](Screenshots/DarkMode.png)
+
+# 📦 Build & Package Demo
+
+The following instructions are for packaging the **SynthoraDemo** application.
+
+## Windows
+
+1. Install [Inno Setup](https://jrsoftware.org/isinfo.php)
+2. Run the packaging script:
+
+```bash
+iscc Synthora.Demo/win-build/publish_win_x64.iss
+```
+
+Or open `Synthora.Demo/win-build/publish_win_x64.iss` directly in the Inno Setup IDE and click **Compile**.
+
+## macOS
+
+1. Install [DMG Canvas](https://www.araelium.com/dmgcanvas)
+2. Run the build script:
+
+```bash
+chmod +x Synthora.Demo/mac-build/build.command
+./Synthora.Demo/mac-build/build.command
+```
+
+> **If the app cannot be opened after installation**, run the following command to remove the quarantine attribute:
+> ```bash
+> xattr -cr /Applications/SynthoraDemo.app
+> ```
