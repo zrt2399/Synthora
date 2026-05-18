@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Synthora.Converters
+﻿namespace Synthora.Converters
 {
     public static class SynthoraConverters
     {
@@ -20,5 +14,6 @@ namespace Synthora.Converters
         public static ContrastColorConverter ContrastColorConverter { get; } = new ContrastColorConverter();
         public static BorderCornerRadiusConverter BorderCornerRadiusConverter { get; } = new BorderCornerRadiusConverter();
         public static SolidColorBrushToColorConverter SolidColorBrushToColor { get; } = new SolidColorBrushToColorConverter();
+        public static DoubleToGridLengthConverter DoubleToGridLengthConverter { get; } = new DoubleToGridLengthConverter();
     }
 }

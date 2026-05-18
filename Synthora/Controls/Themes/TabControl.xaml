@@ -16,11 +16,8 @@
                                         HorizontalAlignment="{TemplateBinding TabControlAttach.HorizontalHeaderAlignment}"
                                         VerticalAlignment="{TemplateBinding TabControlAttach.VerticalHeaderAlignment}"
                                         ItemsPanel="{TemplateBinding ItemsPanel}" />
-                        <Border Name="Border_Root"
-                                Margin="{TemplateBinding Padding}"
-                                BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-                                ClipToBounds="True">
-                            <Panel>
+                        <Border Name="contentBorder" BorderBrush="{DynamicResource ThemeBorderLowBrush}">
+                            <Panel Margin="{TemplateBinding Padding}">
                                 <ContentPresenter Name="PART_SelectedContentHost2"
                                                   HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                   VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
@@ -35,7 +32,7 @@
             </ControlTemplate>
         </Setter>
         <Style Selector="^[TabStripPlacement=Top]">
-            <Style Selector="^ /template/ Border#Border_Root">
+            <Style Selector="^ /template/ Border#contentBorder">
                 <Setter Property="BorderThickness" Value="0,1,0,0" />
             </Style>
             <Style Selector="^ /template/ ItemsPresenter#PART_ItemsPresenter">
@@ -44,7 +41,7 @@
         </Style>
 
         <Style Selector="^[TabStripPlacement=Left]">
-            <Style Selector="^ /template/ Border#Border_Root">
+            <Style Selector="^ /template/ Border#contentBorder">
                 <Setter Property="BorderThickness" Value="1,0,0,0" />
             </Style>
             <Style Selector="^ /template/ ItemsPresenter#PART_ItemsPresenter">
@@ -56,7 +53,7 @@
         </Style>
 
         <Style Selector="^[TabStripPlacement=Right]">
-            <Style Selector="^ /template/ Border#Border_Root">
+            <Style Selector="^ /template/ Border#contentBorder">
                 <Setter Property="BorderThickness" Value="0,0,1,0" />
             </Style>
             <Style Selector="^ /template/ ItemsPresenter#PART_ItemsPresenter">
@@ -68,7 +65,7 @@
         </Style>
 
         <Style Selector="^[TabStripPlacement=Bottom]">
-            <Style Selector="^ /template/ Border#Border_Root">
+            <Style Selector="^ /template/ Border#contentBorder">
                 <Setter Property="BorderThickness" Value="0,0,0,1" />
             </Style>
             <Style Selector="^ /template/ ItemsPresenter#PART_ItemsPresenter">
@@ -97,19 +94,24 @@
                                 CornerRadius="{DynamicResource ThemeBorderCornerRadiusLarge}">
                             <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
                         </Border>
-                        <ContentPresenter Name="PART_SelectedContentHost"
-                                          Margin="{TemplateBinding Padding}"
-                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                          BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-                                          Content="{TemplateBinding SelectedContent}"
-                                          ContentTemplate="{TemplateBinding SelectedContentTemplate}" />
+
+                        <Border Name="contentBorder" BorderBrush="{DynamicResource ThemeBorderLowBrush}">
+                            <Panel Margin="{TemplateBinding Padding}">
+                                <ContentPresenter Name="PART_SelectedContentHost2"
+                                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                  IsVisible="False" />
+                                <ContentPresenter Name="PART_SelectedContentHost"
+                                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            </Panel>
+                        </Border>
                     </DockPanel>
                 </Border>
             </ControlTemplate>
         </Setter>
         <Style Selector="^[TabStripPlacement=Top]">
-            <Style Selector="^ /template/ ContentPresenter#PART_SelectedContentHost">
+            <Style Selector="^ /template/ Border#contentBorder">
                 <Setter Property="BorderThickness" Value="0,1,0,0" />
             </Style>
             <Style Selector="^ /template/ Border#HeaderRoot">
@@ -119,7 +121,7 @@
         </Style>
 
         <Style Selector="^[TabStripPlacement=Left]">
-            <Style Selector="^ /template/ ContentPresenter#PART_SelectedContentHost">
+            <Style Selector="^ /template/ Border#contentBorder">
                 <Setter Property="BorderThickness" Value="1,0,0,0" />
             </Style>
             <Style Selector="^ /template/ Border#HeaderRoot">
@@ -132,7 +134,7 @@
         </Style>
 
         <Style Selector="^[TabStripPlacement=Right]">
-            <Style Selector="^ /template/ ContentPresenter#PART_SelectedContentHost">
+            <Style Selector="^ /template/ Border#contentBorder">
                 <Setter Property="BorderThickness" Value="0,0,1,0" />
             </Style>
             <Style Selector="^ /template/ Border#HeaderRoot">
@@ -145,7 +147,7 @@
         </Style>
 
         <Style Selector="^[TabStripPlacement=Bottom]">
-            <Style Selector="^ /template/ ContentPresenter#PART_SelectedContentHost">
+            <Style Selector="^ /template/ Border#contentBorder">
                 <Setter Property="BorderThickness" Value="0,0,0,1" />
             </Style>
             <Style Selector="^ /template/ Border#HeaderRoot">

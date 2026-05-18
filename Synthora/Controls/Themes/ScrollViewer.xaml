@@ -7,12 +7,12 @@
     <ControlTheme x:Key="{x:Type ScrollViewer}" TargetType="ScrollViewer">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
-            <ControlTemplate TargetType="ScrollViewer">
+            <ControlTemplate>
                 <Grid ColumnDefinitions="*,Auto" RowDefinitions="*,Auto">
                     <ScrollContentPresenter Name="PART_ContentPresenter"
-                                            Grid.RowSpan="2"
-                                            Grid.ColumnSpan="2"
-                                            Padding="{TemplateBinding Padding}"
+                                            Grid.Row="0"
+                                            Grid.Column="0"
+                                            Margin="{TemplateBinding Padding}"
                                             Background="{TemplateBinding Background}"
                                             HorizontalSnapPointsAlignment="{TemplateBinding HorizontalSnapPointsAlignment}"
                                             HorizontalSnapPointsType="{TemplateBinding HorizontalSnapPointsType}"
@@ -27,15 +27,17 @@
                     </ScrollContentPresenter>
                     <ScrollBar Name="PART_HorizontalScrollBar"
                                Grid.Row="1"
-                               Grid.Column="0"
                                Orientation="Horizontal" />
                     <ScrollBar Name="PART_VerticalScrollBar"
-                               Grid.Row="0"
                                Grid.Column="1"
                                Orientation="Vertical" />
                 </Grid>
             </ControlTemplate>
         </Setter>
+        <Style Selector="^[AllowAutoHide=True] /template/ ScrollContentPresenter#PART_ContentPresenter">
+            <Setter Property="Grid.ColumnSpan" Value="2" />
+            <Setter Property="Grid.RowSpan" Value="2" />
+        </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="SimpleMenuScrollViewer" TargetType="ScrollViewer">

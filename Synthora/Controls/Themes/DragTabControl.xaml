@@ -1,6 +1,6 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:panels="clr-namespace:Synthora.Controls.DragTabControl.Panels"
+                    xmlns:controls="clr-namespace:Synthora.Controls"
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
 
@@ -33,7 +33,7 @@
             <Setter Property="Foreground" Value="{DynamicResource AddItemCommandButtonForegroundPointerOverBrush}" />
             <Setter Property="Background" Value="{DynamicResource AddItemCommandButtonBackgroundPointerOverBrush}" />
         </Style>
- 
+
         <Style Selector="^:pressed">
             <Setter Property="Background" Value="{DynamicResource AddItemCommandButtonBackgroundPressedBrush}" />
         </Style>
@@ -72,9 +72,9 @@
                         CornerRadius="{TemplateBinding CornerRadius}">
 
                     <DockPanel>
-                        <panels:TopPanel Name="PART_TopPanel"
-                                         Background="{TemplateBinding Background}"
-                                         DockPanel.Dock="Top">
+                        <controls:TopPanel Name="PART_TopPanel"
+                                           Background="{TemplateBinding Background}"
+                                           DockPanel.Dock="Top">
                             <ContentPresenter Name="PART_LeftContent" Content="{TemplateBinding LeftContent}" />
 
                             <Thumb Name="PART_LeftDragWindowThumb"
@@ -93,7 +93,7 @@
                                    Theme="{StaticResource WindowThumbStyle}" />
 
                             <ContentPresenter Name="PART_RightContent" Content="{TemplateBinding RightContent}" />
-                        </panels:TopPanel>
+                        </controls:TopPanel>
 
                         <Panel Background="{DynamicResource DragTabItemSelectedBackgroundBrush}">
                             <ContentPresenter Name="PART_SelectedContentHost2"

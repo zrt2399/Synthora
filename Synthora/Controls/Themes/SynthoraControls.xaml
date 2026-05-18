@@ -65,6 +65,8 @@
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/WindowNotificationManager.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/EmbeddableControlRoot.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/TransitioningContentControl.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/TreeMenu.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/TreeMenuItem.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/TreeView.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/TreeViewItem.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ProgressBar.xaml" />

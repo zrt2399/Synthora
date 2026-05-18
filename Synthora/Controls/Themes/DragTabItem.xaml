@@ -28,7 +28,7 @@
                 </Border>
             </ControlTemplate>
         </Setter>
- 
+
         <Style Selector="^:pointerover">
             <Setter Property="Foreground" Value="{DynamicResource CloseItemButtonForegroundPointerOverBrush}" />
             <Setter Property="Background" Value="{DynamicResource CloseItemButtonBackgroundPointerOverBrush}" />
@@ -99,6 +99,7 @@
                                                   Margin="{Binding #closeButton.IsVisible, Converter={x:Static CloseButtonMarginConverter.Instance}}"
                                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                  ClipToBounds="True"
                                                   Content="{TemplateBinding Header}"
                                                   ContentTemplate="{TemplateBinding HeaderTemplate}" />
                             </Panel>
@@ -165,7 +166,6 @@
         <!--  PointerOver state  -->
         <Style Selector="^:pointerover">
             <Setter Property="Background" Value="{DynamicResource DragTabItemHeaderBackgroundUnselectedPointerOver}" />
-            <!--<Setter Property="TextBlock.Foreground" Value="{DynamicResource TabItemHeaderForegroundUnselectedPointerOver}" />-->
         </Style>
         <Style Selector="^:pointerover /template/ Border#PART_RightBorder">
             <Setter Property="IsVisible" Value="False" />
@@ -174,7 +174,6 @@
         <!--  Selected PointerOver state  -->
         <Style Selector="^:selected:pointerover">
             <Setter Property="Background" Value="{DynamicResource DragTabItemSelectedBackgroundBrush}" />
-            <!--<Setter Property="TextBlock.Foreground" Value="{DynamicResource TabItemHeaderForegroundSelectedPointerOver}" />-->
         </Style>
         <Style Selector="^:selected:pointerover /template/ Border#PART_RightBorder">
             <Setter Property="IsVisible" Value="False" />

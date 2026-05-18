@@ -1,0 +1,52 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:materialIcons="using:Material.Icons.Avalonia"
+                    x:ClassModifier="internal"
+                    x:CompileBindings="True">
+
+    <ControlTheme x:Key="{x:Type DemoPage}" TargetType="DemoPage">
+        <Setter Property="Padding" Value="16" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <DockPanel>
+                    <Border Margin="16,16,16,0"
+                            Padding="12,10"
+                            Background="{DynamicResource SynthoraMidBrush}"
+                            CornerRadius="12"
+                            DockPanel.Dock="Top">
+                        <DockPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <materialIcons:MaterialIcon VerticalAlignment="Center"
+                                                        DockPanel.Dock="Left"
+                                                        IconSize="24"
+                                                        Kind="{TemplateBinding IconKind}" />
+                            <CheckBox VerticalAlignment="Center"
+                                      Content="IsEnabled"
+                                      DockPanel.Dock="Right"
+                                      IsChecked="{Binding IsContentEnabled, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" />
+                            <StackPanel VerticalAlignment="Center"
+                                        DockPanel.Dock="Left"
+                                        Spacing="2">
+                                <TextBlock FontSize="14"
+                                           FontWeight="SemiBold"
+                                           Text="{TemplateBinding Title}" />
+                                <TextBlock FontSize="11"
+                                           Foreground="{DynamicResource ThemeForegroundLowBrush}"
+                                           IsVisible="{Binding Description, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                           Text="{TemplateBinding Description}" />
+                            </StackPanel>
+                        </DockPanel>
+                    </Border>
+
+                    <ContentPresenter Margin="{TemplateBinding Padding}"
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      IsEnabled="{Binding IsContentEnabled, RelativeSource={RelativeSource TemplatedParent}}"
+                                      TextElement.Foreground="{TemplateBinding Foreground}" />
+
+                </DockPanel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

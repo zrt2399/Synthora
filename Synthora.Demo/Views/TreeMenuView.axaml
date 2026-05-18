@@ -1,0 +1,54 @@
+<UserControl x:Class="Synthora.Demo.Views.TreeMenuView"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialIcons="using:Material.Icons.Avalonia"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Synthora.Demo.ViewModels"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             x:DataType="vm:TreeMenuViewModel"
+             mc:Ignorable="d">
+
+    <DemoPage Title="Tree Menu"
+              Description="Explore hierarchical navigation with icon-based tree menu items."
+              IconKind="{Binding IconKind}">
+        <TreeMenu>
+            <TreeMenu.Styles>
+                <Style Selector="materialIcons|MaterialIconText">
+                    <Setter Property="IconSize" Value="20" />
+                </Style>
+                <Style Selector="materialIcons|MaterialIcon">
+                    <Setter Property="Foreground" Value="#007AFF" />
+                </Style>
+            </TreeMenu.Styles>
+            <TreeMenu.PaneHeader>
+                <SelectableTextBlock Margin="32"
+                                     FontSize="20"
+                                     TextAlignment="Center"
+                                     TextWrapping="Wrap">
+                    Non-MVVM
+                </SelectableTextBlock>
+            </TreeMenu.PaneHeader>
+            <TreeMenuItem Content="Home Page"
+                          Header="{materialIcons:MaterialIconTextExt Kind=Home,
+                                                                     Text=Home}"
+                          IsSelected="True" />
+            <TreeMenuItem Header="{materialIcons:MaterialIconTextExt Kind=ViewDashboard, Text=Overview}">
+                <TreeMenuItem Content="Dashboard Content" Header="{materialIcons:MaterialIconTextExt Kind=ViewDashboard, Text=Dashboard}" />
+                <TreeMenuItem Content="Activity Content" Header="{materialIcons:MaterialIconTextExt Kind=ChartLine, Text=Activity}" />
+                <TreeMenuItem Content="Timeline Content" Header="{materialIcons:MaterialIconTextExt Kind=Timeline, Text=Timeline}" />
+            </TreeMenuItem>
+            <TreeMenuItem Header="{materialIcons:MaterialIconTextExt Kind=MessageText, Text=Messages}">
+                <TreeMenuItem Content="Inbox Content" Header="{materialIcons:MaterialIconTextExt Kind=InboxArrowDown, Text=Inbox}" />
+                <TreeMenuItem Content="Sent Content" Header="{materialIcons:MaterialIconTextExt Kind=Send, Text=Sent}" />
+                <TreeMenuItem Content="Drafts Content" Header="{materialIcons:MaterialIconTextExt Kind=FileDocumentEdit, Text=Drafts}" />
+            </TreeMenuItem>
+            <TreeMenuItem Header="{materialIcons:MaterialIconTextExt Kind=Cog, Text=Settings}">
+                <TreeMenuItem Content="General Content" Header="{materialIcons:MaterialIconTextExt Kind=Tune, Text=General}" />
+                <TreeMenuItem Content="Account Content" Header="{materialIcons:MaterialIconTextExt Kind=AccountCircle, Text=Account}" />
+                <TreeMenuItem Content="Privacy Content" Header="{materialIcons:MaterialIconTextExt Kind=ShieldLock, Text=Privacy}" />
+            </TreeMenuItem>
+        </TreeMenu>
+    </DemoPage>
+</UserControl>

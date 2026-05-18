@@ -1,0 +1,70 @@
+<UserControl x:Class="Synthora.Demo.Views.DragTabControlView"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialIcons="using:Material.Icons.Avalonia"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:models="using:Synthora.Demo.Models"
+             xmlns:vm="using:Synthora.Demo.ViewModels"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             x:DataType="vm:DragTabControlViewModel"
+             mc:Ignorable="d">
+
+    <DemoPage Title="Drag Tab Control"
+              Description="Compare non-MVVM and MVVM drag tab control scenarios."
+              IconKind="{Binding IconKind}">
+        <UniformGrid Columns="1" RowSpacing="16">
+            <Border Background="{DynamicResource DragTabControlBackgroundBrush}" Classes="card">
+                <DockPanel VerticalSpacing="16">
+                    <TextBlock Classes="sectionLabel"
+                               DockPanel.Dock="Top"
+                               Text="DRAGTABCONTROL Non-MVVM" />
+                    <DragTabControl Name="dragTabControl"
+                                    LeftThumbWidth="0"
+                                    RightThumbWidth="0">
+                        <DragTabItem Header="Tab 1">
+                            <SelectableTextBlock>Content 1</SelectableTextBlock>
+                        </DragTabItem>
+                        <DragTabItem Header="Tab 2" IsEnabled="False">
+                            <SelectableTextBlock>Content 2</SelectableTextBlock>
+                        </DragTabItem>
+                        <DragTabItem Header="Tab 3">
+                            <SelectableTextBlock>Content 3</SelectableTextBlock>
+                        </DragTabItem>
+                        <DragTabItem Header="Tab 4">
+                            <SelectableTextBlock>Content 4</SelectableTextBlock>
+                        </DragTabItem>
+                    </DragTabControl>
+                </DockPanel>
+            </Border>
+            <Border Background="{DynamicResource DragTabControlBackgroundBrush}" Classes="card">
+                <DockPanel VerticalSpacing="16">
+                    <TextBlock Classes="sectionLabel"
+                               DockPanel.Dock="Top"
+                               Text="DRAGTABCONTROL MVVM" />
+                    <DragTabControl ItemsSource="{Binding TabItems}"
+                                    LeftThumbWidth="0"
+                                    NewItemFactory="{Binding NewItemFactory}"
+                                    RightThumbWidth="0">
+                        <TabControl.ContentTemplate>
+                            <DataTemplate x:DataType="models:DragTabItemModel">
+                                <TextBlock Text="{Binding Title}" />
+                            </DataTemplate>
+                        </TabControl.ContentTemplate>
+
+                        <TabControl.ItemTemplate>
+                            <DataTemplate x:DataType="models:DragTabItemModel">
+                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                    <materialIcons:MaterialIcon Kind="{Binding IconKind}" />
+                                    <TextBlock Text="{Binding Title}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </TabControl.ItemTemplate>
+                    </DragTabControl>
+                </DockPanel>
+            </Border>
+        </UniformGrid>
+    </DemoPage>
+
+</UserControl>

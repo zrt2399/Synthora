@@ -9,7 +9,7 @@
 		<ApplicationManifest>app.manifest</ApplicationManifest>
 		<AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
 		<ApplicationIcon>Assets/avalonia-logo.ico</ApplicationIcon>
-		<LangVersion>preview</LangVersion>
+		<LangVersion>latest</LangVersion>
 		<AssemblyName>SynthoraDemo</AssemblyName>
 		<PublishReadyToRun>true</PublishReadyToRun>
 		<!-- Uncomment below to enable Native AOT compilation-->
@@ -44,6 +44,7 @@
 
 	<ItemGroup>
 		<AvaloniaResource Include="Assets/**" />
+		<AvaloniaResource Include="Styles/**" />
 		<TrimmerRootDescriptor Include="Roots.xml" />
 	</ItemGroup>
 

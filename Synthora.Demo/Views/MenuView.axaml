@@ -1,0 +1,191 @@
+<UserControl x:Class="Synthora.Demo.Views.MenuView"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialIcons="using:Material.Icons.Avalonia"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Synthora.Demo.ViewModels"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             x:DataType="vm:MenuViewModel"
+             mc:Ignorable="d">
+
+    <DemoPage Title="Menus &amp; Commands"
+              Padding="0"
+              Description="Nested command bar, menu, flyout and checked menu item examples in one page."
+              IconKind="{Binding IconKind}">
+        <ScrollViewer Padding="16">
+            <StackPanel Spacing="16">
+                <!--  Menu  -->
+                <Border Classes="card">
+                    <StackPanel Spacing="10">
+                        <StackPanel Classes="sectionHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="Menu" />
+                            <TextBlock Classes="sectionLabel" Text="MENU" />
+                        </StackPanel>
+                        <Menu>
+                            <MenuItem Header="_File">
+                                <MenuItem Header="New"
+                                          Icon="{materialIcons:MaterialIconExt Kind=FilePlusOutline}"
+                                          InputGesture="Ctrl+N" />
+                                <MenuItem Header="Open..."
+                                          Icon="{materialIcons:MaterialIconExt Kind=FolderOpenOutline}"
+                                          InputGesture="Ctrl+O" />
+                                <MenuItem Header="Open Recent">
+                                    <MenuItem Header="Project_Draft.xd" />
+                                    <MenuItem Header="Mockup_Final.fig" />
+                                    <Separator />
+                                    <MenuItem Header="Clear Recent..." />
+                                </MenuItem>
+                                <Separator />
+                                <MenuItem Header="Save"
+                                          Icon="{materialIcons:MaterialIconExt Kind=ContentSaveOutline}"
+                                          InputGesture="Ctrl+S" />
+                                <MenuItem Header="Save As..." InputGesture="Ctrl+Shift+S" />
+                                <Separator />
+                                <MenuItem Header="Exit"
+                                          Icon="{materialIcons:MaterialIconExt Kind=ExitToApp}"
+                                          InputGesture="Alt+F4" />
+                            </MenuItem>
+                            <MenuItem Header="_Edit">
+                                <MenuItem Header="Undo"
+                                          Icon="{materialIcons:MaterialIconExt Kind=Undo}"
+                                          InputGesture="Ctrl+Z" />
+                                <MenuItem Header="Redo"
+                                          Icon="{materialIcons:MaterialIconExt Kind=Redo}"
+                                          InputGesture="Ctrl+Y" />
+                                <Separator />
+                                <MenuItem Header="Cut"
+                                          Icon="{materialIcons:MaterialIconExt Kind=ContentCut}"
+                                          InputGesture="Ctrl+X" />
+                                <MenuItem Header="Copy"
+                                          Icon="{materialIcons:MaterialIconExt Kind=ContentCopy}"
+                                          InputGesture="Ctrl+C" />
+                                <MenuItem Header="Paste"
+                                          Icon="{materialIcons:MaterialIconExt Kind=ContentPaste}"
+                                          InputGesture="Ctrl+V" />
+                                <MenuItem Header="Delete"
+                                          Icon="{materialIcons:MaterialIconExt Kind=DeleteOutline}"
+                                          InputGesture="Delete" />
+                            </MenuItem>
+                            <MenuItem Header="_View">
+                                <MenuItem Header="Appearance">
+                                    <MenuItem Header="Show Toolbar"
+                                              IsChecked="True"
+                                              ToggleType="CheckBox" />
+                                    <MenuItem Header="Show Status Bar"
+                                              IsChecked="True"
+                                              ToggleType="CheckBox" />
+                                    <MenuItem Header="Show Sidebar" ToggleType="CheckBox" />
+                                </MenuItem>
+                                <MenuItem Header="Zoom">
+                                    <MenuItem Header="Zoom In"
+                                              Icon="{materialIcons:MaterialIconExt Kind=MagnifyPlusOutline}"
+                                              InputGesture="Ctrl++" />
+                                    <MenuItem Header="Zoom Out"
+                                              Icon="{materialIcons:MaterialIconExt Kind=MagnifyMinusOutline}"
+                                              InputGesture="Ctrl+-" />
+                                    <MenuItem Header="Actual Size" InputGesture="Ctrl+0" />
+                                </MenuItem>
+                                <Separator />
+                                <MenuItem Header="Toggle Full Screen"
+                                          Icon="{materialIcons:MaterialIconExt Kind=Fullscreen}"
+                                          InputGesture="F11" />
+                            </MenuItem>
+                            <MenuItem Header="_Help">
+                                <MenuItem Header="View Help" Icon="{materialIcons:MaterialIconExt Kind=HelpCircleOutline}" />
+                                <MenuItem Header="Check for Updates..." />
+                                <Separator />
+                                <MenuItem Header="About Synthora Editor" Icon="{materialIcons:MaterialIconExt Kind=InformationOutline}" />
+                            </MenuItem>
+                        </Menu>
+                        <Button Content="ButtonWithContextFlyout">
+                            <Button.ContextFlyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="More menu">
+                                        <MenuItem Header="Star" Icon="{materialIcons:MaterialIconExt Kind=Star}" />
+                                        <MenuItem Header="Previous" Icon="{materialIcons:MaterialIconExt Kind=SkipPrevious}" />
+                                        <MenuItem Header="Play" Icon="{materialIcons:MaterialIconExt Kind=Play}" />
+                                        <MenuItem Header="Next" Icon="{materialIcons:MaterialIconExt Kind=SkipNext}" />
+                                    </MenuItem>
+                                    <Separator />
+                                    <MenuItem Foreground="{StaticResource DangerBrush}"
+                                              Header="Delete"
+                                              HotKey="Control+D"
+                                              Icon="{materialIcons:MaterialIconExt Kind=Delete}"
+                                              InputGesture="{Binding $self.HotKey}" />
+                                    <MenuItem Foreground="{StaticResource WarningBrush}"
+                                              Header="Refresh"
+                                              Icon="{materialIcons:MaterialIconExt Kind=Refresh}"
+                                              IsEnabled="False" />
+                                    <MenuItem Header="Checkable"
+                                              InputGesture="Alt+C"
+                                              IsChecked="True"
+                                              ToggleType="CheckBox" />
+                                    <MenuItem GroupName="RadioableMenuItem"
+                                              Header="Radioable1"
+                                              IsChecked="True"
+                                              StaysOpenOnClick="True"
+                                              ToggleType="Radio" />
+                                    <MenuItem GroupName="RadioableMenuItem"
+                                              Header="Radioable2"
+                                              StaysOpenOnClick="True"
+                                              ToggleType="Radio" />
+                                </MenuFlyout>
+                            </Button.ContextFlyout>
+                        </Button>
+                    </StackPanel>
+                </Border>
+                <!--  CommandBar  -->
+                <Border Classes="card">
+                    <StackPanel Spacing="16">
+                        <StackPanel Classes="sectionHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="AppleKeyboardCommand" />
+                            <TextBlock Classes="sectionLabel" Text="COMMAND BAR" />
+                        </StackPanel>
+
+                        <CommandBar Name="commandBar" DefaultLabelPosition="Collapsed">
+                            <CommandBar.Content>
+                                <ComboBox ItemsSource="{EnumBindingSource CommandBarDefaultLabelPosition}" SelectedItem="{Binding #commandBar.DefaultLabelPosition}" />
+                            </CommandBar.Content>
+                            <CommandBar.PrimaryCommands>
+                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=ArrowLeft}"
+                                                  Label="{Binding $self.(ToolTip.Tip)}"
+                                                  ToolTip.Tip="Back" />
+                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=ArrowRight}"
+                                                  IsEnabled="False"
+                                                  Label="{Binding $self.(ToolTip.Tip)}"
+                                                  ToolTip.Tip="Forward" />
+                                <CommandBarSeparator />
+                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=File}"
+                                                  Label="{Binding $self.(ToolTip.Tip)}"
+                                                  ToolTip.Tip="File" />
+                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=ContentSave}"
+                                                  Label="{Binding $self.(ToolTip.Tip)}"
+                                                  ToolTip.Tip="Save" />
+                                <CommandBarToggleButton Icon="{materialIcons:MaterialIconExt Kind=LetterBBox}"
+                                                        Label="{Binding $self.(ToolTip.Tip)}"
+                                                        ToolTip.Tip="Bold" />
+                                <CommandBarToggleButton Icon="{materialIcons:MaterialIconExt Kind=LetterIBox}"
+                                                        Label="{Binding $self.(ToolTip.Tip)}"
+                                                        ToolTip.Tip="Italic" />
+                            </CommandBar.PrimaryCommands>
+                            <CommandBar.SecondaryCommands>
+                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=Redo}"
+                                                  Label="{Binding $self.(ToolTip.Tip)}"
+                                                  ToolTip.Tip="Redo" />
+                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=Undo}"
+                                                  Label="{Binding $self.(ToolTip.Tip)}"
+                                                  ToolTip.Tip="Undo" />
+                                <CommandBarSeparator />
+                                <CommandBarToggleButton Icon="{materialIcons:MaterialIconExt Kind=LetterUBox}"
+                                                        Label="{Binding $self.(ToolTip.Tip)}"
+                                                        ToolTip.Tip="Underline" />
+                            </CommandBar.SecondaryCommands>
+                        </CommandBar>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+    </DemoPage>
+</UserControl>

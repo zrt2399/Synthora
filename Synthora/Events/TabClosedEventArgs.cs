@@ -1,8 +1,9 @@
 ﻿using System;
 
-namespace Synthora.Events;
-
-public class TabClosedEventArgs(object item) : EventArgs
+namespace Synthora.Events
 {
-    public object Item { get; } = item;
+    public class TabClosedEventArgs(object item) : EventArgs
+    {
+        public object Item { get; } = item;
+    }
 }

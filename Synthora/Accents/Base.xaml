@@ -4,11 +4,6 @@
 
     <ResourceDictionary.ThemeDictionaries>
         <ResourceDictionary x:Key="Default">
-            <!--  FF007AFF  -->
-            <Color x:Key="PrimaryColor">#FF3A8BEF</Color>
-            <Color x:Key="PrimaryPointerOverColor">#FF4E97F1</Color>
-            <Color x:Key="PrimaryPressedColor">#FF60A1F2</Color>
-            <Color x:Key="OnPrimaryColor">#FFFFFFFF</Color>
             <Color x:Key="PrimaryContrastColor">#FFCBD5E0</Color>
             <Color x:Key="ThemeSelectedLowColor">#FFE8E8E8</Color>
             <Color x:Key="ThemeSelectedMidColor">#FFDEDEDE</Color>
@@ -31,18 +26,17 @@
             <Color x:Key="ThemeControlMidHighColor">#FFC2C3C9</Color>
             <Color x:Key="ThemeControlHighColor">#FF969696</Color>
             <Color x:Key="ThemeControlVeryHighColor">#FF6C6C6C</Color>
-            <Color x:Key="ThemeControlHighlightLowColor">#FFF0F0F0</Color>
+            <Color x:Key="ThemeControlHighlightLowColor">#FFDEDEDE</Color>
             <Color x:Key="ThemeControlHighlightMidColor">#FFD0D0D0</Color>
-            <Color x:Key="ThemeControlHighlightHighColor">#FF808080</Color>
+            <Color x:Key="ThemeControlHighlightHighColor">#FFC2C2C2</Color>
+
+            <Color x:Key="ThemeOverlayColor">#60000000</Color>
+
             <Color x:Key="HighlightColor">#FF0569B4</Color>
             <Color x:Key="HyperlinkVisitedColor">#FF681DA8</Color>
             <Color x:Key="MenuItemPointerOverColor">#FFCEDEFF</Color>
             <Color x:Key="MenuItemPressedColor">#FFD8E6FF</Color>
 
-            <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource PrimaryColor}" />
-            <SolidColorBrush x:Key="PrimaryPointerOverBrush" Color="{StaticResource PrimaryPointerOverColor}" />
-            <SolidColorBrush x:Key="PrimaryPressedBrush" Color="{StaticResource PrimaryPressedColor}" />
-            <SolidColorBrush x:Key="OnPrimaryBrush" Color="{StaticResource OnPrimaryColor}" />
             <SolidColorBrush x:Key="PrimaryContrastBrush" Color="{StaticResource PrimaryContrastColor}" />
             <SolidColorBrush x:Key="ThemeSelectedLowBrush" Color="{StaticResource ThemeSelectedLowColor}" />
             <SolidColorBrush x:Key="ThemeSelectedMidBrush" Color="{StaticResource ThemeSelectedMidColor}" />
@@ -53,6 +47,7 @@
             <SolidColorBrush x:Key="SynthoraHighBrush" Color="{StaticResource SynthoraHighColor}" />
             <SolidColorBrush x:Key="SynthoraVeryHighBrush" Color="{StaticResource SynthoraVeryHighColor}" />
 
+            <SolidColorBrush x:Key="ThemeForegroundBrush" Color="{StaticResource ThemeForegroundColor}" />
             <SolidColorBrush x:Key="ThemeForegroundLowBrush" Color="{StaticResource ThemeForegroundLowColor}" />
             <SolidColorBrush x:Key="ThemeForegroundMidBrush" Color="{StaticResource ThemeForegroundMidColor}" />
             <SolidColorBrush x:Key="ThemeBackgroundBrush" Color="{StaticResource ThemeBackgroundColor}" />
@@ -66,7 +61,10 @@
             <SolidColorBrush x:Key="ThemeControlVeryHighBrush" Color="{StaticResource ThemeControlVeryHighColor}" />
             <SolidColorBrush x:Key="ThemeControlHighlightLowBrush" Color="{StaticResource ThemeControlHighlightLowColor}" />
             <SolidColorBrush x:Key="ThemeControlHighlightMidBrush" Color="{StaticResource ThemeControlHighlightMidColor}" />
-            <SolidColorBrush x:Key="ThemeForegroundBrush" Color="{StaticResource ThemeForegroundColor}" />
+            <SolidColorBrush x:Key="ThemeControlHighlightHighBrush" Color="{StaticResource ThemeControlHighlightHighColor}" />
+
+            <SolidColorBrush x:Key="ThemeOverlayBrush" Color="{StaticResource ThemeOverlayColor}" />
+
             <SolidColorBrush x:Key="HighlightBrush" Color="{StaticResource HighlightColor}" />
             <SolidColorBrush x:Key="HyperlinkVisitedBrush" Color="{StaticResource HyperlinkVisitedColor}" />
             <SolidColorBrush x:Key="MenuItemPointerOverBrush" Color="{StaticResource MenuItemPointerOverColor}" />
@@ -108,9 +106,6 @@
         </ResourceDictionary>
 
         <ResourceDictionary x:Key="Dark">
-            <Color x:Key="PrimaryColor">#FF3A8BEF</Color>
-            <Color x:Key="PrimaryPointerOverColor">#FF4E97F1</Color>
-            <Color x:Key="PrimaryPressedColor">#FF60A1F2</Color>
             <Color x:Key="OnPrimaryColor">#FFFFFFFF</Color>
             <Color x:Key="PrimaryContrastColor">#FF2C3E50</Color>
             <Color x:Key="ThemeSelectedLowColor">#FF404040</Color>
@@ -134,18 +129,17 @@
             <Color x:Key="ThemeControlMidHighColor">#FF686868</Color>
             <Color x:Key="ThemeControlHighColor">#FF808080</Color>
             <Color x:Key="ThemeControlVeryHighColor">#FFB0B0B0</Color>
-            <Color x:Key="ThemeControlHighlightLowColor">#FF808080</Color>
+            <Color x:Key="ThemeControlHighlightLowColor">#FF505050</Color>
             <Color x:Key="ThemeControlHighlightMidColor">#FF404040</Color>
-            <Color x:Key="ThemeControlHighlightHighColor">#FF202020</Color>
+            <Color x:Key="ThemeControlHighlightHighColor">#FF303030</Color>
+
+            <Color x:Key="ThemeOverlayColor">#60000000</Color>
+
             <Color x:Key="HighlightColor">#FF119EDA</Color>
             <Color x:Key="HyperlinkVisitedColor">#FFC58AF9</Color>
             <Color x:Key="MenuItemPointerOverColor">#FF006CBE</Color>
             <Color x:Key="MenuItemPressedColor">#FF1A7BC5</Color>
 
-            <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource PrimaryColor}" />
-            <SolidColorBrush x:Key="PrimaryPointerOverBrush" Color="{StaticResource PrimaryPointerOverColor}" />
-            <SolidColorBrush x:Key="PrimaryPressedBrush" Color="{StaticResource PrimaryPressedColor}" />
-            <SolidColorBrush x:Key="OnPrimaryBrush" Color="{StaticResource OnPrimaryColor}" />
             <SolidColorBrush x:Key="PrimaryContrastBrush" Color="{StaticResource PrimaryContrastColor}" />
             <SolidColorBrush x:Key="ThemeSelectedLowBrush" Color="{StaticResource ThemeSelectedLowColor}" />
             <SolidColorBrush x:Key="ThemeSelectedMidBrush" Color="{StaticResource ThemeSelectedMidColor}" />
@@ -156,6 +150,7 @@
             <SolidColorBrush x:Key="SynthoraHighBrush" Color="{StaticResource SynthoraHighColor}" />
             <SolidColorBrush x:Key="SynthoraVeryHighBrush" Color="{StaticResource SynthoraVeryHighColor}" />
 
+            <SolidColorBrush x:Key="ThemeForegroundBrush" Color="{StaticResource ThemeForegroundColor}" />
             <SolidColorBrush x:Key="ThemeForegroundLowBrush" Color="{StaticResource ThemeForegroundLowColor}" />
             <SolidColorBrush x:Key="ThemeForegroundMidBrush" Color="{StaticResource ThemeForegroundMidColor}" />
             <SolidColorBrush x:Key="ThemeBackgroundBrush" Color="{StaticResource ThemeBackgroundColor}" />
@@ -169,7 +164,10 @@
             <SolidColorBrush x:Key="ThemeControlVeryHighBrush" Color="{StaticResource ThemeControlVeryHighColor}" />
             <SolidColorBrush x:Key="ThemeControlHighlightLowBrush" Color="{StaticResource ThemeControlHighlightLowColor}" />
             <SolidColorBrush x:Key="ThemeControlHighlightMidBrush" Color="{StaticResource ThemeControlHighlightMidColor}" />
-            <SolidColorBrush x:Key="ThemeForegroundBrush" Color="{StaticResource ThemeForegroundColor}" />
+            <SolidColorBrush x:Key="ThemeControlHighlightHighBrush" Color="{StaticResource ThemeControlHighlightHighColor}" />
+
+            <SolidColorBrush x:Key="ThemeOverlayBrush" Color="{StaticResource ThemeOverlayColor}" />
+
             <SolidColorBrush x:Key="HighlightBrush" Color="{StaticResource HighlightColor}" />
             <SolidColorBrush x:Key="HyperlinkVisitedBrush" Color="{StaticResource HyperlinkVisitedColor}" />
             <SolidColorBrush x:Key="MenuItemPointerOverBrush" Color="{StaticResource MenuItemPointerOverColor}" />
@@ -212,11 +210,18 @@
     </ResourceDictionary.ThemeDictionaries>
 
     <FontFamily x:Key="ContentControlThemeFontFamily">fonts:Inter#Inter, $Default</FontFamily>
+    <!--  FF007AFF  -->
+    <Color x:Key="PrimaryColor">#FF3A8BEF</Color>
+    <Color x:Key="PrimaryPointerOverColor">#FF4E97F1</Color>
+    <Color x:Key="PrimaryPressedColor">#FF60A1F2</Color>
+    <Color x:Key="OnPrimaryColor">#FFFFFFFF</Color>
+
     <Color x:Key="ThemeBorderHighlightColor">#FF007AFF</Color>
-    <Color x:Key="ThemeAccentColor">#DD007AFF</Color>
+    <Color x:Key="ThemeAccentColor">#CC007AFF</Color>
     <Color x:Key="ThemeAccentColor2">#AA007AFF</Color>
-    <Color x:Key="ThemeAccentColor3">#77007AFF</Color>
-    <Color x:Key="ThemeAccentColor4">#44007AFF</Color>
+    <Color x:Key="ThemeAccentColor3">#88007AFF</Color>
+    <Color x:Key="ThemeAccentColor4">#66007AFF</Color>
+    <Color x:Key="ThemeAccentColor5">#44007AFF</Color>
     <Color x:Key="HighlightForegroundColor">#FFFFFFFF</Color>
 
     <Color x:Key="SuccessColor">#FF1F883D</Color>
@@ -232,6 +237,11 @@
     <Color x:Key="ErrorPointerOverColor">#FFD74444</Color>
     <Color x:Key="ErrorPressedColor">#FFDB5757</Color>
 
+    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource PrimaryColor}" />
+    <SolidColorBrush x:Key="PrimaryPointerOverBrush" Color="{StaticResource PrimaryPointerOverColor}" />
+    <SolidColorBrush x:Key="PrimaryPressedBrush" Color="{StaticResource PrimaryPressedColor}" />
+    <SolidColorBrush x:Key="OnPrimaryBrush" Color="{StaticResource OnPrimaryColor}" />
+
     <SolidColorBrush x:Key="ThemeBorderHighlightBrush" Color="{StaticResource ThemeBorderHighlightColor}" />
     <SolidColorBrush x:Key="HighlightForegroundBrush" Color="{StaticResource HighlightForegroundColor}" />
 
@@ -239,6 +249,7 @@
     <SolidColorBrush x:Key="ThemeAccentBrush2" Color="{StaticResource ThemeAccentColor2}" />
     <SolidColorBrush x:Key="ThemeAccentBrush3" Color="{StaticResource ThemeAccentColor3}" />
     <SolidColorBrush x:Key="ThemeAccentBrush4" Color="{StaticResource ThemeAccentColor4}" />
+    <SolidColorBrush x:Key="ThemeAccentBrush5" Color="{StaticResource ThemeAccentColor5}" />
     <SolidColorBrush x:Key="ErrorBrush" Color="{StaticResource ErrorColor}" />
     <SolidColorBrush x:Key="ErrorPointerOverBrush" Color="{StaticResource ErrorPointerOverColor}" />
     <SolidColorBrush x:Key="ErrorPressedBrush" Color="{StaticResource ErrorPressedColor}" />
@@ -267,10 +278,6 @@
     <Thickness x:Key="ThemeBorderThickness">1</Thickness>
 
     <Thickness x:Key="ThemeControlPaddingSmall">4</Thickness>
-
-    <CornerRadius x:Key="ThemeBorderCornerRadiusSmall">4</CornerRadius>
-    <CornerRadius x:Key="ThemeBorderCornerRadiusNormal">6</CornerRadius>
-    <CornerRadius x:Key="ThemeBorderCornerRadiusLarge">8</CornerRadius>
 
     <x:Double x:Key="ThemePlaceholderTextOpacity">0.6</x:Double>
     <x:Double x:Key="ThemeDisabledOpacity">0.7</x:Double>

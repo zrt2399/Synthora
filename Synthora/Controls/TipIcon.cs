@@ -2,7 +2,7 @@
 using Avalonia.Controls.Primitives;
 using Avalonia.Media;
 using Avalonia.Media.Immutable;
-using Synthora.Messaging;
+using Synthora.Overlays;
 
 namespace Synthora.Controls
 {

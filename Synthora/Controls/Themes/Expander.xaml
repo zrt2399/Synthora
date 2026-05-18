@@ -80,8 +80,7 @@
                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                   Data="{DynamicResource ArrowRightGlyph}"
                                   Foreground="{TemplateBinding Foreground}"
-                                  IsHitTestVisible="False"
-                                  UseLayoutRounding="False">
+                                  IsHitTestVisible="False">
                             <PathIcon.Transitions>
                                 <Transitions>
                                     <TransformOperationsTransition Easing="CubicEaseInOut"
@@ -161,7 +160,6 @@
                                   BorderBrush="{TemplateBinding BorderBrush}"
                                   BorderThickness="{TemplateBinding BorderThickness}"
                                   BoxShadow="{TemplateBinding BoxShadowAttach.BoxShadow}"
-                                  ClipToBounds="{TemplateBinding ClipToBounds}"
                                   CornerRadius="{TemplateBinding CornerRadius}">
                     <DockPanel Name="PART_DockPanel">
                         <ToggleButton Name="PART_toggle"

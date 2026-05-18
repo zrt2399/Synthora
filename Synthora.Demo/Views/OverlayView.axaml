@@ -1,0 +1,106 @@
+<UserControl x:Class="Synthora.Demo.Views.OverlayView"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialIcons="using:Material.Icons.Avalonia"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:overlays="using:Synthora.Overlays"
+             xmlns:vm="using:Synthora.Demo.ViewModels"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             x:DataType="vm:OverlayViewModel"
+             mc:Ignorable="d">
+
+    <DemoPage Title="Overlays &amp; Feedback"
+              Padding="0"
+              Description="Trigger notification, message tip and alert dialog overlays from one place."
+              IconKind="{Binding IconKind}">
+        <ScrollViewer Padding="16">
+            <StackPanel Spacing="16">
+                <!--  Notification  -->
+                <Border Classes="card">
+                    <StackPanel Spacing="16">
+                        <StackPanel Classes="sectionHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="Bell" />
+                            <TextBlock Classes="sectionLabel" Text="NOTIFICATION" />
+                        </StackPanel>
+                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <SpacingWrapPanel.Styles>
+                                <Style Selector="Button">
+                                    <Setter Property="Command" Value="{Binding ShowNotification}" />
+                                    <Setter Property="CommandParameter" Value="{Binding $self.Content}" />
+                                </Style>
+                            </SpacingWrapPanel.Styles>
+                            <ComboBox ItemsSource="{EnumBindingSource NotificationPosition}"
+                                      SelectedItem="{Binding NotificationPosition}"
+                                      TextBoxAttach.Header="NotificationPosition: "
+                                      TextBoxAttach.HeaderPlacement="Left" />
+                            <Button Content="Information" />
+                            <Button Content="WithoutTitle" Theme="{StaticResource TonalButtonTheme}" />
+                            <Button Content="Success" Theme="{StaticResource SuccessButtonTheme}" />
+                            <Button Content="Warning" Theme="{StaticResource WarningButtonTheme}" />
+                            <Button Content="Error" Theme="{StaticResource ErrorButtonTheme}" />
+                            <Button Content="Multiline" Theme="{StaticResource SecondaryButtonTheme}" />
+                        </SpacingWrapPanel>
+                    </StackPanel>
+                </Border>
+                <!--  MessageTip  -->
+                <Border Classes="card">
+                    <StackPanel Spacing="16">
+                        <StackPanel Classes="sectionHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="MessageText" />
+                            <TextBlock Classes="sectionLabel" Text="MESSAGE TIP" />
+                        </StackPanel>
+                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <SpacingWrapPanel.Styles>
+                                <Style Selector="Button">
+                                    <Setter Property="Command" Value="{Binding ShowMessageTip}" />
+                                    <Setter Property="CommandParameter" Value="{Binding $self.Content}" />
+                                </Style>
+                            </SpacingWrapPanel.Styles>
+                            <ComboBox ItemsSource="{EnumBindingSource PlacementMode}"
+                                      SelectedItem="{Binding MessageTipPlacement}"
+                                      TextBoxAttach.Header="PlacementMode: "
+                                      TextBoxAttach.HeaderPlacement="Left" />
+                            <Button>Show</Button>
+                            <Button Theme="{StaticResource TonalButtonTheme}">ShowQuestion</Button>
+                            <Button Theme="{StaticResource SuccessButtonTheme}">ShowSuccess</Button>
+                            <Button Theme="{StaticResource WarningButtonTheme}">ShowWarning</Button>
+                            <Button Theme="{StaticResource ErrorButtonTheme}">ShowError</Button>
+                            <Button Theme="{StaticResource SecondaryButtonTheme}">None</Button>
+                        </SpacingWrapPanel>
+                    </StackPanel>
+                </Border>
+                <!--  AlertDialog  -->
+                <Border Classes="card">
+                    <StackPanel Spacing="16">
+                        <StackPanel Classes="sectionHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="AlertCircle" />
+                            <TextBlock Classes="sectionLabel" Text="ALERT DIALOG" />
+                        </StackPanel>
+                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <SpacingWrapPanel.Styles>
+                                <Style Selector="Button">
+                                    <Setter Property="Command" Value="{Binding ShowAlertDialog}" />
+                                    <Setter Property="CommandParameter" Value="{Binding $self.Content}" />
+                                    <Setter Property="CornerRadiusAttach.IsCircular" Value="True" />
+                                </Style>
+                            </SpacingWrapPanel.Styles>
+                            <ComboBox ItemsSource="{EnumBindingSource overlays:DialogButton}"
+                                      SelectedItem="{Binding DialogButton}"
+                                      TextBoxAttach.Header="DialogButton: "
+                                      TextBoxAttach.HeaderPlacement="Left" />
+                            <Button>Information</Button>
+                            <Button Theme="{StaticResource TonalButtonTheme}">Question</Button>
+                            <Button Theme="{StaticResource WarningButtonTheme}">Warning</Button>
+                            <Button Theme="{StaticResource ErrorButtonTheme}">Error</Button>
+                            <Button Theme="{StaticResource DangerButtonTheme}">Abort</Button>
+                            <Button Theme="{StaticResource SecondaryButtonTheme}">None</Button>
+                        </SpacingWrapPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+    </DemoPage>
+
+</UserControl>

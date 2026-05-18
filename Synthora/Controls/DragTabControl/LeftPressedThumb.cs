@@ -5,129 +5,132 @@ using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 
-namespace Synthora.Controls.DragTabControl;
-
-public class LeftPressedThumb : TemplatedControl
+namespace Synthora.Controls
 {
-    public static readonly RoutedEvent<VectorEventArgs> DragStartedEvent =
-        RoutedEvent.Register<Thumb, VectorEventArgs>(nameof(DragStarted), RoutingStrategies.Bubble);
-
-    public static readonly RoutedEvent<VectorEventArgs> DragDeltaEvent =
-        RoutedEvent.Register<Thumb, VectorEventArgs>(nameof(DragDelta), RoutingStrategies.Bubble);
-
-    public static readonly RoutedEvent<VectorEventArgs> DragCompletedEvent =
-        RoutedEvent.Register<Thumb, VectorEventArgs>(nameof(DragCompleted), RoutingStrategies.Bubble);
-
-
-    private Point? _lastPoint;
-
-
-    public event EventHandler<VectorEventArgs>? DragStarted
+    public class LeftPressedThumb : TemplatedControl
     {
-        add => AddHandler(DragStartedEvent, value);
-        remove => RemoveHandler(DragStartedEvent, value);
-    }
+        public static readonly RoutedEvent<VectorEventArgs> DragStartedEvent =
+            RoutedEvent.Register<Thumb, VectorEventArgs>(nameof(DragStarted), RoutingStrategies.Bubble);
 
-    public event EventHandler<VectorEventArgs>? DragDelta
-    {
-        add => AddHandler(DragDeltaEvent, value);
-        remove => RemoveHandler(DragDeltaEvent, value);
-    }
+        public static readonly RoutedEvent<VectorEventArgs> DragDeltaEvent =
+            RoutedEvent.Register<Thumb, VectorEventArgs>(nameof(DragDelta), RoutingStrategies.Bubble);
 
-    public event EventHandler<VectorEventArgs>? DragCompleted
-    {
-        add => AddHandler(DragCompletedEvent, value);
-        remove => RemoveHandler(DragCompletedEvent, value);
-    }
-
-    protected override AutomationPeer OnCreateAutomationPeer() => new LeftPressedThumbPeer(this);
-
-    protected override void OnPointerCaptureLost(PointerCaptureLostEventArgs e)
-    {
-        if (_lastPoint.HasValue)
+        public static readonly RoutedEvent<VectorEventArgs> DragCompletedEvent =
+            RoutedEvent.Register<Thumb, VectorEventArgs>(nameof(DragCompleted), RoutingStrategies.Bubble);
+ 
+        private Point? _lastPoint;
+ 
+        public event EventHandler<VectorEventArgs>? DragStarted
         {
-            var ev = new VectorEventArgs
+            add => AddHandler(DragStartedEvent, value);
+            remove => RemoveHandler(DragStartedEvent, value);
+        }
+
+        public event EventHandler<VectorEventArgs>? DragDelta
+        {
+            add => AddHandler(DragDeltaEvent, value);
+            remove => RemoveHandler(DragDeltaEvent, value);
+        }
+
+        public event EventHandler<VectorEventArgs>? DragCompleted
+        {
+            add => AddHandler(DragCompletedEvent, value);
+            remove => RemoveHandler(DragCompletedEvent, value);
+        }
+
+        protected override AutomationPeer OnCreateAutomationPeer() => new LeftPressedThumbPeer(this);
+
+        protected override void OnPointerCaptureLost(PointerCaptureLostEventArgs e)
+        {
+            if (_lastPoint.HasValue)
             {
-                RoutedEvent = DragCompletedEvent,
-                Vector = _lastPoint.Value,
-            };
+                var ev = new VectorEventArgs
+                {
+                    RoutedEvent = DragCompletedEvent,
+                    Vector = _lastPoint.Value,
+                };
 
-            _lastPoint = null;
+                _lastPoint = null;
 
-            RaiseEvent(ev);
+                RaiseEvent(ev);
+            }
+
+            base.OnPointerCaptureLost(e);
         }
 
-        base.OnPointerCaptureLost(e);
-    }
-
-    protected override void OnPointerMoved(PointerEventArgs e)
-    {
-        if (!IsLeftButtonPressed(e))
-            return;
-
-        if (_lastPoint.HasValue)
+        protected override void OnPointerMoved(PointerEventArgs e)
         {
-            var ev = new VectorEventArgs
+            if (!IsLeftButtonPressed(e))
             {
-                RoutedEvent = DragDeltaEvent,
-                Vector = e.GetPosition(this) - _lastPoint.Value,
-            };
+                return;
+            }
 
-            RaiseEvent(ev);
-        }
-    }
+            if (_lastPoint.HasValue)
+            {
+                var ev = new VectorEventArgs
+                {
+                    RoutedEvent = DragDeltaEvent,
+                    Vector = e.GetPosition(this) - _lastPoint.Value,
+                };
 
-    protected override void OnPointerPressed(PointerPressedEventArgs e)
-    {
-        if (!IsLeftButtonPressed(e))
-            return;
-
-        e.Handled = true;
-        _lastPoint = e.GetPosition(this);
-
-        var ev = new VectorEventArgs
-        {
-            RoutedEvent = DragStartedEvent,
-            Vector = (Vector)(Point)_lastPoint,
-        };
-
-        e.PreventGestureRecognition();
-
-        RaiseEvent(ev);
-    }
-
-    protected override void OnPointerReleased(PointerReleasedEventArgs e)
-    {
-        if (!IsLeftButtonPressed(e))
-        {
-            return;
+                RaiseEvent(ev);
+            }
         }
 
-        if (_lastPoint.HasValue)
+        protected override void OnPointerPressed(PointerPressedEventArgs e)
         {
+            if (!IsLeftButtonPressed(e))
+            {
+                return;
+            }
+
             e.Handled = true;
-            _lastPoint = null;
+            _lastPoint = e.GetPosition(this);
 
             var ev = new VectorEventArgs
             {
-                RoutedEvent = DragCompletedEvent,
-                Vector = e.GetPosition(this),
+                RoutedEvent = DragStartedEvent,
+                Vector = (Point)_lastPoint,
             };
+
+            e.PreventGestureRecognition();
 
             RaiseEvent(ev);
         }
-    }
 
-    private bool IsLeftButtonPressed(PointerEventArgs args)
-    {
-        var point = args.GetCurrentPoint(this);
+        protected override void OnPointerReleased(PointerReleasedEventArgs e)
+        {
+            if (!IsLeftButtonPressed(e))
+            {
+                return;
+            }
 
-        return point.Properties.IsLeftButtonPressed;
-    }
+            if (_lastPoint.HasValue)
+            {
+                e.Handled = true;
+                _lastPoint = null;
 
-    private class LeftPressedThumbPeer(LeftPressedThumb owner) : ControlAutomationPeer(owner)
-    {
-        protected override AutomationControlType GetAutomationControlTypeCore() => AutomationControlType.Thumb;
-        protected override bool IsContentElementCore() => false;
+                var ev = new VectorEventArgs
+                {
+                    RoutedEvent = DragCompletedEvent,
+                    Vector = e.GetPosition(this),
+                };
+
+                RaiseEvent(ev);
+            }
+        }
+
+        private bool IsLeftButtonPressed(PointerEventArgs args)
+        {
+            var point = args.GetCurrentPoint(this);
+
+            return point.Properties.IsLeftButtonPressed;
+        }
+
+        private class LeftPressedThumbPeer(LeftPressedThumb owner) : ControlAutomationPeer(owner)
+        {
+            protected override AutomationControlType GetAutomationControlTypeCore() => AutomationControlType.Thumb;
+            protected override bool IsContentElementCore() => false;
+        }
     }
 }

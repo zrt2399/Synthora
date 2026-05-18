@@ -8,7 +8,7 @@ using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Primitives;
 using Avalonia.Media;
 using Avalonia.Threading;
-using Synthora.Messaging;
+using Synthora.Overlays;
 
 namespace Synthora.Controls
 {

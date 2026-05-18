@@ -11,6 +11,8 @@
                     x:CompileBindings="True">
 
     <ControlTheme x:Key="{x:Type CalendarItem}" TargetType="CalendarItem">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
@@ -44,9 +46,7 @@
                                     IsVisible="False">
                                 <PathIcon Width="12"
                                           Height="12"
-                                          Data="{DynamicResource ArrowLeftGlyph}"
-                                          IsHitTestVisible="False"
-                                          UseLayoutRounding="False" />
+                                          Data="{DynamicResource ArrowLeftGlyph}" />
                             </Button>
 
                             <Button Name="PART_HeaderButton"
@@ -61,9 +61,7 @@
                                     IsVisible="False">
                                 <PathIcon Width="12"
                                           Height="12"
-                                          Data="{DynamicResource ArrowRightGlyph}"
-                                          IsHitTestVisible="False"
-                                          UseLayoutRounding="False" />
+                                          Data="{DynamicResource ArrowRightGlyph}" />
                             </Button>
                         </Grid>
                     </GroupBoxEx.Header>

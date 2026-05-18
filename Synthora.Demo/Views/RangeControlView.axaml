@@ -1,0 +1,57 @@
+<UserControl x:Class="Synthora.Demo.Views.RangeControlView"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialIcons="using:Material.Icons.Avalonia"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Synthora.Demo.ViewModels"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             x:DataType="vm:RangeControlViewModel"
+             mc:Ignorable="d">
+
+    <DemoPage Title="Range Controls"
+              Padding="0"
+              Description="Interact with sliders, dividers and progress indicators in both directions."
+              IconKind="{Binding IconKind}">
+        <ScrollViewer Padding="16">
+            <Border Classes="card">
+                <StackPanel Spacing="16">
+                    <DockPanel MinHeight="120">
+                        <Divider Content="Vertical"
+                                 MinLineLength="10"
+                                 Orientation="Vertical" />
+                        <Slider Name="VerticalSlider"
+                                IsSnapToTickEnabled="True"
+                                Maximum="10"
+                                Orientation="Vertical"
+                                TickFrequency="1"
+                                TickPlacement="BottomRight" />
+                        <ProgressBar Margin="10,0,0,0"
+                                     Maximum="{Binding #VerticalSlider.Maximum}"
+                                     Orientation="Vertical"
+                                     ShowProgressText="True"
+                                     Value="{Binding #VerticalSlider.Value}" />
+                    </DockPanel>
+
+                    <Divider Content="DirectionReversed" Orientation="Horizontal" />
+                    <ProgressBar Height="4" Value="{Binding #HorizontalSlider.Value}" />
+                    <Slider Name="HorizontalSlider"
+                            IsDirectionReversed="True"
+                            IsSnapToTickEnabled="True"
+                            TickFrequency="1"
+                            TickPlacement="Outside"
+                            Ticks="0,5,10,20,100" />
+                    <ProgressBar ShowProgressText="True" Value="{Binding #HorizontalSlider.Value}" />
+
+                    <Divider Content="Horizontal" Orientation="Horizontal" />
+                    <Slider Name="slider"
+                            TickFrequency="1"
+                            TickPlacement="Outside" />
+                    <ProgressBar ShowProgressText="True" Value="{Binding #slider.Value}" />
+                </StackPanel>
+            </Border>
+        </ScrollViewer>
+    </DemoPage>
+
+</UserControl>

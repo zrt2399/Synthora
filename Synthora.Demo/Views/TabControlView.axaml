@@ -1,0 +1,74 @@
+<UserControl x:Class="Synthora.Demo.Views.TabControlView"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialIcons="using:Material.Icons.Avalonia"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Synthora.Demo.ViewModels"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             x:DataType="vm:TabControlViewModel"
+             mc:Ignorable="d">
+
+    <DemoPage Title="Tab Controls"
+              Description="Compare segmented and standard tab control header layouts."
+              IconKind="{Binding IconKind}">
+        <DockPanel VerticalSpacing="16">
+            <WrapPanel DockPanel.Dock="Top"
+                       ItemSpacing="16"
+                       LineSpacing="16"
+                       Orientation="Horizontal">
+                <ComboBox Name="tabStripPlacement"
+                          ItemsSource="{EnumBindingSource Dock}"
+                          SelectedItem="{x:Static Dock.Top}"
+                          TextBoxAttach.Header="TabStripPlacement: "
+                          TextBoxAttach.HeaderPlacement="Left" />
+                <ComboBox Name="horizontalHeaderAlignment"
+                          ItemsSource="{EnumBindingSource HorizontalAlignment}"
+                          SelectedItem="{x:Static HorizontalAlignment.Center}"
+                          TextBoxAttach.Header="HorizontalHeaderAlignment: "
+                          TextBoxAttach.HeaderPlacement="Left" />
+                <ComboBox Name="verticalHeaderAlignment"
+                          ItemsSource="{EnumBindingSource VerticalAlignment}"
+                          SelectedItem="{x:Static VerticalAlignment.Center}"
+                          TextBoxAttach.Header="VerticalHeaderAlignment: "
+                          TextBoxAttach.HeaderPlacement="Left" />
+            </WrapPanel>
+            <UniformGrid Columns="1" RowSpacing="16">
+                <TabControl TabControlAttach.HorizontalHeaderAlignment="{Binding #horizontalHeaderAlignment.SelectedItem}"
+                            TabControlAttach.VerticalHeaderAlignment="{Binding #verticalHeaderAlignment.SelectedItem}"
+                            TabStripPlacement="{Binding #tabStripPlacement.SelectedItem}"
+                            Theme="{StaticResource SegmentedTabControlTheme}">
+                    <TabItem Header="Tab 1">
+                        <SelectableTextBlock>Content 1</SelectableTextBlock>
+                    </TabItem>
+                    <TabItem Header="Tab 2" IsEnabled="False">
+                        <SelectableTextBlock>Content 2</SelectableTextBlock>
+                    </TabItem>
+                    <TabItem Header="Tab 3">
+                        <SelectableTextBlock>Content 3</SelectableTextBlock>
+                    </TabItem>
+                    <TabItem Header="Tab 4">
+                        <SelectableTextBlock>Content 4</SelectableTextBlock>
+                    </TabItem>
+                </TabControl>
+                <TabControl TabControlAttach.HorizontalHeaderAlignment="{Binding #horizontalHeaderAlignment.SelectedItem}"
+                            TabControlAttach.VerticalHeaderAlignment="{Binding #verticalHeaderAlignment.SelectedItem}"
+                            TabStripPlacement="{Binding #tabStripPlacement.SelectedItem}">
+                    <TabItem Header="Tab 1">
+                        <SelectableTextBlock>Content 1</SelectableTextBlock>
+                    </TabItem>
+                    <TabItem Header="Tab 2" IsEnabled="False">
+                        <SelectableTextBlock>Content 2</SelectableTextBlock>
+                    </TabItem>
+                    <TabItem Header="Tab 3">
+                        <SelectableTextBlock>Content 3</SelectableTextBlock>
+                    </TabItem>
+                    <TabItem Header="Tab 4">
+                        <SelectableTextBlock>Content 4</SelectableTextBlock>
+                    </TabItem>
+                </TabControl>
+            </UniformGrid>
+        </DockPanel>
+    </DemoPage>
+</UserControl>

@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="using:Synthora.Demo.Views"
         Title="SynthoraDemo"
-        Width="900"
-        Height="550"
+        Width="1000"
+        Height="600"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d">
     <views:LoadingView />

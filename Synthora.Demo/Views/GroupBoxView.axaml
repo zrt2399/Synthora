@@ -1,0 +1,89 @@
+<UserControl x:Class="Synthora.Demo.Views.GroupBoxView"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialIcons="using:Material.Icons.Avalonia"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Synthora.Demo.ViewModels"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             x:DataType="vm:GroupBoxViewModel"
+             mc:Ignorable="d">
+
+    <UserControl.Styles>
+        <Style Selector="GroupBoxEx.withoutShadow">
+            <Setter Property="BoxShadow" Value="none" />
+        </Style>
+    </UserControl.Styles>
+
+    <DemoPage Title="Group Boxes"
+              Description="Showcase header placements, nesting and shadow chrome integration."
+              IconKind="{Binding IconKind}">
+        <StackPanel Spacing="16">
+            <Border Classes="card">
+                <StackPanel Spacing="16">
+                    <UniformGrid ColumnSpacing="16"
+                                 Columns="2"
+                                 RowSpacing="16">
+                        <UniformGrid.Styles>
+                            <Style Selector="GroupBox">
+                                <Setter Property="Height" Value="100" />
+                            </Style>
+                            <Style Selector="GroupBoxEx">
+                                <Setter Property="Height" Value="100" />
+                            </Style>
+                        </UniformGrid.Styles>
+                        <GroupBoxEx Padding="0" Header="Top Header">
+                            <ScrollViewer>
+                                <StackPanel>
+                                    <Button Height="60" CornerRadius="0">Button</Button>
+                                    <Button Height="60"
+                                            CornerRadius="0"
+                                            Theme="{StaticResource SuccessButtonTheme}">
+                                        Button
+                                    </Button>
+                                </StackPanel>
+                            </ScrollViewer>
+                        </GroupBoxEx>
+                        <GroupBoxEx Padding="0"
+                                    Header="Right Header"
+                                    HeaderPlacement="Right">
+                            <Button CornerRadius="0">Button</Button>
+                        </GroupBoxEx>
+                        <GroupBoxEx Padding="0"
+                                    Classes.withoutShadow="{Binding #withoutShadow.IsChecked}"
+                                    Header="Bottom Header"
+                                    HeaderPlacement="Bottom">
+                            <CheckBox Name="withoutShadow" Content="Without Shadow" />
+                        </GroupBoxEx>
+                        <GroupBoxEx Padding="0"
+                                    Header="Left Header"
+                                    HeaderPlacement="Left">
+                            <TextBox BorderThickness="0">TextBox</TextBox>
+                        </GroupBoxEx>
+                    </UniformGrid>
+                    <GroupBox Header="GroupBox">
+                        <Button CornerRadius="0">Button</Button>
+                    </GroupBox>
+                    <GroupBoxEx Header="Nested GroupBoxEx">
+                        <GroupBoxEx>
+                            <DropShadowChrome Padding="10">
+                                <DropShadowChrome>
+                                    <TextBox Padding="0"
+                                             Background="Transparent"
+                                             BorderThickness="0"
+                                             Foreground="{DynamicResource ErrorBrush}"
+                                             IsReadOnly="True"
+                                             TextWrapping="Wrap">
+                                        DropShadowChrome
+                                    </TextBox>
+                                </DropShadowChrome>
+                            </DropShadowChrome>
+                        </GroupBoxEx>
+                    </GroupBoxEx>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </DemoPage>
+
+</UserControl>

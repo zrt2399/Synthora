@@ -21,11 +21,7 @@ namespace Synthora.Converters
 
         public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
-            if (value is Color color)
-            {
-                return new SolidColorBrush(color);
-            }
-            return AvaloniaProperty.UnsetValue;
+            throw new NotImplementedException();
         }
     }
 } 

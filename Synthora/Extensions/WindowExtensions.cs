@@ -6,14 +6,7 @@ using Avalonia.Controls.Primitives;
 namespace Synthora.Extensions
 {
     internal static class WindowExtensions 
-    {
-        public static T Find<T>(this TemplateAppliedEventArgs e, string elementName) where T : class
-        {
-            var element = e.NameScope.Find<T>(elementName);
-
-            return element ?? throw new Exception($"\"{elementName}\" not found on Style");
-        }
-
+    { 
         public static void RestoreWindow(this Window? window)
         {
             if (window is null)

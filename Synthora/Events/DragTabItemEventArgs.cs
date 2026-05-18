@@ -1,27 +1,28 @@
 using System;
 using Avalonia.Interactivity;
-using Synthora.Controls.DragTabControl;
+using Synthora.Controls;
 
-namespace Synthora.Events;
-
-public abstract class DragTabItemEventArgs : RoutedEventArgs
+namespace Synthora.Events
 {
-    protected DragTabItemEventArgs(DragTabItem dragTabItem)
+    public abstract class DragTabItemEventArgs : RoutedEventArgs
     {
-        TabItem = dragTabItem ?? throw new ArgumentNullException(nameof(dragTabItem));
-    }
+        protected DragTabItemEventArgs(DragTabItem dragTabItem)
+        {
+            TabItem = dragTabItem ?? throw new ArgumentNullException(nameof(dragTabItem));
+        }
 
-    protected DragTabItemEventArgs(RoutedEvent routedEvent, DragTabItem tabItem)
-        : base(routedEvent)
-    {
-        TabItem = tabItem;
-    }
+        protected DragTabItemEventArgs(RoutedEvent routedEvent, DragTabItem tabItem)
+            : base(routedEvent)
+        {
+            TabItem = tabItem;
+        }
 
-    protected DragTabItemEventArgs(RoutedEvent routedEvent, Interactive source, DragTabItem tabItem)
-        : base(routedEvent, source)
-    {
-        TabItem = tabItem;
-    }
+        protected DragTabItemEventArgs(RoutedEvent routedEvent, Interactive source, DragTabItem tabItem)
+            : base(routedEvent, source)
+        {
+            TabItem = tabItem;
+        }
 
-    public DragTabItem TabItem { get; }
+        public DragTabItem TabItem { get; }
+    }
 }

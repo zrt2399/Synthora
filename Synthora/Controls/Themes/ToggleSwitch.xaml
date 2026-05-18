@@ -25,15 +25,12 @@
         </StackPanel>
     </Design.PreviewWith>
 
-    <Thickness x:Key="ToggleSwitchTopHeaderMargin">0,0,0,4</Thickness>
-    <GridLength x:Key="ToggleSwitchPreContentMargin">0</GridLength>
-    <GridLength x:Key="ToggleSwitchPostContentMargin">0</GridLength>
     <x:Double x:Key="ToggleSwitchThemeMinWidth">0</x:Double>
     <Thickness x:Key="ToggleSwitchOnStrokeThickness">0</Thickness>
-    <Thickness x:Key="ToggleSwitchOuterBorderStrokeThickness">1</Thickness>
+    <Thickness x:Key="ToggleSwitchOuterBorderStrokeThickness">0</Thickness>
 
     <ControlTheme x:Key="{x:Type ToggleSwitch}" TargetType="ToggleSwitch">
-        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundColor}" />
+        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
@@ -49,40 +46,27 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid Background="{TemplateBinding Background}" RowDefinitions="Auto,*">
-
                     <ContentPresenter x:Name="PART_ContentPresenter"
                                       Grid.Row="0"
-                                      Margin="{DynamicResource ToggleSwitchTopHeaderMargin}"
+                                      Margin="{DynamicResource ThemeControlBottomPadding}"
                                       VerticalAlignment="Top"
                                       Content="{TemplateBinding Content}"
                                       ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      IsVisible="{Binding RelativeSource={RelativeSource Self}, Path=Content, Converter={x:Static ObjectConverters.IsNotNull}}"
                                       RecognizesAccessKey="True" />
 
                     <Grid Grid.Row="1"
-                          MinWidth="{StaticResource ToggleSwitchThemeMinWidth}"
+                          MinWidth="{DynamicResource ToggleSwitchThemeMinWidth}"
                           HorizontalAlignment="Left"
-                          VerticalAlignment="Top">
-
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="{DynamicResource ToggleSwitchPreContentMargin}" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="{DynamicResource ToggleSwitchPostContentMargin}" />
-                        </Grid.RowDefinitions>
-
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <!--<ColumnDefinition Width="12" MaxWidth="12" />-->
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
+                          VerticalAlignment="Top"
+                          ColumnDefinitions="Auto,Auto">
 
                         <Grid x:Name="SwitchAreaGrid"
-                              Grid.RowSpan="3"
                               Grid.ColumnSpan="2"
                               Margin="0,5"
                               Background="Transparent" />
 
                         <ContentPresenter x:Name="PART_OffContentPresenter"
-                                          Grid.RowSpan="3"
                                           Grid.Column="1"
                                           Margin="{DynamicResource ThemeControlLeftPadding}"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -92,7 +76,6 @@
                                           IsVisible="{Binding RelativeSource={RelativeSource Self}, Path=Content, Converter={x:Static ObjectConverters.IsNotNull}}" />
 
                         <ContentPresenter x:Name="PART_OnContentPresenter"
-                                          Grid.RowSpan="3"
                                           Grid.Column="1"
                                           Margin="{DynamicResource ThemeControlLeftPadding}"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -102,16 +85,14 @@
                                           IsVisible="{Binding RelativeSource={RelativeSource Self}, Path=Content, Converter={x:Static ObjectConverters.IsNotNull}}" />
 
                         <Border x:Name="OuterBorder"
-                                Grid.Row="1"
                                 Width="40"
                                 Height="20"
-                                Background="Transparent"
-                                BorderBrush="{DynamicResource ThemeBorderMidColor}"
+                                Background="{DynamicResource ThemeControlHighlightLowBrush}"
+                                BorderBrush="{DynamicResource ThemeControlMidColor}"
                                 BorderThickness="{DynamicResource ToggleSwitchOuterBorderStrokeThickness}"
                                 CornerRadius="10" />
 
                         <Border x:Name="SwitchKnobBounds"
-                                Grid.Row="1"
                                 Width="40"
                                 Height="20"
                                 Background="{DynamicResource PrimaryBrush}"
@@ -120,7 +101,6 @@
                                 CornerRadius="10" />
 
                         <Canvas x:Name="PART_SwitchKnob"
-                                Grid.Row="1"
                                 Width="20"
                                 Height="20"
                                 HorizontalAlignment="Left">
@@ -132,12 +112,12 @@
                                 <Ellipse x:Name="SwitchKnobOn"
                                          Width="12"
                                          Height="12"
-                                         Fill="{DynamicResource HighlightForegroundColor}" />
+                                         Fill="{DynamicResource OnPrimaryBrush}" />
 
                                 <Ellipse x:Name="SwitchKnobOff"
                                          Width="12"
                                          Height="12"
-                                         Fill="{DynamicResource ThemeBorderMidColor}" />
+                                         Fill="{DynamicResource OnPrimaryBrush}" />
                             </Grid>
                         </Canvas>
                     </Grid>
@@ -145,22 +125,10 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter:empty">
-            <Setter Property="Margin" Value="0" />
-        </Style>
-
         <!--  PointerOverState  -->
         <Style Selector="^:pointerover /template/ Border#OuterBorder">
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighColor}" />
-            <Setter Property="Background" Value="Transparent" />
-        </Style>
-
-        <Style Selector="^:pointerover /template/ Ellipse#SwitchKnobOff">
-            <Setter Property="Fill" Value="{DynamicResource ThemeBorderHighColor}" />
-        </Style>
-
-        <Style Selector="^:pointerover /template/ Ellipse#SwitchKnobOn">
-            <Setter Property="Fill" Value="{DynamicResource HighlightForegroundColor}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeControlHighlightMidBrush}" />
+            <Setter Property="Background" Value="{DynamicResource ThemeControlHighlightMidBrush}" />
         </Style>
 
         <Style Selector="^:pointerover /template/ Border#SwitchKnobBounds">
@@ -168,14 +136,10 @@
             <Setter Property="BorderBrush" Value="{DynamicResource PrimaryPointerOverBrush}" />
         </Style>
 
-        <Style Selector="^:pointerover /template/ Grid#SwitchAreaGrid">
-            <Setter Property="Background" Value="Transparent" />
-        </Style>
-
         <!--  PressedState  -->
         <Style Selector="^:pressed /template/ Border#OuterBorder">
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighColor}" />
-            <Setter Property="Background" Value="{DynamicResource ThemeControlMidHighColor}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeControlHighlightHighBrush}" />
+            <Setter Property="Background" Value="{DynamicResource ThemeControlHighlightHighBrush}" />
         </Style>
 
         <Style Selector="^:pressed /template/ Border#SwitchKnobBounds">
@@ -183,39 +147,9 @@
             <Setter Property="BorderBrush" Value="{DynamicResource PrimaryPressedBrush}" />
         </Style>
 
-        <Style Selector="^:pressed /template/ Ellipse#SwitchKnobOff">
-            <Setter Property="Fill" Value="{DynamicResource ThemeBorderHighColor}" />
-        </Style>
-
-        <Style Selector="^:pressed /template/ Ellipse#SwitchKnobOn">
-            <Setter Property="Fill" Value="{DynamicResource HighlightForegroundColor}" />
-        </Style>
-
-        <Style Selector="^:pressed /template/ Grid#SwitchAreaGrid">
-            <Setter Property="Background" Value="Transparent" />
-        </Style>
-
         <!--  DisabledState  -->
         <Style Selector="^:disabled">
-            <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundMidColor}" />
-        </Style>
-
-        <Style Selector="^:disabled /template/ Border#OuterBorder">
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeForegroundLowColor}" />
-            <Setter Property="Background" Value="Transparent" />
-        </Style>
-
-        <Style Selector="^:disabled /template/ Ellipse#SwitchKnobOff">
-            <Setter Property="Fill" Value="{DynamicResource ThemeForegroundLowColor}" />
-        </Style>
-
-        <Style Selector="^:disabled /template/ Ellipse#SwitchKnobOn">
-            <Setter Property="Fill" Value="{DynamicResource HighlightForegroundColor}" />
-        </Style>
-
-        <Style Selector="^:disabled /template/ Border#SwitchKnobBounds">
-            <Setter Property="Background" Value="{DynamicResource ThemeForegroundLowColor}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeForegroundLowColor}" />
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
         </Style>
 
         <!--  CheckedState  -->

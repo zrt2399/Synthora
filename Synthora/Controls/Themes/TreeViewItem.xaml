@@ -14,21 +14,16 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
+                <Panel Background="{TemplateBinding Background}">
                     <PathIcon Name="pathIcon"
                               Width="12"
                               Height="12"
                               Margin="{TemplateBinding Padding}"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
                               Data="{DynamicResource ArrowRightGlyph}"
-                              Foreground="{TemplateBinding Foreground}"
-                              IsHitTestVisible="False"
-                              UseLayoutRounding="False" />
-                </Border>
+                              Foreground="{TemplateBinding Foreground}" />
+                </Panel>
             </ControlTemplate>
         </Setter>
 
@@ -105,19 +100,19 @@
         </Style>
 
         <Style Selector="^:selected /template/ Border#SelectionBorder">
-            <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush4}" />
+            <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush5}" />
         </Style>
 
         <Style Selector="^:selected /template/ Border#SelectionBorder:focus">
-            <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush3}" />
+            <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush4}" />
         </Style>
 
         <Style Selector="^:selected /template/ Border#SelectionBorder:pointerover">
-            <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush3}" />
+            <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush4}" />
         </Style>
 
-        <Style Selector="^:selected /template/ Border#SelectionBorder:pointerover:focus">
-            <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush2}" />
+        <Style Selector="^:selected /template/ Border#SelectionBorder:focus:pointerover">
+            <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush3}" />
         </Style>
 
         <Style Selector="^:empty /template/ ToggleButton#PART_ExpandCollapseChevron">

@@ -10,28 +10,29 @@
                                           Right="True"
                                           Top="True" />
 
+    <converters:MarginMultiplierConverter x:Key="ComboBoxClearButtonMarginMultiplier"
+                                          Bottom="True"
+                                          Indent="1"
+                                          Right="True"
+                                          Top="True" />
+
     <ControlTheme x:Key="SimpleComboBoxDropDownButtonTheme" TargetType="ToggleButton">
         <Setter Property="Margin" Value="{Binding $parent[ComboBox].Padding, Converter={StaticResource ComboBoxDropDownButtonMarginMultiplier}}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Focusable" Value="False" />
-        <Setter Property="ClickMode" Value="Press" />
+        <!-- <Setter Property="ClickMode" Value="Press" /> -->
         <Setter Property="Template">
             <ControlTemplate>
-                <Border HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
+                <Panel Background="{TemplateBinding Background}">
                     <PathIcon Name="pathIcon"
                               Width="12"
                               Height="12"
                               Margin="{TemplateBinding Padding}"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
                               Data="{DynamicResource ArrowDownGlyph}"
-                              Foreground="{TemplateBinding Foreground}"
-                              IsHitTestVisible="False"
-                              UseLayoutRounding="False" />
-                </Border>
+                              Foreground="{TemplateBinding Foreground}" />
+                </Panel>
             </ControlTemplate>
         </Setter>
 
@@ -68,10 +69,10 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <DockPanel>
-                    <ContentPresenter HorizontalAlignment="{TemplateBinding (TextBoxAttach.TitleHorizontalAlignment)}"
-                                      VerticalAlignment="{TemplateBinding (TextBoxAttach.TitleVerticalAlignment)}"
-                                      Content="{TemplateBinding (TextBoxAttach.Title)}"
-                                      DockPanel.Dock="{TemplateBinding (TextBoxAttach.TitlePlacement)}" />
+                    <ContentPresenter HorizontalAlignment="{TemplateBinding (TextBoxAttach.HeaderHorizontalAlignment)}"
+                                      VerticalAlignment="{TemplateBinding (TextBoxAttach.HeaderVerticalAlignment)}"
+                                      Content="{TemplateBinding (TextBoxAttach.Header)}"
+                                      DockPanel.Dock="{TemplateBinding (TextBoxAttach.HeaderPlacement)}" />
                     <Border x:Name="FocusTarget"
                             Width="{TemplateBinding (TextBoxAttach.Width)}"
                             MinWidth="{TemplateBinding (TextBoxAttach.MinWidth)}"
@@ -81,7 +82,7 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{TemplateBinding CornerRadius}"
                             TemplatedControl.IsTemplateFocusTarget="True">
-                        <Grid ColumnDefinitions="*,Auto">
+                        <Grid ColumnDefinitions="*,Auto,Auto">
                             <TextBlock Name="PlaceholderTextBlock"
                                        Margin="{TemplateBinding Padding}"
                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -120,7 +121,18 @@
                                      Text="{TemplateBinding Text,
                                                             Mode=TwoWay}" />
 
-                            <ToggleButton Grid.Column="1"
+                            <ActionButton Name="clearButton"
+                                          Grid.Column="1"
+                                          Margin="{TemplateBinding Padding,
+                                                                   Converter={StaticResource ComboBoxClearButtonMarginMultiplier}}"
+                                          Command="{Binding $parent[ComboBox].Clear}"
+                                          Focusable="False"
+                                          Foreground="{TemplateBinding Foreground}"
+                                          IsVisible="False"
+                                          Theme="{StaticResource SimpleTextBoxClearButtonTheme}" />
+
+                            <ToggleButton Grid.Column="2"
+                                          Foreground="{TemplateBinding Foreground}"
                                           IsChecked="{TemplateBinding IsDropDownOpen,
                                                                       Mode=TwoWay}"
                                           Theme="{DynamicResource SimpleComboBoxDropDownButtonTheme}" />
@@ -143,8 +155,8 @@
                                         <EmptyBox Margin="10" IsVisible="{Binding $parent[ComboBox].Items.Count, Converter={x:Static SynthoraConverters.IsZero}}" />
                                         <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
                                                       IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}"
+                                                      IsScrollChainingEnabled="False"
                                                       IsVisible="{Binding $parent[ComboBox].Items.Count, Converter={x:Static SynthoraConverters.IsNotZero}}"
-                                                      ScrollViewer.IsScrollChainingEnabled="False"
                                                       VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
                                             <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
                                         </ScrollViewer>
@@ -157,15 +169,25 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^:pointerover">
+        <Style Selector="^:pointerover, ^:focus-within">
             <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighBrush}" />
+        </Style>
+        <Style Selector="^:pressed">
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeControlVeryHighBrush}" />
         </Style>
         <Style Selector="^:disabled /template/ Border#FocusTarget">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
         </Style>
+
         <Style Selector="^[IsEditable=true]">
             <Setter Property="IsTabStop" Value="False" />
             <Setter Property="KeyboardNavigation.TabNavigation" Value="Local" />
+        </Style>
+
+        <Style Selector="^.clearButton,^.ClearButton">
+            <Style Selector="^[IsEditable=False] /template/ ActionButton#clearButton">
+                <Setter Property="IsVisible" Value="{TemplateBinding SelectedItem, Converter={x:Static ObjectConverters.IsNotNull}}" />
+            </Style>
         </Style>
     </ControlTheme>
 </ResourceDictionary>

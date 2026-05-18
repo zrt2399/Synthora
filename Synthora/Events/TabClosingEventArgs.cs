@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel;
 
-namespace Synthora.Events;
-
-public class TabClosingEventArgs(object? item) : CancelEventArgs
+namespace Synthora.Events
 {
-    public object? Item { get; } = item;
+    public class TabClosingEventArgs(object? item) : CancelEventArgs
+    {
+        public object? Item { get; } = item;
+    }
 }

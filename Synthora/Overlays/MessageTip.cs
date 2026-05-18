@@ -9,7 +9,7 @@ using Avalonia.Media;
 using Avalonia.Threading;
 using Synthora.Controls;
 
-namespace Synthora.Messaging
+namespace Synthora.Overlays
 {
     /// <summary>
     /// Provides static methods to display transient message tips with various icon types.

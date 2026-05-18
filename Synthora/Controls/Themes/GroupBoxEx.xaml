@@ -21,7 +21,6 @@
                                   BorderBrush="{TemplateBinding BorderBrush}"
                                   BorderThickness="{TemplateBinding BorderThickness}"
                                   BoxShadow="{TemplateBinding BoxShadow}"
-                                  ClipToBounds="{TemplateBinding ClipToBounds}"
                                   CornerRadius="{TemplateBinding CornerRadius}">
                     <DockPanel Name="PART_DockPanel">
                         <Border Name="headerBorder"

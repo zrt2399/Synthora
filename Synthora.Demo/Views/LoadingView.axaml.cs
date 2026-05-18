@@ -1,11 +1,12 @@
 using Avalonia.Controls;
 
-namespace Synthora.Demo.Views;
-
-public partial class LoadingView : UserControl
+namespace Synthora.Demo.Views
 {
-    public LoadingView()
+    public partial class LoadingView : UserControl
     {
-        InitializeComponent();
+        public LoadingView()
+        {
+            InitializeComponent();
+        }
     }
 }

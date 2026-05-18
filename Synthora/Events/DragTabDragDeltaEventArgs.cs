@@ -1,31 +1,32 @@
 using System;
 using Avalonia.Input;
 using Avalonia.Interactivity;
-using Synthora.Controls.DragTabControl;
+using Synthora.Controls;
 
-namespace Synthora.Events;
-
-public class DragTabDragDeltaEventArgs : DragTabItemEventArgs
+namespace Synthora.Events
 {
-    public DragTabDragDeltaEventArgs(DragTabItem dragTabItem, VectorEventArgs dragDeltaEventArgs)
-        : base(dragTabItem)
+    public class DragTabDragDeltaEventArgs : DragTabItemEventArgs
     {
-        DragDeltaEventArgs = dragDeltaEventArgs ?? throw new ArgumentNullException(nameof(dragDeltaEventArgs));
+        public DragTabDragDeltaEventArgs(DragTabItem dragTabItem, VectorEventArgs dragDeltaEventArgs)
+            : base(dragTabItem)
+        {
+            DragDeltaEventArgs = dragDeltaEventArgs ?? throw new ArgumentNullException(nameof(dragDeltaEventArgs));
+        }
+
+        public DragTabDragDeltaEventArgs(RoutedEvent routedEvent, DragTabItem tabItem, VectorEventArgs dragDeltaEventArgs)
+            : base(routedEvent, tabItem)
+        {
+            DragDeltaEventArgs = dragDeltaEventArgs ?? throw new ArgumentNullException(nameof(dragDeltaEventArgs));
+        }
+
+        public DragTabDragDeltaEventArgs(RoutedEvent routedEvent, Interactive source, DragTabItem tabItem, VectorEventArgs dragDeltaEventArgs)
+            : base(routedEvent, source, tabItem)
+        {
+            DragDeltaEventArgs = dragDeltaEventArgs ?? throw new ArgumentNullException(nameof(dragDeltaEventArgs));
+        }
+
+        public VectorEventArgs DragDeltaEventArgs { get; }
+
+        public bool Cancel { get; set; }
     }
-
-    public DragTabDragDeltaEventArgs(RoutedEvent routedEvent, DragTabItem tabItem, VectorEventArgs dragDeltaEventArgs)
-        : base(routedEvent, tabItem)
-    {
-        DragDeltaEventArgs = dragDeltaEventArgs ?? throw new ArgumentNullException(nameof(dragDeltaEventArgs));
-    }
-
-    public DragTabDragDeltaEventArgs(RoutedEvent routedEvent, Interactive source, DragTabItem tabItem, VectorEventArgs dragDeltaEventArgs)
-        : base(routedEvent, source, tabItem)
-    {
-        DragDeltaEventArgs = dragDeltaEventArgs ?? throw new ArgumentNullException(nameof(dragDeltaEventArgs));
-    }
-
-    public VectorEventArgs DragDeltaEventArgs { get; }
-
-    public bool Cancel { get; set; }
 }

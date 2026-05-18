@@ -1,0 +1,41 @@
+<UserControl x:Class="Synthora.Demo.Views.TreeViewView"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialIcons="using:Material.Icons.Avalonia"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Synthora.Demo.ViewModels"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             x:DataType="vm:TreeViewViewModel"
+             mc:Ignorable="d">
+
+    <DemoPage Title="Tree View"
+              Description="Preview nested folders and file items in a hierarchical tree view."
+              IconKind="{Binding IconKind}">
+        <TreeView CornerRadius="12">
+            <TreeViewItem Header="Documents" IsExpanded="True">
+                <TreeViewItem Header="Work">
+                    <TreeViewItem Header="ProjectProposal.docx" />
+                    <TreeViewItem Header="QuarterlyReport.xlsx" />
+                </TreeViewItem>
+                <TreeViewItem Header="Personal">
+                    <TreeViewItem Header="Resume.pdf" />
+                    <TreeViewItem Header="Budget.xlsx" />
+                </TreeViewItem>
+            </TreeViewItem>
+            <TreeViewItem Header="Images" IsExpanded="True">
+                <TreeViewItem Header="Vacation">
+                    <TreeViewItem Header="Beach.jpg" />
+                    <TreeViewItem Header="Mountains.png" />
+                </TreeViewItem>
+                <TreeViewItem Header="Screenshots" />
+            </TreeViewItem>
+            <TreeViewItem Header="Downloads">
+                <TreeViewItem Header="Synthora-v1.0.zip" />
+                <TreeViewItem Header="Avalonia_Logo.svg" />
+            </TreeViewItem>
+        </TreeView>
+    </DemoPage>
+
+</UserControl>

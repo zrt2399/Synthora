@@ -1,0 +1,48 @@
+<UserControl x:Class="Synthora.Demo.Views.NavigationPageView"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialIcons="using:Material.Icons.Avalonia"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Synthora.Demo.ViewModels"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             x:DataType="vm:NavigationPageViewModel"
+             mc:Ignorable="d">
+
+    <DemoPage Title="Navigation Page"
+              Description="Use the command bar to push and pop navigation stacks and modal pages."
+              IconKind="{Binding IconKind}">
+        <DockPanel VerticalSpacing="16">
+            <CommandBar DefaultLabelPosition="Bottom" DockPanel.Dock="Top">
+                <CommandBarButton Click="PushAsync"
+                                  Icon="{materialIcons:MaterialIconExt Kind=ArrowRight}"
+                                  Label="Push"
+                                  ToolTip.Tip="PushAsync" />
+                <CommandBarButton Click="PopAsync"
+                                  Icon="{materialIcons:MaterialIconExt Kind=ArrowLeft}"
+                                  Label="Pop"
+                                  ToolTip.Tip="PopAsync" />
+                <CommandBarButton Click="PopToRootAsync"
+                                  Icon="{materialIcons:MaterialIconExt Kind=Home}"
+                                  Label="PopToRoot"
+                                  ToolTip.Tip="PopToRootAsync" />
+                <CommandBarSeparator />
+                <CommandBarButton Click="PushModalAsync"
+                                  Icon="{materialIcons:MaterialIconExt Kind=OpenInNew}"
+                                  Label="PushModal"
+                                  ToolTip.Tip="PushModalAsync" />
+                <CommandBarButton Click="PopModalAsync"
+                                  Icon="{materialIcons:MaterialIconExt Kind=Close}"
+                                  Label="PopModal"
+                                  ToolTip.Tip="PopModalAsync" />
+                <CommandBarButton Click="PopAllModalsAsync"
+                                  Icon="{materialIcons:MaterialIconExt Kind=CloseBoxMultiple}"
+                                  Label="PopAllModals"
+                                  ToolTip.Tip="PopAllModalsAsync" />
+            </CommandBar>
+            <NavigationPage Name="navigationPage" />
+        </DockPanel>
+    </DemoPage>
+
+</UserControl>

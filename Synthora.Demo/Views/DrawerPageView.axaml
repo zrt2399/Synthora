@@ -1,0 +1,33 @@
+<UserControl x:Class="Synthora.Demo.Views.DrawerPageView"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialIcons="using:Material.Icons.Avalonia"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Synthora.Demo.ViewModels"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             x:DataType="vm:DrawerPageViewModel"
+             mc:Ignorable="d">
+
+    <DemoPage Title="Drawer Page"
+              Description="A drawer page sample with a simple side menu and content area."
+              IconKind="{Binding IconKind}">
+        <DrawerPage Header="DrawerPage">
+            <DrawerPage.Drawer>
+                <Border BorderBrush="{DynamicResource ThemeBorderLowBrush}" BorderThickness="0,0,1,0">
+                    <StackPanel Margin="10"
+                                VerticalAlignment="Top"
+                                Spacing="10">
+                        <TextBlock HorizontalAlignment="Center" FontSize="13">Menu</TextBlock>
+                        <Button>Item 1</Button>
+                        <Button>Item 2</Button>
+                        <Button>Item 3</Button>
+                    </StackPanel>
+                </Border>
+            </DrawerPage.Drawer>
+            Content
+        </DrawerPage>
+    </DemoPage>
+
+</UserControl>

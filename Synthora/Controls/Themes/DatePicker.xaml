@@ -60,10 +60,7 @@
         </Style>
 
         <Style Selector="^:pressed">
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeControlLowBrush}" />
-            <Setter Property="Background">
-                <SolidColorBrush Opacity="0.6" Color="{DynamicResource ThemeControlMidHighColor}" />
-            </Setter>
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeControlVeryHighBrush}" />
         </Style>
 
         <Style Selector="^:disabled">
@@ -88,17 +85,15 @@
                 <DataValidationErrors>
                     <Panel Name="LayoutRoot">
                         <DockPanel>
-                            <ContentPresenter HorizontalAlignment="{TemplateBinding (TextBoxAttach.TitleHorizontalAlignment)}"
-                                              VerticalAlignment="{TemplateBinding (TextBoxAttach.TitleVerticalAlignment)}"
-                                              Content="{TemplateBinding (TextBoxAttach.Title)}"
-                                              DockPanel.Dock="{TemplateBinding (TextBoxAttach.TitlePlacement)}" />
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding (TextBoxAttach.HeaderHorizontalAlignment)}"
+                                              VerticalAlignment="{TemplateBinding (TextBoxAttach.HeaderVerticalAlignment)}"
+                                              Content="{TemplateBinding (TextBoxAttach.Header)}"
+                                              DockPanel.Dock="{TemplateBinding (TextBoxAttach.HeaderPlacement)}" />
                             <Button Name="PART_FlyoutButton"
                                     Width="{TemplateBinding (TextBoxAttach.Width)}"
                                     MinWidth="{TemplateBinding (TextBoxAttach.MinWidth)}"
                                     MaxWidth="{TemplateBinding (TextBoxAttach.MaxWidth)}"
                                     Padding="0"
-                                    HorizontalAlignment="Stretch"
-                                    VerticalAlignment="Stretch"
                                     Background="{TemplateBinding Background}"
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"

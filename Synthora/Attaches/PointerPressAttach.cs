@@ -90,28 +90,28 @@ namespace Synthora.Attaches
 
                 var command = GetCommand(inputElement);
                 var commandParameter = GetCommandParameter(inputElement);
-                var PointerPressMode = GetPointerPressMode(inputElement);
-                if ((PointerPressMode & PointerPressMode.Left) != 0 && pointerPoint.IsLeftButtonPressed)
+                var pointerPressMode = GetPointerPressMode(inputElement);
+                if ((pointerPressMode & PointerPressMode.Left) != 0 && pointerPoint.IsLeftButtonPressed)
                 {
                     command?.Execute(commandParameter);
                 }
-                if ((PointerPressMode & PointerPressMode.Right) != 0 && pointerPoint.IsRightButtonPressed)
+                if ((pointerPressMode & PointerPressMode.Right) != 0 && pointerPoint.IsRightButtonPressed)
                 {
                     command?.Execute(commandParameter);
                 }
-                if ((PointerPressMode & PointerPressMode.Middle) != 0 && pointerPoint.IsMiddleButtonPressed)
+                if ((pointerPressMode & PointerPressMode.Middle) != 0 && pointerPoint.IsMiddleButtonPressed)
                 {
                     command?.Execute(commandParameter);
                 }
-                if ((PointerPressMode & PointerPressMode.XButton1) != 0 && pointerPoint.IsXButton1Pressed)
+                if ((pointerPressMode & PointerPressMode.XButton1) != 0 && pointerPoint.IsXButton1Pressed)
                 {
                     command?.Execute(commandParameter);
                 }
-                if ((PointerPressMode & PointerPressMode.XButton2) != 0 && pointerPoint.IsXButton2Pressed)
+                if ((pointerPressMode & PointerPressMode.XButton2) != 0 && pointerPoint.IsXButton2Pressed)
                 {
                     command?.Execute(commandParameter);
                 }
-                if ((PointerPressMode & PointerPressMode.BarrelButton) != 0 && pointerPoint.IsBarrelButtonPressed)
+                if ((pointerPressMode & PointerPressMode.BarrelButton) != 0 && pointerPoint.IsBarrelButtonPressed)
                 {
                     command?.Execute(commandParameter);
                 }

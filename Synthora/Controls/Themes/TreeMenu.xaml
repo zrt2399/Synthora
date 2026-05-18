@@ -1,0 +1,54 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
+                    x:CompileBindings="True">
+
+    <ControlTheme x:Key="{x:Type TreeMenu}" TargetType="TreeMenu">
+        <!--<Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />-->
+        <Setter Property="MenuMargin" Value="32,0" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
+        <Setter Property="MenuBackground" Value="{DynamicResource ThemeControlLowColor}" />
+        <!-- <Setter Property="ItemContainerTheme" Value="{StaticResource TreeMenuItemTheme}" /> -->
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="{Binding MenuWidth, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay, Converter={x:Static SynthoraConverters.DoubleToGridLengthConverter}}"
+                                              MinWidth="{Binding MenuMinWidth, RelativeSource={RelativeSource TemplatedParent}}"
+                                              MaxWidth="{Binding MenuMaxWidth, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid Background="{TemplateBinding MenuBackground}" RowDefinitions="Auto,*,Auto">
+                            <ContentPresenter Content="{TemplateBinding PaneHeader}" />
+                            <ScrollViewer Grid.Row="1"
+                                          Margin="{TemplateBinding MenuMargin}"
+                                          AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+                                          Background="Transparent"
+                                          BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
+                                          HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                                          IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}"
+                                          IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+                                          VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
+                                <ItemsPresenter Name="PART_ItemsPresenter"
+                                                Margin="{TemplateBinding Padding}"
+                                                ItemsPanel="{TemplateBinding ItemsPanel}" />
+                            </ScrollViewer>
+                            <ContentPresenter Grid.Row="2" Content="{TemplateBinding PaneFooter}" />
+                        </Grid>
+                        <GridSplitter Grid.Column="1" MinWidth="1" />
+                        <ContentPresenter Name="PART_SelectedContentPresenter" Grid.Column="2" />
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

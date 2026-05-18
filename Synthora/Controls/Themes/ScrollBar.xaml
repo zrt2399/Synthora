@@ -59,6 +59,8 @@
         <Setter Property="Width" Value="20" />
         <Setter Property="Height" Value="20" />
         <Setter Property="Background" Value="Transparent" />
+        <Setter Property="UseLayoutRounding" Value="False" />
+        <Setter Property="Foreground" Value="{DynamicResource ThemeBorderMidBrush}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="PathIcon">
                 <Border Background="{TemplateBinding Background}">
@@ -66,6 +68,9 @@
                         <Path Name="PART_Path"
                               Width="24"
                               Height="24"
+                              Margin="{TemplateBinding Padding}"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
                               Data="{TemplateBinding Data}"
                               Fill="{TemplateBinding Foreground}" />
                     </Viewbox>
@@ -75,12 +80,14 @@
     </ControlTheme>
 
     <ControlTheme x:Key="ScrollBarRepeatButton" TargetType="{x:Type RepeatButton}">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="CornerRadius" Value="0" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Foreground" Value="{DynamicResource ThemeControlMidBrush}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Padding="{TemplateBinding Padding}" Background="{TemplateBinding Background}">
-                    <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                <Border Background="{TemplateBinding Background}">
+                    <ContentPresenter Margin="{TemplateBinding Padding}"
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                       Content="{TemplateBinding Content}"
                                       Foreground="{TemplateBinding Foreground}" />
@@ -90,95 +97,21 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type ScrollBar}" TargetType="ScrollBar">
-        <Setter Property="Cursor" Value="Arrow" />
+        <Setter Property="Cursor" Value="{x:Null}" />
         <Setter Property="ShowDelay" Value="0" />
         <Setter Property="Background" Value="Transparent" />
-        <Style Selector="^:horizontal">
-            <Setter Property="Margin" Value="2,0,2,2" />
-            <Setter Property="Height" Value="{DynamicResource ScrollBarThickness}" />
-            <Setter Property="ContextFlyout" Value="{StaticResource SimpleScrollBarHorizontalContextFlyout}" />
-            <Setter Property="Template">
-                <ControlTemplate TargetType="ScrollBar">
-                    <Border Background="{TemplateBinding Background}"
-                            CornerRadius="{TemplateBinding CornerRadius}"
-                            UseLayoutRounding="False">
-                        <Grid Name="PART_RootGrid" ColumnDefinitions="Auto,*,Auto">
-                            <RepeatButton Name="PART_LineUpButton"
-                                          Grid.Row="0"
-                                          Grid.Column="0"
-                                          Width="10"
-                                          Margin="-2,0,0,0"
-                                          VerticalAlignment="Center"
-                                          AutomationProperties.Name="Column left"
-                                          Focusable="False"
-                                          Theme="{StaticResource ScrollBarRepeatButton}">
-                                <PathIcon Data="{DynamicResource ScrollBarLeftGlyph}" Theme="{StaticResource InnerPathIcon}" />
-                            </RepeatButton>
-                            <Track Grid.Column="1"
-                                   DeferThumbDrag="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
-                                   Maximum="{TemplateBinding Maximum}"
-                                   Minimum="{TemplateBinding Minimum}"
-                                   Orientation="{TemplateBinding Orientation}"
-                                   ViewportSize="{TemplateBinding ViewportSize}"
-                                   Value="{TemplateBinding Value,
-                                                           Mode=TwoWay}">
-                                <Track.DecreaseButton>
-                                    <RepeatButton Name="PART_PageUpButton"
-                                                  MinWidth="0"
-                                                  HorizontalAlignment="Stretch"
-                                                  VerticalAlignment="Stretch"
-                                                  AutomationProperties.Name="Page left"
-                                                  CornerRadius="0"
-                                                  Focusable="False"
-                                                  Theme="{StaticResource ScrollBarRepeatButton}" />
-                                </Track.DecreaseButton>
-                                <Track.IncreaseButton>
-                                    <RepeatButton Name="PART_PageDownButton"
-                                                  MinWidth="0"
-                                                  HorizontalAlignment="Stretch"
-                                                  VerticalAlignment="Stretch"
-                                                  AutomationProperties.Name="Page right"
-                                                  CornerRadius="0"
-                                                  Focusable="False"
-                                                  Theme="{StaticResource ScrollBarRepeatButton}" />
-                                </Track.IncreaseButton>
-                                <Thumb Name="thumb" AutomationProperties.Name="Position" />
-                            </Track>
-                            <RepeatButton Name="PART_LineDownButton"
-                                          Grid.Column="2"
-                                          Width="10"
-                                          Margin="0,0,-2,0"
-                                          VerticalAlignment="Center"
-                                          VerticalContentAlignment="Center"
-                                          AutomationProperties.Name="Column right"
-                                          Focusable="False"
-                                          Theme="{DynamicResource ScrollBarRepeatButton}">
-                                <PathIcon Data="{DynamicResource ScrollBarRightGlyph}" Theme="{StaticResource InnerPathIcon}" />
-                            </RepeatButton>
-                        </Grid>
-                    </Border>
-                </ControlTemplate>
-            </Setter>
-        </Style>
+
         <Style Selector="^:vertical">
-            <Setter Property="Margin" Value="0,2,2,2" />
             <Setter Property="ContextFlyout" Value="{StaticResource SimpleScrollBarVerticalContextFlyout}" />
             <Setter Property="Width" Value="{DynamicResource ScrollBarThickness}" />
             <Setter Property="Template">
                 <ControlTemplate TargetType="ScrollBar">
-                    <Border Background="{TemplateBinding Background}"
-                            CornerRadius="{TemplateBinding CornerRadius}"
-                            UseLayoutRounding="False">
+                    <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}">
                         <Grid RowDefinitions="Auto,*,Auto">
                             <RepeatButton Name="PART_LineUpButton"
                                           Grid.Row="0"
                                           Height="10"
-                                          Margin="0,-2,0,0"
-                                          VerticalAlignment="Center"
-                                          HorizontalContentAlignment="Center"
-                                          VerticalContentAlignment="Center"
                                           AutomationProperties.Name="Line up"
-                                          Focusable="False"
                                           Theme="{StaticResource ScrollBarRepeatButton}">
                                 <PathIcon Data="{DynamicResource ScrollBarUpGlyph}" Theme="{StaticResource InnerPathIcon}" />
                             </RepeatButton>
@@ -193,34 +126,23 @@
                                                            Mode=TwoWay}">
                                 <Track.DecreaseButton>
                                     <RepeatButton Name="PART_PageUpButton"
-                                                  MinHeight="0"
-                                                  HorizontalAlignment="Stretch"
-                                                  VerticalAlignment="Stretch"
                                                   AutomationProperties.Name="Page up"
-                                                  CornerRadius="0"
-                                                  Focusable="False"
                                                   Theme="{StaticResource ScrollBarRepeatButton}" />
                                 </Track.DecreaseButton>
                                 <Track.IncreaseButton>
                                     <RepeatButton Name="PART_PageDownButton"
-                                                  MinHeight="0"
-                                                  HorizontalAlignment="Stretch"
-                                                  VerticalAlignment="Stretch"
                                                   AutomationProperties.Name="Page down"
-                                                  CornerRadius="0"
-                                                  Focusable="False"
                                                   Theme="{StaticResource ScrollBarRepeatButton}" />
                                 </Track.IncreaseButton>
-                                <Thumb Name="thumb" AutomationProperties.Name="Position" />
+                                <Thumb Name="thumb"
+                                       Width="{DynamicResource ScrollBarThickness}"
+                                       MinHeight="{DynamicResource ScrollBarMinLength}"
+                                       AutomationProperties.Name="Position" />
                             </Track>
                             <RepeatButton Name="PART_LineDownButton"
                                           Grid.Row="2"
                                           Height="10"
-                                          Margin="0,0,0,-2"
-                                          HorizontalContentAlignment="Center"
-                                          VerticalContentAlignment="Center"
                                           AutomationProperties.Name="Line down"
-                                          Focusable="False"
                                           Theme="{StaticResource ScrollBarRepeatButton}">
                                 <PathIcon Data="{DynamicResource ScrollBarDownGlyph}" Theme="{StaticResource InnerPathIcon}" />
                             </RepeatButton>
@@ -229,45 +151,84 @@
                 </ControlTemplate>
             </Setter>
         </Style>
+
+        <Style Selector="^:horizontal">
+            <Setter Property="Height" Value="{DynamicResource ScrollBarThickness}" />
+            <Setter Property="ContextFlyout" Value="{StaticResource SimpleScrollBarHorizontalContextFlyout}" />
+            <Setter Property="Template">
+                <ControlTemplate TargetType="ScrollBar">
+                    <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}">
+                        <Grid Name="PART_RootGrid" ColumnDefinitions="Auto,*,Auto">
+                            <RepeatButton Name="PART_LineUpButton"
+                                          Grid.Column="0"
+                                          Width="10"
+                                          AutomationProperties.Name="Column left"
+                                          Theme="{StaticResource ScrollBarRepeatButton}">
+                                <PathIcon Data="{DynamicResource ScrollBarLeftGlyph}" Theme="{StaticResource InnerPathIcon}" />
+                            </RepeatButton>
+                            <Track Grid.Column="1"
+                                   DeferThumbDrag="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
+                                   Maximum="{TemplateBinding Maximum}"
+                                   Minimum="{TemplateBinding Minimum}"
+                                   Orientation="{TemplateBinding Orientation}"
+                                   ViewportSize="{TemplateBinding ViewportSize}"
+                                   Value="{TemplateBinding Value,
+                                                           Mode=TwoWay}">
+                                <Track.DecreaseButton>
+                                    <RepeatButton Name="PART_PageUpButton"
+                                                  AutomationProperties.Name="Page left"
+                                                  Theme="{StaticResource ScrollBarRepeatButton}" />
+                                </Track.DecreaseButton>
+                                <Track.IncreaseButton>
+                                    <RepeatButton Name="PART_PageDownButton"
+                                                  AutomationProperties.Name="Page right"
+                                                  Theme="{StaticResource ScrollBarRepeatButton}" />
+                                </Track.IncreaseButton>
+                                <Thumb Name="thumb"
+                                       Height="{DynamicResource ScrollBarThickness}"
+                                       MinWidth="{DynamicResource ScrollBarMinLength}"
+                                       AutomationProperties.Name="Position" />
+                            </Track>
+                            <RepeatButton Name="PART_LineDownButton"
+                                          Grid.Column="2"
+                                          Width="10"
+                                          AutomationProperties.Name="Column right"
+                                          Theme="{DynamicResource ScrollBarRepeatButton}">
+                                <PathIcon Data="{DynamicResource ScrollBarRightGlyph}" Theme="{StaticResource InnerPathIcon}" />
+                            </RepeatButton>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
         <Style Selector="^ /template/ Thumb#thumb">
             <Setter Property="Transitions">
                 <Transitions>
                     <DoubleTransition Property="Width" Duration="0:0:0.1" />
                     <DoubleTransition Property="Height" Duration="0:0:0.1" />
-                    <!--<TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.1" />-->
                 </Transitions>
             </Setter>
             <Setter Property="Foreground" Value="{DynamicResource ThemeBorderMidBrush}" />
             <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
             <Setter Property="Template">
                 <ControlTemplate TargetType="Thumb">
-                    <Border Background="{TemplateBinding Foreground}"
-                            CornerRadius="{TemplateBinding CornerRadius}"
-                            UseLayoutRounding="False" />
+                    <Border Background="{TemplateBinding Foreground}" CornerRadius="{TemplateBinding CornerRadius}" />
                 </ControlTemplate>
             </Setter>
         </Style>
         <Style Selector="^ /template/ Thumb#thumb:pointerover">
-            <Setter Property="Foreground" Value="{DynamicResource ThemeControlHighBrush}" />
-        </Style>
-        <Style Selector="^ /template/ Thumb#thumb:pressed">
-            <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundLowBrush}" />
-        </Style>
-        <Style Selector="^:horizontal /template/ Thumb#thumb">
-            <Setter Property="MinWidth" Value="{DynamicResource ScrollBarMinLength}" />
-            <Setter Property="Height" Value="{DynamicResource ScrollBarThumbThickness}" />
-            <Setter Property="VerticalAlignment" Value="Bottom" />
-        </Style>
-        <Style Selector="^:vertical /template/ Thumb#thumb">
-            <Setter Property="MinHeight" Value="{DynamicResource ScrollBarMinLength}" />
-            <Setter Property="Width" Value="{DynamicResource ScrollBarThumbThickness}" />
-            <Setter Property="HorizontalAlignment" Value="Right" />
-        </Style>
-        <Style Selector="^ /template/ RepeatButton &gt; PathIcon">
             <Setter Property="Foreground" Value="{DynamicResource ThemeBorderMidBrush}" />
         </Style>
+        <Style Selector="^ /template/ Thumb#thumb:pressed">
+            <Setter Property="Foreground" Value="{DynamicResource ThemeBorderHighBrush}" />
+        </Style>
+
+        <Style Selector="^ /template/ RepeatButton">
+            <Setter Property="Foreground" Value="{DynamicResource ThemeControlHighBrush}" />
+        </Style>
         <Style Selector="^ /template/ RepeatButton:pointerover &gt; PathIcon">
-            <Setter Property="Foreground" Value="{DynamicResource ThemeAccentBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
         </Style>
         <Style Selector="^ /template/ RepeatButton:pressed &gt; PathIcon">
             <Setter Property="RenderTransform" Value="scale(0.90)" />
@@ -279,18 +240,14 @@
             </Style>
             <Style Selector="^:vertical /template/ Thumb#thumb">
                 <Setter Property="Width" Value="2" />
+                <Setter Property="Margin" Value="1" />
+                <Setter Property="HorizontalAlignment" Value="Right" />
             </Style>
             <Style Selector="^:horizontal /template/ Thumb#thumb">
                 <Setter Property="Height" Value="2" />
-            </Style>
-        </Style>
-
-        <Style Selector="^[(ScrollBarAttach.InnerOffsetEnabled)=False]">
-            <Setter Property="Margin" Value="0" />
-            <Style Selector="^ /template/ RepeatButton">
-                <Setter Property="Margin" Value="0" />
+                <Setter Property="Margin" Value="1" />
+                <Setter Property="VerticalAlignment" Value="Bottom" />
             </Style>
         </Style>
     </ControlTheme>
-
 </ResourceDictionary>

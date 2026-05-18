@@ -1,0 +1,119 @@
+<UserControl x:Class="Synthora.Demo.Views.InputView"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialIcons="using:Material.Icons.Avalonia"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Synthora.Demo.ViewModels"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             x:DataType="vm:InputViewModel"
+             mc:Ignorable="d">
+
+    <DemoPage Title="Input Controls"
+              Padding="0"
+              Description="Test text input, numeric controls and editable selection experiences."
+              IconKind="{Binding IconKind}">
+        <ScrollViewer Padding="16">
+            <StackPanel Spacing="16">
+                <Border Classes="card">
+                    <StackPanel Spacing="16">
+                        <StackPanel Classes="sectionHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="TextBoxOutline" />
+                            <TextBlock Classes="sectionLabel" Text="TEXT INPUT" />
+                        </StackPanel>
+                        <AutoCompleteBox TextBoxAttach.Header="AutoCompleteBox" />
+                        <TextBox InnerRightContent="Ω"
+                                 PlaceholderText="Type a message"
+                                 Text="{Binding Greeting}"
+                                 TextAlignment="Right"
+                                 TextBoxAttach.Header="TextBox(With InnerRightContent)"
+                                 TextWrapping="Wrap"
+                                 UseFloatingPlaceholder="True" />
+                        <TextBox MaxHeight="100"
+                                 AcceptsReturn="True"
+                                 Classes="clearButton"
+                                 Text="{Binding Value}"
+                                 TextBoxAttach.Header="Multiline TextBox(With clearButton)" />
+                        <TextBox Classes="clearButton revealPasswordButton" TextBoxAttach.Header="PasswordBox(With clearButton)" />
+                        <StackPanel Orientation="Horizontal" Spacing="6">
+                            <TextBlock VerticalAlignment="Center"
+                                       Foreground="{DynamicResource ThemeForegroundLowBrush}"
+                                       Text="Quick preview:" />
+                            <TextBlock VerticalAlignment="Center"
+                                       FontWeight="Medium"
+                                       Text="TextBlock" />
+                            <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
+                            <SelectableTextBlock VerticalAlignment="Center" Text="SelectableTextBlock" />
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+
+                <Border Classes="card">
+                    <StackPanel Spacing="16">
+                        <StackPanel Classes="sectionHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="FormatListNumbered" />
+                            <TextBlock Classes="sectionLabel" Text="NUMERIC &amp; SPINNER" />
+                        </StackPanel>
+                        <Grid ColumnDefinitions="*,16,*" RowDefinitions="Auto,16,Auto">
+                            <ButtonSpinner Grid.Row="0"
+                                           Grid.Column="0"
+                                           AllowSpin="False"
+                                           ButtonSpinnerLocation="Left"
+                                           TextBoxAttach.Header="ButtonSpinner(Left)">
+                                ButtonSpinner(Left)
+                            </ButtonSpinner>
+                            <ButtonSpinner Grid.Row="0"
+                                           Grid.Column="2"
+                                           TextBoxAttach.Header="ButtonSpinner(Right)">
+                                ButtonSpinner(Right)
+                            </ButtonSpinner>
+                            <NumericUpDown Grid.Row="2"
+                                           Grid.Column="0"
+                                           Grid.ColumnSpan="3"
+                                           Increment="1"
+                                           TextBoxAttach.Header="NumericUpDown"
+                                           Value="12" />
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+                <Border Classes="card">
+                    <StackPanel Spacing="16">
+                        <StackPanel Classes="sectionHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="SelectArrowDown" />
+                            <TextBlock Classes="sectionLabel" Text="COMBOBOX" />
+                        </StackPanel>
+                        <ComboBox IsEditable="True"
+                                  PlaceholderText="Select..."
+                                  TextBoxAttach.Header="ComboBox">
+                            <ComboBoxItem>Option A</ComboBoxItem>
+                            <ComboBoxItem>Option B</ComboBoxItem>
+                            <ComboBoxItem>Option C</ComboBoxItem>
+                            <ComboBoxItem>Option D</ComboBoxItem>
+                        </ComboBox>
+                        <ComboBox Classes="clearButton"
+                                  PlaceholderText="Select..."
+                                  SelectedIndex="0"
+                                  TextBoxAttach.Header="ComboBox(With clearButton)">
+                            <ComboBoxItem>Item 1</ComboBoxItem>
+                            <ComboBoxItem>Item 2</ComboBoxItem>
+                            <ComboBoxItem>Item 3</ComboBoxItem>
+                            <ComboBoxItem>Item 4</ComboBoxItem>
+                        </ComboBox>
+                        <ComboBox ItemsSource="{EnumBindingSource EnumType={x:Type vm:AppThemeMode}}"
+                                  SelectedItem="{Binding SelectedEnumDescriptionMode}"
+                                  TextBoxAttach.Header="ComboBox(With GetDescription and EnumBindingSourceExtension)">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Converter={x:Static SynthoraConverters.EnumDescriptionConverter}}" />
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+    </DemoPage>
+
+</UserControl>

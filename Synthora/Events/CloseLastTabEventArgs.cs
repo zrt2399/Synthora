@@ -1,9 +1,10 @@
 using System;
 using Avalonia.Controls;
 
-namespace Synthora.Events;
- 
-public class CloseLastTabEventArgs(Window? window) : EventArgs
+namespace Synthora.Events
 {
-    public Window? Window { get; } = window;
+    public class CloseLastTabEventArgs(Window? window) : EventArgs
+    {
+        public Window? Window { get; } = window;
+    }
 }

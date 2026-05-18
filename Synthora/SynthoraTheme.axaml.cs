@@ -33,7 +33,7 @@ namespace Synthora
             DensityStyleProperty.Changed.AddClassHandler<SynthoraTheme, DensityStyle>((s, e) => s.OnDensityStyleChanged(e));
         }
 
-        public static readonly DirectProperty<SynthoraTheme, DensityStyle> DensityStyleProperty = 
+        public static readonly DirectProperty<SynthoraTheme, DensityStyle> DensityStyleProperty =
             AvaloniaProperty.RegisterDirect<SynthoraTheme, DensityStyle>(
                 nameof(DensityStyle),
                 o => o.DensityStyle,
@@ -66,7 +66,7 @@ namespace Synthora
             }
             else
             {
-                Debug.WriteLine($"[SynthoraTheme] Warning: Resource key '{resourceKey}' not found.");
+                throw new Exception($"[SynthoraTheme] Error: Resource key '{resourceKey}' not found.");
             }
         }
 

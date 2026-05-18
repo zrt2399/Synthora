@@ -1,0 +1,108 @@
+<UserControl x:Class="Synthora.Demo.Views.ExtendedControlView"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialIcons="using:Material.Icons.Avalonia"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Synthora.Demo.ViewModels"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             x:DataType="vm:ExtendedControlViewModel"
+             mc:Ignorable="d">
+
+    <DemoPage Title="Extended Controls"
+              Padding="0"
+              Description="GroupBox, DropShadow, PathPicker, EmptyBox and layout utilities"
+              IconKind="{Binding IconKind}">
+        <ScrollViewer Padding="16">
+            <StackPanel Spacing="16">
+                <!--  DropShadowChrome showcase  -->
+                <Border Classes="card">
+                    <StackPanel Spacing="16">
+                        <StackPanel Classes="sectionHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="BoxShadow" />
+                            <TextBlock Classes="sectionLabel" Text="DROP SHADOW CHROME" />
+                        </StackPanel>
+                        <ContentControl>
+                            <GroupBoxEx>
+                                <GroupBoxEx>
+                                    <DropShadowChrome Padding="8">
+                                        <DropShadowChrome>
+                                            <TextBlock>DropShadowChrome nested</TextBlock>
+                                        </DropShadowChrome>
+                                    </DropShadowChrome>
+                                </GroupBoxEx>
+                            </GroupBoxEx>
+                        </ContentControl>
+                        <DropShadowChrome>
+                            <TextBlock Margin="8">DropShadowChrome standalone</TextBlock>
+                        </DropShadowChrome>
+                        <DropShadowChrome Classes="ShowShadowOnPointerOver">
+                            <TextBlock Margin="8">DropShadowChrome with class ShowShadowOnPointerOver</TextBlock>
+                        </DropShadowChrome>
+                        <StackPanel Orientation="Horizontal" Spacing="16">
+                            <GroupBoxEx Width="120" Header="GroupBoxEx">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>TextBlockTextBlock</TextBlock>
+                                </StackPanel>
+                            </GroupBoxEx>
+                            <Expander Header="Expander">Content</Expander>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <Border Classes="card">
+                    <StackPanel Spacing="16">
+                        <StackPanel Classes="sectionHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="FolderOpen" />
+                            <TextBlock Classes="sectionLabel" Text="FILE PICKER" />
+                        </StackPanel>
+                        <PathPicker PlaceholderText="Pick a folder"
+                                    TextBoxAttach.Header="PathPicker (Folder)"
+                                    UseFolderDialog="True" />
+                        <PathPicker AllowMultiple="True"
+                                    FilePickerFileTypes="{Binding FilePickerFileTypes}"
+                                    PlaceholderText="Pick files"
+                                    SelectedPaths="{Binding SelectedFiles}"
+                                    TextBoxAttach.Header="PathPicker (Multiple Files)" />
+                    </StackPanel>
+                </Border>
+                <!--  SpacingWrapPanel  -->
+                <Border Classes="card">
+                    <StackPanel Spacing="16">
+                        <StackPanel Classes="sectionHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ViewDashboard" />
+                            <TextBlock Classes="sectionLabel" Text="SPACING WRAPPANEL" />
+                        </StackPanel>
+                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock VerticalAlignment="Center">TextBlock</TextBlock>
+                                <TextBox Margin="6,0,0,0">TextBox</TextBox>
+                            </StackPanel>
+                            <Button>Button</Button>
+                            <ComboBox SelectedIndex="0">
+                                <ComboBoxItem>ComboBoxItem-1</ComboBoxItem>
+                                <ComboBoxItem>ComboBoxItem-2</ComboBoxItem>
+                            </ComboBox>
+                            <DropDownButton>DropDownButton</DropDownButton>
+                        </SpacingWrapPanel>
+                    </StackPanel>
+                </Border>
+
+                <!--  EmptyBox  -->
+                <Border Classes="card">
+                    <StackPanel Spacing="16">
+                        <StackPanel Classes="sectionHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="PackageVariant" />
+                            <TextBlock Classes="sectionLabel" Text="EMPTY BOX" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Spacing="16">
+                            <EmptyBox />
+                            <EmptyBox IconHeight="60" IconWidth="90" />
+                            <EmptyBox IconHeight="80" IconWidth="120" />
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+    </DemoPage>
+</UserControl> 

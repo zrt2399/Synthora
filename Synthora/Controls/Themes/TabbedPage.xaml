@@ -252,10 +252,9 @@
         </Style>
 
         <!--  Disabled  -->
-        <!--<Style Selector="^:disabled /template/ Border#PART_LayoutRoot">
-            <Setter Property="Background" Value="{DynamicResource TabbedPageTabItemHeaderBackgroundDisabled}" />
-            <Setter Property="TextElement.Foreground" Value="{DynamicResource TabbedPageTabItemHeaderForegroundDisabled}" />
-        </Style>-->
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+        </Style>
 
         <!--  Focus visible  -->
         <Style Selector="^:focus-visible /template/ Border#PART_LayoutRoot">

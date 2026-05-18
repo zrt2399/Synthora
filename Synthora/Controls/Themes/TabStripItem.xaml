@@ -7,6 +7,9 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}" />
         <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundMidBrush}" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="{DynamicResource ThemeHeaderControlPadding}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Name="PART_LayoutRoot"
@@ -20,20 +23,16 @@
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Content="{TemplateBinding Content}"
-                                          ContentTemplate="{TemplateBinding ContentTemplate}" />
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          RecognizesAccessKey="True" />
                         <Border Name="PART_SelectedPipe"
                                 Height="2"
                                 VerticalAlignment="Bottom"
-                                CornerRadius="{DynamicResource ThemeBorderCornerRadiusNormal}"
                                 IsVisible="False" />
                     </Panel>
                 </Border>
             </ControlTemplate>
         </Setter>
-
-        <!--<Style Selector="^:disabled /template/ Border#PART_LayoutRoot">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
-        </Style>-->
 
         <Style Selector="^:pointerover /template/ Border#PART_SelectedPipe">
             <Setter Property="IsVisible" Value="True" />
@@ -43,6 +42,10 @@
         <Style Selector="^:selected /template/ Border#PART_SelectedPipe">
             <Setter Property="IsVisible" Value="True" />
             <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
         </Style>
     </ControlTheme>
 

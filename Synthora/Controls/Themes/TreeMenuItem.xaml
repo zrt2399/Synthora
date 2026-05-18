@@ -1,0 +1,126 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="using:Avalonia.Controls.Converters"
+                    x:ClassModifier="internal"
+                    x:CompileBindings="True">
+
+    <converters:MarginMultiplierConverter x:Key="TreeMenuItemExpanderButtonLeftMarginMultiplier"
+                                          Bottom="True"
+                                          Indent="1"
+                                          Left="True"
+                                          Top="True" />
+
+    <converters:MarginMultiplierConverter x:Key="TreeMenuItemExpanderButtonRightMarginMultiplier"
+                                          Bottom="True"
+                                          Indent="1"
+                                          Right="True"
+                                          Top="True" />
+
+    <ControlTheme x:Key="{x:Type TreeMenuItem}" TargetType="TreeMenuItem">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
+        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
+
+        <Setter Property="Padding" Value="{DynamicResource ThemeHeaderControlPadding}" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <StackPanel>
+                    <Border Name="PART_PresenterRoot"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Focusable="True"
+                            TemplatedControl.IsTemplateFocusTarget="True">
+                        <DockPanel Name="PART_Header">
+                            <DockPanel.Margin>
+                                <MultiBinding Converter="{x:Static converters:TreeViewItemIndentConverter.Instance}">
+                                    <Binding Path="Level" RelativeSource="{RelativeSource TemplatedParent}" />
+                                    <DynamicResource ResourceKey="TreeViewItemIndent" />
+                                </MultiBinding>
+                            </DockPanel.Margin>
+                            <PathIcon Name="pathIcon"
+                                      Width="12"
+                                      Height="12"
+                                      Margin="{TemplateBinding Padding,
+                                                               Converter={StaticResource TreeMenuItemExpanderButtonRightMarginMultiplier}}"
+                                      HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"
+                                      Data="{DynamicResource ArrowDownGlyph}"
+                                      DockPanel.Dock="Right"
+                                      Foreground="{TemplateBinding Foreground}"
+                                      IsHitTestVisible="False" />
+                            <ContentPresenter Name="PART_HeaderPresenter"
+                                              Padding="{TemplateBinding Padding}"
+                                              Background="Transparent"
+                                              Content="{TemplateBinding Header}"
+                                              ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                              Focusable="False"
+                                              Foreground="{TemplateBinding Foreground}" />
+                        </DockPanel>
+                    </Border>
+                    <Panel Name="PART_ItemsContainer"
+                           MaxHeight="0"
+                           ClipToBounds="True"
+                           IsVisible="False"
+                           Opacity="0">
+                        <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+                    </Panel>
+                </StackPanel>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^ /template/ PathIcon#pathIcon">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <TransformOperationsTransition Easing="CubicEaseInOut"
+                                                   Property="RenderTransform"
+                                                   Duration="0:0:0.2" />
+                </Transitions>
+            </Setter>
+        </Style>
+
+        <Style Selector="^ /template/ Border#PART_PresenterRoot:pointerover">
+            <Setter Property="Background" Value="{DynamicResource ThemeControlHighlightLowBrush}" />
+        </Style>
+
+        <Style Selector="^:selected /template/ Border#PART_PresenterRoot">
+            <Setter Property="Background" Value="{DynamicResource ThemeControlHighlightLowBrush}" />
+        </Style>
+
+        <Style Selector="^:selected /template/ Border#PART_PresenterRoot:pointerover">
+            <Setter Property="Background" Value="{DynamicResource ThemeControlHighlightMidBrush}" />
+        </Style>
+
+        <Style Selector="^:selected-descendant /template/ Border#PART_PresenterRoot">
+            <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush4}" />
+        </Style>
+
+        <Style Selector="^:selected-descendant /template/ Border#PART_PresenterRoot:pointerover">
+            <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush3}" />
+        </Style>
+
+        <Style Selector="^:expanded /template/ PathIcon#pathIcon">
+            <Setter Property="RenderTransform" Value="rotate(180deg)" />
+        </Style>
+
+        <Style Selector="^[HeaderPosition=Right]">
+            <Style Selector="^ /template/ PathIcon#pathIcon">
+                <Setter Property="DockPanel.Dock" Value="Left" />
+                <Setter Property="Padding" Value="{TemplateBinding Padding, Converter={StaticResource TreeMenuItemExpanderButtonLeftMarginMultiplier}}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:empty /template/ PathIcon#pathIcon">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style Selector="^:empty">
+            <Setter Property="Focusable" Value="True" />
+            <Setter Property="IsTabStop" Value="True" />
+        </Style>
+    </ControlTheme>
+
+</ResourceDictionary>

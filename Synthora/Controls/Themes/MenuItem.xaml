@@ -73,9 +73,7 @@
                                   Margin="0,0,4,0"
                                   VerticalAlignment="Center"
                                   Data="{DynamicResource ArrowRightGlyph}"
-                                  Foreground="{TemplateBinding Foreground}"
-                                  IsHitTestVisible="False"
-                                  UseLayoutRounding="False" />
+                                  Foreground="{TemplateBinding Foreground}" />
                         <Popup Name="PART_Popup"
                                IsLightDismissEnabled="False"
                                IsOpen="{TemplateBinding IsSubMenuOpen,

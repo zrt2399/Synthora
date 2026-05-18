@@ -1,0 +1,46 @@
+<UserControl x:Class="Synthora.Demo.Views.CalendarView"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialIcons="using:Material.Icons.Avalonia"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Synthora.Demo.ViewModels"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             x:DataType="vm:CalendarViewModel"
+             mc:Ignorable="d">
+
+    <UserControl.Styles>
+        <Style Selector="Calendar.hasShadow">
+            <Setter Property="BoxShadowAttach.BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
+        </Style>
+    </UserControl.Styles>
+
+    <DemoPage Title="Calendar Controls"
+              Padding="0"
+              Description="Try date and time pickers together with calendar selection and shadow options."
+              IconKind="{Binding IconKind}">
+        <ScrollViewer Padding="16">
+            <StackPanel Spacing="16">
+                <Border Classes="card">
+                    <StackPanel Spacing="16">
+                        <CalendarDatePicker TextBoxAttach.Header="CalendarDatePicker" />
+                        <DatePicker TextBoxAttach.Header="DatePicker" />
+                        <TimePicker TextBoxAttach.Header="TimePicker" UseSeconds="True" />
+                        <TimePicker TextBoxAttach.Header="TimePicker(Without second)" />
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <CheckBox Name="hasShadow" Content="Shadow" />
+                            <ComboBox ItemsSource="{EnumBindingSource CalendarSelectionMode}"
+                                      SelectedItem="{Binding #calendar.SelectionMode}"
+                                      TextBoxAttach.Header="SelectionMode: "
+                                      TextBoxAttach.HeaderPlacement="Left" />
+                        </StackPanel>
+                        <Calendar Name="calendar"
+                                  Classes.hasShadow="{Binding #hasShadow.IsChecked}"
+                                  SelectionMode="SingleRange" />
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+    </DemoPage>
+</UserControl>

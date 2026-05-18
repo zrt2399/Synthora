@@ -54,7 +54,7 @@
             <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="VerticalAlignment" Value="Top" />
             <Setter Property="Width" Value="NaN" />
-            <Setter Property="Height" Value="3" />
+            <Setter Property="Height" Value="2" />
         </Style>
 
         <Style Selector="^:pointerover /template/ Border#PART_SelectedPipe">

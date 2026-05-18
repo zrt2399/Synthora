@@ -5,22 +5,22 @@ namespace Synthora.Controls
 {
     public class EmptyBox : TemplatedControl
     {
-        public static readonly StyledProperty<double> GlyphWidthProperty =
-            AvaloniaProperty.Register<EmptyBox, double>(nameof(GlyphWidth), 60d);
+        public static readonly StyledProperty<double> IconWidthProperty =
+            AvaloniaProperty.Register<EmptyBox, double>(nameof(IconWidth), 60d);
 
-        public static readonly StyledProperty<double> GlyphHeightProperty =
-            AvaloniaProperty.Register<EmptyBox, double>(nameof(GlyphHeight), 40d);
+        public static readonly StyledProperty<double> IconHeightProperty =
+            AvaloniaProperty.Register<EmptyBox, double>(nameof(IconHeight), 40d);
 
-        public double GlyphWidth
+        public double IconWidth
         {
-            get => GetValue(GlyphWidthProperty);
-            set => SetValue(GlyphWidthProperty, value);
+            get => GetValue(IconWidthProperty);
+            set => SetValue(IconWidthProperty, value);
         }
 
-        public double GlyphHeight
+        public double IconHeight
         {
-            get => GetValue(GlyphHeightProperty);
-            set => SetValue(GlyphHeightProperty, value);
+            get => GetValue(IconHeightProperty);
+            set => SetValue(IconHeightProperty, value);
         }
     }
 }

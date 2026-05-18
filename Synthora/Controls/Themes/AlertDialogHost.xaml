@@ -1,6 +1,6 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:messaging="using:Synthora.Messaging"
+                    xmlns:messaging="clr-namespace:Synthora.Overlays"
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
 

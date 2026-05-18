@@ -17,11 +17,7 @@
                           BorderThickness="{TemplateBinding BorderThickness}"
                           BoxShadow="{DynamicResource EmptyBoxShadow}"
                           CornerRadius="{TemplateBinding CornerRadius}">
-            <Grid Name="InnerGrid">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
+            <Grid Name="InnerGrid" ColumnDefinitions="*,Auto">
 
                 <ContentPresenter Name="PART_ContentPresenter"
                                   Margin="{TemplateBinding Padding}"
@@ -41,8 +37,7 @@
                           VerticalAlignment="Center"
                           Data="{DynamicResource ArrowDownGlyph}"
                           Foreground="{TemplateBinding Foreground}"
-                          IsHitTestVisible="False"
-                          UseLayoutRounding="False">
+                          IsHitTestVisible="False">
                     <PathIcon.Transitions>
                         <Transitions>
                             <TransformOperationsTransition Easing="CubicEaseInOut"

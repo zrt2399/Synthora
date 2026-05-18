@@ -13,6 +13,7 @@
     </Design.PreviewWith>
 
     <x:Double x:Key="NavigationControlNavBarHeight">36</x:Double>
+    <SolidColorBrush x:Key="DrawerPageHeaderBarBackground" Color="{DynamicResource ThemeControlMidColor}" />
 
     <StreamGeometry x:Key="DrawerPaneButtonIcon">M432 176H80c-8.8 0-16-7.2-16-16s7.2-16 16-16h352c8.8 0 16 7.2 16 16s-7.2 16-16 16zM432 272H80c-8.8 0-16-7.2-16-16s7.2-16 16-16h352c8.8 0 16 7.2 16 16s-7.2 16-16 16zM432 368H80c-8.8 0-16-7.2-16-16s7.2-16 16-16h352c8.8 0 16 7.2 16 16s-7.2 16-16 16z</StreamGeometry>
 
@@ -45,11 +46,13 @@
                                           DockPanel.Dock="Top"
                                           IsChecked="{Binding #PART_SplitView.IsPaneOpen, Mode=TwoWay}"
                                           IsVisible="False"
+                                          Theme="{StaticResource IconToggleButtonTheme}"
                                           ToolTip.Tip="{DynamicResource StringDrawerPageToggleNavigationDrawer}">
                                 <Panel>
                                     <PathIcon HorizontalAlignment="Center"
                                               VerticalAlignment="Center"
                                               Data="{DynamicResource DrawerPaneButtonIcon}"
+                                              Foreground="{Binding $parent[ToggleButton].Foreground}"
                                               IsVisible="{Binding DrawerIcon, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNull}}" />
                                     <ContentPresenter Name="PART_CompactPaneIconPresenter"
                                                       HorizontalAlignment="Center"
@@ -84,7 +87,7 @@
                         <DockPanel Name="PART_ContentDock">
                             <Border Name="PART_TopBar"
                                     Height="{DynamicResource NavigationControlNavBarHeight}"
-                                    Background="{DynamicResource SynthoraMidBrush}"
+                                    Background="{DynamicResource DrawerPageHeaderBarBackground}"
                                     DockPanel.Dock="Top">
                                 <DockPanel HorizontalAlignment="Stretch" HorizontalSpacing="6">
                                     <ToggleButton x:Name="PART_PaneButton"
@@ -94,6 +97,7 @@
                                                   CornerRadius="0"
                                                   DockPanel.Dock="Left"
                                                   IsChecked="{Binding #PART_SplitView.IsPaneOpen, Mode=TwoWay}"
+                                                  Theme="{StaticResource IconToggleButtonTheme}"
                                                   ToolTip.Tip="{DynamicResource StringDrawerPageToggleNavigationDrawer}">
                                         <Panel>
                                             <PathIcon HorizontalAlignment="Center"
@@ -112,14 +116,14 @@
                                                       VerticalAlignment="Center"
                                                       VerticalContentAlignment="Center"
                                                       Content="{TemplateBinding Header}"
-                                                      FontWeight="SemiBold"
+                                                      FontSize="{DynamicResource FontSizeLarge}"
                                                       IsVisible="{TemplateBinding Header,
                                                                                   Converter={x:Static ObjectConverters.IsNotNull}}" />
                                 </DockPanel>
                             </Border>
                             <Border Name="PART_BottomBar"
                                     Height="{DynamicResource NavigationControlNavBarHeight}"
-                                    Background="{DynamicResource SynthoraMidBrush}"
+                                    Background="{DynamicResource DrawerPageHeaderBarBackground}"
                                     DockPanel.Dock="Bottom"
                                     IsVisible="False">
                                 <DockPanel HorizontalAlignment="Stretch" HorizontalSpacing="6">
@@ -130,6 +134,7 @@
                                                   CornerRadius="0"
                                                   DockPanel.Dock="Left"
                                                   IsChecked="{Binding #PART_SplitView.IsPaneOpen, Mode=TwoWay}"
+                                                  Theme="{StaticResource IconToggleButtonTheme}"
                                                   ToolTip.Tip="{DynamicResource StringDrawerPageToggleNavigationDrawer}">
                                         <Panel>
                                             <PathIcon HorizontalAlignment="Center"

@@ -1,0 +1,63 @@
+<UserControl x:Class="Synthora.Demo.Views.DataGridView"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialIcons="using:Material.Icons.Avalonia"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Synthora.Demo.ViewModels"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             x:DataType="vm:DataGridViewModel"
+             mc:Ignorable="d">
+
+    <UserControl.Styles>
+        <Style Selector="DataGrid.hasShadow">
+            <Setter Property="BoxShadowAttach.BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
+        </Style>
+    </UserControl.Styles>
+
+    <DemoPage Title="Data Grid"
+              Padding="0"
+              Description="Inspect grouping, styling and interaction states for tabular data."
+              IconKind="{Binding IconKind}">
+        <TabControl Padding="16">
+            <TabControl.Styles>
+                <Style Selector="DataGrid">
+                    <Setter Property="CornerRadius" Value="12" />
+                    <Setter Property="AutoGenerateColumns" Value="True" />
+                    <Styles>
+                        <Style Selector="DataGridRow:nth-child(even)">
+                            <Setter Property="Background" Value="{DynamicResource SynthoraMidBrush}" />
+                        </Style>
+                    </Styles>
+                </Style>
+            </TabControl.Styles>
+
+            <TabItem Header="Grouping">
+                <DataGrid x:Name="dataGrid"
+                          HeadersVisibility="All"
+                          ItemsSource="{Binding DataGridCollectionView}" />
+            </TabItem>
+
+            <TabItem Header="Styling">
+                <DockPanel HorizontalSpacing="16" VerticalSpacing="16">
+                    <StackPanel DockPanel.Dock="Top"
+                                Orientation="Horizontal"
+                                Spacing="16">
+                        <CheckBox Name="hasShadow" Content="Shadow" />
+                        <CheckBox Content="AllowAutoHide" IsChecked="{Binding #dataGridEmployees.(ScrollViewer.AllowAutoHide)}" />
+                        <CheckBox Content="IsReadOnly" IsChecked="{Binding #dataGridEmployees.IsReadOnly}" />
+                        <ComboBox ItemsSource="{EnumBindingSource DataGridGridLinesVisibility}"
+                                  SelectedItem="{Binding #dataGridEmployees.GridLinesVisibility}"
+                                  TextBoxAttach.Header="GridLinesVisibility: "
+                                  TextBoxAttach.HeaderPlacement="Left" />
+                    </StackPanel>
+                    <DataGrid Name="dataGridEmployees"
+                              Classes.hasShadow="{Binding #hasShadow.IsChecked}"
+                              ItemsSource="{Binding Employees}" />
+                </DockPanel>
+            </TabItem>
+        </TabControl>
+    </DemoPage>
+
+</UserControl>

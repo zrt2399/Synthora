@@ -10,89 +10,46 @@
     </Design.PreviewWith>
 
     <x:Double x:Key="NavigationPageBarHeight">36</x:Double>
-
-    <ControlTheme x:Key="NavigationPageBackButtonTheme" TargetType="Button">
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="HorizontalContentAlignment" Value="Center" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="VerticalAlignment" Value="Stretch" />
-        <Setter Property="Width" Value="{Binding $self.Bounds.Height}" />
-        <Setter Property="Template">
-            <ControlTemplate>
-                <Border Name="boder"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
-                    <ContentPresenter Name="PART_ContentPresenter"
-                                      Margin="{TemplateBinding Padding}"
-                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                      Content="{TemplateBinding Content}"
-                                      ContentTemplate="{TemplateBinding ContentTemplate}"
-                                      RecognizesAccessKey="True"
-                                      TextElement.Foreground="{TemplateBinding Foreground}" />
-                </Border>
-            </ControlTemplate>
-        </Setter>
-
-        <!--  Hover  -->
-        <Style Selector="^:pointerover">
-            <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowColor}" />
-        </Style>
-
-        <!--  Pressed  -->
-        <Style Selector="^:pressed">
-            <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidColor}" />
-        </Style>
-
-        <Style Selector="^:disabled /template/ ContentPresenter#PART_IconPresenter">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
-        </Style>
-    </ControlTheme>
+    <SolidColorBrush x:Key="NavigationPageHeaderBarBackground" Color="{DynamicResource ThemeControlMidColor}" />
 
     <ControlTheme x:Key="{x:Type NavigationPage}" TargetType="NavigationPage">
         <Setter Property="BarHeight" Value="{DynamicResource NavigationPageBarHeight}" />
         <!-- <Setter Property="Background" Value="Transparent" /> -->
         <Setter Property="PageTransition">
-            <Setter.Value>
-                <PageSlide FillMode="Forward"
-                           Orientation="Horizontal"
-                           Duration="0:0:0.3">
-                    <PageSlide.SlideInEasing>
-                        <SplineEasing X1="0.16"
-                                      X2="0.3"
-                                      Y1="1"
-                                      Y2="1" />
-                    </PageSlide.SlideInEasing>
-                    <PageSlide.SlideOutEasing>
-                        <SplineEasing X1="0.2"
-                                      X2="0.3"
-                                      Y1="0.85"
-                                      Y2="1" />
-                    </PageSlide.SlideOutEasing>
-                </PageSlide>
-            </Setter.Value>
+            <PageSlide FillMode="Forward"
+                       Orientation="Horizontal"
+                       Duration="0:0:0.3">
+                <PageSlide.SlideInEasing>
+                    <SplineEasing X1="0.16"
+                                  X2="0.3"
+                                  Y1="1"
+                                  Y2="1" />
+                </PageSlide.SlideInEasing>
+                <PageSlide.SlideOutEasing>
+                    <SplineEasing X1="0.2"
+                                  X2="0.3"
+                                  Y1="0.85"
+                                  Y2="1" />
+                </PageSlide.SlideOutEasing>
+            </PageSlide>
         </Setter>
         <Setter Property="ModalTransition">
-            <Setter.Value>
-                <PageSlide FillMode="Forward"
-                           Orientation="Vertical"
-                           Duration="0:0:0.25">
-                    <PageSlide.SlideInEasing>
-                        <SplineEasing X1="0.16"
-                                      X2="0.3"
-                                      Y1="1"
-                                      Y2="1" />
-                    </PageSlide.SlideInEasing>
-                    <PageSlide.SlideOutEasing>
-                        <SplineEasing X1="0.2"
-                                      X2="0.3"
-                                      Y1="0.85"
-                                      Y2="1" />
-                    </PageSlide.SlideOutEasing>
-                </PageSlide>
-            </Setter.Value>
+            <PageSlide FillMode="Forward"
+                       Orientation="Vertical"
+                       Duration="0:0:0.25">
+                <PageSlide.SlideInEasing>
+                    <SplineEasing X1="0.16"
+                                  X2="0.3"
+                                  Y1="1"
+                                  Y2="1" />
+                </PageSlide.SlideInEasing>
+                <PageSlide.SlideOutEasing>
+                    <SplineEasing X1="0.2"
+                                  X2="0.3"
+                                  Y1="0.85"
+                                  Y2="1" />
+                </PageSlide.SlideOutEasing>
+            </PageSlide>
         </Setter>
         <Setter Property="Template">
             <ControlTemplate>
@@ -129,7 +86,7 @@
                         <Border Name="PART_NavigationBar"
                                 Height="{TemplateBinding EffectiveBarHeight}"
                                 VerticalAlignment="Top"
-                                Background="{DynamicResource ThemeControlMidBrush}">
+                                Background="{DynamicResource NavigationPageHeaderBarBackground}">
                             <Grid ColumnDefinitions="Auto, *, Auto">
                                 <Button x:Name="PART_BackButton"
                                         Grid.Column="0"
@@ -138,7 +95,7 @@
                                         ButtonAttach.ShowShadow="False"
                                         CornerRadius="0"
                                         IsVisible="{TemplateBinding IsBackButtonEffectivelyVisible}"
-                                        Theme="{StaticResource SecondaryButtonTheme}">
+                                        Theme="{StaticResource IconButtonTheme}">
                                     <Panel>
                                         <PathIcon x:Name="PART_BackButtonDefaultIcon"
                                                   Width="16"
@@ -158,7 +115,7 @@
                                                   VerticalAlignment="Center"
                                                   Content="{Binding CurrentPage?.Header, RelativeSource={RelativeSource TemplatedParent}, FallbackValue={x:Null}}"
                                                   ContentTemplate="{Binding CurrentPage?.HeaderTemplate, RelativeSource={RelativeSource TemplatedParent}, FallbackValue={x:Null}}"
-                                                  FontWeight="SemiBold" />
+                                                  FontSize="{DynamicResource FontSizeLarge}" />
 
                                 <ContentPresenter Name="PART_TopCommandBar"
                                                   Grid.Column="2"

@@ -27,21 +27,17 @@
         <Style Selector="^:pointerover">
             <Setter Property="Background" Value="{DynamicResource ThemeControlHighlightMidBrush}" />
         </Style>
-
         <Style Selector="^:selected">
+            <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush5}" />
+        </Style>
+        <Style Selector="^:selected:focus">
             <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush4}" />
         </Style>
-
-        <Style Selector="^:selected:focus">
-            <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush3}" />
-        </Style>
-
         <Style Selector="^:selected:pointerover">
-            <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush3}" />
+            <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush4}" />
         </Style>
-
         <Style Selector="^:selected:focus:pointerover">
-            <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush2}" />
+            <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush3}" />
         </Style>
     </ControlTheme>
 
@@ -78,7 +74,7 @@
         <Style Selector="^:selected">
             <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />
             <Style Selector="^ /template/ Border#PART_LayoutRoot">
-                <Setter Property="BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
+                <Setter Property="BoxShadow" Value="{TemplateBinding Background, Converter={x:Static SynthoraConverters.BoxShadowConverter}, ConverterParameter={x:Static BoxShadowConverter.DefaultParameter}}" />
             </Style>
         </Style>
 

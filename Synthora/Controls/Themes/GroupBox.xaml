@@ -11,6 +11,7 @@
     <converters:BorderGapMaskConverter x:Key="BorderGapMaskConverter" />
 
     <ControlTheme x:Key="{x:Type GroupBox}" TargetType="GroupBox">
+        <Setter Property="Padding" Value="10" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusLarge}" />

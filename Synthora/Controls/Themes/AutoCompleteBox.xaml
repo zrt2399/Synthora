@@ -14,10 +14,10 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <DockPanel>
-                    <ContentPresenter HorizontalAlignment="{TemplateBinding (TextBoxAttach.TitleHorizontalAlignment)}"
-                                      VerticalAlignment="{TemplateBinding (TextBoxAttach.TitleVerticalAlignment)}"
-                                      Content="{TemplateBinding (TextBoxAttach.Title)}"
-                                      DockPanel.Dock="{TemplateBinding (TextBoxAttach.TitlePlacement)}" />
+                    <ContentPresenter HorizontalAlignment="{TemplateBinding (TextBoxAttach.HeaderHorizontalAlignment)}"
+                                      VerticalAlignment="{TemplateBinding (TextBoxAttach.HeaderVerticalAlignment)}"
+                                      Content="{TemplateBinding (TextBoxAttach.Header)}"
+                                      DockPanel.Dock="{TemplateBinding (TextBoxAttach.HeaderPlacement)}" />
                     <Panel>
                         <TextBox Name="PART_TextBox"
                                  Width="{TemplateBinding (TextBoxAttach.Width)}"

@@ -1,0 +1,69 @@
+<UserControl x:Class="Synthora.Demo.Views.ExpanderView"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialIcons="using:Material.Icons.Avalonia"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Synthora.Demo.ViewModels"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             x:DataType="vm:ExpanderViewModel"
+             mc:Ignorable="d">
+
+    <UserControl.Styles>
+        <Style Selector="Expander.withoutShadow">
+            <Setter Property="BoxShadowAttach.BoxShadow" Value="none" />
+        </Style>
+    </UserControl.Styles>
+
+    <DemoPage Title="Expander Variants"
+              Description="Preview all expander directions and toggle the optional shadow style."
+              IconKind="{Binding IconKind}">
+        <Border Classes="card">
+            <DockPanel VerticalSpacing="16">
+                <StackPanel DockPanel.Dock="Top" Spacing="8">
+                    <CheckBox Name="withoutShadow" Content="Without Shadow" />
+                </StackPanel>
+                <Grid ColumnDefinitions="*,*"
+                      ColumnSpacing="16"
+                      RowDefinitions="*,*"
+                      RowSpacing="16">
+                    <Expander Classes.withoutShadow="{Binding #withoutShadow.IsChecked}"
+                              ExpandDirection="Left"
+                              Header="← Left">
+                        <StackPanel Spacing="8">
+                            <Button>1</Button>
+                            <Button>2</Button>
+                        </StackPanel>
+                    </Expander>
+                    <Expander Grid.Column="1"
+                              Classes.withoutShadow="{Binding #withoutShadow.IsChecked}"
+                              ExpandDirection="Right"
+                              Header="Right →">
+                        <TextBox>TextBox</TextBox>
+                    </Expander>
+                    <Expander Grid.Row="1"
+                              Classes.withoutShadow="{Binding #withoutShadow.IsChecked}"
+                              ExpandDirection="Up"
+                              Header="↑ Up">
+                        <CheckBox>CheckBox</CheckBox>
+                    </Expander>
+                    <Expander Grid.Row="1"
+                              Grid.Column="1"
+                              Classes.withoutShadow="{Binding #withoutShadow.IsChecked}"
+                              ExpandDirection="Down"
+                              Header="Down ↓">
+                        <GroupBoxEx>
+                            <DropShadowChrome Padding="10">
+                                <DropShadowChrome>
+                                    <TextBlock>DropShadowChrome</TextBlock>
+                                </DropShadowChrome>
+                            </DropShadowChrome>
+                        </GroupBoxEx>
+                    </Expander>
+                </Grid>
+            </DockPanel>
+        </Border>
+    </DemoPage>
+
+</UserControl>

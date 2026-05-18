@@ -16,6 +16,10 @@
                                           Indent="1"
                                           Left="True" />
 
+    <StreamGeometry x:Key="CalendarDatePickerButtonData">
+        M9 1V3H15V1H17V3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3H7V1H9ZM20 11H4V19H20V11ZM7 5H4V9H20V5H17V7H15V5H9V7H7V5Z
+    </StreamGeometry>
+
     <ControlTheme x:Key="SimpleCalendarDatePickerButtonTheme" TargetType="Button">
         <Setter Property="Margin" Value="{Binding $parent[CalendarDatePicker].Padding, Converter={StaticResource CalendarDatePickerDropDownButtonMarginMultiplier}}" />
         <Setter Property="HorizontalAlignment" Value="Center" />
@@ -25,8 +29,11 @@
             <ControlTemplate>
                 <PathIcon Width="12"
                           Height="12"
+                          Margin="{TemplateBinding Padding}"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
                           Background="{TemplateBinding Background}"
-                          Data="M9,10V12H7V10H9M13,10V12H11V10H13M17,10V12H15V10H17M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H6V1H8V3H16V1H18V3H19M19,19V8H5V19H19M9,14V16H7V14H9M13,14V16H11V14H13M17,14V16H15V14H17Z"
+                          Data="{DynamicResource CalendarDatePickerButtonData}"
                           Foreground="{TemplateBinding Foreground}" />
             </ControlTemplate>
         </Setter>
@@ -53,10 +60,10 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <DockPanel>
-                    <ContentPresenter HorizontalAlignment="{TemplateBinding (TextBoxAttach.TitleHorizontalAlignment)}"
-                                      VerticalAlignment="{TemplateBinding (TextBoxAttach.TitleVerticalAlignment)}"
-                                      Content="{TemplateBinding (TextBoxAttach.Title)}"
-                                      DockPanel.Dock="{TemplateBinding (TextBoxAttach.TitlePlacement)}" />
+                    <ContentPresenter HorizontalAlignment="{TemplateBinding (TextBoxAttach.HeaderHorizontalAlignment)}"
+                                      VerticalAlignment="{TemplateBinding (TextBoxAttach.HeaderVerticalAlignment)}"
+                                      Content="{TemplateBinding (TextBoxAttach.Header)}"
+                                      DockPanel.Dock="{TemplateBinding (TextBoxAttach.HeaderPlacement)}" />
                     <Panel>
                         <TextBox Name="PART_TextBox"
                                  Width="{TemplateBinding (TextBoxAttach.Width)}"

@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Avalonia.Threading;
 using Synthora.Controls;
 
-namespace Synthora.Messaging
+namespace Synthora.Overlays
 {
     /// <summary>
     /// Represents the possible results of a dialog interaction.

@@ -1,0 +1,61 @@
+<UserControl x:Class="Synthora.Demo.Views.BrushView"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:converters="using:Synthora.Demo.Converters"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialIcons="using:Material.Icons.Avalonia"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Synthora.Demo.ViewModels"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             x:DataType="vm:BrushViewModel"
+             mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <converters:ResourceKeyToBrushConverter x:Key="ResourceKeyToBrushConverter" />
+    </UserControl.Resources>
+
+    <DemoPage Title="Theme Brushes"
+              Padding="0"
+              Description="Preview the theme brush resources together with their resolved color values."
+              IconKind="{Binding IconKind}">
+        <ItemsControl ItemsSource="{Binding BrushKeys}">
+            <ItemsControl.Template>
+                <ControlTemplate>
+                    <ScrollViewer>
+                        <ItemsPresenter>
+                            <ItemsPresenter.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <SpacingWrapPanel Margin="16"
+                                                      HorizontalSpacing="10"
+                                                      VerticalSpacing="10" />
+                                </ItemsPanelTemplate>
+                            </ItemsPresenter.ItemsPanel>
+                        </ItemsPresenter>
+                    </ScrollViewer>
+                </ControlTemplate>
+            </ItemsControl.Template>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <DropShadowChrome MinWidth="100"
+                                      MinHeight="60"
+                                      Background="{Binding Converter={StaticResource ResourceKeyToBrushConverter}}"
+                                      BorderThickness="0"
+                                      CornerRadius="12">
+                        <StackPanel Margin="10"
+                                    VerticalAlignment="Center"
+                                    Spacing="10">
+                            <SelectableTextBlock HorizontalAlignment="Center"
+                                                 Foreground="{Binding $parent[DropShadowChrome].Background, Converter={x:Static SynthoraConverters.ContrastColorConverter}}"
+                                                 Text="{Binding}" />
+                            <SelectableTextBlock HorizontalAlignment="Center"
+                                                 Foreground="{Binding $parent[DropShadowChrome].Background, Converter={x:Static SynthoraConverters.ContrastColorConverter}}"
+                                                 Text="{Binding $parent[DropShadowChrome].Background}" />
+                        </StackPanel>
+                    </DropShadowChrome>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </DemoPage>
+
+</UserControl>

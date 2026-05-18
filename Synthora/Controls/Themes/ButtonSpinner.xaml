@@ -19,7 +19,7 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type ButtonSpinner}" TargetType="ButtonSpinner">
-        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
@@ -30,10 +30,10 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <DockPanel>
-                    <ContentPresenter HorizontalAlignment="{TemplateBinding (TextBoxAttach.TitleHorizontalAlignment)}"
-                                      VerticalAlignment="{TemplateBinding (TextBoxAttach.TitleVerticalAlignment)}"
-                                      Content="{TemplateBinding (TextBoxAttach.Title)}"
-                                      DockPanel.Dock="{TemplateBinding (TextBoxAttach.TitlePlacement)}" />
+                    <ContentPresenter HorizontalAlignment="{TemplateBinding (TextBoxAttach.HeaderHorizontalAlignment)}"
+                                      VerticalAlignment="{TemplateBinding (TextBoxAttach.HeaderVerticalAlignment)}"
+                                      Content="{TemplateBinding (TextBoxAttach.Header)}"
+                                      DockPanel.Dock="{TemplateBinding (TextBoxAttach.HeaderPlacement)}" />
                     <Border Name="border"
                             Width="{TemplateBinding (TextBoxAttach.Width)}"
                             MinWidth="{TemplateBinding (TextBoxAttach.MinWidth)}"
@@ -41,7 +41,8 @@
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{TemplateBinding CornerRadius}">
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            TemplatedControl.IsTemplateFocusTarget="True">
                         <DataValidationErrors>
                             <DockPanel>
                                 <UniformGrid Name="PART_SpinnerPanel"
@@ -76,8 +77,7 @@
                                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                                   Content="{TemplateBinding Content}"
-                                                  ContentTemplate="{TemplateBinding ContentTemplate}"
-                                                  TemplatedControl.IsTemplateFocusTarget="True" />
+                                                  ContentTemplate="{TemplateBinding ContentTemplate}" />
                             </DockPanel>
                         </DataValidationErrors>
                     </Border>

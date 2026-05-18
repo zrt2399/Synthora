@@ -1,0 +1,29 @@
+<UserControl x:Class="Synthora.Demo.Views.TabbedPageView"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialIcons="using:Material.Icons.Avalonia"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Synthora.Demo.ViewModels"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             x:DataType="vm:SplitViewViewModel"
+             mc:Ignorable="d">
+
+    <DemoPage Title="Tabbed Page"
+              Description="Mobile-style tabbed page navigation with three sample pages."
+              IconKind="{Binding IconKind}">
+        <TabbedPage>
+            <ContentPage Header="Home" Icon="{OnFormFactor Desktop={x:Null}, Mobile={materialIcons:MaterialIconExt Kind=Home, IconSize=24}}">
+                ContentPage1
+            </ContentPage>
+            <ContentPage Header="Contacts" Icon="{OnFormFactor Desktop={x:Null}, Mobile={materialIcons:MaterialIconExt Kind=Contact, IconSize=24}}">
+                ContentPage2
+            </ContentPage>
+            <ContentPage Header="Settings" Icon="{OnFormFactor Desktop={x:Null}, Mobile={materialIcons:MaterialIconExt Kind=Settings, IconSize=24}}">
+                ContentPage3
+            </ContentPage>
+        </TabbedPage>
+    </DemoPage>
+
+</UserControl>
