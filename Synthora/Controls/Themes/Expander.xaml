@@ -142,11 +142,6 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type Expander}" TargetType="Expander">
-        <!--<Setter Property="ContentTransition">
-            <Setter.Value>
-                <CrossFade Duration="00:00:00.25" />
-            </Setter.Value>
-        </Setter>-->
         <Setter Property="BoxShadowAttach.BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusLarge}" />
@@ -179,7 +174,7 @@
                                           Opacity="0">
                             <ContentPresenter.Transitions>
                                 <Transitions>
-                                    <DoubleTransition Property="Opacity" Duration="0:0:0.3" />
+                                    <DoubleTransition Property="Opacity" Duration="0:0:0.2" />
                                 </Transitions>
                             </ContentPresenter.Transitions>
                         </ContentPresenter>
