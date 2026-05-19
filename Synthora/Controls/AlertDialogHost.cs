@@ -271,7 +271,7 @@ namespace Synthora.Controls
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
         {
             base.OnApplyTemplate(e);
-            _buttonPanel = e.NameScope.Find<StackPanel>(nameof(_buttonPanel));
+            _buttonPanel = e.NameScope.Find<StackPanel>("PART_ButtonPanel");
             UpdatePseudoClasses();
         }
 

@@ -137,7 +137,7 @@ namespace Synthora.Controls
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
         {
             base.OnApplyTemplate(e);
-            _dividerContainer = e.NameScope.Find<Grid>(nameof(_dividerContainer));
+            _dividerContainer = e.NameScope.Find<Grid>("PART_DividerContainer");
             SetGrid();
             UpdatePseudoClasses();
         }
