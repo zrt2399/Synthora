@@ -21,11 +21,11 @@ namespace Synthora.Controls
     {
         private const double DefaultTabWidth = 140;
 
-        public const double WindowsAndLinuxDefaultLeftThumbWidth = 4d;
+        public const double WindowsAndLinuxDefaultLeftThumbWidth = 0d;
         public const double MacOsDefaultLeftThumbWidth = 80d;
 
         public const double WindowsAndLinuxDefaultRightThumbWidth = 160d;
-        public const double MacOsDefaultRightThumbWidth = 50d;
+        public const double MacOsDefaultRightThumbWidth = 0d;
 
         private readonly TabsPanel _tabsPanel;
 
@@ -73,14 +73,12 @@ namespace Synthora.Controls
         public static readonly StyledProperty<EventHandler<CloseLastTabEventArgs>?> LastTabClosedActionProperty =
             AvaloniaProperty.Register<DragTabControl, EventHandler<CloseLastTabEventArgs>?>(nameof(LastTabClosedAction));
 
-
-        public static readonly StyledProperty<double> LeftThumbWidthProperty =
-            AvaloniaProperty.Register<DragTabControl, double>(nameof(LeftThumbWidth),
+        public static readonly StyledProperty<double> LeftThumbMinWidthProperty =
+            AvaloniaProperty.Register<DragTabControl, double>(nameof(LeftThumbMinWidth),
                 defaultValue: OperatingSystem.IsMacOS() ? MacOsDefaultLeftThumbWidth : WindowsAndLinuxDefaultLeftThumbWidth);
 
-
-        public static readonly StyledProperty<double> RightThumbWidthProperty =
-            AvaloniaProperty.Register<DragTabControl, double>(nameof(RightThumbWidth),
+        public static readonly StyledProperty<double> RightThumbMinWidthProperty =
+            AvaloniaProperty.Register<DragTabControl, double>(nameof(RightThumbMinWidth),
                 defaultValue: OperatingSystem.IsMacOS() ? MacOsDefaultRightThumbWidth : WindowsAndLinuxDefaultRightThumbWidth);
 
 
@@ -102,6 +100,9 @@ namespace Synthora.Controls
 
         public static readonly StyledProperty<object?> RightContentProperty =
             AvaloniaProperty.Register<DragTabControl, object?>(nameof(RightContent));
+
+        public static readonly StyledProperty<bool> ShowDragWindowThumbProperty =
+            AvaloniaProperty.Register<DragTabControl, bool>(nameof(ShowDragWindowThumb));
 
         public DragTabControl()
         {
@@ -188,16 +189,16 @@ namespace Synthora.Controls
             set => SetValue(FixedHeaderCountProperty, value);
         }
 
-        public double LeftThumbWidth
+        public double LeftThumbMinWidth
         {
-            get => GetValue(LeftThumbWidthProperty);
-            set => SetValue(LeftThumbWidthProperty, value);
+            get => GetValue(LeftThumbMinWidthProperty);
+            set => SetValue(LeftThumbMinWidthProperty, value);
         }
 
-        public double RightThumbWidth
+        public double RightThumbMinWidth
         {
-            get => GetValue(RightThumbWidthProperty);
-            set => SetValue(RightThumbWidthProperty, value);
+            get => GetValue(RightThumbMinWidthProperty);
+            set => SetValue(RightThumbMinWidthProperty, value);
         }
 
         public ICommand AddItemCommand
@@ -222,6 +223,12 @@ namespace Synthora.Controls
         {
             get => GetValue(RightContentProperty);
             set => SetValue(RightContentProperty, value);
+        }
+
+        public bool ShowDragWindowThumb
+        {
+            get => GetValue(ShowDragWindowThumbProperty);
+            set => SetValue(ShowDragWindowThumbProperty, value);
         }
 
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e)

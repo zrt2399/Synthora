@@ -480,7 +480,7 @@
                             </TreeView>
 
                             <Border Background="{DynamicResource DragTabControlBackgroundBrush}" CornerRadius="14">
-                                <DragTabControl LeftThumbWidth="0" RightThumbWidth="0">
+                                <DragTabControl>
                                     <DragTabItem Header="Home">
                                         <TextBlock Margin="8" Text="Responsive composition." />
                                     </DragTabItem>

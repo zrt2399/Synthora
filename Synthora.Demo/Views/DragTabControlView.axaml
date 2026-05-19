@@ -20,9 +20,7 @@
                     <TextBlock Classes="sectionLabel"
                                DockPanel.Dock="Top"
                                Text="DRAGTABCONTROL Non-MVVM" />
-                    <DragTabControl Name="dragTabControl"
-                                    LeftThumbWidth="0"
-                                    RightThumbWidth="0">
+                    <DragTabControl Name="dragTabControl">
                         <DragTabItem Header="Tab 1">
                             <SelectableTextBlock>Content 1</SelectableTextBlock>
                         </DragTabItem>
@@ -44,9 +42,9 @@
                                DockPanel.Dock="Top"
                                Text="DRAGTABCONTROL MVVM" />
                     <DragTabControl ItemsSource="{Binding TabItems}"
-                                    LeftThumbWidth="0"
-                                    NewItemFactory="{Binding NewItemFactory}"
-                                    RightThumbWidth="0">
+                                    NewItemFactory="{Binding NewItemFactory}">
+                        <DragTabControl.AddButtonFlyout>
+                            <MenuFlyout Placement="BottomEdgeAlignedLeft">
                         <TabControl.ContentTemplate>
                             <DataTemplate x:DataType="models:DragTabItemModel">
                                 <TextBlock Text="{Binding Title}" />
