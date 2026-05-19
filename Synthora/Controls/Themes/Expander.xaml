@@ -170,21 +170,12 @@
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Content="{TemplateBinding Content}"
                                           ContentTemplate="{TemplateBinding ContentTemplate}"
-                                          IsVisible="{TemplateBinding IsExpanded}"
-                                          Opacity="0">
-                            <ContentPresenter.Transitions>
-                                <Transitions>
-                                    <DoubleTransition Property="Opacity" Duration="0:0:0.2" />
-                                </Transitions>
-                            </ContentPresenter.Transitions>
-                        </ContentPresenter>
+                                          IsVisible="{TemplateBinding IsExpanded}" />
                     </DockPanel>
                 </DropShadowChrome>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:expanded /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Opacity" Value="1" />
-        </Style>
+
         <Style Selector="^[ExpandDirection=Down]">
             <Setter Property="VerticalAlignment" Value="Top" />
             <Style Selector="^ /template/ ToggleButton#PART_toggle">
