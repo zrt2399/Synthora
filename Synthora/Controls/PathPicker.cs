@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -52,9 +51,9 @@ namespace Synthora.Controls
         public static readonly StyledProperty<string?> PlaceholderTextProperty =
             AvaloniaProperty.Register<PathPicker, string?>(nameof(PlaceholderText));
 
-        public static readonly StyledProperty<IBrush?> PlaceholderForegroundProperty = 
+        public static readonly StyledProperty<IBrush?> PlaceholderForegroundProperty =
             AvaloniaProperty.Register<TextBox, IBrush?>(nameof(PlaceholderForeground));
-         
+
         public static readonly StyledProperty<object?> BrowseButtonContentProperty =
             AvaloniaProperty.Register<PathPicker, object?>(nameof(BrowseButtonContent), " ... ");
 
@@ -89,7 +88,7 @@ namespace Synthora.Controls
             AvaloniaProperty.Register<PathPicker, bool>(nameof(IsReadOnly), true);
 
         public static readonly StyledProperty<Thickness> SpacingProperty =
-            AvaloniaProperty.Register<PathPicker, Thickness>(nameof(Spacing), new Thickness(4, 0, 0, 0));
+            AvaloniaProperty.Register<PathPicker, Thickness>(nameof(Spacing), new Thickness(6, 0, 0, 0));
 
         static PathPicker()
         {
@@ -97,10 +96,10 @@ namespace Synthora.Controls
         }
 
         /// <summary>
-        /// Gets the path separator character used to separate paths.
-        /// It is '|' on Windows and ':' on other platforms.
+        /// Gets the path separator used to serialize multiple selected paths into <see cref="SelectedPath"/>.
+        /// Uses the Unit Separator control character (0x1F) so the separator is consistent across platforms and avoids NUL-terminator issues in other languages.
         /// </summary>
-        public static string PathSeparator { get; } = OperatingSystem.IsWindows() ? "|" : ":";
+        public const string PathSeparator = "\u001F";
 
         /// <summary>
         /// Gets or sets the title of the file dialog.
@@ -280,7 +279,7 @@ namespace Synthora.Controls
 
         public async void Browse()
         {
-            if (TopLevel.GetTopLevel(this) is not TopLevel topLevel)
+            if (TopLevel.GetTopLevel(this) is not { } topLevel)
             {
                 return;
             }
@@ -295,7 +294,7 @@ namespace Synthora.Controls
 
                 if (storageFolders.Count > 0)
                 {
-                    List<string> folders = new List<string>(storageFolders.Count);
+                    var folders = new List<string>(storageFolders.Count);
                     foreach (var item in storageFolders)
                     {
                         folders.Add(item.TryGetLocalPath() ?? string.Empty);
@@ -333,7 +332,7 @@ namespace Synthora.Controls
                     var storageFiles = await topLevel.StorageProvider.OpenFilePickerAsync(options);
                     if (storageFiles.Count > 0)
                     {
-                        List<string> files = new List<string>(storageFiles.Count);
+                        var files = new List<string>(storageFiles.Count);
                         foreach (var item in storageFiles)
                         {
                             files.Add(item.TryGetLocalPath() ?? string.Empty);
