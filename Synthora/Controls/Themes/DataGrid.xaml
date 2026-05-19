@@ -66,7 +66,6 @@
                         <Rectangle Name="CurrencyVisual"
                                    IsHitTestVisible="False"
                                    IsVisible="False"
-                                   Stroke="{DynamicResource ThemeBorderMidBrush}"
                                    StrokeThickness="1" />
                         <Rectangle x:Name="PART_RightGridLine"
                                    Width="0"
@@ -79,12 +78,15 @@
         </Setter>
         <Style Selector="^:current">
             <Style Selector="^:focus /template/ Rectangle#CurrencyVisual">
+                <Setter Property="Stroke" Value="{DynamicResource ThemeBorderMidBrush}" />
                 <Setter Property="IsVisible" Value="True" />
             </Style>
             <Style Selector="^:focus-within /template/ Rectangle#CurrencyVisual">
+                <Setter Property="Stroke" Value="{DynamicResource ThemeBorderHighBrush}" />
                 <Setter Property="IsVisible" Value="True" />
             </Style>
             <Style Selector="^:pointerover /template/ Rectangle#CurrencyVisual">
+                <Setter Property="Stroke" Value="{DynamicResource ThemeBorderHighBrush}" />
                 <Setter Property="IsVisible" Value="True" />
             </Style>
         </Style>
@@ -376,9 +378,9 @@
                                    Grid.Row="2"
                                    Grid.Column="2" />
                         <!--<Rectangle Name="BottomLeftCorner"
-                                   Grid.Row="2"
-                                   Grid.ColumnSpan="2"
-                                   Fill="{DynamicResource ThemeControlMidBrush}" />-->
+                        Grid.Row="2"
+                        Grid.ColumnSpan="2"
+                        Fill="{DynamicResource ThemeControlMidBrush}" />-->
                         <ScrollBar Name="PART_VerticalScrollbar"
                                    Grid.Row="1"
                                    Grid.Column="2"

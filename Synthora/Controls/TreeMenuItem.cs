@@ -115,22 +115,6 @@ namespace Synthora.Controls
             ApplyItemsContainerState(IsExpanded);
         }
 
-        private void UnregisterEvents()
-        {
-            if (_presenterRoot != null)
-            {
-                _presenterRoot.PointerReleased -= PresenterRootPointerReleased;
-            }
-        }
-
-        private void PresenterRootPointerReleased(object? sender, PointerReleasedEventArgs e)
-        {
-            if (HasChildItems)
-            {
-                SetCurrentValue(IsExpandedProperty, !IsExpanded);
-            }
-        }
-
         protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e)
         {
             var parent = GetParentTreeMenuItem();
@@ -169,6 +153,22 @@ namespace Synthora.Controls
             else if (e.Property == HasSelectedDescendantProperty)
             {
                 PseudoClasses.Set(pcSelectedDescendant, HasSelectedDescendant);
+            }
+        }
+
+        private void UnregisterEvents()
+        {
+            if (_presenterRoot != null)
+            {
+                _presenterRoot.PointerReleased -= PresenterRootPointerReleased;
+            }
+        }
+
+        private void PresenterRootPointerReleased(object? sender, PointerReleasedEventArgs e)
+        {
+            if (HasChildItems)
+            {
+                SetCurrentValue(IsExpandedProperty, !IsExpanded);
             }
         }
 
