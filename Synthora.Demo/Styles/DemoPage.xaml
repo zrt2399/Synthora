@@ -8,45 +8,50 @@
         <Setter Property="Padding" Value="16" />
         <Setter Property="Template">
             <ControlTemplate>
-                <DockPanel>
-                    <Border Margin="16,16,16,0"
-                            Padding="12,10"
-                            Background="{DynamicResource SynthoraMidBrush}"
-                            CornerRadius="12"
-                            DockPanel.Dock="Top">
-                        <DockPanel HorizontalSpacing="16" VerticalSpacing="16">
-                            <materialIcons:MaterialIcon VerticalAlignment="Center"
-                                                        DockPanel.Dock="Left"
-                                                        IconSize="24"
-                                                        Kind="{TemplateBinding IconKind}" />
-                            <CheckBox VerticalAlignment="Center"
-                                      Content="IsEnabled"
-                                      DockPanel.Dock="Right"
-                                      IsChecked="{TemplateBinding IsContentEnabled,
-                                                                  Mode=TwoWay}" />
-                            <StackPanel VerticalAlignment="Center"
-                                        DockPanel.Dock="Left"
-                                        Spacing="2">
-                                <SelectableTextBlock FontSize="14"
-                                                     FontWeight="SemiBold"
-                                                     Text="{TemplateBinding Title}" />
-                                <SelectableTextBlock FontSize="11"
-                                                     Foreground="{DynamicResource ThemeForegroundLowBrush}"
-                                                     IsVisible="{TemplateBinding Description,
-                                                                                 Converter={x:Static ObjectConverters.IsNotNull}}"
-                                                     Text="{TemplateBinding Description}" />
-                            </StackPanel>
-                        </DockPanel>
-                    </Border>
+                <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <DockPanel>
+                        <Border Margin="16,16,16,0"
+                                Padding="12,10"
+                                Background="{DynamicResource SynthoraMidBrush}"
+                                CornerRadius="12"
+                                DockPanel.Dock="Top">
+                            <DockPanel HorizontalSpacing="16" VerticalSpacing="16">
+                                <materialIcons:MaterialIcon VerticalAlignment="Center"
+                                                            DockPanel.Dock="Left"
+                                                            IconSize="24"
+                                                            Kind="{TemplateBinding IconKind}" />
+                                <CheckBox VerticalAlignment="Center"
+                                          Content="IsEnabled"
+                                          DockPanel.Dock="Right"
+                                          IsChecked="{TemplateBinding IsContentEnabled,
+                                                                      Mode=TwoWay}" />
+                                <StackPanel VerticalAlignment="Center"
+                                            DockPanel.Dock="Left"
+                                            Spacing="2">
+                                    <SelectableTextBlock FontSize="14"
+                                                         FontWeight="SemiBold"
+                                                         Text="{TemplateBinding Title}" />
+                                    <SelectableTextBlock FontSize="11"
+                                                         Foreground="{DynamicResource ThemeForegroundLowBrush}"
+                                                         IsVisible="{TemplateBinding Description,
+                                                                                     Converter={x:Static ObjectConverters.IsNotNull}}"
+                                                         Text="{TemplateBinding Description}" />
+                                </StackPanel>
+                            </DockPanel>
+                        </Border>
 
-                    <ContentPresenter Margin="{TemplateBinding Padding}"
-                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                      Content="{TemplateBinding Content}"
-                                      ContentTemplate="{TemplateBinding ContentTemplate}"
-                                      IsEnabled="{TemplateBinding IsContentEnabled}"
-                                      TextElement.Foreground="{TemplateBinding Foreground}" />
-                </DockPanel>
+                        <ContentPresenter Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          IsEnabled="{TemplateBinding IsContentEnabled}"
+                                          TextElement.Foreground="{TemplateBinding Foreground}" />
+                    </DockPanel>
+                </Border>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

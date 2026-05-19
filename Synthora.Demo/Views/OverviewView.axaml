@@ -24,8 +24,6 @@
                     <SolidColorBrush x:Key="CardBorderBrush" Color="#7AA8C7EA" />
                     <SolidColorBrush x:Key="BadgeSurfaceBrush" Color="#B8F4F8FF" />
                     <SolidColorBrush x:Key="HeroPanelBrush" Color="#D8EEF5FF" />
-                    <SolidColorBrush x:Key="HeroSubCardBrush" Color="#C8F7FBFF" />
-                    <SolidColorBrush x:Key="HeroBadgeBrush" Color="#B8F4F8FF" />
                     <SolidColorBrush x:Key="HeroTileBrush" Color="#C8F7FBFF" />
                     <LinearGradientBrush x:Key="HeroBorderBrush" StartPoint="0,0" EndPoint="1,1">
                         <GradientStop Offset="0" Color="#66B8CCFF" />
@@ -42,8 +40,6 @@
                     <SolidColorBrush x:Key="CardBorderBrush" Color="#70A1BFE6" />
                     <SolidColorBrush x:Key="BadgeSurfaceBrush" Color="#32506F94" />
                     <SolidColorBrush x:Key="HeroPanelBrush" Color="#31415EBA" />
-                    <SolidColorBrush x:Key="HeroSubCardBrush" Color="#283853B2" />
-                    <SolidColorBrush x:Key="HeroBadgeBrush" Color="#2E425D9E" />
                     <SolidColorBrush x:Key="HeroTileBrush" Color="#344764B8" />
                     <LinearGradientBrush x:Key="HeroBorderBrush" StartPoint="0,0" EndPoint="1,1">
                         <GradientStop Offset="0" Color="#5889AEE0" />
@@ -51,8 +47,8 @@
                         <GradientStop Offset="1" Color="#5894B8C9" />
                     </LinearGradientBrush>
                     <LinearGradientBrush x:Key="GlassOverlayBrush" StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Offset="0" Color="#22324A9A" />
-                        <GradientStop Offset="1" Color="#1C2A417F" />
+                        <GradientStop Offset="0" Color="#42324A9A" />
+                        <GradientStop Offset="1" Color="#3C2A417F" />
                     </LinearGradientBrush>
                 </ResourceDictionary>
             </ResourceDictionary.ThemeDictionaries>
@@ -64,7 +60,7 @@
             <Setter Property="Margin" Value="16" />
             <Setter Property="Background" Value="{DynamicResource HeroBorderBrush}" />
             <Setter Property="CornerRadius" Value="20" />
-            <Setter Property="BoxShadow" Value="0 14 40 0 #44000000" />
+            <Setter Property="BoxShadow" Value="0 0 40 0 #44000000" />
         </Style>
         <Style Selector="Border.heroShell">
             <Setter Property="Padding" Value="16" />
@@ -80,7 +76,7 @@
             <Setter Property="BorderBrush" Value="{DynamicResource CardBorderBrush}" />
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="CornerRadius" Value="20" />
-            <Setter Property="BoxShadow" Value="0 14 40 0 #2C000000" />
+            <Setter Property="BoxShadow" Value="0 0 40 0 #2C000000" />
         </Style>
         <Style Selector="Border.showcasePanel">
             <Setter Property="Padding" Value="16" />
@@ -88,7 +84,7 @@
             <Setter Property="BorderBrush" Value="{DynamicResource CardBorderBrush}" />
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="CornerRadius" Value="12" />
-            <Setter Property="BoxShadow" Value="0 22 56 0 #1E000000" />
+            <Setter Property="BoxShadow" Value="0 0 20 0 #1E000000" />
         </Style>
         <Style Selector="Border.showcasePanel Border.showcasePanel">
             <Setter Property="CornerRadius" Value="6" />
@@ -130,7 +126,7 @@
 
     <Panel>
         <Panel Background="{StaticResource BackdropBrush}">
-            <Canvas IsHitTestVisible="False" Opacity="0.82">
+            <Canvas IsHitTestVisible="False" Opacity="0.8">
                 <Ellipse Canvas.Left="-180"
                          Canvas.Top="-140"
                          Width="520"
