@@ -4,7 +4,7 @@
                     x:CompileBindings="True">
 
     <ResourceDictionary.ThemeDictionaries>
-        <ResourceDictionary x:Key="Light">
+        <ResourceDictionary x:Key="Default">
             <DrawingBrush x:Key="EmptySimpleLogo">
                 <DrawingBrush.Drawing>
                     <DrawingGroup>

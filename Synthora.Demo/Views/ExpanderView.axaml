@@ -22,7 +22,7 @@
         <Border Classes="card">
             <DockPanel VerticalSpacing="16">
                 <StackPanel DockPanel.Dock="Top" Spacing="8">
-                    <CheckBox Name="withoutShadow" Content="Without Shadow" />
+                    <CheckBox Name="withoutShadow" Content="Without shadow" />
                 </StackPanel>
                 <Grid ColumnDefinitions="*,*"
                       ColumnSpacing="16"

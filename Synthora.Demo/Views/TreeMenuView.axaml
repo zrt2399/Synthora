@@ -35,19 +35,19 @@
                                                                      Text=Home}"
                           IsSelected="True" />
             <TreeMenuItem Header="{materialIcons:MaterialIconTextExt Kind=ViewDashboard, Text=Overview}">
-                <TreeMenuItem Content="Dashboard Content" Header="{materialIcons:MaterialIconTextExt Kind=ViewDashboard, Text=Dashboard}" />
-                <TreeMenuItem Content="Activity Content" Header="{materialIcons:MaterialIconTextExt Kind=ChartLine, Text=Activity}" />
-                <TreeMenuItem Content="Timeline Content" Header="{materialIcons:MaterialIconTextExt Kind=Timeline, Text=Timeline}" />
+                <TreeMenuItem Content="Dashboard Page" Header="{materialIcons:MaterialIconTextExt Kind=ViewDashboard, Text=Dashboard}" />
+                <TreeMenuItem Content="Activity Page" Header="{materialIcons:MaterialIconTextExt Kind=ChartLine, Text=Activity}" />
+                <TreeMenuItem Content="Timeline Page" Header="{materialIcons:MaterialIconTextExt Kind=Timeline, Text=Timeline}" />
             </TreeMenuItem>
             <TreeMenuItem Header="{materialIcons:MaterialIconTextExt Kind=MessageText, Text=Messages}">
-                <TreeMenuItem Content="Inbox Content" Header="{materialIcons:MaterialIconTextExt Kind=InboxArrowDown, Text=Inbox}" />
-                <TreeMenuItem Content="Sent Content" Header="{materialIcons:MaterialIconTextExt Kind=Send, Text=Sent}" />
-                <TreeMenuItem Content="Drafts Content" Header="{materialIcons:MaterialIconTextExt Kind=FileDocumentEdit, Text=Drafts}" />
+                <TreeMenuItem Content="Inbox Page" Header="{materialIcons:MaterialIconTextExt Kind=InboxArrowDown, Text=Inbox}" />
+                <TreeMenuItem Content="Sent Page" Header="{materialIcons:MaterialIconTextExt Kind=Send, Text=Sent}" />
+                <TreeMenuItem Content="Drafts Page" Header="{materialIcons:MaterialIconTextExt Kind=FileDocumentEdit, Text=Drafts}" />
             </TreeMenuItem>
             <TreeMenuItem Header="{materialIcons:MaterialIconTextExt Kind=Cog, Text=Settings}">
-                <TreeMenuItem Content="General Content" Header="{materialIcons:MaterialIconTextExt Kind=Tune, Text=General}" />
-                <TreeMenuItem Content="Account Content" Header="{materialIcons:MaterialIconTextExt Kind=AccountCircle, Text=Account}" />
-                <TreeMenuItem Content="Privacy Content" Header="{materialIcons:MaterialIconTextExt Kind=ShieldLock, Text=Privacy}" />
+                <TreeMenuItem Content="General Page" Header="{materialIcons:MaterialIconTextExt Kind=Tune, Text=General}" />
+                <TreeMenuItem Content="Account Page" Header="{materialIcons:MaterialIconTextExt Kind=AccountCircle, Text=Account}" />
+                <TreeMenuItem Content="Privacy Page" Header="{materialIcons:MaterialIconTextExt Kind=ShieldLock, Text=Privacy}" />
             </TreeMenuItem>
         </TreeMenu>
     </DemoPage>

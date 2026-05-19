@@ -33,7 +33,7 @@
                                 <Setter Property="Height" Value="100" />
                             </Style>
                         </UniformGrid.Styles>
-                        <GroupBoxEx Padding="0" Header="Top Header">
+                        <GroupBoxEx Padding="0" Header="Top header">
                             <ScrollViewer>
                                 <StackPanel>
                                     <Button Height="60" CornerRadius="0">Button</Button>
@@ -46,18 +46,18 @@
                             </ScrollViewer>
                         </GroupBoxEx>
                         <GroupBoxEx Padding="0"
-                                    Header="Right Header"
+                                    Header="Right header"
                                     HeaderPlacement="Right">
                             <Button CornerRadius="0">Button</Button>
                         </GroupBoxEx>
                         <GroupBoxEx Padding="0"
                                     Classes.withoutShadow="{Binding #withoutShadow.IsChecked}"
-                                    Header="Bottom Header"
+                                    Header="Bottom header"
                                     HeaderPlacement="Bottom">
-                            <CheckBox Name="withoutShadow" Content="Without Shadow" />
+                            <CheckBox Name="withoutShadow" Content="Without shadow" />
                         </GroupBoxEx>
                         <GroupBoxEx Padding="0"
-                                    Header="Left Header"
+                                    Header="Left header"
                                     HeaderPlacement="Left">
                             <TextBox BorderThickness="0">TextBox</TextBox>
                         </GroupBoxEx>

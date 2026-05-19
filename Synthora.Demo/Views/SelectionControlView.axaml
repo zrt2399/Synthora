@@ -25,7 +25,7 @@
                         <CheckBox>Unchecked</CheckBox>
                         <CheckBox IsChecked="True">Checked</CheckBox>
                         <CheckBox />
-                        <CheckBox IsChecked="{x:Null}" IsThreeState="True">ThreeState</CheckBox>
+                        <CheckBox IsChecked="{x:Null}" IsThreeState="True">Three-state</CheckBox>
                     </SpacingWrapPanel>
                     <!--  RadioButton  -->
                     <TextBlock FontSize="11"
@@ -35,7 +35,7 @@
                         <RadioButton>Unchecked</RadioButton>
                         <RadioButton IsChecked="True">Checked</RadioButton>
                         <RadioButton />
-                        <RadioButton IsChecked="{x:Null}" IsThreeState="True">ThreeState</RadioButton>
+                        <RadioButton IsChecked="{x:Null}" IsThreeState="True">Three-state</RadioButton>
                     </SpacingWrapPanel>
                     <!--  Segmented RadioButton  -->
                     <TextBlock FontSize="11"
