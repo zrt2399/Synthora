@@ -49,7 +49,7 @@
                                LineSpacing="16"
                                Orientation="Horizontal">
                         <StackPanel Orientation="Horizontal" Spacing="16">
-                            <CheckBox Name="borderless" Content="Borderless" />
+                            <CheckBox Name="borderless" Content="Borderless" IsChecked="True" />
                             <StackPanel Orientation="Horizontal" Spacing="8">
                                 <TextBlock VerticalAlignment="Center">
                                     <Run>CornerRadius:</Run>
@@ -59,12 +59,11 @@
                                         Width="100"
                                         IsSnapToTickEnabled="True"
                                         Maximum="20"
-                                        TickFrequency="1"
-                                        Value="12" />
+                                        TickFrequency="1" />
                             </StackPanel>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Spacing="16">
-                            <CheckBox Name="hasShadow" Content="Shadow" />
+                            <CheckBox Name="hasShadow" Content="Shadow"  IsChecked="True"/>
                             <CheckBox Content="AllowAutoHide" IsChecked="{Binding #dataGridEmployees.(ScrollViewer.AllowAutoHide)}" />
                             <CheckBox Content="IsReadOnly" IsChecked="{Binding #dataGridEmployees.IsReadOnly}" />
                             <ComboBox ItemsSource="{EnumBindingSource DataGridGridLinesVisibility}"
@@ -76,7 +75,7 @@
                         </StackPanel>
                     </WrapPanel>
                     <DataGrid Name="dataGridEmployees"
-                              Classes.borderless="{Binding #borderless.IsChecked, Mode=TwoWay}"
+                              Classes.borderless="{Binding #borderless.IsChecked}"
                               Classes.hasShadow="{Binding #hasShadow.IsChecked}"
                               CornerRadius="{Binding #Slider.Value, Converter={x:Static SynthoraConverters.DoubleToCornerRadiusConverter}}"
                               ItemsSource="{Binding Employees}" />

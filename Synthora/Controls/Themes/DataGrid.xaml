@@ -78,15 +78,15 @@
         </Setter>
         <Style Selector="^:current">
             <Style Selector="^:focus /template/ Rectangle#CurrencyVisual">
-                <Setter Property="Stroke" Value="{DynamicResource ThemeBorderMidBrush}" />
+                <Setter Property="Stroke" Value="{DynamicResource ThemeControlHighBrush}" />
                 <Setter Property="IsVisible" Value="True" />
             </Style>
             <Style Selector="^:focus-within /template/ Rectangle#CurrencyVisual">
-                <Setter Property="Stroke" Value="{DynamicResource ThemeBorderHighBrush}" />
+                <Setter Property="Stroke" Value="{DynamicResource ThemeControlVeryHighBrush}" />
                 <Setter Property="IsVisible" Value="True" />
             </Style>
             <Style Selector="^:pointerover /template/ Rectangle#CurrencyVisual">
-                <Setter Property="Stroke" Value="{DynamicResource ThemeBorderHighBrush}" />
+                <Setter Property="Stroke" Value="{DynamicResource ThemeControlVeryHighBrush}" />
                 <Setter Property="IsVisible" Value="True" />
             </Style>
         </Style>
