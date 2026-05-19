@@ -7,6 +7,7 @@
             <Color x:Key="PrimaryContrastColor">#FFCBD5E0</Color>
             <Color x:Key="ThemeSelectedLowColor">#FFE8E8E8</Color>
             <Color x:Key="ThemeSelectedMidColor">#FFDEDEDE</Color>
+            <Color x:Key="ThemeSelectedHighColor">#FFD4D4D4</Color>
 
             <Color x:Key="SynthoraBorderColor">#FFB4BEC8</Color>
             <Color x:Key="SynthoraLowColor">#FFF6F8FA</Color>
@@ -18,6 +19,7 @@
             <Color x:Key="ThemeForegroundMidColor">#FF606060</Color>
             <Color x:Key="ThemeForegroundColor">#FF25292E</Color>
             <Color x:Key="ThemeBackgroundColor">#FFFFFFFF</Color>
+
             <Color x:Key="ThemeBorderLowColor">#FFCCCCCC</Color>
             <Color x:Key="ThemeBorderMidColor">#FFAAAAAA</Color>
             <Color x:Key="ThemeBorderHighColor">#FF777777</Color>
@@ -40,6 +42,7 @@
             <SolidColorBrush x:Key="PrimaryContrastBrush" Color="{StaticResource PrimaryContrastColor}" />
             <SolidColorBrush x:Key="ThemeSelectedLowBrush" Color="{StaticResource ThemeSelectedLowColor}" />
             <SolidColorBrush x:Key="ThemeSelectedMidBrush" Color="{StaticResource ThemeSelectedMidColor}" />
+            <SolidColorBrush x:Key="ThemeSelectedHighBrush" Color="{StaticResource ThemeSelectedHighColor}" />
 
             <SolidColorBrush x:Key="SynthoraBorderBrush" Color="{StaticResource SynthoraBorderColor}" />
             <SolidColorBrush x:Key="SynthoraLowBrush" Color="{StaticResource SynthoraLowColor}" />
@@ -51,6 +54,7 @@
             <SolidColorBrush x:Key="ThemeForegroundLowBrush" Color="{StaticResource ThemeForegroundLowColor}" />
             <SolidColorBrush x:Key="ThemeForegroundMidBrush" Color="{StaticResource ThemeForegroundMidColor}" />
             <SolidColorBrush x:Key="ThemeBackgroundBrush" Color="{StaticResource ThemeBackgroundColor}" />
+
             <SolidColorBrush x:Key="ThemeBorderLowBrush" Color="{StaticResource ThemeBorderLowColor}" />
             <SolidColorBrush x:Key="ThemeBorderMidBrush" Color="{StaticResource ThemeBorderMidColor}" />
             <SolidColorBrush x:Key="ThemeBorderHighBrush" Color="{StaticResource ThemeBorderHighColor}" />
@@ -110,6 +114,7 @@
             <Color x:Key="PrimaryContrastColor">#FF2C3E50</Color>
             <Color x:Key="ThemeSelectedLowColor">#FF404040</Color>
             <Color x:Key="ThemeSelectedMidColor">#FF505050</Color>
+            <Color x:Key="ThemeSelectedHighColor">#FF606060</Color>
 
             <Color x:Key="SynthoraBorderColor">#FF3D444D</Color>
             <Color x:Key="SynthoraLowColor">#FF212830</Color>
@@ -121,6 +126,7 @@
             <Color x:Key="ThemeForegroundMidColor">#FFB0B0B0</Color>
             <Color x:Key="ThemeForegroundColor">#FFDEDEDE</Color>
             <Color x:Key="ThemeBackgroundColor">#FF202020</Color>
+
             <Color x:Key="ThemeBorderLowColor">#FF444444</Color>
             <Color x:Key="ThemeBorderMidColor">#FF666666</Color>
             <Color x:Key="ThemeBorderHighColor">#FF999999</Color>
@@ -143,6 +149,7 @@
             <SolidColorBrush x:Key="PrimaryContrastBrush" Color="{StaticResource PrimaryContrastColor}" />
             <SolidColorBrush x:Key="ThemeSelectedLowBrush" Color="{StaticResource ThemeSelectedLowColor}" />
             <SolidColorBrush x:Key="ThemeSelectedMidBrush" Color="{StaticResource ThemeSelectedMidColor}" />
+            <SolidColorBrush x:Key="ThemeSelectedHighBrush" Color="{StaticResource ThemeSelectedHighColor}" />
 
             <SolidColorBrush x:Key="SynthoraBorderBrush" Color="{StaticResource SynthoraBorderColor}" />
             <SolidColorBrush x:Key="SynthoraLowBrush" Color="{StaticResource SynthoraLowColor}" />
@@ -154,6 +161,7 @@
             <SolidColorBrush x:Key="ThemeForegroundLowBrush" Color="{StaticResource ThemeForegroundLowColor}" />
             <SolidColorBrush x:Key="ThemeForegroundMidBrush" Color="{StaticResource ThemeForegroundMidColor}" />
             <SolidColorBrush x:Key="ThemeBackgroundBrush" Color="{StaticResource ThemeBackgroundColor}" />
+
             <SolidColorBrush x:Key="ThemeBorderLowBrush" Color="{StaticResource ThemeBorderLowColor}" />
             <SolidColorBrush x:Key="ThemeBorderMidBrush" Color="{StaticResource ThemeBorderMidColor}" />
             <SolidColorBrush x:Key="ThemeBorderHighBrush" Color="{StaticResource ThemeBorderHighColor}" />

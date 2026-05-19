@@ -72,18 +72,18 @@
         </Setter>
 
         <Style Selector="^:selected">
-            <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />
+            <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidBrush}" />
             <Style Selector="^ /template/ Border#PART_LayoutRoot">
                 <Setter Property="BoxShadow" Value="{TemplateBinding Background, Converter={x:Static SynthoraConverters.BoxShadowConverter}, ConverterParameter={x:Static BoxShadowConverter.DefaultParameter}}" />
             </Style>
         </Style>
 
         <Style Selector="^:pointerover">
-            <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />
+            <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidBrush}" />
         </Style>
 
         <Style Selector="^:pressed">
-            <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidBrush}" />
+            <Setter Property="Background" Value="{DynamicResource ThemeSelectedHighBrush}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>
