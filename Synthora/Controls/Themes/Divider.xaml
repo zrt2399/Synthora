@@ -1,24 +1,25 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="using:Synthora.Controls"
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
 
     <ControlTheme x:Key="{x:Type Divider}" TargetType="Divider">
-        <Setter Property="Padding" Value="4,0" />
+        <Setter Property="Padding" Value="6,0" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Top" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
-        <Setter Property="LineBrush" Value="{DynamicResource SynthoraBorderBrush}" />
+        <Setter Property="LineBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <LayoutTransformControl x:Name="PART_LayoutTransformControl">
                     <!--  Ignore col defs here, set in code  -->
                     <Grid x:Name="PART_DividerContainer" Background="{TemplateBinding Background}">
-
-                        <Border Height="{TemplateBinding LineThickness}"
-                                VerticalAlignment="Center"
-                                Background="{TemplateBinding LineBrush}"
-                                CornerRadius="{TemplateBinding CornerRadius}" />
+                        <controls:PixelAlignedRectangle Height="{TemplateBinding LineThickness}"
+                                                        VerticalAlignment="Center"
+                                                        Fill="{TemplateBinding LineBrush}"
+                                                        RadiusX="{TemplateBinding RadiusX}"
+                                                        RadiusY="{TemplateBinding RadiusY}" />
 
                         <ContentPresenter Name="PART_ContentPresenter"
                                           Grid.Column="1"
@@ -27,11 +28,12 @@
                                           Content="{TemplateBinding Content}"
                                           ContentTemplate="{TemplateBinding ContentTemplate}" />
 
-                        <Border Grid.Column="2"
-                                Height="{TemplateBinding LineThickness}"
-                                VerticalAlignment="Center"
-                                Background="{TemplateBinding LineBrush}"
-                                CornerRadius="{TemplateBinding CornerRadius}" />
+                        <controls:PixelAlignedRectangle Grid.Column="2"
+                                                        Height="{TemplateBinding LineThickness}"
+                                                        VerticalAlignment="Center"
+                                                        Fill="{TemplateBinding LineBrush}"
+                                                        RadiusX="{TemplateBinding RadiusX}"
+                                                        RadiusY="{TemplateBinding RadiusY}" />
                     </Grid>
                 </LayoutTransformControl>
             </ControlTemplate>
