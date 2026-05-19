@@ -43,7 +43,8 @@
                 <Panel>
                     <DropShadowChrome Name="RootChrome"
                                       Background="{TemplateBinding Background}"
-                                      BorderThickness="0"
+                                      BorderBrush="{TemplateBinding BorderBrush}"
+                                      BorderThickness="{TemplateBinding BorderThickness}"
                                       BoxShadow="{DynamicResource EmptyBoxShadow}"
                                       CornerRadius="{TemplateBinding CornerRadius}" />
                     <Grid ColumnDefinitions="*,Auto,Auto">
@@ -60,12 +61,13 @@
                                 CornerRadius="{TemplateBinding CornerRadius,
                                                                Converter={StaticResource PrimaryButtonBorderFilter}}"
                                 Focusable="False"
+                                Foreground="{TemplateBinding Foreground}"
                                 KeyboardNavigation.IsTabStop="False" />
 
                         <controls:PixelAlignedRectangle Grid.Column="1"
                                                         Width="1"
                                                         Margin="0,4"
-                                                        Fill="{DynamicResource OnPrimaryBrush}" />
+                                                        Fill="{TemplateBinding Foreground}" />
                         <Button x:Name="PART_SecondaryButton"
                                 Grid.Column="2"
                                 Padding="{TemplateBinding Padding}"
@@ -74,6 +76,7 @@
                                 CornerRadius="{TemplateBinding CornerRadius,
                                                                Converter={StaticResource SecondaryButtonBorderFilter}}"
                                 Focusable="False"
+                                Foreground="{TemplateBinding Foreground}"
                                 KeyboardNavigation.IsTabStop="False">
                             <PathIcon Name="pathIcon"
                                       Width="12"
