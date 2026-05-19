@@ -22,7 +22,7 @@ namespace Synthora.Controls
         Right
     }
 
-    [PseudoClasses(pcSelectedDescendant,pcExpanded)]
+    [PseudoClasses(pcSelectedDescendant, pcExpanded)]
     public class TreeMenuItem : TreeViewItem
     {
         private const string pcSelectedDescendant = ":selected-descendant";
@@ -100,6 +100,7 @@ namespace Synthora.Controls
         {
             base.OnApplyTemplate(e);
 
+            UnregisterEvents();
             CancelItemsAnimation();
 
             _presenterRoot = e.NameScope.Find<Control>("PART_PresenterRoot");
@@ -112,6 +113,14 @@ namespace Synthora.Controls
             }
 
             ApplyItemsContainerState(IsExpanded);
+        }
+
+        private void UnregisterEvents()
+        {
+            if (_presenterRoot != null)
+            {
+                _presenterRoot.PointerReleased -= PresenterRootPointerReleased;
+            }
         }
 
         private void PresenterRootPointerReleased(object? sender, PointerReleasedEventArgs e)

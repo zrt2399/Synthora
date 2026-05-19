@@ -16,7 +16,7 @@ namespace Synthora.Controls
 {
     public class PathPicker : TemplatedControl
     {
-        private TextBox? PART_TextBox;
+        private TextBox? _textBox;
 
         public static readonly StyledProperty<string?> TitleProperty =
             AvaloniaProperty.Register<PathPicker, string?>(nameof(Title));
@@ -362,17 +362,17 @@ namespace Synthora.Controls
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
         {
             base.OnApplyTemplate(e);
-            PART_TextBox = e.NameScope.Find<TextBox>(nameof(PART_TextBox));
+            _textBox = e.NameScope.Find<TextBox>("PART_TextBox");
         }
 
         protected override void OnGotFocus(FocusChangedEventArgs e)
         {
-            if (!e.Handled && PART_TextBox != null)
+            if (!e.Handled && _textBox != null)
             {
                 if (Equals(e.Source, this))
                 {
-                    PART_TextBox.Focus();
-                    PART_TextBox.SelectAll();
+                    _textBox.Focus(e.NavigationMethod, e.KeyModifiers);
+                    _textBox.SelectAll();
                 }
             }
             base.OnGotFocus(e);

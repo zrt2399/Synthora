@@ -15,7 +15,7 @@ namespace Synthora.Controls
     public class Divider : ContentControl
     {
         private const string pcNoContent = ":no-content";
-        private Grid? PART_DividerContainer;
+        private Grid? _dividerContainer;
 
         /// <summary>
         /// Gets or sets the thickness of the divider,
@@ -137,7 +137,7 @@ namespace Synthora.Controls
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
         {
             base.OnApplyTemplate(e);
-            PART_DividerContainer = e.NameScope.Find<Grid>(nameof(PART_DividerContainer));
+            _dividerContainer = e.NameScope.Find<Grid>(nameof(_dividerContainer));
             SetGrid();
             UpdatePseudoClasses();
         }
@@ -149,7 +149,7 @@ namespace Synthora.Controls
 
         private void SetGrid()
         {
-            if (PART_DividerContainer == null)
+            if (_dividerContainer == null)
             {
                 return;
             }
@@ -168,10 +168,10 @@ namespace Synthora.Controls
             var firstSegment = isStartAligned ? pixelLength : GridLength.Star;
             var lastSegment = isEndAligned ? pixelLength : GridLength.Star;
 
-            PART_DividerContainer.ColumnDefinitions.Clear();
-            PART_DividerContainer.ColumnDefinitions.Add(new ColumnDefinition(firstSegment));
-            PART_DividerContainer.ColumnDefinitions.Add(new ColumnDefinition(GridLength.Auto));
-            PART_DividerContainer.ColumnDefinitions.Add(new ColumnDefinition(lastSegment));
+            _dividerContainer.ColumnDefinitions.Clear();
+            _dividerContainer.ColumnDefinitions.Add(new ColumnDefinition(firstSegment));
+            _dividerContainer.ColumnDefinitions.Add(new ColumnDefinition(GridLength.Auto));
+            _dividerContainer.ColumnDefinitions.Add(new ColumnDefinition(lastSegment));
         }
     }
 }

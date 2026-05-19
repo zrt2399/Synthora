@@ -21,7 +21,7 @@ namespace Synthora.Controls
     public class AlertDialogHost : ContentControl
     {
         private const string pcNoButton = ":no-button";
-        private StackPanel? PART_ButtonPanel;
+        private StackPanel? _buttonPanel;
         private static readonly HashSet<AlertDialogHost> _loadedInstances = [];
 
         public static readonly StyledProperty<double> BlurRadiusProperty =
@@ -202,7 +202,7 @@ namespace Synthora.Controls
 
                 _ = Dispatcher.UIThread.InvokeAsync(() =>
                 {
-                    if (PART_ButtonPanel?.Children.FirstOrDefault(x => x is Button && x.IsVisible) is Button button)
+                    if (_buttonPanel?.Children.FirstOrDefault(x => x is Button && x.IsVisible) is Button button)
                     {
                         button.Focus();
                     }
@@ -271,7 +271,7 @@ namespace Synthora.Controls
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
         {
             base.OnApplyTemplate(e);
-            PART_ButtonPanel = e.NameScope.Find<StackPanel>(nameof(PART_ButtonPanel));
+            _buttonPanel = e.NameScope.Find<StackPanel>(nameof(_buttonPanel));
             UpdatePseudoClasses();
         }
 
