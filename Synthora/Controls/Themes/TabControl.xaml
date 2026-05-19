@@ -116,7 +116,6 @@
             </Style>
             <Style Selector="^ /template/ Border#HeaderRoot">
                 <Setter Property="DockPanel.Dock" Value="Top" />
-                <!--<Setter Property="Margin" Value="0,0,0,4" />-->
             </Style>
         </Style>
 
@@ -126,7 +125,6 @@
             </Style>
             <Style Selector="^ /template/ Border#HeaderRoot">
                 <Setter Property="DockPanel.Dock" Value="Left" />
-                <!--<Setter Property="Margin" Value="0,0,4,0" />-->
             </Style>
             <Style Selector="^ /template/ ItemsPresenter#PART_ItemsPresenter &gt; WrapPanel">
                 <Setter Property="Orientation" Value="Vertical" />
@@ -139,7 +137,6 @@
             </Style>
             <Style Selector="^ /template/ Border#HeaderRoot">
                 <Setter Property="DockPanel.Dock" Value="Right" />
-                <!--<Setter Property="Margin" Value="4,0,0,0" />-->
             </Style>
             <Style Selector="^ /template/ ItemsPresenter#PART_ItemsPresenter &gt; WrapPanel">
                 <Setter Property="Orientation" Value="Vertical" />
@@ -152,7 +149,6 @@
             </Style>
             <Style Selector="^ /template/ Border#HeaderRoot">
                 <Setter Property="DockPanel.Dock" Value="Bottom" />
-                <!--<Setter Property="Margin" Value="0,4,0,0" />-->
             </Style>
         </Style>
     </ControlTheme>
