@@ -14,6 +14,9 @@
         <Style Selector="DataGrid.hasShadow">
             <Setter Property="BoxShadowAttach.BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
         </Style>
+        <Style Selector="DataGrid.borderless">
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
     </UserControl.Styles>
 
     <DemoPage Title="Data Grid"
@@ -25,11 +28,11 @@
                 <Style Selector="DataGrid">
                     <Setter Property="CornerRadius" Value="12" />
                     <Setter Property="AutoGenerateColumns" Value="True" />
-                    <Styles>
+                    <!--<Styles>
                         <Style Selector="DataGridRow:nth-child(even)">
                             <Setter Property="Background" Value="{DynamicResource SynthoraMidBrush}" />
                         </Style>
-                    </Styles>
+                    </Styles>-->
                 </Style>
             </TabControl.Styles>
 
@@ -41,19 +44,41 @@
 
             <TabItem Header="Styling">
                 <DockPanel HorizontalSpacing="16" VerticalSpacing="16">
-                    <StackPanel DockPanel.Dock="Top"
-                                Orientation="Horizontal"
-                                Spacing="16">
-                        <CheckBox Name="hasShadow" Content="Shadow" />
-                        <CheckBox Content="AllowAutoHide" IsChecked="{Binding #dataGridEmployees.(ScrollViewer.AllowAutoHide)}" />
-                        <CheckBox Content="IsReadOnly" IsChecked="{Binding #dataGridEmployees.IsReadOnly}" />
-                        <ComboBox ItemsSource="{EnumBindingSource DataGridGridLinesVisibility}"
-                                  SelectedItem="{Binding #dataGridEmployees.GridLinesVisibility}"
-                                  TextBoxAttach.Header="GridLinesVisibility: "
-                                  TextBoxAttach.HeaderPlacement="Left" />
-                    </StackPanel>
+                    <WrapPanel DockPanel.Dock="Top"
+                               ItemSpacing="16"
+                               LineSpacing="16"
+                               Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal" Spacing="16">
+                            <CheckBox Name="borderless" Content="Borderless" />
+                            <StackPanel Orientation="Horizontal" Spacing="8">
+                                <TextBlock VerticalAlignment="Center">
+                                    <Run>CornerRadius:</Run>
+                                    <Run Text="{Binding #Slider.Value}" />
+                                </TextBlock>
+                                <Slider Name="Slider"
+                                        Width="100"
+                                        IsSnapToTickEnabled="True"
+                                        Maximum="20"
+                                        TickFrequency="1"
+                                        Value="12" />
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Spacing="16">
+                            <CheckBox Name="hasShadow" Content="Shadow" />
+                            <CheckBox Content="AllowAutoHide" IsChecked="{Binding #dataGridEmployees.(ScrollViewer.AllowAutoHide)}" />
+                            <CheckBox Content="IsReadOnly" IsChecked="{Binding #dataGridEmployees.IsReadOnly}" />
+                            <ComboBox ItemsSource="{EnumBindingSource DataGridGridLinesVisibility}"
+                                      SelectedItem="{Binding #dataGridEmployees.GridLinesVisibility}"
+                                      TextBoxAttach.Header="GridLinesVisibility: "
+                                      TextBoxAttach.HeaderPlacement="Left" />
+                            <Button Command="{Binding ClearEmployees}" Theme="{StaticResource WarningButtonTheme}">Clear</Button>
+                            <Button Command="{Binding ResetEmployees}" Theme="{StaticResource DangerButtonTheme}">Reset</Button>
+                        </StackPanel>
+                    </WrapPanel>
                     <DataGrid Name="dataGridEmployees"
+                              Classes.borderless="{Binding #borderless.IsChecked, Mode=TwoWay}"
                               Classes.hasShadow="{Binding #hasShadow.IsChecked}"
+                              CornerRadius="{Binding #Slider.Value, Converter={x:Static SynthoraConverters.DoubleToCornerRadiusConverter}}"
                               ItemsSource="{Binding Employees}" />
                 </DockPanel>
             </TabItem>

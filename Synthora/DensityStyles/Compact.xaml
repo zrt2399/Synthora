@@ -5,6 +5,8 @@
     <CornerRadius x:Key="ThemeBorderCornerRadiusNormal">6</CornerRadius>
     <CornerRadius x:Key="ThemeBorderCornerRadiusLarge">8</CornerRadius>
 
+    <x:Double x:Key="DataGridRowMinHeight">28</x:Double>
+
     <Thickness x:Key="ThemeControlBorderPadding">4</Thickness>
     <x:Double x:Key="ThemeControlBorderPaddingDouble">4</x:Double>
 

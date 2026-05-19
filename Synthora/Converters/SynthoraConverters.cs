@@ -15,5 +15,6 @@
         public static BorderCornerRadiusConverter BorderCornerRadiusConverter { get; } = new BorderCornerRadiusConverter();
         public static SolidColorBrushToColorConverter SolidColorBrushToColor { get; } = new SolidColorBrushToColorConverter();
         public static DoubleToGridLengthConverter DoubleToGridLengthConverter { get; } = new DoubleToGridLengthConverter();
+        public static DoubleToCornerRadiusConverter DoubleToCornerRadiusConverter { get; } = new DoubleToCornerRadiusConverter();
     }
 }

@@ -9,8 +9,6 @@
                                           Indent="1"
                                           Left="True" />
 
-    <x:Double x:Key="DataGridRowMinHeight">28</x:Double>
-
     <ControlTheme x:Key="DataGridCellTextBlockTheme"
                   BasedOn="{StaticResource {x:Type TextBlock}}"
                   TargetType="TextBlock">
@@ -103,7 +101,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <!--<Setter Property="SeparatorBrush" Value="{DynamicResource ThemeBorderLowBrush}" />-->
         <Setter Property="Padding" Value="{DynamicResource ThemeHeaderControlPadding}" />
-        <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource ThemeControlLowBrush}" />
         <Setter Property="BorderBrush" Value="{Binding $parent[DataGrid].VerticalGridLinesBrush}" />
         <Setter Property="BorderThickness" Value="0,0,1,0" />
         <Setter Property="MinHeight" Value="{DynamicResource DataGridRowMinHeight}" />
@@ -173,6 +171,7 @@
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="{Binding $parent[DataGrid].GridLinesVisibility, Converter={x:Static DataGridLineThicknessConverter.Instance}, ConverterParameter={x:Static Orientation.Vertical}}" />
         <Setter Property="BorderBrush" Value="{Binding $parent[DataGrid].VerticalGridLinesBrush}" />
         <Setter Property="Template">
@@ -312,7 +311,7 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type DataGrid}" TargetType="DataGrid">
-        <Setter Property="RowBackground" Value="{DynamicResource ThemeBackgroundBrush}" />
+        <Setter Property="RowBackground" Value="Transparent" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="HeadersVisibility" Value="Column" />
         <Setter Property="GridLinesVisibility" Value="None" />
@@ -346,7 +345,10 @@
                           RowDefinitions="Auto,*,Auto">
 
                         <DataGridColumnHeader Name="PART_TopLeftCornerHeader" Theme="{DynamicResource DataGridTopLeftColumnHeader}" />
-                        <DataGridColumnHeadersPresenter Name="PART_ColumnHeadersPresenter" Grid.Column="1" />
+                        <DataGridColumnHeadersPresenter Name="PART_ColumnHeadersPresenter"
+                                                        Grid.Column="1"
+                                                        Grid.ColumnSpan="2"
+                                                        Background="{Binding #PART_TopLeftCornerHeader.Background}" />
                         <Border Name="columnHeadersRowsSeparator"
                                 Grid.ColumnSpan="3"
                                 BorderBrush="{Binding $parent[DataGrid].HorizontalGridLinesBrush}"
