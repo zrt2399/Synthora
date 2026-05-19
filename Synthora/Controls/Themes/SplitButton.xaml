@@ -54,6 +54,7 @@
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness,
                                                                   Converter={StaticResource PrimaryButtonBorderMultiplier}}"
+                                ButtonAttach.ShowShadow="False"
                                 Command="{TemplateBinding Command}"
                                 CommandParameter="{TemplateBinding CommandParameter}"
                                 Content="{TemplateBinding Content}"
@@ -73,6 +74,7 @@
                                 Padding="{TemplateBinding Padding}"
                                 Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
+                                ButtonAttach.ShowShadow="False"
                                 CornerRadius="{TemplateBinding CornerRadius,
                                                                Converter={StaticResource SecondaryButtonBorderFilter}}"
                                 Focusable="False"
