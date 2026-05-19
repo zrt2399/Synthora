@@ -12,30 +12,27 @@
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel Margin="{DynamicResource DefaultBoxShadowParentMargin}">
-                    <Border Name="RootBorder"
-                            Margin="{DynamicResource DefaultBoxShadowMargin}"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            BoxShadow="{TemplateBinding BoxShadow}"
-                            CornerRadius="{TemplateBinding CornerRadius}">
-                        <Border ClipToBounds="True">
-                            <Border.CornerRadius>
-                                <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.All}">
-                                    <TemplateBinding Property="CornerRadius" />
-                                    <TemplateBinding Property="BorderThickness" />
-                                </MultiBinding>
-                            </Border.CornerRadius>
-                            <ContentPresenter Name="PART_ContentPresenter"
-                                              Margin="{TemplateBinding Padding}"
-                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                              Content="{TemplateBinding Content}"
-                                              ContentTemplate="{TemplateBinding ContentTemplate}" />
-                        </Border>
+                <Border Name="RootBorder"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        BoxShadow="{TemplateBinding BoxShadow}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <Border ClipToBounds="True">
+                        <Border.CornerRadius>
+                            <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.All}">
+                                <TemplateBinding Property="CornerRadius" />
+                                <TemplateBinding Property="BorderThickness" />
+                            </MultiBinding>
+                        </Border.CornerRadius>
+                        <ContentPresenter Name="PART_ContentPresenter"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}" />
                     </Border>
-                </Panel>
+                </Border>
             </ControlTemplate>
         </Setter>
         <Style Selector="^.ShowShadowOnPointerOver">
