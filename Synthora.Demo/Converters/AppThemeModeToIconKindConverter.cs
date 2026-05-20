@@ -2,7 +2,7 @@ using System;
 using System.Globalization;
 using Avalonia.Data.Converters;
 using Material.Icons;
-using Synthora.Demo.ViewModels;
+using Synthora.Controls;
 
 namespace Synthora.Demo.Converters
 {
@@ -12,7 +12,7 @@ namespace Synthora.Demo.Converters
         {
             return value switch
             {
-                AppThemeMode.Default => MaterialIconKind.Monitor,
+                AppThemeMode.Default => MaterialIconKind.Laptop,
                 AppThemeMode.Light => MaterialIconKind.WhiteBalanceSunny,
                 AppThemeMode.Dark => MaterialIconKind.WeatherNight,
                 _ => MaterialIconKind.HelpCircleOutline

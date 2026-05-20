@@ -1,5 +1,5 @@
 using System;
-using System.Diagnostics;
+using System.ComponentModel;
 using System.Linq;
 using Avalonia;
 using Avalonia.Controls;
@@ -8,9 +8,21 @@ using Avalonia.Styling;
 
 namespace Synthora
 {
+    public enum AppThemeMode
+    {
+        [Description("系统")]
+        Default,
+        [Description("浅色")]
+        Light,
+        [Description("深色")]
+        Dark
+    }
+
     public enum DensityStyle
     {
+        [Description("紧凑")]
         Compact,
+        [Description("正常")]
         Normal
     }
 
@@ -35,9 +47,7 @@ namespace Synthora
 
         public static readonly DirectProperty<SynthoraTheme, DensityStyle> DensityStyleProperty =
             AvaloniaProperty.RegisterDirect<SynthoraTheme, DensityStyle>(
-                nameof(DensityStyle),
-                o => o.DensityStyle,
-                (o, v) => o.DensityStyle = v);
+                nameof(DensityStyle), o => o.DensityStyle, (o, v) => o.DensityStyle = v);
 
         public DensityStyle DensityStyle
         {
@@ -56,6 +66,11 @@ namespace Synthora
 
             if (TryGetResource(resourceKey, null, out var res) && res is IResourceProvider newRes)
             {
+                if (ReferenceEquals(_currentDensityResource, newRes))
+                {
+                    return;
+                }
+
                 if (_currentDensityResource != null)
                 {
                     Resources.MergedDictionaries.Remove(_currentDensityResource);
@@ -70,17 +85,19 @@ namespace Synthora
             }
         }
 
-        public static void SetDensity(DensityStyle newDensity)
+        public static bool SetDensity(DensityStyle newDensity)
         {
-            if (Application.Current?.Styles.OfType<SynthoraTheme>().FirstOrDefault() is { } currentThemeInstance)
+            if (Application.Current?.Styles.OfType<SynthoraTheme>().LastOrDefault() is { } currentThemeInstance)
             {
                 currentThemeInstance.DensityStyle = newDensity;
+                return currentThemeInstance.DensityStyle == newDensity;
             }
+            return false;
         }
 
         public static DensityStyle GetCurrentDensity()
         {
-            return Application.Current?.Styles.OfType<SynthoraTheme>().FirstOrDefault()?.DensityStyle ?? DensityStyle.Normal;
+            return Application.Current?.Styles.OfType<SynthoraTheme>().LastOrDefault()?.DensityStyle ?? DensityStyle.Normal;
         }
     }
 }

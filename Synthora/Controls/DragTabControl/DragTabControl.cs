@@ -107,7 +107,7 @@ namespace Synthora.Controls
 
             ItemsPanel = new FuncTemplate<Panel?>(() => _tabsPanel);
 
-            LastTabClosedAction = (_, _) => GetThisWindow()?.Close();
+            // LastTabClosedAction = (_, _) => GetThisWindow()?.Close();
 
             AddItemCommand = new RelayCommand(AddItem);
             CloseItemCommand = new RelayCommand<object?>(CloseItem);
@@ -337,7 +337,7 @@ namespace Synthora.Controls
                 return;
             }
 
-            TabClosingEventArgs tabClosingEventArgs = new TabClosingEventArgs(item);
+            var tabClosingEventArgs = new TabClosingEventArgs(item);
             TabClosing?.Invoke(this, tabClosingEventArgs);
             if (tabClosingEventArgs.Cancel)
             {

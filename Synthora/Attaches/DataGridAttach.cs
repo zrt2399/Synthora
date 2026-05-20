@@ -21,8 +21,8 @@ namespace Synthora.Attaches
         public static readonly AttachedProperty<object?> ScrollIntoItemProperty =
             AvaloniaProperty.RegisterAttached<DataGridAttach, DataGrid, object?>("ScrollIntoItem");
 
-        public static readonly AttachedProperty<bool> IsAutoScrollToEndProperty =
-            AvaloniaProperty.RegisterAttached<DataGridAttach, DataGrid, bool>("IsAutoScrollToEnd");
+        public static readonly AttachedProperty<bool> AutoScrollToEndProperty =
+            AvaloniaProperty.RegisterAttached<DataGridAttach, DataGrid, bool>("AutoScrollToEnd");
 
         public static readonly AttachedProperty<bool> IgnoreAutoScrollOnPointerOverProperty =
             AvaloniaProperty.RegisterAttached<DataGridAttach, DataGrid, bool>("IgnoreAutoScrollOnPointerOver");
@@ -31,7 +31,7 @@ namespace Synthora.Attaches
         {
             SelectedItemsAttachProperty.Changed.AddClassHandler<DataGrid, bool>((s, e) => SelectedItemsAttachChanged(e));
             ScrollIntoItemProperty.Changed.AddClassHandler<DataGrid, object?>((s, e) => OnScrollIntoItemChanged(e));
-            IsAutoScrollToEndProperty.Changed.AddClassHandler<DataGrid, bool>((s, e) => OnIsAutoScrollToEndChanged(e));
+            AutoScrollToEndProperty.Changed.AddClassHandler<DataGrid, bool>((s, e) => OnAutoScrollToEndChanged(e));
         }
 
         public static IList? GetSelectedItems(DataGrid obj) => obj.GetValue(SelectedItemsProperty);
@@ -43,8 +43,8 @@ namespace Synthora.Attaches
         public static object? GetScrollIntoItem(DataGrid obj) => obj.GetValue(ScrollIntoItemProperty);
         public static void SetScrollIntoItem(DataGrid obj, object? value) => obj.SetValue(ScrollIntoItemProperty, value);
 
-        public static bool GetIsAutoScrollToEnd(DataGrid obj) => obj.GetValue(IsAutoScrollToEndProperty);
-        public static void SetIsAutoScrollToEnd(DataGrid obj, bool value) => obj.SetValue(IsAutoScrollToEndProperty, value);
+        public static bool GetAutoScrollToEnd(DataGrid obj) => obj.GetValue(AutoScrollToEndProperty);
+        public static void SetAutoScrollToEnd(DataGrid obj, bool value) => obj.SetValue(AutoScrollToEndProperty, value);
 
         public static bool GetIgnoreAutoScrollOnPointerOver(DataGrid obj) => obj.GetValue(IgnoreAutoScrollOnPointerOverProperty); 
         public static void SetIgnoreAutoScrollOnPointerOver(DataGrid obj, bool value) => obj.SetValue(IgnoreAutoScrollOnPointerOverProperty, value);
@@ -80,7 +80,7 @@ namespace Synthora.Attaches
             }
         }
 
-        private static void OnIsAutoScrollToEndChanged(AvaloniaPropertyChangedEventArgs<bool> e)
+        private static void OnAutoScrollToEndChanged(AvaloniaPropertyChangedEventArgs<bool> e)
         {
             if (e.Sender is not DataGrid dataGrid)
             {
@@ -114,11 +114,11 @@ namespace Synthora.Attaches
         {
             if (e.Property == DataGrid.ItemsSourceProperty && sender is DataGrid dataGrid)
             {
-                var args = new AvaloniaPropertyChangedEventArgs<bool>(dataGrid, IsAutoScrollToEndProperty, new Optional<bool>(true), new BindingValue<bool>(GetIsAutoScrollToEnd(dataGrid)), BindingPriority.LocalValue);
+                var args = new AvaloniaPropertyChangedEventArgs<bool>(dataGrid, AutoScrollToEndProperty, new Optional<bool>(true), new BindingValue<bool>(GetAutoScrollToEnd(dataGrid)), BindingPriority.LocalValue);
 
-                OnIsAutoScrollToEndChanged(args);
+                OnAutoScrollToEndChanged(args);
 
-                if (GetIsAutoScrollToEnd(dataGrid) && dataGrid.ItemsSource is IList list)
+                if (GetAutoScrollToEnd(dataGrid) && dataGrid.ItemsSource is IList list)
                 {
                     ScrollToEnd(dataGrid, list);
                 }

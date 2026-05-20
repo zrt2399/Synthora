@@ -141,7 +141,7 @@
                                 Orientation="Horizontal"
                                 Spacing="16">
                         <ListBox AutoScrollToSelectedItem="False"
-                                 ItemsSource="{EnumBindingSource vm:AppThemeMode}"
+                                 ItemsSource="{EnumBindingSource AppThemeMode}"
                                  SelectedItem="{Binding SelectedThemeMode}"
                                  Theme="{StaticResource SegmentedListBoxTheme}"
                                  ToolTip.Tip="Switch app theme mode(Default / Light / Dark)">

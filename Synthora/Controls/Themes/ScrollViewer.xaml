@@ -14,6 +14,7 @@
                                             Grid.Column="0"
                                             Margin="{TemplateBinding Padding}"
                                             Background="{TemplateBinding Background}"
+                                            ClipToBounds="False"
                                             HorizontalSnapPointsAlignment="{TemplateBinding HorizontalSnapPointsAlignment}"
                                             HorizontalSnapPointsType="{TemplateBinding HorizontalSnapPointsType}"
                                             ScrollViewer.IsScrollInertiaEnabled="{TemplateBinding IsScrollInertiaEnabled}"

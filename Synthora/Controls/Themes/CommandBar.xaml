@@ -64,7 +64,10 @@
                                           Foreground="{TemplateBinding Foreground}">
                             <ContentPresenter.DataTemplates>
                                 <DataTemplate DataType="Geometry">
-                                    <PathIcon Data="{Binding}" Foreground="{TemplateBinding Foreground}" />
+                                    <PathIcon HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              Data="{Binding}"
+                                              Foreground="{Binding $parent[Button].Foreground}" />
                                 </DataTemplate>
                             </ContentPresenter.DataTemplates>
                         </ContentPresenter>

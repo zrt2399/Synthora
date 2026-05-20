@@ -25,11 +25,10 @@ namespace Synthora.Demo.ViewModels
             }
             InitializeBrushResources();
         }
-        
+
         private void InitializeBrushResources()
         {
-            if (Application.Current is not { } application
-                || application.Styles.FirstOrDefault(x => x is SynthoraTheme) is not SynthoraTheme synthoraTheme)
+            if (Application.Current?.Styles.OfType<SynthoraTheme>().LastOrDefault() is not { } synthoraTheme)
             {
                 return;
             }
@@ -56,6 +55,6 @@ namespace Synthora.Demo.ViewModels
             {
                 BrushKeys = new ObservableCollection<string>(temp);
             }
-        } 
+        }
     }
 }

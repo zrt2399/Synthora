@@ -13,24 +13,24 @@ namespace Synthora.Attaches
     {
         private static readonly ConcurrentDictionary<object, ListBox> CollectionToListBoxMap = [];
 
-        public static readonly AttachedProperty<bool> IsAutoScrollToEndProperty =
-            AvaloniaProperty.RegisterAttached<ListBoxAttach, ListBox, bool>("IsAutoScrollToEnd");
+        public static readonly AttachedProperty<bool> AutoScrollToEndProperty =
+            AvaloniaProperty.RegisterAttached<ListBoxAttach, ListBox, bool>("AutoScrollToEnd");
 
         public static readonly AttachedProperty<bool> IgnoreAutoScrollOnPointerOverProperty =
             AvaloniaProperty.RegisterAttached<ListBoxAttach, ListBox, bool>("IgnoreAutoScrollOnPointerOver");
 
         static ListBoxAttach()
         {
-            IsAutoScrollToEndProperty.Changed.AddClassHandler<ListBox, bool>((s, e) => OnIsAutoScrollToEndChanged(e));
+            AutoScrollToEndProperty.Changed.AddClassHandler<ListBox, bool>((s, e) => OnAutoScrollToEndChanged(e));
         }
 
-        public static bool GetIsAutoScrollToEnd(ListBox obj) => obj.GetValue(IsAutoScrollToEndProperty);
-        public static void SetIsAutoScrollToEnd(ListBox obj, bool value) => obj.SetValue(IsAutoScrollToEndProperty, value);
+        public static bool GetAutoScrollToEnd(ListBox obj) => obj.GetValue(AutoScrollToEndProperty);
+        public static void SetAutoScrollToEnd(ListBox obj, bool value) => obj.SetValue(AutoScrollToEndProperty, value);
 
         public static bool GetIgnoreAutoScrollOnPointerOver(ListBox obj) => obj.GetValue(IgnoreAutoScrollOnPointerOverProperty);
         public static void SetIgnoreAutoScrollOnPointerOver(ListBox obj, bool value) => obj.SetValue(IgnoreAutoScrollOnPointerOverProperty, value);
 
-        private static void OnIsAutoScrollToEndChanged(AvaloniaPropertyChangedEventArgs<bool> e)
+        private static void OnAutoScrollToEndChanged(AvaloniaPropertyChangedEventArgs<bool> e)
         {
             if (e.Sender is not ListBox listBox)
             {
@@ -60,11 +60,11 @@ namespace Synthora.Attaches
         {
             if (e.Property == ItemsControl.ItemsSourceProperty && sender is ListBox listBox)
             {
-                var args = new AvaloniaPropertyChangedEventArgs<bool>(listBox, IsAutoScrollToEndProperty, new Optional<bool>(true), new BindingValue<bool>(GetIsAutoScrollToEnd(listBox)), BindingPriority.LocalValue);
+                var args = new AvaloniaPropertyChangedEventArgs<bool>(listBox, AutoScrollToEndProperty, new Optional<bool>(true), new BindingValue<bool>(GetAutoScrollToEnd(listBox)), BindingPriority.LocalValue);
 
-                OnIsAutoScrollToEndChanged(args);
+                OnAutoScrollToEndChanged(args);
 
-                if (GetIsAutoScrollToEnd(listBox))
+                if (GetAutoScrollToEnd(listBox))
                 {
                     ScrollToEnd(listBox);
                 }

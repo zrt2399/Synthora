@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Diagnostics;
-using System.Linq;
 using System.Windows.Input;
 using Avalonia;
 using Avalonia.Controls;
@@ -120,15 +118,5 @@ namespace Synthora.Demo.ViewModels
             FileName = GitHubDepositoryUri.ToString(),
             UseShellExecute = true
         }));
-    }
-
-    public enum AppThemeMode
-    {
-        [Description("系统")]
-        Default,
-        [Description("浅色")]
-        Light,
-        [Description("深色")]
-        Dark
     }
 }

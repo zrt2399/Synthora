@@ -28,7 +28,7 @@
                     </Border.CornerRadius>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="20" />
+                            <ColumnDefinition Width="24" />
                             <ColumnDefinition Width="0" />
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" SharedSizeGroup="MenuItemIGT" />
@@ -39,13 +39,24 @@
                                         Width="16"
                                         Height="16"
                                         IsVisible="False" />
-                        <ContentControl Name="PART_IconPresenter"
-                                        Grid.Column="0"
-                                        Width="16"
-                                        Height="16"
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Center"
-                                        Content="{TemplateBinding Icon}" />
+                        <ContentPresenter Name="PART_IconPresenter"
+                                          Grid.Column="0"
+                                          Width="16"
+                                          Height="16"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          Content="{TemplateBinding Icon}">
+                            <ContentPresenter.DataTemplates>
+                                <DataTemplate DataType="Geometry">
+                                    <PathIcon Width="16"
+                                              Height="16"
+                                              HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              Data="{Binding}"
+                                              Foreground="{Binding $parent[MenuItem].Foreground}" />
+                                </DataTemplate>
+                            </ContentPresenter.DataTemplates>
+                        </ContentPresenter>
                         <ContentPresenter Name="PART_HeaderPresenter"
                                           Grid.Column="2"
                                           Margin="{TemplateBinding Padding}"
