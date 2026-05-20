@@ -116,7 +116,7 @@
 
         <Style Selector="^:focus,^:pointerover">
             <Style Selector="^[(ButtonAttach.ShowShadow)=True] /template/ DropShadowChrome#RootChrome">
-                <Setter Property="BoxShadow" Value="{TemplateBinding BorderBrush, Converter={x:Static SynthoraConverters.BoxShadowConverter}, ConverterParameter={x:Static BoxShadowConverter.DefaultParameter}}" />
+                <Setter Property="BoxShadow" Value="{TemplateBinding BorderBrush, Converter={x:Static SynthoraConverters.BoxShadowConverter}, ConverterParameter={x:Static BoxShadowConverter.ButtonPointerOverParameter}}" />
             </Style>
         </Style>
 

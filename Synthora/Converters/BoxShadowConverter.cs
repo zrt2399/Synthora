@@ -7,7 +7,7 @@ namespace Synthora.Converters
 {
     public class BoxShadowConverter : IValueConverter
     {
-        public const string DefaultParameter = "0 0 8 0 #00000000";
+        public const string ButtonPointerOverParameter = "0 0 6 0 #00000000";
 
         public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
