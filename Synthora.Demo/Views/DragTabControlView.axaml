@@ -41,10 +41,7 @@
                     <TextBlock Classes="sectionLabel"
                                DockPanel.Dock="Top"
                                Text="DRAGTABCONTROL MVVM" />
-                    <DragTabControl ItemsSource="{Binding TabItems}"
-                                    NewItemFactory="{Binding NewItemFactory}">
-                        <DragTabControl.AddButtonFlyout>
-                            <MenuFlyout Placement="BottomEdgeAlignedLeft">
+                    <DragTabControl ItemsSource="{Binding TabItems}" NewItemFactory="{Binding NewItemFactory}">
                         <TabControl.ContentTemplate>
                             <DataTemplate x:DataType="models:DragTabItemModel">
                                 <TextBlock Text="{Binding Title}" />

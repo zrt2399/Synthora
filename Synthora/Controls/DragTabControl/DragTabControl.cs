@@ -27,48 +27,43 @@ namespace Synthora.Controls
         public const double WindowsAndLinuxDefaultRightThumbWidth = 160d;
         public const double MacOsDefaultRightThumbWidth = 0d;
 
+        private Button? _addItemButton;
+        private Thumb? _leftDragWindowThumb;
+        private Thumb? _rightDragWindowThumb;
         private readonly TabsPanel _tabsPanel;
 
         private DragTabItem? _draggedItem;
         private bool _dragging;
 
-        private ICommand _addItemCommand;
-        private ICommand _closeItemCommand;
-
         public static readonly StyledProperty<double> AdjacentHeaderItemOffsetProperty =
-            AvaloniaProperty.Register<DragTabControl, double>(nameof(AdjacentHeaderItemOffset), defaultValue: 0);
-
+            AvaloniaProperty.Register<DragTabControl, double>(nameof(AdjacentHeaderItemOffset), defaultValue: 0d);
 
         public static readonly StyledProperty<double> TabItemWidthProperty =
             AvaloniaProperty.Register<DragTabControl, double>(nameof(TabItemWidth), defaultValue: DefaultTabWidth);
 
-
         public static readonly StyledProperty<bool> ShowCloseButtonProperty =
             AvaloniaProperty.Register<DragTabControl, bool>(nameof(ShowCloseButton), defaultValue: true);
-
 
         public static readonly StyledProperty<bool> ShowAddButtonProperty =
             AvaloniaProperty.Register<DragTabControl, bool>(nameof(ShowAddButton), defaultValue: true);
 
-
         public static readonly StyledProperty<int> FixedHeaderCountProperty =
             AvaloniaProperty.Register<DragTabControl, int>(nameof(FixedHeaderCount), defaultValue: 0);
-
 
         public static readonly StyledProperty<Func<Task<object>>?> NewItemAsyncFactoryProperty =
             AvaloniaProperty.Register<DragTabControl, Func<Task<object>>?>(nameof(NewItemAsyncFactory));
 
-
         public static readonly StyledProperty<Func<object>?> NewItemFactoryProperty =
             AvaloniaProperty.Register<DragTabControl, Func<object>?>(nameof(NewItemFactory));
 
+        public static readonly StyledProperty<FlyoutBase?> AddButtonFlyoutProperty =
+            AvaloniaProperty.Register<DragTabControl, FlyoutBase?>(nameof(AddButtonFlyout));
 
         public static readonly StyledProperty<EventHandler<TabClosedEventArgs>?> TabClosedProperty =
             AvaloniaProperty.Register<DragTabControl, EventHandler<TabClosedEventArgs>?>(nameof(TabClosed));
 
         public static readonly StyledProperty<EventHandler<TabClosingEventArgs>?> TabClosingProperty =
             AvaloniaProperty.Register<DragTabControl, EventHandler<TabClosingEventArgs>?>(nameof(TabClosing));
-
 
         public static readonly StyledProperty<EventHandler<CloseLastTabEventArgs>?> LastTabClosedActionProperty =
             AvaloniaProperty.Register<DragTabControl, EventHandler<CloseLastTabEventArgs>?>(nameof(LastTabClosedAction));
@@ -81,19 +76,11 @@ namespace Synthora.Controls
             AvaloniaProperty.Register<DragTabControl, double>(nameof(RightThumbMinWidth),
                 defaultValue: OperatingSystem.IsMacOS() ? MacOsDefaultRightThumbWidth : WindowsAndLinuxDefaultRightThumbWidth);
 
-
         public static readonly DirectProperty<DragTabControl, ICommand> AddItemCommandProperty =
-            AvaloniaProperty.RegisterDirect<DragTabControl, ICommand>(
-                nameof(AddItemCommand),
-                o => o.AddItemCommand,
-                (o, v) => o.AddItemCommand = v);
-
+            AvaloniaProperty.RegisterDirect<DragTabControl, ICommand>(nameof(AddItemCommand), o => o.AddItemCommand);
 
         public static readonly DirectProperty<DragTabControl, ICommand> CloseItemCommandProperty =
-            AvaloniaProperty.RegisterDirect<DragTabControl, ICommand>(
-                nameof(CloseItemCommand),
-                o => o.CloseItemCommand,
-                (o, v) => o.CloseItemCommand = v);
+            AvaloniaProperty.RegisterDirect<DragTabControl, ICommand>(nameof(CloseItemCommand), o => o.CloseItemCommand);
 
         public static readonly StyledProperty<object?> LeftContentProperty =
             AvaloniaProperty.Register<DragTabControl, object?>(nameof(LeftContent));
@@ -122,8 +109,8 @@ namespace Synthora.Controls
 
             LastTabClosedAction = (_, _) => GetThisWindow()?.Close();
 
-            _addItemCommand = new RelayCommand(AddItem);
-            _closeItemCommand = new RelayCommand<object?>(CloseItem);
+            AddItemCommand = new RelayCommand(AddItem);
+            CloseItemCommand = new RelayCommand<object?>(CloseItem);
         }
 
         public double AdjacentHeaderItemOffset
@@ -160,6 +147,12 @@ namespace Synthora.Controls
         {
             get => GetValue(NewItemFactoryProperty);
             set => SetValue(NewItemFactoryProperty, value);
+        }
+
+        public FlyoutBase? AddButtonFlyout
+        {
+            get => GetValue(AddButtonFlyoutProperty);
+            set => SetValue(AddButtonFlyoutProperty, value);
         }
 
         public EventHandler<TabClosedEventArgs>? TabClosed
@@ -203,14 +196,14 @@ namespace Synthora.Controls
 
         public ICommand AddItemCommand
         {
-            get => _addItemCommand;
-            private set => SetAndRaise(AddItemCommandProperty, ref _addItemCommand, value);
+            get;
+            private set => SetAndRaise(AddItemCommandProperty, ref field, value);
         }
 
         public ICommand CloseItemCommand
         {
-            get => _closeItemCommand;
-            private set => SetAndRaise(CloseItemCommandProperty, ref _closeItemCommand, value);
+            get;
+            private set => SetAndRaise(CloseItemCommandProperty, ref field, value);
         }
 
         public object? LeftContent
@@ -235,18 +228,40 @@ namespace Synthora.Controls
         {
             base.OnApplyTemplate(e);
 
-            var leftDragWindowThumb = e.NameScope.Get<Thumb>("PART_LeftDragWindowThumb");
-            leftDragWindowThumb.AddHandler(PointerPressedEvent, OnThumbBeginDrag, handledEventsToo: true);
-            //leftDragWindowThumb.DragDelta += WindowDragThumbOnDragDelta;
-            leftDragWindowThumb.DoubleTapped += WindowDragThumbOnDoubleTapped;
+            UnregisterEvents();
 
-            var rightDragWindowThumb = e.NameScope.Get<Thumb>("PART_RightDragWindowThumb");
-            rightDragWindowThumb.AddHandler(PointerPressedEvent, OnThumbBeginDrag, handledEventsToo: true);
-            // rightDragWindowThumb.DragDelta += WindowDragThumbOnDragDelta;
-            rightDragWindowThumb.DoubleTapped += WindowDragThumbOnDoubleTapped;
+            _leftDragWindowThumb = e.NameScope.Find<Thumb>("PART_LeftDragWindowThumb");
+            if (_leftDragWindowThumb != null)
+            {
+                _leftDragWindowThumb.AddHandler(PointerPressedEvent, OnThumbBeginDrag, handledEventsToo: true);
+                //_leftDragWindowThumb.DragDelta += WindowDragThumbOnDragDelta;
+                _leftDragWindowThumb.DoubleTapped += WindowDragThumbOnDoubleTapped;
+            }
+
+            _rightDragWindowThumb = e.NameScope.Find<Thumb>("PART_RightDragWindowThumb");
+            if (_rightDragWindowThumb != null)
+            {
+                _rightDragWindowThumb.AddHandler(PointerPressedEvent, OnThumbBeginDrag, handledEventsToo: true);
+                // _leftDragWindowThumb.DragDelta += WindowDragThumbOnDragDelta;
+                _rightDragWindowThumb.DoubleTapped += WindowDragThumbOnDoubleTapped;
+            }
+
+            _addItemButton = e.NameScope.Find<Button>("PART_AddItemButton");
+            if (_addItemButton != null)
+            {
+                _addItemButton.Click += AddItemButtonClick;
+            }
         }
 
-        protected override Control CreateContainerForItemOverride(object? item, int index, object? recycleKey) => new DragTabItem();
+        protected override Control CreateContainerForItemOverride(object? item, int index, object? recycleKey)
+        {
+            return new DragTabItem();
+        }
+
+        protected override bool NeedsContainerOverride(object? item, int index, out object? recycleKey)
+        {
+            return NeedsContainer<DragTabItem>(item, out recycleKey);
+        }
 
         protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
         {
@@ -255,10 +270,45 @@ namespace Synthora.Controls
             if (change.Property == AdjacentHeaderItemOffsetProperty)
             {
                 _tabsPanel.ItemOffset = AdjacentHeaderItemOffset;
+                _tabsPanel.InvalidateMeasure();
             }
             else if (change.Property == TabItemWidthProperty)
             {
                 _tabsPanel.ItemWidth = TabItemWidth;
+                _tabsPanel.InvalidateMeasure();
+            }
+        }
+
+        private void UnregisterEvents()
+        {
+            if (_leftDragWindowThumb != null)
+            {
+                _leftDragWindowThumb.RemoveHandler(PointerPressedEvent, OnThumbBeginDrag);
+                _leftDragWindowThumb.DoubleTapped -= WindowDragThumbOnDoubleTapped;
+            }
+            if (_rightDragWindowThumb != null)
+            {
+                _rightDragWindowThumb.RemoveHandler(PointerPressedEvent, OnThumbBeginDrag);
+                _rightDragWindowThumb.DoubleTapped -= WindowDragThumbOnDoubleTapped;
+            }
+            if (_addItemButton != null)
+            {
+                _addItemButton.Click -= AddItemButtonClick;
+            }
+        }
+
+        private void AddItemButtonClick(object? sender, RoutedEventArgs e)
+        {
+            if (sender is Button button)
+            {
+                if (AddButtonFlyout != null)
+                {
+                    AddButtonFlyout.ShowAt(button);
+                }
+                else
+                {
+                    AddItemCommand.Execute(null);
+                }
             }
         }
 

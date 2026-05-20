@@ -5,22 +5,18 @@ using Avalonia;
 using Avalonia.Animation;
 using Avalonia.Animation.Easings;
 using Avalonia.Controls;
-using Avalonia.Styling; 
+using Avalonia.Styling;
 
 namespace Synthora.Controls
 {
-    public class TabsPanel : Panel
+    public class TabsPanel(DragTabControl tabsControl) : Panel
     {
-        private readonly DragTabControl _tabsControl;
-
-        private readonly Dictionary<DragTabItem, LocationInfo> _itemsLocations = new();
+        private readonly Dictionary<DragTabItem, LocationInfo> _itemsLocations = [];
         private double _itemWidth;
-        private readonly Dictionary<DragTabItem, double> _activeStoryboardTargetLocations = new();
+        private readonly Dictionary<DragTabItem, double> _activeStoryboardTargetLocations = [];
         private DragTabItem? _dragItem;
 
         public event Action? DragCompleted;
-
-        public TabsPanel(DragTabControl tabsControl) => _tabsControl = tabsControl;
 
         public double ItemWidth { get; internal set; }
 
@@ -71,7 +67,9 @@ namespace Synthora.Controls
                 height = Math.Max(tabItem.DesiredSize.Height, height);
 
                 if (!isFirst)
+                {
                     width += ItemOffset;
+                }
 
                 isFirst = false;
             }
@@ -94,13 +92,17 @@ namespace Synthora.Controls
                 height = Math.Max(tabItem.DesiredSize.Height, height);
 
                 if (!isFirst)
+                {
                     width += ItemOffset;
+                }
 
                 isFirst = false;
             }
 
             if (draggedItem.X + _itemWidth > width)
+            {
                 return new Size(draggedItem.X + _itemWidth, height);
+            }
 
             return new Size(width, height);
         }
@@ -116,7 +118,9 @@ namespace Synthora.Controls
             foreach (Control? child in Children)
             {
                 if (child is not DragTabItem tabItem)
+                {
                     continue;
+                }
 
                 tabItem.ZIndex = tabItem.IsSelected ? int.MaxValue : --z;
                 tabItem.LogicalIndex = logicalIndex++;
@@ -142,7 +146,7 @@ namespace Synthora.Controls
             {
                 var item = location.Item;
 
-                if (!Equals(item, dragItem) && item.LogicalIndex >= _tabsControl.FixedHeaderCount)
+                if (!Equals(item, dragItem) && item.LogicalIndex >= tabsControl.FixedHeaderCount)
                 {
                     SendToLocation(item, currentCoord, _itemWidth);
                 }
@@ -167,12 +171,14 @@ namespace Synthora.Controls
 
         private double CalculateMinX()
         {
-            if (_tabsControl.FixedHeaderCount < 1)
+            if (tabsControl.FixedHeaderCount < 1)
+            {
                 return 0;
+            }
 
             double x = 0;
 
-            for (int index = 0; index < _tabsControl.FixedHeaderCount; index++)
+            for (int index = 0; index < tabsControl.FixedHeaderCount; index++)
             {
                 x += _itemWidth + ItemOffset;
             }
@@ -210,7 +216,9 @@ namespace Synthora.Controls
             int tabsCount = Children.Count;
 
             if (tabsCount == 0)
+            {
                 return 0;
+            }
 
             double itemWidth = availableSize.Width / tabsCount - ItemOffset * (tabsCount - 1) / tabsCount;
 
@@ -240,7 +248,7 @@ namespace Synthora.Controls
 
         private async void SendToLocation(DragTabItem item, double location, double width)
         {
-            bool itemIsAnimating = _activeStoryboardTargetLocations.TryGetValue(item, out double activeTarget);
+            var itemIsAnimating = _activeStoryboardTargetLocations.TryGetValue(item, out var activeTarget);
 
             if (itemIsAnimating)
             {
@@ -298,7 +306,9 @@ namespace Synthora.Controls
             double size = item.Bounds.Width;
 
             if (!_activeStoryboardTargetLocations.TryGetValue(item, out double startLocation))
+            {
                 startLocation = item.X;
+            }
 
             double midLocation = startLocation + size / 2;
             double endLocation = startLocation + size;

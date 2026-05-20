@@ -20,16 +20,13 @@ namespace Synthora.Controls
             AvaloniaProperty.Register<DragTabItem, double>(nameof(Y));
 
         public static readonly DirectProperty<DragTabItem, bool> IsDraggingProperty =
-            AvaloniaProperty.RegisterDirect<DragTabItem, bool>(nameof(IsDragging),
-                o => o.IsDragging, (o, v) => o.IsDragging = v);
+            AvaloniaProperty.RegisterDirect<DragTabItem, bool>(nameof(IsDragging), o => o.IsDragging);
 
         public static readonly DirectProperty<DragTabItem, int> LogicalIndexProperty =
-            AvaloniaProperty.RegisterDirect<DragTabItem, int>(nameof(LogicalIndex),
-                o => o.LogicalIndex, (o, v) => o.LogicalIndex = v);
+            AvaloniaProperty.RegisterDirect<DragTabItem, int>(nameof(LogicalIndex), o => o.LogicalIndex);
 
         public static readonly DirectProperty<DragTabItem, bool> IsSiblingDraggingProperty =
-            AvaloniaProperty.RegisterDirect<DragTabItem, bool>(nameof(IsSiblingDragging),
-                o => o.IsSiblingDragging, (o, v) => o.IsSiblingDragging = v);
+            AvaloniaProperty.RegisterDirect<DragTabItem, bool>(nameof(IsSiblingDragging), o => o.IsSiblingDragging);
 
         public double X
         {
@@ -77,15 +74,16 @@ namespace Synthora.Controls
         {
             base.OnApplyTemplate(e);
 
-            var templateThumb = e.NameScope.Find<LeftPressedThumb>("PART_Thumb");
+            UnregisterEvents();
 
-            _thumb = templateThumb;
-            if ( _thumb is not null)
+            _thumb = e.NameScope.Find<LeftPressedThumb>("PART_Thumb");
+
+            if (_thumb != null)
             {
                 _thumb.DragStarted += ThumbOnDragStarted;
                 _thumb.DragDelta += ThumbOnDragDelta;
                 _thumb.DragCompleted += ThumbOnDragCompleted;
-            } 
+            }
         }
 
         protected override void OnPointerEntered(PointerEventArgs e)
@@ -127,6 +125,16 @@ namespace Synthora.Controls
         public override string ToString()
         {
             return $"{nameof(DragTabItem)}.{nameof(Header)}:{Header}";
+        }
+
+        private void UnregisterEvents()
+        {
+            if (_thumb != null)
+            {
+                _thumb.DragStarted -= ThumbOnDragStarted;
+                _thumb.DragDelta -= ThumbOnDragDelta;
+                _thumb.DragCompleted -= ThumbOnDragCompleted;
+            }
         }
 
         private void ThumbOnDragStarted(object? sender, VectorEventArgs args)
