@@ -20,7 +20,7 @@
             <Color x:Key="ThemeForegroundColor">#FF25292E</Color>
             <Color x:Key="ThemeBackgroundColor">#FFFFFFFF</Color>
 
-            <Color x:Key="ThemeBorderLowColor">#FFD4D4D4</Color>
+            <Color x:Key="ThemeBorderLowColor">#FFD8D8D8</Color>
             <Color x:Key="ThemeBorderMidColor">#FFB4B4B4</Color>
             <Color x:Key="ThemeBorderHighColor">#FF848484</Color>
             <Color x:Key="ThemeControlLowColor">#FFF5F5F5</Color>

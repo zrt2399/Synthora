@@ -26,7 +26,7 @@
     <converters:StringFormatConverter x:Key="StringFormatConverter" />
 
     <ControlTheme x:Key="{x:Type ProgressBar}" TargetType="ProgressBar">
-        <Setter Property="Background" Value="{DynamicResource PrimaryContrastBrush}" />
+        <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
         <Setter Property="ClipToBounds" Value="True" />

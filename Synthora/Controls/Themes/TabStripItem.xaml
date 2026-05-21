@@ -28,6 +28,7 @@
                         <Border Name="PART_SelectedPipe"
                                 Height="2"
                                 VerticalAlignment="Bottom"
+                                CornerRadius="{DynamicResource ThemeBorderCornerRadiusNormal}"
                                 IsVisible="False" />
                     </Panel>
                 </Border>
