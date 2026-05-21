@@ -4,7 +4,6 @@
 
     <ResourceDictionary.ThemeDictionaries>
         <ResourceDictionary x:Key="Default">
-            <Color x:Key="PrimaryContrastColor">#FFCBD5E0</Color>
             <Color x:Key="ThemeSelectedLowColor">#FFE8E8E8</Color>
             <Color x:Key="ThemeSelectedMidColor">#FFDEDEDE</Color>
             <Color x:Key="ThemeSelectedHighColor">#FFD4D4D4</Color>
@@ -39,7 +38,6 @@
             <Color x:Key="MenuItemPointerOverColor">#FFCEDEFF</Color>
             <Color x:Key="MenuItemPressedColor">#FFD8E6FF</Color>
 
-            <SolidColorBrush x:Key="PrimaryContrastBrush" Color="{StaticResource PrimaryContrastColor}" />
             <SolidColorBrush x:Key="ThemeSelectedLowBrush" Color="{StaticResource ThemeSelectedLowColor}" />
             <SolidColorBrush x:Key="ThemeSelectedMidBrush" Color="{StaticResource ThemeSelectedMidColor}" />
             <SolidColorBrush x:Key="ThemeSelectedHighBrush" Color="{StaticResource ThemeSelectedHighColor}" />
@@ -110,8 +108,6 @@
         </ResourceDictionary>
 
         <ResourceDictionary x:Key="Dark">
-            <Color x:Key="OnPrimaryColor">#FFFFFFFF</Color>
-            <Color x:Key="PrimaryContrastColor">#FF2C3E50</Color>
             <Color x:Key="ThemeSelectedLowColor">#FF404040</Color>
             <Color x:Key="ThemeSelectedMidColor">#FF505050</Color>
             <Color x:Key="ThemeSelectedHighColor">#FF606060</Color>
@@ -146,7 +142,6 @@
             <Color x:Key="MenuItemPointerOverColor">#FF006CBE</Color>
             <Color x:Key="MenuItemPressedColor">#FF1A7BC5</Color>
 
-            <SolidColorBrush x:Key="PrimaryContrastBrush" Color="{StaticResource PrimaryContrastColor}" />
             <SolidColorBrush x:Key="ThemeSelectedLowBrush" Color="{StaticResource ThemeSelectedLowColor}" />
             <SolidColorBrush x:Key="ThemeSelectedMidBrush" Color="{StaticResource ThemeSelectedMidColor}" />
             <SolidColorBrush x:Key="ThemeSelectedHighBrush" Color="{StaticResource ThemeSelectedHighColor}" />
