@@ -49,7 +49,9 @@
                                LineSpacing="16"
                                Orientation="Horizontal">
                         <StackPanel Orientation="Horizontal" Spacing="16">
-                            <CheckBox Name="borderless" Content="Borderless" IsChecked="True" />
+                            <CheckBox Name="borderless"
+                                      Content="Borderless"
+                                      IsChecked="True" />
                             <StackPanel Orientation="Horizontal" Spacing="8">
                                 <TextBlock VerticalAlignment="Center">
                                     <Run>CornerRadius:</Run>
@@ -63,7 +65,9 @@
                             </StackPanel>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Spacing="16">
-                            <CheckBox Name="hasShadow" Content="Shadow"  IsChecked="True"/>
+                            <CheckBox Name="hasShadow"
+                                      Content="Shadow"
+                                      IsChecked="True" />
                             <CheckBox Content="AllowAutoHide" IsChecked="{Binding #dataGridEmployees.(ScrollViewer.AllowAutoHide)}" />
                             <CheckBox Content="IsReadOnly" IsChecked="{Binding #dataGridEmployees.IsReadOnly}" />
                             <ComboBox ItemsSource="{EnumBindingSource DataGridGridLinesVisibility}"

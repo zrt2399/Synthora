@@ -52,7 +52,7 @@
                                                                Converter={StaticResource TreeMenuItemExpanderButtonRightMarginMultiplier}}"
                                       HorizontalAlignment="Center"
                                       VerticalAlignment="Center"
-                                      Data="{DynamicResource ArrowDownGlyph}"
+                                      Data="{DynamicResource ArrowDownData}"
                                       DockPanel.Dock="Right"
                                       Foreground="{TemplateBinding Foreground}"
                                       IsHitTestVisible="False" />

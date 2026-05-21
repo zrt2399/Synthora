@@ -88,7 +88,7 @@
                                 Width="40"
                                 Height="20"
                                 Background="{DynamicResource ThemeControlHighlightLowBrush}"
-                                BorderBrush="{DynamicResource ThemeControlMidColor}"
+                                BorderBrush="{DynamicResource ThemeControlMidBrush}"
                                 BorderThickness="{DynamicResource ToggleSwitchOuterBorderStrokeThickness}"
                                 CornerRadius="10" />
 

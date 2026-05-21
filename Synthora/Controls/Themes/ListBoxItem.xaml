@@ -25,7 +25,7 @@
         </Setter>
 
         <Style Selector="^:pointerover">
-            <Setter Property="Background" Value="{DynamicResource ThemeControlHighlightMidBrush}" />
+            <Setter Property="Background" Value="{DynamicResource ThemeControlHighlightLowBrush}" />
         </Style>
         <Style Selector="^:selected">
             <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush5}" />

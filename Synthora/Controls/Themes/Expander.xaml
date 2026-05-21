@@ -78,7 +78,7 @@
                                                            Converter={StaticResource ExpanderToggleButtonMarginMultiplier}}"
                                   HorizontalAlignment="Center"
                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                  Data="{DynamicResource ArrowRightGlyph}"
+                                  Data="{DynamicResource ArrowRightData}"
                                   Foreground="{TemplateBinding Foreground}"
                                   IsHitTestVisible="False">
                             <PathIcon.Transitions>

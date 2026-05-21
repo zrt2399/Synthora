@@ -283,7 +283,7 @@
     <Thickness x:Key="ThemeControlPaddingSmall">4</Thickness>
 
     <x:Double x:Key="ThemePlaceholderTextOpacity">0.6</x:Double>
-    <x:Double x:Key="ThemeDisabledOpacity">0.7</x:Double>
+    <x:Double x:Key="ThemeDisabledOpacity">0.8</x:Double>
 
     <x:Double x:Key="FontSizeSmall">10</x:Double>
     <x:Double x:Key="FontSizeNormal">12</x:Double>
@@ -310,16 +310,16 @@
     <x:Double x:Key="DragTabItemMinHeight">32</x:Double>
     <Thickness x:Key="DragTabItemPadding">10,0</Thickness>
 
-    <StreamGeometry x:Key="ArrowUpGlyph">
+    <StreamGeometry x:Key="ArrowUpData">
         M1939 1114L2029 1024L1024 19L19 1024L109 1114L1024 199L1939 1114Z
     </StreamGeometry>
-    <StreamGeometry x:Key="ArrowDownGlyph">
+    <StreamGeometry x:Key="ArrowDownData">
         M1939 486L2029 576L1024 1581L19 576L109 486L1024 1401L1939 486Z
     </StreamGeometry>
-    <StreamGeometry x:Key="ArrowLeftGlyph">
+    <StreamGeometry x:Key="ArrowLeftData">
         M1581 109L1491 19L486 1024L1491 2029L1581 1939L666 1024Z
     </StreamGeometry>
-    <StreamGeometry x:Key="ArrowRightGlyph">
+    <StreamGeometry x:Key="ArrowRightData">
         M486 109L576 19L1581 1024L576 2029L486 1939L1401 1024L486 109Z
     </StreamGeometry>
 

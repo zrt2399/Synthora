@@ -11,7 +11,7 @@
         <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />
         <Setter Property="PreviewContent">
             <Template>
-                <Rectangle Fill="{DynamicResource ThemeAccentBrush3}" />
+                <Rectangle Fill="#60000000" />
             </Template>
         </Setter>
         <Setter Property="Template">

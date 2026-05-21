@@ -137,7 +137,7 @@
                                                            Converter={StaticResource DataGridColumnSortIconMarginMultiplier}}"
                                   HorizontalAlignment="Left"
                                   VerticalAlignment="Center"
-                                  Data="{DynamicResource ArrowUpGlyph}"
+                                  Data="{DynamicResource ArrowUpData}"
                                   Foreground="{TemplateBinding Foreground}"
                                   IsVisible="False" />
                     </Grid>
@@ -237,7 +237,7 @@
         </Style>
 
         <Style Selector="^:pointerover /template/ Border#RowBorder">
-            <Setter Property="Background" Value="{DynamicResource ThemeControlHighlightMidBrush}" />
+            <Setter Property="Background" Value="{DynamicResource ThemeControlHighlightLowBrush}" />
         </Style>
         <Style Selector="^:selected /template/ Border#RowBorder">
             <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush5}" />

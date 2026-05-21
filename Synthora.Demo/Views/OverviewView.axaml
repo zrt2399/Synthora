@@ -56,7 +56,7 @@
     </UserControl.Resources>
 
     <UserControl.Styles>
-        <Style Selector="Border.heroFrame"> 
+        <Style Selector="Border.heroFrame">
             <Setter Property="Background" Value="{DynamicResource HeroBorderBrush}" />
             <Setter Property="CornerRadius" Value="20" />
             <Setter Property="BoxShadow" Value="0 0 40 0 #44000000" />
@@ -68,7 +68,7 @@
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="CornerRadius" Value="20" />
         </Style>
-        <Style Selector="Border.card"> 
+        <Style Selector="Border.card">
             <Setter Property="Padding" Value="16" />
             <Setter Property="Background" Value="{DynamicResource CardSurfaceBrush}" />
             <Setter Property="BorderBrush" Value="{DynamicResource CardBorderBrush}" />
@@ -149,7 +149,9 @@
         </Panel>
 
         <ScrollViewer>
-            <StackPanel Margin="16" Spacing="16">
+            <StackPanel Margin="16"
+                        HorizontalAlignment="Left"
+                        Spacing="16">
                 <Border Classes="heroFrame">
                     <Border Classes="heroShell">
                         <WrapPanel ItemSpacing="16" LineSpacing="16">
@@ -258,34 +260,30 @@
                                                     <SplitButton>
                                                         Publish
                                                         <SplitButton.Flyout>
-                                                            <Flyout Placement="BottomEdgeAlignedLeft">
-                                                                <StackPanel Margin="10" Spacing="8">
-                                                                    <Button CornerRadius="2">Publish now</Button>
-                                                                    <Button CornerRadius="2">Schedule</Button>
-                                                                </StackPanel>
-                                                            </Flyout>
+                                                            <MenuFlyout Placement="BottomEdgeAlignedLeft">
+                                                                <MenuItem Header="Publish now" />
+                                                                <MenuItem Header="Schedule" />
+                                                            </MenuFlyout>
                                                         </SplitButton.Flyout>
                                                     </SplitButton>
                                                     <ToggleSplitButton Theme="{DynamicResource TonalToggleSplitButtonTheme}">
                                                         Modes
                                                         <ToggleSplitButton.Flyout>
-                                                            <Flyout Placement="BottomEdgeAlignedLeft">
-                                                                <StackPanel Margin="10" Spacing="8">
-                                                                    <CheckBox IsChecked="True">Aurora</CheckBox>
-                                                                    <CheckBox>Compact</CheckBox>
-                                                                </StackPanel>
-                                                            </Flyout>
+                                                            <MenuFlyout Placement="BottomEdgeAlignedLeft">
+                                                                <MenuItem Header="Aurora"
+                                                                          IsChecked="True"
+                                                                          ToggleType="CheckBox" />
+                                                                <MenuItem Header="Compact" ToggleType="CheckBox" />
+                                                            </MenuFlyout>
                                                         </ToggleSplitButton.Flyout>
                                                     </ToggleSplitButton>
                                                     <DropDownButton Theme="{DynamicResource SecondaryDropDownButtonTheme}">
                                                         More
                                                         <DropDownButton.Flyout>
-                                                            <Flyout Placement="BottomEdgeAlignedLeft">
-                                                                <StackPanel Margin="10" Spacing="8">
-                                                                    <Button CornerRadius="2">New tab</Button>
-                                                                    <Button CornerRadius="2">Open docs</Button>
-                                                                </StackPanel>
-                                                            </Flyout>
+                                                            <MenuFlyout Placement="BottomEdgeAlignedLeft">
+                                                                <MenuItem Header="New tab" />
+                                                                <MenuItem Header="Open docs" />
+                                                            </MenuFlyout>
                                                         </DropDownButton.Flyout>
                                                     </DropDownButton>
                                                     <ToggleButton Theme="{DynamicResource WarningToggleButtonTheme}">Pin</ToggleButton>
@@ -374,9 +372,9 @@
                                 <ToggleSwitch IsChecked="True" />
                             </SpacingWrapPanel>
                             <ListBox AutoScrollToSelectedItem="False" Theme="{DynamicResource SegmentedListBoxTheme}">
-                                <ListBoxItem IsSelected="True">Modern</ListBoxItem>
-                                <ListBoxItem>Flexible</ListBoxItem>
-                                <ListBoxItem>Simple</ListBoxItem>
+                                <ListBoxItem IsSelected="True">macOS</ListBoxItem>
+                                <ListBoxItem>Windows</ListBoxItem>
+                                <ListBoxItem>Linux</ListBoxItem>
                             </ListBox>
                             <SelectableTextBlock Classes="muted">Selection states stay clear at a glance.</SelectableTextBlock>
                         </StackPanel>
@@ -394,6 +392,9 @@
                             <ProgressBar Height="6" Value="{Binding #Slider.Value}" />
                             <Slider Name="Slider" />
                             <ProgressBar ShowProgressText="True" Value="{Binding #Slider.Value}" />
+                            <PipsPager MaxVisiblePips="10"
+                                       NumberOfPages="10"
+                                       SelectedPageIndex="2" />
                             <Divider Content="Navigation" Orientation="Horizontal" />
                             <TabControl Theme="{DynamicResource SegmentedTabControlTheme}">
                                 <TabItem Header="Overview">
@@ -426,7 +427,7 @@
                     </Border>
                 </WrapPanel>
 
-                <WrapPanel LineSpacing="16" ItemSpacing="16">
+                <WrapPanel ItemSpacing="16" LineSpacing="16">
                     <Border MinWidth="380"
                             MaxWidth="620"
                             Classes="card">

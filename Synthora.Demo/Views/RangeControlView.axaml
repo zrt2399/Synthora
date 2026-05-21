@@ -17,10 +17,15 @@
         <ScrollViewer Padding="16">
             <Border Classes="card">
                 <StackPanel Spacing="16">
-                    <DockPanel MinHeight="120">
+                    <DockPanel MinHeight="200" HorizontalSpacing="16">
                         <Divider Content="Vertical"
                                  MinLineLength="10"
                                  Orientation="Vertical" />
+                        <PipsPager VerticalAlignment="Top"
+                                   MaxVisiblePips="10"
+                                   NumberOfPages="20"
+                                   Orientation="Vertical"
+                                   SelectedPageIndex="2" />
                         <Slider Name="VerticalSlider"
                                 IsSnapToTickEnabled="True"
                                 Maximum="10"
@@ -49,6 +54,11 @@
                             TickFrequency="1"
                             TickPlacement="Outside" />
                     <ProgressBar ShowProgressText="True" Value="{Binding #slider.Value}" />
+                    <Divider Content="PipsPager" Orientation="Horizontal" />
+                    <PipsPager HorizontalAlignment="Left"
+                               MaxVisiblePips="20"
+                               NumberOfPages="50"
+                               SelectedPageIndex="2" />
                 </StackPanel>
             </Border>
         </ScrollViewer>

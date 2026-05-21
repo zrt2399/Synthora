@@ -21,7 +21,7 @@
                               Margin="{TemplateBinding Padding}"
                               HorizontalAlignment="Center"
                               VerticalAlignment="Center"
-                              Data="{DynamicResource ArrowRightGlyph}"
+                              Data="{DynamicResource ArrowRightData}"
                               Foreground="{TemplateBinding Foreground}" />
                 </Panel>
             </ControlTemplate>
@@ -96,7 +96,7 @@
         </Setter>
 
         <Style Selector="^ /template/ Border#SelectionBorder:pointerover">
-            <Setter Property="Background" Value="{DynamicResource ThemeControlHighlightMidBrush}" />
+            <Setter Property="Background" Value="{DynamicResource ThemeControlHighlightLowBrush}" />
         </Style>
 
         <Style Selector="^:selected /template/ Border#SelectionBorder">

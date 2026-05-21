@@ -46,7 +46,7 @@
                                     IsVisible="False">
                                 <PathIcon Width="12"
                                           Height="12"
-                                          Data="{DynamicResource ArrowLeftGlyph}" />
+                                          Data="{DynamicResource ArrowLeftData}" />
                             </Button>
 
                             <Button Name="PART_HeaderButton"
@@ -61,7 +61,7 @@
                                     IsVisible="False">
                                 <PathIcon Width="12"
                                           Height="12"
-                                          Data="{DynamicResource ArrowRightGlyph}" />
+                                          Data="{DynamicResource ArrowRightData}" />
                             </Button>
                         </Grid>
                     </GroupBoxEx.Header>

@@ -35,7 +35,7 @@
                                                    Converter={StaticResource DropDownButtonMarginMultiplier}}"
                           HorizontalAlignment="Right"
                           VerticalAlignment="Center"
-                          Data="{DynamicResource ArrowDownGlyph}"
+                          Data="{DynamicResource ArrowDownData}"
                           Foreground="{TemplateBinding Foreground}"
                           IsHitTestVisible="False">
                     <PathIcon.Transitions>

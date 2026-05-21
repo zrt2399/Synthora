@@ -83,7 +83,7 @@
                             <PathIcon Name="pathIcon"
                                       Width="12"
                                       Height="12"
-                                      Data="{DynamicResource ArrowDownGlyph}"
+                                      Data="{DynamicResource ArrowDownData}"
                                       Foreground="{Binding $parent[Button].Foreground}" />
                         </Button>
                     </Grid>

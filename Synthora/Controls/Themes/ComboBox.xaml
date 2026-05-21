@@ -30,7 +30,7 @@
                               Margin="{TemplateBinding Padding}"
                               HorizontalAlignment="Center"
                               VerticalAlignment="Center"
-                              Data="{DynamicResource ArrowDownGlyph}"
+                              Data="{DynamicResource ArrowDownData}"
                               Foreground="{TemplateBinding Foreground}" />
                 </Panel>
             </ControlTemplate>

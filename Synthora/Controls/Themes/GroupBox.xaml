@@ -81,5 +81,8 @@
         <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
             <Setter Property="RecognizesAccessKey" Value="True" />
         </Style>
+        <Style Selector="^:disabled /template/ Border#Header">
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+        </Style>
     </ControlTheme>
 </ResourceDictionary> 

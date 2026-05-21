@@ -83,7 +83,7 @@
                                   Height="12"
                                   Margin="0,0,4,0"
                                   VerticalAlignment="Center"
-                                  Data="{DynamicResource ArrowRightGlyph}"
+                                  Data="{DynamicResource ArrowRightData}"
                                   Foreground="{TemplateBinding Foreground}" />
                         <Popup Name="PART_Popup"
                                IsLightDismissEnabled="False"
