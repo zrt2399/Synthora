@@ -4,6 +4,9 @@
                     x:CompileBindings="True">
 
     <ControlTheme x:Key="{x:Type Carousel}" TargetType="Carousel">
+        <Setter Property="PageTransition">
+            <PageSlide Orientation="Horizontal" Duration="0.3" />
+        </Setter>
         <Setter Property="Template">
             <ControlTemplate>
                 <ScrollViewer Name="PART_ScrollViewer"

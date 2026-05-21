@@ -36,7 +36,7 @@
 
         <Style Selector="^:pointerover">
             <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
-            <Setter Property="RenderTransform" Value="scale(1.15)" />
+            <Setter Property="RenderTransform" Value="scale(1.2)" />
         </Style>
         <Style Selector="^:pressed">
             <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
@@ -68,8 +68,8 @@
                         <RepeatButton Name="PART_PreviousButton"
                                       IsVisible="{TemplateBinding IsPreviousButtonVisible}"
                                       Theme="{TemplateBinding PreviousButtonTheme}">
-                            <PathIcon Width="14"
-                                      Height="14"
+                            <PathIcon Width="12"
+                                      Height="12"
                                       HorizontalAlignment="Center"
                                       VerticalAlignment="Center"
                                       Data="{DynamicResource ArrowLeftData}"
@@ -100,7 +100,7 @@
                                     <Setter Property="ClipToBounds" Value="False" />
                                 </Style>
                                 <Style Selector="ListBoxItem">
-                                    <Setter Property="Width" Value="16" />
+                                    <Setter Property="Width" Value="20" />
                                     <Setter Property="Height" Value="16" />
                                     <Setter Property="Padding" Value="0" />
                                     <Setter Property="Margin" Value="0" />
@@ -122,24 +122,24 @@
                                     <Setter Property="Fill" Value="{DynamicResource ThemeControlVeryHighColor}" />
                                 </Style>
                                 <Style Selector="ListBoxItem:pointerover /template/ Ellipse#Pip">
-                                    <Setter Property="RenderTransform" Value="scale(1.2)" />
+                                    <Setter Property="RenderTransform" Value="scale(1.25)" />
                                 </Style>
                                 <Style Selector="ListBoxItem:pressed /template/ Ellipse#Pip">
                                     <Setter Property="RenderTransform" Value="scale(1)" />
                                 </Style>
 
-                                <!--<Style Selector="PipsPager:vertical ListBoxItem">
-                                <Setter Property="Width" Value="24" />
-                                <Setter Property="Height" Value="12" />
-                            </Style>-->
+                                <Style Selector="PipsPager:vertical ListBoxItem">
+                                    <Setter Property="Width" Value="16" />
+                                    <Setter Property="Height" Value="20" />
+                                </Style>
                             </ListBox.Styles>
                         </ListBox>
 
                         <RepeatButton Name="PART_NextButton"
                                       IsVisible="{TemplateBinding IsNextButtonVisible}"
                                       Theme="{TemplateBinding NextButtonTheme}">
-                            <PathIcon Width="14"
-                                      Height="14"
+                            <PathIcon Width="12"
+                                      Height="12"
                                       HorizontalAlignment="Center"
                                       VerticalAlignment="Center"
                                       Data="{DynamicResource ArrowRightData}"

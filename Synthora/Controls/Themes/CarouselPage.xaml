@@ -20,6 +20,9 @@
     </Design.PreviewWith>
 
     <ControlTheme x:Key="{x:Type CarouselPage}" TargetType="CarouselPage">
+        <Setter Property="PageTransition">
+            <PageSlide Orientation="Horizontal" Duration="0.3" />
+        </Setter>
         <!-- <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" /> -->
         <Setter Property="Template">
             <ControlTemplate>

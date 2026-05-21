@@ -92,6 +92,14 @@ namespace Synthora.Demo.ViewModels
         }
     }
 
+    public class CarouselViewModel : TreeMenuDemoItem
+    {
+        public CarouselViewModel()
+        {
+            IconKind = MaterialIconKind.ViewCarousel;
+        }
+    }
+
     public class TreeMenuViewModel : TreeMenuDemoItem
     {
         public TreeMenuViewModel()

@@ -1,0 +1,124 @@
+<UserControl x:Class="Synthora.Demo.Views.CarouselView"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialIcons="using:Material.Icons.Avalonia"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Synthora.Demo.ViewModels"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             x:DataType="vm:CarouselViewModel"
+             mc:Ignorable="d">
+
+    <DemoPage Title="Carousel"
+              Description="Test plain carousel items and CarouselPage page containers in one place."
+              IconKind="{Binding IconKind}">
+        <UniformGrid Columns="1" RowSpacing="16">
+            <Border Classes="card">
+                <DockPanel VerticalSpacing="16">
+                    <StackPanel Classes="sectionHeader" DockPanel.Dock="Top">
+                        <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ViewCarouselOutline" />
+                        <TextBlock Classes="sectionLabel" Text="CAROUSEL" />
+                    </StackPanel>
+
+                    <PipsPager HorizontalAlignment="Center"
+                               DockPanel.Dock="Bottom"
+                               NumberOfPages="3"
+                               SelectedPageIndex="{Binding #BasicCarousel.SelectedIndex}" />
+
+                    <Carousel Name="BasicCarousel">
+                        <Border Padding="16" Background="#1E6AA5FF">
+                            <StackPanel Spacing="12">
+                                <TextBlock FontSize="24"
+                                           FontWeight="SemiBold"
+                                           Text="Overview" />
+                                <TextBlock Text="Plain Carousel with direct content items." TextWrapping="Wrap" />
+                            </StackPanel>
+                        </Border>
+                        <Border Padding="16" Background="#1E00A86B">
+                            <StackPanel Spacing="12">
+                                <TextBlock FontSize="24"
+                                           FontWeight="SemiBold"
+                                           Text="Metrics" />
+                                <TextBlock Text="Swipe or switch with the selector below to validate transitions." TextWrapping="Wrap" />
+                            </StackPanel>
+                        </Border>
+                        <Border Padding="16" Background="#1ED67A00">
+                            <StackPanel Spacing="12">
+                                <TextBlock FontSize="24"
+                                           FontWeight="SemiBold"
+                                           Text="Details" />
+                                <TextBlock Text="This item confirms larger card content renders correctly inside the carousel viewport." TextWrapping="Wrap" />
+                            </StackPanel>
+                        </Border>
+                    </Carousel>
+                </DockPanel>
+            </Border>
+
+            <Border Classes="card">
+                <DockPanel VerticalSpacing="16">
+                    <StackPanel Classes="sectionHeader" DockPanel.Dock="Top">
+                        <materialIcons:MaterialIcon Classes="sectionIcon" Kind="BookOpenPageVariantOutline" />
+                        <TextBlock Classes="sectionLabel" Text="CAROUSEL PAGE" />
+                    </StackPanel>
+
+                    <CarouselPage SelectedIndex="1">
+                        <ContentPage Header="Welcome">
+                            <Grid RowDefinitions="Auto,Auto,*">
+                                <TextBlock FontSize="28"
+                                           FontWeight="SemiBold"
+                                           Text="Welcome"
+                                           TextWrapping="Wrap" />
+                                <TextBlock Grid.Row="1"
+                                           Margin="0,8,0,0"
+                                           Foreground="{DynamicResource ThemeForegroundLowBrush}"
+                                           Text="CarouselPage wraps a Carousel and adds page-style content containers."
+                                           TextWrapping="Wrap" />
+                                <Border Grid.Row="2"
+                                        Margin="0,16,0,0"
+                                        Padding="16"
+                                        Background="{DynamicResource ThemeControlMidBrush}"
+                                        CornerRadius="6">
+                                    <TextBlock Text="Use this area for richer page bodies with independent layout." TextWrapping="Wrap" />
+                                </Border>
+                            </Grid>
+                        </ContentPage>
+                        <ContentPage Header="Status">
+                            <Grid ColumnDefinitions="*,16,*" RowDefinitions="Auto,*">
+                                <Border Padding="16"
+                                        Background="{DynamicResource ThemeControlMidBrush}"
+                                        CornerRadius="6">
+                                    <StackPanel Spacing="8">
+                                        <TextBlock FontWeight="SemiBold" Text="Current Step" />
+                                        <TextBlock Text="Review transition behavior and header presentation." TextWrapping="Wrap" />
+                                    </StackPanel>
+                                </Border>
+                                <Border Grid.Column="2"
+                                        Padding="16"
+                                        Background="{DynamicResource ThemeControlMidBrush}"
+                                        CornerRadius="6">
+                                    <StackPanel Spacing="8">
+                                        <TextBlock FontWeight="SemiBold" Text="Notes" />
+                                        <TextBlock Text="This page uses ContentPage children to match the intended page model." TextWrapping="Wrap" />
+                                    </StackPanel>
+                                </Border>
+                            </Grid>
+                        </ContentPage>
+                        <ContentPage Header="Summary">
+                            <StackPanel Spacing="12">
+                                <TextBlock FontSize="28"
+                                           FontWeight="SemiBold"
+                                           Text="Summary" />
+                                <SelectableTextBlock Text="If header switching, content replacement, and transitions all behave, the CarouselPage theme is wired correctly." TextWrapping="Wrap" />
+                                <ProgressBar Height="8"
+                                             Maximum="3"
+                                             Value="3" />
+                            </StackPanel>
+                        </ContentPage>
+                    </CarouselPage>
+                </DockPanel>
+            </Border>
+        </UniformGrid>
+    </DemoPage>
+
+</UserControl>

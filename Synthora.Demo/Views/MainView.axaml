@@ -128,6 +128,9 @@
                     <DataTemplate DataType="vm:NavigationPageViewModel">
                         <views:NavigationPageView />
                     </DataTemplate>
+                    <DataTemplate DataType="vm:CarouselViewModel">
+                        <views:CarouselView />
+                    </DataTemplate>
                 </TreeMenu.DataTemplates>
                 <TreeMenu.PaneHeader>
                     <StackPanel Margin="32"
