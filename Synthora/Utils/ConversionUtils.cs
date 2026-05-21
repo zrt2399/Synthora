@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
@@ -17,30 +16,85 @@ namespace Synthora.Utils
         /// <summary>
         /// Converts a sequence of bytes to a hexadecimal string, with an optional separator between byte values.
         /// </summary>
-        public static string ToHexString(this IEnumerable<byte> bytes, string? separator = " ")
+        public static string ToHexString(this byte[] bytes, string separator = " ")
         {
-            ArgumentNullException.ThrowIfNull(bytes);
-
-            using var enumerator = bytes.GetEnumerator();
-            if (!enumerator.MoveNext())
+            if (bytes.Length == 0)
             {
                 return string.Empty;
             }
 
-            const string format = "X2";
-            var stringBuilder = new StringBuilder();
-            stringBuilder.Append(enumerator.Current.ToString(format));
-
-            while (enumerator.MoveNext())
+            if (string.IsNullOrEmpty(separator))
             {
-                if (!string.IsNullOrEmpty(separator))
-                {
-                    stringBuilder.Append(separator);
-                }
-                stringBuilder.Append(enumerator.Current.ToString(format));
+                return Convert.ToHexString(bytes);
             }
 
-            return stringBuilder.ToString();
+            // 提前计算最终字符串的精确长度：(字节数 * 2) + (分隔符长度 * (字节数 - 1))
+            int sepLen = separator.Length;
+            int totalLen = bytes.Length * 2 + (bytes.Length - 1) * sepLen;
+
+            // 终极大杀器：string.Create (直接在最终生成的字符串内存中作画，无任何中间对象)
+            return string.Create(totalLen, (bytes, separator, sepLen), static (span, state) =>
+            {
+                (var data, var sep, var sepLength) = state;
+                var sepSpan = sep.AsSpan();
+
+                // 极速查表：编译器会将其优化为指向数据段的指针，没有任何内存分配
+                ReadOnlySpan<char> hexMap = "0123456789ABCDEF";
+
+                int pos = 0;
+                for (int i = 0; i < data.Length; i++)
+                {
+                    // 写入分隔符
+                    if (i > 0)
+                    {
+                        sepSpan.CopyTo(span.Slice(pos));
+                        pos += sepLength;
+                    }
+
+                    // 直接通过位运算提取高四位和低四位，查表写入，不产生任何临时字符串！
+                    byte b = data[i];
+                    span[pos++] = hexMap[b >> 4];
+                    span[pos++] = hexMap[b & 0x0F];
+                }
+            });
+        }
+
+        /// <summary>
+        /// Converts a hexadecimal string into a sequence of bytes.
+        /// </summary>
+        /// <param name="hexString">
+        /// A hexadecimal string that may contain spaces between byte groups.
+        /// Longer groups are split every two characters from left to right.
+        /// </param>
+        /// <returns>A sequence of bytes parsed from the hexadecimal string.</returns>
+        public static byte[] ToBytes(this string hexString)
+        {
+            if (string.IsNullOrEmpty(hexString))
+            {
+                return [];
+            }
+
+            byte[] res = new byte[hexString.Length];
+            int pos = 0;
+
+            for (int i = 0; i < hexString.Length; i++)
+            { 
+                if (!char.IsAsciiHexDigit(hexString[i]))
+                {
+                    continue;
+                }
+ 
+                int v = (hexString[i] & 0xF) + ((hexString[i] >> 6) * 9);
+ 
+                if (i + 1 < hexString.Length && char.IsAsciiHexDigit(hexString[i + 1]))
+                {
+                    v = (v << 4) | ((hexString[++i] & 0xF) + ((hexString[i] >> 6) * 9));
+                }
+
+                res[pos++] = (byte)v;
+            }
+
+            return res[..pos];
         }
 
         /// <summary>

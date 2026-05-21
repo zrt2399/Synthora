@@ -101,7 +101,7 @@
                             <ComboBoxItem>Item 3</ComboBoxItem>
                             <ComboBoxItem>Item 4</ComboBoxItem>
                         </ComboBox>
-                        <ComboBox ItemsSource="{EnumBindingSource AppThemeMode}"
+                        <ComboBox ItemsSource="{EnumBindingSource ThemeMode}"
                                   SelectedItem="{Binding SelectedEnumDescriptionMode}"
                                   TextBoxAttach.Header="ComboBox(With GetDescription and EnumBindingSourceExtension)">
                             <ComboBox.ItemTemplate>

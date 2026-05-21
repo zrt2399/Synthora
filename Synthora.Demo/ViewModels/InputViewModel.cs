@@ -10,7 +10,7 @@ namespace Synthora.Demo.ViewModels
         public partial string Greeting { get; set; } = "Welcome to Avalonia!";
 
         [ObservableProperty]
-        public partial AppThemeMode SelectedEnumDescriptionMode { get; set; }
+        public partial ThemeMode SelectedEnumDescriptionMode { get; set; }
 
         [ObservableProperty]
         public partial double Value { get; set; }

@@ -17,7 +17,7 @@ namespace Synthora.Demo.ViewModels
         {
             if (Application.Current is { } application)
             {
-                SelectedThemeMode = ToAppThemeMode(application.RequestedThemeVariant);
+                SelectedThemeMode = ToThemeMode(application.RequestedThemeVariant);
             }
             SelectedDensityStyle = SynthoraTheme.GetCurrentDensity();
             InitializeTreeMenuDemo();
@@ -30,8 +30,8 @@ namespace Synthora.Demo.ViewModels
         public partial TreeMenuDemoItem? SelectedTreeMenuItem { get; set; }
 
         [ObservableProperty]
-        public partial AppThemeMode SelectedThemeMode { get; set; }
-        partial void OnSelectedThemeModeChanged(AppThemeMode value)
+        public partial ThemeMode SelectedThemeMode { get; set; }
+        partial void OnSelectedThemeModeChanged(ThemeMode value)
         {
             if (Application.Current is { } application)
             {
@@ -78,21 +78,21 @@ namespace Synthora.Demo.ViewModels
             };
         }
 
-        private static AppThemeMode ToAppThemeMode(ThemeVariant? themeVariant)
+        private static ThemeMode ToThemeMode(ThemeVariant? themeVariant)
         {
             if (themeVariant == ThemeVariant.Default)
             {
-                return AppThemeMode.Default;
+                return ThemeMode.Default;
             }
-            return themeVariant == ThemeVariant.Light ? AppThemeMode.Light : AppThemeMode.Dark;
+            return themeVariant == ThemeVariant.Light ? ThemeMode.Light : ThemeMode.Dark;
         }
 
-        private static ThemeVariant ToThemeVariant(AppThemeMode mode)
+        private static ThemeVariant ToThemeVariant(ThemeMode mode)
         {
             return mode switch
             {
-                AppThemeMode.Light => ThemeVariant.Light,
-                AppThemeMode.Dark => ThemeVariant.Dark,
+                ThemeMode.Light => ThemeVariant.Light,
+                ThemeMode.Dark => ThemeVariant.Dark,
                 _ => ThemeVariant.Default
             };
         }

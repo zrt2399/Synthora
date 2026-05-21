@@ -76,4 +76,8 @@
 	<ItemGroup>
 		<ProjectReference Include="..\Synthora\Synthora.csproj" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Converters\ThemeModeToIconKindConverter.cs" />
+	</ItemGroup>
 </Project>

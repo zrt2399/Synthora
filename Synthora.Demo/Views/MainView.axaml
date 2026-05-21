@@ -24,11 +24,6 @@
         <vm:MainViewModel />
     </Design.DataContext>
 
-    <UserControl.Resources>
-        <converters:AppThemeModeToIconKindConverter x:Key="AppThemeModeToIconKindConverter" />
-        <converters:DensityStyleToIconKindConverter x:Key="DensityStyleToIconKindConverter" />
-    </UserControl.Resources>
-
     <UserControl.Styles>
         <!--  Card: content section card  -->
         <Style Selector="Border.card">
@@ -141,13 +136,17 @@
                                 Orientation="Horizontal"
                                 Spacing="16">
                         <ListBox AutoScrollToSelectedItem="False"
-                                 ItemsSource="{EnumBindingSource AppThemeMode}"
+                                 ItemsSource="{EnumBindingSource ThemeMode}"
                                  SelectedItem="{Binding SelectedThemeMode}"
                                  Theme="{StaticResource SegmentedListBoxTheme}"
                                  ToolTip.Tip="Switch app theme mode(Default / Light / Dark)">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
-                                    <materialIcons:MaterialIcon Margin="-2,0" Kind="{Binding Converter={StaticResource AppThemeModeToIconKindConverter}}" />
+                                    <PathIcon Width="16"
+                                              Height="16"
+                                              Margin="-2,0"
+                                              Data="{Binding Converter={x:Static SynthoraConverters.ThemeModeToPathDataConverter}}" />
+                                    <!-- <materialIcons:MaterialIcon Margin="-2,0" Kind="{Binding Converter={StaticResource ThemeModeToIconKindConverter}}" /> -->
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
@@ -158,7 +157,11 @@
                                  ToolTip.Tip="Switch app theme density(Compact / Normal)">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
-                                    <materialIcons:MaterialIcon Margin="-2,0" Kind="{Binding Converter={StaticResource DensityStyleToIconKindConverter}}" />
+                                    <PathIcon Width="16"
+                                              Height="16"
+                                              Margin="-2,0"
+                                              Data="{Binding Converter={x:Static SynthoraConverters.DensityStyleToIconKindConverter}}" />
+                                    <!-- <materialIcons:MaterialIcon Margin="-2,0" Kind="{Binding Converter={StaticResource DensityStyleToIconKindConverter}}" /> -->
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>

@@ -8,7 +8,7 @@ using Avalonia.Styling;
 
 namespace Synthora
 {
-    public enum AppThemeMode
+    public enum ThemeMode
     {
         [Description("系统")]
         Default,
