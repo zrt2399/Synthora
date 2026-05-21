@@ -28,30 +28,25 @@ namespace Synthora.Utils
                 return Convert.ToHexString(bytes);
             }
 
-            // 提前计算最终字符串的精确长度：(字节数 * 2) + (分隔符长度 * (字节数 - 1))
             int sepLen = separator.Length;
             int totalLen = bytes.Length * 2 + (bytes.Length - 1) * sepLen;
 
-            // 终极大杀器：string.Create (直接在最终生成的字符串内存中作画，无任何中间对象)
             return string.Create(totalLen, (bytes, separator, sepLen), static (span, state) =>
             {
                 (var data, var sep, var sepLength) = state;
                 var sepSpan = sep.AsSpan();
 
-                // 极速查表：编译器会将其优化为指向数据段的指针，没有任何内存分配
                 ReadOnlySpan<char> hexMap = "0123456789ABCDEF";
 
                 int pos = 0;
                 for (int i = 0; i < data.Length; i++)
                 {
-                    // 写入分隔符
                     if (i > 0)
                     {
                         sepSpan.CopyTo(span.Slice(pos));
                         pos += sepLength;
                     }
 
-                    // 直接通过位运算提取高四位和低四位，查表写入，不产生任何临时字符串！
                     byte b = data[i];
                     span[pos++] = hexMap[b >> 4];
                     span[pos++] = hexMap[b & 0x0F];
@@ -78,14 +73,14 @@ namespace Synthora.Utils
             int pos = 0;
 
             for (int i = 0; i < hexString.Length; i++)
-            { 
+            {
                 if (!char.IsAsciiHexDigit(hexString[i]))
                 {
                     continue;
                 }
- 
+
                 int v = (hexString[i] & 0xF) + ((hexString[i] >> 6) * 9);
- 
+
                 if (i + 1 < hexString.Length && char.IsAsciiHexDigit(hexString[i + 1]))
                 {
                     v = (v << 4) | ((hexString[++i] & 0xF) + ((hexString[i] >> 6) * 9));
