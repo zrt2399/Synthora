@@ -56,8 +56,7 @@
     </UserControl.Resources>
 
     <UserControl.Styles>
-        <Style Selector="Border.heroFrame">
-            <Setter Property="Margin" Value="16" />
+        <Style Selector="Border.heroFrame"> 
             <Setter Property="Background" Value="{DynamicResource HeroBorderBrush}" />
             <Setter Property="CornerRadius" Value="20" />
             <Setter Property="BoxShadow" Value="0 0 40 0 #44000000" />
@@ -69,8 +68,7 @@
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="CornerRadius" Value="20" />
         </Style>
-        <Style Selector="Border.card">
-            <Setter Property="Margin" Value="16" />
+        <Style Selector="Border.card"> 
             <Setter Property="Padding" Value="16" />
             <Setter Property="Background" Value="{DynamicResource CardSurfaceBrush}" />
             <Setter Property="BorderBrush" Value="{DynamicResource CardBorderBrush}" />
@@ -151,7 +149,7 @@
         </Panel>
 
         <ScrollViewer>
-            <StackPanel HorizontalAlignment="Center">
+            <StackPanel Margin="16" Spacing="16">
                 <Border Classes="heroFrame">
                     <Border Classes="heroShell">
                         <WrapPanel ItemSpacing="16" LineSpacing="16">
@@ -319,7 +317,7 @@
                     </Border>
                 </Border>
 
-                <WrapPanel>
+                <WrapPanel ItemSpacing="16" LineSpacing="16">
                     <Border MinWidth="320"
                             MaxWidth="460"
                             Classes="card">
@@ -428,7 +426,7 @@
                     </Border>
                 </WrapPanel>
 
-                <WrapPanel>
+                <WrapPanel LineSpacing="16" ItemSpacing="16">
                     <Border MinWidth="380"
                             MaxWidth="620"
                             Classes="card">
@@ -458,7 +456,6 @@
 
                     <Border MinWidth="380"
                             MaxWidth="620"
-                            Margin="16"
                             Classes="card">
                         <DockPanel VerticalSpacing="16">
                             <StackPanel Classes="sectionHeader" DockPanel.Dock="Top">

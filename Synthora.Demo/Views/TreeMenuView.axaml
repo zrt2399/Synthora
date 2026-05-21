@@ -32,7 +32,7 @@
             </TreeMenu.PaneHeader>
             <TreeMenuItem Content="Home Page"
                           Header="{materialIcons:MaterialIconTextExt Kind=Home,
-                                                                     Text=Home}"
+                          Text=Home}"
                           IsSelected="True" />
             <TreeMenuItem Header="{materialIcons:MaterialIconTextExt Kind=ViewDashboard, Text=Overview}">
                 <TreeMenuItem Content="Dashboard Page" Header="{materialIcons:MaterialIconTextExt Kind=ViewDashboard, Text=Dashboard}" />
@@ -45,7 +45,10 @@
                 <TreeMenuItem Content="Drafts Page" Header="{materialIcons:MaterialIconTextExt Kind=FileDocumentEdit, Text=Drafts}" />
             </TreeMenuItem>
             <TreeMenuItem Header="{materialIcons:MaterialIconTextExt Kind=Cog, Text=Settings}">
-                <TreeMenuItem Content="General Page" Header="{materialIcons:MaterialIconTextExt Kind=Tune, Text=General}" />
+                <TreeMenuItem Header="{materialIcons:MaterialIconTextExt Kind=Tune, Text=General}">
+                    <TreeMenuItem Content="About Page" Header="{materialIcons:MaterialIconTextExt Kind=About, Text=About}" />
+                    <TreeMenuItem Content="Storage Page" Header="{materialIcons:MaterialIconTextExt Kind=Storage, Text=Storage}" />
+                </TreeMenuItem>
                 <TreeMenuItem Content="Account Page" Header="{materialIcons:MaterialIconTextExt Kind=AccountCircle, Text=Account}" />
                 <TreeMenuItem Content="Privacy Page" Header="{materialIcons:MaterialIconTextExt Kind=ShieldLock, Text=Privacy}" />
             </TreeMenuItem>
