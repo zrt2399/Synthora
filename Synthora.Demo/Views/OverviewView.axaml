@@ -159,7 +159,7 @@
                                 <TextBlock Classes="heroEyebrow" Text="COLORFUL / RESPONSIVE / MAIN CONTROLS" />
                                 <TextBlock FontSize="32"
                                            FontWeight="SemiBold"
-                                           Text="Synthora Component Gallery"
+                                           Text="Synthora Avalonia Gallery"
                                            TextWrapping="Wrap" />
                                 <TextBlock Classes="muted"
                                            FontSize="16"
