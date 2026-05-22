@@ -14,7 +14,7 @@
                         CornerRadius="{TemplateBinding CornerRadius}">
                     <DockPanel>
                         <Border Margin="16,16,16,0"
-                                Padding="12,10"
+                                Padding="12"
                                 Background="{DynamicResource SynthoraMidBrush}"
                                 CornerRadius="12"
                                 DockPanel.Dock="Top">
@@ -33,12 +33,14 @@
                                             Spacing="2">
                                     <SelectableTextBlock FontSize="14"
                                                          FontWeight="SemiBold"
-                                                         Text="{TemplateBinding Title}" />
+                                                         Text="{TemplateBinding Title}"
+                                                         TextTrimming="CharacterEllipsis" />
                                     <SelectableTextBlock FontSize="11"
                                                          Foreground="{DynamicResource ThemeForegroundLowBrush}"
                                                          IsVisible="{TemplateBinding Description,
                                                                                      Converter={x:Static ObjectConverters.IsNotNull}}"
-                                                         Text="{TemplateBinding Description}" />
+                                                         Text="{TemplateBinding Description}"
+                                                         TextTrimming="CharacterEllipsis" />
                                 </StackPanel>
                             </DockPanel>
                         </Border>

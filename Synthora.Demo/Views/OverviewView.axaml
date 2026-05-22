@@ -261,8 +261,13 @@
                                                         Publish
                                                         <SplitButton.Flyout>
                                                             <MenuFlyout Placement="BottomEdgeAlignedLeft">
-                                                                <MenuItem Header="Publish now" />
-                                                                <MenuItem Header="Schedule" />
+                                                                <MenuItem GroupName="PublishGroupName"
+                                                                          Header="Publish now"
+                                                                          IsChecked="True"
+                                                                          ToggleType="Radio" />
+                                                                <MenuItem GroupName="PublishGroupName"
+                                                                          Header="Schedule"
+                                                                          ToggleType="Radio" />
                                                             </MenuFlyout>
                                                         </SplitButton.Flyout>
                                                     </SplitButton>
