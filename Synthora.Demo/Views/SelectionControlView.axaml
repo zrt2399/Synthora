@@ -12,48 +12,70 @@
              mc:Ignorable="d">
 
     <DemoPage Title="Selection Controls"
+              Padding="0"
               Description="{Binding Description}"
               IconKind="{Binding IconKind}">
-        <Border Classes="card">
+
+        <ScrollViewer Padding="16">
             <StackPanel Spacing="16">
-                <StackPanel Spacing="8">
-                    <!--  CheckBox  -->
-                    <TextBlock FontSize="11"
-                               Foreground="{DynamicResource ThemeForegroundLowBrush}"
-                               Text="CheckBox" />
-                    <SpacingWrapPanel HorizontalSpacing="8" VerticalSpacing="6">
-                        <CheckBox>Unchecked</CheckBox>
-                        <CheckBox IsChecked="True">Checked</CheckBox>
-                        <CheckBox />
-                        <CheckBox IsChecked="{x:Null}" IsThreeState="True">Three-state</CheckBox>
-                    </SpacingWrapPanel>
-                    <!--  RadioButton  -->
-                    <TextBlock FontSize="11"
-                               Foreground="{DynamicResource ThemeForegroundLowBrush}"
-                               Text="RadioButton" />
-                    <SpacingWrapPanel HorizontalSpacing="8" VerticalSpacing="6">
-                        <RadioButton>Unchecked</RadioButton>
-                        <RadioButton IsChecked="True">Checked</RadioButton>
-                        <RadioButton />
-                        <RadioButton IsChecked="{x:Null}" IsThreeState="True">Three-state</RadioButton>
-                    </SpacingWrapPanel>
-                    <!--  Segmented RadioButton  -->
-                    <TextBlock FontSize="11"
-                               Foreground="{DynamicResource ThemeForegroundLowBrush}"
-                               Text="Segmented RadioButton" />
-                    <ListBox AutoScrollToSelectedItem="False"
-                             ItemsSource="{EnumBindingSource VerticalAlignment}"
-                             SelectedIndex="0"
-                             Theme="{StaticResource SegmentedListBoxTheme}" />
-                </StackPanel>
-                <SpacingWrapPanel HorizontalSpacing="8" VerticalSpacing="6">
-                    <ToggleSwitch OffContent="{x:Null}" OnContent="{x:Null}" />
-                    <ToggleSwitch OffContent="123" OnContent="456789" />
-                    <ToggleSwitch />
-                    <ToggleSwitch IsChecked="True" />
-                </SpacingWrapPanel>
+                <!--  CheckBox  -->
+                <Border Classes="card">
+                    <StackPanel Spacing="16">
+                        <StackPanel Classes="sectionHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="CheckboxMarked" />
+                            <TextBlock Classes="sectionLabel" Text="CHECK BOX" />
+                        </StackPanel>
+                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <CheckBox>Unchecked</CheckBox>
+                            <CheckBox IsChecked="True">Checked</CheckBox>
+                            <CheckBox />
+                            <CheckBox IsChecked="{x:Null}" IsThreeState="True">Three-state</CheckBox>
+                        </SpacingWrapPanel>
+                    </StackPanel>
+                </Border>
+                <!--  RadioButton  -->
+                <Border Classes="card">
+                    <StackPanel Spacing="16">
+                        <StackPanel Classes="sectionHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="RadioboxMarked" />
+                            <TextBlock Classes="sectionLabel" Text="RADIO BUTTON" />
+                        </StackPanel>
+                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <RadioButton>Unchecked</RadioButton>
+                            <RadioButton IsChecked="True">Checked</RadioButton>
+                            <RadioButton />
+                            <RadioButton IsChecked="{x:Null}" IsThreeState="True">Three-state</RadioButton>
+                        </SpacingWrapPanel>
+                        <!--  Segmented RadioButton  -->
+                        <StackPanel Spacing="6">
+                            <TextBlock FontSize="11"
+                                       Foreground="{DynamicResource ThemeForegroundLowBrush}"
+                                       Text="Segmented RadioButton" />
+                            <ListBox AutoScrollToSelectedItem="False"
+                                     ItemsSource="{EnumBindingSource VerticalAlignment}"
+                                     SelectedIndex="0"
+                                     Theme="{StaticResource SegmentedListBoxTheme}" />
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <!--  ToggleSwitch  -->
+                <Border Classes="card">
+                    <StackPanel Spacing="16">
+                        <StackPanel Classes="sectionHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ToggleSwitch" />
+                            <TextBlock Classes="sectionLabel" Text="TOGGLE SWITCH" />
+                        </StackPanel>
+                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <ToggleSwitch OffContent="{x:Null}" OnContent="{x:Null}" />
+                            <ToggleSwitch OffContent="Avalonia" OnContent="WPF" />
+                            <ToggleSwitch />
+                            <ToggleSwitch IsChecked="True" />
+                        </SpacingWrapPanel>
+                        <ToggleSwitch>ToggleSwitch</ToggleSwitch>
+                    </StackPanel>
+                </Border>
             </StackPanel>
-        </Border>
+        </ScrollViewer>
     </DemoPage>
 
 </UserControl>
