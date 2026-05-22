@@ -114,12 +114,12 @@
                                             <Ellipse Name="Pip"
                                                      Width="8"
                                                      Height="8"
-                                                     Fill="{DynamicResource ThemeBorderLowColor}" />
+                                                     Fill="{DynamicResource ThemeBorderLowBrush}" />
                                         </ControlTemplate>
                                     </Setter>
                                 </Style>
                                 <Style Selector="ListBoxItem:selected /template/ Ellipse#Pip">
-                                    <Setter Property="Fill" Value="{DynamicResource ThemeControlVeryHighColor}" />
+                                    <Setter Property="Fill" Value="{DynamicResource ThemeControlVeryHighBrush}" />
                                 </Style>
                                 <Style Selector="ListBoxItem:pointerover /template/ Ellipse#Pip">
                                     <Setter Property="RenderTransform" Value="scale(1.25)" />

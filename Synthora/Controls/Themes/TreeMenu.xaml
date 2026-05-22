@@ -11,7 +11,7 @@
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
-        <Setter Property="MenuBackground" Value="{DynamicResource ThemeControlLowColor}" />
+        <Setter Property="MenuBackground" Value="{DynamicResource ThemeControlLowBrush}" />
         <!-- <Setter Property="ItemContainerTheme" Value="{StaticResource TreeMenuItemTheme}" /> -->
         <Setter Property="Template">
             <ControlTemplate>

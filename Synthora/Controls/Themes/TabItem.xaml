@@ -59,7 +59,7 @@
 
         <Style Selector="^:pointerover /template/ Border#PART_SelectedPipe">
             <Setter Property="IsVisible" Value="True" />
-            <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidColor}" />
+            <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidBrush}" />
         </Style>
 
         <Style Selector="^:selected">
@@ -81,13 +81,12 @@
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
-        <Setter Property="Margin" Value="{DynamicResource ThemeControlBorderPadding}" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="CornerRadius">
             <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.All}">
-                <Binding Path="CornerRadius" RelativeSource="{RelativeSource Tree=Visual, AncestorType=Border}" />
-                <Binding Path="BorderThickness" RelativeSource="{RelativeSource Tree=Visual, AncestorType=Border}" />
-                <Binding Path="$self.Margin" />
+                <Binding Path="CornerRadius" RelativeSource="{RelativeSource AncestorType=Border}" />
+                <Binding Path="BorderThickness" RelativeSource="{RelativeSource AncestorType=Border}" />
+                <Binding Path="Padding" RelativeSource="{RelativeSource AncestorType=Border}" />
             </MultiBinding>
         </Setter>
         <Setter Property="Template">
@@ -109,7 +108,7 @@
         </Setter>
 
         <Style Selector="^:pointerover">
-            <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidColor}" />
+            <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidBrush}" />
         </Style>
 
         <Style Selector="^:selected">

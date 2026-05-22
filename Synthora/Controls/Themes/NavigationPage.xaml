@@ -10,7 +10,7 @@
     </Design.PreviewWith>
 
     <x:Double x:Key="NavigationPageBarHeight">36</x:Double>
-    <SolidColorBrush x:Key="NavigationPageHeaderBarBackground" Color="{DynamicResource ThemeControlMidColor}" />
+    <SolidColorBrush x:Key="NavigationPageHeaderBarBackground" Color="{DynamicResource ThemeControlLowColor}" />
 
     <ControlTheme x:Key="{x:Type NavigationPage}" TargetType="NavigationPage">
         <Setter Property="BarHeight" Value="{DynamicResource NavigationPageBarHeight}" />
@@ -111,7 +111,7 @@
 
                                 <ContentPresenter Name="PART_Header"
                                                   Grid.Column="1"
-                                                  Margin="6,0"
+                                                  Margin="8,0"
                                                   VerticalAlignment="Center"
                                                   Content="{Binding CurrentPage?.Header, RelativeSource={RelativeSource TemplatedParent}, FallbackValue={x:Null}}"
                                                   ContentTemplate="{Binding CurrentPage?.HeaderTemplate, RelativeSource={RelativeSource TemplatedParent}, FallbackValue={x:Null}}"

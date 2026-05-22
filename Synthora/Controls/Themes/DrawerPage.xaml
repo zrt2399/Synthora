@@ -13,7 +13,7 @@
     </Design.PreviewWith>
 
     <x:Double x:Key="NavigationControlNavBarHeight">36</x:Double>
-    <SolidColorBrush x:Key="DrawerPageHeaderBarBackground" Color="{DynamicResource ThemeControlMidColor}" />
+    <SolidColorBrush x:Key="DrawerPageHeaderBarBackground" Color="{DynamicResource ThemeControlLowColor}" />
 
     <StreamGeometry x:Key="DrawerPaneButtonIcon">M432 176H80c-8.8 0-16-7.2-16-16s7.2-16 16-16h352c8.8 0 16 7.2 16 16s-7.2 16-16 16zM432 272H80c-8.8 0-16-7.2-16-16s7.2-16 16-16h352c8.8 0 16 7.2 16 16s-7.2 16-16 16zM432 368H80c-8.8 0-16-7.2-16-16s7.2-16 16-16h352c8.8 0 16 7.2 16 16s-7.2 16-16 16z</StreamGeometry>
 
@@ -89,7 +89,7 @@
                                     Height="{DynamicResource NavigationControlNavBarHeight}"
                                     Background="{DynamicResource DrawerPageHeaderBarBackground}"
                                     DockPanel.Dock="Top">
-                                <DockPanel HorizontalAlignment="Stretch" HorizontalSpacing="6">
+                                <DockPanel HorizontalAlignment="Stretch" HorizontalSpacing="8">
                                     <ToggleButton x:Name="PART_PaneButton"
                                                   Width="{Binding $self.Bounds.Height}"
                                                   AutomationProperties.Name="Toggle navigation drawer"
@@ -126,7 +126,7 @@
                                     Background="{DynamicResource DrawerPageHeaderBarBackground}"
                                     DockPanel.Dock="Bottom"
                                     IsVisible="False">
-                                <DockPanel HorizontalAlignment="Stretch" HorizontalSpacing="6">
+                                <DockPanel HorizontalAlignment="Stretch" HorizontalSpacing="8">
                                     <ToggleButton x:Name="PART_BottomPaneButton"
                                                   Width="{Binding $self.Bounds.Height}"
                                                   AutomationProperties.Name="Toggle navigation drawer"

@@ -28,7 +28,7 @@
     <ControlTheme x:Key="{x:Type SplitView}" TargetType="SplitView">
         <Setter Property="OpenPaneLength" Value="{DynamicResource SplitViewOpenPaneThemeLength}" />
         <Setter Property="CompactPaneLength" Value="{DynamicResource SplitViewCompactPaneThemeLength}" />
-        <Setter Property="PaneBackground" Value="{DynamicResource ThemeControlMidBrush}" />
+        <Setter Property="PaneBackground" Value="{DynamicResource ThemeControlLowBrush}" />
 
         <!--  Left  -->
         <Style Selector="^:left">
@@ -459,7 +459,7 @@
         </Style>
 
         <Style Selector="^:lightDismiss /template/ Rectangle#LightDismissLayer">
-            <Setter Property="Fill" Value="{DynamicResource ThemeOverlayColor}" />
+            <Setter Property="Fill" Value="{DynamicResource ThemeOverlayBrush}" />
         </Style>
 
         <Style Selector="^:overlay:open /template/ Rectangle#LightDismissLayer">

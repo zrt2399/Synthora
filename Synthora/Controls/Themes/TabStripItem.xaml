@@ -37,7 +37,7 @@
 
         <Style Selector="^:pointerover /template/ Border#PART_SelectedPipe">
             <Setter Property="IsVisible" Value="True" />
-            <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidColor}" />
+            <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidBrush}" />
         </Style>
 
         <Style Selector="^:selected /template/ Border#PART_SelectedPipe">
