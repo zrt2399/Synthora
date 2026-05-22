@@ -71,10 +71,9 @@
                                 </ItemsPresenter.ItemsPanel>
                             </ItemsPresenter>
                         </Border>
-                        <Border Name="Border_Root"
+                        <Border Name="contentBorder"
                                 Margin="{TemplateBinding Padding}"
-                                BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-                                ClipToBounds="True">
+                                BorderBrush="{DynamicResource ThemeBorderLowBrush}">
                             <Panel>
                                 <ContentPresenter Name="PART_SelectedContentHost2"
                                                   HorizontalContentAlignment="Stretch"
@@ -96,24 +95,27 @@
         </Style>
 
         <Style Selector="^[TabStripPlacement=Top]">
-            <Style Selector="^ /template/ Border#Border_Root">
+            <Style Selector="^ /template/ Border#contentBorder">
                 <Setter Property="BorderThickness" Value="0,1,0,0" />
             </Style>
         </Style>
         <Style Selector="^[TabStripPlacement=Left]">
-            <Style Selector="^ /template/ Border#Border_Root">
+            <Style Selector="^ /template/ Border#contentBorder">
                 <Setter Property="BorderThickness" Value="1,0,0,0" />
             </Style>
         </Style>
         <Style Selector="^[TabStripPlacement=Right]">
-            <Style Selector="^ /template/ Border#Border_Root">
+            <Style Selector="^ /template/ Border#contentBorder">
                 <Setter Property="BorderThickness" Value="0,0,1,0" />
             </Style>
         </Style>
         <Style Selector="^[TabStripPlacement=Bottom]">
-            <Style Selector="^ /template/ Border#Border_Root">
+            <Style Selector="^ /template/ Border#contentBorder">
                 <Setter Property="BorderThickness" Value="0,0,0,1" />
             </Style>
+        </Style>
+        <Style Selector="^[(TabControlAttach.ShowHeaderSeparator)=False] /template/ Border#contentBorder">
+            <Setter Property="BorderThickness" Value="0" />
         </Style>
     </ControlTheme>
 
@@ -253,7 +255,7 @@
 
         <!--  Disabled  -->
         <Style Selector="^:disabled">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledHighOpacity}" />
         </Style>
 
         <!--  Focus visible  -->

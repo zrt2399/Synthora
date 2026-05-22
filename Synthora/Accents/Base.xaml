@@ -284,6 +284,7 @@
 
     <x:Double x:Key="ThemePlaceholderTextOpacity">0.6</x:Double>
     <x:Double x:Key="ThemeDisabledOpacity">0.8</x:Double>
+    <x:Double x:Key="ThemeDisabledHighOpacity">0.6</x:Double>
 
     <x:Double x:Key="FontSizeSmall">10</x:Double>
     <x:Double x:Key="FontSizeNormal">12</x:Double>

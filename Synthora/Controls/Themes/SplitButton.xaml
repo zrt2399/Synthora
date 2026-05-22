@@ -41,14 +41,14 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
-                    <DropShadowChrome Name="RootChrome"
-                                      Background="{TemplateBinding Background}"
-                                      BorderBrush="{TemplateBinding BorderBrush}"
-                                      BorderThickness="{TemplateBinding BorderThickness}"
-                                      BoxShadow="{DynamicResource EmptyBoxShadow}"
-                                      CornerRadius="{TemplateBinding CornerRadius}" />
+                    <Border Name="RootBorder"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}" />
                     <Grid ColumnDefinitions="*,Auto,Auto">
                         <Button x:Name="PART_PrimaryButton"
+                                Margin="0,0,-1,0"
                                 Padding="{TemplateBinding Padding}"
                                 Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
@@ -71,6 +71,7 @@
                                                         Fill="{TemplateBinding Foreground}" />
                         <Button x:Name="PART_SecondaryButton"
                                 Grid.Column="2"
+                                Margin="-1,0,0,0"
                                 Padding="{TemplateBinding Padding}"
                                 Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
@@ -115,7 +116,7 @@
         </Style>
 
         <Style Selector="^:focus,^:pointerover">
-            <Style Selector="^[(ButtonAttach.ShowShadow)=True] /template/ DropShadowChrome#RootChrome">
+            <Style Selector="^[(ButtonAttach.ShowShadow)=True] /template/ Border#RootBorder">
                 <Setter Property="BoxShadow" Value="{TemplateBinding BorderBrush, Converter={x:Static SynthoraConverters.BoxShadowConverter}, ConverterParameter={x:Static BoxShadowConverter.ButtonPointerOverParameter}}" />
             </Style>
         </Style>

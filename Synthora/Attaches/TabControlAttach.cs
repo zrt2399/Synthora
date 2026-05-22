@@ -12,10 +12,16 @@ namespace Synthora.Attaches
         public static readonly AttachedProperty<VerticalAlignment> VerticalHeaderAlignmentProperty =
             AvaloniaProperty.RegisterAttached<TabControlAttach, TabControl, VerticalAlignment>("VerticalHeaderAlignment");
 
+        public static readonly AttachedProperty<bool> ShowHeaderSeparatorProperty =
+            AvaloniaProperty.RegisterAttached<TabControlAttach, TabControl, bool>("ShowHeaderSeparator", defaultValue: true);
+
         public static HorizontalAlignment GetHorizontalHeaderAlignment(TabControl obj) => obj.GetValue(HorizontalHeaderAlignmentProperty);
         public static void SetHorizontalHeaderAlignment(TabControl obj, HorizontalAlignment value) => obj.SetValue(HorizontalHeaderAlignmentProperty, value);
-        
+
         public static VerticalAlignment GetVerticalHeaderAlignment(TabControl obj) => obj.GetValue(VerticalHeaderAlignmentProperty);
         public static void SetVerticalHeaderAlignment(TabControl obj, VerticalAlignment value) => obj.SetValue(VerticalHeaderAlignmentProperty, value);
+
+        public static bool GetShowHeaderSeparator(TabControl obj) => obj.GetValue(ShowHeaderSeparatorProperty);
+        public static void SetShowHeaderSeparator(TabControl obj, bool value) => obj.SetValue(ShowHeaderSeparatorProperty, value);
     }
 }
