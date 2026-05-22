@@ -15,6 +15,11 @@
               IconKind="{Binding IconKind}">
         <DockPanel VerticalSpacing="16">
             <CommandBar DefaultLabelPosition="Bottom" DockPanel.Dock="Top">
+                <CommandBarToggleButton x:Name="BackButtonToggle"
+                                        Icon="{materialIcons:MaterialIconExt Kind=ArrowLeftBox}"
+                                        IsChecked="True"
+                                        Label="BackButton"
+                                        ToolTip.Tip="Has go back button" />
                 <CommandBarButton Click="PushAsync"
                                   Icon="{materialIcons:MaterialIconExt Kind=ArrowRight}"
                                   Label="Push"
@@ -41,7 +46,8 @@
                                   Label="PopAllModals"
                                   ToolTip.Tip="PopAllModalsAsync" />
             </CommandBar>
-            <NavigationPage Name="navigationPage" />
+            <NavigationPage Name="navigationPage"
+                            IsBackButtonVisible="{Binding #BackButtonToggle.IsChecked}" />
         </DockPanel>
     </DemoPage>
 

@@ -12,7 +12,7 @@
 
     <DemoPage Title="Menus &amp; Commands"
               Padding="0"
-              Description="Nested command bar, menu, flyout and checked menu item examples in one page."
+              Description="Nested command bar, menu, context menu, flyout and checked menu item examples in one page."
               IconKind="{Binding IconKind}">
         <ScrollViewer Padding="16">
             <StackPanel Spacing="16">
@@ -103,10 +103,13 @@
                             <Button.ContextFlyout>
                                 <MenuFlyout>
                                     <MenuItem Header="More menu">
-                                        <MenuItem Header="Star" Icon="{materialIcons:MaterialIconExt Kind=Star}" />
-                                        <MenuItem Header="Previous" Icon="{materialIcons:MaterialIconExt Kind=SkipPrevious}" />
-                                        <MenuItem Header="Play" Icon="{materialIcons:MaterialIconExt Kind=Play}" />
-                                        <MenuItem Header="Next" Icon="{materialIcons:MaterialIconExt Kind=SkipNext}" />
+                                        <MenuItem Header="Down" Icon="{materialIcons:MaterialIconExt Kind=Download}" />
+                                        <MenuItem Header="Control">
+                                            <MenuItem Header="Star" Icon="{materialIcons:MaterialIconExt Kind=Star}" />
+                                            <MenuItem Header="Previous" Icon="{materialIcons:MaterialIconExt Kind=SkipPrevious}" />
+                                            <MenuItem Header="Play" Icon="{materialIcons:MaterialIconExt Kind=Play}" />
+                                            <MenuItem Header="Next" Icon="{materialIcons:MaterialIconExt Kind=SkipNext}" />
+                                        </MenuItem>
                                     </MenuItem>
                                     <Separator />
                                     <MenuItem Foreground="{StaticResource DangerBrush}"
@@ -121,6 +124,7 @@
                                     <MenuItem Header="Checkable"
                                               InputGesture="Alt+C"
                                               IsChecked="True"
+                                              StaysOpenOnClick="True"
                                               ToggleType="CheckBox" />
                                     <MenuItem GroupName="RadioableMenuItem"
                                               Header="Radioable1"
@@ -133,6 +137,54 @@
                                               ToggleType="Radio" />
                                 </MenuFlyout>
                             </Button.ContextFlyout>
+                        </Button>
+                        <Button Content="ButtonWithContextMenu" Theme="{DynamicResource SuccessButtonTheme}">
+                            <Button.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Add Cut"
+                                              Icon="{materialIcons:MaterialIconExt Kind=ContentCut}"
+                                              InputGesture="Ctrl+K" />
+                                    <MenuItem Header="Ripple Delete"
+                                              Icon="{materialIcons:MaterialIconExt Kind=DeleteSweepOutline}"
+                                              InputGesture="Shift+Delete" />
+                                    <MenuItem Header="Duplicate Clip"
+                                              Icon="{materialIcons:MaterialIconExt Kind=ContentCopy}"
+                                              InputGesture="Ctrl+D" />
+                                    <Separator />
+                                    <MenuItem Header="Speed">
+                                        <MenuItem GroupName="ClipSpeed"
+                                                  Header="0.5x"
+                                                  StaysOpenOnClick="True"
+                                                  ToggleType="Radio" />
+                                        <MenuItem GroupName="ClipSpeed"
+                                                  Header="1.0x"
+                                                  IsChecked="True"
+                                                  StaysOpenOnClick="True"
+                                                  ToggleType="Radio" />
+                                        <MenuItem GroupName="ClipSpeed"
+                                                  Header="1.5x"
+                                                  StaysOpenOnClick="True"
+                                                  ToggleType="Radio" />
+                                        <MenuItem GroupName="ClipSpeed"
+                                                  Header="2.0x"
+                                                  StaysOpenOnClick="True"
+                                                  ToggleType="Radio" />
+                                    </MenuItem>
+                                    <MenuItem Header="Audio">
+                                        <MenuItem Header="Mute" ToggleType="CheckBox" />
+                                        <MenuItem Header="Normalize"
+                                                  IsChecked="True"
+                                                  ToggleType="CheckBox" />
+                                        <MenuItem Header="Detach Audio" Icon="{materialIcons:MaterialIconExt Kind=LinkOff}" />
+                                    </MenuItem>
+                                    <Separator />
+                                    <MenuItem Header="Add Transition"
+                                              Icon="{materialIcons:MaterialIconExt Kind=Transition}"
+                                              InputGesture="Ctrl+T" />
+                                    <MenuItem Header="Reveal in Media Bin" Icon="{materialIcons:MaterialIconExt Kind=FolderSearchOutline}" />
+                                    <MenuItem Header="Export Range..." Icon="{materialIcons:MaterialIconExt Kind=ExportVariant}" />
+                                </ContextMenu>
+                            </Button.ContextMenu>
                         </Button>
                     </StackPanel>
                 </Border>
