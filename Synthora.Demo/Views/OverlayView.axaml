@@ -13,7 +13,7 @@
 
     <DemoPage Title="Overlays &amp; Feedback"
               Padding="0"
-              Description="Trigger notification, message tip and alert dialog overlays from one place."
+              Description="{Binding Description}"
               IconKind="{Binding IconKind}">
         <ScrollViewer Padding="16">
             <StackPanel Spacing="16">

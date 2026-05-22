@@ -1,4 +1,3 @@
-using CommunityToolkit.Mvvm.ComponentModel;
 using Material.Icons;
 using Synthora.Demo.Models;
 

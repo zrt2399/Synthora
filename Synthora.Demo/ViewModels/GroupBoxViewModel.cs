@@ -8,6 +8,7 @@ namespace Synthora.Demo.ViewModels
         public GroupBoxViewModel()
         {
             IconKind = MaterialIconKind.ApplicationOutline;
+            Description = "GroupBox, GroupBoxEx, DropShadowChrome";
         }
     }
 }

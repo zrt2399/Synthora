@@ -12,7 +12,7 @@
 
     <DemoPage Title="Range Controls"
               Padding="0"
-              Description="Interact with pipsPagers sliders, dividers and progress indicators in both directions."
+              Description="{Binding Description}"
               IconKind="{Binding IconKind}">
         <ScrollViewer Padding="16">
             <Border Classes="card">

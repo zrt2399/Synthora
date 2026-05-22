@@ -11,7 +11,7 @@
              mc:Ignorable="d">
 
     <DemoPage Title="Carousel"
-              Description="Test plain carousel items and CarouselPage page containers in one place."
+              Description="{Binding Description}"
               IconKind="{Binding IconKind}">
         <UniformGrid Columns="1" RowSpacing="16">
             <Border Classes="card">
@@ -59,7 +59,7 @@
                 <DockPanel VerticalSpacing="16">
                     <StackPanel Classes="sectionHeader" DockPanel.Dock="Top">
                         <materialIcons:MaterialIcon Classes="sectionIcon" Kind="BookOpenPageVariantOutline" />
-                        <TextBlock Classes="sectionLabel" Text="CAROUSEL PAGE" />
+                        <TextBlock Classes="sectionLabel" Text="CAROUSEL PAGE(USE POINTER WHEEL)" />
                     </StackPanel>
 
                     <CarouselPage SelectedIndex="1">

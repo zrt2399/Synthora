@@ -8,6 +8,7 @@ namespace Synthora.Demo.ViewModels
         public CalendarViewModel()
         {
             IconKind = MaterialIconKind.CalendarMonth;
+            Description = "CalendarDatePicker, DatePicker, TimePicker, Calendar";
         }
     }
 }

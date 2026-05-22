@@ -27,7 +27,7 @@ namespace Synthora.Demo.Views
 
         private void PushAsync(object? sender, RoutedEventArgs e)
         {
-            navigationPage.PushAsync(CreatePage(++_pageIndex, "Page", "PushAsyncContent"));
+            navigationPage.PushAsync(CreatePage(++_pageIndex, "Page"));
         }
 
         private void PopAsync(object? sender, RoutedEventArgs e)
@@ -43,7 +43,7 @@ namespace Synthora.Demo.Views
 
         private void PushModalAsync(object? sender, RoutedEventArgs e)
         {
-            navigationPage.PushModalAsync(CreatePage(++_modalIndex, "Modal", "PushModalAsyncContent"));
+            navigationPage.PushModalAsync(CreatePage(++_modalIndex, "Modal"));
         }
 
         private void PopModalAsync(object? sender, RoutedEventArgs e)
@@ -62,11 +62,11 @@ namespace Synthora.Demo.Views
             return new ContentPage
             {
                 Header = "Home",
-                Content = CreateContent("Root page", PagePalette[0])
+                Content = CreateContent("Root page", PagePalette[1])
             };
         }
 
-        private static ContentPage CreatePage(int pageIndex, string header, string content)
+        private static ContentPage CreatePage(int pageIndex, string header)
         {
             var palette = PagePalette[(pageIndex - 1) % PagePalette.Length];
 

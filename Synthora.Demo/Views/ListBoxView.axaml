@@ -12,7 +12,7 @@
              mc:Ignorable="d">
 
     <DemoPage Title="List Box"
-              Description="Browse the Material icon set inside a simple list box showcase."
+              Description="{Binding Description}"
               IconKind="{Binding IconKind}">
         <ListBox CornerRadius="12" ItemsSource="{EnumBindingSource icons:MaterialIconKind}" />
     </DemoPage>

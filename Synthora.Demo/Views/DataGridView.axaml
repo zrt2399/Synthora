@@ -21,7 +21,7 @@
 
     <DemoPage Title="Data Grid"
               Padding="0"
-              Description="Inspect grouping, styling and interaction states for tabular data."
+              Description="{Binding Description}"
               IconKind="{Binding IconKind}">
         <TabControl Padding="16">
             <TabControl.Styles>

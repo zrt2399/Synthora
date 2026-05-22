@@ -134,40 +134,50 @@
                 </TreeMenu.DataTemplates>
                 <TreeMenu.PaneHeader>
                     <StackPanel Margin="32"
-                                HorizontalAlignment="Center"
+                                HorizontalAlignment="Stretch"
                                 VerticalAlignment="Center"
-                                Orientation="Horizontal"
                                 Spacing="16">
-                        <ListBox AutoScrollToSelectedItem="False"
-                                 ItemsSource="{EnumBindingSource ThemeMode}"
-                                 SelectedItem="{Binding SelectedThemeMode}"
-                                 Theme="{StaticResource SegmentedListBoxTheme}"
-                                 ToolTip.Tip="Switch app theme mode(Default / Light / Dark)">
-                            <ListBox.ItemTemplate>
-                                <DataTemplate>
-                                    <PathIcon Width="16"
-                                              Height="16"
-                                              Margin="-2,0"
-                                              Data="{Binding Converter={x:Static SynthoraConverters.ThemeModeToPathDataConverter}}" />
-                                    <!-- <materialIcons:MaterialIcon Margin="-2,0" Kind="{Binding Converter={StaticResource ThemeModeToIconKindConverter}}" /> -->
-                                </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListBox>
-                        <ListBox AutoScrollToSelectedItem="False"
-                                 ItemsSource="{EnumBindingSource so:DensityStyle}"
-                                 SelectedItem="{Binding SelectedDensityStyle}"
-                                 Theme="{StaticResource SegmentedListBoxTheme}"
-                                 ToolTip.Tip="Switch app theme density(Compact / Normal)">
-                            <ListBox.ItemTemplate>
-                                <DataTemplate>
-                                    <PathIcon Width="16"
-                                              Height="16"
-                                              Margin="-2,0"
-                                              Data="{Binding Converter={x:Static SynthoraConverters.DensityStyleToIconKindConverter}}" />
-                                    <!-- <materialIcons:MaterialIcon Margin="-2,0" Kind="{Binding Converter={StaticResource DensityStyleToIconKindConverter}}" /> -->
-                                </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListBox>
+                        <StackPanel HorizontalAlignment="Center"
+                                    Orientation="Horizontal"
+                                    Spacing="16">
+                            <ListBox AutoScrollToSelectedItem="False"
+                                     ItemsSource="{EnumBindingSource ThemeMode}"
+                                     SelectedItem="{Binding SelectedThemeMode}"
+                                     Theme="{StaticResource SegmentedListBoxTheme}"
+                                     ToolTip.Tip="Switch app theme mode(Default / Light / Dark)">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <PathIcon Width="16"
+                                                  Height="16"
+                                                  Margin="-2,0"
+                                                  Data="{Binding Converter={x:Static SynthoraConverters.ThemeModeToPathDataConverter}}" />
+                                        <!-- <materialIcons:MaterialIcon Margin="-2,0" Kind="{Binding Converter={StaticResource ThemeModeToIconKindConverter}}" /> -->
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                            <ListBox AutoScrollToSelectedItem="False"
+                                     ItemsSource="{EnumBindingSource so:DensityStyle}"
+                                     SelectedItem="{Binding SelectedDensityStyle}"
+                                     Theme="{StaticResource SegmentedListBoxTheme}"
+                                     ToolTip.Tip="Switch app theme density(Compact / Normal)">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <PathIcon Width="16"
+                                                  Height="16"
+                                                  Margin="-2,0"
+                                                  Data="{Binding Converter={x:Static SynthoraConverters.DensityStyleToIconKindConverter}}" />
+                                        <!-- <materialIcons:MaterialIcon Margin="-2,0" Kind="{Binding Converter={StaticResource DensityStyleToIconKindConverter}}" /> -->
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </StackPanel>
+                        <TextBox VerticalContentAlignment="Center"
+                                 PlaceholderText="Search"
+                                 Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}">
+                            <TextBox.InnerLeftContent>
+                                <materialIcons:MaterialIcon Margin="{DynamicResource ThemeControlRightPadding}" Kind="Search" />
+                            </TextBox.InnerLeftContent>
+                        </TextBox>
                     </StackPanel>
                 </TreeMenu.PaneHeader>
 
@@ -199,6 +209,7 @@
                                   TargetType="TreeMenuItem">
                         <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
                         <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
+                        <Setter Property="IsVisible" Value="{Binding IsVisible}" />
                     </ControlTheme>
                 </TreeMenu.ItemContainerTheme>
             </TreeMenu>

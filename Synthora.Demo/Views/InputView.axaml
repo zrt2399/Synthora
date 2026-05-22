@@ -12,7 +12,7 @@
 
     <DemoPage Title="Input Controls"
               Padding="0"
-              Description="Test text input, numeric controls and editable selection experiences."
+              Description="{Binding Description}"
               IconKind="{Binding IconKind}">
         <ScrollViewer Padding="16">
             <StackPanel Spacing="16">

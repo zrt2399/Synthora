@@ -31,6 +31,7 @@ namespace Synthora.Demo.ViewModels
         public ExtendedControlViewModel()
         {
             IconKind = MaterialIconKind.Widgets;
+            Description = "DropShadowChrome, GroupBoxEx, PathPicker, SpacingWrapPanel, EmptyBox";
         }
     }
 }

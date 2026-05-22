@@ -23,6 +23,7 @@ namespace Synthora.Demo.ViewModels
         public DragTabControlViewModel()
         {
             IconKind = MaterialIconKind.DragVariant;
+            Description = "DragTabControl, DragTabItem";
 
             var list = new List<DragTabItemModel>();
             for (var i = 0; i < 5; i++)
@@ -57,6 +58,7 @@ namespace Synthora.Demo.ViewModels
         public TabControlViewModel()
         {
             IconKind = MaterialIconKind.Tab;
+            Description = "TabControl, TabItem";
         }
     }
 
@@ -65,6 +67,7 @@ namespace Synthora.Demo.ViewModels
         public SplitViewViewModel()
         {
             IconKind = MaterialIconKind.ViewSplitVertical;
+            Description = "SplitView, TabStrip, TabStripItem";
         }
     }
 
@@ -73,6 +76,7 @@ namespace Synthora.Demo.ViewModels
         public TabbedPageViewModel()
         {
             IconKind = MaterialIconKind.TabPlus;
+            Description = "TabbedPage, ContentPage";
         }
     }
 
@@ -81,6 +85,7 @@ namespace Synthora.Demo.ViewModels
         public DrawerPageViewModel()
         {
             IconKind = MaterialIconKind.DockLeft;
+            Description = "DrawerPage";
         }
     }
 
@@ -89,6 +94,7 @@ namespace Synthora.Demo.ViewModels
         public NavigationPageViewModel()
         {
             IconKind = MaterialIconKind.NavigationVariant;
+            Description = "NavigationPage";
         }
     }
 
@@ -97,6 +103,7 @@ namespace Synthora.Demo.ViewModels
         public CarouselViewModel()
         {
             IconKind = MaterialIconKind.ViewCarousel;
+            Description = "Carousel, PipsPager, CarouselPage, ContentPage";
         }
     }
 
@@ -105,6 +112,7 @@ namespace Synthora.Demo.ViewModels
         public TreeMenuViewModel()
         {
             IconKind = MaterialIconKind.WidgetTree;
+            Description = "TreeMenu, TreeMenuItem";
         }
     }
 }

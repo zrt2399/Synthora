@@ -30,6 +30,10 @@ namespace Synthora.Demo.ViewModels
         public partial TreeMenuDemoItem? SelectedTreeMenuItem { get; set; }
 
         [ObservableProperty]
+        public partial string SearchText { get; set; } = string.Empty;
+        partial void OnSearchTextChanged(string value) => FilterTreeMenu(value);
+
+        [ObservableProperty]
         public partial ThemeMode SelectedThemeMode { get; set; }
         partial void OnSelectedThemeModeChanged(ThemeMode value)
         {
@@ -41,10 +45,7 @@ namespace Synthora.Demo.ViewModels
 
         [ObservableProperty]
         public partial DensityStyle SelectedDensityStyle { get; set; }
-        partial void OnSelectedDensityStyleChanged(DensityStyle value)
-        {
-            SynthoraTheme.SetDensity(value);
-        }
+        partial void OnSelectedDensityStyleChanged(DensityStyle value) => SynthoraTheme.SetDensity(value);
 
         public static Uri GitHubDepositoryUri { get; } = new Uri("https://github.com/zrt2399/Synthora");
 
@@ -76,6 +77,38 @@ namespace Synthora.Demo.ViewModels
                 CreateItem(new ExtendedControlViewModel()),
                 CreateItem(new NavigationViewModel(), new SplitViewViewModel(), new TabControlViewModel(), new TabbedPageViewModel(), new DrawerPageViewModel(), new NavigationPageViewModel(), new CarouselViewModel(), new DragTabControlViewModel(), new TreeMenuViewModel())
             };
+        }
+
+        private void FilterTreeMenu(string? searchText)
+        {
+            if (TreeMenuItems is null)
+            {
+                return;
+            }
+
+            var keyword = searchText?.Trim();
+            foreach (var item in TreeMenuItems)
+            {
+                ApplyFilter(item, keyword);
+            }
+        }
+
+        private static bool ApplyFilter(TreeMenuDemoItem item, string? keyword)
+        {
+            var hasKeyword = !string.IsNullOrWhiteSpace(keyword);
+            var selfMatched = !hasKeyword
+                              || item.Title.Contains(keyword!, StringComparison.OrdinalIgnoreCase)
+                              || item.Description.Contains(keyword!, StringComparison.OrdinalIgnoreCase);
+            var childMatched = false;
+
+            foreach (var child in item.Children)
+            {
+                childMatched |= ApplyFilter(child, keyword);
+            }
+
+            item.IsVisible = selfMatched || childMatched;
+            item.IsExpanded = hasKeyword && childMatched;
+            return item.IsVisible;
         }
 
         private static ThemeMode ToThemeMode(ThemeVariant? themeVariant)

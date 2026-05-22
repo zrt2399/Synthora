@@ -8,6 +8,7 @@ namespace Synthora.Demo.ViewModels
         public MenuViewModel()
         {
             IconKind = MaterialIconKind.HamburgerMenu;
+            Description = "Menu, MenuItem, MenuFlyout, ContextMenu, CommandBar, CommandBarButton, CommandBarToggleButton";
         } 
     }
 }

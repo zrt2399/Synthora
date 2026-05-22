@@ -11,7 +11,7 @@
              mc:Ignorable="d">
 
     <DemoPage Title="Split View"
-              Description="Experiment with pane placement, display modes and dismiss behavior."
+              Description="{Binding Description}"
               IconKind="{Binding IconKind}">
         <DockPanel VerticalSpacing="16">
             <WrapPanel DockPanel.Dock="Top"

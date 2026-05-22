@@ -12,7 +12,7 @@
 
     <DemoPage Title="Menus &amp; Commands"
               Padding="0"
-              Description="Nested command bar, menu, context menu, flyout and checked menu item examples in one page."
+              Description="{Binding Description}"
               IconKind="{Binding IconKind}">
         <ScrollViewer Padding="16">
             <StackPanel Spacing="16">

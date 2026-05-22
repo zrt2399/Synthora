@@ -11,7 +11,7 @@
              mc:Ignorable="d">
 
     <DemoPage Title="Drawer Page"
-              Description="A drawer page sample with a simple side menu and content area."
+              Description="{Binding Description}"
               IconKind="{Binding IconKind}">
         <DrawerPage Header="DrawerPage">
             <DrawerPage.Drawer>

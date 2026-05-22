@@ -18,6 +18,7 @@ namespace Synthora.Demo.ViewModels
         public InputViewModel()
         {
             IconKind = MaterialIconKind.FormTextbox;
+            Description = "AutoCompleteBox, TextBox, TextBlock, SelectableTextBlock, ButtonSpinner, NumericUpDown, ComboBox";
         }
     }
 }

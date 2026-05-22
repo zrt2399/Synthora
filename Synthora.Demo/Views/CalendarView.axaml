@@ -18,7 +18,7 @@
 
     <DemoPage Title="Calendar Controls"
               Padding="0"
-              Description="Try date and time pickers together with calendar selection and shadow options."
+              Description="{Binding Description}"
               IconKind="{Binding IconKind}">
         <ScrollViewer Padding="16">
             <StackPanel Spacing="16">

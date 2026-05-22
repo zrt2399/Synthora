@@ -11,7 +11,7 @@
              mc:Ignorable="d">
 
     <DemoPage Title="Tree View"
-              Description="Preview nested folders and file items in a hierarchical tree view."
+              Description="{Binding Description}"
               IconKind="{Binding IconKind}">
         <TreeView CornerRadius="12">
             <TreeViewItem Header="Documents" IsExpanded="True">

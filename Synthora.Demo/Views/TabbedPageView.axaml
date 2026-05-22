@@ -11,7 +11,7 @@
              mc:Ignorable="d">
 
     <DemoPage Title="Tabbed Page"
-              Description="Mobile-style tabbed page navigation with three sample pages."
+              Description="{Binding Description}"
               IconKind="{Binding IconKind}">
         <TabbedPage>
             <ContentPage Header="Home" Icon="{OnFormFactor Desktop={x:Null}, Mobile={materialIcons:MaterialIconExt Kind=Home, IconSize=24}}">

@@ -8,6 +8,7 @@ namespace Synthora.Demo.ViewModels
         public SelectionControlViewModel()
         {
             IconKind = MaterialIconKind.Selection;
+            Description = "CheckBox, RadioButton, ToggleSwitch";
         }
     }
 }

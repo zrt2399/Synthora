@@ -11,7 +11,7 @@
              mc:Ignorable="d">
 
     <DemoPage Title="Tree Menu"
-              Description="Explore hierarchical navigation with icon-based tree menu items."
+              Description="{Binding Description}"
               IconKind="{Binding IconKind}">
         <TreeMenu>
             <TreeMenu.Styles>
@@ -32,7 +32,7 @@
             </TreeMenu.PaneHeader>
             <TreeMenuItem Content="Home Page"
                           Header="{materialIcons:MaterialIconTextExt Kind=Home,
-                          Text=Home}"
+                                                                     Text=Home}"
                           IsSelected="True" />
             <TreeMenuItem Header="{materialIcons:MaterialIconTextExt Kind=ViewDashboard, Text=Overview}">
                 <TreeMenuItem Content="Dashboard Page" Header="{materialIcons:MaterialIconTextExt Kind=ViewDashboard, Text=Dashboard}" />

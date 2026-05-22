@@ -12,7 +12,7 @@
              mc:Ignorable="d">
 
     <DemoPage Title="Drag Tab Control"
-              Description="Compare non-MVVM and MVVM drag tab control scenarios."
+              Description="{Binding Description}"
               IconKind="{Binding IconKind}">
         <UniformGrid Columns="1" RowSpacing="16">
             <Border Background="{DynamicResource DragTabControlBackgroundBrush}" Classes="card">

@@ -21,6 +21,7 @@ namespace Synthora.Demo.ViewModels
         public DataGridViewModel()
         {
             IconKind = MaterialIconKind.TableLarge;
+            Description = "DataGrid";
             ResetEmployees();
         }
 
@@ -60,6 +61,7 @@ namespace Synthora.Demo.ViewModels
         public ListBoxViewModel()
         {
             IconKind = MaterialIconKind.ListBox;
+            Description = "ListBox, ListBoxItem";
         }
     }
 
@@ -68,6 +70,7 @@ namespace Synthora.Demo.ViewModels
         public TreeViewViewModel()
         {
             IconKind = MaterialIconKind.FileTree;
+            Description = "TreeView, TreeViewItem";
         }
     }
 }

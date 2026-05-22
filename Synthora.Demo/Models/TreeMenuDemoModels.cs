@@ -28,5 +28,8 @@ namespace Synthora.Demo.Models
 
         [ObservableProperty]
         public partial bool IsExpanded { get; set; }
+
+        [ObservableProperty]
+        public partial bool IsVisible { get; set; } = true;
     }
 }

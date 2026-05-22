@@ -17,7 +17,7 @@
     </UserControl.Styles>
 
     <DemoPage Title="Expander Variants"
-              Description="Preview all expander directions and toggle the optional shadow style."
+              Description="{Binding Description}"
               IconKind="{Binding IconKind}">
         <Border Classes="card">
             <DockPanel VerticalSpacing="16">

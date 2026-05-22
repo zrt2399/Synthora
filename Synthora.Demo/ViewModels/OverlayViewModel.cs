@@ -26,6 +26,7 @@ namespace Synthora.Demo.ViewModels
         public OverlayViewModel()
         {
             IconKind = MaterialIconKind.Bell;
+            Description = "Notification, MessageTip, AlertDialog";
             Dispatcher.UIThread.InvokeAsync(() =>
             {
                 _notificationManager = new WindowNotificationManager(App.MainWindow);
@@ -90,6 +91,7 @@ namespace Synthora.Demo.ViewModels
                     break;
             }
         }
+        
         public void ShowNotification(string param)
         {
             if (_notificationManager == null)

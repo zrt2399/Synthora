@@ -12,7 +12,7 @@
              mc:Ignorable="d">
 
     <DemoPage Title="Selection Controls"
-              Description="Check boxes, radio buttons, segmented selection and toggle switches."
+              Description="{Binding Description}"
               IconKind="{Binding IconKind}">
         <Border Classes="card">
             <StackPanel Spacing="16">

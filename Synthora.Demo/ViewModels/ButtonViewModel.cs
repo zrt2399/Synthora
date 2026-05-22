@@ -1,4 +1,3 @@
-using CommunityToolkit.Mvvm.ComponentModel;
 using Material.Icons;
 using Synthora.Demo.Models;
 
@@ -9,6 +8,7 @@ namespace Synthora.Demo.ViewModels
         public ButtonViewModel()
         {
             IconKind = MaterialIconKind.ButtonPointer;
+            Description = "Button, SplitButton, ToggleSplitButton, ToggleButton, DropDownButton, RepeatButton, HyperlinkButton";
         }
     }
 }

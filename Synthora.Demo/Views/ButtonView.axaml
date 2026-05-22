@@ -12,7 +12,7 @@
 
     <DemoPage Title="Buttons"
               Padding="0"
-              Description="Explore icon, split, toggle, repeat and hyperlink button styles."
+              Description="{Binding Description}"
               IconKind="{Binding IconKind}">
         <ScrollViewer Padding="16">
             <StackPanel Spacing="16">

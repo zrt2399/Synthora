@@ -17,7 +17,7 @@
     </UserControl.Styles>
 
     <DemoPage Title="Group Boxes"
-              Description="Showcase header placements, nesting and shadow chrome integration."
+              Description="{Binding Description}"
               IconKind="{Binding IconKind}">
         <StackPanel Spacing="16">
             <Border Classes="card">
