@@ -28,3 +28,4 @@ Synthora is an Avalonia UI theme and control styles library component targeting 
 
 **CRITICAL REQUIREMENT:**
 All modifications or code generations must compile successfully before completing the task. Always run a build to verify compilation when editing multiple files or critical control structures.
+Do not add a newline character at the end of the edited file.
