@@ -136,7 +136,7 @@
         </Style>
 
         <Style Selector="^:disabled">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>
 
         <Style Selector="^:toggle /template/ ContentControl#PART_ToggleIconPresenter, ^:radio /template/ ContentControl#PART_ToggleIconPresenter">

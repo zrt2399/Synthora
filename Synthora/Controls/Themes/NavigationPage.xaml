@@ -12,45 +12,47 @@
     <x:Double x:Key="NavigationPageBarHeight">36</x:Double>
     <SolidColorBrush x:Key="NavigationPageHeaderBarBackground" Color="{DynamicResource ThemeControlLowColor}" />
 
+    <PageSlide x:Key="HorizontalPageSlideAnimation"
+               FillMode="Forward"
+               Orientation="Horizontal"
+               Duration="0:0:0.3">
+        <PageSlide.SlideInEasing>
+            <SplineEasing X1="0.16"
+                          X2="0.3"
+                          Y1="1"
+                          Y2="1" />
+        </PageSlide.SlideInEasing>
+        <PageSlide.SlideOutEasing>
+            <SplineEasing X1="0.2"
+                          X2="0.3"
+                          Y1="0.85"
+                          Y2="1" />
+        </PageSlide.SlideOutEasing>
+    </PageSlide>
+
+    <PageSlide x:Key="VerticalPageSlideAnimation"
+               FillMode="Forward"
+               Orientation="Vertical"
+               Duration="0:0:0.25">
+        <PageSlide.SlideInEasing>
+            <SplineEasing X1="0.16"
+                          X2="0.3"
+                          Y1="1"
+                          Y2="1" />
+        </PageSlide.SlideInEasing>
+        <PageSlide.SlideOutEasing>
+            <SplineEasing X1="0.2"
+                          X2="0.3"
+                          Y1="0.85"
+                          Y2="1" />
+        </PageSlide.SlideOutEasing>
+    </PageSlide>
+
     <ControlTheme x:Key="{x:Type NavigationPage}" TargetType="NavigationPage">
         <Setter Property="BarHeight" Value="{DynamicResource NavigationPageBarHeight}" />
         <!-- <Setter Property="Background" Value="Transparent" /> -->
-        <Setter Property="PageTransition">
-            <PageSlide FillMode="Forward"
-                       Orientation="Horizontal"
-                       Duration="0:0:0.3">
-                <PageSlide.SlideInEasing>
-                    <SplineEasing X1="0.16"
-                                  X2="0.3"
-                                  Y1="1"
-                                  Y2="1" />
-                </PageSlide.SlideInEasing>
-                <PageSlide.SlideOutEasing>
-                    <SplineEasing X1="0.2"
-                                  X2="0.3"
-                                  Y1="0.85"
-                                  Y2="1" />
-                </PageSlide.SlideOutEasing>
-            </PageSlide>
-        </Setter>
-        <Setter Property="ModalTransition">
-            <PageSlide FillMode="Forward"
-                       Orientation="Vertical"
-                       Duration="0:0:0.25">
-                <PageSlide.SlideInEasing>
-                    <SplineEasing X1="0.16"
-                                  X2="0.3"
-                                  Y1="1"
-                                  Y2="1" />
-                </PageSlide.SlideInEasing>
-                <PageSlide.SlideOutEasing>
-                    <SplineEasing X1="0.2"
-                                  X2="0.3"
-                                  Y1="0.85"
-                                  Y2="1" />
-                </PageSlide.SlideOutEasing>
-            </PageSlide>
-        </Setter>
+        <Setter Property="PageTransition" Value="{DynamicResource HorizontalPageSlideAnimation}" />
+        <Setter Property="ModalTransition" Value="{DynamicResource VerticalPageSlideAnimation}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Padding="{TemplateBinding Padding}"

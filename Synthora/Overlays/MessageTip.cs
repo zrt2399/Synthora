@@ -6,6 +6,7 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Controls.Primitives;
 using Avalonia.Layout;
 using Avalonia.Media;
+using Avalonia.Media.Immutable;
 using Avalonia.Threading;
 using Synthora.Controls;
 
@@ -17,6 +18,7 @@ namespace Synthora.Overlays
     public static class MessageTip
     {
         private const int Delay = 2000;
+        private static readonly IImmutableSolidColorBrush NoneBorderBrush = new ImmutableSolidColorBrush(Color.FromArgb(64, 0, 0, 0));
 
         /// <summary>
         /// Global override for the display duration of all message tips (in milliseconds).
@@ -106,7 +108,7 @@ namespace Synthora.Overlays
                     IconType.Success => StatusIcon.SuccessBackground,
                     IconType.Warning => StatusIcon.WarningBackground,
                     IconType.Error => StatusIcon.ErrorBackground,
-                    _ => StatusIcon.QuestionBackground
+                    _ => NoneBorderBrush
                 };
 
                 int padding = SynthoraTheme.GetCurrentDensity() == DensityStyle.Compact ? 4 : 6;
@@ -201,7 +203,7 @@ namespace Synthora.Overlays
             //    popupRoot.TransparencyLevelHint = [WindowTransparencyLevel.Transparent];
             //}
 
-            if (sender is Popup popup && popup.Child != null)//Avalonia 12
+            if (sender is Popup popup && popup.Child != null) //Avalonia 12
             {
                 // 获取 PopupRoot 的现代方法
                 var topLevel = TopLevel.GetTopLevel(popup.Child);
@@ -210,7 +212,10 @@ namespace Synthora.Overlays
                 {
                     topLevel.Background = null;
                     topLevel.TransparencyBackgroundFallback = Brushes.Transparent;
-                    topLevel.TransparencyLevelHint = new[] { WindowTransparencyLevel.Transparent };
+                    topLevel.TransparencyLevelHint = new[]
+                    {
+                        WindowTransparencyLevel.Transparent
+                    };
                 }
             }
         }

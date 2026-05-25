@@ -99,7 +99,7 @@
                                 <MenuItem Header="About Synthora Editor" Icon="{materialIcons:MaterialIconExt Kind=InformationOutline}" />
                             </MenuItem>
                         </Menu>
-                        <Button Content="ButtonWithContextFlyout">
+                        <Button Content="Button with ContextFlyout and ToolTip" ToolTip.Tip="Right-click or long-press to open context flyout">
                             <Button.ContextFlyout>
                                 <MenuFlyout>
                                     <MenuItem Header="More menu">
@@ -138,7 +138,9 @@
                                 </MenuFlyout>
                             </Button.ContextFlyout>
                         </Button>
-                        <Button Content="ButtonWithContextMenu" Theme="{DynamicResource SuccessButtonTheme}">
+                        <Button Content="Button with ContextMenu and ToolTip"
+                                Theme="{DynamicResource SuccessButtonTheme}"
+                                ToolTip.Tip="Right-click or long-press to open context menu">
                             <Button.ContextMenu>
                                 <ContextMenu>
                                     <MenuItem Header="Add Cut"

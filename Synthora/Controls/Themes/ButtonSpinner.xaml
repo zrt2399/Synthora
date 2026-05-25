@@ -3,7 +3,7 @@
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
 
-    <ControlTheme x:Key="SimpleButtonSpinnerRepeatButton"
+    <ControlTheme x:Key="SimpleButtonSpinnerRepeatButtonTheme"
                   BasedOn="{StaticResource {x:Type RepeatButton}}"
                   TargetType="RepeatButton">
         <Setter Property="Background" Value="Transparent" />
@@ -52,7 +52,7 @@
                                     <RepeatButton Name="PART_IncreaseButton"
                                                   Padding="4,0"
                                                   IsTabStop="{TemplateBinding IsTabStop}"
-                                                  Theme="{StaticResource SimpleButtonSpinnerRepeatButton}">
+                                                  Theme="{StaticResource SimpleButtonSpinnerRepeatButtonTheme}">
                                         <PathIcon Width="8"
                                                   Height="4"
                                                   HorizontalAlignment="Center"
@@ -63,7 +63,7 @@
                                     <RepeatButton Name="PART_DecreaseButton"
                                                   Padding="4,0"
                                                   IsTabStop="{TemplateBinding IsTabStop}"
-                                                  Theme="{StaticResource SimpleButtonSpinnerRepeatButton}">
+                                                  Theme="{StaticResource SimpleButtonSpinnerRepeatButtonTheme}">
                                         <PathIcon Width="8"
                                                   Height="4"
                                                   HorizontalAlignment="Center"
@@ -133,7 +133,7 @@
             <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
         </Style>
         <Style Selector="^:disabled /template/ Border#border">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>
     </ControlTheme>
 

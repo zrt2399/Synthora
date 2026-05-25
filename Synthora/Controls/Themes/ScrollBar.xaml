@@ -86,7 +86,7 @@
         </Setter>
     </ControlTheme>
 
-    <ControlTheme x:Key="ScrollBarRepeatButton" TargetType="{x:Type RepeatButton}">
+    <ControlTheme x:Key="ScrollBarRepeatButtonTheme" TargetType="{x:Type RepeatButton}">
         <Setter Property="Focusable" Value="False" />
         <Setter Property="CornerRadius" Value="0" />
         <Setter Property="Background" Value="Transparent" />
@@ -119,7 +119,7 @@
                                           Grid.Row="0"
                                           Height="10"
                                           AutomationProperties.Name="Line up"
-                                          Theme="{StaticResource ScrollBarRepeatButton}">
+                                          Theme="{StaticResource ScrollBarRepeatButtonTheme}">
                                 <PathIcon Data="{DynamicResource ScrollBarUpGlyph}" Theme="{StaticResource InnerPathIcon}" />
                             </RepeatButton>
                             <Track Grid.Row="1"
@@ -134,12 +134,12 @@
                                 <Track.DecreaseButton>
                                     <RepeatButton Name="PART_PageUpButton"
                                                   AutomationProperties.Name="Page up"
-                                                  Theme="{StaticResource ScrollBarRepeatButton}" />
+                                                  Theme="{StaticResource ScrollBarRepeatButtonTheme}" />
                                 </Track.DecreaseButton>
                                 <Track.IncreaseButton>
                                     <RepeatButton Name="PART_PageDownButton"
                                                   AutomationProperties.Name="Page down"
-                                                  Theme="{StaticResource ScrollBarRepeatButton}" />
+                                                  Theme="{StaticResource ScrollBarRepeatButtonTheme}" />
                                 </Track.IncreaseButton>
                                 <Thumb Name="thumb"
                                        Width="{DynamicResource ScrollBarThickness}"
@@ -150,7 +150,7 @@
                                           Grid.Row="2"
                                           Height="10"
                                           AutomationProperties.Name="Line down"
-                                          Theme="{StaticResource ScrollBarRepeatButton}">
+                                          Theme="{StaticResource ScrollBarRepeatButtonTheme}">
                                 <PathIcon Data="{DynamicResource ScrollBarDownGlyph}" Theme="{StaticResource InnerPathIcon}" />
                             </RepeatButton>
                         </Grid>
@@ -170,7 +170,7 @@
                                           Grid.Column="0"
                                           Width="10"
                                           AutomationProperties.Name="Column left"
-                                          Theme="{StaticResource ScrollBarRepeatButton}">
+                                          Theme="{StaticResource ScrollBarRepeatButtonTheme}">
                                 <PathIcon Data="{DynamicResource ScrollBarLeftGlyph}" Theme="{StaticResource InnerPathIcon}" />
                             </RepeatButton>
                             <Track Grid.Column="1"
@@ -184,12 +184,12 @@
                                 <Track.DecreaseButton>
                                     <RepeatButton Name="PART_PageUpButton"
                                                   AutomationProperties.Name="Page left"
-                                                  Theme="{StaticResource ScrollBarRepeatButton}" />
+                                                  Theme="{StaticResource ScrollBarRepeatButtonTheme}" />
                                 </Track.DecreaseButton>
                                 <Track.IncreaseButton>
                                     <RepeatButton Name="PART_PageDownButton"
                                                   AutomationProperties.Name="Page right"
-                                                  Theme="{StaticResource ScrollBarRepeatButton}" />
+                                                  Theme="{StaticResource ScrollBarRepeatButtonTheme}" />
                                 </Track.IncreaseButton>
                                 <Thumb Name="thumb"
                                        Height="{DynamicResource ScrollBarThickness}"
@@ -200,7 +200,7 @@
                                           Grid.Column="2"
                                           Width="10"
                                           AutomationProperties.Name="Column right"
-                                          Theme="{DynamicResource ScrollBarRepeatButton}">
+                                          Theme="{DynamicResource ScrollBarRepeatButtonTheme}">
                                 <PathIcon Data="{DynamicResource ScrollBarRightGlyph}" Theme="{StaticResource InnerPathIcon}" />
                             </RepeatButton>
                         </Grid>

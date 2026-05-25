@@ -176,7 +176,7 @@
             <Setter Property="BorderBrush" Value="{DynamicResource ThemeControlVeryHighBrush}" />
         </Style>
         <Style Selector="^:disabled /template/ Border#FocusTarget">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>
 
         <Style Selector="^[IsEditable=true]">

@@ -108,7 +108,7 @@
             <Setter Property="FontWeight" Value="SemiBold" />
             <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundLowBrush}" />
         </Style>
-        <Style Selector="TextBlock.heroEyebrow">
+        <Style Selector="SelectableTextBlock.heroEyebrow">
             <Setter Property="FontSize" Value="11" />
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
@@ -156,15 +156,15 @@
                     <Border Classes="heroShell">
                         <WrapPanel ItemSpacing="16" LineSpacing="16">
                             <StackPanel Spacing="16">
-                                <TextBlock Classes="heroEyebrow" Text="COLORFUL / RESPONSIVE / MAIN CONTROLS" />
-                                <TextBlock FontSize="32"
-                                           FontWeight="SemiBold"
-                                           Text="Synthora Avalonia Gallery"
-                                           TextWrapping="Wrap" />
-                                <TextBlock Classes="muted"
-                                           FontSize="16"
-                                           Text="A UI library where every detail is polished to perfection—from consistent spacing to fluid micro-interactions."
-                                           TextWrapping="Wrap" />
+                                <SelectableTextBlock Classes="heroEyebrow" Text="COLORFUL / RESPONSIVE / MAIN CONTROLS" />
+                                <SelectableTextBlock FontSize="32"
+                                                     FontWeight="SemiBold"
+                                                     Text="Synthora Avalonia Gallery"
+                                                     TextWrapping="Wrap" />
+                                <SelectableTextBlock Classes="muted"
+                                                     FontSize="16"
+                                                     Text="A UI library where every detail is polished to perfection—from consistent spacing to fluid micro-interactions."
+                                                     TextWrapping="Wrap" />
 
                                 <WrapPanel ItemSpacing="10" LineSpacing="10">
                                     <Border Classes="badge">
@@ -189,8 +189,8 @@
 
                                 <SpacingWrapPanel HorizontalSpacing="12" VerticalSpacing="12">
                                     <Button>Launch Demo</Button>
+                                    <Button Theme="{DynamicResource NeutralButtonTheme}">Neutral</Button>
                                     <Button Theme="{DynamicResource SecondaryButtonTheme}">Secondary</Button>
-                                    <Button Theme="{DynamicResource TonalButtonTheme}">Tonal</Button>
                                 </SpacingWrapPanel>
                             </StackPanel>
 
@@ -242,8 +242,8 @@
                                                 <Button Theme="{DynamicResource WarningButtonTheme}">Warning</Button>
                                                 <Button Theme="{DynamicResource DangerButtonTheme}">Danger</Button>
                                                 <Button Theme="{DynamicResource ErrorButtonTheme}">Error</Button>
-                                                <Button Theme="{DynamicResource TonalButtonTheme}">Tonal</Button>
                                                 <Button Theme="{DynamicResource SecondaryButtonTheme}">Secondary</Button>
+                                                <Button Theme="{DynamicResource NeutralButtonTheme}">Neutral</Button>
                                             </SpacingWrapPanel>
                                         </StackPanel>
                                     </Border>
@@ -271,7 +271,7 @@
                                                             </MenuFlyout>
                                                         </SplitButton.Flyout>
                                                     </SplitButton>
-                                                    <ToggleSplitButton Theme="{DynamicResource TonalToggleSplitButtonTheme}">
+                                                    <ToggleSplitButton Theme="{DynamicResource SecondaryToggleSplitButtonTheme}">
                                                         Modes
                                                         <ToggleSplitButton.Flyout>
                                                             <MenuFlyout Placement="BottomEdgeAlignedLeft">
@@ -282,7 +282,7 @@
                                                             </MenuFlyout>
                                                         </ToggleSplitButton.Flyout>
                                                     </ToggleSplitButton>
-                                                    <DropDownButton Theme="{DynamicResource SecondaryDropDownButtonTheme}">
+                                                    <DropDownButton Theme="{DynamicResource NeutralDropDownButtonTheme}">
                                                         More
                                                         <DropDownButton.Flyout>
                                                             <MenuFlyout Placement="BottomEdgeAlignedLeft">

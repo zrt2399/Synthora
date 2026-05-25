@@ -95,8 +95,8 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="TonalDropDownButtonTheme"
-                  BasedOn="{StaticResource TonalButtonTheme}"
+    <ControlTheme x:Key="SecondaryDropDownButtonTheme"
+                  BasedOn="{StaticResource SecondaryButtonTheme}"
                   TargetType="DropDownButton">
         <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
         <Style Selector="^:flyout-open /template/ PathIcon#pathIcon">
@@ -104,8 +104,8 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="SecondaryDropDownButtonTheme"
-                  BasedOn="{StaticResource SecondaryButtonTheme}"
+    <ControlTheme x:Key="NeutralDropDownButtonTheme"
+                  BasedOn="{StaticResource NeutralButtonTheme}"
                   TargetType="DropDownButton">
         <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
         <Style Selector="^:flyout-open /template/ PathIcon#pathIcon">

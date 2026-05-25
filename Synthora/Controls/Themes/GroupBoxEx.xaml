@@ -50,7 +50,7 @@
             </ControlTemplate>
         </Setter>
         <Style Selector="^:disabled /template/ Border#headerBorder">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>
     </ControlTheme>
 

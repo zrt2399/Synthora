@@ -2,9 +2,9 @@ using Avalonia.Controls;
 
 namespace Synthora.Demo.Views
 {
-    public partial class ExpanderView : UserControl
+    public partial class ScrollViewerView : UserControl
     {
-        public ExpanderView()
+        public ScrollViewerView()
         {
             InitializeComponent();
         }

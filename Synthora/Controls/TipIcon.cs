@@ -44,7 +44,7 @@ namespace Synthora.Controls
         public static IImmutableSolidColorBrush QuestionBackground { get; } = new ImmutableSolidColorBrush(Color.FromRgb(92, 138, 206));
         public static IImmutableSolidColorBrush SuccessBackground { get; } = new ImmutableSolidColorBrush(Color.FromRgb(110, 190, 40));
         public static IImmutableSolidColorBrush WarningBackground { get; } = new ImmutableSolidColorBrush(Color.FromRgb(220, 155, 40));
-        public static IImmutableSolidColorBrush ErrorBackground { get; } = new ImmutableSolidColorBrush(Color.FromRgb(230, 80, 80));
+        public static IImmutableSolidColorBrush ErrorBackground { get; } = new ImmutableSolidColorBrush(Color.FromRgb(244, 75, 72));
 
         static StatusIcon()
         {

@@ -107,6 +107,9 @@
                     <DataTemplate DataType="vm:CalendarViewModel">
                         <views:CalendarView />
                     </DataTemplate>
+                    <DataTemplate DataType="vm:ScrollViewerViewModel">
+                        <views:ScrollViewerView />
+                    </DataTemplate>
                     <DataTemplate DataType="vm:ExtendedControlViewModel">
                         <views:ExtendedControlView />
                     </DataTemplate>
@@ -182,12 +185,12 @@
                 </TreeMenu.PaneHeader>
 
                 <TreeMenu.PaneFooter>
-                    <TextBlock Margin="32"
-                               FontSize="13"
-                               Foreground="{DynamicResource ThemeForegroundLowBrush}"
-                               Text="Synthora Avalonia Catalog"
-                               TextAlignment="Center"
-                               TextWrapping="Wrap" />
+                    <SelectableTextBlock Margin="32"
+                                         FontSize="13"
+                                         Foreground="{DynamicResource ThemeForegroundLowBrush}"
+                                         Text="Synthora Avalonia Catalog"
+                                         TextAlignment="Center"
+                                         TextWrapping="Wrap" />
                 </TreeMenu.PaneFooter>
 
                 <TreeMenu.ItemTemplate>

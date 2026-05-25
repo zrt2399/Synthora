@@ -23,11 +23,11 @@
                   BasedOn="{StaticResource ErrorSplitButtonTheme}"
                   TargetType="ToggleSplitButton" />
 
-    <ControlTheme x:Key="TonalToggleSplitButtonTheme"
-                  BasedOn="{StaticResource TonalSplitButtonTheme}"
-                  TargetType="ToggleSplitButton" />
-
     <ControlTheme x:Key="SecondaryToggleSplitButtonTheme"
                   BasedOn="{StaticResource SecondarySplitButtonTheme}"
+                  TargetType="ToggleSplitButton" />
+
+    <ControlTheme x:Key="NeutralToggleSplitButtonTheme"
+                  BasedOn="{StaticResource NeutralSplitButtonTheme}"
                   TargetType="ToggleSplitButton" />
 </ResourceDictionary>

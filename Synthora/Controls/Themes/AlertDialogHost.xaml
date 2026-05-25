@@ -161,7 +161,7 @@
                                                 IsVisible="{TemplateBinding DialogButton,
                                                                             Converter={x:Static SynthoraConverters.HasFlag},
                                                                             ConverterParameter={x:Static messaging:DialogButton.Abort}}"
-                                                Theme="{StaticResource DangerButtonTheme}" />
+                                                Theme="{StaticResource ErrorButtonTheme}" />
                                     </StackPanel>
                                 </Grid>
                             </Border>

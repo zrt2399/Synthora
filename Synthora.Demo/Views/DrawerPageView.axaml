@@ -13,21 +13,32 @@
     <DemoPage Title="Drawer Page"
               Description="{Binding Description}"
               IconKind="{Binding IconKind}">
-        <DrawerPage Header="DrawerPage">
-            <DrawerPage.Drawer>
-                <Border BorderBrush="{DynamicResource ThemeBorderLowBrush}" BorderThickness="0,0,1,0">
-                    <StackPanel Margin="10"
+        <DockPanel VerticalSpacing="16">
+            <WrapPanel DockPanel.Dock="Top"
+                       ItemSpacing="16"
+                       LineSpacing="16"
+                       Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding #drawerPage.IsOpen}">IsOpen</CheckBox>
+                <ComboBox Name="drawerLayoutBehavior"
+                          ItemsSource="{EnumBindingSource DrawerLayoutBehavior}"
+                          SelectedItem="{Binding #drawerPage.DrawerLayoutBehavior}"
+                          TextBoxAttach.Header="DrawerLayoutBehavior: "
+                          TextBoxAttach.HeaderPlacement="Left" />
+            </WrapPanel>
+            <DrawerPage Name="drawerPage" Header="DrawerPage">
+                <DrawerPage.Drawer>
+                    <StackPanel Margin="0,16"
                                 VerticalAlignment="Top"
-                                Spacing="10">
+                                Spacing="16">
                         <TextBlock HorizontalAlignment="Center" FontSize="13">Menu</TextBlock>
                         <Button>Item 1</Button>
                         <Button>Item 2</Button>
                         <Button>Item 3</Button>
                     </StackPanel>
-                </Border>
-            </DrawerPage.Drawer>
-            Content
-        </DrawerPage>
+                </DrawerPage.Drawer>
+                Content
+            </DrawerPage>
+        </DockPanel>
     </DemoPage>
 
 </UserControl>

@@ -210,7 +210,7 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="TonalSplitButtonTheme"
+    <ControlTheme x:Key="SecondarySplitButtonTheme"
                   BasedOn="{StaticResource OutlineSplitButtonBaseTheme}"
                   TargetType="SplitButton">
         <Setter Property="Background" Value="{DynamicResource SynthoraLowBrush}" />
@@ -218,11 +218,11 @@
         <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
 
         <Style Selector="^ /template/ Button">
-            <Setter Property="Theme" Value="{StaticResource TonalButtonTheme}" />
+            <Setter Property="Theme" Value="{StaticResource SecondaryButtonTheme}" />
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="SecondarySplitButtonTheme"
+    <ControlTheme x:Key="NeutralSplitButtonTheme"
                   BasedOn="{StaticResource OutlineSplitButtonBaseTheme}"
                   TargetType="SplitButton">
         <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
@@ -230,7 +230,7 @@
         <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
 
         <Style Selector="^ /template/ Button">
-            <Setter Property="Theme" Value="{StaticResource SecondaryButtonTheme}" />
+            <Setter Property="Theme" Value="{StaticResource NeutralButtonTheme}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

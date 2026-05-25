@@ -36,11 +36,11 @@
                                       TextBoxAttach.Header="NotificationPosition: "
                                       TextBoxAttach.HeaderPlacement="Left" />
                             <Button Content="Information" />
-                            <Button Content="WithoutTitle" Theme="{StaticResource TonalButtonTheme}" />
+                            <Button Content="WithoutTitle" Theme="{StaticResource SecondaryButtonTheme}" />
                             <Button Content="Success" Theme="{StaticResource SuccessButtonTheme}" />
                             <Button Content="Warning" Theme="{StaticResource WarningButtonTheme}" />
                             <Button Content="Error" Theme="{StaticResource ErrorButtonTheme}" />
-                            <Button Content="Multiline" Theme="{StaticResource SecondaryButtonTheme}" />
+                            <Button Content="Multiline" Theme="{StaticResource NeutralButtonTheme}" />
                         </SpacingWrapPanel>
                     </StackPanel>
                 </Border>
@@ -63,11 +63,11 @@
                                       TextBoxAttach.Header="PlacementMode: "
                                       TextBoxAttach.HeaderPlacement="Left" />
                             <Button>Show</Button>
-                            <Button Theme="{StaticResource TonalButtonTheme}">ShowQuestion</Button>
+                            <Button Theme="{StaticResource SecondaryButtonTheme}">ShowQuestion</Button>
                             <Button Theme="{StaticResource SuccessButtonTheme}">ShowSuccess</Button>
                             <Button Theme="{StaticResource WarningButtonTheme}">ShowWarning</Button>
                             <Button Theme="{StaticResource ErrorButtonTheme}">ShowError</Button>
-                            <Button Theme="{StaticResource SecondaryButtonTheme}">None</Button>
+                            <Button Theme="{StaticResource NeutralButtonTheme}">None</Button>
                         </SpacingWrapPanel>
                     </StackPanel>
                 </Border>
@@ -91,11 +91,11 @@
                                       TextBoxAttach.Header="DialogButton: "
                                       TextBoxAttach.HeaderPlacement="Left" />
                             <Button>Information</Button>
-                            <Button Theme="{StaticResource TonalButtonTheme}">Question</Button>
+                            <Button Theme="{StaticResource SecondaryButtonTheme}">Question</Button>
                             <Button Theme="{StaticResource WarningButtonTheme}">Warning</Button>
                             <Button Theme="{StaticResource ErrorButtonTheme}">Error</Button>
                             <Button Theme="{StaticResource DangerButtonTheme}">Abort</Button>
-                            <Button Theme="{StaticResource SecondaryButtonTheme}">None</Button>
+                            <Button Theme="{StaticResource NeutralButtonTheme}">None</Button>
                         </SpacingWrapPanel>
                     </StackPanel>
                 </Border>

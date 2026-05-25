@@ -92,7 +92,7 @@
         </Style>
 
         <Style Selector="^:disabled /template/ ContentPresenter#PART_IconPresenter">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledHighOpacity}" />
         </Style>
     </ControlTheme>
 
@@ -101,12 +101,12 @@
                   TargetType="Button">
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Name="RootChrome"
+                <Border Name="RootBorder"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}">
-                    <ContentPresenter Name="PART_ContentPresenter"
+                    <ContentPresenter Name="PART_IconPresenter"
                                       Margin="{TemplateBinding Padding}"
                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"

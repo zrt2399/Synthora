@@ -103,6 +103,7 @@
                                             <PathIcon HorizontalAlignment="Center"
                                                       VerticalAlignment="Center"
                                                       Data="{DynamicResource DrawerPaneButtonIcon}"
+                                                      Foreground="{Binding $parent[ToggleButton].Foreground}"
                                                       IsVisible="{Binding DrawerIcon, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNull}}" />
                                             <ContentPresenter Name="PART_PaneIconPresenter"
                                                               HorizontalAlignment="Center"
@@ -140,6 +141,7 @@
                                             <PathIcon HorizontalAlignment="Center"
                                                       VerticalAlignment="Center"
                                                       Data="{DynamicResource DrawerPaneButtonIcon}"
+                                                      Foreground="{Binding $parent[ToggleButton].Foreground}"
                                                       IsVisible="{Binding DrawerIcon, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNull}}" />
                                             <ContentPresenter Name="PART_BottomPaneIconPresenter"
                                                               HorizontalAlignment="Center"

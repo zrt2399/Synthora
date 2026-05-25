@@ -44,7 +44,7 @@
             <Setter Property="Background" Value="{DynamicResource PrimaryPressedBrush}" />
         </Style>
         <Style Selector="^:disabled">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>
     </ControlTheme>
 
@@ -108,7 +108,7 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="TonalButtonTheme"
+    <ControlTheme x:Key="SecondaryButtonTheme"
                   BasedOn="{StaticResource {x:Type Button}}"
                   TargetType="Button">
         <Setter Property="Background" Value="{DynamicResource SynthoraLowBrush}" />
@@ -123,7 +123,7 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="SecondaryButtonTheme"
+    <ControlTheme x:Key="NeutralButtonTheme"
                   BasedOn="{StaticResource {x:Type Button}}"
                   TargetType="Button">
         <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />

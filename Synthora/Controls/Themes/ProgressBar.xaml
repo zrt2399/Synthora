@@ -79,7 +79,7 @@
             <Setter Property="VerticalAlignment" Value="Bottom" />
         </Style>
         <Style Selector="^:disabled /template/ Border#PART_Border">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>
         <Style Selector="^:horizontal">
             <!--<Setter Property="MinWidth" Value="100" />-->

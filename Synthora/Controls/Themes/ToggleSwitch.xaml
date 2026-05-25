@@ -201,15 +201,15 @@
 
         <!--  DisabledState  -->
         <Style Selector="^:disabled">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
             <!--<Style Selector="^ /template/ Border#OuterBorder">
-                <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+                <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
             </Style>
             <Style Selector="^ /template/ Border#SwitchKnobBounds">
-                <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+                <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
             </Style>
             <Style Selector="^ /template/ Canvas#PART_SwitchKnob">
-                <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+                <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
             </Style>-->
         </Style>
     </ControlTheme>

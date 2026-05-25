@@ -32,7 +32,6 @@
             <SplitView Name="splitView"
                        CompactPaneLength="60"
                        DisplayMode="CompactOverlay"
-                       IsPaneOpen="False"
                        OpenPaneLength="200">
                 <SplitView.Pane>
                     <StackPanel VerticalAlignment="Top" Spacing="10">

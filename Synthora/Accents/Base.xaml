@@ -234,11 +234,11 @@
     <Color x:Key="WarningPointerOverColor">#FFE6A532</Color>
     <Color x:Key="WarningPressedColor">#FFF0AF3C</Color>
     <Color x:Key="DangerColor">#FFDB3340</Color>
-    <Color x:Key="DangerPointerOverColor">#FFDF4853</Color>
-    <Color x:Key="DangerPressedColor">#FFE9525D</Color>
-    <Color x:Key="ErrorColor">#FFD32F2F</Color>
-    <Color x:Key="ErrorPointerOverColor">#FFD74444</Color>
-    <Color x:Key="ErrorPressedColor">#FFDB5757</Color>
+    <Color x:Key="DangerPointerOverColor">#FFE14652</Color>
+    <Color x:Key="DangerPressedColor">#FFE75A65</Color>
+    <Color x:Key="ErrorColor">#FFF44B48</Color>
+    <Color x:Key="ErrorPointerOverColor">#FFF66461</Color>
+    <Color x:Key="ErrorPressedColor">#FFF87D7A</Color>
 
     <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource PrimaryColor}" />
     <SolidColorBrush x:Key="PrimaryPointerOverBrush" Color="{StaticResource PrimaryPointerOverColor}" />
@@ -283,8 +283,9 @@
     <Thickness x:Key="ThemeControlPaddingSmall">4</Thickness>
 
     <x:Double x:Key="ThemePlaceholderTextOpacity">0.6</x:Double>
-    <x:Double x:Key="ThemeDisabledOpacity">0.8</x:Double>
-    <x:Double x:Key="ThemeDisabledHighOpacity">0.7</x:Double>
+    <x:Double x:Key="ThemeDisabledLowOpacity">0.8</x:Double>
+    <x:Double x:Key="ThemeDisabledMidOpacity">0.7</x:Double>
+    <x:Double x:Key="ThemeDisabledHighOpacity">0.5</x:Double>
 
     <x:Double x:Key="FontSizeSmall">10</x:Double>
     <x:Double x:Key="FontSizeNormal">12</x:Double>

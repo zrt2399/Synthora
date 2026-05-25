@@ -159,16 +159,16 @@
         </Style>
 
         <Style Selector="^:first-page /template/ RepeatButton#PART_PreviousButton">
-            <Setter Property="Opacity" Value="0.3" />
+            <Setter Property="Opacity" Value="0.25" />
             <Setter Property="IsHitTestVisible" Value="False" />
         </Style>
 
         <Style Selector="^:last-page /template/ RepeatButton#PART_NextButton">
-            <Setter Property="Opacity" Value="0.3" />
+            <Setter Property="Opacity" Value="0.25" />
             <Setter Property="IsHitTestVisible" Value="False" />
         </Style>
         <Style Selector="^:disabled">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

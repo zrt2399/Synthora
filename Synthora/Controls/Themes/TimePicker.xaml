@@ -37,7 +37,7 @@
     <x:Double x:Key="TimePickerSpacerThemeWidth">1</x:Double>
     <x:Double x:Key="TimePickerPresenterThemeMaxHeight">400</x:Double>
 
-    <ControlTheme x:Key="SimpleTimePickerFlyoutButton" TargetType="Button">
+    <ControlTheme x:Key="SimpleTimePickerFlyoutButtonTheme" TargetType="Button">
         <Setter Property="RenderTransform" Value="none" />
         <Setter Property="Template">
             <ControlTemplate>
@@ -64,7 +64,7 @@
         </Style>
 
         <Style Selector="^:disabled">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>
     </ControlTheme>
 
@@ -102,7 +102,7 @@
                                     CornerRadius="{TemplateBinding CornerRadius}"
                                     Foreground="{TemplateBinding Foreground}"
                                     IsEnabled="{TemplateBinding IsEnabled}"
-                                    Theme="{StaticResource SimpleTimePickerFlyoutButton}">
+                                    Theme="{StaticResource SimpleTimePickerFlyoutButtonTheme}">
 
                                 <Grid Name="PART_FlyoutButtonContentGrid">
                                     <!--  Ignore col defs here, set in code  -->
@@ -201,7 +201,7 @@
         </Setter>
 
         <!--<Style Selector="^:disabled /template/ Rectangle">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>-->
 
         <Style Selector="^:hasnotime /template/ Button#PART_FlyoutButton TextBlock">
@@ -229,8 +229,8 @@
                                                      PanelType="Hour"
                                                      ShouldLoop="True" />
                             </ScrollViewer>
-                            <RepeatButton Name="PART_HourUpButton" Theme="{StaticResource SimpleDateTimePickerUpButton}" />
-                            <RepeatButton Name="PART_HourDownButton" Theme="{StaticResource SimpleDateTimePickerDownButton}" />
+                            <RepeatButton Name="PART_HourUpButton" Theme="{StaticResource SimpleDateTimePickerUpButtonTheme}" />
+                            <RepeatButton Name="PART_HourDownButton" Theme="{StaticResource SimpleDateTimePickerDownButtonTheme}" />
                         </Panel>
 
                         <Panel Name="PART_MinuteHost" Grid.Column="2">
@@ -240,8 +240,8 @@
                                                      PanelType="Minute"
                                                      ShouldLoop="True" />
                             </ScrollViewer>
-                            <RepeatButton Name="PART_MinuteUpButton" Theme="{StaticResource SimpleDateTimePickerUpButton}" />
-                            <RepeatButton Name="PART_MinuteDownButton" Theme="{StaticResource SimpleDateTimePickerDownButton}" />
+                            <RepeatButton Name="PART_MinuteUpButton" Theme="{StaticResource SimpleDateTimePickerUpButtonTheme}" />
+                            <RepeatButton Name="PART_MinuteDownButton" Theme="{StaticResource SimpleDateTimePickerDownButtonTheme}" />
                         </Panel>
 
                         <Panel Name="PART_SecondHost" Grid.Column="4">
@@ -251,8 +251,8 @@
                                                      PanelType="Second"
                                                      ShouldLoop="True" />
                             </ScrollViewer>
-                            <RepeatButton Name="PART_SecondUpButton" Theme="{StaticResource SimpleDateTimePickerUpButton}" />
-                            <RepeatButton Name="PART_SecondDownButton" Theme="{StaticResource SimpleDateTimePickerDownButton}" />
+                            <RepeatButton Name="PART_SecondUpButton" Theme="{StaticResource SimpleDateTimePickerUpButtonTheme}" />
+                            <RepeatButton Name="PART_SecondDownButton" Theme="{StaticResource SimpleDateTimePickerDownButtonTheme}" />
                         </Panel>
 
                         <Panel Name="PART_PeriodHost" Grid.Column="6">
@@ -264,8 +264,8 @@
                                                      PanelType="TimePeriod"
                                                      ShouldLoop="False" />
                             </ScrollViewer>
-                            <RepeatButton Name="PART_PeriodUpButton" Theme="{StaticResource SimpleDateTimePickerUpButton}" />
-                            <RepeatButton Name="PART_PeriodDownButton" Theme="{StaticResource SimpleDateTimePickerDownButton}" />
+                            <RepeatButton Name="PART_PeriodUpButton" Theme="{StaticResource SimpleDateTimePickerUpButtonTheme}" />
+                            <RepeatButton Name="PART_PeriodDownButton" Theme="{StaticResource SimpleDateTimePickerDownButtonTheme}" />
                         </Panel>
 
                         <Rectangle Name="PART_FirstSpacer"
@@ -299,7 +299,7 @@
                                 VerticalAlignment="Stretch"
                                 FocusAttach.FocusOnLoaded="True"
                                 IsDefault="True"
-                                Theme="{StaticResource SimpleDateTimePickerButton}">
+                                Theme="{StaticResource SimpleDateTimePickerButtonTheme}">
                             <Path Data="M0.5,7.0 5,12.0 15.5,1.5"
                                   Stroke="{Binding $parent[Button].Foreground}"
                                   StrokeLineCap="Round"
@@ -312,7 +312,7 @@
                                 VerticalAlignment="Stretch"
                                 FontSize="16"
                                 IsCancel="True"
-                                Theme="{StaticResource SimpleDateTimePickerButton}">
+                                Theme="{StaticResource SimpleDateTimePickerButtonTheme}">
                             <Path Data="M2,2 14,14 M2,14 14 2"
                                   Stroke="{Binding $parent[Button].Foreground}"
                                   StrokeLineCap="Round"

@@ -46,7 +46,7 @@
         </Style>
 
         <Style Selector="^:disabled">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledHighOpacity}" />
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledMidOpacity}" />
         </Style>
     </ControlTheme>
 
