@@ -45,6 +45,7 @@ namespace Synthora.Controls
         private Control? _itemsContainer;
         private ItemsPresenter? _itemsPresenter;
         private CancellationTokenSource? _itemsAnimationCancellationTokenSource;
+        private bool _hasSelectedDescendant;
 
         private bool HasChildItems => ItemsView.Count > 0;
 
@@ -56,8 +57,8 @@ namespace Synthora.Controls
 
         public bool HasSelectedDescendant
         {
-            get;
-            internal set => SetAndRaise(HasSelectedDescendantProperty, ref field, value);
+            get => _hasSelectedDescendant;
+            internal set => SetAndRaise(HasSelectedDescendantProperty, ref _hasSelectedDescendant, value);
         }
 
         public object? Content

@@ -12,13 +12,15 @@ namespace Synthora.Extensions
     public class EnumBindingSourceExtension : MarkupExtension
     {
         [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicFields)]
-        [field: DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicFields)]
+        private Type? _enumType;
+
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicFields)]
         public Type? EnumType
         {
-            get;
+            get => _enumType;
             set
             {
-                if (value != field)
+                if (value != _enumType)
                 {
                     if (value != null)
                     {
@@ -28,7 +30,7 @@ namespace Synthora.Extensions
                             throw new ArgumentException("Type must be an enum.", nameof(value));
                         }
                     }
-                    field = value;
+                    _enumType = value;
                 }
             }
         }

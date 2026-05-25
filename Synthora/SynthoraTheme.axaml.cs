@@ -28,6 +28,7 @@ namespace Synthora
 
     public class SynthoraTheme : Styles
     {
+        private DensityStyle _densityStyle;
         private IResourceProvider? _currentDensityResource;
 
         /// <summary>
@@ -51,8 +52,8 @@ namespace Synthora
 
         public DensityStyle DensityStyle
         {
-            get;
-            set => SetAndRaise(DensityStyleProperty, ref field, value);
+            get => _densityStyle;
+            set => SetAndRaise(DensityStyleProperty, ref _densityStyle, value);
         }
 
         private void OnDensityStyleChanged(AvaloniaPropertyChangedEventArgs<DensityStyle> e)

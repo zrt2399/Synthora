@@ -31,12 +31,14 @@ namespace Synthora.Controls
         private Thumb? _leftDragWindowThumb;
         private Thumb? _rightDragWindowThumb;
         private readonly TabsPanel _tabsPanel;
+        private ICommand _addItemCommand;
+        private ICommand _closeItemCommand;
 
         private DragTabItem? _draggedItem;
         private bool _dragging;
 
         public static readonly StyledProperty<double> AdjacentHeaderItemOffsetProperty =
-            AvaloniaProperty.Register<DragTabControl, double>(nameof(AdjacentHeaderItemOffset), defaultValue: 0d);
+            AvaloniaProperty.Register<DragTabControl, double>(nameof(AdjacentHeaderItemOffset));
 
         public static readonly StyledProperty<double> TabItemWidthProperty =
             AvaloniaProperty.Register<DragTabControl, double>(nameof(TabItemWidth), defaultValue: DefaultTabWidth);
@@ -48,7 +50,7 @@ namespace Synthora.Controls
             AvaloniaProperty.Register<DragTabControl, bool>(nameof(ShowAddButton), defaultValue: true);
 
         public static readonly StyledProperty<int> FixedHeaderCountProperty =
-            AvaloniaProperty.Register<DragTabControl, int>(nameof(FixedHeaderCount), defaultValue: 0);
+            AvaloniaProperty.Register<DragTabControl, int>(nameof(FixedHeaderCount));
 
         public static readonly StyledProperty<Func<Task<object>>?> NewItemAsyncFactoryProperty =
             AvaloniaProperty.Register<DragTabControl, Func<Task<object>>?>(nameof(NewItemAsyncFactory));
@@ -109,8 +111,8 @@ namespace Synthora.Controls
 
             // LastTabClosedAction = (_, _) => GetThisWindow()?.Close();
 
-            AddItemCommand = new RelayCommand(AddItem);
-            CloseItemCommand = new RelayCommand<object?>(CloseItem);
+            _addItemCommand = new RelayCommand(AddItem);
+            _closeItemCommand = new RelayCommand<object?>(CloseItem);
         }
 
         public double AdjacentHeaderItemOffset
@@ -196,14 +198,14 @@ namespace Synthora.Controls
 
         public ICommand AddItemCommand
         {
-            get;
-            private set => SetAndRaise(AddItemCommandProperty, ref field, value);
+            get => _addItemCommand;
+            private set => SetAndRaise(AddItemCommandProperty, ref _addItemCommand, value);
         }
 
         public ICommand CloseItemCommand
         {
-            get;
-            private set => SetAndRaise(CloseItemCommandProperty, ref field, value);
+            get => _closeItemCommand;
+            private set => SetAndRaise(CloseItemCommandProperty, ref _closeItemCommand, value);
         }
 
         public object? LeftContent
@@ -547,7 +549,7 @@ namespace Synthora.Controls
 
         private void CloseItem(object? tabItemSource)
         {
-            ArgumentNullException.ThrowIfNull(tabItemSource);
+            //ArgumentNullException.ThrowIfNull(tabItemSource);
 
             if (tabItemSource is not DragTabItem tabItem)
             {

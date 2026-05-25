@@ -12,6 +12,9 @@ namespace Synthora.Controls
         private LeftPressedThumb? _thumb;
 
         private int _prevZindex;
+        private int _logicalIndex;
+        private bool _isDragging;
+        private bool _isSiblingDragging;
 
         public static readonly StyledProperty<double> XProperty =
             AvaloniaProperty.Register<DragTabItem, double>(nameof(X));
@@ -42,20 +45,20 @@ namespace Synthora.Controls
 
         public int LogicalIndex
         {
-            get;
-            internal set => SetAndRaise(LogicalIndexProperty, ref field, value);
+            get => _logicalIndex;
+            internal set => SetAndRaise(LogicalIndexProperty, ref _logicalIndex, value);
         }
 
         public bool IsDragging
         {
-            get;
-            internal set => SetAndRaise(IsDraggingProperty, ref field, value);
+            get => _isDragging;
+            internal set => SetAndRaise(IsDraggingProperty, ref _isDragging, value);
         }
 
         public bool IsSiblingDragging
         {
-            get;
-            internal set => SetAndRaise(IsSiblingDraggingProperty, ref field, value);
+            get => _isSiblingDragging;
+            internal set => SetAndRaise(IsSiblingDraggingProperty, ref _isSiblingDragging, value);
         }
 
         public static readonly RoutedEvent<DragTabDragStartedEventArgs> DragStarted =
