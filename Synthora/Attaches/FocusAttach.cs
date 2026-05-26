@@ -54,11 +54,7 @@ namespace Synthora.Attaches
                 var dispatcherPriority = GetFocusPriority(inputElement);
                 Dispatcher.UIThread.InvokeAsync(() =>
                 {
-                    inputElement.Focus();
-                    if (inputElement is TextBox textBox)
-                    {
-                        textBox.SelectAll();
-                    }
+                    FocusElement(inputElement);
                 }, dispatcherPriority);
             }
         }
@@ -79,22 +75,40 @@ namespace Synthora.Attaches
 
         private static void Control_Loaded(object? sender, RoutedEventArgs e)
         {
-            if (sender is not Control control)
+            if (sender is not InputElement inputElement)
             {
                 return;
             }
 
-            var dispatcherPriority = GetFocusPriority(control);
+            var dispatcherPriority = GetFocusPriority(inputElement);
             Dispatcher.UIThread.InvokeAsync(() =>
             {
-                control.Focus();
-                if (sender is TextBox textBox)
-                {
-                    textBox.SelectAll();
-                }
+                FocusElement(inputElement);
             }, dispatcherPriority);
         }
 
+        private static void FocusElement(InputElement inputElement)
+        {
+            if (!inputElement.IsVisible)
+            {
+                return;
+            }
+            if (inputElement is TextBox textBox)
+            {
+                textBox.Focus();
+                textBox.SelectAll();
+            }
+            if (inputElement is Panel panel && panel.Children.FirstOrDefault(x => x.IsVisible && x.Focusable) is InputElement element)
+            {
+                element.Focus();
+            }
+            else
+            {
+                inputElement.Focus();
+            }
+        }
+
+        //Fix PART_TextBox not receiving focus when the parent control is focused, which is a common issue with controls like CalendarDatePicker.
         private static void OnUseCorrectFocusChanged(AvaloniaPropertyChangedEventArgs<bool> e)
         {
             if (e.Sender is not InputElement inputElement)

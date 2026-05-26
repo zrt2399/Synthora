@@ -1,13 +1,10 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:messaging="clr-namespace:Synthora.Overlays"
+                    xmlns:overlays="clr-namespace:Synthora.Overlays"
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
 
     <ControlTheme x:Key="{x:Type AlertDialogHost}" TargetType="AlertDialogHost">
-        <!--<Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadius}" />-->
-        <!-- <Setter Property="BlurRadius" Value="{OnPlatform 1, macOS=4, x:TypeArguments=x:Double}" /> -->
         <Setter Property="BlurRadius" Value="1" />
         <Setter Property="DialogBoxShadow" Value="{DynamicResource DialogBoxShadow}" />
         <Setter Property="OverlayBackground" Value="Transparent" />
@@ -30,169 +27,195 @@
                             </ContentPresenter.Effect>
                         </ContentPresenter>
 
-                        <Panel Background="{TemplateBinding OverlayBackground}" IsVisible="{TemplateBinding IsOpen}">
-                            <Border Name="dialogBorder"
-                                    MinWidth="220"
-                                    MinHeight="160"
-                                    Margin="40"
-                                    Padding="10"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    Background="{DynamicResource ThemeBackgroundBrush}"
-                                    BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-                                    BorderThickness="{DynamicResource ThemeBorderThickness}"
-                                    BoxShadow="{TemplateBinding DialogBoxShadow}"
-                                    CornerRadius="{DynamicResource ThemeBorderCornerRadiusLarge}">
-
-                                <Border.Transitions>
-                                    <Transitions>
-                                        <DoubleTransition Property="Opacity" Duration="0:0:0.3" />
-                                    </Transitions>
-                                </Border.Transitions>
-
-                                <Grid KeyboardNavigation.TabNavigation="Cycle" RowDefinitions="Auto,*,Auto">
-                                    <Grid.Styles>
-                                        <Style Selector="Button">
-                                            <Setter Property="CornerRadius">
-                                                <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.All}">
-                                                    <Binding Path="#dialogBorder.CornerRadius" />
-                                                    <Binding Path="#dialogBorder.BorderThickness" />
-                                                    <Binding Path="#dialogBorder.Padding" />
-                                                    <Binding Path="#PART_ButtonPanel.Margin" />
-                                                </MultiBinding>
-                                            </Setter>
-                                        </Style>
-                                        <Style Selector="TextBox">
-                                            <Setter Property="IsReadOnly" Value="True" />
-                                            <Setter Property="Background" Value="Transparent" />
-                                            <Setter Property="BorderBrush" Value="{x:Null}" />
-                                            <Setter Property="BorderThickness" Value="0" />
-                                            <Setter Property="Padding" Value="0" />
-                                        </Style>
-                                    </Grid.Styles>
-                                    <Panel>
-                                        <TextBox Name="title"
-                                                 Margin="2,0,2,10"
-                                                 HorizontalAlignment="Left"
-                                                 FontWeight="SemiBold"
-                                                 IsVisible="{Binding $self.Text, Converter={x:Static SynthoraConverters.IsNotNullOrEmpty}}"
-                                                 Text="{TemplateBinding Title}" />
-                                        <Button Padding="{DynamicResource ThemeControlPaddingSmall}"
-                                                HorizontalAlignment="Right"
-                                                VerticalAlignment="Top"
+                        <Panel Name="DialogPanel"
+                               Background="{TemplateBinding OverlayBackground}"
+                               IsVisible="{TemplateBinding IsOpen}">
+                            <ItemsControl ItemsSource="{Binding Dialogs, RelativeSource={RelativeSource TemplatedParent}}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <Panel />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate x:DataType="AlertDialogInstance">
+                                        <Border Name="dialogBorder"
+                                                MinWidth="220"
+                                                MinHeight="160"
+                                                MaxWidth="{Binding DialogMaxWidth}"
+                                                Margin="40"
+                                                Padding="10"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
                                                 Background="{DynamicResource ThemeBackgroundBrush}"
-                                                Command="{Binding None, RelativeSource={RelativeSource TemplatedParent}}"
-                                                IsVisible="{TemplateBinding ShowCloseButton}"
-                                                Theme="{DynamicResource IconButtonTheme}">
-                                            <Button.CornerRadius>
-                                                <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.All}">
-                                                    <Binding Path="#dialogBorder.CornerRadius" />
-                                                    <Binding Path="#dialogBorder.BorderThickness" />
-                                                    <Binding Path="#dialogBorder.Padding" />
-                                                </MultiBinding>
-                                            </Button.CornerRadius>
-                                            <PathIcon Width="12"
-                                                      Height="12"
-                                                      HorizontalAlignment="Center"
-                                                      VerticalAlignment="Center"
-                                                      Data="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
-                                        </Button>
-                                    </Panel>
+                                                BorderBrush="{DynamicResource ThemeBorderLowBrush}"
+                                                BorderThickness="{DynamicResource ThemeBorderThickness}"
+                                                BoxShadow="{Binding $parent[AlertDialogHost].DialogBoxShadow}"
+                                                Classes.animatedDialog="{Binding !$parent[AlertDialogHost].DisableOpeningAnimation}"
+                                                CornerRadius="{DynamicResource ThemeBorderCornerRadiusLarge}">
+                                            <Border.Styles>
+                                                <Style Selector="Border.animatedDialog#dialogBorder">
+                                                    <Style.Animations>
+                                                        <Animation Easing="SineEaseInOut"
+                                                                   FillMode="Both"
+                                                                   Duration="0:0:0.3">
+                                                            <KeyFrame Cue="0%">
+                                                                <Setter Property="ScaleTransform.ScaleY" Value="0.8" />
+                                                                <Setter Property="ScaleTransform.ScaleX" Value="0.8" />
+                                                                <Setter Property="Opacity" Value="0" />
+                                                            </KeyFrame>
+                                                            <KeyFrame Cue="100%">
+                                                                <Setter Property="ScaleTransform.ScaleY" Value="1" />
+                                                                <Setter Property="ScaleTransform.ScaleX" Value="1" />
+                                                                <Setter Property="Opacity" Value="1" />
+                                                            </KeyFrame>
+                                                        </Animation>
+                                                    </Style.Animations>
+                                                </Style>
+                                            </Border.Styles>
 
-                                    <DockPanel Grid.Row="1">
-                                        <TipIcon Name="icon"
-                                                 Width="32"
-                                                 Height="32"
-                                                 Margin="10"
-                                                 VerticalAlignment="Top"
-                                                 DockPanel.Dock="Left"
-                                                 IconType="{TemplateBinding IconType}" />
+                                            <Grid KeyboardNavigation.TabNavigation="Cycle" RowDefinitions="Auto,*,Auto">
+                                                <Grid.Styles>
+                                                    <Style Selector="Button">
+                                                        <Setter Property="CornerRadius">
+                                                            <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.All}">
+                                                                <Binding Path="#dialogBorder.CornerRadius" />
+                                                                <Binding Path="#dialogBorder.BorderThickness" />
+                                                                <Binding Path="#dialogBorder.Padding" />
+                                                                <Binding Path="#PART_ButtonPanel.Margin" />
+                                                            </MultiBinding>
+                                                        </Setter>
+                                                    </Style>
+                                                    <Style Selector="TextBox">
+                                                        <Setter Property="IsReadOnly" Value="True" />
+                                                        <Setter Property="Background" Value="Transparent" />
+                                                        <Setter Property="BorderBrush" Value="{x:Null}" />
+                                                        <Setter Property="BorderThickness" Value="0" />
+                                                        <Setter Property="Padding" Value="0" />
+                                                    </Style>
+                                                </Grid.Styles>
+                                                <Panel>
+                                                    <TextBox Name="title"
+                                                             Margin="2,0,2,10"
+                                                             HorizontalAlignment="Left"
+                                                             FontWeight="SemiBold"
+                                                             IsVisible="{Binding Title, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                                             Text="{Binding Title}" />
+                                                    <Button Padding="{DynamicResource ThemeControlPaddingSmall}"
+                                                            HorizontalAlignment="Right"
+                                                            VerticalAlignment="Top"
+                                                            Background="{DynamicResource ThemeBackgroundBrush}"
+                                                            Command="{Binding None}"
+                                                            IsVisible="{Binding ShowCloseButton}"
+                                                            Theme="{DynamicResource IconButtonTheme}">
+                                                        <Button.CornerRadius>
+                                                            <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.All}">
+                                                                <Binding Path="#dialogBorder.CornerRadius" />
+                                                                <Binding Path="#dialogBorder.BorderThickness" />
+                                                                <Binding Path="#dialogBorder.Padding" />
+                                                            </MultiBinding>
+                                                        </Button.CornerRadius>
+                                                        <PathIcon Width="12"
+                                                                  Height="12"
+                                                                  HorizontalAlignment="Center"
+                                                                  VerticalAlignment="Center"
+                                                                  Data="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+                                                    </Button>
+                                                </Panel>
 
-                                        <TextBox Name="message"
-                                                 Margin="10"
-                                                 HorizontalAlignment="Left"
-                                                 VerticalAlignment="Top"
-                                                 Text="{TemplateBinding Message}"
-                                                 TextWrapping="Wrap" />
-                                    </DockPanel>
-                                    <StackPanel x:Name="PART_ButtonPanel"
-                                                Grid.Row="2"
-                                                Margin="10"
-                                                HorizontalAlignment="Right"
-                                                Orientation="Horizontal"
-                                                Spacing="10">
-                                        <StackPanel.Styles>
-                                            <Style Selector="Button">
-                                                <Setter Property="MinWidth" Value="80" />
-                                            </Style>
-                                        </StackPanel.Styles>
-                                        <Button Name="OKButton"
-                                                Command="{Binding OK, RelativeSource={RelativeSource TemplatedParent}}"
-                                                Content="{DynamicResource StringAlertDialogButtonOK}"
-                                                IsDefault="True"
-                                                IsVisible="{TemplateBinding DialogButton,
-                                                                            Converter={x:Static SynthoraConverters.HasFlag},
-                                                                            ConverterParameter={x:Static messaging:DialogButton.OK}}" />
-                                        <Button Name="YesButton"
-                                                Command="{Binding Yes, RelativeSource={RelativeSource TemplatedParent}}"
-                                                Content="{DynamicResource StringAlertDialogButtonYes}"
-                                                IsDefault="True"
-                                                IsVisible="{TemplateBinding DialogButton,
-                                                                            Converter={x:Static SynthoraConverters.HasFlag},
-                                                                            ConverterParameter={x:Static messaging:DialogButton.Yes}}" />
-                                        <Button Name="NoButton"
-                                                Command="{Binding No, RelativeSource={RelativeSource TemplatedParent}}"
-                                                Content="{DynamicResource StringAlertDialogButtonNo}"
-                                                IsVisible="{TemplateBinding DialogButton,
-                                                                            Converter={x:Static SynthoraConverters.HasFlag},
-                                                                            ConverterParameter={x:Static messaging:DialogButton.No}}"
-                                                Theme="{StaticResource SecondaryButtonTheme}" />
-                                        <Button Name="CancelButton"
-                                                Command="{Binding Cancel, RelativeSource={RelativeSource TemplatedParent}}"
-                                                Content="{DynamicResource StringAlertDialogButtonCancel}"
-                                                IsCancel="True"
-                                                IsVisible="{TemplateBinding DialogButton,
-                                                                            Converter={x:Static SynthoraConverters.HasFlag},
-                                                                            ConverterParameter={x:Static messaging:DialogButton.Cancel}}"
-                                                Theme="{StaticResource SecondaryButtonTheme}" />
-                                        <Button Name="AbortButton"
-                                                Command="{Binding Abort, RelativeSource={RelativeSource TemplatedParent}}"
-                                                Content="{DynamicResource StringAlertDialogButtonAbort}"
-                                                IsVisible="{TemplateBinding DialogButton,
-                                                                            Converter={x:Static SynthoraConverters.HasFlag},
-                                                                            ConverterParameter={x:Static messaging:DialogButton.Abort}}"
-                                                Theme="{StaticResource ErrorButtonTheme}" />
-                                    </StackPanel>
-                                </Grid>
-                            </Border>
+                                                <DockPanel Grid.Row="1">
+                                                    <TipIcon Name="icon"
+                                                             Width="32"
+                                                             Height="32"
+                                                             Margin="10"
+                                                             VerticalAlignment="Top"
+                                                             DockPanel.Dock="Left"
+                                                             IconType="{Binding IconType}"
+                                                             IsVisible="{Binding IconType, Converter={x:Static ObjectConverters.NotEqual}, ConverterParameter={x:Static overlays:IconType.None}}" />
+
+                                                    <TextBox Name="message"
+                                                             Margin="10"
+                                                             HorizontalAlignment="Left"
+                                                             VerticalAlignment="Top"
+                                                             Text="{Binding Message}"
+                                                             TextWrapping="Wrap" />
+                                                </DockPanel>
+
+                                                <StackPanel x:Name="PART_ButtonPanel"
+                                                            Grid.Row="2"
+                                                            Margin="10"
+                                                            HorizontalAlignment="Right"
+                                                            FocusAttach.IsFocused="True"
+                                                            IsVisible="{Binding DialogButton, Converter={x:Static ObjectConverters.NotEqual}, ConverterParameter={x:Static overlays:DialogButton.None}}"
+                                                            Orientation="Horizontal"
+                                                            Spacing="10">
+                                                    <StackPanel.Styles>
+                                                        <Style Selector="Button">
+                                                            <Setter Property="MinWidth" Value="80" />
+                                                        </Style>
+                                                    </StackPanel.Styles>
+                                                    <Button Name="OKButton"
+                                                            Command="{Binding OK}"
+                                                            Content="{DynamicResource StringAlertDialogButtonOK}"
+                                                            IsDefault="True"
+                                                            IsVisible="{Binding DialogButton, Converter={x:Static SynthoraConverters.HasFlag}, ConverterParameter={x:Static overlays:DialogButton.OK}}" />
+                                                    <Button Name="YesButton"
+                                                            Command="{Binding Yes}"
+                                                            Content="{DynamicResource StringAlertDialogButtonYes}"
+                                                            IsDefault="True"
+                                                            IsVisible="{Binding DialogButton, Converter={x:Static SynthoraConverters.HasFlag}, ConverterParameter={x:Static overlays:DialogButton.Yes}}" />
+                                                    <Button Name="NoButton"
+                                                            Command="{Binding No}"
+                                                            Content="{DynamicResource StringAlertDialogButtonNo}"
+                                                            IsVisible="{Binding DialogButton, Converter={x:Static SynthoraConverters.HasFlag}, ConverterParameter={x:Static overlays:DialogButton.No}}"
+                                                            Theme="{DynamicResource SecondaryButtonTheme}" />
+                                                    <Button Name="CancelButton"
+                                                            Command="{Binding Cancel}"
+                                                            Content="{DynamicResource StringAlertDialogButtonCancel}"
+                                                            IsCancel="True"
+                                                            IsVisible="{Binding DialogButton, Converter={x:Static SynthoraConverters.HasFlag}, ConverterParameter={x:Static overlays:DialogButton.Cancel}}"
+                                                            Theme="{DynamicResource SecondaryButtonTheme}" />
+                                                    <Button Name="AbortButton"
+                                                            Command="{Binding Abort}"
+                                                            Content="{DynamicResource StringAlertDialogButtonAbort}"
+                                                            IsVisible="{Binding DialogButton, Converter={x:Static SynthoraConverters.HasFlag}, ConverterParameter={x:Static overlays:DialogButton.Abort}}"
+                                                            Theme="{DynamicResource ErrorButtonTheme}" />
+                                                </StackPanel>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
                         </Panel>
                     </Panel>
                 </Border>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^[IsOpen=False]">
+        <Style Selector="^ /template/ Panel#DialogPanel">
+            <Setter Property="Opacity" Value="0" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <DoubleTransition Easing="0.1,0.9,0.2,1.0"
+                                      Property="Opacity"
+                                      Duration="0:0:0.3" />
+                </Transitions>
+            </Setter>
+        </Style>
+        <Style Selector="^:not(:open)">
             <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Effect" Value="{x:Null}" />
             </Style>
-            <Style Selector="^ /template/ Border#dialogBorder">
-                <Setter Property="Opacity" Value="0" />
-            </Style>
         </Style>
-        <Style Selector="^[IsOpen=True]">
+
+        <Style Selector="^:open">
+            <Style Selector="^ /template/ Panel#DialogPanel">
+                <Setter Property="Opacity" Value="1" />
+            </Style>
+
             <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="KeyboardNavigation.TabNavigation" Value="None" />
                 <Setter Property="IsHitTestVisible" Value="False" />
                 <Setter Property="Focusable" Value="False" />
             </Style>
-            <Style Selector="^ /template/ Border#dialogBorder">
-                <Setter Property="Opacity" Value="1" />
-            </Style>
-        </Style>
-        <Style Selector="^:no-button /template/ StackPanel#PART_ButtonPanel">
-            <Setter Property="Margin" Value="0" />
-        </Style>
-        <Style Selector="^[IconType=None] /template/ TipIcon#icon">
-            <Setter Property="IsVisible" Value="False" />
         </Style>
     </ControlTheme>
 

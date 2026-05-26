@@ -54,7 +54,7 @@ namespace Synthora.Demo.ViewModels
             };
             await new Window()
             {
-                Content = $"Selected:{result}",
+                Content = $"Selected: {result}",
                 HorizontalContentAlignment = HorizontalAlignment.Center,
                 VerticalContentAlignment = VerticalAlignment.Center,
                 CanResize = false,

@@ -1,46 +1,63 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Metadata;
-using Avalonia.Controls.Primitives;
 using Avalonia.Media;
-using Avalonia.Threading;
 using Synthora.Overlays;
 
 namespace Synthora.Controls
 {
-    public class AlertDialogClosedEventArgs(DialogResult dialogResult) : EventArgs
+    /// <summary>
+    /// Represents a single alert dialog instance currently managed by an <see cref="AlertDialogHost"/>.
+    /// </summary>
+    public class AlertDialogInstance
     {
-        public DialogResult DialogResult { get; } = dialogResult;
+        public string? Title { get; }
+        public string? Message { get; }
+        public DialogButton DialogButton { get; }
+        public IconType IconType { get; }
+        public bool ShowCloseButton { get; }
+        public double DialogMaxWidth { get; }
+
+        public AlertDialogHost Host { get; }
+        public TaskCompletionSource<DialogResult> Tcs { get; } = new();
+
+        /// <summary>
+        /// Initializes a dialog instance from the supplied host and dialog arguments.
+        /// </summary>
+        public AlertDialogInstance(AlertDialogHost host, AlertDialogArguments args)
+        {
+            Host = host;
+            Title = args.Title;
+            Message = args.Message;
+            DialogButton = args.DialogButton;
+            IconType = args.IconType;
+            ShowCloseButton = args.ShowCloseButton || DialogButton == DialogButton.None;
+            DialogMaxWidth = args.DialogMaxWidth;
+        }
+
+        public void OK() => Host.Close(this, DialogResult.OK);
+        public void Cancel() => Host.Close(this, DialogResult.Cancel);
+        public void Yes() => Host.Close(this, DialogResult.Yes);
+        public void No() => Host.Close(this, DialogResult.No);
+        public void Abort() => Host.Close(this, DialogResult.Abort);
+        public void None() => Host.Close(this, DialogResult.None);
     }
 
-    [PseudoClasses(pcNoButton)]
+    [PseudoClasses(pcOpen)]
     public class AlertDialogHost : ContentControl
     {
-        private const string pcNoButton = ":no-button";
-        private StackPanel? _buttonPanel;
+        private bool _isOpen;
+        private const string pcOpen = ":open";
         private static readonly HashSet<AlertDialogHost> _loadedInstances = [];
+        private readonly ObservableCollection<AlertDialogInstance> _dialogs = [];
 
         public static readonly StyledProperty<double> BlurRadiusProperty =
             AvaloniaProperty.Register<AlertDialogHost, double>(nameof(BlurRadius));
-
-        public static readonly StyledProperty<string?> TitleProperty =
-            AvaloniaProperty.Register<AlertDialogHost, string?>(nameof(Title));
-
-        public static readonly StyledProperty<string?> MessageProperty =
-            AvaloniaProperty.Register<AlertDialogHost, string?>(nameof(Message));
-
-        public static readonly StyledProperty<DialogButton> DialogButtonProperty =
-            AvaloniaProperty.Register<AlertDialogHost, DialogButton>(nameof(DialogButton));
-
-        public static readonly StyledProperty<IconType> IconTypeProperty =
-            AvaloniaProperty.Register<AlertDialogHost, IconType>(nameof(IconType));
-
-        public static readonly StyledProperty<bool> IsOpenProperty =
-            AvaloniaProperty.Register<AlertDialogHost, bool>(nameof(IsOpen));
 
         public static readonly StyledProperty<string?> IdentifierProperty =
             AvaloniaProperty.Register<AlertDialogHost, string?>(nameof(Identifier));
@@ -48,48 +65,21 @@ namespace Synthora.Controls
         public static readonly StyledProperty<IBrush?> OverlayBackgroundProperty =
             AvaloniaProperty.Register<AlertDialogHost, IBrush?>(nameof(OverlayBackground));
 
-        public static readonly StyledProperty<bool> ShowCloseButtonProperty =
-            AvaloniaProperty.Register<AlertDialogHost, bool>(nameof(ShowCloseButton));
-        
-        public static readonly StyledProperty<BoxShadows> DialogBoxShadowProperty = 
-            AvaloniaProperty.Register<DropShadowChrome, BoxShadows>(nameof(DialogBoxShadow));
+        public static readonly StyledProperty<BoxShadows> DialogBoxShadowProperty =
+            AvaloniaProperty.Register<AlertDialogHost, BoxShadows>(nameof(DialogBoxShadow));
 
-        public event EventHandler<AlertDialogClosedEventArgs>? DialogClosed;
+        public static readonly StyledProperty<bool> DisableOpeningAnimationProperty =
+            AvaloniaProperty.Register<AlertDialogHost, bool>(nameof(DisableOpeningAnimation));
+
+        public static readonly DirectProperty<AlertDialogHost, bool> IsOpenProperty =
+            AvaloniaProperty.RegisterDirect<AlertDialogHost, bool>(nameof(IsOpen), o => o.IsOpen);
+
+        public IReadOnlyList<AlertDialogInstance> Dialogs => _dialogs;
 
         public double BlurRadius
         {
             get => GetValue(BlurRadiusProperty);
             set => SetValue(BlurRadiusProperty, value);
-        }
-
-        public string? Title
-        {
-            get => GetValue(TitleProperty);
-            set => SetValue(TitleProperty, value);
-        }
-
-        public string? Message
-        {
-            get => GetValue(MessageProperty);
-            set => SetValue(MessageProperty, value);
-        }
-
-        public DialogButton DialogButton
-        {
-            get => GetValue(DialogButtonProperty);
-            set => SetValue(DialogButtonProperty, value);
-        }
-
-        public IconType IconType
-        {
-            get => GetValue(IconTypeProperty);
-            set => SetValue(IconTypeProperty, value);
-        }
-
-        public bool IsOpen
-        {
-            get => GetValue(IsOpenProperty);
-            set => SetValue(IsOpenProperty, value);
         }
 
         public string? Identifier
@@ -104,37 +94,34 @@ namespace Synthora.Controls
             set => SetValue(OverlayBackgroundProperty, value);
         }
 
-        public bool ShowCloseButton
-        {
-            get => GetValue(ShowCloseButtonProperty);
-            set => SetValue(ShowCloseButtonProperty, value);
-        }
- 
         public BoxShadows DialogBoxShadow
         {
             get => GetValue(DialogBoxShadowProperty);
             set => SetValue(DialogBoxShadowProperty, value);
         }
 
-        protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs e)
+        public bool DisableOpeningAnimation
         {
-            base.OnPropertyChanged(e);
-            if (e.Property == DialogButtonProperty)
+            get => GetValue(DisableOpeningAnimationProperty);
+            set => SetValue(DisableOpeningAnimationProperty, value);
+        }
+
+        public bool IsOpen
+        {
+            get => _isOpen;
+            internal set => SetAndRaise(IsOpenProperty, ref _isOpen, value);
+        }
+
+        public AlertDialogHost()
+        {
+            _dialogs.CollectionChanged += (s, e) =>
             {
-                UpdatePseudoClasses();
-            }
+                IsOpen = _dialogs.Count > 0;
+                PseudoClasses.Set(pcOpen, IsOpen);
+            };
         }
 
-        private void UpdatePseudoClasses()
-        {
-            PseudoClasses.Set(pcNoButton, DialogButton == DialogButton.None);
-        }
-
-        /// <summary>
-        /// Retrieves a loaded AlertDialogHost instance matching the given identifier.
-        /// Throws an exception if no match is found or multiple matches exist.
-        /// </summary>
-        private static AlertDialogHost GetInstance(string? dialogIdentifier)
+        internal static AlertDialogHost GetInstance(string? dialogIdentifier)
         {
             if (_loadedInstances.Count == 0)
             {
@@ -144,142 +131,48 @@ namespace Synthora.Controls
             var targets = _loadedInstances.Where(x => dialogIdentifier == null || Equals(x.Identifier, dialogIdentifier)).ToList();
             if (targets.Count == 0)
             {
-                throw new InvalidOperationException(
-                    $"No loaded AlertDialogHost have an {nameof(Identifier)} property matching {nameof(dialogIdentifier)} ('{dialogIdentifier}') argument.");
+                throw new InvalidOperationException($"No loaded AlertDialogHost have an {nameof(Identifier)} property matching {nameof(dialogIdentifier)} ('{dialogIdentifier}') argument.");
             }
 
             if (targets.Count > 1)
             {
-                throw new InvalidOperationException(
-                    "Multiple viable AlertDialogHosts. Specify a unique Identifier on each AlertDialogHost, especially where multiple Windows are a concern.");
+                throw new InvalidOperationException("Multiple viable AlertDialogHosts. Specify a unique Identifier on each AlertDialogHost, especially where multiple Windows are a concern.");
             }
 
             return targets[0];
         }
 
-        /// <summary>
-        /// Returns whether the dialog with the given identifier is currently open.
-        /// </summary>
-        public static bool IsDialogOpen(string? dialogIdentifier) => GetInstance(dialogIdentifier).IsOpen;
-
-        internal static async Task<DialogResult> ShowAsync(string? dialogIdentifier, AlertDialogArguments alertDialogArguments)
+        internal async Task<DialogResult> Show(AlertDialogArguments alertDialogArguments)
         {
-            return await GetInstance(dialogIdentifier).ShowCore(alertDialogArguments);
+            var dialog = new AlertDialogInstance(this, alertDialogArguments);
+            _dialogs.Add(dialog);
+
+            return await dialog.Tcs.Task;
         }
 
-        internal static async Task<DialogResult> ShowAsync(string? dialogIdentifier, string message, string? title, DialogButton dialogButton, IconType iconType)
+        internal void Close(AlertDialogInstance dialogInstance, DialogResult dialogResult)
         {
-            return await GetInstance(dialogIdentifier).ShowCore(new AlertDialogArguments()
+            if (_dialogs.Contains(dialogInstance))
             {
-                Title = title,
-                Message = message,
-                DialogButton = dialogButton,
-                IconType = iconType
-            });
-        }
-
-        private async Task<DialogResult> ShowCore(AlertDialogArguments alertDialogArguments)
-        {
-            if (alertDialogArguments.DialogButton == DialogButton.None)
-            {
-                alertDialogArguments.ShowCloseButton = true;
-            }
-            if (IsOpen)
-            {
-                throw new InvalidOperationException("AlertDialogHost is already open.");
-            }
-
-            var tcs = new TaskCompletionSource<DialogResult>();
-            try
-            {
-                DialogClosed += OnDialogClosed;
-                SetCurrentValue(TitleProperty, alertDialogArguments.Title);
-                SetCurrentValue(MessageProperty, alertDialogArguments.Message);
-                SetCurrentValue(DialogButtonProperty, alertDialogArguments.DialogButton);
-                SetCurrentValue(IconTypeProperty, alertDialogArguments.IconType);
-                SetCurrentValue(ShowCloseButtonProperty, alertDialogArguments.ShowCloseButton);
-                SetCurrentValue(IsOpenProperty, true);
-
-                _ = Dispatcher.UIThread.InvokeAsync(() =>
-                {
-                    if (_buttonPanel?.Children.FirstOrDefault(x => x is Button && x.IsVisible) is Button button)
-                    {
-                        button.Focus();
-                    }
-                }, DispatcherPriority.Render);
-
-                var dialogResult = await tcs.Task;
-
-                return dialogResult;
-            }
-            finally
-            {
-                SetCurrentValue(IsOpenProperty, false);
-                DialogClosed -= OnDialogClosed;
-            }
-
-            void OnDialogClosed(object? sender, AlertDialogClosedEventArgs e)
-            {
-                //SetCurrentValue(IsOpenProperty, false);
-                tcs.TrySetResult(e.DialogResult);
+                _dialogs.Remove(dialogInstance);
+                dialogInstance.Tcs.TrySetResult(dialogResult);
             }
         }
 
-        /// <summary>
-        /// Closes the currently open alert dialog by raising the <see cref="DialogClosed"/> event
-        /// with the specified <see cref="DialogResult"/>.
-        /// </summary>
-        private void Close(DialogResult dialogResult)
-        {
-            if (IsOpen)
-            {
-                DialogClosed?.Invoke(this, new AlertDialogClosedEventArgs(dialogResult));
-            }
-        }
-
-        /// <summary>
-        /// Closes the dialog with the specified identifier and result.
-        /// Throws if the dialog is not loaded.
-        /// </summary>
-        public static void Close(string? dialogIdentifier, DialogResult dialogResult)
-        {
-            var alertDialogHost = GetInstance(dialogIdentifier);
-            if (alertDialogHost != null)
-            {
-                alertDialogHost.Close(dialogResult);
-                return;
-            }
-
-            throw new InvalidOperationException("AlertDialogHost is not loaded.");
-        }
-
-        /// <inheritdoc />
         protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
         {
             base.OnAttachedToVisualTree(e);
             _loadedInstances.Add(this);
         }
 
-        /// <inheritdoc />
         protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e)
         {
             base.OnDetachedFromVisualTree(e);
+            foreach (var item in _dialogs.ToArray())
+            {
+                Close(item, DialogResult.None);
+            }
             _loadedInstances.Remove(this);
         }
-
-        /// <inheritdoc />
-        protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
-        {
-            base.OnApplyTemplate(e);
-            _buttonPanel = e.NameScope.Find<StackPanel>("PART_ButtonPanel");
-            UpdatePseudoClasses();
-        }
-
-        public void OK() => Close(DialogResult.OK);
-        public void Cancel() => Close(DialogResult.Cancel);
-        public void Yes() => Close(DialogResult.Yes);
-        public void No() => Close(DialogResult.No);
-        public void Abort() => Close(DialogResult.Abort);
-        public void None() => Close(DialogResult.None);
     }
 }

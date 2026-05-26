@@ -48,6 +48,9 @@ namespace Synthora.Overlays
         Error
     }
 
+    /// <summary>
+    /// Provides the options used to configure and display an alert dialog.
+    /// </summary>
     public class AlertDialogArguments
     {
         public string? Title { get; set; }
@@ -55,6 +58,7 @@ namespace Synthora.Overlays
         public DialogButton DialogButton { get; set; } = DialogButton.OK;
         public IconType IconType { get; set; }
         public bool ShowCloseButton { get; set; }
+        public double DialogMaxWidth { get; set; } = 800;
     }
 
     /// <summary>
@@ -63,6 +67,11 @@ namespace Synthora.Overlays
     public static class AlertDialog
     {
         /// <summary>
+        /// Returns whether the dialog with the given identifier is currently open.
+        /// </summary>
+        public static bool IsDialogOpen(string? dialogIdentifier = null) => AlertDialogHost.GetInstance(dialogIdentifier).IsOpen;
+
+        /// <summary>
         /// Displays an alert dialog asynchronously using the specified <paramref name="alertDialogArguments"/>,
         /// targeting the <see cref="AlertDialogHost"/> instance identified by <paramref name="dialogIdentifier"/>.
         /// </summary>
@@ -70,7 +79,7 @@ namespace Synthora.Overlays
         {
             if (Dispatcher.UIThread.CheckAccess())
             {
-                return await AlertDialogHost.ShowAsync(dialogIdentifier, alertDialogArguments);
+                return await AlertDialogHost.GetInstance(dialogIdentifier).Show(alertDialogArguments);
             }
             else
             {
@@ -108,6 +117,26 @@ namespace Synthora.Overlays
         public static async Task<DialogResult> ShowAsync(string message, string? title, DialogButton dialogButton = DialogButton.OK, IconType iconType = IconType.Information)
         {
             return await ShowAsync(null, message, title, dialogButton, iconType);
+        }
+
+        /// <summary>
+        /// Closes the most recently opened dialog for the specified host identifier.
+        /// </summary>
+        public static void CloseDialog(string? dialogIdentifier, DialogResult dialogResult)
+        {
+            var host = AlertDialogHost.GetInstance(dialogIdentifier);
+            if (host.Dialogs.Count > 0)
+            {
+                host.Close(host.Dialogs[^1], dialogResult);
+            }
+        }
+
+        /// <summary>
+        /// Closes the most recently opened dialog for the default host instance.
+        /// </summary>
+        public static void CloseDialog(DialogResult dialogResult)
+        {
+            CloseDialog(null, dialogResult);
         }
     }
 }
