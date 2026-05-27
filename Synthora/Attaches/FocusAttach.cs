@@ -18,7 +18,7 @@ namespace Synthora.Attaches
             AvaloniaProperty.RegisterAttached<FocusAttach, Control, bool>("FocusOnLoaded");
 
         public static readonly AttachedProperty<DispatcherPriority> FocusPriorityProperty =
-            AvaloniaProperty.RegisterAttached<FocusAttach, InputElement, DispatcherPriority>("FocusPriority", DispatcherPriority.Render);
+            AvaloniaProperty.RegisterAttached<FocusAttach, InputElement, DispatcherPriority>("FocusPriority", DispatcherPriority.Loaded);
 
         public static readonly AttachedProperty<bool> UseCorrectFocusBehaviorProperty =
             AvaloniaProperty.RegisterAttached<FocusAttach, InputElement, bool>("UseCorrectFocusBehavior");

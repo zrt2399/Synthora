@@ -76,7 +76,7 @@ namespace Synthora.Attaches
                 Dispatcher.UIThread.InvokeAsync(() =>
                 {
                     dataGrid.ScrollIntoView(e.NewValue.Value, null);
-                }, DispatcherPriority.Render);
+                }, DispatcherPriority.Loaded);
             }
         }
 
@@ -139,12 +139,12 @@ namespace Synthora.Attaches
             {
                 return;
             }
-            if (list != null && list.Count > 0)
+            if (list is { Count: > 0 })
             {
                 Dispatcher.UIThread.InvokeAsync(() =>
                 {
-                    dataGrid.ScrollIntoView(list[list.Count - 1], null);
-                }, DispatcherPriority.Render);
+                    dataGrid.ScrollIntoView(list[^1], null);
+                }, DispatcherPriority.Loaded);
             }
         }
     }

@@ -89,7 +89,7 @@ namespace Synthora.Attaches
             {
                 var scrollViewer = listBox.GetVisualDescendants().OfType<ScrollViewer>().FirstOrDefault();
                 scrollViewer?.ScrollToEnd();
-            }, DispatcherPriority.Render);
+            }, DispatcherPriority.Loaded);
         }
     }
 }
