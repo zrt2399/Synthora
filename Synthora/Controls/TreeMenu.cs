@@ -3,11 +3,12 @@ using Avalonia.Controls;
 using Avalonia.Controls.Presenters;
 using Avalonia.Controls.Primitives;
 using Avalonia.Controls.Templates;
+using Avalonia.Input;
 using Avalonia.Media;
 
 namespace Synthora.Controls
 {
-    public class TreeMenu : TreeView
+    public class TreeMenu : TreeView, ICustomKeyboardNavigation
     {
         private ContentPresenter? _selectedContentPresenter;
 
@@ -81,6 +82,13 @@ namespace Synthora.Controls
         {
             get => GetValue(SelectedItemTemplateProperty);
             set => SetValue(SelectedItemTemplateProperty, value);
+        }
+
+        // Override and use the default KeyboardNavigation.
+        (bool handled, IInputElement? next) ICustomKeyboardNavigation.GetNext(
+            IInputElement element, NavigationDirection direction)
+        {
+            return (false, null);
         }
 
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e)

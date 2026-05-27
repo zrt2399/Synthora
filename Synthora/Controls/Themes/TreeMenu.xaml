@@ -37,6 +37,7 @@
                                           HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
                                           IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}"
                                           IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+                                          KeyboardNavigation.TabNavigation="Once"
                                           VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
                                 <ItemsPresenter Name="PART_ItemsPresenter"
                                                 Margin="{TemplateBinding Padding}"
