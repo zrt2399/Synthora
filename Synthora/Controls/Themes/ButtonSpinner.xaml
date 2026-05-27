@@ -34,15 +34,16 @@
                                       VerticalAlignment="{TemplateBinding (TextBoxAttach.HeaderVerticalAlignment)}"
                                       Content="{TemplateBinding (TextBoxAttach.Header)}"
                                       DockPanel.Dock="{TemplateBinding (TextBoxAttach.HeaderPlacement)}" />
-                    <Border Name="border"
-                            Width="{TemplateBinding (TextBoxAttach.Width)}"
-                            MinWidth="{TemplateBinding (TextBoxAttach.MinWidth)}"
-                            MaxWidth="{TemplateBinding (TextBoxAttach.MaxWidth)}"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{TemplateBinding CornerRadius}"
-                            TemplatedControl.IsTemplateFocusTarget="True">
+                    <DropShadowChrome Name="FocusTarget"
+                                      Width="{TemplateBinding (TextBoxAttach.Width)}"
+                                      MinWidth="{TemplateBinding (TextBoxAttach.MinWidth)}"
+                                      MaxWidth="{TemplateBinding (TextBoxAttach.MaxWidth)}"
+                                      Background="{TemplateBinding Background}"
+                                      BorderBrush="{TemplateBinding BorderBrush}"
+                                      BorderThickness="{TemplateBinding BorderThickness}"
+                                      BoxShadow="{TemplateBinding (BoxShadowAttach.BoxShadow)}"
+                                      CornerRadius="{TemplateBinding CornerRadius}"
+                                      TemplatedControl.IsTemplateFocusTarget="True">
                         <DataValidationErrors>
                             <DockPanel>
                                 <UniformGrid Name="PART_SpinnerPanel"
@@ -80,59 +81,29 @@
                                                   ContentTemplate="{TemplateBinding ContentTemplate}" />
                             </DockPanel>
                         </DataValidationErrors>
-                    </Border>
+                    </DropShadowChrome>
                 </DockPanel>
             </ControlTemplate>
         </Setter>
+
+        <Style Selector="^ /template/ RepeatButton">
+            <Setter Property="CornerRadius" Value="0" />
+        </Style>
         <Style Selector="^:left">
             <Style Selector="^ /template/ UniformGrid#PART_SpinnerPanel">
                 <Setter Property="DockPanel.Dock" Value="Left" />
             </Style>
-            <Style Selector="^ /template/ RepeatButton#PART_IncreaseButton">
-                <Setter Property="CornerRadius">
-                    <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.TopLeft}">
-                        <Binding Path="$parent[ButtonSpinner].CornerRadius" />
-                        <Binding Path="$parent[ButtonSpinner].BorderThickness" />
-                    </MultiBinding>
-                </Setter>
-            </Style>
-            <Style Selector="^ /template/ RepeatButton#PART_DecreaseButton">
-                <Setter Property="CornerRadius">
-                    <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.BottomLeft}">
-                        <Binding Path="$parent[ButtonSpinner].CornerRadius" />
-                        <Binding Path="$parent[ButtonSpinner].BorderThickness" />
-                    </MultiBinding>
-                </Setter>
-            </Style>
         </Style>
-        <Style Selector="^:right">
-            <Style Selector="^ /template/ RepeatButton#PART_IncreaseButton">
-                <Setter Property="CornerRadius">
-                    <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.TopRight}">
-                        <Binding Path="$parent[ButtonSpinner].CornerRadius" />
-                        <Binding Path="$parent[ButtonSpinner].BorderThickness" />
-                    </MultiBinding>
-                </Setter>
-            </Style>
-            <Style Selector="^ /template/ RepeatButton#PART_DecreaseButton">
-                <Setter Property="CornerRadius">
-                    <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.BottomRight}">
-                        <Binding Path="$parent[ButtonSpinner].CornerRadius" />
-                        <Binding Path="$parent[ButtonSpinner].BorderThickness" />
-                    </MultiBinding>
-                </Setter>
-            </Style>
-        </Style>
-        <Style Selector="^:pointerover /template/ Border#border">
+        <Style Selector="^:pointerover">
             <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighlightBrush}" />
         </Style>
-        <Style Selector="^:focus-within /template/ Border#border">
+        <Style Selector="^:focus-within">
             <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighlightBrush}" />
         </Style>
-        <Style Selector="^:error /template/ Border#border">
+        <Style Selector="^:error">
             <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
         </Style>
-        <Style Selector="^:disabled /template/ Border#border">
+        <Style Selector="^:disabled /template/ DropShadowChrome#FocusTarget">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>
     </ControlTheme>

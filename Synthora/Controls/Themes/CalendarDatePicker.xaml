@@ -84,7 +84,6 @@
                                  UseFloatingPlaceholder="{TemplateBinding UseFloatingPlaceholder}">
                             <TextBox.InnerRightContent>
                                 <Button Name="PART_Button"
-                                        Cursor="Arrow"
                                         Focusable="False"
                                         Foreground="{Binding $parent[CalendarDatePicker].Foreground}"
                                         Theme="{StaticResource SimpleCalendarDatePickerButtonTheme}" />
