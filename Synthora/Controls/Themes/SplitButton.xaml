@@ -43,12 +43,10 @@
                 <Panel>
                     <Border Name="RootBorder"
                             Background="Transparent"
-                            BorderBrush="Transparent"
-                            BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderThickness="0"
                             CornerRadius="{TemplateBinding CornerRadius}" />
                     <Grid ColumnDefinitions="*,Auto,Auto">
                         <Button x:Name="PART_PrimaryButton"
-                                Margin="0,0,-1,0"
                                 Padding="{TemplateBinding Padding}"
                                 Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
@@ -65,13 +63,16 @@
                                 Foreground="{TemplateBinding Foreground}"
                                 KeyboardNavigation.IsTabStop="False" />
 
-                        <controls:PixelAlignedRectangle Grid.Column="1"
-                                                        Width="1"
-                                                        Margin="0,4"
-                                                        Fill="{TemplateBinding Foreground}" />
+                        <Panel Name="SeparatorPanel"
+                               Grid.Column="1"
+                               Background="{TemplateBinding Background}">
+                            <controls:PixelAlignedRectangle Width="1"
+                                                            Margin="0,4"
+                                                            Fill="{TemplateBinding Foreground}" />
+                        </Panel>
+
                         <Button x:Name="PART_SecondaryButton"
                                 Grid.Column="2"
-                                Margin="-1,0,0,0"
                                 Padding="{TemplateBinding Padding}"
                                 Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
@@ -202,7 +203,7 @@
     <ControlTheme x:Key="OutlineSplitButtonBaseTheme"
                   BasedOn="{StaticResource {x:Type SplitButton}}"
                   TargetType="SplitButton">
-        <Style Selector="^ /template/ controls|PixelAlignedRectangle">
+        <Style Selector="^ /template/ Panel#SeparatorPanel">
             <Setter Property="IsVisible" Value="False" />
         </Style>
         <Style Selector="^ /template/ Button#PART_SecondaryButton">

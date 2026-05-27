@@ -1,5 +1,6 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="using:Synthora.Controls"
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
 
@@ -124,13 +125,13 @@
                         </Panel>
                     </Border>
 
-                    <Border Name="PART_RightBorder"
-                            Grid.Column="2"
-                            Height="20"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
-                            Background="{DynamicResource DragTabItemRightSeparatorBackgroundBrush}"
-                            BorderThickness="0,0,1,0" />
+                    <controls:PixelAlignedRectangle Name="RightSeparator"
+                                                    Grid.Column="2"
+                                                    Width="1"
+                                                    Height="20"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Center"
+                                                    Fill="{DynamicResource DragTabItemRightSeparatorBackgroundBrush}" />
 
                     <Path Name="PART_RightCorner"
                           Grid.Column="2"
@@ -156,10 +157,9 @@
         <!--  Selected state  -->
         <Style Selector="^:selected">
             <Setter Property="Background" Value="{DynamicResource DragTabItemSelectedBackgroundBrush}" />
-            <!--<Setter Property="TextBlock.Foreground" Value="{DynamicResource TabItemHeaderForegroundSelected}" />-->
         </Style>
 
-        <Style Selector="^:selected /template/ Border#PART_RightBorder">
+        <Style Selector="^:selected /template/ controls|PixelAlignedRectangle#RightSeparator">
             <Setter Property="IsVisible" Value="False" />
         </Style>
 
@@ -167,7 +167,7 @@
         <Style Selector="^:pointerover">
             <Setter Property="Background" Value="{DynamicResource DragTabItemHeaderBackgroundUnselectedPointerOver}" />
         </Style>
-        <Style Selector="^:pointerover /template/ Border#PART_RightBorder">
+        <Style Selector="^:pointerover /template/ controls|PixelAlignedRectangle#RightSeparator">
             <Setter Property="IsVisible" Value="False" />
         </Style>
 
@@ -175,7 +175,7 @@
         <Style Selector="^:selected:pointerover">
             <Setter Property="Background" Value="{DynamicResource DragTabItemSelectedBackgroundBrush}" />
         </Style>
-        <Style Selector="^:selected:pointerover /template/ Border#PART_RightBorder">
+        <Style Selector="^:selected:pointerover /template/ controls|PixelAlignedRectangle#RightSeparator">
             <Setter Property="IsVisible" Value="False" />
         </Style>
 

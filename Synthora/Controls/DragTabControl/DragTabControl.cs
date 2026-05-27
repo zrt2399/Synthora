@@ -10,7 +10,6 @@ using Avalonia.Controls.Templates;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.LogicalTree;
-using Avalonia.Threading;
 using Synthora.Commands;
 using Synthora.Events;
 using Synthora.Extensions;
@@ -421,7 +420,7 @@ namespace Synthora.Controls
             _draggedItem.X += e.DragDeltaEventArgs.Vector.X;
             _draggedItem.Y += e.DragDeltaEventArgs.Vector.Y;
 
-            Dispatcher.UIThread.Post(() => _tabsPanel.InvalidateMeasure(), DispatcherPriority.Loaded);
+            _tabsPanel.InvalidateMeasure();
 
             e.Handled = true;
         }
@@ -434,7 +433,7 @@ namespace Synthora.Controls
                 item.IsSiblingDragging = false;
             }
 
-            Dispatcher.UIThread.Post(() => _tabsPanel.InvalidateMeasure(), DispatcherPriority.Loaded);
+            _tabsPanel.InvalidateMeasure();
 
             _dragging = false;
         }
