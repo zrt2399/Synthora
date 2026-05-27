@@ -5,11 +5,10 @@
         </Border>
     </Design.PreviewWith>
 
-
     <Styles.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <MergeResourceInclude Source="/Styles/DemoPage.xaml" />
+                <MergeResourceInclude Source="/Styles/DemoPage.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources>

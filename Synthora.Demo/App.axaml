@@ -10,7 +10,7 @@
 
     <Application.Styles>
         <SynthoraTheme DensityStyle="Compact" />
-        <StyleInclude Source="avares://SynthoraDemo/Styles/DemoControlStyle.xaml" />
+        <StyleInclude Source="avares://SynthoraDemo/Styles/DemoControlStyle.axaml" />
 
         <!--<SimpleTheme />
         <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Simple.xaml" />-->

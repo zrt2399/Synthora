@@ -18,18 +18,13 @@
                                 Background="{DynamicResource SynthoraMidBrush}"
                                 CornerRadius="12"
                                 DockPanel.Dock="Top">
-                            <DockPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="16">
                                 <materialIcons:MaterialIcon VerticalAlignment="Center"
-                                                            DockPanel.Dock="Left"
                                                             IconSize="24"
                                                             Kind="{TemplateBinding IconKind}" />
-                                <CheckBox VerticalAlignment="Center"
-                                          Content="IsEnabled"
-                                          DockPanel.Dock="Right"
-                                          IsChecked="{TemplateBinding IsContentEnabled,
-                                                                      Mode=TwoWay}" />
-                                <StackPanel VerticalAlignment="Center"
-                                            DockPanel.Dock="Left"
+
+                                <StackPanel Grid.Column="1"
+                                            VerticalAlignment="Center"
                                             Spacing="2">
                                     <SelectableTextBlock FontSize="14"
                                                          FontWeight="SemiBold"
@@ -42,7 +37,12 @@
                                                          Text="{TemplateBinding Description}"
                                                          TextTrimming="CharacterEllipsis" />
                                 </StackPanel>
-                            </DockPanel>
+                                <CheckBox Grid.Column="2"
+                                          VerticalAlignment="Center"
+                                          Content="IsEnabled"
+                                          IsChecked="{TemplateBinding IsContentEnabled,
+                                                                      Mode=TwoWay}" />
+                            </Grid>
                         </Border>
 
                         <ContentPresenter Margin="{TemplateBinding Padding}"
