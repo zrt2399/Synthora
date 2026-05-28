@@ -77,9 +77,10 @@
             <SolidColorBrush x:Key="TextSelectionBrush" Color="{StaticResource ThemeAccentColor3}" />
 
             <!--  BaseResources for WindowDrawnDecorations  -->
-            <SolidColorBrush x:Key="CaptionButtonForeground" Color="Black" />
-            <SolidColorBrush x:Key="CaptionButtonBackground" Color="#ffe5e5e5" />
-            <SolidColorBrush x:Key="CaptionButtonBorderBrush" Color="#ffcacaca" />
+            <SolidColorBrush x:Key="CaptionButtonForeground" Color="{StaticResource ThemeForegroundColor}" />
+            <SolidColorBrush x:Key="CaptionButtonBackground" Color="Transparent" />
+            <SolidColorBrush x:Key="CaptionButtonPinterOverBackground" Color="#FFE5E5E5" />
+            <SolidColorBrush x:Key="CaptionButtonPressedBackground" Color="#FFCCCCCC" />
 
             <!--  BaseResources for AvaloniaEdit  -->
             <Pen x:Key="TextEditorTextAreaSelectionBorder" Brush="#FF0078D7" />
@@ -181,9 +182,10 @@
             <SolidColorBrush x:Key="TextSelectionBrush" Color="{StaticResource ThemeAccentColor2}" />
 
             <!--  BaseResources for WindowDrawnDecorations  -->
-            <SolidColorBrush x:Key="CaptionButtonForeground" Color="White" />
-            <SolidColorBrush x:Key="CaptionButtonBackground" Color="#ffe5e5e5" />
-            <SolidColorBrush x:Key="CaptionButtonBorderBrush" Color="#ffcacaca" />
+            <SolidColorBrush x:Key="CaptionButtonForeground" Color="{StaticResource ThemeForegroundColor}" />
+            <SolidColorBrush x:Key="CaptionButtonBackground" Color="Transparent" />
+            <SolidColorBrush x:Key="CaptionButtonPinterOverBackground" Color="#FF363636" />
+            <SolidColorBrush x:Key="CaptionButtonPressedBackground" Color="#FF4D4D4D" />
 
             <!--  BaseResources for AvaloniaEdit  -->
             <Pen x:Key="TextEditorTextAreaSelectionBorder" Brush="#FF0078D7" />
