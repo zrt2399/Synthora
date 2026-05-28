@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Metadata;
+using Avalonia.Layout;
 using Avalonia.Media;
 using Synthora.Overlays;
 
@@ -21,23 +22,29 @@ namespace Synthora.Controls
         public DialogButton DialogButton { get; }
         public IconType IconType { get; }
         public bool ShowCloseButton { get; }
-        public double DialogMaxWidth { get; }
+        public double MaxWidth { get; }
+        public double MaxHeight { get; }
+        public HorizontalAlignment HorizontalAlignment { get; }
+        public VerticalAlignment VerticalAlignment { get; }
 
         public AlertDialogHost Host { get; }
-        public TaskCompletionSource<DialogResult> Tcs { get; } = new();
+        public TaskCompletionSource<DialogResult> Tcs { get; } = new TaskCompletionSource<DialogResult>();
 
         /// <summary>
         /// Initializes a dialog instance from the supplied host and dialog arguments.
         /// </summary>
-        public AlertDialogInstance(AlertDialogHost host, AlertDialogArguments args)
+        public AlertDialogInstance(AlertDialogHost host, AlertDialogOptions options)
         {
             Host = host;
-            Title = args.Title;
-            Message = args.Message;
-            DialogButton = args.DialogButton;
-            IconType = args.IconType;
-            ShowCloseButton = args.ShowCloseButton || DialogButton == DialogButton.None;
-            DialogMaxWidth = args.DialogMaxWidth;
+            Title = options.Title;
+            Message = options.Message;
+            DialogButton = options.DialogButton;
+            IconType = options.IconType;
+            ShowCloseButton = options.ShowCloseButton || DialogButton == DialogButton.None;
+            MaxWidth = options.MaxWidth;
+            MaxHeight = options.MaxHeight;
+            HorizontalAlignment = options.HorizontalAlignment;
+            VerticalAlignment = options.VerticalAlignment;
         }
 
         public void OK() => Host.Close(this, DialogResult.OK);
@@ -142,9 +149,9 @@ namespace Synthora.Controls
             return targets[0];
         }
 
-        internal async Task<DialogResult> Show(AlertDialogArguments alertDialogArguments)
+        internal async Task<DialogResult> Show(AlertDialogOptions alertDialogOptions)
         {
-            var dialog = new AlertDialogInstance(this, alertDialogArguments);
+            var dialog = new AlertDialogInstance(this, alertDialogOptions);
             _dialogs.Add(dialog);
 
             return await dialog.Tcs.Task;

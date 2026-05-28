@@ -22,7 +22,7 @@ namespace Synthora.Demo.ViewModels
 
         [ObservableProperty]
         public partial DialogButton DialogButton { get; set; } = DialogButton.OK;
- 
+
         public OverlayViewModel()
         {
             IconKind = MaterialIconKind.Bell;
@@ -49,8 +49,15 @@ namespace Synthora.Demo.ViewModels
                 nameof(IconType.Question) => await AlertDialog.ShowAsync(message, "Question", DialogButton, IconType.Question),
                 nameof(IconType.Warning) => await AlertDialog.ShowAsync(message, "Warning", DialogButton, IconType.Warning),
                 nameof(IconType.Error) => await AlertDialog.ShowAsync(message, "Error", DialogButton, IconType.Error),
-                //nameof(DialogButton.None) => await AlertDialog.ShowAsync(new AlertDialogArguments() { DialogButton = DialogButton.None, Title = "None", Message = message }),
-                _ => await AlertDialog.ShowAsync(message, "Abort", DialogButton | DialogButton.Abort, IconType.Error)
+                "Abort" => await AlertDialog.ShowAsync(message, "Abort", DialogButton | DialogButton.Abort, IconType.Error),
+                _ => await AlertDialog.ShowAsync(new AlertDialogOptions()
+                {
+                    DialogButton = DialogButton,
+                    Title = "Custom",
+                    Message = message,
+                    IconType = IconType.Information,
+                    VerticalAlignment = VerticalAlignment.Top
+                }),
             };
             await new Window()
             {
@@ -91,7 +98,7 @@ namespace Synthora.Demo.ViewModels
                     break;
             }
         }
-        
+
         public void ShowNotification(string param)
         {
             if (_notificationManager == null)

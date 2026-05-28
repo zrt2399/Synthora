@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Avalonia.Layout;
 using Avalonia.Threading;
 using Synthora.Controls;
 
@@ -51,14 +52,17 @@ namespace Synthora.Overlays
     /// <summary>
     /// Provides the options used to configure and display an alert dialog.
     /// </summary>
-    public class AlertDialogArguments
+    public class AlertDialogOptions
     {
         public string? Title { get; set; }
         public string Message { get; set; } = string.Empty;
         public DialogButton DialogButton { get; set; } = DialogButton.OK;
         public IconType IconType { get; set; }
         public bool ShowCloseButton { get; set; }
-        public double DialogMaxWidth { get; set; } = 800;
+        public double MaxWidth { get; set; } = 800;
+        public double MaxHeight { get; set; } = double.NaN;
+        public HorizontalAlignment HorizontalAlignment { get; set; } = HorizontalAlignment.Center;
+        public VerticalAlignment VerticalAlignment { get; set; } = VerticalAlignment.Center;
     }
 
     /// <summary>
@@ -72,28 +76,28 @@ namespace Synthora.Overlays
         public static bool IsDialogOpen(string? dialogIdentifier = null) => AlertDialogHost.GetInstance(dialogIdentifier).IsOpen;
 
         /// <summary>
-        /// Displays an alert dialog asynchronously using the specified <paramref name="alertDialogArguments"/>,
+        /// Displays an alert dialog asynchronously using the specified <paramref name="alertDialogOptions"/>,
         /// targeting the <see cref="AlertDialogHost"/> instance identified by <paramref name="dialogIdentifier"/>.
         /// </summary>
-        public static async Task<DialogResult> ShowAsync(string? dialogIdentifier, AlertDialogArguments alertDialogArguments)
+        public static async Task<DialogResult> ShowAsync(string? dialogIdentifier, AlertDialogOptions alertDialogOptions)
         {
             if (Dispatcher.UIThread.CheckAccess())
             {
-                return await AlertDialogHost.GetInstance(dialogIdentifier).Show(alertDialogArguments);
+                return await AlertDialogHost.GetInstance(dialogIdentifier).Show(alertDialogOptions);
             }
             else
             {
-                return await Dispatcher.UIThread.Invoke(() => ShowAsync(dialogIdentifier, alertDialogArguments));
+                return await Dispatcher.UIThread.Invoke(() => ShowAsync(dialogIdentifier, alertDialogOptions));
             }
         }
 
         /// <summary>
         /// Displays an alert dialog asynchronously using the default <see cref="AlertDialogHost"/> instance
-        /// and the specified <paramref name="alertDialogArguments"/>.
+        /// and the specified <paramref name="alertDialogOptions"/>.
         /// </summary>
-        public static async Task<DialogResult> ShowAsync(AlertDialogArguments alertDialogArguments)
+        public static async Task<DialogResult> ShowAsync(AlertDialogOptions alertDialogOptions)
         {
-            return await ShowAsync(null, alertDialogArguments);
+            return await ShowAsync(null, alertDialogOptions);
         }
 
         /// <summary>
@@ -102,7 +106,7 @@ namespace Synthora.Overlays
         /// </summary>
         public static async Task<DialogResult> ShowAsync(string? dialogIdentifier, string message, string? title, DialogButton dialogButton = DialogButton.OK, IconType iconType = IconType.Information)
         {
-            return await ShowAsync(dialogIdentifier, new AlertDialogArguments()
+            return await ShowAsync(dialogIdentifier, new AlertDialogOptions()
             {
                 Message = message,
                 Title = title,
