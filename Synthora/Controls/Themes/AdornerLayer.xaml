@@ -9,7 +9,7 @@
                 <Rectangle Margin="1"
                            RadiusX="4"
                            RadiusY="4"
-                           Stroke="Black"
+                           Stroke="{DynamicResource ThemeForegroundBrush}"
                            StrokeDashArray="1,2"
                            StrokeThickness="1" />
             </FocusAdornerTemplate>
