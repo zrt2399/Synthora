@@ -242,7 +242,6 @@
                                             <!--  Background="Transparent"  -->
                                             <!--  Fix https://github.com/AvaloniaUI/Avalonia/issues/21242  -->
                                             <TextPresenter Name="PART_TextPresenter"
-                                                           Background="Transparent"
                                                            CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
                                                            CaretBrush="{TemplateBinding CaretBrush}"
                                                            CaretIndex="{TemplateBinding CaretIndex}"

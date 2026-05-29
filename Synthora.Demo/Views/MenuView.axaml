@@ -102,7 +102,7 @@
                         <Button Content="Button with ContextFlyout and ToolTip" ToolTip.Tip="Right-click or long-press to open context flyout">
                             <Button.ContextFlyout>
                                 <MenuFlyout>
-                                    <MenuItem Header="More menu">
+                                    <MenuItem Header="More options">
                                         <MenuItem Header="Down" Icon="{materialIcons:MaterialIconExt Kind=Download}" />
                                         <MenuItem Header="Control">
                                             <MenuItem Header="Star" Icon="{materialIcons:MaterialIconExt Kind=Star}" />
@@ -203,43 +203,93 @@
                                 <ComboBox ItemsSource="{EnumBindingSource CommandBarDefaultLabelPosition}" SelectedItem="{Binding #commandBar.DefaultLabelPosition}" />
                             </CommandBar.Content>
                             <CommandBar.PrimaryCommands>
-                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=ArrowLeft}"
-                                                  Label="{Binding $self.(ToolTip.Tip)}"
-                                                  ToolTip.Tip="Back" />
-                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=ArrowRight}"
-                                                  IsEnabled="False"
-                                                  Label="{Binding $self.(ToolTip.Tip)}"
-                                                  ToolTip.Tip="Forward" />
+                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=ContentSaveOutline}"
+                                                  Label="Save"
+                                                  ToolTip.Tip="Save (Ctrl+S)" />
                                 <CommandBarSeparator />
-                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=File}"
-                                                  Label="{Binding $self.(ToolTip.Tip)}"
-                                                  ToolTip.Tip="File" />
-                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=ContentSave}"
-                                                  Label="{Binding $self.(ToolTip.Tip)}"
-                                                  ToolTip.Tip="Save" />
-                                <CommandBarToggleButton Icon="{materialIcons:MaterialIconExt Kind=LetterBBox}"
-                                                        Label="{Binding $self.(ToolTip.Tip)}"
-                                                        ToolTip.Tip="Bold" />
-                                <CommandBarToggleButton Icon="{materialIcons:MaterialIconExt Kind=LetterIBox}"
-                                                        Label="{Binding $self.(ToolTip.Tip)}"
-                                                        ToolTip.Tip="Italic" />
+                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=Undo}"
+                                                  Label="Undo"
+                                                  ToolTip.Tip="Undo (Ctrl+Z)" />
+                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=Redo}"
+                                                  IsEnabled="False"
+                                                  Label="Redo"
+                                                  ToolTip.Tip="Redo (Ctrl+Y)" />
+                                <CommandBarSeparator />
+                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=ContentCut}"
+                                                  Label="Cut"
+                                                  ToolTip.Tip="Cut (Ctrl+X)" />
+                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=ContentCopy}"
+                                                  Label="Copy"
+                                                  ToolTip.Tip="Copy (Ctrl+C)" />
+                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=ContentPaste}"
+                                                  Label="Paste"
+                                                  ToolTip.Tip="Paste (Ctrl+V)" />
+                                <CommandBarSeparator />
+                                <CommandBarToggleButton Icon="{materialIcons:MaterialIconExt Kind=FormatBold}"
+                                                        Label="Bold"
+                                                        ToolTip.Tip="Bold (Ctrl+B)" />
+                                <CommandBarToggleButton Icon="{materialIcons:MaterialIconExt Kind=FormatItalic}"
+                                                        Label="Italic"
+                                                        ToolTip.Tip="Italic (Ctrl+I)" />
+                                <CommandBarToggleButton Icon="{materialIcons:MaterialIconExt Kind=FormatUnderline}"
+                                                        Label="Underline"
+                                                        ToolTip.Tip="Underline (Ctrl+U)" />
                             </CommandBar.PrimaryCommands>
                             <CommandBar.SecondaryCommands>
-                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=Redo}"
-                                                  Label="{Binding $self.(ToolTip.Tip)}"
-                                                  ToolTip.Tip="Redo" />
-                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=Undo}"
-                                                  Label="{Binding $self.(ToolTip.Tip)}"
-                                                  ToolTip.Tip="Undo" />
+                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=Magnify}" Label="Find" />
+                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=FindReplace}" Label="Replace" />
                                 <CommandBarSeparator />
-                                <CommandBarToggleButton Icon="{materialIcons:MaterialIconExt Kind=LetterUBox}"
-                                                        Label="{Binding $self.(ToolTip.Tip)}"
-                                                        ToolTip.Tip="Underline" />
+                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=PrinterOutline}" Label="Print" />
+                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=PageLayoutBody}" Label="Page Setup" />
+                                <CommandBarSeparator />
+                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=Counter}" Label="Word Count" />
                             </CommandBar.SecondaryCommands>
                         </CommandBar>
+
+                        <StackPanel Spacing="6">
+                            <TextBlock FontSize="11"
+                                       Foreground="{DynamicResource ThemeForegroundLowBrush}"
+                                       Text="Dynamic Overflow" />
+                            <CommandBar IsDynamicOverflowEnabled="True">
+                                <CommandBar.PrimaryCommands>
+                                    <CommandBarToggleButton Icon="{materialIcons:MaterialIconExt Kind=CursorDefault}"
+                                                            IsChecked="True"
+                                                            Label="Selection Tool"
+                                                            ToolTip.Tip="Selection Tool (V)" />
+                                    <CommandBarToggleButton Icon="{materialIcons:MaterialIconExt Kind=ContentCut}"
+                                                            Label="Razor Tool"
+                                                            ToolTip.Tip="Razor Tool (C)" />
+                                    <CommandBarSeparator />
+                                    <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=Play}"
+                                                      Label="Play"
+                                                      ToolTip.Tip="Play/Pause (Space)" />
+                                    <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=SkipPrevious}"
+                                                      Label="Go to In"
+                                                      ToolTip.Tip="Go to In Point" />
+                                    <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=SkipNext}"
+                                                      Label="Go to Out"
+                                                      ToolTip.Tip="Go to Out Point" />
+                                    <CommandBarSeparator />
+                                    <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=MapMarkerPlus}"
+                                                      Label="Add Marker"
+                                                      ToolTip.Tip="Add Marker (M)" />
+                                    <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=ExportVariant}"
+                                                      Label="Export"
+                                                      ToolTip.Tip="Export Media (Ctrl+M)" />
+                                </CommandBar.PrimaryCommands>
+                                <CommandBar.SecondaryCommands>
+                                    <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=Cog}" Label="Sequence Settings" />
+                                    <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=PaletteOutline}" Label="Color Workspace" />
+                                    <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=VolumeHigh}" Label="Audio Mixer" />
+                                    <CommandBarSeparator />
+                                    <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=KeyboardOutline}" Label="Keyboard Shortcuts" />
+                                </CommandBar.SecondaryCommands>
+                            </CommandBar>
+                        </StackPanel>
                     </StackPanel>
                 </Border>
             </StackPanel>
         </ScrollViewer>
     </DemoPage>
+
 </UserControl>
