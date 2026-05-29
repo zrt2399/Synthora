@@ -150,9 +150,11 @@
 
         <Style Selector="^:focus,^:pointerover">
             <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />
+            <Setter Property="Opacity" Value="0.9" />
         </Style>
         <Style Selector="^:pressed">
             <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidBrush}" />
+            <Setter Property="Opacity" Value="0.8" />
         </Style>
     </ControlTheme>
 
