@@ -8,7 +8,7 @@
         <ApplicationManifest>app.manifest</ApplicationManifest>
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
         <ApplicationIcon>Assets/avalonia-logo.ico</ApplicationIcon>
-        <LangVersion>latest</LangVersion>
+        <DemoAvaloniaVersion>12.0.4</DemoAvaloniaVersion>
         <AssemblyName>SynthoraDemo</AssemblyName>
         <PublishReadyToRun>true</PublishReadyToRun>
         <!-- Uncomment below to enable Native AOT compilation-->
@@ -53,16 +53,16 @@
     </ItemGroup>
 
     <ItemGroup Condition="'$(Configuration)' == 'Debug'">
-        <PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />
-        <PackageReference Include="Avalonia.Themes.Simple" Version="$(AvaloniaVersion)" />
-        <PackageReference Include="ActiproSoftware.Controls.Avalonia" Version="25.2.3" />
-        <PackageReference Include="ActiproSoftware.Controls.Avalonia.Themes.DataGrid" Version="25.2.3" />
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="$(DemoAvaloniaVersion)" />
+        <PackageReference Include="Avalonia.Themes.Simple" Version="$(DemoAvaloniaVersion)" />
+        <PackageReference Include="ActiproSoftware.Controls.Avalonia" Version="26.1.0" />
+        <PackageReference Include="ActiproSoftware.Controls.Avalonia.Themes.DataGrid" Version="26.1.0" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
-        <PackageReference Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
-        <!--<PackageReference Include="Avalonia.Fonts.Inter" Version="$(AvaloniaVersion)" />-->
+        <PackageReference Include="Avalonia" Version="$(DemoAvaloniaVersion)" />
+        <PackageReference Include="Avalonia.Desktop" Version="$(DemoAvaloniaVersion)" />
+        <!--<PackageReference Include="Avalonia.Fonts.Inter" Version="$(DemoAvaloniaVersion)" />-->
         <PackageReference Include="AvaloniaUI.DiagnosticsSupport" Version="2.2.1">
             <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
             <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
