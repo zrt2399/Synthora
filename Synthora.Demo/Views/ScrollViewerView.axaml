@@ -10,7 +10,7 @@
              x:DataType="vm:ScrollViewerViewModel"
              mc:Ignorable="d">
 
-    <DemoPage Title="ScrollViewer"
+    <DemoPage Title="Scroll Viewer"
               Description="{Binding Description}"
               IconKind="{Binding IconKind}">
         <StackPanel Spacing="16">
@@ -31,19 +31,23 @@
                                       AllowAutoHide="{Binding #autoHide.IsChecked}"
                                       HorizontalScrollBarVisibility="Auto"
                                       ScrollViewerAttach.Orientation="{Binding #orientation.SelectedItem}">
-                            <UniformGrid Width="1000"
-                                         Height="800"
-                                         Columns="2"
-                                         Rows="2">
-                                <Rectangle Fill="#DCEBFF" />
+                            <Grid Width="1000"
+                                  Height="800"
+                                  ColumnDefinitions="*,Auto,*"
+                                  RowDefinitions="*,Auto,*">
                                 <Rectangle Fill="#DDF6E8" />
-                                <Rectangle Fill="#FFE7CC" />
-                                <Rectangle Fill="#E9DDFB" />
-                            </UniformGrid>
+                                <GridSplitter Grid.Row="1" />
+                                <Rectangle Grid.Row="2" Fill="#E9DDFB" />
+                                <GridSplitter Grid.RowSpan="3" Grid.Column="1" />
+                                <Rectangle Grid.RowSpan="3"
+                                           Grid.Column="2"
+                                           Fill="#FFE7CC" />
+                            </Grid>
                         </ScrollViewer>
                     </StackPanel>
                 </ScrollViewer>
             </Border>
         </StackPanel>
     </DemoPage>
+
 </UserControl>

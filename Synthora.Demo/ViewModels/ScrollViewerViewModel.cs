@@ -8,7 +8,7 @@ namespace Synthora.Demo.ViewModels
         public ScrollViewerViewModel()
         {
             IconKind = MaterialIconKind.ArrowUpDownBold;
-            Description = "ScrollBar, ScrollViewer";
+            Description = "GridSplitter, ScrollBar, ScrollViewer";
         }
     }
 }

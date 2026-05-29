@@ -7,7 +7,6 @@
         <Setter Property="Focusable" Value="True" />
         <Setter Property="MinWidth" Value="4" />
         <Setter Property="MinHeight" Value="4" />
-        <Setter Property="ShowsPreview" Value="True" />
         <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />
         <Setter Property="PreviewContent">
             <Template>

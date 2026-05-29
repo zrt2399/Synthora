@@ -8,7 +8,7 @@
             <Color x:Key="ThemeSelectedMidColor">#FFDEDEDE</Color>
             <Color x:Key="ThemeSelectedHighColor">#FFD4D4D4</Color>
 
-            <Color x:Key="SynthoraBorderColor">#FFB4BEC8</Color>
+            <Color x:Key="SynthoraBorderColor">#FFD1D9E0</Color>
             <Color x:Key="SynthoraLowColor">#FFF6F8FA</Color>
             <Color x:Key="SynthoraMidColor">#FFF0F2F4</Color>
             <Color x:Key="SynthoraHighColor">#FFE6EAEE</Color>
@@ -19,7 +19,7 @@
             <Color x:Key="ThemeForegroundColor">#FF25292E</Color>
             <Color x:Key="ThemeBackgroundColor">#FFFFFFFF</Color>
 
-            <Color x:Key="ThemeBorderLowColor">#FFD8D8D8</Color>
+            <Color x:Key="ThemeBorderLowColor">#FFDCDCDC</Color>
             <Color x:Key="ThemeBorderMidColor">#FFB4B4B4</Color>
             <Color x:Key="ThemeBorderHighColor">#FF848484</Color>
             <Color x:Key="ThemeControlLowColor">#FFF5F5F5</Color>
