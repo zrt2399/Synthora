@@ -9,11 +9,11 @@ namespace Synthora.Demo.Views
     {
         private static readonly (IBrush Background, IBrush Foreground)[] PagePalette =
         [
-            (new SolidColorBrush(Color.Parse("#DCEBFF")), new SolidColorBrush(Color.Parse("#102A43"))),
-            (new SolidColorBrush(Color.Parse("#DDF6E8")), new SolidColorBrush(Color.Parse("#123524"))),
-            (new SolidColorBrush(Color.Parse("#FFE7CC")), new SolidColorBrush(Color.Parse("#5C3410"))),
-            (new SolidColorBrush(Color.Parse("#E9DDFB")), new SolidColorBrush(Color.Parse("#3E215B"))),
-            (new SolidColorBrush(Color.Parse("#FFDDE3")), new SolidColorBrush(Color.Parse("#5A1F2A")))
+            (SolidColorBrush.Parse("#DCEBFF"), SolidColorBrush.Parse("#102A43")),
+            (SolidColorBrush.Parse("#DDF6E8"), SolidColorBrush.Parse("#123524")),
+            (SolidColorBrush.Parse("#FFE7CC"), SolidColorBrush.Parse("#5C3410")),
+            (SolidColorBrush.Parse("#E9DDFB"), SolidColorBrush.Parse("#3E215B")),
+            (SolidColorBrush.Parse("#FFDDE3"), SolidColorBrush.Parse("#5A1F2A"))
         ];
 
         private int _pageIndex;
