@@ -87,6 +87,7 @@
                         CornerRadius="{TemplateBinding CornerRadius}">
                     <DockPanel>
                         <Border Name="HeaderRoot"
+                                Margin="{DynamicResource ThemeControlBorderPadding}"
                                 Padding="{DynamicResource ThemeControlBorderPadding}"
                                 HorizontalAlignment="{TemplateBinding TabControlAttach.HorizontalHeaderAlignment}"
                                 VerticalAlignment="{TemplateBinding TabControlAttach.VerticalHeaderAlignment}"

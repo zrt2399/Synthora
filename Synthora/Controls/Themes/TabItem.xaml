@@ -32,6 +32,7 @@
                                           RecognizesAccessKey="True" />
                         <Border Name="PART_SelectedPipe"
                                 VerticalAlignment="Bottom"
+                                CornerRadius="{DynamicResource ThemeBorderCornerRadiusNormal}"
                                 IsVisible="False" />
                     </Panel>
                 </Border>
