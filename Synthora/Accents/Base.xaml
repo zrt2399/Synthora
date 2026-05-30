@@ -302,7 +302,7 @@
     <x:Double x:Key="IconElementThemeWidth">20</x:Double>
 
     <Thickness x:Key="PopupBoxShadowMargin">0,0,4,4</Thickness>
-    <BoxShadows x:Key="PopupBoxShadow">2 2 4 0 #80000000</BoxShadows>
+    <BoxShadows x:Key="PopupBoxShadow">3 3 3 0 #60000000</BoxShadows>
 
     <BoxShadows x:Key="DialogBoxShadow">0 0 20 0 #60000000</BoxShadows>
     <BoxShadows x:Key="DefaultBoxShadow">0 0 12 0 #40000000</BoxShadows>
