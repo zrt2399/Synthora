@@ -239,8 +239,6 @@
                                                 </TextBlock.IsVisible>
                                             </TextBlock>
 
-                                            <!--  Background="Transparent"  -->
-                                            <!--  Fix https://github.com/AvaloniaUI/Avalonia/issues/21242  -->
                                             <TextPresenter Name="PART_TextPresenter"
                                                            CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
                                                            CaretBrush="{TemplateBinding CaretBrush}"
@@ -262,9 +260,6 @@
                                             <Style Selector="ScrollContentPresenter#PART_ContentPresenter">
                                                 <Setter Property="Cursor" Value="IBeam" />
                                             </Style>
-                                            <!--<Style Selector="ScrollContentPresenter#PART_ContentPresenter &gt; ScrollBar">
-                                                <Setter Property="ScrollBarAttach.InnerOffsetEnabled" Value="False" />
-                                            </Style>-->
                                         </ScrollViewer.Styles>
                                     </ScrollViewer>
                                     <StackPanel Grid.Column="2"

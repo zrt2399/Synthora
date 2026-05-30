@@ -53,7 +53,9 @@
                     <Slider Name="slider"
                             TickFrequency="1"
                             TickPlacement="Outside" />
-                    <ProgressBar ShowProgressText="True" Value="{Binding #slider.Value}" />
+                    <ProgressBar CornerRadiusAttach.IsCircular="True"
+                                 ShowProgressText="True"
+                                 Value="{Binding #slider.Value}" />
                     <Divider Content="PipsPager" Orientation="Horizontal" />
                     <PipsPager HorizontalAlignment="Left"
                                MaxVisiblePips="20"
