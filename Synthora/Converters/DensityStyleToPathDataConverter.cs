@@ -5,7 +5,7 @@ using Avalonia.Data.Converters;
 
 namespace Synthora.Converters
 {
-    public class DensityStyleToIconKindConverter : IValueConverter
+    public class DensityStyleToPathDataConverter : IValueConverter
     {
         public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {

@@ -1,7 +1,6 @@
 <UserControl x:Class="Synthora.Demo.Views.MainView"
              xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:converters="using:Synthora.Demo.Converters"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:demo="using:Synthora.Demo"
              xmlns:local="using:Synthora.Demo.Views"
@@ -173,7 +172,7 @@
                                         <PathIcon Width="16"
                                                   Height="16"
                                                   Margin="-2,0"
-                                                  Data="{Binding Converter={x:Static SynthoraConverters.DensityStyleToIconKindConverter}}" />
+                                                  Data="{Binding Converter={x:Static SynthoraConverters.DensityStyleToPathDataConverter}}" />
                                         <!-- <materialIcons:MaterialIcon Margin="-2,0" Kind="{Binding Converter={StaticResource DensityStyleToIconKindConverter}}" /> -->
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
