@@ -1,7 +1,55 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="using:System"
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
+
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <StackPanel Spacing="20">
+                <NumericUpDown Increment="0.5"
+                               Maximum="10"
+                               Minimum="0"
+                               PlaceholderText="Enter text" />
+                <NumericUpDown HorizontalContentAlignment="Center"
+                               VerticalContentAlignment="Center"
+                               ButtonSpinnerLocation="Left"
+                               Increment="0.5"
+                               Maximum="10"
+                               Minimum="0"
+                               PlaceholderText="Enter text" />
+                <NumericUpDown ButtonSpinnerLocation="Left">
+                    <NumericUpDown.InnerLeftContent>
+                        <TextBlock VerticalAlignment="Center"
+                                   Text="m"
+                                   TextAlignment="Center" />
+                    </NumericUpDown.InnerLeftContent>
+                    <NumericUpDown.InnerRightContent>
+                        <Button Content="X" />
+                    </NumericUpDown.InnerRightContent>
+                </NumericUpDown>
+                <NumericUpDown ButtonSpinnerLocation="Right">
+                    <NumericUpDown.InnerLeftContent>
+                        <Button Content="X" />
+                    </NumericUpDown.InnerLeftContent>
+                    <NumericUpDown.InnerRightContent>
+                        <TextBlock VerticalAlignment="Center"
+                                   Text="m"
+                                   TextAlignment="Center" />
+                    </NumericUpDown.InnerRightContent>
+                </NumericUpDown>
+                <NumericUpDown PlaceholderText="Error">
+                    <DataValidationErrors.Error>
+                        <sys:Exception>
+                            <x:Arguments>
+                                <x:String>Error</x:String>
+                            </x:Arguments>
+                        </sys:Exception>
+                    </DataValidationErrors.Error>
+                </NumericUpDown>
+            </StackPanel>
+        </Border>
+    </Design.PreviewWith>
 
     <ControlTheme x:Key="{x:Type NumericUpDown}" TargetType="NumericUpDown">
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
@@ -20,6 +68,7 @@
                                Background="{TemplateBinding Background}"
                                BorderBrush="{TemplateBinding BorderBrush}"
                                BorderThickness="{TemplateBinding BorderThickness}"
+                               BoxShadowAttach.BoxShadow="{TemplateBinding (BoxShadowAttach.BoxShadow)}"
                                ButtonSpinnerLocation="{TemplateBinding ButtonSpinnerLocation}"
                                CornerRadius="{TemplateBinding CornerRadius}"
                                IsTabStop="False"
@@ -39,6 +88,7 @@
                              Background="Transparent"
                              BorderThickness="0"
                              CornerRadius="0"
+                             DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
                              InnerLeftContent="{Binding InnerLeftContent, RelativeSource={RelativeSource TemplatedParent}}"
                              InnerRightContent="{Binding InnerRightContent, RelativeSource={RelativeSource TemplatedParent}}"
                              IsReadOnly="{TemplateBinding IsReadOnly}"
@@ -51,5 +101,9 @@
                 </ButtonSpinner>
             </ControlTemplate>
         </Setter>
+        <!--  Fix: Enforce error border brush on inner ButtonSpinner even when pointer is over  -->
+        <Style Selector="^:error /template/ ButtonSpinner#PART_Spinner">
+            <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
+        </Style>
     </ControlTheme>
 </ResourceDictionary>

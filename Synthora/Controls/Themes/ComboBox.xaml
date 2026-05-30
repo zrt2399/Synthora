@@ -1,8 +1,66 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:converters="using:Avalonia.Controls.Converters"
+                    xmlns:sys="using:System"
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
+
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <StackPanel Spacing="10">
+                <ComboBox PlaceholderText="Select an item">
+                    <ComboBoxItem>Item 1</ComboBoxItem>
+                    <ComboBoxItem>Item 2</ComboBoxItem>
+                </ComboBox>
+                <ComboBox Width="200"
+                          HorizontalContentAlignment="Center"
+                          IsEnabled="False"
+                          SelectedIndex="1">
+                    <ComboBoxItem>Item 1</ComboBoxItem>
+                    <ComboBoxItem>Item 2</ComboBoxItem>
+                </ComboBox>
+
+                <ComboBox PlaceholderText="Error">
+                    <DataValidationErrors.Error>
+                        <sys:Exception>
+                            <x:Arguments>
+                                <x:String>Error</x:String>
+                            </x:Arguments>
+                        </sys:Exception>
+                    </DataValidationErrors.Error>
+                </ComboBox>
+                <ComboBox IsEditable="True" PlaceholderText="Editable Error">
+                    <DataValidationErrors.Error>
+                        <sys:Exception>
+                            <x:Arguments>
+                                <x:String>Error</x:String>
+                            </x:Arguments>
+                        </sys:Exception>
+                    </DataValidationErrors.Error>
+                </ComboBox>
+                <ComboBox IsEditable="True" SelectedIndex="1">
+                    <ComboBoxItem>Item A</ComboBoxItem>
+                    <ComboBoxItem>Item b</ComboBoxItem>
+                    <ComboBoxItem>Item c</ComboBoxItem>
+                </ComboBox>
+
+                <ComboBox SelectedIndex="0">
+                    <ComboBox.SelectionBoxItemTemplate>
+                        <DataTemplate>
+                            <Border Padding="20"
+                                    BorderBrush="Red"
+                                    BorderThickness="1">
+                                <TextBlock Text="{ReflectionBinding}" />
+                            </Border>
+                        </DataTemplate>
+                    </ComboBox.SelectionBoxItemTemplate>
+                    <ComboBoxItem>Item A</ComboBoxItem>
+                    <ComboBoxItem>Item b</ComboBoxItem>
+                    <ComboBoxItem>Item c</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+        </Border>
+    </Design.PreviewWith>
 
     <converters:MarginMultiplierConverter x:Key="ComboBoxDropDownButtonMarginMultiplier"
                                           Bottom="True"
@@ -100,20 +158,21 @@
                                 </TextBlock.IsVisible>
                             </TextBlock>
 
-                            <ContentPresenter Name="ContentPresenter"
-                                              Margin="{TemplateBinding Padding}"
-                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                              Content="{TemplateBinding SelectionBoxItem}"
-                                              ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
-                                              IsVisible="{TemplateBinding IsEditable,
-                                                                          Converter={x:Static BoolConverters.Not}}" />
+                            <DataValidationErrors Margin="{TemplateBinding Padding}" IsVisible="{TemplateBinding IsEditable, Converter={x:Static BoolConverters.Not}}">
+                                <ContentPresenter Name="ContentPresenter"
+                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                  Content="{TemplateBinding SelectionBoxItem}"
+                                                  ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" />
+                            </DataValidationErrors>
+
                             <TextBox Name="PART_EditableTextBox"
                                      Padding="{TemplateBinding Padding}"
                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                      Background="Transparent"
                                      BorderThickness="0"
+                                     DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
                                      Foreground="{TemplateBinding Foreground}"
                                      IsVisible="{TemplateBinding IsEditable}"
                                      PlaceholderForeground="{TemplateBinding PlaceholderForeground}"
@@ -174,6 +233,9 @@
         </Style>
         <Style Selector="^:pressed">
             <Setter Property="BorderBrush" Value="{DynamicResource ThemeControlVeryHighBrush}" />
+        </Style>
+        <Style Selector="^:error">
+            <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
         </Style>
         <Style Selector="^:disabled /template/ Border#FocusTarget">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />

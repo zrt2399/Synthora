@@ -1,7 +1,38 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="using:System"
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
+
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <StackPanel Spacing="20">
+                <ButtonSpinner Content="Right spinner" />
+                <ButtonSpinner ButtonSpinnerLocation="Left" Content="Left spinner" />
+                <ButtonSpinner BorderBrush="Blue"
+                               BorderThickness="2"
+                               Content="Right Border" />
+                <ButtonSpinner BorderBrush="Blue"
+                               BorderThickness="2"
+                               ButtonSpinnerLocation="Left"
+                               Content="Left Border" />
+                <ButtonSpinner AllowSpin="False" Content="Right disabled" />
+                <ButtonSpinner AllowSpin="False"
+                               ButtonSpinnerLocation="Left"
+                               Content="Left disabled" />
+                <ButtonSpinner Content="Hide spinner" ShowButtonSpinner="False" />
+                <ButtonSpinner Content="Error">
+                    <DataValidationErrors.Error>
+                        <sys:Exception>
+                            <x:Arguments>
+                                <x:String>Error</x:String>
+                            </x:Arguments>
+                        </sys:Exception>
+                    </DataValidationErrors.Error>
+                </ButtonSpinner>
+            </StackPanel>
+        </Border>
+    </Design.PreviewWith>
 
     <ControlTheme x:Key="SimpleButtonSpinnerRepeatButtonTheme"
                   BasedOn="{StaticResource {x:Type RepeatButton}}"
@@ -44,43 +75,43 @@
                                       BoxShadow="{TemplateBinding (BoxShadowAttach.BoxShadow)}"
                                       CornerRadius="{TemplateBinding CornerRadius}"
                                       TemplatedControl.IsTemplateFocusTarget="True">
-                        <DataValidationErrors>
-                            <DockPanel>
-                                <UniformGrid Name="PART_SpinnerPanel"
-                                             DockPanel.Dock="Right"
-                                             IsVisible="{TemplateBinding ShowButtonSpinner}"
-                                             Rows="2">
-                                    <RepeatButton Name="PART_IncreaseButton"
-                                                  Padding="4,0"
-                                                  IsTabStop="{TemplateBinding IsTabStop}"
-                                                  Theme="{StaticResource SimpleButtonSpinnerRepeatButtonTheme}">
-                                        <PathIcon Width="8"
-                                                  Height="4"
-                                                  HorizontalAlignment="Center"
-                                                  VerticalAlignment="Center"
-                                                  Data="{DynamicResource ArrowUpData}"
-                                                  Foreground="{DynamicResource ThemeForegroundBrush}" />
-                                    </RepeatButton>
-                                    <RepeatButton Name="PART_DecreaseButton"
-                                                  Padding="4,0"
-                                                  IsTabStop="{TemplateBinding IsTabStop}"
-                                                  Theme="{StaticResource SimpleButtonSpinnerRepeatButtonTheme}">
-                                        <PathIcon Width="8"
-                                                  Height="4"
-                                                  HorizontalAlignment="Center"
-                                                  VerticalAlignment="Center"
-                                                  Data="{DynamicResource ArrowDownData}"
-                                                  Foreground="{DynamicResource ThemeForegroundBrush}" />
-                                    </RepeatButton>
-                                </UniformGrid>
+
+                        <DockPanel>
+                            <UniformGrid Name="PART_SpinnerPanel"
+                                         DockPanel.Dock="Right"
+                                         IsVisible="{TemplateBinding ShowButtonSpinner}"
+                                         Rows="2">
+                                <RepeatButton Name="PART_IncreaseButton"
+                                              Padding="4,0"
+                                              IsTabStop="{TemplateBinding IsTabStop}"
+                                              Theme="{StaticResource SimpleButtonSpinnerRepeatButtonTheme}">
+                                    <PathIcon Width="8"
+                                              Height="4"
+                                              HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              Data="{DynamicResource ArrowUpData}"
+                                              Foreground="{DynamicResource ThemeForegroundBrush}" />
+                                </RepeatButton>
+                                <RepeatButton Name="PART_DecreaseButton"
+                                              Padding="4,0"
+                                              IsTabStop="{TemplateBinding IsTabStop}"
+                                              Theme="{StaticResource SimpleButtonSpinnerRepeatButtonTheme}">
+                                    <PathIcon Width="8"
+                                              Height="4"
+                                              HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              Data="{DynamicResource ArrowDownData}"
+                                              Foreground="{DynamicResource ThemeForegroundBrush}" />
+                                </RepeatButton>
+                            </UniformGrid>
+                            <DataValidationErrors Margin="{TemplateBinding Padding}">
                                 <ContentPresenter Name="PART_ContentPresenter"
-                                                  Margin="{TemplateBinding Padding}"
                                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                                   Content="{TemplateBinding Content}"
                                                   ContentTemplate="{TemplateBinding ContentTemplate}" />
-                            </DockPanel>
-                        </DataValidationErrors>
+                            </DataValidationErrors>
+                        </DockPanel>
                     </DropShadowChrome>
                 </DockPanel>
             </ControlTemplate>
@@ -94,10 +125,7 @@
                 <Setter Property="DockPanel.Dock" Value="Left" />
             </Style>
         </Style>
-        <Style Selector="^:pointerover">
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighlightBrush}" />
-        </Style>
-        <Style Selector="^:focus-within">
+        <Style Selector="^:pointerover,^:focus-within">
             <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighlightBrush}" />
         </Style>
         <Style Selector="^:error">
