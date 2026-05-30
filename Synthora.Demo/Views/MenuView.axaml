@@ -200,7 +200,10 @@
 
                         <CommandBar Name="commandBar" DefaultLabelPosition="Collapsed">
                             <CommandBar.Content>
-                                <ComboBox ItemsSource="{EnumBindingSource CommandBarDefaultLabelPosition}" SelectedItem="{Binding #commandBar.DefaultLabelPosition}" />
+                                <StackPanel Orientation="Horizontal" Spacing="{DynamicResource ThemeControlBorderPaddingDouble}">
+                                    <ComboBox ItemsSource="{EnumBindingSource CommandBarDefaultLabelPosition}" SelectedItem="{Binding #commandBar.DefaultLabelPosition}" />
+                                    <ComboBox ItemsSource="{EnumBindingSource HorizontalAlignment}" SelectedItem="{Binding #commandBar.HorizontalAlignment}" />
+                                </StackPanel>
                             </CommandBar.Content>
                             <CommandBar.PrimaryCommands>
                                 <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=ContentSaveOutline}"
