@@ -10,7 +10,7 @@
         <Setter Property="Width" Value="{DynamicResource IconElementThemeWidth}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Background="{TemplateBinding Background}">
+                <Border Padding="{TemplateBinding Padding}" Background="{TemplateBinding Background}">
                     <Viewbox Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
                         <Path Data="{TemplateBinding Data}"
                               Fill="{TemplateBinding Foreground}"

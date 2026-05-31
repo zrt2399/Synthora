@@ -245,7 +245,7 @@
                                 <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=PrinterOutline}" Label="Print" />
                                 <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=PageLayoutBody}" Label="Page Setup" />
                                 <CommandBarSeparator />
-                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=Counter}" Label="Word Count" />
+                                <CommandBarToggleButton Icon="{materialIcons:MaterialIconExt Kind=Counter}" Label="Word Count" />
                             </CommandBar.SecondaryCommands>
                         </CommandBar>
 
