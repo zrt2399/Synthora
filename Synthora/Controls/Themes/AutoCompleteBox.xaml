@@ -1,7 +1,27 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:generic="using:System.Collections.Generic"
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
+
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <AutoCompleteBox Width="200">
+                <AutoCompleteBox.ItemsSource>
+                    <generic:List x:TypeArguments="x:String">
+                        Alabama
+                        Alaska
+                        Arizona
+                        Arkansas
+                        California
+                        Colorado
+                        Connecticut
+                        Delaware
+                    </generic:List>
+                </AutoCompleteBox.ItemsSource>
+            </AutoCompleteBox>
+        </Border>
+    </Design.PreviewWith>
 
     <ControlTheme x:Key="{x:Type AutoCompleteBox}" TargetType="AutoCompleteBox">
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
