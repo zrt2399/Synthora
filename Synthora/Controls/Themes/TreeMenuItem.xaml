@@ -25,13 +25,14 @@
 
         <Setter Property="Padding" Value="{DynamicResource ThemeHeaderControlPadding}" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}" />
-        <Setter Property="Margin" Value="{DynamicResource TreeMenuItemItemMargin}" />
+        <!-- <Setter Property="Margin" Value="{DynamicResource TreeMenuItemItemMargin}" /> -->
         <Setter Property="Focusable" Value="False" />
         <Setter Property="IsTabStop" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
                 <StackPanel>
                     <Border Name="PART_PresenterRoot"
+                            Margin="{DynamicResource TreeMenuItemItemMargin}"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
@@ -99,11 +100,11 @@
         </Style>
 
         <Style Selector="^:selected-descendant /template/ Border#PART_PresenterRoot">
-            <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush4}" />
+            <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush5}" />
         </Style>
 
         <Style Selector="^:selected-descendant /template/ Border#PART_PresenterRoot:pointerover">
-            <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush3}" />
+            <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush4}" />
         </Style>
 
         <Style Selector="^:expanded /template/ PathIcon#pathIcon">
@@ -113,7 +114,7 @@
         <Style Selector="^[HeaderPosition=Right]">
             <Style Selector="^ /template/ PathIcon#pathIcon">
                 <Setter Property="DockPanel.Dock" Value="Left" />
-                <Setter Property="Padding" Value="{TemplateBinding Padding, Converter={StaticResource TreeMenuItemExpanderButtonLeftMarginMultiplier}}" />
+                <Setter Property="Margin" Value="{TemplateBinding Padding, Converter={StaticResource TreeMenuItemExpanderButtonLeftMarginMultiplier}}" />
             </Style>
         </Style>
 
