@@ -57,8 +57,8 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^:pointerover /template/ Panel#backgroundPanel">
-            <Setter Property="Opacity" Value="0.9" />
+        <Style Selector="^:focus,^:pointerover">
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighlightBrush}" />
         </Style>
         <Style Selector="^:pressed /template/ Panel#backgroundPanel">
             <Setter Property="Opacity" Value="0.8" />

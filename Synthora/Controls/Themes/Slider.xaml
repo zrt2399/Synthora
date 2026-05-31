@@ -167,14 +167,14 @@
                                                            Mode=TwoWay}">
                                 <Track.DecreaseButton>
                                     <RepeatButton Name="PART_DecreaseButton"
-                                                  Margin="8,0,0,0"
+                                                  Margin="9,0,0,0"
                                                   Background="{TemplateBinding Foreground}"
                                                   Classes="horizontal"
                                                   Theme="{StaticResource SliderRepeatTrackTheme}" />
                                 </Track.DecreaseButton>
                                 <Track.IncreaseButton>
                                     <RepeatButton Name="PART_IncreaseButton"
-                                                  Margin="0,0,8,0"
+                                                  Margin="0,0,9,0"
                                                   Background="{TemplateBinding BorderBrush}"
                                                   Classes="horizontal"
                                                   Theme="{StaticResource SliderRepeatTrackTheme}" />
@@ -228,14 +228,14 @@
                                                            Mode=TwoWay}">
                                 <Track.DecreaseButton>
                                     <RepeatButton Name="PART_DecreaseButton"
-                                                  Margin="0,0,0,8"
+                                                  Margin="0,0,0,9"
                                                   Background="{TemplateBinding Foreground}"
                                                   Classes="vertical"
                                                   Theme="{StaticResource SliderRepeatTrackTheme}" />
                                 </Track.DecreaseButton>
                                 <Track.IncreaseButton>
                                     <RepeatButton Name="PART_IncreaseButton"
-                                                  Margin="0,8,0,0"
+                                                  Margin="0,9,0,0"
                                                   Background="{TemplateBinding BorderBrush}"
                                                   Classes="vertical"
                                                   Theme="{StaticResource SliderRepeatTrackTheme}" />
@@ -255,18 +255,18 @@
         <Style Selector="^[IsDirectionReversed=True]">
             <Style Selector="^:horizontal">
                 <Style Selector="^ /template/ RepeatButton#PART_DecreaseButton">
-                    <Setter Property="Margin" Value="0,0,8,0" />
+                    <Setter Property="Margin" Value="0,0,9,0" />
                 </Style>
                 <Style Selector="^ /template/ RepeatButton#PART_IncreaseButton">
-                    <Setter Property="Margin" Value="8,0,0,0" />
+                    <Setter Property="Margin" Value="9,0,0,0" />
                 </Style>
             </Style>
             <Style Selector="^:vertical">
                 <Style Selector="^ /template/ RepeatButton#PART_DecreaseButton">
-                    <Setter Property="Margin" Value="0,8,0,0" />
+                    <Setter Property="Margin" Value="0,9,0,0" />
                 </Style>
                 <Style Selector="^ /template/ RepeatButton#PART_IncreaseButton">
-                    <Setter Property="Margin" Value="0,0,0,8" />
+                    <Setter Property="Margin" Value="0,0,0,9" />
                 </Style>
             </Style>
         </Style>
