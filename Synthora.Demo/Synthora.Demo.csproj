@@ -55,15 +55,15 @@
     <ItemGroup Condition="'$(Configuration)' == 'Debug'">
         <PackageReference Include="Avalonia.Themes.Fluent" Version="$(DemoAvaloniaVersion)" />
         <PackageReference Include="Avalonia.Themes.Simple" Version="$(DemoAvaloniaVersion)" />
-        <PackageReference Include="ActiproSoftware.Controls.Avalonia" Version="26.1.0" />
-        <PackageReference Include="ActiproSoftware.Controls.Avalonia.Themes.DataGrid" Version="26.1.0" />
+        <PackageReference Include="ActiproSoftware.Controls.Avalonia" Version="26.1.1" />
+        <PackageReference Include="ActiproSoftware.Controls.Avalonia.Themes.DataGrid" Version="26.1.1" />
     </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="Avalonia" Version="$(DemoAvaloniaVersion)" />
         <PackageReference Include="Avalonia.Desktop" Version="$(DemoAvaloniaVersion)" />
         <!--<PackageReference Include="Avalonia.Fonts.Inter" Version="$(DemoAvaloniaVersion)" />-->
-        <PackageReference Include="AvaloniaUI.DiagnosticsSupport" Version="2.2.1">
+        <PackageReference Include="AvaloniaUI.DiagnosticsSupport" Version="2.2.2">
             <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
             <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
         </PackageReference>
