@@ -92,11 +92,12 @@
                                       TextBoxAttach.HeaderPlacement="Left" />
                             <Button>Information</Button>
                             <Button Theme="{StaticResource SecondaryButtonTheme}">Question</Button>
-                            <Button Theme="{StaticResource SuccessButtonTheme}">Custom</Button>
+                            <Button Theme="{StaticResource SuccessButtonTheme}">Success</Button>
                             <Button Theme="{StaticResource WarningButtonTheme}">Warning</Button>
                             <Button Theme="{StaticResource ErrorButtonTheme}">Error</Button>
                             <Button Theme="{StaticResource DangerButtonTheme}">Abort</Button>
                             <Button Theme="{StaticResource NeutralButtonTheme}">None</Button>
+                            <Button Theme="{StaticResource NeutralButtonTheme}">Custom</Button>
                         </SpacingWrapPanel>
                     </StackPanel>
                 </Border>

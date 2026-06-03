@@ -59,6 +59,7 @@ namespace Synthora.Overlays
         public DialogButton DialogButton { get; set; } = DialogButton.OK;
         public IconType IconType { get; set; }
         public bool ShowCloseButton { get; set; }
+        public bool IsFooterStretched { get; set; }
         public double MaxWidth { get; set; } = 800;
         public double MaxHeight { get; set; } = double.NaN;
         public HorizontalAlignment HorizontalAlignment { get; set; } = HorizontalAlignment.Center;

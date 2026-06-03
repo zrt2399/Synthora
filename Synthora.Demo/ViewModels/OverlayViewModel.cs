@@ -33,29 +33,31 @@ namespace Synthora.Demo.ViewModels
             });
         }
 
-        public async void ShowAlertDialog(string param)
+        public async void ShowAlertDialog(string type)
         {
             var stringBuilder = new StringBuilder();
             for (int i = 0; i < 3; i++)
             {
-                stringBuilder.Append($"{param} Message;");
+                stringBuilder.Append($"{type} Message;");
             }
             var message = stringBuilder.ToString();
 
-            var result = param switch
+            var result = type switch
             {
-                nameof(IconType.None) => await AlertDialog.ShowAsync("AlertDialogHost", message, "None", DialogButton, IconType.None),
-                nameof(IconType.Information) => await AlertDialog.ShowAsync("AlertDialogHost", message, "Information", DialogButton, IconType.Information),
-                nameof(IconType.Question) => await AlertDialog.ShowAsync(message, "Question", DialogButton, IconType.Question),
-                nameof(IconType.Warning) => await AlertDialog.ShowAsync(message, "Warning", DialogButton, IconType.Warning),
-                nameof(IconType.Error) => await AlertDialog.ShowAsync(message, "Error", DialogButton, IconType.Error),
-                "Abort" => await AlertDialog.ShowAsync(message, "Abort", DialogButton | DialogButton.Abort, IconType.Error),
+                nameof(IconType.None) => await AlertDialog.ShowAsync("AlertDialogHost", message, type, DialogButton, IconType.None),
+                nameof(IconType.Information) => await AlertDialog.ShowAsync(message, type, DialogButton, IconType.Information),
+                nameof(IconType.Question) => await AlertDialog.ShowAsync(message, type, DialogButton, IconType.Question),
+                nameof(IconType.Success) => await AlertDialog.ShowAsync(message, type, DialogButton, IconType.Success),
+                nameof(IconType.Warning) => await AlertDialog.ShowAsync(message, type, DialogButton, IconType.Warning),
+                nameof(IconType.Error) => await AlertDialog.ShowAsync(message, type, DialogButton, IconType.Error),
+                "Abort" => await AlertDialog.ShowAsync(message, type, DialogButton | DialogButton.Abort, IconType.Error),
                 _ => await AlertDialog.ShowAsync(new AlertDialogOptions()
                 {
                     DialogButton = DialogButton,
-                    Title = "Custom",
+                    Title = type,
                     Message = message,
                     IconType = IconType.Information,
+                    IsFooterStretched = true,
                     VerticalAlignment = VerticalAlignment.Top
                 }),
             };

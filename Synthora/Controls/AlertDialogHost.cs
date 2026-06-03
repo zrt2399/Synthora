@@ -22,6 +22,7 @@ namespace Synthora.Controls
         public DialogButton DialogButton { get; }
         public IconType IconType { get; }
         public bool ShowCloseButton { get; }
+        public bool IsFooterStretched { get; }
         public double MaxWidth { get; }
         public double MaxHeight { get; }
         public HorizontalAlignment HorizontalAlignment { get; }
@@ -41,6 +42,7 @@ namespace Synthora.Controls
             DialogButton = options.DialogButton;
             IconType = options.IconType;
             ShowCloseButton = options.ShowCloseButton || DialogButton == DialogButton.None;
+            IsFooterStretched = options.IsFooterStretched;
             MaxWidth = options.MaxWidth;
             MaxHeight = options.MaxHeight;
             HorizontalAlignment = options.HorizontalAlignment;

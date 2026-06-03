@@ -38,7 +38,7 @@
                                 </ItemsControl.ItemsPanel>
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate x:DataType="AlertDialogInstance">
-                                        <Border Name="dialogBorder"
+                                        <Border Name="DialogBorder"
                                                 MinWidth="220"
                                                 MinHeight="160"
                                                 MaxWidth="{Binding MaxWidth}"
@@ -54,7 +54,7 @@
                                                 Classes.animatedDialog="{Binding !$parent[AlertDialogHost].DisableOpeningAnimation}"
                                                 CornerRadius="{DynamicResource ThemeBorderCornerRadiusLarge}">
                                             <Border.Styles>
-                                                <Style Selector="Border.animatedDialog#dialogBorder">
+                                                <Style Selector="Border.animatedDialog">
                                                     <Style.Animations>
                                                         <Animation Easing="SineEaseInOut"
                                                                    FillMode="Both"
@@ -79,10 +79,10 @@
                                                     <Style Selector="Button">
                                                         <Setter Property="CornerRadius">
                                                             <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.All}">
-                                                                <Binding Path="#dialogBorder.CornerRadius" />
-                                                                <Binding Path="#dialogBorder.BorderThickness" />
-                                                                <Binding Path="#dialogBorder.Padding" />
-                                                                <Binding Path="#PART_ButtonPanel.Margin" />
+                                                                <Binding Path="#DialogBorder.CornerRadius" />
+                                                                <Binding Path="#DialogBorder.BorderThickness" />
+                                                                <Binding Path="#DialogBorder.Padding" />
+                                                                <Binding Path="#ButtonPanel.Margin" />
                                                             </MultiBinding>
                                                         </Setter>
                                                     </Style>
@@ -110,9 +110,9 @@
                                                             Theme="{DynamicResource IconButtonTheme}">
                                                         <Button.CornerRadius>
                                                             <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.All}">
-                                                                <Binding Path="#dialogBorder.CornerRadius" />
-                                                                <Binding Path="#dialogBorder.BorderThickness" />
-                                                                <Binding Path="#dialogBorder.Padding" />
+                                                                <Binding Path="#DialogBorder.CornerRadius" />
+                                                                <Binding Path="#DialogBorder.BorderThickness" />
+                                                                <Binding Path="#DialogBorder.Padding" />
                                                             </MultiBinding>
                                                         </Button.CornerRadius>
                                                         <PathIcon Width="12"
@@ -141,19 +141,23 @@
                                                              TextWrapping="Wrap" />
                                                 </DockPanel>
 
-                                                <StackPanel x:Name="PART_ButtonPanel"
-                                                            Grid.Row="2"
-                                                            Margin="10"
-                                                            HorizontalAlignment="Right"
-                                                            FocusAttach.IsFocused="True"
-                                                            IsVisible="{Binding DialogButton, Converter={x:Static ObjectConverters.NotEqual}, ConverterParameter={x:Static overlays:DialogButton.None}}"
-                                                            Orientation="Horizontal"
-                                                            Spacing="10">
-                                                    <StackPanel.Styles>
+                                                <UniformGrid x:Name="ButtonPanel"
+                                                             Grid.Row="2"
+                                                             Margin="10"
+                                                             HorizontalAlignment="Right"
+                                                             Classes.footerStretched="{Binding IsFooterStretched}"
+                                                             ColumnSpacing="10"
+                                                             FocusAttach.IsFocused="True"
+                                                             IsVisible="{Binding DialogButton, Converter={x:Static ObjectConverters.NotEqual}, ConverterParameter={x:Static overlays:DialogButton.None}}"
+                                                             Rows="1">
+                                                    <UniformGrid.Styles>
+                                                        <Style Selector="UniformGrid.footerStretched">
+                                                            <Setter Property="HorizontalAlignment" Value="Stretch" />
+                                                        </Style>
                                                         <Style Selector="Button">
                                                             <Setter Property="MinWidth" Value="80" />
                                                         </Style>
-                                                    </StackPanel.Styles>
+                                                    </UniformGrid.Styles>
                                                     <Button Name="OKButton"
                                                             Command="{Binding OK}"
                                                             Content="{DynamicResource StringAlertDialogButtonOK}"
@@ -180,7 +184,7 @@
                                                             Content="{DynamicResource StringAlertDialogButtonAbort}"
                                                             IsVisible="{Binding DialogButton, Converter={x:Static SynthoraConverters.HasFlag}, ConverterParameter={x:Static overlays:DialogButton.Abort}}"
                                                             Theme="{DynamicResource ErrorButtonTheme}" />
-                                                </StackPanel>
+                                                </UniformGrid>
                                             </Grid>
                                         </Border>
                                     </DataTemplate>

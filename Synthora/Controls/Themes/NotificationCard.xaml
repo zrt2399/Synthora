@@ -17,7 +17,6 @@
     </Design.PreviewWith>
 
     <ControlTheme x:Key="{x:Type NotificationCard}" TargetType="NotificationCard">
-        <Setter Property="UseLayoutRounding" Value="True" />
         <Setter Property="Padding" Value="{DynamicResource NotificationCardPadding}" />
         <Setter Property="Width" Value="{DynamicResource NotificationCardWidth}" />
         <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
