@@ -79,11 +79,31 @@
         </Style>
 
         <Style Selector="^:pointerover">
-            <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidBrush}" />
+            <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />
         </Style>
 
         <Style Selector="^:pressed">
             <Setter Property="Background" Value="{DynamicResource ThemeSelectedHighBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="PrimarySegmentedListBoxItemTheme"
+                  BasedOn="{StaticResource SegmentedListBoxItemTheme}"
+                  TargetType="ListBoxItem">
+
+        <Style Selector="^:selected">
+            <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+        </Style>
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource PrimaryPointerOverBrush}" />
+        </Style>
+
+        <Style Selector="^:pressed">
+            <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource PrimaryPressedBrush}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

@@ -88,4 +88,10 @@
             </ControlTemplate>
         </Setter>
     </ControlTheme>
+
+    <ControlTheme x:Key="PrimarySegmentedListBoxTheme"
+                  BasedOn="{StaticResource SegmentedListBoxTheme}"
+                  TargetType="ListBox">
+        <Setter Property="ItemContainerTheme" Value="{DynamicResource PrimarySegmentedListBoxItemTheme}" />
+    </ControlTheme>
 </ResourceDictionary>

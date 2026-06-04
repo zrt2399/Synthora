@@ -51,10 +51,16 @@
                             <TextBlock FontSize="11"
                                        Foreground="{DynamicResource ThemeForegroundLowBrush}"
                                        Text="Segmented RadioButton" />
-                            <ListBox AutoScrollToSelectedItem="False"
-                                     ItemsSource="{EnumBindingSource VerticalAlignment}"
-                                     SelectedIndex="0"
-                                     Theme="{StaticResource SegmentedListBoxTheme}" />
+                            <StackPanel Spacing="16">
+                                <ListBox AutoScrollToSelectedItem="False"
+                                         ItemsSource="{EnumBindingSource VerticalAlignment}"
+                                         SelectedIndex="0"
+                                         Theme="{StaticResource SegmentedListBoxTheme}" />
+                                <ListBox AutoScrollToSelectedItem="False"
+                                         ItemsSource="{EnumBindingSource HorizontalAlignment}"
+                                         SelectedIndex="0"
+                                         Theme="{StaticResource PrimarySegmentedListBoxTheme}" />
+                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
                 </Border>
