@@ -22,7 +22,11 @@
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="TextBoxOutline" />
                             <TextBlock Classes="sectionLabel" Text="TEXT INPUT" />
                         </StackPanel>
-                        <AutoCompleteBox TextBoxAttach.Header="AutoCompleteBox" />
+                        <AutoCompleteBox FilterMode="Contains"
+                                         ItemsSource="{Binding AutoCompleteSuggestions}"
+                                         MinimumPrefixLength="1"
+                                         Text="{Binding AutoCompleteText}"
+                                         TextBoxAttach.Header="AutoCompleteBox" />
                         <TextBox InnerRightContent="Ω"
                                  PlaceholderText="Type a message"
                                  Text="{Binding Greeting}"
@@ -36,16 +40,6 @@
                                  Text="{Binding Value}"
                                  TextBoxAttach.Header="Multiline TextBox(With clearButton)" />
                         <TextBox Classes="clearButton revealPasswordButton" TextBoxAttach.Header="PasswordBox(With clearButton)" />
-                        <StackPanel Orientation="Horizontal" Spacing="6">
-                            <TextBlock VerticalAlignment="Center"
-                                       Foreground="{DynamicResource ThemeForegroundLowBrush}"
-                                       Text="Quick preview:" />
-                            <TextBlock VerticalAlignment="Center"
-                                       FontWeight="Medium"
-                                       Text="TextBlock" />
-                            <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
-                            <SelectableTextBlock VerticalAlignment="Center" Text="SelectableTextBlock" />
-                        </StackPanel>
                     </StackPanel>
                 </Border>
 

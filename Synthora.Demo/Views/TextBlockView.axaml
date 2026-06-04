@@ -1,0 +1,99 @@
+<UserControl x:Class="Synthora.Demo.Views.TextBlockView"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialIcons="using:Material.Icons.Avalonia"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Synthora.Demo.ViewModels"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             x:DataType="vm:TextBlockViewModel"
+             mc:Ignorable="d">
+
+    <DemoPage Title="Text Blocks"
+              Padding="0"
+              Description="{Binding Description}"
+              IconKind="{Binding IconKind}">
+        <ScrollViewer Padding="16">
+            <StackPanel Spacing="16">
+                <Border Classes="card">
+                    <StackPanel Spacing="16">
+                        <StackPanel Classes="sectionHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="FormatText" />
+                            <TextBlock Classes="sectionLabel" Text="TEXTBLOCK" />
+                        </StackPanel>
+                        <StackPanel Spacing="10">
+                            <TextBlock FontSize="24"
+                                       FontWeight="SemiBold"
+                                       Text="Readable hierarchy with themed typography" />
+                            <TextBlock Foreground="{DynamicResource ThemeForegroundLowBrush}" Text="TextBlock is best for labels, descriptions, headings, and inline status text." />
+                            <TextBlock Text="{Binding IntroText}" TextWrapping="Wrap" />
+                        </StackPanel>
+                        <Grid ColumnDefinitions="*,16,*">
+                            <StackPanel Grid.Column="0" Spacing="8">
+                                <TextBlock Classes="sectionLabel" Text="INLINE FORMATTING" />
+                                <TextBlock TextWrapping="Wrap">
+                                    <Run Text="Combine " />
+                                    <Run FontWeight="Bold" Text="bold" />
+                                    <Run Text=", " />
+                                    <Run FontStyle="Italic" Text="italic" />
+                                    <Run Text=", and " />
+                                    <Run Text="underlined" TextDecorations="Underline" />
+                                    <Run Text=" runs to present rich explanatory copy." />
+                                </TextBlock>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2" Spacing="8">
+                                <TextBlock Classes="sectionLabel" Text="TRIMMING" />
+                                <Border Padding="12"
+                                        Background="{DynamicResource ThemeBackgroundBrush}"
+                                        BorderBrush="{DynamicResource ThemeBorderLowBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="10">
+                                    <TextBlock MaxLines="2"
+                                               Text="{Binding WrappingSample}"
+                                               TextTrimming="CharacterEllipsis"
+                                               TextWrapping="Wrap" />
+                                </Border>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+                <Border Classes="card">
+                    <StackPanel Spacing="16">
+                        <StackPanel Classes="sectionHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="CursorText" />
+                            <TextBlock Classes="sectionLabel" Text="SELECTABLETEXTBLOCK" />
+                        </StackPanel>
+                        <SelectableTextBlock Text="Try selecting and copying the samples below." />
+                        <SelectableTextBlock Text="{Binding SelectableSample}" TextWrapping="Wrap" />
+                        <Grid ColumnDefinitions="*,16,*">
+                            <StackPanel Grid.Column="0" Spacing="8">
+                                <TextBlock Classes="sectionLabel" Text="COPYABLE CONTENT" />
+                                <Border Padding="12"
+                                        Background="{DynamicResource ThemeBackgroundBrush}"
+                                        BorderBrush="{DynamicResource ThemeBorderLowBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="10">
+                                    <SelectableTextBlock Text="https://github.com/zrt2399/Synthora" TextWrapping="Wrap" />
+                                </Border>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2" Spacing="8">
+                                <TextBlock Classes="sectionLabel" Text="CODE-LIKE SAMPLE" />
+                                <Border Padding="12"
+                                        Background="{DynamicResource ThemeBackgroundBrush}"
+                                        BorderBrush="{DynamicResource ThemeBorderLowBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="10">
+                                    <SelectableTextBlock FontFamily="Cascadia Mono,Consolas,monospace"
+                                                         Text="{Binding CodeSample}"
+                                                         TextWrapping="Wrap" />
+                                </Border>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+    </DemoPage>
+</UserControl>
