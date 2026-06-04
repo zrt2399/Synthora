@@ -35,7 +35,7 @@
                              TabbedPage.IsTabEnabled="False">
                     ContentPage2
                 </ContentPage>
-                <ContentPage Header="InBox" Icon="{OnFormFactor Desktop={x:Null}, Mobile={materialIcons:MaterialIconExt Kind=InboxFull, IconSize=24}}">
+                <ContentPage Header="Inbox" Icon="{OnFormFactor Desktop={x:Null}, Mobile={materialIcons:MaterialIconExt Kind=InboxFull, IconSize=24}}">
                     ContentPage3
                 </ContentPage>
                 <ContentPage Header="Settings" Icon="{OnFormFactor Desktop={x:Null}, Mobile={materialIcons:MaterialIconExt Kind=Settings, IconSize=24}}">
