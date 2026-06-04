@@ -140,8 +140,8 @@
 
             <Color x:Key="HighlightColor">#FF119EDA</Color>
             <Color x:Key="HyperlinkVisitedColor">#FFC58AF9</Color>
-            <Color x:Key="MenuItemPointerOverColor">#FF006CBE</Color>
-            <Color x:Key="MenuItemPressedColor">#FF1A7BC5</Color>
+            <Color x:Key="MenuItemPointerOverColor">#FF145AC4</Color>
+            <Color x:Key="MenuItemPressedColor">#FF2C6BCA</Color>
 
             <SolidColorBrush x:Key="ThemeSelectedLowBrush" Color="{StaticResource ThemeSelectedLowColor}" />
             <SolidColorBrush x:Key="ThemeSelectedMidBrush" Color="{StaticResource ThemeSelectedMidColor}" />
@@ -216,9 +216,9 @@
 
     <FontFamily x:Key="ContentControlThemeFontFamily">fonts:Inter#Inter, $Default</FontFamily>
     <!--  FF007AFF  -->
-    <Color x:Key="PrimaryColor">#FF3A8BEF</Color>
-    <Color x:Key="PrimaryPointerOverColor">#FF4E97F1</Color>
-    <Color x:Key="PrimaryPressedColor">#FF60A1F2</Color>
+    <Color x:Key="PrimaryColor">#FF3574F0</Color>
+    <Color x:Key="PrimaryPointerOverColor">#FF4982F2</Color>
+    <Color x:Key="PrimaryPressedColor">#FF5D90F3</Color>
     <Color x:Key="OnPrimaryColor">#FFFFFFFF</Color>
 
     <Color x:Key="ThemeBorderHighlightColor">#FF007AFF</Color>
