@@ -42,8 +42,8 @@
                 <RotateTransform Angle="90" />
             </Setter>
         </Style>
-        <Style Selector="^:no-content">
-            <Setter Property="Padding" Value="0" />
+        <Style Selector="^:no-content /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="IsVisible" Value="False" />
         </Style>
     </ControlTheme>
 

@@ -39,6 +39,7 @@
                                      Value="{Binding #VerticalSlider.Value}" />
                     </DockPanel>
 
+                    <Divider />
                     <Divider Content="DirectionReversed" Orientation="Horizontal" />
                     <ProgressBar Height="4" Value="{Binding #HorizontalSlider.Value}" />
                     <Slider Name="HorizontalSlider"
