@@ -72,6 +72,9 @@
                     <DataTemplate DataType="vm:InputViewModel">
                         <views:InputView />
                     </DataTemplate>
+                    <DataTemplate DataType="vm:TextBlockViewModel">
+                        <views:TextBlockView />
+                    </DataTemplate>
                     <DataTemplate DataType="vm:ButtonViewModel">
                         <views:ButtonView />
                     </DataTemplate>
