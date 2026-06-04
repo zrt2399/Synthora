@@ -68,8 +68,6 @@
     </ControlTheme>
 
     <ControlTheme x:Key="SegmentedTabControlTheme" TargetType="TabControl">
-        <Setter Property="TabControlAttach.HorizontalHeaderAlignment" Value="Left" />
-        <Setter Property="TabControlAttach.VerticalHeaderAlignment" Value="Top" />
         <Setter Property="ItemContainerTheme" Value="{DynamicResource SegmentedTabItemTheme}" />
         <Setter Property="ItemsPanel">
             <ItemsPanelTemplate>
@@ -148,8 +146,6 @@
     </ControlTheme>
 
     <ControlTheme x:Key="CardTabControlTheme" TargetType="TabControl">
-        <Setter Property="TabControlAttach.HorizontalHeaderAlignment" Value="Left" />
-        <Setter Property="TabControlAttach.VerticalHeaderAlignment" Value="Top" />
         <Setter Property="TabControlAttach.ShowHeaderSeparator" Value="False" />
         <Setter Property="ItemContainerTheme" Value="{DynamicResource CardTabItemTheme}" />
         <Setter Property="ItemsPanel">

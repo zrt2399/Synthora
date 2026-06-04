@@ -13,17 +13,36 @@
     <DemoPage Title="Tabbed Page"
               Description="{Binding Description}"
               IconKind="{Binding IconKind}">
-        <TabbedPage>
-            <ContentPage Header="Home" Icon="{OnFormFactor Desktop={x:Null}, Mobile={materialIcons:MaterialIconExt Kind=Home, IconSize=24}}">
-                ContentPage1
-            </ContentPage>
-            <ContentPage Header="Contacts" Icon="{OnFormFactor Desktop={x:Null}, Mobile={materialIcons:MaterialIconExt Kind=Contact, IconSize=24}}">
-                ContentPage2
-            </ContentPage>
-            <ContentPage Header="Settings" Icon="{OnFormFactor Desktop={x:Null}, Mobile={materialIcons:MaterialIconExt Kind=Settings, IconSize=24}}">
-                ContentPage3
-            </ContentPage>
-        </TabbedPage>
+        <DockPanel VerticalSpacing="16">
+            <WrapPanel DockPanel.Dock="Top"
+                       ItemSpacing="16"
+                       LineSpacing="16"
+                       Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding #TabbedPage.(TabControlAttach.ShowHeaderSeparator)}">ShowHeaderSeparator</CheckBox>
+                <ComboBox ItemsSource="{EnumBindingSource TabPlacement}"
+                          SelectedItem="{Binding #TabbedPage.TabPlacement}"
+                          TextBoxAttach.Header="TabPlacement: "
+                          TextBoxAttach.HeaderPlacement="Left" />
+            </WrapPanel>
+            <TabbedPage Name="TabbedPage" IndicatorTemplate="{x:Null}">
+                <ContentPage Header="Home" Icon="{OnFormFactor Desktop={x:Null}, Mobile={materialIcons:MaterialIconExt Kind=Home, IconSize=24}}">
+                    ContentPage1
+                </ContentPage>
+                <ContentPage Header="Contacts"
+                             Icon="{OnFormFactor Desktop={x:Null},
+                                                 Mobile={materialIcons:MaterialIconExt Kind=Contact,
+                                                                                       IconSize=24}}"
+                             TabbedPage.IsTabEnabled="False">
+                    ContentPage2
+                </ContentPage>
+                <ContentPage Header="InBox" Icon="{OnFormFactor Desktop={x:Null}, Mobile={materialIcons:MaterialIconExt Kind=InboxFull, IconSize=24}}">
+                    ContentPage3
+                </ContentPage>
+                <ContentPage Header="Settings" Icon="{OnFormFactor Desktop={x:Null}, Mobile={materialIcons:MaterialIconExt Kind=Settings, IconSize=24}}">
+                    ContentPage4
+                </ContentPage>
+            </TabbedPage>
+        </DockPanel>
     </DemoPage>
 
 </UserControl>
