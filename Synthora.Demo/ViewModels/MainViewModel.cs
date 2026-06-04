@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows.Input;
@@ -65,6 +65,7 @@ namespace Synthora.Demo.ViewModels
                 }),
                 CreateItem(new BrushViewModel()),
                 CreateItem(new InputViewModel()),
+                CreateItem(new TextBlockViewModel()),
                 CreateItem(new ButtonViewModel()),
                 CreateItem(new SelectionControlViewModel()),
                 CreateItem(new CollectionControlViewModel(), new DataGridViewModel(), new TreeViewViewModel(), new ListBoxViewModel()),
