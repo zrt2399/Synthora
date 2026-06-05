@@ -30,10 +30,8 @@ The following instructions are for packaging the **SynthoraDemo** application.
 2. Run the packaging script:
 
 ```bash
-iscc Synthora.Demo/win-build/publish_win_x64.iss
+.\Synthora.Demo\win-build\build.bat
 ```
-
-Or open `Synthora.Demo/win-build/publish_win_x64.iss` directly in the Inno Setup IDE and click **Compile**.
 
 ## macOS
 

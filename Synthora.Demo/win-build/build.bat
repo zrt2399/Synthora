@@ -1,3 +1,5 @@
+cd /d "%~dp0"
+
 cd ..
 
 set RID=win-x64
