@@ -6,19 +6,25 @@
 
     <Design.PreviewWith>
         <Border Padding="20">
-            <StackPanel Spacing="10">
-                <ProgressBar VerticalAlignment="Center" IsIndeterminate="True" />
-                <ProgressBar VerticalAlignment="Center"
-                             Maximum="10"
-                             Value="5" />
-                <ProgressBar VerticalAlignment="Center" Value="50" />
-                <ProgressBar VerticalAlignment="Center"
-                             Maximum="75"
-                             Minimum="25"
+            <StackPanel Orientation="Horizontal" Spacing="20">
+                <StackPanel Spacing="20">
+                    <ProgressBar Maximum="10" Value="5" />
+                    <ProgressBar Value="50" />
+                    <ProgressBar Maximum="75"
+                                 Minimum="25"
+                                 Value="50" />
+                    <ProgressBar IsIndeterminate="True" />
+                    <ProgressBar ShowProgressText="True" Value="50" />
+                    <ProgressBar Maximum="100"
+                                 Minimum="50"
+                                 ProgressTextFormat="\{1\} Percent"
+                                 ShowProgressText="True"
+                                 Value="74" />
+                </StackPanel>
+                <ProgressBar IsIndeterminate="True" Orientation="Vertical" />
+                <ProgressBar Orientation="Vertical"
+                             ShowProgressText="True"
                              Value="50" />
-                <ProgressBar HorizontalAlignment="Left"
-                             IsIndeterminate="True"
-                             Orientation="Vertical" />
             </StackPanel>
         </Border>
     </Design.PreviewWith>
@@ -40,35 +46,48 @@
                             ClipToBounds="{TemplateBinding ClipToBounds}"
                             CornerRadius="{TemplateBinding CornerRadius}">
                         <Panel>
+                            <LayoutTransformControl Name="PART_LayoutTransformControl"
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    IsVisible="{Binding ShowProgressText, RelativeSource={RelativeSource TemplatedParent}}">
+                                <TextBlock Classes="progressText" Foreground="{DynamicResource ThemeForegroundBrush}" />
+                            </LayoutTransformControl>
                             <Border Name="PART_Indicator"
                                     Background="{TemplateBinding Foreground}"
+                                    ClipToBounds="True"
                                     CornerRadius="{TemplateBinding CornerRadius}"
-                                    IsVisible="{Binding !IsIndeterminate, RelativeSource={RelativeSource TemplatedParent}}" />
+                                    IsVisible="{Binding !IsIndeterminate, RelativeSource={RelativeSource TemplatedParent}}">
+                                <Grid Width="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                                      Height="{Binding Bounds.Height, RelativeSource={RelativeSource TemplatedParent}}"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Bottom"
+                                      IsVisible="{Binding ShowProgressText, RelativeSource={RelativeSource TemplatedParent}}">
+                                    <LayoutTransformControl HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock Classes="progressText" Foreground="{DynamicResource OnPrimaryBrush}" />
+                                    </LayoutTransformControl>
+                                </Grid>
+                            </Border>
                             <Border Name="PART_IndeterminateIndicator"
                                     Background="{TemplateBinding Foreground}"
                                     CornerRadius="{TemplateBinding CornerRadius}"
                                     IsVisible="{Binding IsIndeterminate, RelativeSource={RelativeSource TemplatedParent}}" />
                         </Panel>
                     </Border>
-                    <LayoutTransformControl Name="PART_LayoutTransformControl"
-                                            HorizontalAlignment="Center"
-                                            VerticalAlignment="Center"
-                                            IsVisible="{Binding ShowProgressText, RelativeSource={RelativeSource TemplatedParent}}">
-                        <TextBlock Foreground="{DynamicResource ThemeForegroundBrush}">
-                            <TextBlock.Text>
-                                <MultiBinding Converter="{StaticResource StringFormatConverter}">
-                                    <TemplateBinding Property="ProgressTextFormat" />
-                                    <Binding Path="Value" RelativeSource="{RelativeSource TemplatedParent}" />
-                                    <TemplateBinding Property="Percentage" />
-                                    <TemplateBinding Property="Minimum" />
-                                    <TemplateBinding Property="Maximum" />
-                                </MultiBinding>
-                            </TextBlock.Text>
-                        </TextBlock>
-                    </LayoutTransformControl>
                 </Panel>
             </ControlTemplate>
         </Setter>
+
+        <Style Selector="^ /template/ TextBlock.progressText">
+            <Setter Property="Text">
+                <MultiBinding Converter="{StaticResource StringFormatConverter}">
+                    <Binding Path="ProgressTextFormat" RelativeSource="{RelativeSource TemplatedParent}" />
+                    <Binding Path="Value" RelativeSource="{RelativeSource TemplatedParent}" />
+                    <Binding Path="Percentage" RelativeSource="{RelativeSource TemplatedParent}" />
+                    <Binding Path="Minimum" RelativeSource="{RelativeSource TemplatedParent}" />
+                    <Binding Path="Maximum" RelativeSource="{RelativeSource TemplatedParent}" />
+                </MultiBinding>
+            </Setter>
+        </Style>
 
         <Style Selector="^:horizontal /template/ Border#PART_Indicator">
             <Setter Property="HorizontalAlignment" Value="Left" />
@@ -82,14 +101,12 @@
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>
         <Style Selector="^:horizontal">
-            <!--<Setter Property="MinWidth" Value="100" />-->
             <Setter Property="MinHeight" Value="1" />
         </Style>
         <Style Selector="^:vertical">
             <Setter Property="MinWidth" Value="1" />
-            <!--<Setter Property="MinHeight" Value="100" />-->
         </Style>
-        <Style Selector="^:vertical /template/ LayoutTransformControl#PART_LayoutTransformControl">
+        <Style Selector="^:vertical /template/ LayoutTransformControl">
             <Setter Property="LayoutTransform">
                 <RotateTransform Angle="90" />
             </Setter>
@@ -126,4 +143,4 @@
             <Setter Property="Height" Value="{Binding TemplateSettings.ContainerWidth, RelativeSource={RelativeSource TemplatedParent}}" />
         </Style>
     </ControlTheme>
-</ResourceDictionary> 
+</ResourceDictionary>

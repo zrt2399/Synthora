@@ -101,8 +101,7 @@
                              HorizontalAlignment="Center"
                              VerticalAlignment="Center"
                              Fill="{TemplateBinding Foreground}"
-                             Stretch="Uniform"
-                             UseLayoutRounding="False" />
+                             Stretch="Uniform" />
                 </Panel>
             </ControlTemplate>
         </Setter>
@@ -163,6 +162,7 @@
                                    Maximum="{TemplateBinding Maximum}"
                                    Minimum="{TemplateBinding Minimum}"
                                    Orientation="Horizontal"
+                                   UseLayoutRounding="False"
                                    Value="{TemplateBinding Value,
                                                            Mode=TwoWay}">
                                 <Track.DecreaseButton>
@@ -224,6 +224,7 @@
                                    Maximum="{TemplateBinding Maximum}"
                                    Minimum="{TemplateBinding Minimum}"
                                    Orientation="Vertical"
+                                   UseLayoutRounding="False"
                                    Value="{TemplateBinding Value,
                                                            Mode=TwoWay}">
                                 <Track.DecreaseButton>

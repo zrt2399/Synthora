@@ -16,13 +16,13 @@ namespace Synthora.Converters
         public IBrush BlackBrush { get; set; } = Brushes.Black;
 
         /// <summary>
-        /// Converts an Avalonia.Media.SolidColorBrush (or Color) to a contrasting brush of either Black or White.
+        /// Converts a <see cref="SolidColorBrush"/> or <see cref="Color"/> to a contrasting Black or White brush.
         /// </summary>
-        /// <param name="value">The background color, as a SolidColorBrush or Color.</param>
-        /// <param name="targetType">The target type (Brush).</param>
-        /// <param name="parameter">Optional parameter (not used).</param>
-        /// <param name="culture">The culture info.</param>
-        /// <returns>SolidColorBrush of White or Black.</returns>
+        /// <param name="value">The background color, provided as a <see cref="SolidColorBrush"/> or <see cref="Color"/>.</param>
+        /// <param name="targetType">The target type (expected to be Brush).</param>
+        /// <param name="parameter">An optional parameter (not used).</param>
+        /// <param name="culture">The culture information.</param>
+        /// <returns>A <see cref="SolidColorBrush"/> that is either Black or White.</returns>
         public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             Color? bgColor = value switch
