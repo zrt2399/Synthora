@@ -7,7 +7,7 @@
 
 #define WorkPath "artifacts\win-" + Is64Or86
 #define MyAppName "SynthoraDemo"
-#define MyAppVersion GetFileVersion(WorkPath + "\" + MyAppExeName)
+#define MyAppVersion GetVersionNumbersString(WorkPath + "\" + MyAppExeName)
 #define MyAppPublisher "Yoyo"
 //注册表
 //#define MyAppAssocName "WAS 测试程序"
