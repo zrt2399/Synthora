@@ -375,11 +375,24 @@
                             <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
                                 <ToggleSwitch />
                                 <ToggleSwitch IsChecked="True" />
+                                <ToggleSwitch>
+                                    <ToggleSwitch.OnContent>
+                                        <materialIcons:MaterialIcon Kind="Apple" />
+                                    </ToggleSwitch.OnContent>
+                                    <ToggleSwitch.OffContent>
+                                        <materialIcons:MaterialIcon Kind="Android" />
+                                    </ToggleSwitch.OffContent>
+                                </ToggleSwitch>
                             </SpacingWrapPanel>
                             <ListBox AutoScrollToSelectedItem="False" Theme="{DynamicResource SegmentedListBoxTheme}">
                                 <ListBoxItem IsSelected="True">macOS</ListBoxItem>
                                 <ListBoxItem>Windows</ListBoxItem>
                                 <ListBoxItem>Linux</ListBoxItem>
+                            </ListBox>
+                            <ListBox AutoScrollToSelectedItem="False" Theme="{DynamicResource PrimarySegmentedListBoxTheme}">
+                                <ListBoxItem IsSelected="True">Material Design</ListBoxItem>
+                                <ListBoxItem>Fluent Design</ListBoxItem>
+                                <ListBoxItem>Ant Design</ListBoxItem>
                             </ListBox>
                             <SelectableTextBlock Classes="muted">Selection states stay clear at a glance.</SelectableTextBlock>
                         </StackPanel>
@@ -395,7 +408,7 @@
                             </StackPanel>
 
                             <ProgressBar Height="6" Value="{Binding #Slider.Value}" />
-                            <Slider Name="Slider" />
+                            <Slider Name="Slider" Value="50" />
                             <ProgressBar ShowProgressText="True" Value="{Binding #Slider.Value}" />
                             <PipsPager MaxVisiblePips="10"
                                        NumberOfPages="10"
