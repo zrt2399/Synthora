@@ -375,7 +375,7 @@
                             <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
                                 <ToggleSwitch />
                                 <ToggleSwitch IsChecked="True" />
-                                <ToggleSwitch>
+                                <ToggleSwitch IsChecked="True">
                                     <ToggleSwitch.OnContent>
                                         <materialIcons:MaterialIcon Kind="Apple" />
                                     </ToggleSwitch.OnContent>

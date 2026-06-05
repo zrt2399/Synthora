@@ -85,7 +85,7 @@
                                         BorderBrush="{DynamicResource ThemeBorderLowBrush}"
                                         BorderThickness="1"
                                         CornerRadius="10">
-                                    <SelectableTextBlock FontFamily="Cascadia Mono,Consolas,monospace"
+                                    <SelectableTextBlock FontFamily="Cascadia Mono,Consolas,SF Mono,Menlo,monospace"
                                                          Text="{Binding CodeSample}"
                                                          TextWrapping="Wrap" />
                                 </Border>
