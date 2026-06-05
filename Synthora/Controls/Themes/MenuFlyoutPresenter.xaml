@@ -22,6 +22,7 @@
                     <ScrollViewer Theme="{StaticResource SimpleMenuScrollViewer}">
                         <ItemsPresenter Name="PART_ItemsPresenter"
                                         Margin="{TemplateBinding Padding}"
+                                        Grid.IsSharedSizeScope="True"
                                         ItemsPanel="{TemplateBinding ItemsPanel}"
                                         KeyboardNavigation.TabNavigation="Continue" />
                     </ScrollViewer>
@@ -52,6 +53,7 @@
                                   VerticalScrollBarVisibility="Disabled">
                         <ItemsPresenter Name="PART_ItemsPresenter"
                                         Margin="{TemplateBinding Padding}"
+                                        Grid.IsSharedSizeScope="True"
                                         ItemsPanel="{TemplateBinding ItemsPanel}"
                                         KeyboardNavigation.TabNavigation="Continue" />
                     </ScrollViewer>
