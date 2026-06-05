@@ -20,7 +20,7 @@
 
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary x:Key="Default">
-                    <SolidColorBrush x:Key="CardSurfaceBrush" Color="#C8F7FBFF" />
+                    <SolidColorBrush x:Key="CardSurfaceBrush" Color="#B8F7FBFF" />
                     <SolidColorBrush x:Key="CardBorderBrush" Color="#7AA8C7EA" />
                     <SolidColorBrush x:Key="BadgeSurfaceBrush" Color="#B8F4F8FF" />
                     <SolidColorBrush x:Key="HeroPanelBrush" Color="#D8EEF5FF" />
@@ -390,9 +390,9 @@
                                 <ListBoxItem>Linux</ListBoxItem>
                             </ListBox>
                             <ListBox AutoScrollToSelectedItem="False" Theme="{DynamicResource PrimarySegmentedListBoxTheme}">
-                                <ListBoxItem IsSelected="True">Material Design</ListBoxItem>
+                                <ListBoxItem IsSelected="True">Ant Design</ListBoxItem>
                                 <ListBoxItem>Fluent Design</ListBoxItem>
-                                <ListBoxItem>Ant Design</ListBoxItem>
+                                <ListBoxItem>Material Design</ListBoxItem>
                             </ListBox>
                             <SelectableTextBlock Classes="muted">Selection states stay clear at a glance.</SelectableTextBlock>
                         </StackPanel>
