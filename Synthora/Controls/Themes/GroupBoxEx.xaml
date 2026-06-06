@@ -16,12 +16,12 @@
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
-                <DropShadowChrome Name="RootChrome"
-                                  Background="{TemplateBinding Background}"
-                                  BorderBrush="{TemplateBinding BorderBrush}"
-                                  BorderThickness="{TemplateBinding BorderThickness}"
-                                  BoxShadow="{TemplateBinding BoxShadow}"
-                                  CornerRadius="{TemplateBinding CornerRadius}">
+                <ShadowChrome Name="RootChrome"
+                              Background="{TemplateBinding Background}"
+                              BorderBrush="{TemplateBinding BorderBrush}"
+                              BorderThickness="{TemplateBinding BorderThickness}"
+                              BoxShadow="{TemplateBinding BoxShadow}"
+                              CornerRadius="{TemplateBinding CornerRadius}">
                     <DockPanel Name="PART_DockPanel">
                         <Border Name="headerBorder"
                                 Padding="{TemplateBinding HeaderPadding}"
@@ -46,7 +46,7 @@
                                           Content="{TemplateBinding Content}"
                                           ContentTemplate="{TemplateBinding ContentTemplate}" />
                     </DockPanel>
-                </DropShadowChrome>
+                </ShadowChrome>
             </ControlTemplate>
         </Setter>
         <Style Selector="^:disabled /template/ Border#headerBorder">

@@ -14,7 +14,7 @@
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
-                <DropShadowChrome Name="RootChrome"
+                <ShadowChrome Name="RootChrome"
                                   Background="{TemplateBinding Background}"
                                   BorderBrush="{TemplateBinding BorderBrush}"
                                   BorderThickness="{TemplateBinding BorderThickness}"
@@ -33,7 +33,7 @@
                                         Margin="{TemplateBinding Padding}"
                                         ItemsPanel="{TemplateBinding ItemsPanel}" />
                     </ScrollViewer>
-                </DropShadowChrome>
+                </ShadowChrome>
             </ControlTemplate>
         </Setter>
         <!--<Style Selector="^:disabled">
@@ -64,7 +64,7 @@
         </Setter>
         <Setter Property="Template">
             <ControlTemplate>
-                <DropShadowChrome Name="RootChrome"
+                <ShadowChrome Name="RootChrome"
                                   Background="{TemplateBinding Background}"
                                   BorderBrush="{TemplateBinding BorderBrush}"
                                   BorderThickness="{TemplateBinding BorderThickness}"
@@ -84,7 +84,7 @@
                                         Margin="{TemplateBinding Padding}"
                                         ItemsPanel="{TemplateBinding ItemsPanel}" />
                     </ScrollViewer>
-                </DropShadowChrome>
+                </ShadowChrome>
             </ControlTemplate>
         </Setter>
     </ControlTheme>
@@ -93,5 +93,11 @@
                   BasedOn="{StaticResource SegmentedListBoxTheme}"
                   TargetType="ListBox">
         <Setter Property="ItemContainerTheme" Value="{DynamicResource PrimarySegmentedListBoxItemTheme}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="SecondarySegmentedListBoxTheme"
+                  BasedOn="{StaticResource SegmentedListBoxTheme}"
+                  TargetType="ListBox">
+        <Setter Property="ItemContainerTheme" Value="{DynamicResource SecondarySegmentedListBoxItemTheme}" />
     </ControlTheme>
 </ResourceDictionary>

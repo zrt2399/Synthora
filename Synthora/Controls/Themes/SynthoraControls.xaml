@@ -16,8 +16,8 @@
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ButtonSpinner.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ToggleButton.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/DropDownButton.xaml" />
-                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/DropShadowChrome.xaml" />
-                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/SystemDropShadowChrome.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ShadowChrome.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/SystemShadowChrome.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/Divider.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/DrawerPage.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/DragTabControl.xaml" />
@@ -38,8 +38,6 @@
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/WindowDrawnDecorations.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/Carousel.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/CarouselPage.xaml" />
-                <!--<MergeResourceInclude Source="avares://Synthora/Controls/Themes/CaptionButtons.xaml" />-->
-                <!--<MergeResourceInclude Source="avares://Synthora/Controls/Themes/TitleBar.xaml" />-->
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/TextBox.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/TextBlock.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/AutoCompleteBox.xaml" />

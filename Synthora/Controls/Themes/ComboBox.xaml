@@ -121,7 +121,6 @@
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
-        <!-- <Setter Property="MinHeight" Value="20" /> -->
         <Setter Property="PlaceholderForeground" Value="{DynamicResource ThemeForegroundBrush}" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         <Setter Property="Template">
@@ -188,7 +187,7 @@
                                           Focusable="False"
                                           Foreground="{TemplateBinding Foreground}"
                                           IsVisible="False"
-                                          Theme="{StaticResource SimpleTextBoxClearButtonTheme}" />
+                                          Theme="{DynamicResource SimpleTextBoxClearButtonTheme}" />
 
                             <ToggleButton Grid.Column="2"
                                           Foreground="{TemplateBinding Foreground}"
@@ -204,12 +203,12 @@
                                    Placement="BottomEdgeAlignedLeft"
                                    PlacementTarget="{Binding ElementName=FocusTarget}"
                                    WindowManagerAddShadowHint="False">
-                                <SystemDropShadowChrome MinWidth="{Binding Bounds.Width, ElementName=FocusTarget}"
-                                                        MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                                                        Background="{TemplateBinding Background}"
-                                                        BorderBrush="{TemplateBinding BorderBrush}"
-                                                        BorderThickness="{TemplateBinding BorderThickness}"
-                                                        CornerRadius="{TemplateBinding CornerRadius}">
+                                <SystemShadowChrome MinWidth="{Binding Bounds.Width, ElementName=FocusTarget}"
+                                                    MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                                                    Background="{TemplateBinding Background}"
+                                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                                    CornerRadius="{TemplateBinding CornerRadius}">
                                     <Panel>
                                         <EmptyBox Margin="10" IsVisible="{Binding $parent[ComboBox].Items.Count, Converter={x:Static SynthoraConverters.IsZero}}" />
                                         <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
@@ -220,7 +219,7 @@
                                             <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
                                         </ScrollViewer>
                                     </Panel>
-                                </SystemDropShadowChrome>
+                                </SystemShadowChrome>
                             </Popup>
                         </Grid>
                     </Border>
@@ -228,7 +227,7 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^:pointerover, ^:focus-within">
+        <Style Selector="^:pointerover,^:focus-within,^:dropdownopen">
             <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighBrush}" />
         </Style>
         <Style Selector="^:pressed">
@@ -241,7 +240,7 @@
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>
 
-        <Style Selector="^[IsEditable=true]">
+        <Style Selector="^[IsEditable=True]">
             <Setter Property="IsTabStop" Value="False" />
             <Setter Property="KeyboardNavigation.TabNavigation" Value="Local" />
         </Style>

@@ -3,13 +3,11 @@
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
 
-    <ControlTheme x:Key="{x:Type DropShadowChrome}" TargetType="DropShadowChrome">
-        <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
-        <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusLarge}" />
-        <Setter Property="BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
-        <Setter Property="ClipToBounds" Value="False" />
+    <ControlTheme x:Key="{x:Type SystemShadowChrome}"
+                  BasedOn="{StaticResource {x:Type ShadowChrome}}"
+                  TargetType="SystemShadowChrome">
+        <Setter Property="BoxShadow" Value="{DynamicResource PopupBoxShadow}" />
+        <Setter Property="Margin" Value="{DynamicResource PopupBoxShadowMargin}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Name="RootBorder"
@@ -35,11 +33,9 @@
                 </Border>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^.ShowShadowOnPointerOver">
-            <Setter Property="BoxShadow" Value="{DynamicResource EmptyBoxShadow}" />
-            <Style Selector="^:pointerover">
-                <Setter Property="BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
-            </Style>
+        <Style Selector="^[FlowDirection=RightToLeft]">
+            <!--  For right-to-left languages, use a different shadow that is more appropriate for the layout direction  -->
+            <Setter Property="BoxShadow" Value="{DynamicResource PopupRightToLeftBoxShadow}" />
         </Style>
     </ControlTheme>
 

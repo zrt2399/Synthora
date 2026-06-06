@@ -95,10 +95,10 @@
                                Placement="BottomEdgeAlignedLeft"
                                PlacementTarget="{Binding ElementName=PART_TextBox}"
                                WindowManagerAddShadowHint="False">
-                            <SystemDropShadowChrome Background="{TemplateBinding Background}"
-                                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                                    CornerRadius="{TemplateBinding CornerRadius}">
+                            <SystemShadowChrome Background="{TemplateBinding Background}"
+                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                BorderThickness="{TemplateBinding BorderThickness}"
+                                                CornerRadius="{TemplateBinding CornerRadius}">
                                 <Calendar Name="PART_Calendar"
                                           BorderThickness="0"
                                           CornerRadius="0"
@@ -108,7 +108,7 @@
                                           FirstDayOfWeek="{TemplateBinding FirstDayOfWeek}"
                                           IsTodayHighlighted="{TemplateBinding IsTodayHighlighted}"
                                           SelectedDate="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedDate, Mode=TwoWay}" />
-                            </SystemDropShadowChrome>
+                            </SystemShadowChrome>
                         </Popup>
                     </Panel>
                 </DockPanel>

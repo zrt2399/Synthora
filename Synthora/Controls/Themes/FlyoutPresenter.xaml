@@ -12,18 +12,18 @@
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <SystemDropShadowChrome Name="Popup_Border"
-                                        Background="{TemplateBinding Background}"
-                                        BorderBrush="{TemplateBinding BorderBrush}"
-                                        BorderThickness="{TemplateBinding BorderThickness}"
-                                        CornerRadius="{TemplateBinding CornerRadius}">
+                <SystemShadowChrome Name="Popup_Border"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="{TemplateBinding CornerRadius}">
                     <ContentPresenter x:Name="PART_ContentPresenter"
                                       Margin="{TemplateBinding Padding}"
                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                       Content="{TemplateBinding Content}"
                                       ContentTemplate="{TemplateBinding ContentTemplate}" />
-                </SystemDropShadowChrome>
+                </SystemShadowChrome>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

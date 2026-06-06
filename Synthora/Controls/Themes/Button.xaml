@@ -16,7 +16,7 @@
         <Setter Property="Cursor" Value="{x:Null}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <DropShadowChrome Name="RootChrome"
+                <ShadowChrome Name="RootChrome"
                                   Background="{TemplateBinding Background}"
                                   BorderBrush="{TemplateBinding BorderBrush}"
                                   BorderThickness="{TemplateBinding BorderThickness}"
@@ -30,12 +30,12 @@
                                       ContentTemplate="{TemplateBinding ContentTemplate}"
                                       RecognizesAccessKey="True"
                                       TextElement.Foreground="{TemplateBinding Foreground}" />
-                </DropShadowChrome>
+                </ShadowChrome>
             </ControlTemplate>
         </Setter>
         <Style Selector="^:focus,^:pointerover">
             <Setter Property="Background" Value="{DynamicResource PrimaryPointerOverBrush}" />
-            <Style Selector="^[(ButtonAttach.ShowShadow)=True] /template/ DropShadowChrome#RootChrome">
+            <Style Selector="^[(ButtonAttach.ShowShadow)=True] /template/ ShadowChrome#RootChrome">
                 <Setter Property="BoxShadow" Value="{TemplateBinding BorderBrush, Converter={x:Static SynthoraConverters.BoxShadowConverter}, ConverterParameter={x:Static BoxShadowConverter.ButtonPointerOverParameter}}" />
             </Style>
         </Style>

@@ -14,11 +14,11 @@
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <SystemDropShadowChrome Name="Popup_Border"
-                                        Background="{TemplateBinding Background}"
-                                        BorderBrush="{TemplateBinding BorderBrush}"
-                                        BorderThickness="{TemplateBinding BorderThickness}"
-                                        CornerRadius="{TemplateBinding CornerRadius}">
+                <SystemShadowChrome Name="Popup_Border"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="{TemplateBinding CornerRadius}">
                     <ScrollViewer Theme="{StaticResource SimpleMenuScrollViewer}">
                         <ItemsPresenter Name="PART_ItemsPresenter"
                                         Margin="{TemplateBinding Padding}"
@@ -26,7 +26,7 @@
                                         ItemsPanel="{TemplateBinding ItemsPanel}"
                                         KeyboardNavigation.TabNavigation="Continue" />
                     </ScrollViewer>
-                </SystemDropShadowChrome>
+                </SystemShadowChrome>
             </ControlTemplate>
         </Setter>
     </ControlTheme>
@@ -42,11 +42,11 @@
         </Setter>
         <Setter Property="Template">
             <ControlTemplate>
-                <SystemDropShadowChrome Name="Popup_Border"
-                                        Background="{TemplateBinding Background}"
-                                        BorderBrush="{TemplateBinding BorderBrush}"
-                                        BorderThickness="{TemplateBinding BorderThickness}"
-                                        CornerRadius="{TemplateBinding CornerRadius}">
+                <SystemShadowChrome Name="Popup_Border"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="{TemplateBinding CornerRadius}">
                     <ScrollViewer HorizontalScrollBarVisibility="Auto"
                                   IsScrollChainingEnabled="False"
                                   ScrollViewerAttach.Orientation="Horizontal"
@@ -57,7 +57,7 @@
                                         ItemsPanel="{TemplateBinding ItemsPanel}"
                                         KeyboardNavigation.TabNavigation="Continue" />
                     </ScrollViewer>
-                </SystemDropShadowChrome>
+                </SystemShadowChrome>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

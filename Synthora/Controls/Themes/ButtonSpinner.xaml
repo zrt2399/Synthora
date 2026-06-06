@@ -65,7 +65,7 @@
                                       VerticalAlignment="{TemplateBinding (TextBoxAttach.HeaderVerticalAlignment)}"
                                       Content="{TemplateBinding (TextBoxAttach.Header)}"
                                       DockPanel.Dock="{TemplateBinding (TextBoxAttach.HeaderPlacement)}" />
-                    <DropShadowChrome Name="FocusTarget"
+                    <ShadowChrome Name="FocusTarget"
                                       Width="{TemplateBinding (TextBoxAttach.Width)}"
                                       MinWidth="{TemplateBinding (TextBoxAttach.MinWidth)}"
                                       MaxWidth="{TemplateBinding (TextBoxAttach.MaxWidth)}"
@@ -112,7 +112,7 @@
                                                   ContentTemplate="{TemplateBinding ContentTemplate}" />
                             </DataValidationErrors>
                         </DockPanel>
-                    </DropShadowChrome>
+                    </ShadowChrome>
                 </DockPanel>
             </ControlTemplate>
         </Setter>
@@ -131,7 +131,7 @@
         <Style Selector="^:error">
             <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
         </Style>
-        <Style Selector="^:disabled /template/ DropShadowChrome#FocusTarget">
+        <Style Selector="^:disabled /template/ ShadowChrome#FocusTarget">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>
     </ControlTheme>

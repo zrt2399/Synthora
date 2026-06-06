@@ -7,7 +7,7 @@
         <Setter Property="Focusable" Value="True" />
         <Setter Property="MinWidth" Value="4" />
         <Setter Property="MinHeight" Value="4" />
-        <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />
+        <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
         <Setter Property="PreviewContent">
             <Template>
                 <Rectangle Fill="#60000000" />
@@ -15,11 +15,19 @@
         </Setter>
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Background="{TemplateBinding Background}"
+                <Border Name="OuterBorder"
+                        Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}" />
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <Border Name="InnerBorder"
+                            MaxWidth="60"
+                            MaxHeight="60"
+                            Background="{DynamicResource ThemeControlMidHighBrush}"
+                            CornerRadius="{DynamicResource ThemeBorderCornerRadiusNormal}" />
+                </Border>
             </ControlTemplate>
         </Setter>
+
     </ControlTheme>
-</ResourceDictionary>
+</ResourceDictionary>   

@@ -73,9 +73,6 @@
 
         <Style Selector="^:selected">
             <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidBrush}" />
-            <Style Selector="^ /template/ Border#PART_LayoutRoot">
-                <Setter Property="BoxShadow" Value="{TemplateBinding Background, Converter={x:Static SynthoraConverters.BoxShadowConverter}, ConverterParameter={x:Static BoxShadowConverter.ButtonPointerOverParameter}}" />
-            </Style>
         </Style>
 
         <Style Selector="^:pointerover">
@@ -90,20 +87,34 @@
     <ControlTheme x:Key="PrimarySegmentedListBoxItemTheme"
                   BasedOn="{StaticResource SegmentedListBoxItemTheme}"
                   TargetType="ListBoxItem">
-
         <Style Selector="^:selected">
             <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
             <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
         </Style>
-
         <Style Selector="^:pointerover">
             <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
             <Setter Property="Background" Value="{DynamicResource PrimaryPointerOverBrush}" />
         </Style>
-
         <Style Selector="^:pressed">
             <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
             <Setter Property="Background" Value="{DynamicResource PrimaryPressedBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="SecondarySegmentedListBoxItemTheme"
+                  BasedOn="{StaticResource SegmentedListBoxItemTheme}"
+                  TargetType="ListBoxItem">
+        <Style Selector="^:selected">
+            <Setter Property="Background" Value="{DynamicResource MenuItemPointerOverColor}" />
+        </Style>
+        <Style Selector="^:selected:pointerover">
+            <Setter Property="Background" Value="{DynamicResource MenuItemSelectedPointerOverColor}" />
+        </Style>
+        <Style Selector="^:not(:selected):pointerover">
+            <Setter Property="Background" Value="{DynamicResource MenuItemPointerOverColor}" />
+        </Style>
+        <Style Selector="^:pressed">
+            <Setter Property="Background" Value="{DynamicResource MenuItemPressedColor}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

@@ -14,8 +14,8 @@
         <Setter Property="MinWidth" Value="{DynamicResource MenuItemMinWidth}" />
         <Setter Property="CornerRadius">
             <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.All}">
-                <Binding Path="CornerRadius" RelativeSource="{RelativeSource AncestorType=SystemDropShadowChrome}" />
-                <Binding Path="BorderThickness" RelativeSource="{RelativeSource AncestorType=SystemDropShadowChrome}" />
+                <Binding Path="CornerRadius" RelativeSource="{RelativeSource AncestorType=SystemShadowChrome}" />
+                <Binding Path="BorderThickness" RelativeSource="{RelativeSource AncestorType=SystemShadowChrome}" />
                 <Binding Path="Margin" RelativeSource="{RelativeSource AncestorType=ItemsPresenter}" />
             </MultiBinding>
         </Setter>
@@ -91,18 +91,18 @@
                                                         Mode=TwoWay}"
                                Placement="RightEdgeAlignedTop"
                                WindowManagerAddShadowHint="False">
-                            <SystemDropShadowChrome Name="Popup_Border"
-                                                    Background="{DynamicResource ThemeBackgroundBrush}"
-                                                    BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-                                                    BorderThickness="{DynamicResource ThemeBorderThickness}"
-                                                    CornerRadius="{DynamicResource ThemeBorderCornerRadiusNormal}">
+                            <SystemShadowChrome Name="Popup_Border"
+                                                Background="{DynamicResource ThemeBackgroundBrush}"
+                                                BorderBrush="{DynamicResource ThemeBorderLowBrush}"
+                                                BorderThickness="{DynamicResource ThemeBorderThickness}"
+                                                CornerRadius="{DynamicResource ThemeBorderCornerRadiusNormal}">
                                 <ScrollViewer Theme="{StaticResource SimpleMenuScrollViewer}">
                                     <ItemsPresenter Name="PART_ItemsPresenter"
                                                     Margin="{DynamicResource ThemeMenuFlyoutPadding}"
                                                     Grid.IsSharedSizeScope="True"
                                                     ItemsPanel="{TemplateBinding ItemsPanel}" />
                                 </ScrollViewer>
-                            </SystemDropShadowChrome>
+                            </SystemShadowChrome>
                         </Popup>
                     </Grid>
                 </Border>
@@ -198,19 +198,19 @@
                                OverlayInputPassThroughElement="{Binding $parent[MenuFlyoutPresenter]}"
                                Placement="BottomEdgeAlignedLeft"
                                WindowManagerAddShadowHint="False">
-                            <SystemDropShadowChrome Name="Popup_Border"
-                                                    MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
-                                                    Background="{DynamicResource ThemeBackgroundBrush}"
-                                                    BorderBrush="{DynamicResource ThemeBorderMidBrush}"
-                                                    BorderThickness="{DynamicResource ThemeBorderThickness}"
-                                                    CornerRadius="{DynamicResource ThemeBorderCornerRadiusNormal}">
+                            <SystemShadowChrome Name="Popup_Border"
+                                                MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                                                Background="{DynamicResource ThemeBackgroundBrush}"
+                                                BorderBrush="{DynamicResource ThemeBorderMidBrush}"
+                                                BorderThickness="{DynamicResource ThemeBorderThickness}"
+                                                CornerRadius="{DynamicResource ThemeBorderCornerRadiusNormal}">
                                 <ScrollViewer Theme="{StaticResource SimpleMenuScrollViewer}">
                                     <ItemsPresenter Name="PART_ItemsPresenter"
                                                     Margin="{DynamicResource ThemeMenuFlyoutPadding}"
                                                     Grid.IsSharedSizeScope="True"
                                                     ItemsPanel="{TemplateBinding ItemsPanel}" />
                                 </ScrollViewer>
-                            </SystemDropShadowChrome>
+                            </SystemShadowChrome>
                         </Popup>
                     </Panel>
                 </Border>

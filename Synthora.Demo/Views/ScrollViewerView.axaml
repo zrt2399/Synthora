@@ -18,7 +18,7 @@
                 <ScrollViewer>
                     <StackPanel HorizontalAlignment="Left" Spacing="16">
                         <StackPanel Orientation="Horizontal" Spacing="16">
-                            <CheckBox Name="autoHide" IsChecked="True">Allow AutoHide</CheckBox>
+                            <CheckBox Name="autoHide" IsChecked="True">Allow Auto Hide</CheckBox>
                             <ComboBox Name="orientation"
                                       ItemsSource="{EnumBindingSource Orientation}"
                                       SelectedItem="{x:Static Orientation.Vertical}"

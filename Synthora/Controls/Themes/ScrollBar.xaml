@@ -216,7 +216,7 @@
                     <DoubleTransition Property="Height" Duration="0:0:0.1" />
                 </Transitions>
             </Setter>
-            <Setter Property="Foreground" Value="{DynamicResource ThemeBorderMidBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource ScrollBarThumbBrush}" />
             <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
             <Setter Property="Template">
                 <ControlTemplate TargetType="Thumb">
@@ -225,20 +225,20 @@
             </Setter>
         </Style>
         <Style Selector="^ /template/ Thumb#thumb:pointerover">
-            <Setter Property="Foreground" Value="{DynamicResource ThemeBorderMidBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource ScrollBarThumbPointerOverBrush}" />
         </Style>
         <Style Selector="^ /template/ Thumb#thumb:pressed">
-            <Setter Property="Foreground" Value="{DynamicResource ThemeBorderHighBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource ScrollBarThumbPressedBrush}" />
         </Style>
 
         <Style Selector="^ /template/ RepeatButton">
-            <Setter Property="Foreground" Value="{DynamicResource ThemeControlHighBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource ScrollBarThumbBrush}" />
         </Style>
         <Style Selector="^ /template/ RepeatButton:pointerover &gt; PathIcon">
             <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
         </Style>
         <Style Selector="^ /template/ RepeatButton:pressed &gt; PathIcon">
-            <Setter Property="RenderTransform" Value="scale(0.90)" />
+            <Setter Property="RenderTransform" Value="scale(0.9)" />
         </Style>
 
         <Style Selector="^[IsExpanded=False]">

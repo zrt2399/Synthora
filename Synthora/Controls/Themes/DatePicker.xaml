@@ -147,16 +147,16 @@
                                Placement="Bottom"
                                PlacementTarget="{Binding ElementName=PART_FlyoutButton}"
                                WindowManagerAddShadowHint="False">
-                            <!--  Add offset. ScrollViewerAttach.IsDisabled="True" fix mouse scrolling triggers parent  -->
+                            <!--  ScrollViewerAttach.IsDisabled="True" fix mouse scrolling triggers parent  -->
                             <Panel Margin="{Binding #borderRoot.Margin, Converter={x:Static DateTimePickerPopupMarginConverter.Instance}}" ScrollViewerAttach.IsDisabled="True">
-                                <SystemDropShadowChrome Name="borderRoot"
-                                                        Width="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
-                                                        Background="{DynamicResource ThemeBackgroundBrush}"
-                                                        BorderBrush="{DynamicResource ThemeBorderMidBrush}"
-                                                        BorderThickness="{TemplateBinding BorderThickness}"
-                                                        CornerRadius="{TemplateBinding CornerRadius}">
+                                <SystemShadowChrome Name="borderRoot"
+                                                    Width="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                                                    Background="{DynamicResource ThemeBackgroundBrush}"
+                                                    BorderBrush="{DynamicResource ThemeBorderMidBrush}"
+                                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                                    CornerRadius="{TemplateBinding CornerRadius}">
                                     <DatePickerPresenter Name="PART_PickerPresenter" />
-                                </SystemDropShadowChrome>
+                                </SystemShadowChrome>
                             </Panel>
                         </Popup>
                     </Panel>

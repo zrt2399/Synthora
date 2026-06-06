@@ -11,10 +11,10 @@
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <SystemDropShadowChrome Background="{TemplateBinding Background}"
-                                        BorderBrush="{TemplateBinding BorderBrush}"
-                                        BorderThickness="{TemplateBinding BorderThickness}"
-                                        CornerRadius="{TemplateBinding CornerRadius}">
+                <SystemShadowChrome Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="{TemplateBinding CornerRadius}">
                     <ContentPresenter Name="PART_ContentPresenter"
                                       Margin="{TemplateBinding Padding}"
                                       Content="{TemplateBinding Content}"
@@ -25,7 +25,7 @@
                             </DataTemplate>
                         </ContentPresenter.DataTemplates>
                     </ContentPresenter>
-                </SystemDropShadowChrome>
+                </SystemShadowChrome>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

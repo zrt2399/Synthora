@@ -65,22 +65,6 @@
                     <GroupBox Header="GroupBox">
                         <Button CornerRadius="0">Button</Button>
                     </GroupBox>
-                    <GroupBoxEx Header="Nested GroupBoxEx">
-                        <GroupBoxEx>
-                            <DropShadowChrome Padding="10">
-                                <DropShadowChrome>
-                                    <TextBox Padding="0"
-                                             Background="Transparent"
-                                             BorderThickness="0"
-                                             Foreground="{DynamicResource ErrorBrush}"
-                                             IsReadOnly="True"
-                                             TextWrapping="Wrap">
-                                        DropShadowChrome
-                                    </TextBox>
-                                </DropShadowChrome>
-                            </DropShadowChrome>
-                        </GroupBoxEx>
-                    </GroupBoxEx>
                 </StackPanel>
             </Border>
         </StackPanel>

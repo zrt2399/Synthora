@@ -16,30 +16,30 @@
               IconKind="{Binding IconKind}">
         <ScrollViewer Padding="16">
             <StackPanel Spacing="16">
-                <!--  DropShadowChrome showcase  -->
+                <!--  ShadowChrome showcase  -->
                 <Border Classes="card">
                     <StackPanel Spacing="16">
                         <StackPanel Classes="sectionHeader">
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="BoxShadow" />
-                            <TextBlock Classes="sectionLabel" Text="DROP SHADOW CHROME" />
+                            <TextBlock Classes="sectionLabel" Text="SHADOW CHROME" />
                         </StackPanel>
                         <ContentControl>
                             <GroupBoxEx>
                                 <GroupBoxEx>
-                                    <DropShadowChrome Padding="8">
-                                        <DropShadowChrome>
-                                            <TextBlock>DropShadowChrome nested</TextBlock>
-                                        </DropShadowChrome>
-                                    </DropShadowChrome>
+                                    <ShadowChrome Padding="8">
+                                        <ShadowChrome>
+                                            <SelectableTextBlock>ShadowChrome nested</SelectableTextBlock>
+                                        </ShadowChrome>
+                                    </ShadowChrome>
                                 </GroupBoxEx>
                             </GroupBoxEx>
                         </ContentControl>
-                        <DropShadowChrome>
-                            <TextBlock Margin="8">DropShadowChrome standalone</TextBlock>
-                        </DropShadowChrome>
-                        <DropShadowChrome Classes="ShowShadowOnPointerOver">
-                            <TextBlock Margin="8">DropShadowChrome with class ShowShadowOnPointerOver</TextBlock>
-                        </DropShadowChrome>
+                        <ShadowChrome>
+                            <TextBlock Margin="8">ShadowChrome standalone</TextBlock>
+                        </ShadowChrome>
+                        <ShadowChrome Classes="ShowShadowOnPointerOver">
+                            <TextBlock Margin="8">ShadowChrome with class ShowShadowOnPointerOver</TextBlock>
+                        </ShadowChrome>
                         <StackPanel Orientation="Horizontal" Spacing="16">
                             <GroupBoxEx Width="120" Header="GroupBoxEx">
                                 <StackPanel Orientation="Horizontal">

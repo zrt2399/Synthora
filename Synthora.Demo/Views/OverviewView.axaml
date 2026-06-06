@@ -459,9 +459,9 @@
                                         </StackPanel>
                                     </Expander>
                                     <Divider Content="Inspector" Orientation="Horizontal" />
-                                    <DropShadowChrome Padding="12" CornerRadius="4">
-                                        <TextBlock Text="DropShadowChrome adds depth to elevated areas without interfering with the actual control theme colors." TextWrapping="Wrap" />
-                                    </DropShadowChrome>
+                                    <ShadowChrome Padding="12" CornerRadius="4">
+                                        <SelectableTextBlock Text="ShadowChrome adds depth to elevated areas without interfering with the actual control theme colors." TextWrapping="Wrap" />
+                                    </ShadowChrome>
                                 </StackPanel>
                             </GroupBoxEx>
                         </StackPanel>

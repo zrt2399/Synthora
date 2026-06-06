@@ -4,10 +4,10 @@ using Avalonia.Media;
 
 namespace Synthora.Controls
 {
-    public class DropShadowChrome : ContentControl
+    public class ShadowChrome : ContentControl
     {
         public static readonly StyledProperty<BoxShadows> BoxShadowProperty = 
-            AvaloniaProperty.Register<DropShadowChrome, BoxShadows>(nameof(BoxShadow));
+            AvaloniaProperty.Register<ShadowChrome, BoxShadows>(nameof(BoxShadow));
  
         public BoxShadows BoxShadow
         {

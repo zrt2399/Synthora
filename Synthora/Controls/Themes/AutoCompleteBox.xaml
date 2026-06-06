@@ -57,7 +57,8 @@
                                  InnerRightContent="{TemplateBinding InnerRightContent}"
                                  MaxLength="{TemplateBinding MaxLength}"
                                  PlaceholderForeground="{TemplateBinding PlaceholderForeground}"
-                                 PlaceholderText="{TemplateBinding PlaceholderText}" />
+                                 PlaceholderText="{TemplateBinding PlaceholderText}"
+                                 TemplatedControl.IsTemplateFocusTarget="True" />
 
                         <Popup Name="PART_Popup"
                                InheritsTransform="True"
@@ -65,12 +66,12 @@
                                Placement="BottomEdgeAlignedLeft"
                                PlacementTarget="{Binding ElementName=PART_TextBox}"
                                WindowManagerAddShadowHint="False">
-                            <SystemDropShadowChrome MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
-                                                    MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                                                    Background="{TemplateBinding Background}"
-                                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                                    CornerRadius="{TemplateBinding CornerRadius}">
+                            <SystemShadowChrome MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                                                MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                                                Background="{TemplateBinding Background}"
+                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                BorderThickness="{TemplateBinding BorderThickness}"
+                                                CornerRadius="{TemplateBinding CornerRadius}">
                                 <ListBox Name="PART_SelectingItemsControl"
                                          Background="{TemplateBinding Background}"
                                          BorderThickness="0"
@@ -79,7 +80,7 @@
                                          ScrollViewer.HorizontalScrollBarVisibility="Auto"
                                          ScrollViewer.IsScrollChainingEnabled="False"
                                          ScrollViewer.VerticalScrollBarVisibility="Auto" />
-                            </SystemDropShadowChrome>
+                            </SystemShadowChrome>
                         </Popup>
                     </Panel>
                 </DockPanel>

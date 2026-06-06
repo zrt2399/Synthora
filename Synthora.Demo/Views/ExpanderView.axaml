@@ -54,11 +54,11 @@
                               ExpandDirection="Down"
                               Header="Down ↓">
                         <GroupBoxEx>
-                            <DropShadowChrome Padding="10">
-                                <DropShadowChrome>
-                                    <TextBlock>DropShadowChrome</TextBlock>
-                                </DropShadowChrome>
-                            </DropShadowChrome>
+                            <ShadowChrome Padding="10">
+                                <ShadowChrome>
+                                    <TextBlock>ShadowChrome</TextBlock>
+                                </ShadowChrome>
+                            </ShadowChrome>
                         </GroupBoxEx>
                     </Expander>
                 </Grid>

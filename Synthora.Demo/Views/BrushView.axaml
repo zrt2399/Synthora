@@ -37,7 +37,7 @@
             </ItemsControl.Template>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <DropShadowChrome MinWidth="100"
+                    <ShadowChrome MinWidth="100"
                                       MinHeight="60"
                                       Background="{Binding Converter={StaticResource ResourceKeyToBrushConverter}}"
                                       BorderThickness="0"
@@ -46,13 +46,13 @@
                                     VerticalAlignment="Center"
                                     Spacing="10">
                             <SelectableTextBlock HorizontalAlignment="Center"
-                                                 Foreground="{Binding $parent[DropShadowChrome].Background, Converter={x:Static SynthoraConverters.ContrastColorConverter}}"
+                                                 Foreground="{Binding $parent[ShadowChrome].Background, Converter={x:Static SynthoraConverters.ContrastColorConverter}}"
                                                  Text="{Binding}" />
                             <SelectableTextBlock HorizontalAlignment="Center"
-                                                 Foreground="{Binding $parent[DropShadowChrome].Background, Converter={x:Static SynthoraConverters.ContrastColorConverter}}"
-                                                 Text="{Binding $parent[DropShadowChrome].Background}" />
+                                                 Foreground="{Binding $parent[ShadowChrome].Background, Converter={x:Static SynthoraConverters.ContrastColorConverter}}"
+                                                 Text="{Binding $parent[ShadowChrome].Background}" />
                         </StackPanel>
-                    </DropShadowChrome>
+                    </ShadowChrome>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>

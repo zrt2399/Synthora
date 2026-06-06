@@ -150,7 +150,7 @@
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
-                <DropShadowChrome Name="RootChrome"
+                <ShadowChrome Name="RootChrome"
                                   Background="{TemplateBinding Background}"
                                   BorderBrush="{TemplateBinding BorderBrush}"
                                   BorderThickness="{TemplateBinding BorderThickness}"
@@ -172,7 +172,7 @@
                                           ContentTemplate="{TemplateBinding ContentTemplate}"
                                           IsVisible="{TemplateBinding IsExpanded}" />
                     </DockPanel>
-                </DropShadowChrome>
+                </ShadowChrome>
             </ControlTemplate>
         </Setter>
 

@@ -183,8 +183,11 @@
         <Style Selector="^:checked">
             <Setter Property="Background" Value="{DynamicResource MenuItemPointerOverBrush}" />
         </Style>
-        <Style Selector="^:unchecked:pointerover">
-            <Setter Property="Background" Value="{DynamicResource MenuItemPressedBrush}" />
+        <Style Selector="^:checked:pointerover">
+            <Setter Property="Background" Value="{DynamicResource MenuItemSelectedPointerOverBrush}" />
+        </Style>
+        <Style Selector="^:checked:pressed">
+            <Setter Property="Background" Value="{DynamicResource MenuItemPointerOverBrush}" />
         </Style>
         <!--  Compact: hide label, reduce width  -->
         <Style Selector="^[IsCompact=True] /template/ TextBlock#PART_Label">
@@ -258,12 +261,12 @@
         <Setter Property="ItemWidthCollapsed" Value="32" />
         <Setter Property="Template">
             <ControlTemplate>
-                <DropShadowChrome Padding="{TemplateBinding Padding}"
-                                  Background="{TemplateBinding Background}"
-                                  BorderBrush="{TemplateBinding BorderBrush}"
-                                  BorderThickness="{TemplateBinding BorderThickness}"
-                                  BoxShadow="{TemplateBinding BoxShadowAttach.BoxShadow}"
-                                  CornerRadius="{TemplateBinding CornerRadius}">
+                <ShadowChrome Padding="{TemplateBinding Padding}"
+                              Background="{TemplateBinding Background}"
+                              BorderBrush="{TemplateBinding BorderBrush}"
+                              BorderThickness="{TemplateBinding BorderThickness}"
+                              BoxShadow="{TemplateBinding BoxShadowAttach.BoxShadow}"
+                              CornerRadius="{TemplateBinding CornerRadius}">
                     <Panel KeyboardNavigation.TabNavigation="Cycle">
                         <Grid ColumnDefinitions="Auto,*,Auto">
                             <!--  Custom content area (docked left)  -->
@@ -313,11 +316,11 @@
                                Placement="BottomEdgeAlignedLeft"
                                PlacementTarget="{Binding #PART_OverflowButton}"
                                WindowManagerAddShadowHint="False">
-                            <SystemDropShadowChrome Name="systemDropShadowChrome"
-                                                    Background="{TemplateBinding Background}"
-                                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                                    CornerRadius="{TemplateBinding CornerRadius}">
+                            <SystemShadowChrome Name="DropShadowChrome"
+                                                Background="{TemplateBinding Background}"
+                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                BorderThickness="{TemplateBinding BorderThickness}"
+                                                CornerRadius="{TemplateBinding CornerRadius}">
                                 <ScrollViewer Theme="{StaticResource SimpleMenuScrollViewer}">
                                     <ItemsControl x:Name="PART_OverflowPresenter"
                                                   Margin="{TemplateBinding Padding}"
@@ -332,14 +335,14 @@
                                         </ItemsControl.ItemsPanel>
                                     </ItemsControl>
                                 </ScrollViewer>
-                            </SystemDropShadowChrome>
+                            </SystemShadowChrome>
                         </Popup>
                     </Panel>
-                </DropShadowChrome>
+                </ShadowChrome>
             </ControlTemplate>
         </Setter>
 
-        <!--<Style Selector="^[DefaultLabelPosition=Collapsed] /template/ SystemDropShadowChrome#systemDropShadowChrome">
+        <!--<Style Selector="^[DefaultLabelPosition=Collapsed] /template/ SystemShadowChrome#DropShadowChrome">
             <Setter Property="MinWidth" Value="0" />
         </Style>-->
         <Style Selector="^[DefaultLabelPosition=Bottom] /template/ Button#PART_OverflowButton">

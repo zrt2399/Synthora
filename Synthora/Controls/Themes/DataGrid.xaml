@@ -336,7 +336,7 @@
         </Setter>
         <Setter Property="Template">
             <ControlTemplate>
-                <DropShadowChrome Name="RootChrome"
+                <ShadowChrome Name="RootChrome"
                                   Background="{TemplateBinding Background}"
                                   BorderBrush="{TemplateBinding BorderBrush}"
                                   BorderThickness="{TemplateBinding BorderThickness}"
@@ -400,7 +400,7 @@
                                        Orientation="Horizontal" />
                         </Grid>
                     </Grid>
-                </DropShadowChrome>
+                </ShadowChrome>
             </ControlTemplate>
         </Setter>
         <Style Selector="^[HeadersVisibility=None],^[HeadersVisibility=Row]">
