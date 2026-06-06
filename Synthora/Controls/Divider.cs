@@ -9,7 +9,7 @@ using Avalonia.Media;
 namespace Synthora.Controls
 {
     /// <summary>
-    /// A custom control that displays a divider with content.
+    /// Represents a control that displays a customizable divider.
     /// </summary>
     [PseudoClasses(pcNoContent)]
     public class Divider : ContentControl
@@ -18,8 +18,8 @@ namespace Synthora.Controls
         private Grid? _dividerContainer;
 
         /// <summary>
-        /// Gets or sets the thickness of the divider,
-        /// which applies to height in horizontal layout and width in vertical layout.
+        /// Defines the <see cref="LineThickness"/> property.
+        /// This property determines the height when the orientation is horizontal, and the width when vertical.
         /// </summary>
         public static readonly StyledProperty<double> LineThicknessProperty =
             AvaloniaProperty.Register<Divider, double>(nameof(LineThickness), 1d);
