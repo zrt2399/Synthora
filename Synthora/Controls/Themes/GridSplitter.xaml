@@ -3,14 +3,18 @@
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
 
+    <SolidColorBrush x:Key="GridSplitterOuterBorderBackground">#30999999</SolidColorBrush>
+    <SolidColorBrush x:Key="GridSplitterPreviewContentBackground">#40999999</SolidColorBrush>
+    <SolidColorBrush x:Key="GridSplitterInnerBorderBackground">#50999999</SolidColorBrush>
+
     <ControlTheme x:Key="{x:Type GridSplitter}" TargetType="GridSplitter">
         <Setter Property="Focusable" Value="True" />
         <Setter Property="MinWidth" Value="6" />
         <Setter Property="MinHeight" Value="6" />
-        <Setter Property="Background" Value="#30999999" />
+        <Setter Property="Background" Value="{DynamicResource GridSplitterOuterBorderBackground}" />
         <Setter Property="PreviewContent">
             <Template>
-                <Rectangle Fill="#40999999" />
+                <Rectangle Fill="{DynamicResource GridSplitterPreviewContentBackground}" />
             </Template>
         </Setter>
         <Setter Property="Template">
@@ -23,7 +27,7 @@
                     <Border Name="InnerBorder"
                             MaxWidth="60"
                             MaxHeight="60"
-                            Background="#50999999"
+                            Background="{DynamicResource GridSplitterInnerBorderBackground}"
                             CornerRadius="{DynamicResource ThemeBorderCornerRadiusNormal}" />
                 </Border>
             </ControlTemplate>
