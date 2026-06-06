@@ -4,15 +4,11 @@
                     x:CompileBindings="True">
 
     <ControlTheme x:Key="{x:Type TreeMenu}" TargetType="TreeMenu">
-        <!--<Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
-        <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />-->
         <Setter Property="MenuMargin" Value="28,0" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
         <Setter Property="MenuBackground" Value="{DynamicResource ThemeControlLowBrush}" />
-        <!-- <Setter Property="ItemContainerTheme" Value="{StaticResource TreeMenuItemTheme}" /> -->
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Background="{TemplateBinding Background}"
@@ -45,7 +41,9 @@
                             </ScrollViewer>
                             <ContentPresenter Grid.Row="2" Content="{TemplateBinding PaneFooter}" />
                         </Grid>
-                        <GridSplitter Grid.Column="1" MinWidth="1" />
+                        <GridSplitter Grid.Column="1"
+                                      Width="{TemplateBinding GridSplitterWidth}"
+                                      MinWidth="0" />
                         <ContentPresenter Name="PART_SelectedContentPresenter" Grid.Column="2" />
                     </Grid>
                 </Border>

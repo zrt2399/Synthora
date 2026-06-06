@@ -5,8 +5,8 @@
 
     <ControlTheme x:Key="{x:Type GridSplitter}" TargetType="GridSplitter">
         <Setter Property="Focusable" Value="True" />
-        <Setter Property="MinWidth" Value="4" />
-        <Setter Property="MinHeight" Value="4" />
+        <Setter Property="MinWidth" Value="6" />
+        <Setter Property="MinHeight" Value="6" />
         <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
         <Setter Property="PreviewContent">
             <Template>

@@ -33,6 +33,9 @@ namespace Synthora.Controls
         public static readonly StyledProperty<IBrush?> MenuBackgroundProperty =
             AvaloniaProperty.Register<TreeMenu, IBrush?>(nameof(MenuBackground));
 
+        public static readonly StyledProperty<double> GridSplitterWidthProperty =
+            AvaloniaProperty.Register<TreeMenu, double>(nameof(GridSplitterWidth), 1d);
+
         public static readonly StyledProperty<IDataTemplate?> SelectedItemTemplateProperty =
             AvaloniaProperty.Register<TreeMenu, IDataTemplate?>(nameof(SelectedItemTemplate));
 
@@ -76,6 +79,12 @@ namespace Synthora.Controls
         {
             get => GetValue(MenuBackgroundProperty);
             set => SetValue(MenuBackgroundProperty, value);
+        }
+
+        public double GridSplitterWidth
+        {
+            get => GetValue(GridSplitterWidthProperty);
+            set => SetValue(GridSplitterWidthProperty, value);
         }
 
         public IDataTemplate? SelectedItemTemplate
