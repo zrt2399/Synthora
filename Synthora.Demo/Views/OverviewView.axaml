@@ -12,12 +12,6 @@
 
     <UserControl.Resources>
         <ResourceDictionary>
-            <LinearGradientBrush x:Key="BackdropBrush" StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Offset="0" Color="{DynamicResource ThemeBackgroundColor}" />
-                <GradientStop Offset="0.5" Color="{DynamicResource SynthoraLowColor}" />
-                <GradientStop Offset="1" Color="{DynamicResource ThemeBackgroundColor}" />
-            </LinearGradientBrush>
-
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary x:Key="Default">
                     <SolidColorBrush x:Key="CardSurfaceBrush" Color="#B8F7FBFF" />
@@ -123,7 +117,7 @@
     </UserControl.Styles>
 
     <Panel>
-        <Panel Background="{StaticResource BackdropBrush}">
+        <Panel>
             <Canvas IsHitTestVisible="False" Opacity="0.8">
                 <Ellipse Canvas.Left="-180"
                          Canvas.Top="-140"
