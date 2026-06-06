@@ -42,8 +42,7 @@
             <ControlTemplate>
                 <Panel>
                     <Border Name="RootBorder"
-                            Background="Transparent"
-                            BorderThickness="0"
+                            BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{TemplateBinding CornerRadius}" />
                     <Grid ColumnDefinitions="*,Auto,Auto">
                         <Button x:Name="PART_PrimaryButton"

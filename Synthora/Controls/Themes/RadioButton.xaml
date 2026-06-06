@@ -61,7 +61,7 @@
             <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighlightBrush}" />
         </Style>
         <Style Selector="^:pressed /template/ Panel#backgroundPanel">
-            <Setter Property="Opacity" Value="0.8" />
+            <Setter Property="Opacity" Value="0.9" />
         </Style>
 
         <Style Selector="^:checked">
