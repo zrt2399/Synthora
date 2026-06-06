@@ -27,7 +27,7 @@
                                        FontWeight="SemiBold"
                                        Text="Readable hierarchy with themed typography" />
                             <TextBlock Foreground="{DynamicResource ThemeForegroundLowBrush}" Text="TextBlock is best for labels, descriptions, headings, and inline status text." />
-                            <TextBlock Text="{Binding IntroText}" TextWrapping="Wrap" />
+                            <TextBlock Text="Use TextBlock for lightweight, theme-aware text presentation where selection is not required." TextWrapping="Wrap" />
                         </StackPanel>
                         <Grid ColumnDefinitions="*,16,*">
                             <StackPanel Grid.Column="0" Spacing="8">
@@ -39,7 +39,7 @@
                                     <Run FontStyle="Italic" Text="italic" />
                                     <Run Text=", and " />
                                     <Run Text="underlined" TextDecorations="Underline" />
-                                    <Run Text=" runs to present rich explanatory copy." />
+                                    <Run Foreground="{DynamicResource PrimaryBrush}" Text=" runs to present rich explanatory copy." />
                                 </TextBlock>
                             </StackPanel>
                             <StackPanel Grid.Column="2" Spacing="8">
@@ -65,8 +65,10 @@
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="CursorText" />
                             <TextBlock Classes="sectionLabel" Text="SELECTABLETEXTBLOCK" />
                         </StackPanel>
-                        <SelectableTextBlock Text="Try selecting and copying the samples below." />
-                        <SelectableTextBlock Text="{Binding SelectableSample}" TextWrapping="Wrap" />
+                        <SelectableTextBlock FontSize="20"
+                                             FontWeight="SemiBold"
+                                             Text="Try selecting and copying the samples below." />
+                        <SelectableTextBlock Text="SelectableTextBlock is ideal for content that users may need to inspect or copy, such as log output, command lines, URLs, tokens, or larger explanatory paragraphs." TextWrapping="Wrap" />
                         <Grid ColumnDefinitions="*,16,*">
                             <StackPanel Grid.Column="0" Spacing="8">
                                 <TextBlock Classes="sectionLabel" Text="COPYABLE CONTENT" />
