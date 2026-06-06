@@ -37,6 +37,7 @@
                                     <Separator />
                                     <MenuItem Header="Clear Recent..." />
                                 </MenuItem>
+                                <MenuItem Header="More" ItemsSource="{Binding MenuItems}" />
                                 <Separator />
                                 <MenuItem Header="Save"
                                           Icon="{materialIcons:MaterialIconExt Kind=ContentSaveOutline}"
