@@ -7,10 +7,10 @@
         <Setter Property="Focusable" Value="True" />
         <Setter Property="MinWidth" Value="6" />
         <Setter Property="MinHeight" Value="6" />
-        <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
+        <Setter Property="Background" Value="#30999999" />
         <Setter Property="PreviewContent">
             <Template>
-                <Rectangle Fill="#60000000" />
+                <Rectangle Fill="#40999999" />
             </Template>
         </Setter>
         <Setter Property="Template">
@@ -23,7 +23,7 @@
                     <Border Name="InnerBorder"
                             MaxWidth="60"
                             MaxHeight="60"
-                            Background="{DynamicResource ThemeControlMidHighBrush}"
+                            Background="#50999999"
                             CornerRadius="{DynamicResource ThemeBorderCornerRadiusNormal}" />
                 </Border>
             </ControlTemplate>

@@ -35,13 +35,13 @@
                                   Height="800"
                                   ColumnDefinitions="*,Auto,*"
                                   RowDefinitions="*,Auto,*">
-                                <Rectangle Fill="#DDF6E8" />
+                                <Rectangle Fill="#1E6AA5FF" />
                                 <GridSplitter Grid.Row="1" />
-                                <Rectangle Grid.Row="2" Fill="#E9DDFB" />
+                                <Rectangle Grid.Row="2" Fill="#1E00A86B" />
                                 <GridSplitter Grid.RowSpan="3" Grid.Column="1" />
                                 <Rectangle Grid.RowSpan="3"
                                            Grid.Column="2"
-                                           Fill="#FFE7CC" />
+                                           Fill="#1ED67A00" />
                             </Grid>
                         </ScrollViewer>
                     </StackPanel>
