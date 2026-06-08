@@ -242,7 +242,6 @@
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
 
-    <FontFamily x:Key="ContentControlThemeFontFamily">fonts:Inter#Inter, $Default</FontFamily>
     <!--  FF007AFF  -->
     <Color x:Key="PrimaryColor">#FF3574F0</Color>
     <Color x:Key="PrimaryPointerOverColor">#FF4982F2</Color>
@@ -312,6 +311,7 @@
     <x:Double x:Key="ThemeDisabledMidOpacity">0.7</x:Double>
     <x:Double x:Key="ThemeDisabledHighOpacity">0.5</x:Double>
 
+    <FontFamily x:Key="ContentControlThemeFontFamily">fonts:Inter#Inter, $Default</FontFamily>
     <x:Double x:Key="FontSizeSmall">10</x:Double>
     <x:Double x:Key="FontSizeNormal">12</x:Double>
     <x:Double x:Key="FontSizeLarge">14</x:Double>

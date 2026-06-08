@@ -33,8 +33,9 @@ namespace Synthora.Demo.ViewModels
             });
         }
 
-        public async void ShowAlertDialog(string type)
+        public async void ShowAlertDialog(object? content)
         {
+            var type = content?.ToString();
             var stringBuilder = new StringBuilder();
             for (int i = 0; i < 3; i++)
             {
@@ -75,10 +76,11 @@ namespace Synthora.Demo.ViewModels
             //The modal dialog flashes on macOS when clicking on the parent window
         }
 
-        public void ShowMessageTip(string param)
+        public void ShowMessageTip(object? content)
         {
+            var type = content?.ToString();
             MessageTip.Placement = MessageTipPlacement;
-            switch (param)
+            switch (type)
             {
                 case nameof(MessageTip.Show):
                     MessageTip.Show("Show");
@@ -101,15 +103,16 @@ namespace Synthora.Demo.ViewModels
             }
         }
 
-        public void ShowNotification(string param)
+        public void ShowNotification(object? content)
         {
             if (_notificationManager == null)
             {
                 return;
             }
 
+            var type = content?.ToString();
             _notificationManager.Position = NotificationPosition;
-            switch (param)
+            switch (type)
             {
                 case "WithoutTitle":
                     _notificationManager.Show(new Notification(null, "This is a without title message.", NotificationType.Information));

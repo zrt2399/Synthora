@@ -142,7 +142,7 @@ namespace Synthora.Utils
         public static string GetDescription<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicFields)] T>
             (this T t) where T : Enum
         {
-            Type type = t.GetType();
+            Type type = typeof(T);
             string enumName = t.ToString();
 
             if (type.GetField(enumName)?.GetCustomAttribute<DescriptionAttribute>() is { } descriptionAttribute)

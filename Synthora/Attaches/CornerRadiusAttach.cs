@@ -1,9 +1,9 @@
-﻿using Avalonia;
+﻿using System;
+using System.Collections.Concurrent;
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
-using Avalonia.Data;
 using Avalonia.Input;
-using Synthora.Converters;
 
 namespace Synthora.Attaches
 {
@@ -11,6 +11,8 @@ namespace Synthora.Attaches
     {
         public static readonly AttachedProperty<bool> IsCircularProperty =
             AvaloniaProperty.RegisterAttached<CornerRadiusAttach, InputElement, bool>("IsCircular");
+
+        private static readonly ConcurrentDictionary<InputElement, EventHandler<AvaloniaPropertyChangedEventArgs>> Handlers = [];
 
         static CornerRadiusAttach()
         {
@@ -22,34 +24,55 @@ namespace Synthora.Attaches
 
         private static void OnIsCircularChanged(AvaloniaPropertyChangedEventArgs<bool> e)
         {
-            if (e.Sender is InputElement element && GetCornerRadiusProperty(element) is AvaloniaProperty avaloniaProperty)
+            if (e.Sender is not InputElement element)
             {
-                if (e.NewValue.Value)
+                return;
+            }
+
+            if (GetCornerRadiusProperty(element) is not AvaloniaProperty<CornerRadius> property)
+            {
+                return;
+            }
+
+            if (e.NewValue.Value)
+            {
+                if (Handlers.ContainsKey(element))
                 {
-                    MultiBinding multiBinding = new MultiBinding
-                    {
-                        Converter = BorderCircularConverter.Instance
-                    };
-                    multiBinding.Bindings.Add(new Binding("Bounds.Width")
-                    {
-                        Source = element
-                    });
-                    multiBinding.Bindings.Add(new Binding("Bounds.Height")
-                    {
-                        Source = element
-                    });
-                    element.Bind(avaloniaProperty, multiBinding);
+                    return;
                 }
-                else
+
+                UpdateCornerRadius(element, property);
+
+                EventHandler<AvaloniaPropertyChangedEventArgs> handler = (_, args) =>
                 {
-                    //element.ClearValue(new AvaloniaProperty<double>("Bounds.Width"), );
-                    //element.ClearValue("Bounds.Height");
-                    element.ClearValue(avaloniaProperty);
+                    if (args.Property == Visual.BoundsProperty)
+                    {
+                        UpdateCornerRadius(element, property);
+                    }
+                };
+
+                element.PropertyChanged += handler;
+                Handlers[element] = handler;
+            }
+            else
+            {
+                if (Handlers.TryGetValue(element, out var handler))
+                {
+                    element.PropertyChanged -= handler;
+                    Handlers.TryRemove(element, out _);
                 }
+
+                element.ClearValue(property);
             }
         }
 
-        private static AvaloniaProperty? GetCornerRadiusProperty(InputElement element)
+        private static void UpdateCornerRadius(InputElement element, AvaloniaProperty<CornerRadius> property)
+        {
+            double radius = Math.Min(element.Bounds.Width, element.Bounds.Height) / 2;
+            element.SetCurrentValue(property, new CornerRadius(radius));
+        }
+
+        private static AvaloniaProperty<CornerRadius>? GetCornerRadiusProperty(InputElement element)
         {
             if (element is Border)
             {

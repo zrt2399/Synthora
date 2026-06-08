@@ -1,10 +1,9 @@
-using System;
 using System.Collections.ObjectModel;
 using Avalonia.Collections;
-using Bogus;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Material.Icons;
 using Synthora.Demo.Models;
+using Synthora.Demo.SampleData;
 
 namespace Synthora.Demo.ViewModels
 {
@@ -38,18 +37,7 @@ namespace Synthora.Demo.ViewModels
 
         public void ResetEmployees()
         {
-            //Comment below to enable Native AOT compilation
-            var employeeFaker = new Faker<Employee>("zh_CN")
-                .RuleFor(e => e.Id, f => f.IndexGlobal + 1)
-                .RuleFor(e => e.Name, f => f.Name.LastName() + f.Name.FirstName())
-                .RuleFor(e => e.Email, (f, e) => f.Internet.Email(f.Random.AlphaNumeric(8)))
-                .RuleFor(e => e.Age, f => f.Random.Int(18, 65))
-                .RuleFor(e => e.HireDate, f => f.Date.Past(10, DateTime.Now))
-                .RuleFor(e => e.Salary, f => f.Random.Int(5000, 50000))
-                .RuleFor(e => e.IsActive, f => f.Random.Bool());
-            var employees = employeeFaker.Generate(1000);
-
-
+            var employees = EmployeeGenerator.Generate(1000);
             Employees = new ObservableCollection<Employee>(employees);
             DataGridCollectionView = new DataGridCollectionView(Employees);
             DataGridCollectionView.GroupDescriptions.Add(new DataGridPathGroupDescription(nameof(Employee.Age)));

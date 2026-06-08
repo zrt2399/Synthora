@@ -69,7 +69,6 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type DatePicker}" TargetType="DatePicker">
-        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
         <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
@@ -177,7 +176,6 @@
     <!--  WinUI: DatePickerFlyoutPresenter  -->
     <ControlTheme x:Key="{x:Type DatePickerPresenter}" TargetType="DatePickerPresenter">
         <Setter Property="MaxHeight" Value="{DynamicResource DatePickerPresenterThemeMaxHeight}" />
-        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid Name="ContentRoot" RowDefinitions="*,Auto">

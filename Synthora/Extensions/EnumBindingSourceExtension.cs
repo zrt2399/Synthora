@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Avalonia.Markup.Xaml;
@@ -42,12 +43,9 @@ namespace Synthora.Extensions
             EnumType = enumType;
         }
 
-        public EnumBindingSourceExtension([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicFields)] Type enumType, bool ignoreZero) : this(enumType)
-        {
-            IgnoreZero = ignoreZero;
-        }
-
         public bool IgnoreZero { get; set; }
+
+        public bool UseKeyValuePair { get; set; }
 
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
@@ -57,6 +55,7 @@ namespace Synthora.Extensions
             }
 
             Type actualEnumType = Nullable.GetUnderlyingType(EnumType) ?? EnumType;
+            string[] names = Enum.GetNames(actualEnumType);
             Array enumValues = Enum.GetValuesAsUnderlyingType(actualEnumType);
             object?[] boxedValues = new object?[enumValues.Length + (actualEnumType == EnumType ? 0 : 1)];
 
@@ -69,8 +68,11 @@ namespace Synthora.Extensions
 
             for (int i = 0; i < enumValues.Length; i++)
             {
+                string name = names[i];
                 object rawValue = enumValues.GetValue(i)!;
-                boxedValues[i + offset] = Enum.ToObject(actualEnumType, rawValue);
+                object value = Enum.ToObject(actualEnumType, rawValue);
+
+                boxedValues[i + offset] = UseKeyValuePair ? new KeyValuePair<string, object>(name, value) : value;
             }
 
             if (IgnoreZero)

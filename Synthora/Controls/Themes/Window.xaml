@@ -4,11 +4,11 @@
                     x:CompileBindings="True">
 
     <ControlTheme x:Key="{x:Type Window}" TargetType="Window">
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
         <Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}" />
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <!-- <Setter Property="TransparencyBackgroundFallback" Value="{DynamicResource HighlightForegroundColor}" /> -->
         <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
-        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>

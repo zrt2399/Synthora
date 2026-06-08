@@ -1,8 +1,9 @@
 using System;
 using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
+using System.Reflection;
 using Avalonia.Data.Converters;
-using Synthora.Utils;
 
 namespace Synthora.Converters
 {
@@ -12,20 +13,45 @@ namespace Synthora.Converters
     /// </summary>
     public class EnumDescriptionConverter : IValueConverter
     {
+        [UnconditionalSuppressMessage("Trimming", "IL2067", Justification = "The 'parameter' from XAML is a safe Type, but IValueConverter signature erases its AOT annotations.")]
         public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
-            return EnumDescriptionTypeConverter.GetEnumDesc(value);
+            if (value == null)
+            {
+                return string.Empty;
+            }
+
+            return parameter is Type enumType ? GetEnumDescSafe(value, enumType) : GetEnumDescUnsafe(value);
         }
 
-        /// <summary>
-        /// Convert-back is not supported for this converter.
-        /// </summary>
-        /// <exception cref="NotImplementedException">
-        /// Always thrown because reverse conversion is not implemented.
-        /// </exception>
         public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
+        }
+
+        public static string GetEnumDescSafe(object obj, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicFields)] Type enumType)
+        {
+            string name = obj.ToString() ?? string.Empty;
+            return ExtractDescription(name, enumType);
+        }
+
+        [UnconditionalSuppressMessage("Trimming", "IL2072", Justification = "Fallback for non-AOT. Passing unannotated actualType to annotated parameter is expected here.")]
+        public static string GetEnumDescUnsafe(object obj)
+        {
+            Type actualType = obj.GetType();
+            string name = obj.ToString() ?? string.Empty;
+            return ExtractDescription(name, actualType);
+        }
+
+        private static string ExtractDescription(string name, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicFields)] Type type)
+        {
+            var field = type.GetField(name);
+            if (field?.GetCustomAttribute<DescriptionAttribute>() is { } attribute)
+            {
+                return attribute.Description;
+            }
+
+            return name;
         }
     }
 
@@ -35,36 +61,30 @@ namespace Synthora.Converters
     /// Potentially incompatible with Native AOT.
     /// </summary>
     /// <param name="type">The enum type to convert.</param>
-    public class EnumDescriptionTypeConverter(Type type) : EnumConverter(type)
+    public class EnumDescriptionTypeConverter([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicFields)] Type type) : EnumConverter(type)
     {
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicFields)]
+        private readonly Type _enumType = type;
+
         public override object? ConvertTo(ITypeDescriptorContext? context, CultureInfo? culture, object? value, Type destinationType)
         {
             if (destinationType == typeof(string))
             {
-                return GetEnumDesc(value);
+                string name = value?.ToString() ?? string.Empty;
+                if (string.IsNullOrEmpty(name))
+                {
+                    return string.Empty;
+                }
+
+                var field = _enumType.GetField(name);
+                if (field?.GetCustomAttribute<DescriptionAttribute>() is { } attribute)
+                {
+                    return attribute.Description;
+                }
+                return name;
             }
 
             return base.ConvertTo(context, culture, value, destinationType);
-        }
-
-        /// <summary>
-        /// Gets the description text for the specified enum value.
-        /// Potentially incompatible with Native AOT.
-        /// </summary>
-        /// <param name="obj">The enum value.</param>
-        /// <returns>
-        /// The description text defined by <see cref="DescriptionAttribute"/>,
-        /// or the enum name if no description exists.
-        /// Returns an empty string if the value is null.
-        /// </returns>
-        public static string GetEnumDesc(object? obj)
-        {
-            if (obj is not Enum enumValue)
-            {
-                return obj?.ToString() ?? string.Empty;
-            }
-
-            return enumValue.GetDescription();
         }
     }
 }
