@@ -16,9 +16,8 @@ namespace Synthora.Controls
             if (e.InitialPressMouseButton == MouseButton.Left)
             {
                 Command?.Execute(CommandParameter);
-            }
-
-            e.Handled = true;
+                e.Handled = true;
+            }  
         }
     }
 }
