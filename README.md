@@ -27,7 +27,7 @@ The following instructions are for packaging the **SynthoraDemo** application.
 ## Windows
 
 1. Install [Inno Setup](https://jrsoftware.org/isinfo.php)
-2. Run the packaging script:
+2. Run the build script:
 
 ```bash
 .\Synthora.Demo\win-build\build.bat
