@@ -24,6 +24,12 @@ Synthora is an Avalonia UI theme and control styles library component targeting 
    - Follow standard UI control theme architecture for Avalonia.
    - For Boolean state naming conventions, prefer `VerbNoun` (e.g., `AutoScrollToEnd`) or standard state flags, without unnecessary `Is` prefixes unless indicating a simple boolean observer mode.
 
+## NativeAOT Requirements
+
+* Avoid reflection whenever possible.
+* Avoid dynamic code generation.
+* Avoid runtime type discovery.
+
 ---
 
 **CRITICAL REQUIREMENT:**
