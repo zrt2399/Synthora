@@ -11,19 +11,18 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <ShadowChrome Name="RootChrome"
-                                  Background="{TemplateBinding Background}"
-                                  BorderBrush="{TemplateBinding BorderBrush}"
-                                  BorderThickness="{TemplateBinding BorderThickness}"
-                                  BoxShadow="{DynamicResource EmptyBoxShadow}"
-                                  CornerRadius="{TemplateBinding CornerRadius}">
+                              Background="{TemplateBinding Background}"
+                              BorderBrush="{TemplateBinding BorderBrush}"
+                              BorderThickness="{TemplateBinding BorderThickness}"
+                              BoxShadow="{DynamicResource EmptyBoxShadow}"
+                              CornerRadius="{TemplateBinding CornerRadius}">
                     <ContentPresenter Name="PART_ContentPresenter"
                                       Margin="{TemplateBinding Padding}"
                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                       Content="{TemplateBinding Content}"
                                       ContentTemplate="{TemplateBinding ContentTemplate}"
-                                      RecognizesAccessKey="True"
-                                      TextElement.Foreground="{TemplateBinding Foreground}" />
+                                      RecognizesAccessKey="True" />
 
                 </ShadowChrome>
             </ControlTemplate>
@@ -137,19 +136,18 @@
                                StrokeDashArray="4,4"
                                StrokeThickness="{Binding BorderThickness.Left, RelativeSource={RelativeSource TemplatedParent}}" />
                     <ShadowChrome Name="RootChrome"
-                                      Background="{TemplateBinding Background}"
-                                      BorderBrush="{TemplateBinding BorderBrush}"
-                                      BorderThickness="{TemplateBinding BorderThickness}"
-                                      BoxShadow="{DynamicResource EmptyBoxShadow}"
-                                      CornerRadius="{TemplateBinding CornerRadius}">
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  BoxShadow="{DynamicResource EmptyBoxShadow}"
+                                  CornerRadius="{TemplateBinding CornerRadius}">
                         <ContentPresenter Name="PART_ContentPresenter"
                                           Margin="{TemplateBinding Padding}"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Content="{TemplateBinding Content}"
                                           ContentTemplate="{TemplateBinding ContentTemplate}"
-                                          RecognizesAccessKey="True"
-                                          TextElement.Foreground="{TemplateBinding Foreground}" />
+                                          RecognizesAccessKey="True" />
 
                     </ShadowChrome>
                     <Border Name="checkedBorder"

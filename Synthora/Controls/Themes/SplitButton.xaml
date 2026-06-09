@@ -38,6 +38,7 @@
         <Setter Property="Focusable" Value="True" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
+        <Setter Property="DropDownButtonAttach.DropDownIcon" Value="{StaticResource DropDownButtonIcon}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
@@ -81,11 +82,7 @@
                                 Focusable="False"
                                 Foreground="{TemplateBinding Foreground}"
                                 KeyboardNavigation.IsTabStop="False">
-                            <PathIcon Name="pathIcon"
-                                      Width="12"
-                                      Height="12"
-                                      Data="{DynamicResource ArrowDownData}"
-                                      Foreground="{Binding $parent[Button].Foreground}" />
+                            <ContentPresenter Name="SecondaryContentPresenter" Content="{TemplateBinding DropDownButtonAttach.DropDownIcon}" />
                         </Button>
                     </Grid>
 
@@ -101,7 +98,7 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^ /template/ PathIcon#pathIcon">
+        <Style Selector="^[(DropDownButtonAttach.EnableDropDownIconAnimation)=True] /template/ ContentPresenter#SecondaryContentPresenter">
             <Setter Property="Transitions">
                 <Transitions>
                     <TransformOperationsTransition Easing="CubicEaseInOut"
@@ -121,31 +118,20 @@
             </Style>
         </Style>
 
-        <Style Selector="^:flyout-open">
-            <Style Selector="^ /template/ Button#PART_SecondaryButton">
-                <Setter Property="Tag" Value="flyout-open" />
-            </Style>
-
-            <Style Selector="^ /template/ PathIcon#pathIcon">
+        <Style Selector="^[(DropDownButtonAttach.EnableDropDownIconAnimation)=True]:flyout-open">
+            <Style Selector="^ /template/ ContentPresenter#SecondaryContentPresenter">
                 <Setter Property="RenderTransform" Value="rotate(180deg)" />
             </Style>
         </Style>
 
         <Style Selector="^:checked">
-            <Style Selector="^ /template/ Button#PART_SecondaryButton">
-                <Setter Property="Tag" Value="checked" />
-            </Style>
             <Style Selector="^ /template/ Ellipse#checkedEllipse">
                 <Setter Property="IsVisible" Value="True" />
             </Style>
         </Style>
 
         <Style Selector="^:checked:flyout-open">
-            <Style Selector="^ /template/ Button#PART_SecondaryButton">
-                <Setter Property="Tag" Value="checked-flyout-open" />
-            </Style>
-
-            <Style Selector="^ /template/ PathIcon#pathIcon">
+            <Style Selector="^ /template/ ContentPresenter#SecondaryContentPresenter">
                 <Setter Property="RenderTransform" Value="rotate(180deg)" />
             </Style>
         </Style>

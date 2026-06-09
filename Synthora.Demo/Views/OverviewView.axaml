@@ -251,7 +251,12 @@
                                                 </StackPanel>
 
                                                 <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
-                                                    <SplitButton>
+                                                    <SplitButton DropDownButtonAttach.EnableDropDownIconAnimation="False">
+                                                        <DropDownButtonAttach.DropDownIcon>
+                                                            <PathIcon Width="12"
+                                                                      Height="12"
+                                                                      Data="{DynamicResource EllipsisData}" />
+                                                        </DropDownButtonAttach.DropDownIcon>
                                                         Publish
                                                         <SplitButton.Flyout>
                                                             <MenuFlyout Placement="BottomEdgeAlignedLeft">

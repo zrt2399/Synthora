@@ -12,13 +12,12 @@
 
     <ControlTemplate x:Key="DropDownButtonTemplate" TargetType="DropDownButton">
         <ShadowChrome Name="RootChrome"
-                          Background="{TemplateBinding Background}"
-                          BorderBrush="{TemplateBinding BorderBrush}"
-                          BorderThickness="{TemplateBinding BorderThickness}"
-                          BoxShadow="{DynamicResource EmptyBoxShadow}"
-                          CornerRadius="{TemplateBinding CornerRadius}">
+                      Background="{TemplateBinding Background}"
+                      BorderBrush="{TemplateBinding BorderBrush}"
+                      BorderThickness="{TemplateBinding BorderThickness}"
+                      BoxShadow="{DynamicResource EmptyBoxShadow}"
+                      CornerRadius="{TemplateBinding CornerRadius}">
             <Grid Name="InnerGrid" ColumnDefinitions="*,Auto">
-
                 <ContentPresenter Name="PART_ContentPresenter"
                                   Margin="{TemplateBinding Padding}"
                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -27,34 +26,39 @@
                                   ContentTemplate="{TemplateBinding ContentTemplate}"
                                   RecognizesAccessKey="True" />
 
-                <PathIcon Name="pathIcon"
-                          Grid.Column="1"
-                          Width="12"
-                          Height="12"
-                          Margin="{TemplateBinding Padding,
-                                                   Converter={StaticResource DropDownButtonMarginMultiplier}}"
-                          HorizontalAlignment="Right"
-                          VerticalAlignment="Center"
-                          Data="{DynamicResource ArrowDownData}"
-                          Foreground="{TemplateBinding Foreground}"
-                          IsHitTestVisible="False">
-                    <PathIcon.Transitions>
+                <ContentPresenter Name="PART_DropDownContentPresenter"
+                                  Grid.Column="1"
+                                  Margin="{TemplateBinding Padding,
+                                                           Converter={StaticResource DropDownButtonMarginMultiplier}}"
+                                  VerticalAlignment="Center"
+                                  Content="{TemplateBinding DropDownButtonAttach.DropDownIcon}"
+                                  IsHitTestVisible="False"
+                                  IsVisible="{TemplateBinding DropDownButtonAttach.DropDownIcon,
+                                                              Converter={x:Static ObjectConverters.IsNotNull}}">
+                    <ContentPresenter.Transitions>
                         <Transitions>
                             <TransformOperationsTransition Easing="CubicEaseInOut"
                                                            Property="RenderTransform"
                                                            Duration="0:0:0.2" />
                         </Transitions>
-                    </PathIcon.Transitions>
-                </PathIcon>
+                    </ContentPresenter.Transitions>
+                </ContentPresenter>
             </Grid>
         </ShadowChrome>
     </ControlTemplate>
+
+    <Template x:Key="DropDownButtonIcon">
+        <PathIcon Width="12"
+                  Height="12"
+                  Data="{DynamicResource ArrowDownData}" />
+    </Template>
 
     <ControlTheme x:Key="{x:Type DropDownButton}"
                   BasedOn="{StaticResource {x:Type Button}}"
                   TargetType="DropDownButton">
         <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
-        <Style Selector="^:flyout-open /template/ PathIcon#pathIcon">
+        <Setter Property="DropDownButtonAttach.DropDownIcon" Value="{StaticResource DropDownButtonIcon}" />
+        <Style Selector="^[(DropDownButtonAttach.EnableDropDownIconAnimation)=True]:flyout-open /template/ ContentPresenter#PART_DropDownContentPresenter">
             <Setter Property="RenderTransform" Value="rotate(180deg)" />
         </Style>
     </ControlTheme>
@@ -63,7 +67,8 @@
                   BasedOn="{StaticResource SuccessButtonTheme}"
                   TargetType="DropDownButton">
         <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
-        <Style Selector="^:flyout-open /template/ PathIcon#pathIcon">
+        <Setter Property="DropDownButtonAttach.DropDownIcon" Value="{StaticResource DropDownButtonIcon}" />
+        <Style Selector="^[(DropDownButtonAttach.EnableDropDownIconAnimation)=True]:flyout-open /template/ ContentPresenter#PART_DropDownContentPresenter">
             <Setter Property="RenderTransform" Value="rotate(180deg)" />
         </Style>
     </ControlTheme>
@@ -72,7 +77,8 @@
                   BasedOn="{StaticResource WarningButtonTheme}"
                   TargetType="DropDownButton">
         <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
-        <Style Selector="^:flyout-open /template/ PathIcon#pathIcon">
+        <Setter Property="DropDownButtonAttach.DropDownIcon" Value="{StaticResource DropDownButtonIcon}" />
+        <Style Selector="^[(DropDownButtonAttach.EnableDropDownIconAnimation)=True]:flyout-open /template/ ContentPresenter#PART_DropDownContentPresenter">
             <Setter Property="RenderTransform" Value="rotate(180deg)" />
         </Style>
     </ControlTheme>
@@ -81,7 +87,8 @@
                   BasedOn="{StaticResource DangerButtonTheme}"
                   TargetType="DropDownButton">
         <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
-        <Style Selector="^:flyout-open /template/ PathIcon#pathIcon">
+        <Setter Property="DropDownButtonAttach.DropDownIcon" Value="{StaticResource DropDownButtonIcon}" />
+        <Style Selector="^[(DropDownButtonAttach.EnableDropDownIconAnimation)=True]:flyout-open /template/ ContentPresenter#PART_DropDownContentPresenter">
             <Setter Property="RenderTransform" Value="rotate(180deg)" />
         </Style>
     </ControlTheme>
@@ -90,7 +97,8 @@
                   BasedOn="{StaticResource ErrorButtonTheme}"
                   TargetType="DropDownButton">
         <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
-        <Style Selector="^:flyout-open /template/ PathIcon#pathIcon">
+        <Setter Property="DropDownButtonAttach.DropDownIcon" Value="{StaticResource DropDownButtonIcon}" />
+        <Style Selector="^[(DropDownButtonAttach.EnableDropDownIconAnimation)=True]:flyout-open /template/ ContentPresenter#PART_DropDownContentPresenter">
             <Setter Property="RenderTransform" Value="rotate(180deg)" />
         </Style>
     </ControlTheme>
@@ -99,7 +107,8 @@
                   BasedOn="{StaticResource SecondaryButtonTheme}"
                   TargetType="DropDownButton">
         <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
-        <Style Selector="^:flyout-open /template/ PathIcon#pathIcon">
+        <Setter Property="DropDownButtonAttach.DropDownIcon" Value="{StaticResource DropDownButtonIcon}" />
+        <Style Selector="^[(DropDownButtonAttach.EnableDropDownIconAnimation)=True]:flyout-open /template/ ContentPresenter#PART_DropDownContentPresenter">
             <Setter Property="RenderTransform" Value="rotate(180deg)" />
         </Style>
     </ControlTheme>
@@ -108,7 +117,8 @@
                   BasedOn="{StaticResource NeutralButtonTheme}"
                   TargetType="DropDownButton">
         <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
-        <Style Selector="^:flyout-open /template/ PathIcon#pathIcon">
+        <Setter Property="DropDownButtonAttach.DropDownIcon" Value="{StaticResource DropDownButtonIcon}" />
+        <Style Selector="^[(DropDownButtonAttach.EnableDropDownIconAnimation)=True]:flyout-open /template/ ContentPresenter#PART_DropDownContentPresenter">
             <Setter Property="RenderTransform" Value="rotate(180deg)" />
         </Style>
     </ControlTheme>

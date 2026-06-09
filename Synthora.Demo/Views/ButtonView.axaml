@@ -10,6 +10,14 @@
              x:DataType="vm:ButtonViewModel"
              mc:Ignorable="d">
 
+    <UserControl.Resources>
+        <PathIcon x:Key="CustomIcon"
+                  Width="12"
+                  Height="12"
+                  x:Shared="False"
+                  Data="{DynamicResource EllipsisData}" />
+    </UserControl.Resources>
+
     <DemoPage Title="Buttons"
               Padding="0"
               Description="{Binding Description}"
@@ -67,6 +75,44 @@
                             <ToggleButton Theme="{StaticResource SecondaryToggleButtonTheme}">Secondary</ToggleButton>
                             <ToggleButton Theme="{StaticResource NeutralToggleButtonTheme}">Neutral</ToggleButton>
                         </SpacingWrapPanel>
+                        <StackPanel Classes="sectionSubHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="Refresh" />
+                            <TextBlock Classes="sectionLabel" Text="REPEAT BUTTON" />
+                        </StackPanel>
+                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <RepeatButton>Default</RepeatButton>
+                            <RepeatButton Theme="{StaticResource SuccessRepeatButtonTheme}">Success</RepeatButton>
+                            <RepeatButton Theme="{StaticResource WarningRepeatButtonTheme}">Warning</RepeatButton>
+                            <RepeatButton Theme="{StaticResource DangerRepeatButtonTheme}">Danger</RepeatButton>
+                            <RepeatButton Theme="{StaticResource ErrorRepeatButtonTheme}">Error</RepeatButton>
+                            <RepeatButton Theme="{StaticResource SecondaryRepeatButtonTheme}">Secondary</RepeatButton>
+                            <RepeatButton Theme="{StaticResource NeutralRepeatButtonTheme}">Neutral</RepeatButton>
+                        </SpacingWrapPanel>
+                        <StackPanel Classes="sectionSubHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ChevronDown" />
+                            <TextBlock Classes="sectionLabel" Text="DROPDOWN BUTTON" />
+                        </StackPanel>
+                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <SpacingWrapPanel.Styles>
+                                <Style Selector="DropDownButton">
+                                    <Setter Property="Flyout">
+                                        <Flyout Placement="BottomEdgeAlignedLeft">
+                                            <CheckBox>CheckBox</CheckBox>
+                                        </Flyout>
+                                    </Setter>
+                                </Style>
+                            </SpacingWrapPanel.Styles>
+                            <DropDownButton>Default</DropDownButton>
+                            <DropDownButton Theme="{StaticResource SuccessDropDownButtonTheme}">Success</DropDownButton>
+                            <DropDownButton Theme="{StaticResource WarningDropDownButtonTheme}">Warning</DropDownButton>
+                            <DropDownButton Theme="{StaticResource DangerDropDownButtonTheme}">Danger</DropDownButton>
+                            <DropDownButton Theme="{StaticResource ErrorDropDownButtonTheme}">Error</DropDownButton>
+                            <DropDownButton Theme="{StaticResource SecondaryDropDownButtonTheme}">Secondary</DropDownButton>
+                            <DropDownButton Theme="{StaticResource NeutralDropDownButtonTheme}">Neutral</DropDownButton>
+                            <DropDownButton DropDownButtonAttach.DropDownIcon="{StaticResource CustomIcon}" DropDownButtonAttach.EnableDropDownIconAnimation="False">
+                                Custom Icon
+                            </DropDownButton>
+                        </SpacingWrapPanel>
                         <StackPanel Classes="sectionHeader">
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ArrowSplitHorizontal" />
                             <TextBlock Classes="sectionLabel" Text="SPLIT BUTTON" />
@@ -94,6 +140,9 @@
                             <SplitButton Theme="{StaticResource ErrorSplitButtonTheme}">Error</SplitButton>
                             <SplitButton Theme="{StaticResource SecondarySplitButtonTheme}">Secondary</SplitButton>
                             <SplitButton Theme="{StaticResource NeutralSplitButtonTheme}">Neutral</SplitButton>
+                            <SplitButton DropDownButtonAttach.DropDownIcon="{StaticResource CustomIcon}" DropDownButtonAttach.EnableDropDownIconAnimation="False">
+                                Custom Icon
+                            </SplitButton>
                         </SpacingWrapPanel>
                         <StackPanel Classes="sectionHeader">
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ToggleSwitchOutline" />
@@ -122,41 +171,9 @@
                             <ToggleSplitButton Theme="{StaticResource ErrorToggleSplitButtonTheme}">Error</ToggleSplitButton>
                             <ToggleSplitButton Theme="{StaticResource SecondaryToggleSplitButtonTheme}">Secondary</ToggleSplitButton>
                             <ToggleSplitButton Theme="{StaticResource NeutralToggleSplitButtonTheme}">Neutral</ToggleSplitButton>
-                        </SpacingWrapPanel>
-                        <StackPanel Classes="sectionSubHeader">
-                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ChevronDown" />
-                            <TextBlock Classes="sectionLabel" Text="DROPDOWN BUTTON" />
-                        </StackPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
-                            <SpacingWrapPanel.Styles>
-                                <Style Selector="DropDownButton">
-                                    <Setter Property="Flyout">
-                                        <Flyout Placement="BottomEdgeAlignedLeft">
-                                            <CheckBox>CheckBox</CheckBox>
-                                        </Flyout>
-                                    </Setter>
-                                </Style>
-                            </SpacingWrapPanel.Styles>
-                            <DropDownButton>Default</DropDownButton>
-                            <DropDownButton Theme="{StaticResource SuccessDropDownButtonTheme}">Success</DropDownButton>
-                            <DropDownButton Theme="{StaticResource WarningDropDownButtonTheme}">Warning</DropDownButton>
-                            <DropDownButton Theme="{StaticResource DangerDropDownButtonTheme}">Danger</DropDownButton>
-                            <DropDownButton Theme="{StaticResource ErrorDropDownButtonTheme}">Error</DropDownButton>
-                            <DropDownButton Theme="{StaticResource SecondaryDropDownButtonTheme}">Secondary</DropDownButton>
-                            <DropDownButton Theme="{StaticResource NeutralDropDownButtonTheme}">Neutral</DropDownButton>
-                        </SpacingWrapPanel>
-                        <StackPanel Classes="sectionSubHeader">
-                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="Refresh" />
-                            <TextBlock Classes="sectionLabel" Text="REPEAT BUTTON" />
-                        </StackPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
-                            <RepeatButton>Default</RepeatButton>
-                            <RepeatButton Theme="{StaticResource SuccessRepeatButtonTheme}">Success</RepeatButton>
-                            <RepeatButton Theme="{StaticResource WarningRepeatButtonTheme}">Warning</RepeatButton>
-                            <RepeatButton Theme="{StaticResource DangerRepeatButtonTheme}">Danger</RepeatButton>
-                            <RepeatButton Theme="{StaticResource ErrorRepeatButtonTheme}">Error</RepeatButton>
-                            <RepeatButton Theme="{StaticResource SecondaryRepeatButtonTheme}">Secondary</RepeatButton>
-                            <RepeatButton Theme="{StaticResource NeutralRepeatButtonTheme}">Neutral</RepeatButton>
+                            <ToggleSplitButton DropDownButtonAttach.DropDownIcon="{StaticResource CustomIcon}" DropDownButtonAttach.EnableDropDownIconAnimation="False">
+                                Custom Icon
+                            </ToggleSplitButton>
                         </SpacingWrapPanel>
                         <StackPanel Classes="sectionSubHeader">
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="LinkVariant" />
