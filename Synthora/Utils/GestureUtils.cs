@@ -18,6 +18,8 @@ namespace Synthora.Utils
             ZoomOutGesture = new KeyGesture(Key.Subtract, CommandModifier);
             ZoomInOemGesture = new KeyGesture(Key.OemPlus, CommandModifier);
             ZoomOutOemGesture = new KeyGesture(Key.OemMinus, CommandModifier);
+            UndoGesture = new KeyGesture(Key.Z, CommandModifier);
+            RedoGesture = new KeyGesture(Key.Y, CommandModifier);
         }
 
         /// <summary>
@@ -55,5 +57,15 @@ namespace Synthora.Utils
         /// Gets the key gesture for Zoom Out using the OEM Minus key (Ctrl+'-' or ⌘+'-').
         /// </summary>
         public static KeyGesture ZoomOutOemGesture { get; }
+
+        /// <summary>
+        /// Gets the key gesture for the Undo command (Ctrl+Z or ⌘+Z).
+        /// </summary>
+        public static KeyGesture UndoGesture { get; }
+
+        /// <summary>
+        /// Gets the key gesture for the Redo command (Ctrl+Y or ⌘+Y).
+        /// </summary>
+        public static KeyGesture RedoGesture { get; }
     }
 }
