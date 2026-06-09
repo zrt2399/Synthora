@@ -90,6 +90,8 @@
             <SolidColorBrush x:Key="RefreshVisualizerBackground" Color="Transparent" />
             <SolidColorBrush x:Key="TextSelectionBrush" Color="{StaticResource ThemeAccentColor3}" />
 
+            <SolidColorBrush x:Key="ErrorTipBackgroundBrush" Color="#FFFFF3F2" />
+
             <!--  BaseResources for WindowDrawnDecorations  -->
             <SolidColorBrush x:Key="CaptionButtonForeground" Color="{StaticResource ThemeForegroundColor}" />
             <SolidColorBrush x:Key="CaptionButtonBackground" Color="Transparent" />
@@ -209,6 +211,8 @@
             <SolidColorBrush x:Key="RefreshVisualizerBackground" Color="Transparent" />
             <SolidColorBrush x:Key="TextSelectionBrush" Color="{StaticResource ThemeAccentColor2}" />
 
+            <SolidColorBrush x:Key="ErrorTipBackgroundBrush" Color="#FF3A1F1F" />
+
             <!--  BaseResources for WindowDrawnDecorations  -->
             <SolidColorBrush x:Key="CaptionButtonForeground" Color="{StaticResource ThemeForegroundColor}" />
             <SolidColorBrush x:Key="CaptionButtonBackground" Color="Transparent" />
@@ -295,6 +299,12 @@
     <SolidColorBrush x:Key="DangerPointerOverBrush" Color="{StaticResource DangerPointerOverColor}" />
     <SolidColorBrush x:Key="DangerPressedBrush" Color="{StaticResource DangerPressedColor}" />
 
+    <SolidColorBrush x:Key="InformationBackgroundBrush" Color="#FFF3F7FF" />
+    <SolidColorBrush x:Key="QuestionBackgroundBrush" Color="#FFF4F8FF" />
+    <SolidColorBrush x:Key="SuccessBackgroundBrush" Color="#FFF7FBEF" />
+    <SolidColorBrush x:Key="WarningBackgroundBrush" Color="#FFFEF8EC" />
+    <SolidColorBrush x:Key="ErrorBackgroundBrush" Color="#FFFFF3F2" />
+
     <SolidColorBrush x:Key="DatePickerFlyoutPresenterHighlightFill"
                      Opacity="0.4"
                      Color="{StaticResource ThemeAccentColor}" />
@@ -325,8 +335,8 @@
     <x:Double x:Key="IconElementThemeWidth">20</x:Double>
 
     <Thickness x:Key="PopupBoxShadowMargin">0,0,4,4</Thickness>
-    <BoxShadows x:Key="PopupBoxShadow">3 3 3 0 #50000000</BoxShadows>
-    <BoxShadows x:Key="PopupRightToLeftBoxShadow">-3 3 3 0 #50000000</BoxShadows>
+    <BoxShadows x:Key="PopupBoxShadow">3 3 3 0 #60000000</BoxShadows>
+    <BoxShadows x:Key="PopupRightToLeftBoxShadow">-3 3 3 0 #60000000</BoxShadows>
 
     <BoxShadows x:Key="DialogBoxShadow">0 0 40 0 #60000000</BoxShadows>
     <BoxShadows x:Key="DefaultBoxShadow">0 0 12 0 #40000000</BoxShadows>
@@ -349,6 +359,10 @@
     </StreamGeometry>
     <StreamGeometry x:Key="ArrowRightData">
         M486 109L576 19L1581 1024L576 2029L486 1939L1401 1024L486 109Z
+    </StreamGeometry>
+
+    <StreamGeometry x:Key="EllipsisData">
+        M2.5,7 A1.5,1.5 0 0,0 1,8.5 A1.5,1.5 0 0,0 2.5,10 A1.5,1.5 0 0,0 4,8.5 A1.5,1.5 0 0,0 2.5,7 M8.5,7 A1.5,1.5 0 0,0 7,8.5 A1.5,1.5 0 0,0 8.5,10 A1.5,1.5 0 0,0 10,8.5 A1.5,1.5 0 0,0 8.5,7 M14.5,7 A1.5,1.5 0 0,0 13,8.5 A1.5,1.5 0 0,0 14.5,10 A1.5,1.5 0 0,0 16,8.5 A1.5,1.5 0 0,0 14.5,7 Z
     </StreamGeometry>
 
     <StreamGeometry x:Key="ThemeModeDefaultData">

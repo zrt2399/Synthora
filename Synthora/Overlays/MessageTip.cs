@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
@@ -17,14 +17,15 @@ namespace Synthora.Overlays
     /// </summary>
     public static class MessageTip
     {
-        private const int Delay = 2000;
+        private const int DefaultDelay = 2000;
         private static readonly IImmutableSolidColorBrush NoneBorderBrush = new ImmutableSolidColorBrush(Color.FromArgb(64, 0, 0, 0));
-
+        private static readonly IImmutableSolidColorBrush NoneBackground = new ImmutableSolidColorBrush(Color.FromRgb(245, 245, 245));
+  
         /// <summary>
-        /// Global override for the display duration of all message tips (in milliseconds).
-        /// When set to a value greater than 0, this will override the default <see cref="Delay"/>.
+        /// Display duration in milliseconds for all message tips.
+        /// When set to a value greater than 0, this will override the default <see cref="DefaultDelay"/>.
         /// </summary>
-        public static int GlobalDelay { get; set; } = 0;
+        public static int Delay { get; set; } = 0;
 
         /// <summary>
         /// Horizontal offset for positioning the message tip relative to the target element.
@@ -52,29 +53,29 @@ namespace Synthora.Overlays
         /// <summary>
         /// Displays a transient message tip with a question icon.
         /// </summary>
-        public static void ShowQuestion(string message, int delay = Delay) => Show(message, IconType.Question, delay);
+        public static void ShowQuestion(string message, int delay = DefaultDelay) => Show(message, IconType.Question, delay);
 
         /// <summary>
         /// Displays a transient message tip with a success icon.
         /// </summary>
-        public static void ShowSuccess(string message, int delay = Delay) => Show(message, IconType.Success, delay);
+        public static void ShowSuccess(string message, int delay = DefaultDelay) => Show(message, IconType.Success, delay);
 
         /// <summary>
         /// Displays a transient message tip with a warning icon.
         /// </summary>
-        public static void ShowWarning(string message, int delay = Delay) => Show(message, IconType.Warning, delay);
+        public static void ShowWarning(string message, int delay = DefaultDelay) => Show(message, IconType.Warning, delay);
 
         /// <summary>
         /// Displays a transient message tip with an error icon.
         /// </summary>
-        public static void ShowError(string message, int delay = Delay) => Show(message, IconType.Error, delay);
+        public static void ShowError(string message, int delay = DefaultDelay) => Show(message, IconType.Error, delay);
 
         /// <summary>
         /// Displays a transient message tip with a specified icon type.
         /// </summary>
-        public static async void Show(string message, IconType iconType = IconType.Information, int delay = Delay)
+        public static async void Show(string message, IconType iconType = IconType.Information, int delay = DefaultDelay)
         {
-            if (Application.Current is not Application application)
+            if (Application.Current is not { } application)
             {
                 return;
             }
@@ -96,9 +97,9 @@ namespace Synthora.Overlays
                     }
                 }
 
-                if (GlobalDelay > 0)
+                if (Delay > 0)
                 {
-                    delay = GlobalDelay;
+                    delay = Delay;
                 }
 
                 var borderBrush = iconType switch
@@ -148,14 +149,23 @@ namespace Synthora.Overlays
                 grid.Children.Add(textBlock);
 
                 Border border = new Border();
-                border.Margin = new Thickness(4);
-                border.Padding = new Thickness(padding);
                 if (application.TryGetResource("ThemeBorderCornerRadiusNormal", application.ActualThemeVariant, out var radius) && radius is CornerRadius cornerRadius)
                 {
                     border.CornerRadius = cornerRadius;
                 }
+
+                if (iconType == IconType.None)
+                {
+                    border.Background = NoneBackground;
+                }
+                else
+                {
+                    border.Background = application.TryGetResource($"{iconType}BackgroundBrush", application.ActualThemeVariant, out var background) && background is IBrush brush ? brush : NoneBackground;
+                }
+
                 border.Child = grid;
-                border.Background = SolidColorBrush.Parse("#FAFAFA");
+                border.Margin = new Thickness(4);
+                border.Padding = new Thickness(padding);
                 border.BorderThickness = new Thickness(1);
                 border.BorderBrush = borderBrush;
                 border.BoxShadow = new BoxShadows(new BoxShadow()
@@ -212,10 +222,7 @@ namespace Synthora.Overlays
                 {
                     topLevel.Background = null;
                     topLevel.TransparencyBackgroundFallback = Brushes.Transparent;
-                    topLevel.TransparencyLevelHint = new[]
-                    {
-                        WindowTransparencyLevel.Transparent
-                    };
+                    topLevel.TransparencyLevelHint = [WindowTransparencyLevel.Transparent];
                 }
             }
         }
