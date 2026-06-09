@@ -20,8 +20,7 @@
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Content="{TemplateBinding Content}"
-                                          ContentTemplate="{TemplateBinding ContentTemplate}"
-                                          TextElement.Foreground="{TemplateBinding Foreground}">
+                                          ContentTemplate="{TemplateBinding ContentTemplate}">
                             <ContentPresenter.Effect>
                                 <BlurEffect Radius="{Binding BlurRadius, RelativeSource={RelativeSource TemplatedParent}}" />
                             </ContentPresenter.Effect>

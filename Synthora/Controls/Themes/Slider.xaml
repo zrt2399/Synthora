@@ -8,7 +8,7 @@
         <Border Width="400"
                 Height="600"
                 Margin="20">
-            <DockPanel LastChildFill="True">
+            <DockPanel>
                 <StackPanel DockPanel.Dock="Top" Spacing="10">
                     <Slider Value="50" />
                     <Slider IsDirectionReversed="True" Value="50" />

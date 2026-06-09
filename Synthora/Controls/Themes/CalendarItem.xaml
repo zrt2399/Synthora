@@ -29,14 +29,13 @@
                                     <Setter Property="VerticalAlignment" Value="Center" />
                                     <Setter Property="HorizontalAlignment" Value="Center" />
                                     <Setter Property="Background" Value="Transparent" />
-                                    <Setter Property="BorderBrush" Value="Transparent" />
-                                    <Setter Property="BorderThickness" Value="0" />
                                     <Setter Property="Padding" Value="0" />
+                                    <Setter Property="Theme" Value="{DynamicResource IconButtonTheme}" />
                                     <Style Selector="^:pointerover">
-                                        <Setter Property="Opacity" Value="0.8" />
+                                        <Setter Property="Opacity" Value="0.7" />
                                     </Style>
                                     <Style Selector="^:pressed">
-                                        <Setter Property="Opacity" Value="0.6" />
+                                        <Setter Property="Opacity" Value="0.5" />
                                     </Style>
                                 </Style>
                             </Grid.Styles>
@@ -52,8 +51,7 @@
                             <Button Name="PART_HeaderButton"
                                     Grid.Column="1"
                                     Classes="CalendarHeader"
-                                    FontWeight="SemiBold"
-                                    Foreground="{DynamicResource ThemeForegroundBrush}" />
+                                    FontWeight="SemiBold" />
 
                             <Button Name="PART_NextButton"
                                     Grid.Column="2"
@@ -109,7 +107,7 @@
         </Setter>
         <Setter Property="DayTitleTemplate">
             <Template x:DataType="x:String">
-                <TextBlock Margin="2,4"
+                <TextBlock Margin="4"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            FontWeight="SemiBold"

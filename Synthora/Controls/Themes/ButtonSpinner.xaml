@@ -11,7 +11,8 @@
                 <ButtonSpinner ButtonSpinnerLocation="Left" Content="Left spinner" />
                 <ButtonSpinner BorderBrush="Blue"
                                BorderThickness="2"
-                               Content="Right Border" />
+                               Content="Right Border"
+                               Foreground="OrangeRed" />
                 <ButtonSpinner BorderBrush="Blue"
                                BorderThickness="2"
                                ButtonSpinnerLocation="Left"
@@ -66,42 +67,42 @@
                                       Content="{TemplateBinding (TextBoxAttach.Header)}"
                                       DockPanel.Dock="{TemplateBinding (TextBoxAttach.HeaderPlacement)}" />
                     <ShadowChrome Name="FocusTarget"
-                                      Width="{TemplateBinding (TextBoxAttach.Width)}"
-                                      MinWidth="{TemplateBinding (TextBoxAttach.MinWidth)}"
-                                      MaxWidth="{TemplateBinding (TextBoxAttach.MaxWidth)}"
-                                      Background="{TemplateBinding Background}"
-                                      BorderBrush="{TemplateBinding BorderBrush}"
-                                      BorderThickness="{TemplateBinding BorderThickness}"
-                                      BoxShadow="{TemplateBinding (BoxShadowAttach.BoxShadow)}"
-                                      CornerRadius="{TemplateBinding CornerRadius}"
-                                      TemplatedControl.IsTemplateFocusTarget="True">
+                                  Width="{TemplateBinding (TextBoxAttach.Width)}"
+                                  MinWidth="{TemplateBinding (TextBoxAttach.MinWidth)}"
+                                  MaxWidth="{TemplateBinding (TextBoxAttach.MaxWidth)}"
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  BoxShadow="{TemplateBinding (BoxShadowAttach.BoxShadow)}"
+                                  CornerRadius="{TemplateBinding CornerRadius}"
+                                  TemplatedControl.IsTemplateFocusTarget="True">
 
                         <DockPanel>
                             <UniformGrid Name="PART_SpinnerPanel"
+                                         Columns="1"
                                          DockPanel.Dock="Right"
-                                         IsVisible="{TemplateBinding ShowButtonSpinner}"
-                                         Rows="2">
+                                         IsVisible="{TemplateBinding ShowButtonSpinner}">
                                 <RepeatButton Name="PART_IncreaseButton"
                                               Padding="4,0"
+                                              Foreground="{TemplateBinding Foreground}"
                                               IsTabStop="{TemplateBinding IsTabStop}"
                                               Theme="{StaticResource SimpleButtonSpinnerRepeatButtonTheme}">
                                     <PathIcon Width="8"
                                               Height="4"
                                               HorizontalAlignment="Center"
                                               VerticalAlignment="Center"
-                                              Data="{DynamicResource ArrowUpData}"
-                                              Foreground="{DynamicResource ThemeForegroundBrush}" />
+                                              Data="{DynamicResource ArrowUpData}" />
                                 </RepeatButton>
                                 <RepeatButton Name="PART_DecreaseButton"
                                               Padding="4,0"
+                                              Foreground="{TemplateBinding Foreground}"
                                               IsTabStop="{TemplateBinding IsTabStop}"
                                               Theme="{StaticResource SimpleButtonSpinnerRepeatButtonTheme}">
                                     <PathIcon Width="8"
                                               Height="4"
                                               HorizontalAlignment="Center"
                                               VerticalAlignment="Center"
-                                              Data="{DynamicResource ArrowDownData}"
-                                              Foreground="{DynamicResource ThemeForegroundBrush}" />
+                                              Data="{DynamicResource ArrowDownData}" />
                                 </RepeatButton>
                             </UniformGrid>
                             <DataValidationErrors Margin="{TemplateBinding Padding}">

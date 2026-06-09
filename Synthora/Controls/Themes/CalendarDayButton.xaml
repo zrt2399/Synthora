@@ -13,7 +13,6 @@
     <ControlTheme x:Key="{x:Type CalendarDayButton}" TargetType="CalendarDayButton">
         <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush2}" />
         <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
-        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -47,9 +46,7 @@
                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                       Content="{TemplateBinding Content}"
-                                      ContentTemplate="{TemplateBinding ContentTemplate}"
-                                      FontSize="{TemplateBinding FontSize}"
-                                      Foreground="{TemplateBinding Foreground}" />
+                                      ContentTemplate="{TemplateBinding ContentTemplate}" />
 
                     <Path Name="BlackoutVisual"
                           Margin="3"
@@ -85,9 +82,6 @@
         <Style Selector="^:disabled /template/ Rectangle#Background">
             <Setter Property="IsVisible" Value="False" />
         </Style>
-        <!--<Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Opacity" Value="0.3" />
-        </Style>-->
 
         <Style Selector="^:dayfocused /template/ Rectangle#FocusVisual">
             <Setter Property="IsVisible" Value="True" />
@@ -103,6 +97,10 @@
 
         <Style Selector="^:blackout /template/ Path#BlackoutVisual">
             <Setter Property="Opacity" Value="0.6" />
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

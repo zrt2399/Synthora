@@ -40,7 +40,7 @@
             <Setter Property="BoxShadow" Value="{DynamicResource EmptyBoxShadow}" />
             <Style Selector="^:pointerover,^:focus-within">
                 <Style Selector="^ /template/ Border#RootBorder">
-                    <Setter Property="BoxShadow" Value="{Binding InteractionBoxShadow, RelativeSource={RelativeSource TemplatedParent}}" />
+                    <Setter Property="BoxShadow" Value="{TemplateBinding InteractionBoxShadow}" />
                 </Style>
             </Style>
         </Style>

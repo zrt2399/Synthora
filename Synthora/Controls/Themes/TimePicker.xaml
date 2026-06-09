@@ -31,8 +31,6 @@
     </Design.PreviewWith>
 
     <x:Double x:Key="TimePickerFlyoutPresenterAcceptDismissHostGridHeight">28</x:Double>
-    <!--<x:Double x:Key="TimePickerThemeMinWidth">242</x:Double>
-    <x:Double x:Key="TimePickerThemeMaxWidth">456</x:Double>-->
 
     <x:Double x:Key="TimePickerSpacerThemeWidth">1</x:Double>
     <x:Double x:Key="TimePickerPresenterThemeMaxHeight">400</x:Double>
@@ -75,10 +73,6 @@
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
-        <!--<Setter Property="HorizontalAlignment" Value="Left" />
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="MinWidth" Value="{DynamicResource TimePickerThemeMinWidth}" />
-        <Setter Property="MaxWidth" Value="{DynamicResource TimePickerThemeMaxWidth}" />-->
         <Setter Property="Template">
             <ControlTemplate>
                 <DataValidationErrors>
@@ -112,9 +106,6 @@
                                         <TextBlock x:Name="PART_HourTextBlock"
                                                    Margin="{TemplateBinding Padding}"
                                                    HorizontalAlignment="Center"
-                                                   FontFamily="{TemplateBinding FontFamily}"
-                                                   FontSize="{TemplateBinding FontSize}"
-                                                   FontWeight="{TemplateBinding FontWeight}"
                                                    Text="{DynamicResource StringTimePickerHourText}" />
                                     </Border>
 
@@ -131,9 +122,6 @@
                                         <TextBlock x:Name="PART_MinuteTextBlock"
                                                    Margin="{TemplateBinding Padding}"
                                                    HorizontalAlignment="Center"
-                                                   FontFamily="{TemplateBinding FontFamily}"
-                                                   FontSize="{TemplateBinding FontSize}"
-                                                   FontWeight="{TemplateBinding FontWeight}"
                                                    Text="{DynamicResource StringTimePickerMinuteText}" />
                                     </Border>
 
@@ -150,9 +138,6 @@
                                         <TextBlock x:Name="PART_SecondTextBlock"
                                                    Margin="{TemplateBinding Padding}"
                                                    HorizontalAlignment="Center"
-                                                   FontFamily="{TemplateBinding FontFamily}"
-                                                   FontSize="{TemplateBinding FontSize}"
-                                                   FontWeight="{TemplateBinding FontWeight}"
                                                    Text="{DynamicResource StringTimePickerSecondText}" />
                                     </Border>
 
@@ -168,10 +153,7 @@
                                             VerticalAlignment="Stretch">
                                         <TextBlock x:Name="PART_PeriodTextBlock"
                                                    Margin="{TemplateBinding Padding}"
-                                                   HorizontalAlignment="Center"
-                                                   FontFamily="{TemplateBinding FontFamily}"
-                                                   FontSize="{TemplateBinding FontSize}"
-                                                   FontWeight="{TemplateBinding FontWeight}" />
+                                                   HorizontalAlignment="Center" />
                                     </Border>
                                 </Grid>
                             </Button>

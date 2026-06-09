@@ -31,8 +31,6 @@
     </Design.PreviewWith>
 
     <x:Double x:Key="DatePickerFlyoutPresenterAcceptDismissHostGridHeight">28</x:Double>
-    <!--<x:Double x:Key="DatePickerThemeMinWidth">296</x:Double>
-    <x:Double x:Key="DatePickerThemeMaxWidth">456</x:Double>-->
 
     <x:Double x:Key="DatePickerSpacerThemeWidth">1</x:Double>
     <x:Double x:Key="DatePickerPresenterThemeMaxHeight">400</x:Double>
@@ -75,10 +73,6 @@
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
-        <!--<Setter Property="HorizontalAlignment" Value="Left" />
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="MinWidth" Value="{DynamicResource DatePickerThemeMinWidth}" />
-        <Setter Property="MaxWidth" Value="{DynamicResource DatePickerThemeMaxWidth}" />-->
         <Setter Property="Template">
             <ControlTemplate>
                 <DataValidationErrors>
@@ -106,25 +100,16 @@
                                     <TextBlock Name="PART_YearTextBlock"
                                                Margin="{TemplateBinding Padding}"
                                                HorizontalAlignment="Center"
-                                               FontFamily="{TemplateBinding FontFamily}"
-                                               FontSize="{TemplateBinding FontSize}"
-                                               FontWeight="{TemplateBinding FontWeight}"
                                                Text="{DynamicResource StringDatePickerYearText}" />
                                     <TextBlock Name="PART_MonthTextBlock"
                                                Grid.Column="2"
                                                Margin="{TemplateBinding Padding}"
                                                HorizontalAlignment="Center"
-                                               FontFamily="{TemplateBinding FontFamily}"
-                                               FontSize="{TemplateBinding FontSize}"
-                                               FontWeight="{TemplateBinding FontWeight}"
                                                Text="{DynamicResource StringDatePickerMonthText}" />
                                     <TextBlock Name="PART_DayTextBlock"
                                                Grid.Column="4"
                                                Margin="{TemplateBinding Padding}"
                                                HorizontalAlignment="Center"
-                                               FontFamily="{TemplateBinding FontFamily}"
-                                               FontSize="{TemplateBinding FontSize}"
-                                               FontWeight="{TemplateBinding FontWeight}"
                                                Text="{DynamicResource StringDatePickerDayText}" />
 
                                     <Rectangle x:Name="PART_FirstSpacer"

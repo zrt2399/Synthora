@@ -8,7 +8,9 @@
     <Design.PreviewWith>
         <Border Padding="20">
             <StackPanel Spacing="10">
-                <ComboBox PlaceholderText="Select an item">
+                <ComboBox BorderBrush="Blue"
+                          Foreground="OrangeRed"
+                          PlaceholderText="Select an item">
                     <ComboBoxItem>Item 1</ComboBoxItem>
                     <ComboBoxItem>Item 2</ComboBoxItem>
                 </ComboBox>
@@ -62,20 +64,13 @@
         </Border>
     </Design.PreviewWith>
 
-    <converters:MarginMultiplierConverter x:Key="ComboBoxDropDownButtonMarginMultiplier"
-                                          Bottom="True"
-                                          Indent="1"
-                                          Right="True"
-                                          Top="True" />
-
-    <converters:MarginMultiplierConverter x:Key="ComboBoxClearButtonMarginMultiplier"
+    <converters:MarginMultiplierConverter x:Key="ComboBoxButtonMarginMultiplier"
                                           Bottom="True"
                                           Indent="1"
                                           Right="True"
                                           Top="True" />
 
     <ControlTheme x:Key="SimpleComboBoxDropDownButtonTheme" TargetType="ToggleButton">
-        <Setter Property="Margin" Value="{Binding $parent[ComboBox].Padding, Converter={StaticResource ComboBoxDropDownButtonMarginMultiplier}}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Focusable" Value="False" />
         <!-- <Setter Property="ClickMode" Value="Press" /> -->
@@ -88,8 +83,7 @@
                               Margin="{TemplateBinding Padding}"
                               HorizontalAlignment="Center"
                               VerticalAlignment="Center"
-                              Data="{DynamicResource ArrowDownData}"
-                              Foreground="{TemplateBinding Foreground}" />
+                              Data="{DynamicResource ArrowDownData}" />
                 </Panel>
             </ControlTemplate>
         </Setter>
@@ -182,7 +176,7 @@
                             <ActionButton Name="clearButton"
                                           Grid.Column="1"
                                           Margin="{TemplateBinding Padding,
-                                                                   Converter={StaticResource ComboBoxClearButtonMarginMultiplier}}"
+                                                                   Converter={StaticResource ComboBoxButtonMarginMultiplier}}"
                                           Command="{Binding $parent[ComboBox].Clear}"
                                           Focusable="False"
                                           Foreground="{TemplateBinding Foreground}"
@@ -190,6 +184,8 @@
                                           Theme="{DynamicResource SimpleTextBoxClearButtonTheme}" />
 
                             <ToggleButton Grid.Column="2"
+                                          Margin="{TemplateBinding Padding,
+                                                                   Converter={StaticResource ComboBoxButtonMarginMultiplier}}"
                                           Foreground="{TemplateBinding Foreground}"
                                           IsChecked="{TemplateBinding IsDropDownOpen,
                                                                       Mode=TwoWay}"

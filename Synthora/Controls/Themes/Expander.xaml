@@ -9,7 +9,9 @@
             <StackPanel Width="350"
                         Orientation="Vertical"
                         Spacing="20">
-                <Expander CornerRadius="6" ExpandDirection="Up">
+                <Expander CornerRadius="6"
+                          ExpandDirection="Up"
+                          Foreground="OrangeRed">
                     <Expander.Header>
                         <Grid ColumnDefinitions="*, Auto">
                             <TextBlock Grid.Column="0" Text="Expand" />
@@ -79,7 +81,6 @@
                                   HorizontalAlignment="Center"
                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                   Data="{DynamicResource ArrowRightData}"
-                                  Foreground="{TemplateBinding Foreground}"
                                   IsHitTestVisible="False">
                             <PathIcon.Transitions>
                                 <Transitions>
@@ -151,11 +152,11 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <ShadowChrome Name="RootChrome"
-                                  Background="{TemplateBinding Background}"
-                                  BorderBrush="{TemplateBinding BorderBrush}"
-                                  BorderThickness="{TemplateBinding BorderThickness}"
-                                  BoxShadow="{TemplateBinding BoxShadowAttach.BoxShadow}"
-                                  CornerRadius="{TemplateBinding CornerRadius}">
+                              Background="{TemplateBinding Background}"
+                              BorderBrush="{TemplateBinding BorderBrush}"
+                              BorderThickness="{TemplateBinding BorderThickness}"
+                              BoxShadow="{TemplateBinding BoxShadowAttach.BoxShadow}"
+                              CornerRadius="{TemplateBinding CornerRadius}">
                     <DockPanel Name="PART_DockPanel">
                         <ToggleButton Name="PART_toggle"
                                       HorizontalAlignment="{TemplateBinding HorizontalAlignment}"

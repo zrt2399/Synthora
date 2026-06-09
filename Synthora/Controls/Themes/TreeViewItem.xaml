@@ -21,8 +21,7 @@
                               Margin="{TemplateBinding Padding}"
                               HorizontalAlignment="Center"
                               VerticalAlignment="Center"
-                              Data="{DynamicResource ArrowRightData}"
-                              Foreground="{TemplateBinding Foreground}" />
+                              Data="{DynamicResource ArrowRightData}" />
                 </Panel>
             </ControlTemplate>
         </Setter>
@@ -76,6 +75,7 @@
                                                                    Converter={StaticResource TreeViewItemExpanderButtonMarginMultiplier}}"
                                           HorizontalAlignment="Right"
                                           Focusable="False"
+                                          Foreground="{TemplateBinding Foreground}"
                                           IsChecked="{TemplateBinding IsExpanded,
                                                                       Mode=TwoWay}"
                                           Theme="{StaticResource SimpleExpanderButtonTheme}" />

@@ -62,7 +62,7 @@
         M17,16 h-10 a0.5,0.5 0 0 1 -0.41,-0.78 l5.06,-7.6 a0.5,0.5 0 0 1 0.83,0 l5.07,7.6 a0.5,0.5 0 0 1 -0.42,0.78 Z
     </StreamGeometry>
 
-    <ControlTheme x:Key="InnerPathIcon" TargetType="PathIcon">
+    <ControlTheme x:Key="ScrollBarRepeatButtonPathIconTheme" TargetType="PathIcon">
         <Setter Property="Width" Value="20" />
         <Setter Property="Height" Value="20" />
         <Setter Property="Background" Value="Transparent" />
@@ -120,7 +120,7 @@
                                           Height="10"
                                           AutomationProperties.Name="Line up"
                                           Theme="{StaticResource ScrollBarRepeatButtonTheme}">
-                                <PathIcon Data="{DynamicResource ScrollBarUpGlyph}" Theme="{StaticResource InnerPathIcon}" />
+                                <PathIcon Data="{DynamicResource ScrollBarUpGlyph}" Theme="{StaticResource ScrollBarRepeatButtonPathIconTheme}" />
                             </RepeatButton>
                             <Track Grid.Row="1"
                                    DeferThumbDrag="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
@@ -151,7 +151,7 @@
                                           Height="10"
                                           AutomationProperties.Name="Line down"
                                           Theme="{StaticResource ScrollBarRepeatButtonTheme}">
-                                <PathIcon Data="{DynamicResource ScrollBarDownGlyph}" Theme="{StaticResource InnerPathIcon}" />
+                                <PathIcon Data="{DynamicResource ScrollBarDownGlyph}" Theme="{StaticResource ScrollBarRepeatButtonPathIconTheme}" />
                             </RepeatButton>
                         </Grid>
                     </Border>
@@ -171,7 +171,7 @@
                                           Width="10"
                                           AutomationProperties.Name="Column left"
                                           Theme="{StaticResource ScrollBarRepeatButtonTheme}">
-                                <PathIcon Data="{DynamicResource ScrollBarLeftGlyph}" Theme="{StaticResource InnerPathIcon}" />
+                                <PathIcon Data="{DynamicResource ScrollBarLeftGlyph}" Theme="{StaticResource ScrollBarRepeatButtonPathIconTheme}" />
                             </RepeatButton>
                             <Track Grid.Column="1"
                                    DeferThumbDrag="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
@@ -201,7 +201,7 @@
                                           Width="10"
                                           AutomationProperties.Name="Column right"
                                           Theme="{DynamicResource ScrollBarRepeatButtonTheme}">
-                                <PathIcon Data="{DynamicResource ScrollBarRightGlyph}" Theme="{StaticResource InnerPathIcon}" />
+                                <PathIcon Data="{DynamicResource ScrollBarRightGlyph}" Theme="{StaticResource ScrollBarRepeatButtonPathIconTheme}" />
                             </RepeatButton>
                         </Grid>
                     </Border>
@@ -255,6 +255,10 @@
                 <Setter Property="Margin" Value="1" />
                 <Setter Property="VerticalAlignment" Value="Bottom" />
             </Style>
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

@@ -33,10 +33,6 @@
     <x:Double x:Key="CommandBarButtonLabelBottomWidth">60</x:Double>
     <x:Double x:Key="CommandBarButtonMaxWidth">100</x:Double>
 
-    <StreamGeometry x:Key="EllipsisData">
-        M2.5,7 A1.5,1.5 0 0,0 1,8.5 A1.5,1.5 0 0,0 2.5,10 A1.5,1.5 0 0,0 4,8.5 A1.5,1.5 0 0,0 2.5,7 M8.5,7 A1.5,1.5 0 0,0 7,8.5 A1.5,1.5 0 0,0 8.5,10 A1.5,1.5 0 0,0 10,8.5 A1.5,1.5 0 0,0 8.5,7 M14.5,7 A1.5,1.5 0 0,0 13,8.5 A1.5,1.5 0 0,0 14.5,10 A1.5,1.5 0 0,0 16,8.5 A1.5,1.5 0 0,0 14.5,7 Z
-    </StreamGeometry>
-
     <converters:MarginMultiplierConverter x:Key="CommandBarOverflowButtonMarginMultiplier"
                                           Indent="1"
                                           Left="True" />
@@ -77,8 +73,7 @@
                                 <DataTemplate DataType="Geometry">
                                     <PathIcon HorizontalAlignment="Center"
                                               VerticalAlignment="Center"
-                                              Data="{Binding}"
-                                              Foreground="{Binding $parent[Button].Foreground}" />
+                                              Data="{Binding}" />
                                 </DataTemplate>
                             </ContentPresenter.DataTemplates>
                         </ContentPresenter>
@@ -123,8 +118,7 @@
                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                       Content="{TemplateBinding Content}"
                                       ContentTemplate="{TemplateBinding ContentTemplate}"
-                                      RecognizesAccessKey="True"
-                                      TextElement.Foreground="{TemplateBinding Foreground}" />
+                                      RecognizesAccessKey="True" />
                 </Border>
             </ControlTemplate>
         </Setter>

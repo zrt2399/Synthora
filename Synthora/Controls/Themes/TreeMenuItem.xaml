@@ -55,7 +55,6 @@
                                       VerticalAlignment="Center"
                                       Data="{DynamicResource ArrowDownData}"
                                       DockPanel.Dock="Right"
-                                      Foreground="{TemplateBinding Foreground}"
                                       IsHitTestVisible="False" />
                             <ContentPresenter Name="PART_HeaderPresenter"
                                               Padding="{TemplateBinding Padding}"

@@ -50,8 +50,7 @@
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Content="{TemplateBinding Content}"
                                           ContentTemplate="{TemplateBinding ContentTemplate}"
-                                          IsEnabled="{TemplateBinding IsContentEnabled}"
-                                          TextElement.Foreground="{TemplateBinding Foreground}" />
+                                          IsEnabled="{TemplateBinding IsContentEnabled}" />
                     </DockPanel>
                 </Border>
             </ControlTemplate>

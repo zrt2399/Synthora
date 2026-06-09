@@ -138,7 +138,6 @@
                                   HorizontalAlignment="Left"
                                   VerticalAlignment="Center"
                                   Data="{DynamicResource ArrowUpData}"
-                                  Foreground="{TemplateBinding Foreground}"
                                   IsVisible="False" />
                     </Grid>
                 </Border>
@@ -337,11 +336,11 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <ShadowChrome Name="RootChrome"
-                                  Background="{TemplateBinding Background}"
-                                  BorderBrush="{TemplateBinding BorderBrush}"
-                                  BorderThickness="{TemplateBinding BorderThickness}"
-                                  BoxShadow="{TemplateBinding BoxShadowAttach.BoxShadow}"
-                                  CornerRadius="{TemplateBinding CornerRadius}">
+                              Background="{TemplateBinding Background}"
+                              BorderBrush="{TemplateBinding BorderBrush}"
+                              BorderThickness="{TemplateBinding BorderThickness}"
+                              BoxShadow="{TemplateBinding BoxShadowAttach.BoxShadow}"
+                              CornerRadius="{TemplateBinding CornerRadius}">
                     <Grid Margin="{TemplateBinding Padding}"
                           ColumnDefinitions="Auto,*,Auto"
                           RowDefinitions="Auto,*,Auto">
