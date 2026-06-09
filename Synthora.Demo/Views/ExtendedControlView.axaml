@@ -37,8 +37,8 @@
                         <ShadowChrome>
                             <TextBlock Margin="8">ShadowChrome standalone</TextBlock>
                         </ShadowChrome>
-                        <ShadowChrome Classes="ShowShadowOnPointerOver">
-                            <TextBlock Margin="8">ShadowChrome with class ShowShadowOnPointerOver</TextBlock>
+                        <ShadowChrome ShowShadowOnInteraction="True">
+                            <TextBlock Margin="8">ShadowChrome with  ShowShadowOnPointerOver</TextBlock>
                         </ShadowChrome>
                         <StackPanel Orientation="Horizontal" Spacing="16">
                             <GroupBoxEx Width="120" Header="GroupBoxEx">
@@ -105,4 +105,4 @@
             </StackPanel>
         </ScrollViewer>
     </DemoPage>
-</UserControl> 
+</UserControl>
