@@ -26,12 +26,12 @@
                           TextBoxAttach.HeaderPlacement="Left" />
                 <ComboBox Name="horizontalHeaderAlignment"
                           ItemsSource="{EnumBindingSource HorizontalAlignment}"
-                          SelectedItem="{x:Static HorizontalAlignment.Center}"
+                          SelectedItem="{x:Static HorizontalAlignment.Left}"
                           TextBoxAttach.Header="HorizontalHeaderAlignment: "
                           TextBoxAttach.HeaderPlacement="Left" />
                 <ComboBox Name="verticalHeaderAlignment"
                           ItemsSource="{EnumBindingSource VerticalAlignment}"
-                          SelectedItem="{x:Static VerticalAlignment.Center}"
+                          SelectedItem="{x:Static VerticalAlignment.Top}"
                           TextBoxAttach.Header="VerticalHeaderAlignment: "
                           TextBoxAttach.HeaderPlacement="Left" />
             </WrapPanel>
@@ -41,7 +41,7 @@
                             TabControlAttach.VerticalHeaderAlignment="{Binding #verticalHeaderAlignment.SelectedItem}"
                             TabStripPlacement="{Binding #tabStripPlacement.SelectedItem}">
                     <TabItem Header="Tab 1">
-                        <SelectableTextBlock>Content 1</SelectableTextBlock>
+                        <SelectableTextBlock>DefaultTheme</SelectableTextBlock>
                     </TabItem>
                     <TabItem Header="Tab 2" IsEnabled="False">
                         <SelectableTextBlock>Content 2</SelectableTextBlock>
@@ -59,7 +59,24 @@
                             TabStripPlacement="{Binding #tabStripPlacement.SelectedItem}"
                             Theme="{StaticResource SegmentedTabControlTheme}">
                     <TabItem Header="Tab 1">
-                        <SelectableTextBlock>Content 1</SelectableTextBlock>
+                        <SelectableTextBlock>SegmentedTabControlTheme</SelectableTextBlock>
+                    </TabItem>
+                    <TabItem Header="Tab 2" IsEnabled="False">
+                        <SelectableTextBlock>Content 2</SelectableTextBlock>
+                    </TabItem>
+                    <TabItem Header="Tab 3">
+                        <SelectableTextBlock>Content 3</SelectableTextBlock>
+                    </TabItem>
+                    <TabItem Header="Tab 4">
+                        <SelectableTextBlock>Content 4</SelectableTextBlock>
+                    </TabItem>
+                </TabControl>
+                <TabControl Classes="Uniform"
+                            TabControlAttach.ShowHeaderSeparator="{Binding #showHeaderSeparator.IsChecked}"
+                            TabStripPlacement="{Binding #tabStripPlacement.SelectedItem}"
+                            Theme="{StaticResource SegmentedTabControlTheme}">
+                    <TabItem Header="Tab 1">
+                        <SelectableTextBlock>SegmentedTabControlTheme with Classes Uniform</SelectableTextBlock>
                     </TabItem>
                     <TabItem Header="Tab 2" IsEnabled="False">
                         <SelectableTextBlock>Content 2</SelectableTextBlock>
@@ -77,7 +94,7 @@
                             TabStripPlacement="{Binding #tabStripPlacement.SelectedItem}"
                             Theme="{StaticResource CardTabControlTheme}">
                     <TabItem Header="Tab 1">
-                        <SelectableTextBlock>Content 1</SelectableTextBlock>
+                        <SelectableTextBlock>CardTabControlTheme</SelectableTextBlock>
                     </TabItem>
                     <TabItem Header="Tab 2" IsEnabled="False">
                         <SelectableTextBlock>Content 2</SelectableTextBlock>

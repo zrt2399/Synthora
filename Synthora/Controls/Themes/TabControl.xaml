@@ -143,6 +143,26 @@
         <Style Selector="^[(TabControlAttach.ShowHeaderSeparator)=False] /template/ Border#contentBorder">
             <Setter Property="BorderThickness" Value="0" />
         </Style>
+
+        <Style Selector="^.Uniform">
+            <Setter Property="ItemsPanel">
+                <ItemsPanelTemplate>
+                    <UniformGrid ColumnSpacing="{DynamicResource ThemeControlBorderPaddingDouble}" RowSpacing="{DynamicResource ThemeControlBorderPaddingDouble}" />
+                </ItemsPanelTemplate>
+            </Setter>
+            <Style Selector="^[TabStripPlacement=Top], ^[TabStripPlacement=Bottom]">
+                <Setter Property="TabControlAttach.HorizontalHeaderAlignment" Value="Stretch" />
+                <Style Selector="^ /template/ ItemsPresenter#PART_ItemsPresenter &gt; UniformGrid">
+                    <Setter Property="Rows" Value="1" />
+                </Style>
+            </Style>
+            <Style Selector="^[TabStripPlacement=Left], ^[TabStripPlacement=Right]">
+                <Setter Property="TabControlAttach.VerticalHeaderAlignment" Value="Stretch" />
+                <Style Selector="^ /template/ ItemsPresenter#PART_ItemsPresenter &gt; UniformGrid">
+                    <Setter Property="Columns" Value="1" />
+                </Style>
+            </Style>
+        </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="CardTabControlTheme" TargetType="TabControl">
