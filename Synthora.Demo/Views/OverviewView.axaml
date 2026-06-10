@@ -388,7 +388,9 @@
                                 <ListBoxItem>Windows</ListBoxItem>
                                 <ListBoxItem>Linux</ListBoxItem>
                             </ListBox>
-                            <ListBox AutoScrollToSelectedItem="False" Theme="{DynamicResource PrimarySegmentedListBoxTheme}">
+                            <ListBox AutoScrollToSelectedItem="False"
+                                     Classes="Primary Uniform"
+                                     Theme="{DynamicResource SegmentedListBoxTheme}">
                                 <ListBoxItem IsSelected="True">Ant Design</ListBoxItem>
                                 <ListBoxItem>Fluent Design</ListBoxItem>
                                 <ListBoxItem>Material Design</ListBoxItem>

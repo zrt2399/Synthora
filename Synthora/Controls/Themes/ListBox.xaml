@@ -7,7 +7,6 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
-        <!--<Setter Property="Padding" Value="4" />-->
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
@@ -15,11 +14,11 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <ShadowChrome Name="RootChrome"
-                                  Background="{TemplateBinding Background}"
-                                  BorderBrush="{TemplateBinding BorderBrush}"
-                                  BorderThickness="{TemplateBinding BorderThickness}"
-                                  BoxShadow="{TemplateBinding BoxShadowAttach.BoxShadow}"
-                                  CornerRadius="{TemplateBinding CornerRadius}">
+                              Background="{TemplateBinding Background}"
+                              BorderBrush="{TemplateBinding BorderBrush}"
+                              BorderThickness="{TemplateBinding BorderThickness}"
+                              BoxShadow="{TemplateBinding BoxShadowAttach.BoxShadow}"
+                              CornerRadius="{TemplateBinding CornerRadius}">
                     <ScrollViewer Name="PART_ScrollViewer"
                                   AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
                                   BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
@@ -43,12 +42,12 @@
 
     <ControlTheme x:Key="SegmentedListBoxTheme" TargetType="ListBox">
         <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeControlMidBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusLarge}" />
         <Setter Property="Padding" Value="{DynamicResource ThemeControlBorderPadding}" />
-        <!-- <Setter Property="MinHeight" Value="56" /> -->
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled" />
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="False" />
@@ -65,11 +64,11 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <ShadowChrome Name="RootChrome"
-                                  Background="{TemplateBinding Background}"
-                                  BorderBrush="{TemplateBinding BorderBrush}"
-                                  BorderThickness="{TemplateBinding BorderThickness}"
-                                  BoxShadow="{TemplateBinding BoxShadowAttach.BoxShadow}"
-                                  CornerRadius="{TemplateBinding CornerRadius}">
+                              Background="{TemplateBinding Background}"
+                              BorderBrush="{TemplateBinding BorderBrush}"
+                              BorderThickness="{TemplateBinding BorderThickness}"
+                              BoxShadow="{TemplateBinding BoxShadowAttach.BoxShadow}"
+                              CornerRadius="{TemplateBinding CornerRadius}">
                     <ScrollViewer Name="PART_ScrollViewer"
                                   AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
                                   Background="Transparent"
@@ -87,17 +86,53 @@
                 </ShadowChrome>
             </ControlTemplate>
         </Setter>
+
+        <Style Selector="^.Uniform">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="ItemsPanel">
+                <ItemsPanelTemplate>
+                    <UniformGrid ColumnSpacing="{DynamicResource ThemeControlBorderPaddingDouble}"
+                                 RowSpacing="{DynamicResource ThemeControlBorderPaddingDouble}"
+                                 Rows="1" />
+                </ItemsPanelTemplate>
+            </Setter>
+        </Style>
+        <Style Selector="^.Primary">
+            <Setter Property="ItemContainerTheme">
+                <ControlTheme BasedOn="{StaticResource SegmentedListBoxItemTheme}" TargetType="ListBoxItem">
+                    <Style Selector="^:selected">
+                        <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+                        <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+                    </Style>
+                    <Style Selector="^:pointerover">
+                        <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+                        <Setter Property="Background" Value="{DynamicResource PrimaryPointerOverBrush}" />
+                    </Style>
+                    <Style Selector="^:pressed">
+                        <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+                        <Setter Property="Background" Value="{DynamicResource PrimaryPressedBrush}" />
+                    </Style>
+                </ControlTheme>
+            </Setter>
+        </Style>
+        <Style Selector="^.Secondary">
+            <Setter Property="ItemContainerTheme">
+                <ControlTheme BasedOn="{StaticResource SegmentedListBoxItemTheme}" TargetType="ListBoxItem">
+                    <Style Selector="^:selected">
+                        <Setter Property="Background" Value="{DynamicResource MenuItemPointerOverColor}" />
+                    </Style>
+                    <Style Selector="^:selected:pointerover">
+                        <Setter Property="Background" Value="{DynamicResource MenuItemSelectedPointerOverColor}" />
+                    </Style>
+                    <Style Selector="^:not(:selected):pointerover">
+                        <Setter Property="Background" Value="{DynamicResource MenuItemPointerOverColor}" />
+                    </Style>
+                    <Style Selector="^:pressed">
+                        <Setter Property="Background" Value="{DynamicResource MenuItemPressedColor}" />
+                    </Style>
+                </ControlTheme>
+            </Setter>
+        </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="PrimarySegmentedListBoxTheme"
-                  BasedOn="{StaticResource SegmentedListBoxTheme}"
-                  TargetType="ListBox">
-        <Setter Property="ItemContainerTheme" Value="{DynamicResource PrimarySegmentedListBoxItemTheme}" />
-    </ControlTheme>
-
-    <ControlTheme x:Key="SecondarySegmentedListBoxTheme"
-                  BasedOn="{StaticResource SegmentedListBoxTheme}"
-                  TargetType="ListBox">
-        <Setter Property="ItemContainerTheme" Value="{DynamicResource SecondarySegmentedListBoxItemTheme}" />
-    </ControlTheme>
 </ResourceDictionary>
