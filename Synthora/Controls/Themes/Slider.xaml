@@ -131,7 +131,7 @@
         <Style Selector="^:horizontal">
             <Setter Property="Template">
                 <ControlTemplate>
-                    <DataValidationErrors ClipToBounds="{TemplateBinding ClipToBounds}">
+                    <DataValidationErrors VerticalAlignment="Center" ClipToBounds="{TemplateBinding ClipToBounds}">
                         <Grid Margin="{TemplateBinding Padding}" RowDefinitions="Auto,Auto,Auto">
                             <TickBar x:Name="TopTickBar"
                                      Height="4"
@@ -193,7 +193,7 @@
         <Style Selector="^:vertical">
             <Setter Property="Template">
                 <ControlTemplate>
-                    <DataValidationErrors ClipToBounds="{TemplateBinding ClipToBounds}">
+                    <DataValidationErrors HorizontalAlignment="Center" ClipToBounds="{TemplateBinding ClipToBounds}">
                         <Grid Margin="{TemplateBinding Padding}" ColumnDefinitions="Auto,Auto,Auto">
                             <TickBar x:Name="LeftTickBar"
                                      Width="4"
