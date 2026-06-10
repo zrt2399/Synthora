@@ -105,6 +105,35 @@
                         </StackPanel>
                     </StackPanel>
                 </Border>
+
+                <!--  Banner  -->
+                <Border Classes="card">
+                    <StackPanel Spacing="16">
+                        <StackPanel Classes="sectionHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="AlertCircleOutline" />
+                            <TextBlock Classes="sectionLabel" Text="BANNER" />
+                        </StackPanel>
+                        <StackPanel Spacing="16">
+                            <Banner Content="This is a custom banner with error icon." IconType="Error" />
+
+                            <Banner Content="Operation completed successfully! Data has been saved." IconType="Success" />
+
+                            <Banner Content="Note: This operation may take a long time to complete." IconType="Warning" />
+
+                            <Banner Content="System information has been updated to the latest version." IconType="Information" />
+
+                            <Banner BorderThickness="1"
+                                    Content="This is a bordered custom banner."
+                                    IconType="Information" />
+
+                            <Banner Content="This is a custom banner without close button."
+                                    IconType="Information"
+                                    ShowCloseButton="False" />
+
+                            <Banner Content="This is a custom banner without icon." />
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
             </StackPanel>
         </ScrollViewer>
     </DemoPage>

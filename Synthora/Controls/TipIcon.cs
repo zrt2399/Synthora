@@ -2,10 +2,22 @@
 using Avalonia.Controls.Primitives;
 using Avalonia.Media;
 using Avalonia.Media.Immutable;
-using Synthora.Overlays;
 
 namespace Synthora.Controls
 {
+    /// <summary>
+    /// Defines the type of icon to display in a message or dialog.
+    /// </summary>
+    public enum IconType
+    {
+        None,
+        Information,
+        Question,
+        Success,
+        Warning,
+        Error
+    }
+
     /// <summary>
     /// A base control for displaying an icon based on the specified <see cref="IconType"/>.
     /// </summary>

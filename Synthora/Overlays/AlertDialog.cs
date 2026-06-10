@@ -37,19 +37,6 @@ namespace Synthora.Overlays
     }
 
     /// <summary>
-    /// Defines the type of icon to display in a message or dialog.
-    /// </summary>
-    public enum IconType
-    {
-        None,
-        Information,
-        Question,
-        Success,
-        Warning,
-        Error
-    }
-
-    /// <summary>
     /// Provides the options used to configure and display an alert dialog.
     /// </summary>
     public class AlertDialogOptions

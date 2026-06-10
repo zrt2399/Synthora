@@ -20,7 +20,12 @@ namespace Synthora.Overlays
         private const int DefaultDelay = 2000;
         private static readonly IImmutableSolidColorBrush NoneBorderBrush = new ImmutableSolidColorBrush(Color.FromArgb(64, 0, 0, 0));
         private static readonly IImmutableSolidColorBrush NoneBackground = new ImmutableSolidColorBrush(Color.FromRgb(245, 245, 245));
-  
+        private static readonly IImmutableSolidColorBrush InformationBackground = new ImmutableSolidColorBrush(Color.FromRgb(243, 247, 255));
+        private static readonly IImmutableSolidColorBrush QuestionBackground = new ImmutableSolidColorBrush(Color.FromRgb(244, 248, 255));
+        private static readonly IImmutableSolidColorBrush SuccessBackground = new ImmutableSolidColorBrush(Color.FromRgb(247, 251, 239));
+        private static readonly IImmutableSolidColorBrush WarningBackground = new ImmutableSolidColorBrush(Color.FromRgb(254, 248, 236));
+        private static readonly IImmutableSolidColorBrush ErrorBackground = new ImmutableSolidColorBrush(Color.FromRgb(255, 243, 242));
+
         /// <summary>
         /// Display duration in milliseconds for all message tips.
         /// When set to a value greater than 0, this will override the default <see cref="DefaultDelay"/>.
@@ -154,14 +159,15 @@ namespace Synthora.Overlays
                     border.CornerRadius = cornerRadius;
                 }
 
-                if (iconType == IconType.None)
+                border.Background = iconType switch
                 {
-                    border.Background = NoneBackground;
-                }
-                else
-                {
-                    border.Background = application.TryGetResource($"{iconType}BackgroundBrush", application.ActualThemeVariant, out var background) && background is IBrush brush ? brush : NoneBackground;
-                }
+                    IconType.Information => InformationBackground,
+                    IconType.Question => QuestionBackground,
+                    IconType.Success => SuccessBackground,
+                    IconType.Warning => WarningBackground,
+                    IconType.Error => ErrorBackground,
+                    _ => NoneBackground
+                };
 
                 border.Child = grid;
                 border.Margin = new Thickness(4);

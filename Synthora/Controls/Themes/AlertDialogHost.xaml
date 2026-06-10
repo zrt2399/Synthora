@@ -130,7 +130,7 @@
                                                              VerticalAlignment="Top"
                                                              DockPanel.Dock="Left"
                                                              IconType="{Binding IconType}"
-                                                             IsVisible="{Binding IconType, Converter={x:Static ObjectConverters.NotEqual}, ConverterParameter={x:Static overlays:IconType.None}}" />
+                                                             IsVisible="{Binding IconType, Converter={x:Static ObjectConverters.NotEqual}, ConverterParameter={x:Static IconType.None}}" />
 
                                                     <TextBox Name="message"
                                                              Margin="10"

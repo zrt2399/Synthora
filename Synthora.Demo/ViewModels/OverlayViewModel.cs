@@ -5,6 +5,7 @@ using Avalonia.Layout;
 using Avalonia.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Material.Icons;
+using Synthora.Controls;
 using Synthora.Demo.Models;
 using Synthora.Overlays;
 

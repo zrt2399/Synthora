@@ -1,4 +1,4 @@
-﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     x:ClassModifier="internal">
 
@@ -19,8 +19,8 @@
             <Color x:Key="ThemeForegroundColor">#FF25292E</Color>
             <Color x:Key="ThemeBackgroundColor">#FFFFFFFF</Color>
 
-            <Color x:Key="ThemeBorderLowColor">#FFDCDCDC</Color>
-            <Color x:Key="ThemeBorderMidColor">#FFBEBEBE</Color>
+            <Color x:Key="ThemeBorderLowColor">#FFDFDFDF</Color>
+            <Color x:Key="ThemeBorderMidColor">#FFBDBEBF</Color>
             <Color x:Key="ThemeBorderHighColor">#FFAAAAAA</Color>
 
             <Color x:Key="ThemeControlLowColor">#FFF5F5F5</Color>
@@ -90,7 +90,10 @@
             <SolidColorBrush x:Key="RefreshVisualizerBackground" Color="Transparent" />
             <SolidColorBrush x:Key="TextSelectionBrush" Color="{StaticResource ThemeAccentColor3}" />
 
-            <SolidColorBrush x:Key="ErrorTipBackgroundBrush" Color="#FFFFF3F2" />
+            <SolidColorBrush x:Key="InformationTipBackgroundBrush" Color="#FFEAF5FF" />
+            <SolidColorBrush x:Key="SuccessTipBackgroundBrush" Color="#FFECF7EC" />
+            <SolidColorBrush x:Key="WarningTipBackgroundBrush" Color="#FFFFF8EA" />
+            <SolidColorBrush x:Key="ErrorTipBackgroundBrush" Color="#FFFEF2ED" />
 
             <!--  BaseResources for WindowDrawnDecorations  -->
             <SolidColorBrush x:Key="CaptionButtonForeground" Color="{StaticResource ThemeForegroundColor}" />
@@ -140,8 +143,8 @@
             <Color x:Key="ThemeForegroundColor">#FFDEDEDE</Color>
             <Color x:Key="ThemeBackgroundColor">#FF202020</Color>
 
-            <Color x:Key="ThemeBorderLowColor">#FF404040</Color>
-            <Color x:Key="ThemeBorderMidColor">#FF5E5E5E</Color>
+            <Color x:Key="ThemeBorderLowColor">#FF3D3D3D</Color>
+            <Color x:Key="ThemeBorderMidColor">#FF5D5E5F</Color>
             <Color x:Key="ThemeBorderHighColor">#FF727272</Color>
 
             <Color x:Key="ThemeControlLowColor">#FF282828</Color>
@@ -211,7 +214,10 @@
             <SolidColorBrush x:Key="RefreshVisualizerBackground" Color="Transparent" />
             <SolidColorBrush x:Key="TextSelectionBrush" Color="{StaticResource ThemeAccentColor2}" />
 
-            <SolidColorBrush x:Key="ErrorTipBackgroundBrush" Color="#FF3A1F1F" />
+            <SolidColorBrush x:Key="InformationTipBackgroundBrush" Color="#FF2D425B" />
+            <SolidColorBrush x:Key="SuccessTipBackgroundBrush" Color="#FF304936" />
+            <SolidColorBrush x:Key="WarningTipBackgroundBrush" Color="#FF57432E" />
+            <SolidColorBrush x:Key="ErrorTipBackgroundBrush" Color="#FF563634" />
 
             <!--  BaseResources for WindowDrawnDecorations  -->
             <SolidColorBrush x:Key="CaptionButtonForeground" Color="{StaticResource ThemeForegroundColor}" />
@@ -299,12 +305,6 @@
     <SolidColorBrush x:Key="DangerPointerOverBrush" Color="{StaticResource DangerPointerOverColor}" />
     <SolidColorBrush x:Key="DangerPressedBrush" Color="{StaticResource DangerPressedColor}" />
 
-    <SolidColorBrush x:Key="InformationBackgroundBrush" Color="#FFF3F7FF" />
-    <SolidColorBrush x:Key="QuestionBackgroundBrush" Color="#FFF4F8FF" />
-    <SolidColorBrush x:Key="SuccessBackgroundBrush" Color="#FFF7FBEF" />
-    <SolidColorBrush x:Key="WarningBackgroundBrush" Color="#FFFEF8EC" />
-    <SolidColorBrush x:Key="ErrorBackgroundBrush" Color="#FFFFF3F2" />
-
     <SolidColorBrush x:Key="DatePickerFlyoutPresenterHighlightFill"
                      Opacity="0.4"
                      Color="{StaticResource ThemeAccentColor}" />
@@ -315,6 +315,10 @@
     <Thickness x:Key="ThemeBorderThickness">1</Thickness>
 
     <Thickness x:Key="ThemeControlPaddingSmall">4</Thickness>
+
+    <CornerRadius x:Key="ThemeBorderCornerRadiusSmall">4</CornerRadius>
+    <CornerRadius x:Key="ThemeBorderCornerRadiusNormal">6</CornerRadius>
+    <CornerRadius x:Key="ThemeBorderCornerRadiusLarge">8</CornerRadius>
 
     <x:Double x:Key="ThemePlaceholderTextOpacity">0.6</x:Double>
     <x:Double x:Key="ThemeDisabledLowOpacity">0.8</x:Double>
