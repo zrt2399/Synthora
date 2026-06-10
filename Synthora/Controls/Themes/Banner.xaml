@@ -1,0 +1,100 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
+                    x:CompileBindings="True">
+
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <StackPanel Spacing="20">
+                <Banner Content="A banner without icon type." />
+                <Banner Content="Pull operation failed. Check the Output window for details." IconType="Error" />
+                <Banner Content="Operation completed successfully!" IconType="Success" />
+                <Banner Content="Note: This operation may take a long time." IconType="Warning" />
+                <Banner Content="System information has been updated." IconType="Information" />
+            </StackPanel>
+        </Border>
+    </Design.PreviewWith>
+
+    <ControlTheme x:Key="{x:Type Banner}" TargetType="Banner">
+        <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border x:Name="RootBorder"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        BoxShadow="{TemplateBinding (BoxShadowAttach.BoxShadow)}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <DockPanel>
+                        <!--  Close Button  -->
+                        <Button Width="20"
+                                Height="20"
+                                Margin="0,8,8,8"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Command="{Binding $parent[Banner].Close}"
+                                DockPanel.Dock="Right"
+                                IsVisible="{TemplateBinding ShowCloseButton}"
+                                Theme="{DynamicResource IconButtonTheme}">
+                            <PathIcon Width="12"
+                                      Height="12"
+                                      Data="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12Z" />
+                        </Button>
+
+                        <!--  Icon  -->
+                        <TipIcon x:Name="icon"
+                                 Width="20"
+                                 Height="20"
+                                 Margin="8,8,0,8"
+                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                 DockPanel.Dock="Left"
+                                 IconType="{TemplateBinding IconType}" />
+
+                        <!--  Content  -->
+                        <ContentPresenter Name="PART_ContentPresenter"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding Content}"
+                                          TextWrapping="Wrap" />
+                    </DockPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:none">
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
+            <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
+            <Style Selector="^ /template/ TipIcon#icon">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:information">
+            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource InformationTipBackgroundBrush}" />
+        </Style>
+
+        <Style Selector="^:success">
+            <Setter Property="BorderBrush" Value="{DynamicResource SuccessBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SuccessTipBackgroundBrush}" />
+        </Style>
+
+        <Style Selector="^:warning">
+            <Setter Property="BorderBrush" Value="{DynamicResource WarningBrush}" />
+            <Setter Property="Background" Value="{DynamicResource WarningTipBackgroundBrush}" />
+        </Style>
+
+        <Style Selector="^:error">
+            <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
+            <Setter Property="Background" Value="{DynamicResource ErrorTipBackgroundBrush}" />
+        </Style>
+
+        <Style Selector="^[IsClosed=True]">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+    </ControlTheme>
+
+</ResourceDictionary>
