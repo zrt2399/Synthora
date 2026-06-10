@@ -19,7 +19,7 @@
     <Thickness x:Key="ThemeControlBottomPadding">0,0,0,6</Thickness>
 
     <x:Double x:Key="MenuItemMinWidth">150</x:Double>
-    <Thickness x:Key="MenuItemHorizontalSeparatorMargin">0,6</Thickness>
+    <Thickness x:Key="MenuItemHorizontalSeparatorMargin">0,4</Thickness>
 
     <x:Double x:Key="DateTimePickerFlyoutPresenterItemHeight">36</x:Double>
 

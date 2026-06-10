@@ -1,6 +1,9 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     x:ClassModifier="internal">
+
+    <x:String x:Key="StringCloseText">Close</x:String>
+
     <!--  DatePicker  -->
     <x:String x:Key="StringDatePickerDayText">day</x:String>
     <x:String x:Key="StringDatePickerMonthText">month</x:String>

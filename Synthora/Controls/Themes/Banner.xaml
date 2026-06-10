@@ -33,11 +33,12 @@
                         <Button Width="20"
                                 Height="20"
                                 Margin="0,8,8,8"
-                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                VerticalAlignment="Top"
                                 Command="{Binding $parent[Banner].Close}"
                                 DockPanel.Dock="Right"
                                 IsVisible="{TemplateBinding ShowCloseButton}"
-                                Theme="{DynamicResource IconButtonTheme}">
+                                Theme="{DynamicResource IconButtonTheme}"
+                                ToolTip.Tip="{DynamicResource StringCloseText}">
                             <PathIcon Width="12"
                                       Height="12"
                                       Data="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12Z" />
@@ -48,7 +49,7 @@
                                  Width="20"
                                  Height="20"
                                  Margin="8,8,0,8"
-                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                 VerticalAlignment="Top"
                                  DockPanel.Dock="Left"
                                  IconType="{TemplateBinding IconType}" />
 

@@ -255,8 +255,8 @@
     <ControlTheme x:Key="{x:Type DataGridRowGroupHeader}" TargetType="DataGridRowGroupHeader">
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
         <Setter Property="BorderThickness" Value="0,0,0,1" />
-        <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
+        <Setter Property="Background" Value="{DynamicResource SynthoraLowBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
         <Setter Property="MinHeight" Value="{DynamicResource DataGridRowMinHeight}" />
         <Setter Property="Template">
             <ControlTemplate x:DataType="collections:DataGridCollectionViewGroup">
@@ -283,7 +283,7 @@
             </ControlTemplate>
         </Setter>
         <Style Selector="^:pointerover,^:focus-within">
-            <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SynthoraMidBrush}" />
         </Style>
     </ControlTheme>
 
@@ -322,15 +322,15 @@
         <Setter Property="CanUserReorderColumns" Value="True" />
         <Setter Property="CanUserResizeColumns" Value="True" />
         <Setter Property="CanUserSortColumns" Value="True" />
-        <Setter Property="HorizontalGridLinesBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
-        <Setter Property="VerticalGridLinesBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
+        <Setter Property="HorizontalGridLinesBrush" Value="{DynamicResource SynthoraBorderBrush}" />
+        <Setter Property="VerticalGridLinesBrush" Value="{DynamicResource SynthoraBorderBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="ScrollViewer.AllowAutoHide" Value="True" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="DropLocationIndicatorTemplate">
             <Template>
-                <Rectangle Width="2" Fill="{DynamicResource ThemeBorderLowBrush}" />
+                <Rectangle Width="2" Fill="{DynamicResource SynthoraBorderBrush}" />
             </Template>
         </Setter>
         <Setter Property="Template">
@@ -349,7 +349,7 @@
                         <DataGridColumnHeadersPresenter Name="PART_ColumnHeadersPresenter"
                                                         Grid.Column="1"
                                                         Grid.ColumnSpan="2"
-                                                        Background="{Binding #PART_TopLeftCornerHeader.Background}" />
+                                                        Background="{Binding #PART_TopRightCornerHeader.Background}" />
                         <Border Name="columnHeadersRowsSeparator"
                                 Grid.ColumnSpan="3"
                                 BorderBrush="{Binding $parent[DataGrid].HorizontalGridLinesBrush}"

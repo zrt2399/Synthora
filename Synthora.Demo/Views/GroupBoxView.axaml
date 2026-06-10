@@ -36,10 +36,14 @@
                         <GroupBoxEx Padding="0" Header="Top header">
                             <ScrollViewer>
                                 <StackPanel>
-                                    <Button Height="60" CornerRadius="0">Button</Button>
                                     <Button Height="60"
                                             CornerRadius="0"
-                                            Theme="{StaticResource SuccessButtonTheme}">
+                                            Theme="{DynamicResource PrimaryButtonTheme}">
+                                        Button
+                                    </Button>
+                                    <Button Height="60"
+                                            CornerRadius="0"
+                                            Theme="{DynamicResource SuccessButtonTheme}">
                                         Button
                                     </Button>
                                 </StackPanel>
@@ -48,7 +52,7 @@
                         <GroupBoxEx Padding="0"
                                     Header="Right header"
                                     HeaderPlacement="Right">
-                            <Button CornerRadius="0">Button</Button>
+                            <Button CornerRadius="0" Theme="{DynamicResource WarningButtonTheme}">Button</Button>
                         </GroupBoxEx>
                         <GroupBoxEx Padding="0"
                                     Classes.withoutShadow="{Binding #withoutShadow.IsChecked}"

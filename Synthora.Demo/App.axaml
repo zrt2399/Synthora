@@ -29,6 +29,7 @@
     </Application.Styles>
 
     <Application.Resources>
+        <x:String x:Key="StringCloseText">关闭</x:String>
         <x:String x:Key="StringTextFlyoutCutText">剪切</x:String>
         <x:String x:Key="StringTextFlyoutCopyText">复制</x:String>
         <x:String x:Key="StringTextFlyoutPasteText">粘贴</x:String>

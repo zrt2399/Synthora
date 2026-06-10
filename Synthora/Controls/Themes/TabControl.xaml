@@ -89,7 +89,7 @@
                                 Padding="{DynamicResource ThemeControlBorderPadding}"
                                 HorizontalAlignment="{TemplateBinding TabControlAttach.HorizontalHeaderAlignment}"
                                 VerticalAlignment="{TemplateBinding TabControlAttach.VerticalHeaderAlignment}"
-                                Background="{DynamicResource ThemeControlMidBrush}"
+                                Background="{DynamicResource SynthoraMidBrush}"
                                 CornerRadius="{DynamicResource ThemeBorderCornerRadiusLarge}"
                                 DockPanel.Dock="{TemplateBinding TabStripPlacement}">
                             <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
