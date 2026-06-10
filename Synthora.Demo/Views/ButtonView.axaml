@@ -49,8 +49,8 @@
                             <Button Theme="{StaticResource WarningButtonTheme}">Warning</Button>
                             <Button Theme="{StaticResource DangerButtonTheme}">Danger</Button>
                             <Button Theme="{StaticResource ErrorButtonTheme}">Error</Button>
+                            <Button Theme="{StaticResource PrimaryButtonTheme}">Primary</Button>
                             <Button Theme="{StaticResource SecondaryButtonTheme}">Secondary</Button>
-                            <Button Theme="{StaticResource NeutralButtonTheme}">Neutral</Button>
                         </SpacingWrapPanel>
                     </StackPanel>
                 </Border>
@@ -72,8 +72,8 @@
                             <ToggleButton Theme="{StaticResource WarningToggleButtonTheme}">Warning</ToggleButton>
                             <ToggleButton Theme="{StaticResource DangerToggleButtonTheme}">Danger</ToggleButton>
                             <ToggleButton Theme="{StaticResource ErrorToggleButtonTheme}">Error</ToggleButton>
+                            <ToggleButton Theme="{StaticResource PrimaryToggleButtonTheme}">Primary</ToggleButton>
                             <ToggleButton Theme="{StaticResource SecondaryToggleButtonTheme}">Secondary</ToggleButton>
-                            <ToggleButton Theme="{StaticResource NeutralToggleButtonTheme}">Neutral</ToggleButton>
                         </SpacingWrapPanel>
                         <StackPanel Classes="sectionSubHeader">
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="Refresh" />
@@ -85,8 +85,8 @@
                             <RepeatButton Theme="{StaticResource WarningRepeatButtonTheme}">Warning</RepeatButton>
                             <RepeatButton Theme="{StaticResource DangerRepeatButtonTheme}">Danger</RepeatButton>
                             <RepeatButton Theme="{StaticResource ErrorRepeatButtonTheme}">Error</RepeatButton>
+                            <RepeatButton Theme="{StaticResource PrimaryRepeatButtonTheme}">Primary</RepeatButton>
                             <RepeatButton Theme="{StaticResource SecondaryRepeatButtonTheme}">Secondary</RepeatButton>
-                            <RepeatButton Theme="{StaticResource NeutralRepeatButtonTheme}">Neutral</RepeatButton>
                         </SpacingWrapPanel>
                         <StackPanel Classes="sectionSubHeader">
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ChevronDown" />
@@ -107,8 +107,8 @@
                             <DropDownButton Theme="{StaticResource WarningDropDownButtonTheme}">Warning</DropDownButton>
                             <DropDownButton Theme="{StaticResource DangerDropDownButtonTheme}">Danger</DropDownButton>
                             <DropDownButton Theme="{StaticResource ErrorDropDownButtonTheme}">Error</DropDownButton>
+                            <DropDownButton Theme="{StaticResource PrimaryDropDownButtonTheme}">Primary</DropDownButton>
                             <DropDownButton Theme="{StaticResource SecondaryDropDownButtonTheme}">Secondary</DropDownButton>
-                            <DropDownButton Theme="{StaticResource NeutralDropDownButtonTheme}">Neutral</DropDownButton>
                             <DropDownButton DropDownButtonAttach.DropDownIcon="{StaticResource CustomIcon}" DropDownButtonAttach.EnableDropDownIconAnimation="False">
                                 Custom Icon
                             </DropDownButton>
@@ -138,8 +138,8 @@
                             <SplitButton Theme="{StaticResource WarningSplitButtonTheme}">Warning</SplitButton>
                             <SplitButton Theme="{StaticResource DangerSplitButtonTheme}">Danger</SplitButton>
                             <SplitButton Theme="{StaticResource ErrorSplitButtonTheme}">Error</SplitButton>
+                            <SplitButton Theme="{StaticResource PrimarySplitButtonTheme}">Primary</SplitButton>
                             <SplitButton Theme="{StaticResource SecondarySplitButtonTheme}">Secondary</SplitButton>
-                            <SplitButton Theme="{StaticResource NeutralSplitButtonTheme}">Neutral</SplitButton>
                             <SplitButton DropDownButtonAttach.DropDownIcon="{StaticResource CustomIcon}" DropDownButtonAttach.EnableDropDownIconAnimation="False">
                                 Custom Icon
                             </SplitButton>
@@ -169,8 +169,8 @@
                             <ToggleSplitButton Theme="{StaticResource WarningToggleSplitButtonTheme}">Warning</ToggleSplitButton>
                             <ToggleSplitButton Theme="{StaticResource DangerToggleSplitButtonTheme}">Danger</ToggleSplitButton>
                             <ToggleSplitButton Theme="{StaticResource ErrorToggleSplitButtonTheme}">Error</ToggleSplitButton>
+                            <ToggleSplitButton Theme="{StaticResource PrimaryToggleSplitButtonTheme}">Primary</ToggleSplitButton>
                             <ToggleSplitButton Theme="{StaticResource SecondaryToggleSplitButtonTheme}">Secondary</ToggleSplitButton>
-                            <ToggleSplitButton Theme="{StaticResource NeutralToggleSplitButtonTheme}">Neutral</ToggleSplitButton>
                             <ToggleSplitButton DropDownButtonAttach.DropDownIcon="{StaticResource CustomIcon}" DropDownButtonAttach.EnableDropDownIconAnimation="False">
                                 Custom Icon
                             </ToggleSplitButton>

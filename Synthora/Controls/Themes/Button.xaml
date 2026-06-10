@@ -4,9 +4,9 @@
                     x:CompileBindings="True">
 
     <ControlTheme x:Key="{x:Type Button}" TargetType="Button">
-        <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
-        <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="Background" Value="{DynamicResource SynthoraLowBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -33,14 +33,14 @@
             </ControlTemplate>
         </Setter>
         <Style Selector="^:focus,^:pointerover">
-            <Setter Property="Background" Value="{DynamicResource PrimaryPointerOverBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SynthoraMidBrush}" />
             <Style Selector="^[(ButtonAttach.ShowShadow)=True] /template/ ShadowChrome#RootChrome">
                 <Setter Property="BoxShadow" Value="{TemplateBinding BorderBrush, Converter={x:Static SynthoraConverters.BoxShadowConverter}, ConverterParameter={x:Static BoxShadowConverter.ButtonPointerOverParameter}}" />
             </Style>
         </Style>
 
         <Style Selector="^:pressed">
-            <Setter Property="Background" Value="{DynamicResource PrimaryPressedBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
         </Style>
         <Style Selector="^:disabled">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
@@ -107,22 +107,22 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="SecondaryButtonTheme"
+    <ControlTheme x:Key="PrimaryButtonTheme"
                   BasedOn="{StaticResource {x:Type Button}}"
                   TargetType="Button">
-        <Setter Property="Background" Value="{DynamicResource SynthoraLowBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
 
         <Style Selector="^:focus,^:pointerover">
-            <Setter Property="Background" Value="{DynamicResource SynthoraMidBrush}" />
+            <Setter Property="Background" Value="{DynamicResource PrimaryPointerOverBrush}" />
         </Style>
         <Style Selector="^:pressed">
-            <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
+            <Setter Property="Background" Value="{DynamicResource PrimaryPressedBrush}" />
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="NeutralButtonTheme"
+    <ControlTheme x:Key="SecondaryButtonTheme"
                   BasedOn="{StaticResource {x:Type Button}}"
                   TargetType="Button">
         <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
@@ -138,22 +138,22 @@
     </ControlTheme>
 
     <ControlTheme x:Key="IconButtonTheme"
-                  BasedOn="{StaticResource {x:Type Button}}"
+                  BasedOn="{StaticResource PrimaryButtonTheme}"
                   TargetType="Button">
+        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="{x:Null}" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusSmall}" />
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPaddingSmall}" />
-        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
 
         <Style Selector="^:focus,^:pointerover">
             <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />
-            <Setter Property="Opacity" Value="0.9" />
+            <Setter Property="Opacity" Value="0.8" />
         </Style>
         <Style Selector="^:pressed">
             <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidBrush}" />
-            <Setter Property="Opacity" Value="0.8" />
+            <Setter Property="Opacity" Value="0.6" />
         </Style>
     </ControlTheme>
 

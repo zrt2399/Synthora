@@ -51,7 +51,7 @@
                                   Command="{Binding LineUp, RelativeSource={RelativeSource TemplatedParent}}"
                                   CornerRadius="0"
                                   DockPanel.Dock="Top"
-                                  Theme="{StaticResource NeutralRepeatButtonTheme}">
+                                  Theme="{DynamicResource SecondaryButtonTheme}">
                         <RepeatButton.IsVisible>
                             <MultiBinding Converter="{x:Static converters:MenuScrollingVisibilityConverter.Instance}" ConverterParameter="0">
                                 <Binding Path="VerticalScrollBarVisibility" RelativeSource="{RelativeSource TemplatedParent}" />
@@ -67,7 +67,7 @@
                                   Command="{Binding LineDown, RelativeSource={RelativeSource TemplatedParent}}"
                                   CornerRadius="0"
                                   DockPanel.Dock="Bottom"
-                                  Theme="{StaticResource NeutralRepeatButtonTheme}">
+                                  Theme="{DynamicResource SecondaryButtonTheme}">
                         <RepeatButton.IsVisible>
                             <MultiBinding Converter="{x:Static converters:MenuScrollingVisibilityConverter.Instance}" ConverterParameter="100">
                                 <Binding Path="VerticalScrollBarVisibility" RelativeSource="{RelativeSource TemplatedParent}" />

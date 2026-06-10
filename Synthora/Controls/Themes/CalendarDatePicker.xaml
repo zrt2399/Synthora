@@ -42,7 +42,6 @@
     </StreamGeometry>
 
     <ControlTheme x:Key="SimpleCalendarDatePickerButtonTheme" TargetType="Button">
-        <Setter Property="Margin" Value="{Binding $parent[CalendarDatePicker].Padding, Converter={StaticResource CalendarDatePickerDropDownButtonMarginMultiplier}}" />
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="Background" Value="Transparent" />
@@ -104,6 +103,7 @@
                                  UseFloatingPlaceholder="{TemplateBinding UseFloatingPlaceholder}">
                             <TextBox.InnerRightContent>
                                 <Button Name="PART_Button"
+                                        Margin="{Binding $parent[CalendarDatePicker].Padding, Converter={StaticResource CalendarDatePickerDropDownButtonMarginMultiplier}}"
                                         Focusable="False"
                                         Theme="{StaticResource SimpleCalendarDatePickerButtonTheme}" />
                             </TextBox.InnerRightContent>

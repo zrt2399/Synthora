@@ -183,7 +183,7 @@
 
                                 <SpacingWrapPanel HorizontalSpacing="12" VerticalSpacing="12">
                                     <Button>Launch Demo</Button>
-                                    <Button Theme="{DynamicResource NeutralButtonTheme}">Neutral</Button>
+                                    <Button Theme="{DynamicResource PrimaryButtonTheme}">Primary</Button>
                                     <Button Theme="{DynamicResource SecondaryButtonTheme}">Secondary</Button>
                                 </SpacingWrapPanel>
                             </StackPanel>
@@ -236,8 +236,8 @@
                                                 <Button Theme="{DynamicResource WarningButtonTheme}">Warning</Button>
                                                 <Button Theme="{DynamicResource DangerButtonTheme}">Danger</Button>
                                                 <Button Theme="{DynamicResource ErrorButtonTheme}">Error</Button>
+                                                <Button Theme="{DynamicResource PrimaryButtonTheme}">Primary</Button>
                                                 <Button Theme="{DynamicResource SecondaryButtonTheme}">Secondary</Button>
-                                                <Button Theme="{DynamicResource NeutralButtonTheme}">Neutral</Button>
                                             </SpacingWrapPanel>
                                         </StackPanel>
                                     </Border>
@@ -281,7 +281,7 @@
                                                             </MenuFlyout>
                                                         </ToggleSplitButton.Flyout>
                                                     </ToggleSplitButton>
-                                                    <DropDownButton Theme="{DynamicResource NeutralDropDownButtonTheme}">
+                                                    <DropDownButton Theme="{DynamicResource PrimaryDropDownButtonTheme}">
                                                         More
                                                         <DropDownButton.Flyout>
                                                             <MenuFlyout Placement="BottomEdgeAlignedLeft">

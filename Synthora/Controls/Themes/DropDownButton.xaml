@@ -103,8 +103,8 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="SecondaryDropDownButtonTheme"
-                  BasedOn="{StaticResource SecondaryButtonTheme}"
+    <ControlTheme x:Key="PrimaryDropDownButtonTheme"
+                  BasedOn="{StaticResource PrimaryButtonTheme}"
                   TargetType="DropDownButton">
         <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
         <Setter Property="DropDownButtonAttach.DropDownIcon" Value="{StaticResource DropDownButtonIcon}" />
@@ -113,8 +113,8 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="NeutralDropDownButtonTheme"
-                  BasedOn="{StaticResource NeutralButtonTheme}"
+    <ControlTheme x:Key="SecondaryDropDownButtonTheme"
+                  BasedOn="{StaticResource SecondaryButtonTheme}"
                   TargetType="DropDownButton">
         <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
         <Setter Property="DropDownButtonAttach.DropDownIcon" Value="{StaticResource DropDownButtonIcon}" />

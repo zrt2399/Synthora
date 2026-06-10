@@ -161,23 +161,23 @@
                                                             Command="{Binding OK}"
                                                             Content="{DynamicResource StringAlertDialogButtonOK}"
                                                             IsDefault="True"
-                                                            IsVisible="{Binding DialogButton, Converter={x:Static SynthoraConverters.HasFlag}, ConverterParameter={x:Static overlays:DialogButton.OK}}" />
+                                                            IsVisible="{Binding DialogButton, Converter={x:Static SynthoraConverters.HasFlag}, ConverterParameter={x:Static overlays:DialogButton.OK}}"
+                                                            Theme="{DynamicResource PrimaryButtonTheme}" />
                                                     <Button Name="YesButton"
                                                             Command="{Binding Yes}"
                                                             Content="{DynamicResource StringAlertDialogButtonYes}"
                                                             IsDefault="True"
-                                                            IsVisible="{Binding DialogButton, Converter={x:Static SynthoraConverters.HasFlag}, ConverterParameter={x:Static overlays:DialogButton.Yes}}" />
+                                                            IsVisible="{Binding DialogButton, Converter={x:Static SynthoraConverters.HasFlag}, ConverterParameter={x:Static overlays:DialogButton.Yes}}"
+                                                            Theme="{DynamicResource PrimaryButtonTheme}" />
                                                     <Button Name="NoButton"
                                                             Command="{Binding No}"
                                                             Content="{DynamicResource StringAlertDialogButtonNo}"
-                                                            IsVisible="{Binding DialogButton, Converter={x:Static SynthoraConverters.HasFlag}, ConverterParameter={x:Static overlays:DialogButton.No}}"
-                                                            Theme="{DynamicResource SecondaryButtonTheme}" />
+                                                            IsVisible="{Binding DialogButton, Converter={x:Static SynthoraConverters.HasFlag}, ConverterParameter={x:Static overlays:DialogButton.No}}" />
                                                     <Button Name="CancelButton"
                                                             Command="{Binding Cancel}"
                                                             Content="{DynamicResource StringAlertDialogButtonCancel}"
                                                             IsCancel="True"
-                                                            IsVisible="{Binding DialogButton, Converter={x:Static SynthoraConverters.HasFlag}, ConverterParameter={x:Static overlays:DialogButton.Cancel}}"
-                                                            Theme="{DynamicResource SecondaryButtonTheme}" />
+                                                            IsVisible="{Binding DialogButton, Converter={x:Static SynthoraConverters.HasFlag}, ConverterParameter={x:Static overlays:DialogButton.Cancel}}" />
                                                     <Button Name="AbortButton"
                                                             Command="{Binding Abort}"
                                                             Content="{DynamicResource StringAlertDialogButtonAbort}"

@@ -3,124 +3,6 @@
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
 
-    <ControlTheme x:Key="ToggleButtonSolidBaseTheme"
-                  BasedOn="{StaticResource {x:Type Button}}"
-                  TargetType="ToggleButton">
-        <Setter Property="Background" Value="{DynamicResource SynthoraMidBrush}" />
-        <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
-        <Setter Property="Template">
-            <ControlTemplate>
-                <ShadowChrome Name="RootChrome"
-                              Background="{TemplateBinding Background}"
-                              BorderBrush="{TemplateBinding BorderBrush}"
-                              BorderThickness="{TemplateBinding BorderThickness}"
-                              BoxShadow="{DynamicResource EmptyBoxShadow}"
-                              CornerRadius="{TemplateBinding CornerRadius}">
-                    <ContentPresenter Name="PART_ContentPresenter"
-                                      Margin="{TemplateBinding Padding}"
-                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                      Content="{TemplateBinding Content}"
-                                      ContentTemplate="{TemplateBinding ContentTemplate}"
-                                      RecognizesAccessKey="True" />
-
-                </ShadowChrome>
-            </ControlTemplate>
-        </Setter>
-        <Style Selector="^:focus,^:pointerover">
-            <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
-            <Style Selector="^[(ButtonAttach.ShowShadow)=True] /template/ ShadowChrome#RootChrome">
-                <Setter Property="BoxShadow" Value="{Binding $self.BorderBrush, Converter={x:Static SynthoraConverters.BoxShadowConverter}, ConverterParameter={x:Static BoxShadowConverter.ButtonPointerOverParameter}}" />
-            </Style>
-        </Style>
-        <Style Selector="^:pressed">
-            <Setter Property="Background" Value="{DynamicResource SynthoraVeryHighBrush}" />
-        </Style>
-        <Style Selector="^:indeterminate">
-            <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
-        </Style>
-    </ControlTheme>
-
-    <ControlTheme x:Key="{x:Type ToggleButton}"
-                  BasedOn="{StaticResource ToggleButtonSolidBaseTheme}"
-                  TargetType="ToggleButton">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
-        <Style Selector="^:checked">
-            <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
-            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
-        </Style>
-        <Style Selector="^:checked:pointerover">
-            <Setter Property="Background" Value="{DynamicResource PrimaryPointerOverBrush}" />
-        </Style>
-        <Style Selector="^:checked:pressed">
-            <Setter Property="Background" Value="{DynamicResource PrimaryPressedBrush}" />
-        </Style>
-    </ControlTheme>
-
-    <ControlTheme x:Key="SuccessToggleButtonTheme"
-                  BasedOn="{StaticResource ToggleButtonSolidBaseTheme}"
-                  TargetType="ToggleButton">
-        <Setter Property="Foreground" Value="{DynamicResource SuccessBrush}" />
-        <Style Selector="^:checked">
-            <Setter Property="Foreground" Value="White" />
-            <Setter Property="Background" Value="{DynamicResource SuccessBrush}" />
-        </Style>
-        <Style Selector="^:checked:pointerover">
-            <Setter Property="Background" Value="{DynamicResource SuccessPointerOverBrush}" />
-        </Style>
-        <Style Selector="^:checked:pressed">
-            <Setter Property="Background" Value="{DynamicResource SuccessPressedBrush}" />
-        </Style>
-    </ControlTheme>
-
-    <ControlTheme x:Key="WarningToggleButtonTheme"
-                  BasedOn="{StaticResource ToggleButtonSolidBaseTheme}"
-                  TargetType="ToggleButton">
-        <Setter Property="Foreground" Value="{DynamicResource WarningBrush}" />
-        <Style Selector="^:checked">
-            <Setter Property="Foreground" Value="White" />
-            <Setter Property="Background" Value="{DynamicResource WarningBrush}" />
-        </Style>
-        <Style Selector="^:checked:pointerover">
-            <Setter Property="Background" Value="{DynamicResource WarningPointerOverBrush}" />
-        </Style>
-        <Style Selector="^:checked:pressed">
-            <Setter Property="Background" Value="{DynamicResource WarningPressedBrush}" />
-        </Style>
-    </ControlTheme>
-
-    <ControlTheme x:Key="DangerToggleButtonTheme"
-                  BasedOn="{StaticResource ToggleButtonSolidBaseTheme}"
-                  TargetType="ToggleButton">
-        <Setter Property="Foreground" Value="{DynamicResource DangerBrush}" />
-        <Style Selector="^:checked">
-            <Setter Property="Foreground" Value="White" />
-            <Setter Property="Background" Value="{DynamicResource DangerBrush}" />
-        </Style>
-        <Style Selector="^:checked:pointerover">
-            <Setter Property="Background" Value="{DynamicResource DangerPointerOverBrush}" />
-        </Style>
-        <Style Selector="^:checked:pressed">
-            <Setter Property="Background" Value="{DynamicResource DangerPressedBrush}" />
-        </Style>
-    </ControlTheme>
-
-    <ControlTheme x:Key="ErrorToggleButtonTheme"
-                  BasedOn="{StaticResource ToggleButtonSolidBaseTheme}"
-                  TargetType="ToggleButton">
-        <Setter Property="Foreground" Value="{DynamicResource ErrorBrush}" />
-        <Style Selector="^:checked">
-            <Setter Property="Foreground" Value="White" />
-            <Setter Property="Background" Value="{DynamicResource ErrorBrush}" />
-        </Style>
-        <Style Selector="^:checked:pointerover">
-            <Setter Property="Background" Value="{DynamicResource ErrorPointerOverBrush}" />
-        </Style>
-        <Style Selector="^:checked:pressed">
-            <Setter Property="Background" Value="{DynamicResource ErrorPressedBrush}" />
-        </Style>
-    </ControlTheme>
-
     <ControlTheme x:Key="OutlineToggleButtonBaseTheme"
                   BasedOn="{StaticResource {x:Type Button}}"
                   TargetType="ToggleButton">
@@ -175,7 +57,7 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="SecondaryToggleButtonTheme"
+    <ControlTheme x:Key="{x:Type ToggleButton}"
                   BasedOn="{StaticResource OutlineToggleButtonBaseTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource SynthoraLowBrush}" />
@@ -183,48 +65,157 @@
         <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
         <Style Selector="^:focus,^:pointerover">
             <Setter Property="Background" Value="{DynamicResource SynthoraMidBrush}" />
-            <Style Selector="^[(ButtonAttach.ShowShadow)=True] /template/ ShadowChrome#RootChrome">
-                <Setter Property="BoxShadow" Value="{Binding $self.BorderBrush, Converter={x:Static SynthoraConverters.BoxShadowConverter}, ConverterParameter={x:Static BoxShadowConverter.ButtonPointerOverParameter}}" />
-            </Style>
         </Style>
         <Style Selector="^:pressed">
             <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="NeutralToggleButtonTheme"
+    <ControlTheme x:Key="SolidToggleButtonBaseTheme"
+                  BasedOn="{StaticResource {x:Type Button}}"
+                  TargetType="ToggleButton">
+        <Setter Property="Background" Value="{DynamicResource SynthoraMidBrush}" />
+        <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ShadowChrome Name="RootChrome"
+                              Background="{TemplateBinding Background}"
+                              BorderBrush="{TemplateBinding BorderBrush}"
+                              BorderThickness="{TemplateBinding BorderThickness}"
+                              BoxShadow="{DynamicResource EmptyBoxShadow}"
+                              CornerRadius="{TemplateBinding CornerRadius}">
+                    <ContentPresenter Name="PART_ContentPresenter"
+                                      Margin="{TemplateBinding Padding}"
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      RecognizesAccessKey="True" />
+                </ShadowChrome>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:focus,^:pointerover">
+            <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
+        </Style>
+        <Style Selector="^:pressed">
+            <Setter Property="Background" Value="{DynamicResource SynthoraVeryHighBrush}" />
+        </Style>
+        <Style Selector="^:indeterminate">
+            <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="PrimaryToggleButtonTheme"
+                  BasedOn="{StaticResource SolidToggleButtonBaseTheme}"
+                  TargetType="ToggleButton">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
+        <Style Selector="^:checked">
+            <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+        </Style>
+        <Style Selector="^:checked:pointerover">
+            <Setter Property="Background" Value="{DynamicResource PrimaryPointerOverBrush}" />
+        </Style>
+        <Style Selector="^:checked:pressed">
+            <Setter Property="Background" Value="{DynamicResource PrimaryPressedBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="SuccessToggleButtonTheme"
+                  BasedOn="{StaticResource SolidToggleButtonBaseTheme}"
+                  TargetType="ToggleButton">
+        <Setter Property="Foreground" Value="{DynamicResource SuccessBrush}" />
+        <Style Selector="^:checked">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="{DynamicResource SuccessBrush}" />
+        </Style>
+        <Style Selector="^:checked:pointerover">
+            <Setter Property="Background" Value="{DynamicResource SuccessPointerOverBrush}" />
+        </Style>
+        <Style Selector="^:checked:pressed">
+            <Setter Property="Background" Value="{DynamicResource SuccessPressedBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="WarningToggleButtonTheme"
+                  BasedOn="{StaticResource SolidToggleButtonBaseTheme}"
+                  TargetType="ToggleButton">
+        <Setter Property="Foreground" Value="{DynamicResource WarningBrush}" />
+        <Style Selector="^:checked">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="{DynamicResource WarningBrush}" />
+        </Style>
+        <Style Selector="^:checked:pointerover">
+            <Setter Property="Background" Value="{DynamicResource WarningPointerOverBrush}" />
+        </Style>
+        <Style Selector="^:checked:pressed">
+            <Setter Property="Background" Value="{DynamicResource WarningPressedBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="DangerToggleButtonTheme"
+                  BasedOn="{StaticResource SolidToggleButtonBaseTheme}"
+                  TargetType="ToggleButton">
+        <Setter Property="Foreground" Value="{DynamicResource DangerBrush}" />
+        <Style Selector="^:checked">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="{DynamicResource DangerBrush}" />
+        </Style>
+        <Style Selector="^:checked:pointerover">
+            <Setter Property="Background" Value="{DynamicResource DangerPointerOverBrush}" />
+        </Style>
+        <Style Selector="^:checked:pressed">
+            <Setter Property="Background" Value="{DynamicResource DangerPressedBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ErrorToggleButtonTheme"
+                  BasedOn="{StaticResource SolidToggleButtonBaseTheme}"
+                  TargetType="ToggleButton">
+        <Setter Property="Foreground" Value="{DynamicResource ErrorBrush}" />
+        <Style Selector="^:checked">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="{DynamicResource ErrorBrush}" />
+        </Style>
+        <Style Selector="^:checked:pointerover">
+            <Setter Property="Background" Value="{DynamicResource ErrorPointerOverBrush}" />
+        </Style>
+        <Style Selector="^:checked:pressed">
+            <Setter Property="Background" Value="{DynamicResource ErrorPressedBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="SecondaryToggleButtonTheme"
                   BasedOn="{StaticResource OutlineToggleButtonBaseTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
         <Style Selector="^:focus,^:pointerover">
-            <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
-            <!--<Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />-->
-            <Style Selector="^[(ButtonAttach.ShowShadow)=True] /template/ ShadowChrome#RootChrome">
-                <Setter Property="BoxShadow" Value="{Binding $self.BorderBrush, Converter={x:Static SynthoraConverters.BoxShadowConverter}, ConverterParameter={x:Static BoxShadowConverter.ButtonPointerOverParameter}}" />
-            </Style>
+            <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />
         </Style>
         <Style Selector="^:pressed">
-            <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />
+            <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidBrush}" />
         </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="IconToggleButtonTheme"
-                  BasedOn="{StaticResource {x:Type ToggleButton}}"
+                  BasedOn="{StaticResource PrimaryToggleButtonTheme}"
                   TargetType="ToggleButton">
+        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="{x:Null}" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusSmall}" />
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPaddingSmall}" />
-        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
 
         <Style Selector="^:unchecked:focus,^:unchecked:pointerover">
             <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />
+            <Setter Property="Opacity" Value="0.8" />
         </Style>
         <Style Selector="^:unchecked:pressed">
             <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidBrush}" />
+            <Setter Property="Opacity" Value="0.6" />
         </Style>
     </ControlTheme>
 

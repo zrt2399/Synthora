@@ -40,7 +40,7 @@
                         <ShadowChrome ShowShadowOnInteraction="True">
                             <TextBlock Margin="8">ShadowChrome with  ShowShadowOnPointerOver</TextBlock>
                         </ShadowChrome>
-                        <ShadowChrome InteractionBoxShadow="0 0 12 0 OrangeRed" ShowShadowOnInteraction="True">
+                        <ShadowChrome InteractionBoxShadow="0 0 12 0 #FF695AEE" ShowShadowOnInteraction="True">
                             <TextBlock Margin="8">ShadowChrome with ShowShadowOnPointerOver and custom box shadow</TextBlock>
                         </ShadowChrome>
                         <StackPanel Orientation="Horizontal" Spacing="16">
