@@ -26,4 +26,7 @@
     <Thickness x:Key="NotificationCardPadding">16</Thickness>
     <x:Double x:Key="NotificationCardPaddingDouble">16</x:Double>
     <x:Double x:Key="NotificationCardWidth">350</x:Double>
+
+    <Thickness x:Key="CommandBarButtonPadding">6</Thickness>
+    <x:Double x:Key="CommandBarButtonPaddingDouble">6</x:Double>
 </ResourceDictionary>
