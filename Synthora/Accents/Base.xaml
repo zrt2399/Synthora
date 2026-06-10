@@ -148,7 +148,7 @@
             <Color x:Key="ThemeBorderHighColor">#FF727272</Color>
 
             <Color x:Key="ThemeControlLowColor">#FF282828</Color>
-            <Color x:Key="ThemeControlMidColor">#FF313233</Color>
+            <Color x:Key="ThemeControlMidColor">#FF323334</Color>
             <Color x:Key="ThemeControlMidHighColor">#FF505050</Color>
             <Color x:Key="ThemeControlHighColor">#FF727272</Color>
             <Color x:Key="ThemeControlVeryHighColor">#FF909090</Color>
