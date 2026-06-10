@@ -66,12 +66,14 @@
                                Placement="BottomEdgeAlignedLeft"
                                PlacementTarget="{Binding ElementName=PART_TextBox}"
                                WindowManagerAddShadowHint="False">
+                            <!--  ScrollViewerAttach.IsDisabled="True" fix mouse scrolling triggers parent  -->
                             <SystemShadowChrome MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
                                                 MaxHeight="{TemplateBinding MaxDropDownHeight}"
                                                 Background="{TemplateBinding Background}"
                                                 BorderBrush="{TemplateBinding BorderBrush}"
                                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                                CornerRadius="{TemplateBinding CornerRadius}">
+                                                CornerRadius="{TemplateBinding CornerRadius}"
+                                                ScrollViewerAttach.IsDisabled="True">
                                 <ListBox Name="PART_SelectingItemsControl"
                                          Background="{TemplateBinding Background}"
                                          BorderThickness="0"
