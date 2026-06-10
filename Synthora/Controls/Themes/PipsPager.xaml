@@ -44,7 +44,7 @@
         </Style>
         <Style Selector="^:pressed">
             <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
-            <Setter Property="RenderTransform" Value="scale(1)" />
+            <Setter Property="RenderTransform" Value="scale(1.1)" />
         </Style>
     </ControlTheme>
 
@@ -131,10 +131,10 @@
                                     <Setter Property="Fill" Value="{DynamicResource ThemeControlVeryHighBrush}" />
                                 </Style>
                                 <Style Selector="ListBoxItem:pointerover /template/ Ellipse#Pip">
-                                    <Setter Property="RenderTransform" Value="scale(1.4)" />
+                                    <Setter Property="RenderTransform" Value="scale(1.3)" />
                                 </Style>
                                 <Style Selector="ListBoxItem:pressed /template/ Ellipse#Pip">
-                                    <Setter Property="RenderTransform" Value="scale(1)" />
+                                    <Setter Property="RenderTransform" Value="scale(1.1)" />
                                 </Style>
 
                                 <Style Selector="PipsPager:vertical ListBoxItem">
