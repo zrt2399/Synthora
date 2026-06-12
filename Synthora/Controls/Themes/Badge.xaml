@@ -64,7 +64,7 @@
     </Design.PreviewWith>
 
     <ControlTheme x:Key="{x:Type Badge}" TargetType="Badge">
-        <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
+        <Setter Property="Padding" Value="{DynamicResource BadgePadding}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
 

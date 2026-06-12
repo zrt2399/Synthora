@@ -100,8 +100,7 @@
                                                              FontWeight="SemiBold"
                                                              IsVisible="{Binding Title, Converter={x:Static ObjectConverters.IsNotNull}}"
                                                              Text="{Binding Title}" />
-                                                    <Button Padding="{DynamicResource ThemeControlPaddingSmall}"
-                                                            HorizontalAlignment="Right"
+                                                    <Button HorizontalAlignment="Right"
                                                             VerticalAlignment="Top"
                                                             Background="{DynamicResource ThemeBackgroundBrush}"
                                                             Command="{Binding None}"

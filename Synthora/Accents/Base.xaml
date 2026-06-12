@@ -350,6 +350,7 @@
     <Thickness x:Key="ThemeBorderThickness">1</Thickness>
 
     <Thickness x:Key="ThemeControlPaddingSmall">4</Thickness>
+    <Thickness x:Key="BadgePadding">6,4</Thickness>
 
     <CornerRadius x:Key="ThemeBorderCornerRadiusSmall">4</CornerRadius>
     <CornerRadius x:Key="ThemeBorderCornerRadiusNormal">6</CornerRadius>
@@ -423,4 +424,5 @@
     <StreamGeometry x:Key="DensityStyleNormalData">
         M13,9V15H16L12,19L8,15H11V9H8L12,5L16,9H13M4,2H20V4H4V2M4,20H20V22H4V20Z
     </StreamGeometry>
+
 </ResourceDictionary>
