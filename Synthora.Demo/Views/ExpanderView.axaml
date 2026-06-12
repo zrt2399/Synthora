@@ -50,9 +50,10 @@
                     </Expander>
                     <Expander Grid.Row="1"
                               Grid.Column="1"
+                              Classes="Highlight"
                               Classes.withoutShadow="{Binding #withoutShadow.IsChecked}"
                               ExpandDirection="Down"
-                              Header="Down ↓">
+                              Header="Down(Highlight) ↓">
                         <GroupBoxEx>
                             <ShadowChrome Padding="10">
                                 <ShadowChrome>

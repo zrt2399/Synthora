@@ -15,6 +15,8 @@
             <Color x:Key="SynthoraVeryHighColor">#FFDDE2E9</Color>
 
             <Color x:Key="SynthoraHighlightBackgroundColor">#FFDDF4FF</Color>
+            <Color x:Key="SynthoraHighlightPointerOverBackgroundColor">#FFD2EEFC</Color>
+            <Color x:Key="SynthoraHighlightPressedBackgroundColor">#FFC7E7FA</Color>
             <Color x:Key="SynthoraHighlightBorderColor">#FFBBDFFF</Color>
 
             <Color x:Key="ThemeForegroundLowColor">#FF808080</Color>
@@ -59,6 +61,8 @@
             <SolidColorBrush x:Key="SynthoraVeryHighBrush" Color="{StaticResource SynthoraVeryHighColor}" />
 
             <SolidColorBrush x:Key="SynthoraHighlightBackgroundBrush" Color="{StaticResource SynthoraHighlightBackgroundColor}" />
+            <SolidColorBrush x:Key="SynthoraHighlightPointerOverBackgroundBrush" Color="{StaticResource SynthoraHighlightPointerOverBackgroundColor}" />
+            <SolidColorBrush x:Key="SynthoraHighlightPressedBackgroundBrush" Color="{StaticResource SynthoraHighlightPressedBackgroundColor}" />
             <SolidColorBrush x:Key="SynthoraHighlightBorderBrush" Color="{StaticResource SynthoraHighlightBorderColor}" />
 
             <SolidColorBrush x:Key="ThemeForegroundBrush" Color="{StaticResource ThemeForegroundColor}" />
@@ -145,6 +149,8 @@
             <Color x:Key="SynthoraVeryHighColor">#FF2F3542</Color>
 
             <Color x:Key="SynthoraHighlightBackgroundColor">#FF121D2F</Color>
+            <Color x:Key="SynthoraHighlightPointerOverBackgroundColor">#FF182842</Color>
+            <Color x:Key="SynthoraHighlightPressedBackgroundColor">#FF1E3354</Color>
             <Color x:Key="SynthoraHighlightBorderColor">#FF1E4273</Color>
 
             <Color x:Key="ThemeForegroundLowColor">#FF909090</Color>
@@ -189,6 +195,8 @@
             <SolidColorBrush x:Key="SynthoraVeryHighBrush" Color="{StaticResource SynthoraVeryHighColor}" />
 
             <SolidColorBrush x:Key="SynthoraHighlightBackgroundBrush" Color="{StaticResource SynthoraHighlightBackgroundColor}" />
+            <SolidColorBrush x:Key="SynthoraHighlightPointerOverBackgroundBrush" Color="{StaticResource SynthoraHighlightPointerOverBackgroundColor}" />
+            <SolidColorBrush x:Key="SynthoraHighlightPressedBackgroundBrush" Color="{StaticResource SynthoraHighlightPressedBackgroundColor}" />
             <SolidColorBrush x:Key="SynthoraHighlightBorderBrush" Color="{StaticResource SynthoraHighlightBorderColor}" />
 
             <SolidColorBrush x:Key="ThemeForegroundBrush" Color="{StaticResource ThemeForegroundColor}" />

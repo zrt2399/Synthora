@@ -30,5 +30,10 @@
                 </StackPanel>
             </ControlTemplate>
         </Setter>
+
+        <Style Selector="^.Highlight">
+            <Setter Property="HeaderBackground" Value="{DynamicResource SynthoraHighlightBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource SynthoraHighlightBorderBrush}" />
+        </Style>
     </ControlTheme>
 </ResourceDictionary>

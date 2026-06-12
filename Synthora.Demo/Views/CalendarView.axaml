@@ -29,14 +29,16 @@
                         <TimePicker TextBoxAttach.Header="TimePicker" UseSeconds="True" />
                         <TimePicker TextBoxAttach.Header="TimePicker(Without second)" />
                         <StackPanel Orientation="Horizontal" Spacing="8">
-                            <CheckBox Name="hasShadow" Content="Shadow" />
+                            <CheckBox Name="HasShadow" Content="Shadow" />
+                            <CheckBox Name="Highlight" Content="Highlight" />
                             <ComboBox ItemsSource="{EnumBindingSource CalendarSelectionMode}"
-                                      SelectedItem="{Binding #calendar.SelectionMode}"
+                                      SelectedItem="{Binding #Calendar.SelectionMode}"
                                       TextBoxAttach.Header="SelectionMode: "
                                       TextBoxAttach.HeaderPlacement="Left" />
                         </StackPanel>
-                        <Calendar Name="calendar"
-                                  Classes.hasShadow="{Binding #hasShadow.IsChecked}"
+                        <Calendar Name="Calendar"
+                                  Classes.Highlight="{Binding #Highlight.IsChecked}"
+                                  Classes.hasShadow="{Binding #HasShadow.IsChecked}"
                                   SelectionMode="SingleRange" />
                     </StackPanel>
                 </Border>

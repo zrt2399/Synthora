@@ -58,14 +58,6 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Padding" Value="{DynamicResource ThemeHeaderControlPadding}" />
         <Setter Property="Background" Value="{DynamicResource SynthoraLowBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
-        <Setter Property="BorderThickness">
-            <MultiBinding Converter="{x:Static ExpanderHeaderBorderThicknessConverter.Instance}">
-                <Binding Path="BorderThickness" RelativeSource="{RelativeSource AncestorType=Expander}" />
-                <Binding Path="ExpandDirection" RelativeSource="{RelativeSource AncestorType=Expander}" />
-                <Binding Path="IsExpanded" RelativeSource="{RelativeSource AncestorType=Expander}" />
-            </MultiBinding>
-        </Setter>
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Background="{TemplateBinding Background}"
@@ -158,13 +150,23 @@
                               BoxShadow="{TemplateBinding BoxShadowAttach.BoxShadow}"
                               CornerRadius="{TemplateBinding CornerRadius}">
                     <DockPanel Name="PART_DockPanel">
-                        <ToggleButton Name="PART_toggle"
+                        <ToggleButton Name="ToggleButton"
                                       HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                                       VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                      BorderBrush="{TemplateBinding BorderBrush}"
                                       Content="{TemplateBinding Header}"
                                       ContentTemplate="{TemplateBinding HeaderTemplate}"
                                       IsChecked="{TemplateBinding IsExpanded,
-                                                                  Mode=TwoWay}" />
+                                                                  Mode=TwoWay}">
+                            <ToggleButton.BorderThickness>
+                                <MultiBinding Converter="{x:Static ExpanderHeaderBorderThicknessConverter.Instance}">
+                                    <Binding Path="BorderThickness" RelativeSource="{RelativeSource TemplatedParent}" />
+                                    <Binding Path="ExpandDirection" RelativeSource="{RelativeSource TemplatedParent}" />
+                                    <Binding Path="IsExpanded" RelativeSource="{RelativeSource TemplatedParent}" />
+                                </MultiBinding>
+                            </ToggleButton.BorderThickness>
+                        </ToggleButton>
+
                         <ContentPresenter Name="PART_ContentPresenter"
                                           Margin="{TemplateBinding Padding}"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -179,42 +181,55 @@
 
         <Style Selector="^[ExpandDirection=Down]">
             <Setter Property="VerticalAlignment" Value="Top" />
-            <Style Selector="^ /template/ ToggleButton#PART_toggle">
+            <Style Selector="^ /template/ ToggleButton#ToggleButton">
                 <Setter Property="Theme" Value="{StaticResource SimpleExpanderToggleButtonRightTheme}" />
                 <Setter Property="DockPanel.Dock" Value="Top" />
             </Style>
-            <Style Selector="^:expanded /template/ ToggleButton#PART_toggle">
+            <Style Selector="^:expanded /template/ ToggleButton#ToggleButton">
                 <Setter Property="Theme" Value="{StaticResource SimpleExpanderToggleButtonDownTheme}" />
             </Style>
         </Style>
         <Style Selector="^[ExpandDirection=Up]">
             <Setter Property="VerticalAlignment" Value="Bottom" />
-            <Style Selector="^ /template/ ToggleButton#PART_toggle">
+            <Style Selector="^ /template/ ToggleButton#ToggleButton">
                 <Setter Property="Theme" Value="{StaticResource SimpleExpanderToggleButtonRightTheme}" />
                 <Setter Property="DockPanel.Dock" Value="Bottom" />
             </Style>
-            <Style Selector="^:expanded /template/ ToggleButton#PART_toggle">
+            <Style Selector="^:expanded /template/ ToggleButton#ToggleButton">
                 <Setter Property="Theme" Value="{StaticResource SimpleExpanderToggleButtonUpTheme}" />
             </Style>
         </Style>
         <Style Selector="^[ExpandDirection=Right]">
             <Setter Property="HorizontalAlignment" Value="Left" />
-            <Style Selector="^ /template/ ToggleButton#PART_toggle">
+            <Style Selector="^ /template/ ToggleButton#ToggleButton">
                 <Setter Property="Theme" Value="{StaticResource SimpleExpanderToggleButtonLeftTheme}" />
                 <Setter Property="DockPanel.Dock" Value="Left" />
             </Style>
-            <Style Selector="^:expanded /template/ ToggleButton#PART_toggle">
+            <Style Selector="^:expanded /template/ ToggleButton#ToggleButton">
                 <Setter Property="Theme" Value="{StaticResource SimpleExpanderToggleButtonRightTheme}" />
             </Style>
         </Style>
         <Style Selector="^[ExpandDirection=Left]">
             <Setter Property="HorizontalAlignment" Value="Right" />
-            <Style Selector="^ /template/ ToggleButton#PART_toggle">
+            <Style Selector="^ /template/ ToggleButton#ToggleButton">
                 <Setter Property="Theme" Value="{StaticResource SimpleExpanderToggleButtonRightTheme}" />
                 <Setter Property="DockPanel.Dock" Value="Right" />
             </Style>
-            <Style Selector="^:expanded /template/ ToggleButton#PART_toggle">
+            <Style Selector="^:expanded /template/ ToggleButton#ToggleButton">
                 <Setter Property="Theme" Value="{StaticResource SimpleExpanderToggleButtonLeftTheme}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^.Highlight">
+            <Setter Property="BorderBrush" Value="{DynamicResource SynthoraHighlightBorderBrush}" />
+            <Style Selector="^ /template/ ToggleButton#ToggleButton">
+                <Setter Property="Background" Value="{DynamicResource SynthoraHighlightBackgroundBrush}" />
+            </Style>
+            <Style Selector="^ /template/ ToggleButton#ToggleButton:pointerover">
+                <Setter Property="Background" Value="{DynamicResource SynthoraHighlightPointerOverBackgroundBrush}" />
+            </Style>
+            <Style Selector="^ /template/ ToggleButton#ToggleButton:pressed">
+                <Setter Property="Background" Value="{DynamicResource SynthoraHighlightPressedBackgroundBrush}" />
             </Style>
         </Style>
     </ControlTheme>
