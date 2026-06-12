@@ -23,43 +23,46 @@
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="Label" />
                             <TextBlock Classes="sectionLabel" Text="BADGE" />
                         </StackPanel>
-                        <StackPanel.Styles>
-                            <Style Selector="Badge">
-                                <Setter Property="Content" Value="{Binding $self.BadgeType}" />
-                            </Style>
-                        </StackPanel.Styles>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
-                            <Badge Content="General" />
-                            <Badge BadgeType="Question" />
-                            <Badge BadgeType="Success" />
-                            <Badge BadgeType="Warning" />
-                            <Badge BadgeType="Danger" />
-                            <Badge BadgeType="Error" />
-                            <Badge BadgeType="None" />
+                            <Badge Content="enhancement" />
+                            <Badge BadgeType="Question" Content="question" />
+                            <Badge BadgeType="Success" Content="ready" />
+                            <Badge BadgeType="Warning" Content="needs info" />
+                            <Badge BadgeType="Danger" Content="security" />
+                            <Badge BadgeType="Error" Content="bug" />
+                            <Badge BadgeType="None" Content="wontfix" />
                         </SpacingWrapPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
-                            <Badge Content="General" IsSolid="True" />
-                            <Badge BadgeType="Question" IsSolid="True" />
-                            <Badge BadgeType="Success" IsSolid="True" />
-                            <Badge BadgeType="Warning" IsSolid="True" />
-                            <Badge BadgeType="Danger" IsSolid="True" />
-                            <Badge BadgeType="Error" IsSolid="True" />
-                            <Badge BadgeType="None" IsSolid="True" />
+                            <Badge Content="documentation" IsSolid="True" />
+                            <Badge BadgeType="Question" Content="discussion" IsSolid="True" />
+                            <Badge BadgeType="Success" Content="good first issue" IsSolid="True" />
+                            <Badge BadgeType="Warning" Content="help wanted" IsSolid="True" />
+                            <Badge BadgeType="Danger" Content="breaking change" IsSolid="True" />
+                            <Badge BadgeType="Error" Content="regression" IsSolid="True" />
+                            <Badge BadgeType="None" Content="duplicate" IsSolid="True" />
                         </SpacingWrapPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
-                            <Badge Content="General"
+                            <Badge Content="triage"
                                    IsCircular="True"
                                    IsSolid="True" />
-                            <Badge BadgeType="Question" IsCircular="True" />
+                            <Badge BadgeType="Question"
+                                   Content="needs answer"
+                                   IsCircular="True" />
                             <Badge BadgeType="Success"
+                                   Content="approved"
                                    IsCircular="True"
                                    IsSolid="True" />
-                            <Badge BadgeType="Warning" IsCircular="True" />
+                            <Badge BadgeType="Warning"
+                                   Content="blocked"
+                                   IsCircular="True" />
                             <Badge BadgeType="Danger"
+                                   Content="critical"
                                    IsCircular="True"
                                    IsSolid="True" />
-                            <Badge BadgeType="Error" IsCircular="True" />
-                            <Badge BadgeType="None" Content="None" />
+                            <Badge BadgeType="Error"
+                                   Content="failed"
+                                   IsCircular="True" />
+                            <Badge BadgeType="None" Content="archived" />
                         </SpacingWrapPanel>
                     </StackPanel>
                 </Border>
