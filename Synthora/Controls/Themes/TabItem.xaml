@@ -6,6 +6,7 @@
     <x:Double x:Key="TabItemMinWidth">0</x:Double>
     <x:Double x:Key="SegmentedTabItemMinWidth">0</x:Double>
     <x:Double x:Key="CardTabItemMinWidth">150</x:Double>
+    <BoxShadows x:Key="SegmentedTabItemSelectedBoxShadow">0 0 6 0 #20000000</BoxShadows>
 
     <ControlTheme x:Key="{x:Type TabItem}" TargetType="TabItem">
         <Setter Property="Background" Value="Transparent" />
@@ -117,7 +118,7 @@
         <Style Selector="^:selected">
             <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
             <Style Selector="^ /template/ Border#PART_LayoutRoot">
-                <Setter Property="BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
+                <Setter Property="BoxShadow" Value="{DynamicResource SegmentedTabItemSelectedBoxShadow}" />
             </Style>
         </Style>
 
