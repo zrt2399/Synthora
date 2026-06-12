@@ -33,21 +33,11 @@
                                 <Setter Property="Height" Value="100" />
                             </Style>
                         </UniformGrid.Styles>
-                        <GroupBoxEx Padding="0" Header="Top header">
-                            <ScrollViewer>
-                                <StackPanel>
-                                    <Button Height="60"
-                                            CornerRadius="0"
-                                            Theme="{DynamicResource PrimaryButtonTheme}">
-                                        Button
-                                    </Button>
-                                    <Button Height="60"
-                                            CornerRadius="0"
-                                            Theme="{DynamicResource SuccessButtonTheme}">
-                                        Button
-                                    </Button>
-                                </StackPanel>
-                            </ScrollViewer>
+                        <GroupBoxEx Padding="0"
+                                    Classes="Highlight"
+                                    Classes.withoutShadow="{Binding #withoutShadow.IsChecked}"
+                                    Header="Top header(Highlight)">
+                            <CheckBox Name="withoutShadow" Content="Without shadow" />
                         </GroupBoxEx>
                         <GroupBoxEx Padding="0"
                                     Header="Right header"
@@ -55,10 +45,20 @@
                             <Button CornerRadius="0" Theme="{DynamicResource WarningButtonTheme}">Button</Button>
                         </GroupBoxEx>
                         <GroupBoxEx Padding="0"
-                                    Classes.withoutShadow="{Binding #withoutShadow.IsChecked}"
                                     Header="Bottom header"
                                     HeaderPlacement="Bottom">
-                            <CheckBox Name="withoutShadow" Content="Without shadow" />
+                            <ScrollViewer>
+                                <StackPanel>
+                                    <Button Height="60"
+                                            Content="Highlight"
+                                            CornerRadius="0"
+                                            Theme="{DynamicResource PrimaryButtonTheme}" />
+                                    <Button Height="60"
+                                            Content="Button"
+                                            CornerRadius="0"
+                                            Theme="{DynamicResource SuccessButtonTheme}" />
+                                </StackPanel>
+                            </ScrollViewer>
                         </GroupBoxEx>
                         <GroupBoxEx Padding="0"
                                     Header="Left header"
