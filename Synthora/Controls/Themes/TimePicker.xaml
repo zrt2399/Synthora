@@ -47,7 +47,7 @@
                                       HorizontalContentAlignment="Stretch"
                                       VerticalContentAlignment="Stretch"
                                       Content="{TemplateBinding Content}"
-                                      Foreground="{TemplateBinding Foreground}" />
+                                      ContentTemplate="{TemplateBinding ContentTemplate}" />
                 </Border>
 
             </ControlTemplate>
@@ -93,7 +93,6 @@
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
                                     CornerRadius="{TemplateBinding CornerRadius}"
-                                    Foreground="{TemplateBinding Foreground}"
                                     IsEnabled="{TemplateBinding IsEnabled}"
                                     Theme="{StaticResource SimpleTimePickerFlyoutButtonTheme}">
 

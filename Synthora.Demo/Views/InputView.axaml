@@ -100,11 +100,11 @@
                                   TextBoxAttach.Header="ComboBox(With GetDescription and EnumBindingSourceExtension)">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
-                                   <TextBlock Text="{Binding Converter={x:Static SynthoraConverters.EnumDescriptionConverter}, ConverterParameter={x:Type ThemeMode}}" />
+                                    <TextBlock Text="{Binding Converter={x:Static SynthoraConverters.EnumDescriptionConverter}, ConverterParameter={x:Type ThemeMode}}" />
                                 </DataTemplate>
                             </ComboBox.ItemTemplate>
                         </ComboBox>
-                </StackPanel>
+                    </StackPanel>
                 </Border>
             </StackPanel>
         </ScrollViewer>

@@ -106,7 +106,7 @@
                                                             Background="{DynamicResource ThemeBackgroundBrush}"
                                                             Command="{Binding None}"
                                                             IsVisible="{Binding ShowCloseButton}"
-                                                            Theme="{DynamicResource IconButtonTheme}">
+                                                            Theme="{StaticResource IconButtonTheme}">
                                                         <Button.CornerRadius>
                                                             <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.All}">
                                                                 <Binding Path="#DialogBorder.CornerRadius" />
@@ -162,13 +162,13 @@
                                                             Content="{DynamicResource StringAlertDialogButtonOK}"
                                                             IsDefault="True"
                                                             IsVisible="{Binding DialogButton, Converter={x:Static SynthoraConverters.HasFlag}, ConverterParameter={x:Static overlays:DialogButton.OK}}"
-                                                            Theme="{DynamicResource PrimaryButtonTheme}" />
+                                                            Theme="{StaticResource PrimaryButtonTheme}" />
                                                     <Button Name="YesButton"
                                                             Command="{Binding Yes}"
                                                             Content="{DynamicResource StringAlertDialogButtonYes}"
                                                             IsDefault="True"
                                                             IsVisible="{Binding DialogButton, Converter={x:Static SynthoraConverters.HasFlag}, ConverterParameter={x:Static overlays:DialogButton.Yes}}"
-                                                            Theme="{DynamicResource PrimaryButtonTheme}" />
+                                                            Theme="{StaticResource PrimaryButtonTheme}" />
                                                     <Button Name="NoButton"
                                                             Command="{Binding No}"
                                                             Content="{DynamicResource StringAlertDialogButtonNo}"
@@ -182,7 +182,7 @@
                                                             Command="{Binding Abort}"
                                                             Content="{DynamicResource StringAlertDialogButtonAbort}"
                                                             IsVisible="{Binding DialogButton, Converter={x:Static SynthoraConverters.HasFlag}, ConverterParameter={x:Static overlays:DialogButton.Abort}}"
-                                                            Theme="{DynamicResource ErrorButtonTheme}" />
+                                                            Theme="{StaticResource ErrorButtonTheme}" />
                                                 </UniformGrid>
                                             </Grid>
                                         </Border>

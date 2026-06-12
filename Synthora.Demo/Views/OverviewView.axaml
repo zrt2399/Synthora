@@ -183,8 +183,8 @@
 
                                 <SpacingWrapPanel HorizontalSpacing="12" VerticalSpacing="12">
                                     <Button>Launch Demo</Button>
-                                    <Button Theme="{DynamicResource PrimaryButtonTheme}">Primary</Button>
-                                    <Button Theme="{DynamicResource SecondaryButtonTheme}">Secondary</Button>
+                                    <Button Theme="{StaticResource PrimaryButtonTheme}">Primary</Button>
+                                    <Button Theme="{StaticResource SecondaryButtonTheme}">Secondary</Button>
                                 </SpacingWrapPanel>
                             </StackPanel>
 
@@ -232,12 +232,12 @@
 
                                             <SpacingWrapPanel HorizontalSpacing="12" VerticalSpacing="12">
                                                 <Button>Default</Button>
-                                                <Button Theme="{DynamicResource SuccessButtonTheme}">Success</Button>
-                                                <Button Theme="{DynamicResource WarningButtonTheme}">Warning</Button>
-                                                <Button Theme="{DynamicResource DangerButtonTheme}">Danger</Button>
-                                                <Button Theme="{DynamicResource ErrorButtonTheme}">Error</Button>
-                                                <Button Theme="{DynamicResource PrimaryButtonTheme}">Primary</Button>
-                                                <Button Theme="{DynamicResource SecondaryButtonTheme}">Secondary</Button>
+                                                <Button Theme="{StaticResource SuccessButtonTheme}">Success</Button>
+                                                <Button Theme="{StaticResource WarningButtonTheme}">Warning</Button>
+                                                <Button Theme="{StaticResource DangerButtonTheme}">Danger</Button>
+                                                <Button Theme="{StaticResource ErrorButtonTheme}">Error</Button>
+                                                <Button Theme="{StaticResource PrimaryButtonTheme}">Primary</Button>
+                                                <Button Theme="{StaticResource SecondaryButtonTheme}">Secondary</Button>
                                             </SpacingWrapPanel>
                                         </StackPanel>
                                     </Border>
@@ -270,7 +270,7 @@
                                                             </MenuFlyout>
                                                         </SplitButton.Flyout>
                                                     </SplitButton>
-                                                    <ToggleSplitButton Theme="{DynamicResource SecondaryToggleSplitButtonTheme}">
+                                                    <ToggleSplitButton Theme="{StaticResource SecondaryToggleSplitButtonTheme}">
                                                         Modes
                                                         <ToggleSplitButton.Flyout>
                                                             <MenuFlyout Placement="BottomEdgeAlignedLeft">
@@ -281,7 +281,7 @@
                                                             </MenuFlyout>
                                                         </ToggleSplitButton.Flyout>
                                                     </ToggleSplitButton>
-                                                    <DropDownButton Theme="{DynamicResource PrimaryDropDownButtonTheme}">
+                                                    <DropDownButton Theme="{StaticResource PrimaryDropDownButtonTheme}">
                                                         More
                                                         <DropDownButton.Flyout>
                                                             <MenuFlyout Placement="BottomEdgeAlignedLeft">
@@ -290,8 +290,8 @@
                                                             </MenuFlyout>
                                                         </DropDownButton.Flyout>
                                                     </DropDownButton>
-                                                    <ToggleButton Theme="{DynamicResource WarningToggleButtonTheme}">Pin</ToggleButton>
-                                                    <RepeatButton Theme="{DynamicResource DangerRepeatButtonTheme}">Repeat</RepeatButton>
+                                                    <ToggleButton Theme="{StaticResource WarningToggleButtonTheme}">Pin</ToggleButton>
+                                                    <RepeatButton Theme="{StaticResource DangerRepeatButtonTheme}">Repeat</RepeatButton>
                                                 </SpacingWrapPanel>
                                             </StackPanel>
                                         </Border>
@@ -383,14 +383,14 @@
                                     </ToggleSwitch.OffContent>
                                 </ToggleSwitch>
                             </SpacingWrapPanel>
-                            <ListBox AutoScrollToSelectedItem="False" Theme="{DynamicResource SegmentedListBoxTheme}">
+                            <ListBox AutoScrollToSelectedItem="False" Theme="{StaticResource SegmentedListBoxTheme}">
                                 <ListBoxItem IsSelected="True">macOS</ListBoxItem>
                                 <ListBoxItem>Windows</ListBoxItem>
                                 <ListBoxItem>Linux</ListBoxItem>
                             </ListBox>
                             <ListBox AutoScrollToSelectedItem="False"
                                      Classes="Primary Uniform"
-                                     Theme="{DynamicResource SegmentedListBoxTheme}">
+                                     Theme="{StaticResource SegmentedListBoxTheme}">
                                 <ListBoxItem IsSelected="True">Ant Design</ListBoxItem>
                                 <ListBoxItem>Fluent Design</ListBoxItem>
                                 <ListBoxItem>Material Design</ListBoxItem>
@@ -415,7 +415,7 @@
                                        NumberOfPages="10"
                                        SelectedPageIndex="2" />
                             <Divider Content="Navigation" Orientation="Horizontal" />
-                            <TabControl Theme="{DynamicResource SegmentedTabControlTheme}">
+                            <TabControl Theme="{StaticResource SegmentedTabControlTheme}">
                                 <TabItem Header="Overview">
                                     <TextBlock Margin="0,10,0,0" Text="High-impact first impression." />
                                 </TabItem>

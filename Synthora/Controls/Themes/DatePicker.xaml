@@ -36,7 +36,6 @@
     <x:Double x:Key="DatePickerPresenterThemeMaxHeight">400</x:Double>
 
     <ControlTheme x:Key="SimpleDatePickerFlyoutButtonTheme" TargetType="Button">
-        <Setter Property="RenderTransform" Value="none" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Background="{TemplateBinding Background}"
@@ -47,9 +46,8 @@
                                       HorizontalContentAlignment="Stretch"
                                       VerticalContentAlignment="Stretch"
                                       Content="{TemplateBinding Content}"
-                                      Foreground="{TemplateBinding Foreground}" />
+                                      ContentTemplate="{TemplateBinding ContentTemplate}" />
                 </Border>
-
             </ControlTemplate>
         </Setter>
 
@@ -91,7 +89,6 @@
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
                                     CornerRadius="{TemplateBinding CornerRadius}"
-                                    Foreground="{TemplateBinding Foreground}"
                                     IsEnabled="{TemplateBinding IsEnabled}"
                                     TemplatedControl.IsTemplateFocusTarget="True"
                                     Theme="{StaticResource SimpleDatePickerFlyoutButtonTheme}">

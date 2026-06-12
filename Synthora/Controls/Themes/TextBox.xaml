@@ -292,12 +292,10 @@
                                         <Button Name="clearButton"
                                                 Command="{Binding $parent[TextBox].Clear}"
                                                 Focusable="False"
-                                                Foreground="{TemplateBinding Foreground}"
                                                 IsVisible="False"
                                                 Theme="{StaticResource SimpleTextBoxClearButtonTheme}" />
                                         <ToggleButton Name="revealPasswordButton"
                                                       Focusable="False"
-                                                      Foreground="{TemplateBinding Foreground}"
                                                       IsChecked="{TemplateBinding RevealPassword,
                                                                                   Mode=TwoWay}"
                                                       IsVisible="False"

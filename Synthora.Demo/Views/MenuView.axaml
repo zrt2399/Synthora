@@ -140,7 +140,7 @@
                             </Button.ContextFlyout>
                         </Button>
                         <Button Content="Button with ContextMenu and ToolTip"
-                                Theme="{DynamicResource SuccessButtonTheme}"
+                                Theme="{StaticResource SuccessButtonTheme}"
                                 ToolTip.Tip="Right-click or long-press to open context menu">
                             <Button.ContextMenu>
                                 <ContextMenu>

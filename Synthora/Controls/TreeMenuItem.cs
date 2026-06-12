@@ -27,7 +27,7 @@ namespace Synthora.Controls
     {
         private const string pcSelectedDescendant = ":selected-descendant";
         private const string pcExpanded = ":expanded";
-        private const int ExpandCollapseDuration = 200;
+        private readonly TimeSpan _expandCollapseDuration = TimeSpan.FromMilliseconds(200);
 
         public static readonly StyledProperty<HeaderPosition> HeaderPositionProperty =
             AvaloniaProperty.Register<TreeMenuItem, HeaderPosition>(nameof(HeaderPosition));
@@ -338,13 +338,13 @@ namespace Synthora.Controls
             var animation = new Animation
             {
                 Easing = new CubicEaseOut(),
-                Duration = TimeSpan.FromMilliseconds(ExpandCollapseDuration),
+                Duration = _expandCollapseDuration,
                 FillMode = FillMode.Forward,
                 Children =
                 {
                     new KeyFrame
                     {
-                        KeyTime = TimeSpan.FromMilliseconds(ExpandCollapseDuration),
+                        KeyTime = _expandCollapseDuration,
                         Setters =
                         {
                             new Setter(MaxHeightProperty, animationState.ToHeight),

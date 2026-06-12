@@ -40,9 +40,9 @@
                         </sys:Exception>
                     </DataValidationErrors.Error>
                 </ComboBox>
-                <ComboBox IsEditable="True" SelectedIndex="1">
+                <ComboBox Foreground="OrangeRed" IsEditable="True">
                     <ComboBoxItem>Item A</ComboBoxItem>
-                    <ComboBoxItem>Item b</ComboBoxItem>
+                    <ComboBoxItem IsSelected="True">Item b</ComboBoxItem>
                     <ComboBoxItem>Item c</ComboBoxItem>
                 </ComboBox>
 
@@ -179,17 +179,15 @@
                                                                    Converter={StaticResource ComboBoxButtonMarginMultiplier}}"
                                           Command="{Binding $parent[ComboBox].Clear}"
                                           Focusable="False"
-                                          Foreground="{TemplateBinding Foreground}"
                                           IsVisible="False"
-                                          Theme="{DynamicResource SimpleTextBoxClearButtonTheme}" />
+                                          Theme="{StaticResource SimpleTextBoxClearButtonTheme}" />
 
                             <ToggleButton Grid.Column="2"
                                           Margin="{TemplateBinding Padding,
                                                                    Converter={StaticResource ComboBoxButtonMarginMultiplier}}"
-                                          Foreground="{TemplateBinding Foreground}"
                                           IsChecked="{TemplateBinding IsDropDownOpen,
                                                                       Mode=TwoWay}"
-                                          Theme="{DynamicResource SimpleComboBoxDropDownButtonTheme}" />
+                                          Theme="{StaticResource SimpleComboBoxDropDownButtonTheme}" />
 
                             <Popup Name="PART_Popup"
                                    InheritsTransform="True"
@@ -206,11 +204,11 @@
                                                     BorderThickness="{TemplateBinding BorderThickness}"
                                                     CornerRadius="{TemplateBinding CornerRadius}">
                                     <Panel>
-                                        <EmptyBox Margin="10" IsVisible="{Binding $parent[ComboBox].Items.Count, Converter={x:Static SynthoraConverters.IsZero}}" />
+                                        <EmptyBox Margin="10" IsVisible="{Binding Items.Count, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static SynthoraConverters.IsZero}}" />
                                         <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
                                                       IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}"
                                                       IsScrollChainingEnabled="False"
-                                                      IsVisible="{Binding $parent[ComboBox].Items.Count, Converter={x:Static SynthoraConverters.IsNotZero}}"
+                                                      IsVisible="{Binding Items.Count, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static SynthoraConverters.IsNotZero}}"
                                                       VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
                                             <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
                                         </ScrollViewer>

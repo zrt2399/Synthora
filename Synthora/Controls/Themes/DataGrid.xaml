@@ -54,8 +54,7 @@
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Content="{TemplateBinding Content}"
-                                          ContentTemplate="{TemplateBinding ContentTemplate}"
-                                          Foreground="{TemplateBinding Foreground}" />
+                                          ContentTemplate="{TemplateBinding ContentTemplate}" />
                         <Rectangle Name="InvalidVisualElement"
                                    IsHitTestVisible="False"
                                    IsVisible="False">
@@ -267,7 +266,7 @@
                     <DataGridFrozenGrid Name="PART_Root"
                                         Margin="{TemplateBinding Padding}"
                                         ColumnDefinitions="Auto,Auto">
-                        <ToggleButton Name="PART_ExpanderButton" Theme="{DynamicResource SimpleExpanderButtonTheme}" />
+                        <ToggleButton Name="PART_ExpanderButton" Theme="{StaticResource SimpleExpanderButtonTheme}" />
 
                         <StackPanel Grid.Column="1"
                                     Margin="{DynamicResource ThemeControlLeftPadding}"
@@ -345,14 +344,14 @@
                           ColumnDefinitions="Auto,*,Auto"
                           RowDefinitions="Auto,*,Auto">
 
-                        <DataGridColumnHeader Name="PART_TopLeftCornerHeader" Theme="{DynamicResource DataGridTopLeftColumnHeader}" />
+                        <DataGridColumnHeader Name="PART_TopLeftCornerHeader" Theme="{StaticResource DataGridTopLeftColumnHeader}" />
                         <DataGridColumnHeadersPresenter Name="PART_ColumnHeadersPresenter"
                                                         Grid.Column="1"
                                                         Grid.ColumnSpan="2"
                                                         Background="{Binding #PART_TopRightCornerHeader.Background}" />
                         <Border Name="columnHeadersRowsSeparator"
                                 Grid.ColumnSpan="3"
-                                BorderBrush="{Binding $parent[DataGrid].HorizontalGridLinesBrush}"
+                                BorderBrush="{TemplateBinding HorizontalGridLinesBrush}"
                                 BorderThickness="0,0,0,1"
                                 UseLayoutRounding="False" />
                         <DataGridColumnHeader Name="PART_TopRightCornerHeader"

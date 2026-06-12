@@ -198,7 +198,7 @@
                                           Grid.Column="2"
                                           Width="10"
                                           AutomationProperties.Name="Column right"
-                                          Theme="{DynamicResource ScrollBarRepeatButtonTheme}">
+                                          Theme="{StaticResource ScrollBarRepeatButtonTheme}">
                                 <PathIcon Data="{DynamicResource ScrollBarRightGlyph}" Theme="{StaticResource ScrollBarRepeatButtonPathIconTheme}" />
                             </RepeatButton>
                         </Grid>

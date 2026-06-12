@@ -25,7 +25,6 @@
 
         <Setter Property="Padding" Value="{DynamicResource ThemeHeaderControlPadding}" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}" />
-        <!-- <Setter Property="Margin" Value="{DynamicResource TreeMenuItemItemMargin}" /> -->
         <Setter Property="Focusable" Value="False" />
         <Setter Property="IsTabStop" Value="False" />
         <Setter Property="Template">
@@ -37,7 +36,6 @@
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{TemplateBinding CornerRadius}"
-                            Focusable="True"
                             TemplatedControl.IsTemplateFocusTarget="True">
                         <DockPanel Name="PART_Header">
                             <DockPanel.Margin>
@@ -61,8 +59,7 @@
                                               Background="Transparent"
                                               Content="{TemplateBinding Header}"
                                               ContentTemplate="{TemplateBinding HeaderTemplate}"
-                                              Focusable="False"
-                                              Foreground="{TemplateBinding Foreground}" />
+                                              Focusable="False" />
                         </DockPanel>
                     </Border>
                     <Panel Name="PART_ItemsContainer"
