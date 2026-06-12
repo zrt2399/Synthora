@@ -25,6 +25,11 @@
                                           Right="True"
                                           Top="True" />
 
+    <converters:MarginMultiplierConverter x:Key="SplitButtonSeparatorBorderThicknessMultiplier"
+                                          Bottom="True"
+                                          Indent="1"
+                                          Top="True" />
+
     <ControlTheme x:Key="{x:Type SplitButton}" TargetType="SplitButton">
         <Setter Property="Background" Value="{DynamicResource SynthoraLowBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
@@ -63,13 +68,16 @@
                                 Foreground="{TemplateBinding Foreground}"
                                 KeyboardNavigation.IsTabStop="False" />
 
-                        <Panel Name="SeparatorPanel"
-                               Grid.Column="1"
-                               Background="{TemplateBinding Background}">
+                        <Border Name="SeparatorBorder"
+                                Grid.Column="1"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness,
+                                                                  Converter={StaticResource SplitButtonSeparatorBorderThicknessMultiplier}}">
                             <controls:PixelAlignedRectangle Width="1"
                                                             Margin="0,4"
                                                             Fill="{TemplateBinding Foreground}" />
-                        </Panel>
+                        </Border>
 
                         <Button x:Name="PART_SecondaryButton"
                                 Grid.Column="2"
@@ -108,7 +116,7 @@
             </Setter>
         </Style>
 
-        <Style Selector="^ /template/ Panel#SeparatorPanel">
+        <Style Selector="^ /template/ Border#SeparatorBorder">
             <Setter Property="IsVisible" Value="False" />
         </Style>
         <Style Selector="^ /template/ Button#PART_SecondaryButton">
@@ -138,16 +146,29 @@
                 <Setter Property="RenderTransform" Value="rotate(180deg)" />
             </Style>
         </Style>
+
+        <Style Selector="^:disabled /template/ Border#SeparatorBorder">
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
+        </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="SolidSplitButtonBaseTheme"
                   BasedOn="{StaticResource {x:Type SplitButton}}"
                   TargetType="SplitButton">
-        <Style Selector="^ /template/ Panel#SeparatorPanel">
+        <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
+
+        <Style Selector="^ /template/ Border#SeparatorBorder">
             <Setter Property="IsVisible" Value="True" />
         </Style>
         <Style Selector="^ /template/ Button#PART_SecondaryButton">
             <Setter Property="BorderThickness" Value="{TemplateBinding BorderThickness, Converter={StaticResource SecondaryButtonBorderThicknessMultiplier}}" />
+        </Style>
+
+        <Style Selector="^ /template/ Button:pointerover">
+            <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
+        </Style>
+        <Style Selector="^ /template/ Button:pressed">
+            <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
         </Style>
     </ControlTheme>
 
@@ -156,7 +177,6 @@
                   TargetType="SplitButton">
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Background" Value="{DynamicResource SuccessBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource SuccessBrush}" />
 
         <Style Selector="^ /template/ Button">
             <Setter Property="Theme" Value="{StaticResource SuccessButtonTheme}" />
@@ -168,7 +188,6 @@
                   TargetType="SplitButton">
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Background" Value="{DynamicResource WarningBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource WarningBrush}" />
 
         <Style Selector="^ /template/ Button">
             <Setter Property="Theme" Value="{StaticResource WarningButtonTheme}" />
@@ -180,7 +199,6 @@
                   TargetType="SplitButton">
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Background" Value="{DynamicResource DangerBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource DangerBrush}" />
 
         <Style Selector="^ /template/ Button">
             <Setter Property="Theme" Value="{StaticResource DangerButtonTheme}" />
@@ -192,7 +210,6 @@
                   TargetType="SplitButton">
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Background" Value="{DynamicResource ErrorBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
 
         <Style Selector="^ /template/ Button">
             <Setter Property="Theme" Value="{StaticResource ErrorButtonTheme}" />
@@ -202,9 +219,8 @@
     <ControlTheme x:Key="PrimarySplitButtonTheme"
                   BasedOn="{StaticResource SolidSplitButtonBaseTheme}"
                   TargetType="SplitButton">
-        <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
 
         <Style Selector="^ /template/ Button">
             <Setter Property="Theme" Value="{StaticResource PrimaryButtonTheme}" />

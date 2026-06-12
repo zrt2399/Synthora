@@ -3,20 +3,12 @@
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
 
-    <ControlTheme x:Key="OutlineToggleButtonBaseTheme"
+    <ControlTheme x:Key="ToggleButtonBaseTheme"
                   BasedOn="{StaticResource {x:Type Button}}"
                   TargetType="ToggleButton">
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
-                    <Rectangle Name="indeterminateRectangle"
-                               Fill="{TemplateBinding Background}"
-                               IsVisible="False"
-                               RadiusX="{Binding CornerRadius.TopLeft, RelativeSource={RelativeSource TemplatedParent}}"
-                               RadiusY="{Binding CornerRadius.TopLeft, RelativeSource={RelativeSource TemplatedParent}}"
-                               Stroke="{TemplateBinding BorderBrush}"
-                               StrokeDashArray="4,4"
-                               StrokeThickness="{Binding BorderThickness.Left, RelativeSource={RelativeSource TemplatedParent}}" />
                     <ShadowChrome Name="RootChrome"
                                   Background="{TemplateBinding Background}"
                                   BorderBrush="{TemplateBinding BorderBrush}"
@@ -30,13 +22,23 @@
                                           Content="{TemplateBinding Content}"
                                           ContentTemplate="{TemplateBinding ContentTemplate}"
                                           RecognizesAccessKey="True" />
-
                     </ShadowChrome>
-                    <Border Name="checkedBorder"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="2"
-                            CornerRadius="{TemplateBinding CornerRadius}"
-                            IsVisible="False" />
+                    <Rectangle Name="indeterminateRectangle"
+                               IsVisible="False"
+                               RadiusX="{Binding CornerRadius.TopLeft, RelativeSource={RelativeSource TemplatedParent}}"
+                               RadiusY="{Binding CornerRadius.TopLeft, RelativeSource={RelativeSource TemplatedParent}}"
+                               Stroke="{TemplateBinding BorderBrush}"
+                               StrokeDashArray="4,4"
+                               StrokeThickness="{Binding BorderThickness.Left, RelativeSource={RelativeSource TemplatedParent}}" />
+
+                    <Ellipse Name="checkedEllipse"
+                             Width="3"
+                             Height="3"
+                             Margin="4,4,0,0"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Fill="{TemplateBinding Foreground}"
+                             IsVisible="False" />
                 </Panel>
             </ControlTemplate>
         </Setter>
@@ -46,19 +48,17 @@
                 <Setter Property="IsVisible" Value="True" />
             </Style>
             <Style Selector="^ /template/ ShadowChrome#RootChrome">
-                <Setter Property="BorderBrush" Value="Transparent" />
+                <Setter Property="BorderBrush" Value="{x:Null}" />
             </Style>
         </Style>
 
-        <Style Selector="^:checked">
-            <Style Selector="^ /template/ Border#checkedBorder">
-                <Setter Property="IsVisible" Value="True" />
-            </Style>
+        <Style Selector="^:checked /template/ Ellipse#checkedEllipse">
+            <Setter Property="IsVisible" Value="True" />
         </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type ToggleButton}"
-                  BasedOn="{StaticResource OutlineToggleButtonBaseTheme}"
+                  BasedOn="{StaticResource ToggleButtonBaseTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource SynthoraLowBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
@@ -72,52 +72,23 @@
     </ControlTheme>
 
     <ControlTheme x:Key="SolidToggleButtonBaseTheme"
-                  BasedOn="{StaticResource {x:Type Button}}"
+                  BasedOn="{StaticResource ToggleButtonBaseTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource SynthoraMidBrush}" />
         <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
-        <Setter Property="Template">
-            <ControlTemplate>
-                <ShadowChrome Name="RootChrome"
-                              Background="{TemplateBinding Background}"
-                              BorderBrush="{TemplateBinding BorderBrush}"
-                              BorderThickness="{TemplateBinding BorderThickness}"
-                              BoxShadow="{DynamicResource EmptyBoxShadow}"
-                              CornerRadius="{TemplateBinding CornerRadius}">
-                    <ContentPresenter Name="PART_ContentPresenter"
-                                      Margin="{TemplateBinding Padding}"
-                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                      Content="{TemplateBinding Content}"
-                                      ContentTemplate="{TemplateBinding ContentTemplate}"
-                                      RecognizesAccessKey="True" />
-                </ShadowChrome>
-            </ControlTemplate>
-        </Setter>
+
         <Style Selector="^:focus,^:pointerover">
             <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
         </Style>
         <Style Selector="^:pressed">
             <Setter Property="Background" Value="{DynamicResource SynthoraVeryHighBrush}" />
         </Style>
+
         <Style Selector="^:indeterminate">
             <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
         </Style>
-    </ControlTheme>
-
-    <ControlTheme x:Key="PrimaryToggleButtonTheme"
-                  BasedOn="{StaticResource SolidToggleButtonBaseTheme}"
-                  TargetType="ToggleButton">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
-        <Style Selector="^:checked">
-            <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
-            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
-        </Style>
-        <Style Selector="^:checked:pointerover">
-            <Setter Property="Background" Value="{DynamicResource PrimaryPointerOverBrush}" />
-        </Style>
-        <Style Selector="^:checked:pressed">
-            <Setter Property="Background" Value="{DynamicResource PrimaryPressedBrush}" />
+        <Style Selector="^:checked /template/ Ellipse#checkedEllipse">
+            <Setter Property="IsVisible" Value="False" />
         </Style>
     </ControlTheme>
 
@@ -185,8 +156,24 @@
         </Style>
     </ControlTheme>
 
+    <ControlTheme x:Key="PrimaryToggleButtonTheme"
+                  BasedOn="{StaticResource SolidToggleButtonBaseTheme}"
+                  TargetType="ToggleButton">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
+        <Style Selector="^:checked">
+            <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+        </Style>
+        <Style Selector="^:checked:pointerover">
+            <Setter Property="Background" Value="{DynamicResource PrimaryPointerOverBrush}" />
+        </Style>
+        <Style Selector="^:checked:pressed">
+            <Setter Property="Background" Value="{DynamicResource PrimaryPressedBrush}" />
+        </Style>
+    </ControlTheme>
+
     <ControlTheme x:Key="SecondaryToggleButtonTheme"
-                  BasedOn="{StaticResource OutlineToggleButtonBaseTheme}"
+                  BasedOn="{StaticResource ToggleButtonBaseTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />

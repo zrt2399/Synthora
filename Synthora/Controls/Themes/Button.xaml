@@ -47,12 +47,17 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="SuccessButtonTheme"
+    <ControlTheme x:Key="SolidButtonBaseTheme"
                   BasedOn="{StaticResource {x:Type Button}}"
+                  TargetType="Button">
+        <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="SuccessButtonTheme"
+                  BasedOn="{StaticResource SolidButtonBaseTheme}"
                   TargetType="Button">
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Background" Value="{DynamicResource SuccessBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource SuccessBrush}" />
 
         <Style Selector="^:focus,^:pointerover">
             <Setter Property="Background" Value="{DynamicResource SuccessPointerOverBrush}" />
@@ -63,11 +68,10 @@
     </ControlTheme>
 
     <ControlTheme x:Key="WarningButtonTheme"
-                  BasedOn="{StaticResource {x:Type Button}}"
+                  BasedOn="{StaticResource SolidButtonBaseTheme}"
                   TargetType="Button">
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Background" Value="{DynamicResource WarningBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource WarningBrush}" />
 
         <Style Selector="^:focus,^:pointerover">
             <Setter Property="Background" Value="{DynamicResource WarningPointerOverBrush}" />
@@ -78,11 +82,10 @@
     </ControlTheme>
 
     <ControlTheme x:Key="DangerButtonTheme"
-                  BasedOn="{StaticResource {x:Type Button}}"
+                  BasedOn="{StaticResource SolidButtonBaseTheme}"
                   TargetType="Button">
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Background" Value="{DynamicResource DangerBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource DangerBrush}" />
 
         <Style Selector="^:focus,^:pointerover">
             <Setter Property="Background" Value="{DynamicResource DangerPointerOverBrush}" />
@@ -93,11 +96,10 @@
     </ControlTheme>
 
     <ControlTheme x:Key="ErrorButtonTheme"
-                  BasedOn="{StaticResource {x:Type Button}}"
+                  BasedOn="{StaticResource SolidButtonBaseTheme}"
                   TargetType="Button">
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Background" Value="{DynamicResource ErrorBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
 
         <Style Selector="^:focus,^:pointerover">
             <Setter Property="Background" Value="{DynamicResource ErrorPointerOverBrush}" />
@@ -108,11 +110,10 @@
     </ControlTheme>
 
     <ControlTheme x:Key="PrimaryButtonTheme"
-                  BasedOn="{StaticResource {x:Type Button}}"
+                  BasedOn="{StaticResource SolidButtonBaseTheme}"
                   TargetType="Button">
         <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
         <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
 
         <Style Selector="^:focus,^:pointerover">
             <Setter Property="Background" Value="{DynamicResource PrimaryPointerOverBrush}" />
