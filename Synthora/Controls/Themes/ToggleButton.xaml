@@ -30,15 +30,6 @@
                                Stroke="{TemplateBinding BorderBrush}"
                                StrokeDashArray="4,4"
                                StrokeThickness="{Binding BorderThickness.Left, RelativeSource={RelativeSource TemplatedParent}}" />
-
-                    <Ellipse Name="checkedEllipse"
-                             Width="3"
-                             Height="3"
-                             Margin="4,4,0,0"
-                             HorizontalAlignment="Left"
-                             VerticalAlignment="Top"
-                             Fill="{TemplateBinding Foreground}"
-                             IsVisible="False" />
                 </Panel>
             </ControlTemplate>
         </Setter>
@@ -52,9 +43,10 @@
             </Style>
         </Style>
 
-        <Style Selector="^:checked /template/ Ellipse#checkedEllipse">
-            <Setter Property="IsVisible" Value="True" />
+        <Style Selector="^:checked">
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
         </Style>
+
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type ToggleButton}"
@@ -86,9 +78,6 @@
 
         <Style Selector="^:indeterminate">
             <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
-        </Style>
-        <Style Selector="^:checked /template/ Ellipse#checkedEllipse">
-            <Setter Property="IsVisible" Value="False" />
         </Style>
     </ControlTheme>
 
@@ -197,12 +186,10 @@
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPaddingSmall}" />
 
         <Style Selector="^:unchecked:focus,^:unchecked:pointerover">
-            <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />
-            <Setter Property="Opacity" Value="0.8" />
+            <Setter Property="Background" Value="{DynamicResource IconButtonPointerOverBrush}" />
         </Style>
         <Style Selector="^:unchecked:pressed">
-            <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidBrush}" />
-            <Setter Property="Opacity" Value="0.6" />
+            <Setter Property="Background" Value="{DynamicResource IconButtonPressedBrush}" />
         </Style>
     </ControlTheme>
 

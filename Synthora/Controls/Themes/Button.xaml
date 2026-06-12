@@ -149,12 +149,10 @@
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPaddingSmall}" />
 
         <Style Selector="^:focus,^:pointerover">
-            <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />
-            <Setter Property="Opacity" Value="0.8" />
+            <Setter Property="Background" Value="{DynamicResource IconButtonPointerOverBrush}" />
         </Style>
         <Style Selector="^:pressed">
-            <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidBrush}" />
-            <Setter Property="Opacity" Value="0.6" />
+            <Setter Property="Background" Value="{DynamicResource IconButtonPressedBrush}" />
         </Style>
     </ControlTheme>
 

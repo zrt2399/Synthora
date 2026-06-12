@@ -325,6 +325,9 @@
                      Opacity="0.4"
                      Color="{StaticResource ThemeAccentColor}" />
 
+    <SolidColorBrush x:Key="IconButtonPointerOverBrush">#30999999</SolidColorBrush>
+    <SolidColorBrush x:Key="IconButtonPressedBrush">#40999999</SolidColorBrush>
+
     <Thickness x:Key="ThemeBorderThickness">1</Thickness>
 
     <Thickness x:Key="ThemeControlPaddingSmall">4</Thickness>
