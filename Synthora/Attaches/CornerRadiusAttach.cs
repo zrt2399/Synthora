@@ -29,7 +29,7 @@ namespace Synthora.Attaches
                 return;
             }
 
-            if (GetCornerRadiusProperty(element) is not AvaloniaProperty<CornerRadius> property)
+            if (GetCornerRadiusProperty(element) is not { } property)
             {
                 return;
             }

@@ -32,7 +32,6 @@
                                                            Converter={StaticResource DropDownButtonMarginMultiplier}}"
                                   VerticalAlignment="Center"
                                   Content="{TemplateBinding DropDownButtonAttach.DropDownIcon}"
-                                  IsHitTestVisible="False"
                                   IsVisible="{TemplateBinding DropDownButtonAttach.DropDownIcon,
                                                               Converter={x:Static ObjectConverters.IsNotNull}}">
                     <ContentPresenter.Transitions>

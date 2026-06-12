@@ -32,10 +32,10 @@
                                     <Setter Property="Padding" Value="0" />
                                     <Setter Property="Theme" Value="{DynamicResource IconButtonTheme}" />
                                     <Style Selector="^:pointerover">
-                                        <Setter Property="Opacity" Value="0.7" />
+                                        <Setter Property="Opacity" Value="0.8" />
                                     </Style>
                                     <Style Selector="^:pressed">
-                                        <Setter Property="Opacity" Value="0.5" />
+                                        <Setter Property="Opacity" Value="0.6" />
                                     </Style>
                                 </Style>
                             </Grid.Styles>
