@@ -63,18 +63,21 @@ namespace Synthora.Demo.ViewModels
                     VerticalAlignment = VerticalAlignment.Top
                 }),
             };
-            await new Window()
+            if (App.MainWindow is Window window)
             {
-                Content = $"Selected: {result}",
-                HorizontalContentAlignment = HorizontalAlignment.Center,
-                VerticalContentAlignment = VerticalAlignment.Center,
-                CanResize = false,
-                Height = 140,
-                Width = 280,
-                WindowStartupLocation = WindowStartupLocation.CenterOwner
-            }.ShowDialog(App.MainWindow);
-            //https://github.com/AvaloniaUI/Avalonia/issues/15649
-            //The modal dialog flashes on macOS when clicking on the parent window
+                await new Window()
+                {
+                    Content = $"Selected: {result}",
+                    HorizontalContentAlignment = HorizontalAlignment.Center,
+                    VerticalContentAlignment = VerticalAlignment.Center,
+                    CanResize = false,
+                    Height = 140,
+                    Width = 280,
+                    WindowStartupLocation = WindowStartupLocation.CenterOwner
+                }.ShowDialog(window);
+                //https://github.com/AvaloniaUI/Avalonia/issues/15649
+                //The modal dialog flashes on macOS when clicking on the parent window
+            }
         }
 
         public void ShowMessageTip(object? content)

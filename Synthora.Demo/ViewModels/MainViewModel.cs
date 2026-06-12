@@ -135,17 +135,20 @@ namespace Synthora.Demo.ViewModels
 
         public static ICommand ShowMainWindowCommand { get; } = new RelayCommand(() =>
         {
-            if (!App.MainWindow.IsVisible)
+            if (App.MainWindow is Window window)
             {
-                App.MainWindow.Show();
-            }
-            if (App.MainWindow.WindowState == WindowState.Minimized)
-            {
-                App.MainWindow.WindowState = WindowState.Normal;
-            }
-            else
-            {
-                App.MainWindow.Activate();
+                if (!window.IsVisible)
+                {
+                    window.Show();
+                }
+                if (window.WindowState == WindowState.Minimized)
+                {
+                    window.WindowState = WindowState.Normal;
+                }
+                else
+                {
+                    window.Activate();
+                }
             }
         });
 

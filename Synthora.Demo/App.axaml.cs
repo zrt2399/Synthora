@@ -1,4 +1,3 @@
-using System;
 using System.Reflection;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
@@ -10,17 +9,10 @@ namespace Synthora.Demo
 {
     public partial class App : Application
     {
-        public static MainWindow MainWindow
-        {
-            get
-            {
-                if (((IClassicDesktopStyleApplicationLifetime?)Current?.ApplicationLifetime)?.MainWindow is not MainWindow mainWindow)
-                {
-                    throw new Exception("MainWindow is not available.");
-                }
-                return mainWindow;
-            }
-        }
+        public static MainWindow? MainWindow => Current?.ApplicationLifetime
+            is IClassicDesktopStyleApplicationLifetime { MainWindow: MainWindow { PlatformImpl: not null } mainWindow }
+            ? mainWindow
+            : null;
 
         public static string AppVersion => $"{Assembly.GetExecutingAssembly().GetName().Version}";
 
