@@ -113,18 +113,18 @@
 
             <SolidColorBrush x:Key="DragTabItemSelectedBackgroundBrush" Color="#FFFFFF" />
 
-            <SolidColorBrush x:Key="DragTabItemHeaderBackgroundUnselectedPointerOver" Color="#BBBBBB" />
+            <SolidColorBrush x:Key="DragTabItemUnselectedPointerOverBackgroundBrush" Color="#BBBBBB" />
             <SolidColorBrush x:Key="DragTabItemRightSeparatorBackgroundBrush" Color="#999999" />
 
-            <SolidColorBrush x:Key="AddItemCommandButtonForegroundPointerOverBrush" Color="#0C0C0C" />
-            <SolidColorBrush x:Key="AddItemCommandButtonBackgroundPointerOverBrush" Color="#C7C7C7" />
-            <SolidColorBrush x:Key="AddItemCommandButtonBackgroundPressedBrush" Color="#BCBCBC" />
+            <SolidColorBrush x:Key="AddItemButtonPointerOverForegroundBrush" Color="#0C0C0C" />
+            <SolidColorBrush x:Key="AddItemButtonPointerOverBackgroundBrush" Color="#C7C7C7" />
+            <SolidColorBrush x:Key="AddItemButtonPressedBackgroundBrush" Color="#BCBCBC" />
 
-            <SolidColorBrush x:Key="CloseItemButtonForegroundPointerOverBrush" Color="#272320" />
-            <SolidColorBrush x:Key="CloseItemButtonBackgroundPointerOverBrush" Color="#E0E0E0" />
-            <SolidColorBrush x:Key="CloseItemButtonForegroundPressedBrush" Color="#272320" />
-            <SolidColorBrush x:Key="CloseItemButtonBackgroundPressedBrush" Color="#CECECE" />
-            <SolidColorBrush x:Key="CloseItemButtonForeground" Color="#272320" />
+            <SolidColorBrush x:Key="CloseItemButtonPointerOverForegroundBrush" Color="#272320" />
+            <SolidColorBrush x:Key="CloseItemButtonPointerOverBackgroundBrush" Color="#E0E0E0" />
+            <SolidColorBrush x:Key="CloseItemButtonPressedForegroundBrush" Color="#272320" />
+            <SolidColorBrush x:Key="CloseItemButtonPressedBackgroundBrush" Color="#CECECE" />
+            <SolidColorBrush x:Key="CloseItemButtonForegroundBrush" Color="#272320" />
         </ResourceDictionary>
 
         <ResourceDictionary x:Key="Dark">
@@ -237,18 +237,18 @@
 
             <SolidColorBrush x:Key="DragTabItemSelectedBackgroundBrush" Color="#333333" />
 
-            <SolidColorBrush x:Key="DragTabItemHeaderBackgroundUnselectedPointerOver" Color="#2A2A2A" />
+            <SolidColorBrush x:Key="DragTabItemUnselectedPointerOverBackgroundBrush" Color="#2A2A2A" />
             <SolidColorBrush x:Key="DragTabItemRightSeparatorBackgroundBrush" Color="#777777" />
 
-            <SolidColorBrush x:Key="AddItemCommandButtonForegroundPointerOverBrush" Color="#FAFAFA" />
-            <SolidColorBrush x:Key="AddItemCommandButtonBackgroundPointerOverBrush" Color="#1F1F1F" />
-            <SolidColorBrush x:Key="AddItemCommandButtonBackgroundPressedBrush" Color="#2C2C2C" />
+            <SolidColorBrush x:Key="AddItemButtonPointerOverForegroundBrush" Color="#FAFAFA" />
+            <SolidColorBrush x:Key="AddItemButtonPointerOverBackgroundBrush" Color="#1F1F1F" />
+            <SolidColorBrush x:Key="AddItemButtonPressedBackgroundBrush" Color="#2C2C2C" />
 
-            <SolidColorBrush x:Key="CloseItemButtonForegroundPointerOverBrush" Color="#FAFAFA" />
-            <SolidColorBrush x:Key="CloseItemButtonBackgroundPointerOverBrush" Color="#4C4C4C" />
-            <SolidColorBrush x:Key="CloseItemButtonForegroundPressedBrush" Color="#FAFAFA" />
-            <SolidColorBrush x:Key="CloseItemButtonBackgroundPressedBrush" Color="#5A5A5A" />
-            <SolidColorBrush x:Key="CloseItemButtonForeground" Color="#FAFAFA" />
+            <SolidColorBrush x:Key="CloseItemButtonPointerOverForegroundBrush" Color="#FAFAFA" />
+            <SolidColorBrush x:Key="CloseItemButtonPointerOverBackgroundBrush" Color="#4C4C4C" />
+            <SolidColorBrush x:Key="CloseItemButtonPressedForegroundBrush" Color="#FAFAFA" />
+            <SolidColorBrush x:Key="CloseItemButtonPressedBackgroundBrush" Color="#5A5A5A" />
+            <SolidColorBrush x:Key="CloseItemButtonForegroundBrush" Color="#FAFAFA" />
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
 
