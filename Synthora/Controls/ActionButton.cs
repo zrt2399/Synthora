@@ -8,16 +8,26 @@ namespace Synthora.Controls
     {
         public ActionButton()
         {
-            AddHandler(PointerReleasedEvent, InputElement_PointerPressed, RoutingStrategies.Tunnel, handledEventsToo: true);
+            AddHandler(PointerPressedEvent, InputElement_PointerPressed, RoutingStrategies.Tunnel, handledEventsToo: true);
+            AddHandler(PointerReleasedEvent, InputElement_PointerReleased, RoutingStrategies.Tunnel, handledEventsToo: true);
         }
 
-        private void InputElement_PointerPressed(object? sender, PointerReleasedEventArgs e)
+        private void InputElement_PointerPressed(object? sender, PointerPressedEventArgs e)
         {
-            if (e.InitialPressMouseButton == MouseButton.Left)
+            if (e.Properties.IsLeftButtonPressed && ClickMode == ClickMode.Press)
             {
-                Command?.Execute(CommandParameter);
+                OnPointerPressed(e);
                 e.Handled = true;
-            }  
+            }
+        }
+
+        private void InputElement_PointerReleased(object? sender, PointerReleasedEventArgs e)
+        {
+            if (e.InitialPressMouseButton == MouseButton.Left && ClickMode == ClickMode.Release)
+            {
+                OnPointerReleased(e);
+                e.Handled = true;
+            }
         }
     }
 }
