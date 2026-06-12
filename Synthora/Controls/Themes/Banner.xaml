@@ -8,8 +8,15 @@
             <StackPanel Spacing="20">
                 <Banner Content="A banner without icon type." />
                 <Banner Content="Pull operation failed. Check the Output window for details." IconType="Error" />
+                <Banner Content="Do you want to continue with this operation?" IconType="Question" />
                 <Banner Content="Operation completed successfully!" IconType="Success" />
                 <Banner Content="Note: This operation may take a long time." IconType="Warning" />
+                <Banner Content="This banner shows an accent bar."
+                        IconType="Warning"
+                        ShowAccentBar="True" />
+                <Banner Content="This banner hides the icon."
+                        IconType="Information"
+                        ShowIcon="False" />
                 <Banner Content="System information has been updated." IconType="Information" />
             </StackPanel>
         </Border>
@@ -29,20 +36,14 @@
                         BoxShadow="{TemplateBinding (BoxShadowAttach.BoxShadow)}"
                         CornerRadius="{TemplateBinding CornerRadius}">
                     <DockPanel>
-                        <!--  Close Button  -->
-                        <Button Width="20"
-                                Height="20"
-                                Margin="0,8,8,8"
-                                VerticalAlignment="Top"
-                                Command="{Binding $parent[Banner].Close}"
-                                DockPanel.Dock="Right"
-                                IsVisible="{TemplateBinding ShowCloseButton}"
-                                Theme="{DynamicResource IconButtonTheme}"
-                                ToolTip.Tip="{DynamicResource StringCloseText}">
-                            <PathIcon Width="12"
-                                      Height="12"
-                                      Data="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12Z" />
-                        </Button>
+                        <!--  Accent Bar  -->
+                        <Border Width="4"
+                                Margin="8,8,0,8"
+                                VerticalAlignment="Stretch"
+                                Background="{TemplateBinding BorderBrush}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                DockPanel.Dock="Left"
+                                IsVisible="{TemplateBinding ShowAccentBar}" />
 
                         <!--  Icon  -->
                         <TipIcon x:Name="icon"
@@ -52,6 +53,21 @@
                                  VerticalAlignment="Top"
                                  DockPanel.Dock="Left"
                                  IconType="{TemplateBinding IconType}" />
+
+                        <!--  Close Button  -->
+                        <Button Width="20"
+                                Height="20"
+                                Margin="0,8,8,8"
+                                VerticalAlignment="Top"
+                                Command="{Binding $parent[Banner].Close}"
+                                DockPanel.Dock="Right"
+                                IsVisible="{TemplateBinding ShowCloseButton}"
+                                Theme="{StaticResource IconButtonTheme}"
+                                ToolTip.Tip="{DynamicResource StringCloseText}">
+                            <PathIcon Width="12"
+                                      Height="12"
+                                      Data="{DynamicResource TextBoxClearButtonData}" />
+                        </Button>
 
                         <!--  Content  -->
                         <ContentPresenter Name="PART_ContentPresenter"
@@ -66,8 +82,8 @@
         </Setter>
 
         <Style Selector="^:none">
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
-            <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SynthoraLowBrush}" />
             <Style Selector="^ /template/ TipIcon#icon">
                 <Setter Property="IsVisible" Value="False" />
             </Style>
@@ -76,6 +92,11 @@
         <Style Selector="^:information">
             <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
             <Setter Property="Background" Value="{DynamicResource InformationTipBackgroundBrush}" />
+        </Style>
+
+        <Style Selector="^:question">
+            <Setter Property="BorderBrush" Value="{DynamicResource QuestionBrush}" />
+            <Setter Property="Background" Value="{DynamicResource QuestionTipBackgroundBrush}" />
         </Style>
 
         <Style Selector="^:success">
@@ -91,6 +112,10 @@
         <Style Selector="^:error">
             <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
             <Setter Property="Background" Value="{DynamicResource ErrorTipBackgroundBrush}" />
+        </Style>
+
+        <Style Selector="^[ShowIcon=False] /template/ TipIcon#icon">
+            <Setter Property="IsVisible" Value="False" />
         </Style>
 
         <Style Selector="^[IsClosed=True]">

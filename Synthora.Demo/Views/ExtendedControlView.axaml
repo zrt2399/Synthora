@@ -16,6 +16,54 @@
               IconKind="{Binding IconKind}">
         <ScrollViewer Padding="16">
             <StackPanel Spacing="16">
+                <!--  Badge showcase  -->
+                <Border Classes="card">
+                    <StackPanel Spacing="16">
+                        <StackPanel Classes="sectionHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="Label" />
+                            <TextBlock Classes="sectionLabel" Text="BADGE" />
+                        </StackPanel>
+                        <StackPanel.Styles>
+                            <Style Selector="Badge">
+                                <Setter Property="Content" Value="{Binding $self.BadgeType}" />
+                            </Style>
+                        </StackPanel.Styles>
+                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <Badge Content="General" />
+                            <Badge BadgeType="Question" />
+                            <Badge BadgeType="Success" />
+                            <Badge BadgeType="Warning" />
+                            <Badge BadgeType="Danger" />
+                            <Badge BadgeType="Error" />
+                            <Badge BadgeType="None" />
+                        </SpacingWrapPanel>
+                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <Badge Content="General" IsSolid="True" />
+                            <Badge BadgeType="Question" IsSolid="True" />
+                            <Badge BadgeType="Success" IsSolid="True" />
+                            <Badge BadgeType="Warning" IsSolid="True" />
+                            <Badge BadgeType="Danger" IsSolid="True" />
+                            <Badge BadgeType="Error" IsSolid="True" />
+                            <Badge BadgeType="None" IsSolid="True" />
+                        </SpacingWrapPanel>
+                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <Badge Content="General"
+                                   IsCircular="True"
+                                   IsSolid="True" />
+                            <Badge BadgeType="Question" IsCircular="True" />
+                            <Badge BadgeType="Success"
+                                   IsCircular="True"
+                                   IsSolid="True" />
+                            <Badge BadgeType="Warning" IsCircular="True" />
+                            <Badge BadgeType="Danger"
+                                   IsCircular="True"
+                                   IsSolid="True" />
+                            <Badge BadgeType="Error" IsCircular="True" />
+                            <Badge BadgeType="None" Content="None" />
+                        </SpacingWrapPanel>
+                    </StackPanel>
+                </Border>
+
                 <!--  ShadowChrome showcase  -->
                 <Border Classes="card">
                     <StackPanel Spacing="16">
@@ -102,35 +150,6 @@
                             <EmptyBox />
                             <EmptyBox IconHeight="60" IconWidth="90" />
                             <EmptyBox IconHeight="80" IconWidth="120" />
-                        </StackPanel>
-                    </StackPanel>
-                </Border>
-
-                <!--  Banner  -->
-                <Border Classes="card">
-                    <StackPanel Spacing="16">
-                        <StackPanel Classes="sectionHeader">
-                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="AlertCircleOutline" />
-                            <TextBlock Classes="sectionLabel" Text="BANNER" />
-                        </StackPanel>
-                        <StackPanel Spacing="16">
-                            <Banner Content="This is a custom banner with error icon." IconType="Error" />
-
-                            <Banner Content="Operation completed successfully! Data has been saved." IconType="Success" />
-
-                            <Banner Content="Note: This operation may take a long time to complete." IconType="Warning" />
-
-                            <Banner Content="System information has been updated to the latest version." IconType="Information" />
-
-                            <Banner BorderThickness="1"
-                                    Content="This is a bordered custom banner."
-                                    IconType="Information" />
-
-                            <Banner Content="This is a custom banner without close button."
-                                    IconType="Information"
-                                    ShowCloseButton="False" />
-
-                            <Banner Content="This is a custom banner without icon." />
                         </StackPanel>
                     </StackPanel>
                 </Border>

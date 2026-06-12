@@ -101,8 +101,10 @@
             <SolidColorBrush x:Key="TextSelectionBrush" Color="{StaticResource ThemeAccentColor3}" />
 
             <SolidColorBrush x:Key="InformationTipBackgroundBrush" Color="#FFEAF5FF" />
+            <SolidColorBrush x:Key="QuestionTipBackgroundBrush" Color="#FFF0F1FF" />
             <SolidColorBrush x:Key="SuccessTipBackgroundBrush" Color="#FFECF7EC" />
             <SolidColorBrush x:Key="WarningTipBackgroundBrush" Color="#FFFFF8EA" />
+            <SolidColorBrush x:Key="DangerTipBackgroundBrush" Color="#FFFFF0F4" />
             <SolidColorBrush x:Key="ErrorTipBackgroundBrush" Color="#FFFEF2ED" />
 
             <!--  BaseResources for WindowDrawnDecorations  -->
@@ -234,10 +236,12 @@
             <SolidColorBrush x:Key="RefreshVisualizerBackground" Color="Transparent" />
             <SolidColorBrush x:Key="TextSelectionBrush" Color="{StaticResource ThemeAccentColor2}" />
 
-            <SolidColorBrush x:Key="InformationTipBackgroundBrush" Color="#FF2D425B" />
-            <SolidColorBrush x:Key="SuccessTipBackgroundBrush" Color="#FF304936" />
-            <SolidColorBrush x:Key="WarningTipBackgroundBrush" Color="#FF57432E" />
-            <SolidColorBrush x:Key="ErrorTipBackgroundBrush" Color="#FF563634" />
+            <SolidColorBrush x:Key="InformationTipBackgroundBrush" Color="#FF2D3F54" />
+            <SolidColorBrush x:Key="QuestionTipBackgroundBrush" Color="#FF2A2B4A" />
+            <SolidColorBrush x:Key="SuccessTipBackgroundBrush" Color="#FF2F4435" />
+            <SolidColorBrush x:Key="WarningTipBackgroundBrush" Color="#FF4F402E" />
+            <SolidColorBrush x:Key="DangerTipBackgroundBrush" Color="#FF4D2F38" />
+            <SolidColorBrush x:Key="ErrorTipBackgroundBrush" Color="#FF4E3433" />
 
             <!--  BaseResources for WindowDrawnDecorations  -->
             <SolidColorBrush x:Key="CaptionButtonForeground" Color="{StaticResource ThemeForegroundColor}" />
@@ -287,9 +291,12 @@
     <Color x:Key="ThemeAccentColor4">#66007AFF</Color>
     <Color x:Key="ThemeAccentColor5">#44007AFF</Color>
 
-    <Color x:Key="SuccessColor">#FF1F883D</Color>
-    <Color x:Key="SuccessPointerOverColor">#FF359450</Color>
-    <Color x:Key="SuccessPressedColor">#FF499F62</Color>
+    <Color x:Key="SuccessColor">#FF359450</Color>
+    <Color x:Key="SuccessPointerOverColor">#FF499F62</Color>
+    <Color x:Key="SuccessPressedColor">#FF5DAA74</Color>
+    <Color x:Key="QuestionColor">#FF6366F1</Color>
+    <Color x:Key="QuestionPointerOverColor">#FF7972FF</Color>
+    <Color x:Key="QuestionPressedColor">#FF8D7DFF</Color>
     <Color x:Key="WarningColor">#FFDC9B28</Color>
     <Color x:Key="WarningPointerOverColor">#FFE6A532</Color>
     <Color x:Key="WarningPressedColor">#FFF0AF3C</Color>
@@ -313,18 +320,22 @@
     <SolidColorBrush x:Key="ThemeAccentBrush3" Color="{StaticResource ThemeAccentColor3}" />
     <SolidColorBrush x:Key="ThemeAccentBrush4" Color="{StaticResource ThemeAccentColor4}" />
     <SolidColorBrush x:Key="ThemeAccentBrush5" Color="{StaticResource ThemeAccentColor5}" />
-    <SolidColorBrush x:Key="ErrorBrush" Color="{StaticResource ErrorColor}" />
-    <SolidColorBrush x:Key="ErrorPointerOverBrush" Color="{StaticResource ErrorPointerOverColor}" />
-    <SolidColorBrush x:Key="ErrorPressedBrush" Color="{StaticResource ErrorPressedColor}" />
+
     <SolidColorBrush x:Key="SuccessBrush" Color="{StaticResource SuccessColor}" />
     <SolidColorBrush x:Key="SuccessPointerOverBrush" Color="{StaticResource SuccessPointerOverColor}" />
     <SolidColorBrush x:Key="SuccessPressedBrush" Color="{StaticResource SuccessPressedColor}" />
+    <SolidColorBrush x:Key="QuestionBrush" Color="{StaticResource QuestionColor}" />
+    <SolidColorBrush x:Key="QuestionPointerOverBrush" Color="{StaticResource QuestionPointerOverColor}" />
+    <SolidColorBrush x:Key="QuestionPressedBrush" Color="{StaticResource QuestionPressedColor}" />
     <SolidColorBrush x:Key="WarningBrush" Color="{StaticResource WarningColor}" />
     <SolidColorBrush x:Key="WarningPointerOverBrush" Color="{StaticResource WarningPointerOverColor}" />
     <SolidColorBrush x:Key="WarningPressedBrush" Color="{StaticResource WarningPressedColor}" />
     <SolidColorBrush x:Key="DangerBrush" Color="{StaticResource DangerColor}" />
     <SolidColorBrush x:Key="DangerPointerOverBrush" Color="{StaticResource DangerPointerOverColor}" />
     <SolidColorBrush x:Key="DangerPressedBrush" Color="{StaticResource DangerPressedColor}" />
+    <SolidColorBrush x:Key="ErrorBrush" Color="{StaticResource ErrorColor}" />
+    <SolidColorBrush x:Key="ErrorPointerOverBrush" Color="{StaticResource ErrorPointerOverColor}" />
+    <SolidColorBrush x:Key="ErrorPressedBrush" Color="{StaticResource ErrorPressedColor}" />
 
     <SolidColorBrush x:Key="DatePickerFlyoutPresenterHighlightFill"
                      Opacity="0.4"

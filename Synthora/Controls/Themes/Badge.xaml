@@ -1,0 +1,179 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
+                    x:CompileBindings="True">
+
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <StackPanel Spacing="16">
+                <StackPanel Orientation="Horizontal" Spacing="16">
+                    <Badge Content="General" />
+                    <Badge BadgeType="Question" Content="Question" />
+                    <Badge BadgeType="Success" Content="Stable" />
+                    <Badge BadgeType="Warning" Content="Preview" />
+                    <Badge BadgeType="Danger" Content="Danger" />
+                    <Badge BadgeType="Error" Content="Error" />
+                    <Badge BadgeType="None" Content="Neutral" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Spacing="16">
+                    <Badge Content="General" IsSolid="True" />
+                    <Badge BadgeType="Question"
+                           Content="Question"
+                           IsSolid="True" />
+                    <Badge BadgeType="Success"
+                           Content="Stable"
+                           IsSolid="True" />
+                    <Badge BadgeType="Warning"
+                           Content="Preview"
+                           IsSolid="True" />
+                    <Badge BadgeType="Danger"
+                           Content="Danger"
+                           IsSolid="True" />
+                    <Badge BadgeType="Error"
+                           Content="Error"
+                           IsSolid="True" />
+                    <Badge BadgeType="None"
+                           Content="Neutral"
+                           IsSolid="True" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Spacing="16">
+                    <Badge Content="General"
+                           IsCircular="True"
+                           IsSolid="True" />
+                    <Badge BadgeType="Question"
+                           Content="Question"
+                           IsCircular="True" />
+                    <Badge BadgeType="Success"
+                           Content="Success"
+                           IsCircular="True"
+                           IsSolid="True" />
+                    <Badge BadgeType="Warning"
+                           Content="Warning"
+                           IsCircular="True" />
+                    <Badge BadgeType="Danger"
+                           Content="Danger"
+                           IsCircular="True"
+                           IsSolid="True" />
+                    <Badge BadgeType="Error"
+                           Content="Error"
+                           IsCircular="True" />
+                    <Badge BadgeType="None" Content="None" />
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Design.PreviewWith>
+
+    <ControlTheme x:Key="{x:Type Badge}" TargetType="Badge">
+        <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
+
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border x:Name="RootBorder"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <ContentPresenter Name="PART_ContentPresenter"
+                                      Margin="{TemplateBinding Padding}"
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:none">
+            <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundMidBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SynthoraLowBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
+        </Style>
+
+        <Style Selector="^:information">
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource InformationTipBackgroundBrush}" />
+        </Style>
+
+        <Style Selector="^:question">
+            <Setter Property="Foreground" Value="{DynamicResource QuestionBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource QuestionBrush}" />
+            <Setter Property="Background" Value="{DynamicResource QuestionTipBackgroundBrush}" />
+        </Style>
+
+        <Style Selector="^:success">
+            <Setter Property="Foreground" Value="{DynamicResource SuccessBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource SuccessBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SuccessTipBackgroundBrush}" />
+        </Style>
+
+        <Style Selector="^:warning">
+            <Setter Property="Foreground" Value="{DynamicResource WarningBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource WarningBrush}" />
+            <Setter Property="Background" Value="{DynamicResource WarningTipBackgroundBrush}" />
+        </Style>
+
+        <Style Selector="^:danger">
+            <Setter Property="Foreground" Value="{DynamicResource DangerBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource DangerBrush}" />
+            <Setter Property="Background" Value="{DynamicResource DangerTipBackgroundBrush}" />
+        </Style>
+
+        <Style Selector="^:error">
+            <Setter Property="Foreground" Value="{DynamicResource ErrorBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
+            <Setter Property="Background" Value="{DynamicResource ErrorTipBackgroundBrush}" />
+        </Style>
+
+        <Style Selector="^[IsSolid=True]:none">
+            <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SynthoraBorderBrush}" />
+        </Style>
+
+        <Style Selector="^[IsSolid=True]:information">
+            <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+        </Style>
+
+        <Style Selector="^[IsSolid=True]:question">
+            <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource QuestionBrush}" />
+            <Setter Property="Background" Value="{DynamicResource QuestionBrush}" />
+        </Style>
+
+        <Style Selector="^[IsSolid=True]:success">
+            <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource SuccessBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SuccessBrush}" />
+        </Style>
+
+        <Style Selector="^[IsSolid=True]:warning">
+            <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource WarningBrush}" />
+            <Setter Property="Background" Value="{DynamicResource WarningBrush}" />
+        </Style>
+
+        <Style Selector="^[IsSolid=True]:danger">
+            <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource DangerBrush}" />
+            <Setter Property="Background" Value="{DynamicResource DangerBrush}" />
+        </Style>
+
+        <Style Selector="^[IsSolid=True]:error">
+            <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
+            <Setter Property="Background" Value="{DynamicResource ErrorBrush}" />
+        </Style>
+
+        <Style Selector="^[IsCircular=True]">
+            <Setter Property="CornerRadiusAttach.IsCircular" Value="True" />
+        </Style>
+    </ControlTheme>
+
+</ResourceDictionary>

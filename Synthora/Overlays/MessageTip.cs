@@ -9,6 +9,7 @@ using Avalonia.Media;
 using Avalonia.Media.Immutable;
 using Avalonia.Threading;
 using Synthora.Controls;
+using Synthora.Resources;
 
 namespace Synthora.Overlays
 {
@@ -20,11 +21,6 @@ namespace Synthora.Overlays
         private const int DefaultDelay = 2000;
         private static readonly IImmutableSolidColorBrush NoneBorderBrush = new ImmutableSolidColorBrush(Color.FromArgb(64, 0, 0, 0));
         private static readonly IImmutableSolidColorBrush NoneBackground = new ImmutableSolidColorBrush(Color.FromRgb(245, 245, 245));
-        private static readonly IImmutableSolidColorBrush InformationBackground = new ImmutableSolidColorBrush(Color.FromRgb(243, 247, 255));
-        private static readonly IImmutableSolidColorBrush QuestionBackground = new ImmutableSolidColorBrush(Color.FromRgb(244, 248, 255));
-        private static readonly IImmutableSolidColorBrush SuccessBackground = new ImmutableSolidColorBrush(Color.FromRgb(247, 251, 239));
-        private static readonly IImmutableSolidColorBrush WarningBackground = new ImmutableSolidColorBrush(Color.FromRgb(254, 248, 236));
-        private static readonly IImmutableSolidColorBrush ErrorBackground = new ImmutableSolidColorBrush(Color.FromRgb(255, 243, 242));
 
         /// <summary>
         /// Display duration in milliseconds for all message tips.
@@ -109,11 +105,11 @@ namespace Synthora.Overlays
 
                 var borderBrush = iconType switch
                 {
-                    IconType.Information => StatusIcon.InformationBackground,
-                    IconType.Question => StatusIcon.QuestionBackground,
-                    IconType.Success => StatusIcon.SuccessBackground,
-                    IconType.Warning => StatusIcon.WarningBackground,
-                    IconType.Error => StatusIcon.ErrorBackground,
+                    IconType.Information => SynthoraBrushes.InformationBrush,
+                    IconType.Question => SynthoraBrushes.QuestionBrush,
+                    IconType.Success => SynthoraBrushes.SuccessBrush,
+                    IconType.Warning => SynthoraBrushes.WarningBrush,
+                    IconType.Error => SynthoraBrushes.ErrorBrush,
                     _ => NoneBorderBrush
                 };
 
@@ -161,11 +157,11 @@ namespace Synthora.Overlays
 
                 border.Background = iconType switch
                 {
-                    IconType.Information => InformationBackground,
-                    IconType.Question => QuestionBackground,
-                    IconType.Success => SuccessBackground,
-                    IconType.Warning => WarningBackground,
-                    IconType.Error => ErrorBackground,
+                    IconType.Information => SynthoraBrushes.InformationTipBackgroundBrush,
+                    IconType.Question => SynthoraBrushes.QuestionTipBackgroundBrush,
+                    IconType.Success => SynthoraBrushes.SuccessTipBackgroundBrush,
+                    IconType.Warning => SynthoraBrushes.WarningTipBackgroundBrush,
+                    IconType.Error => SynthoraBrushes.ErrorTipBackgroundBrush,
                     _ => NoneBackground
                 };
 

@@ -8,11 +8,12 @@ namespace Synthora.Controls
     /// <summary>
     /// Represents a banner control for displaying messages with different severity levels.
     /// </summary>
-    [PseudoClasses(pcInformation, pcSuccess, pcWarning, pcError, pcNone)]
+    [PseudoClasses(pcInformation, pcQuestion, pcSuccess, pcWarning, pcError, pcNone)]
     public class Banner : ContentControl
     {
         private const string pcNone = ":none";
         private const string pcInformation = ":information";
+        private const string pcQuestion = ":question";
         private const string pcSuccess = ":success";
         private const string pcWarning = ":warning";
         private const string pcError = ":error";
@@ -28,6 +29,18 @@ namespace Synthora.Controls
         /// </summary>
         public static readonly StyledProperty<bool> ShowCloseButtonProperty =
             AvaloniaProperty.Register<Banner, bool>(nameof(ShowCloseButton), true);
+
+        /// <summary>
+        /// Defines the <see cref="ShowIcon"/> property.
+        /// </summary>
+        public static readonly StyledProperty<bool> ShowIconProperty =
+            AvaloniaProperty.Register<Banner, bool>(nameof(ShowIcon), true);
+
+        /// <summary>
+        /// Defines the <see cref="ShowAccentBar"/> property.
+        /// </summary>
+        public static readonly StyledProperty<bool> ShowAccentBarProperty =
+            AvaloniaProperty.Register<Banner, bool>(nameof(ShowAccentBar));
 
         /// <summary>
         /// Defines the <see cref="IsClosed"/> property.
@@ -61,6 +74,24 @@ namespace Synthora.Controls
         }
 
         /// <summary>
+        /// Gets or sets whether to show the icon.
+        /// </summary>
+        public bool ShowIcon
+        {
+            get => GetValue(ShowIconProperty);
+            set => SetValue(ShowIconProperty, value);
+        }
+
+        /// <summary>
+        /// Gets or sets whether to show the accent bar.
+        /// </summary>
+        public bool ShowAccentBar
+        {
+            get => GetValue(ShowAccentBarProperty);
+            set => SetValue(ShowAccentBarProperty, value);
+        }
+
+        /// <summary>
         /// Gets or sets whether the banner is closed.
         /// </summary>
         public bool IsClosed
@@ -81,6 +112,7 @@ namespace Synthora.Controls
         {
             PseudoClasses.Set(pcNone, IconType == IconType.None);
             PseudoClasses.Set(pcInformation, IconType == IconType.Information);
+            PseudoClasses.Set(pcQuestion, IconType == IconType.Question);
             PseudoClasses.Set(pcSuccess, IconType == IconType.Success);
             PseudoClasses.Set(pcWarning, IconType == IconType.Warning);
             PseudoClasses.Set(pcError, IconType == IconType.Error);

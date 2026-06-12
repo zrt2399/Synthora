@@ -117,6 +117,9 @@
                     <DataTemplate DataType="vm:ExtendedControlViewModel">
                         <views:ExtendedControlView />
                     </DataTemplate>
+                    <DataTemplate DataType="vm:BannerViewModel">
+                        <views:BannerView />
+                    </DataTemplate>
                     <DataTemplate DataType="vm:DragTabControlViewModel">
                         <views:DragTabControlView />
                     </DataTemplate>
