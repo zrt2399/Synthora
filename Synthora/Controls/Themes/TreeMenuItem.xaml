@@ -73,6 +73,14 @@
             </ControlTemplate>
         </Setter>
 
+        <Style Selector="^ /template/ Border#PART_PresenterRoot">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.1" />
+                </Transitions>
+            </Setter>
+        </Style>
+
         <Style Selector="^ /template/ PathIcon#pathIcon">
             <Setter Property="Transitions">
                 <Transitions>
@@ -93,6 +101,10 @@
 
         <Style Selector="^:selected /template/ Border#PART_PresenterRoot:pointerover">
             <Setter Property="Background" Value="{DynamicResource ThemeControlHighlightMidBrush}" />
+        </Style>
+
+        <Style Selector="^:current-pressed /template/ Border#PART_PresenterRoot">
+            <Setter Property="Background" Value="{DynamicResource ThemeControlHighlightLowBrush}" />
         </Style>
 
         <Style Selector="^:selected-descendant /template/ Border#PART_PresenterRoot">

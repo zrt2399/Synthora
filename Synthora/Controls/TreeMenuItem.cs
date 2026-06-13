@@ -22,11 +22,12 @@ namespace Synthora.Controls
         Right
     }
 
-    [PseudoClasses(pcSelectedDescendant, pcExpanded)]
+    [PseudoClasses(pcSelectedDescendant, pcExpanded, pcCurrentPressed)]
     public class TreeMenuItem : TreeViewItem
     {
         private const string pcSelectedDescendant = ":selected-descendant";
         private const string pcExpanded = ":expanded";
+        private const string pcCurrentPressed = ":current-pressed";
         private readonly TimeSpan _expandCollapseDuration = TimeSpan.FromMilliseconds(200);
 
         public static readonly StyledProperty<HeaderPosition> HeaderPositionProperty =
@@ -110,7 +111,11 @@ namespace Synthora.Controls
 
             if (_presenterRoot != null)
             {
+                _presenterRoot.PointerPressed += PresenterRootPointerPressed;
                 _presenterRoot.PointerReleased += PresenterRootPointerReleased;
+                _presenterRoot.PointerCaptureLost += PresenterRootPointerCaptureLost;
+                _presenterRoot.PropertyChanged += PresenterPropertyChanged;
+                _presenterRoot.LostFocus += PresenterRootLostFocus;
             }
 
             ApplyItemsContainerState(IsExpanded);
@@ -161,16 +166,50 @@ namespace Synthora.Controls
         {
             if (_presenterRoot != null)
             {
+                _presenterRoot.PointerPressed -= PresenterRootPointerPressed;
                 _presenterRoot.PointerReleased -= PresenterRootPointerReleased;
+                _presenterRoot.PointerCaptureLost -= PresenterRootPointerCaptureLost;
+                _presenterRoot.PropertyChanged -= PresenterPropertyChanged;
+                _presenterRoot.LostFocus -= PresenterRootLostFocus;
             }
+        }
+
+        private void PresenterRootPointerPressed(object? sender, PointerPressedEventArgs e)
+        {
+            if (_presenterRoot is null)
+            {
+                return;
+            }
+
+            PseudoClasses.Set(pcCurrentPressed, true);
         }
 
         private void PresenterRootPointerReleased(object? sender, PointerReleasedEventArgs e)
         {
+            PseudoClasses.Set(pcCurrentPressed, false);
+
             if (HasChildItems)
             {
                 SetCurrentValue(IsExpandedProperty, !IsExpanded);
             }
+        }
+
+        private void PresenterRootPointerCaptureLost(object? sender, PointerCaptureLostEventArgs e)
+        {
+            PseudoClasses.Set(pcCurrentPressed, false);
+        }
+
+        private void PresenterPropertyChanged(object? sender, AvaloniaPropertyChangedEventArgs e)
+        {
+            if (e.Property == IsEffectivelyEnabledProperty && !e.GetNewValue<bool>())
+            {
+                PseudoClasses.Set(pcCurrentPressed, false);
+            }
+        }
+
+        private void PresenterRootLostFocus(object? sender, FocusChangedEventArgs e)
+        {
+            PseudoClasses.Set(pcCurrentPressed, false);
         }
 
         private void RefreshSelfAndAncestors()
