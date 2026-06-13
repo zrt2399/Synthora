@@ -54,11 +54,11 @@
         </Setter>
 
         <Style Selector="^:pointerover,^:focus">
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighlightBrush}" />
         </Style>
 
         <Style Selector="^:pressed">
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeControlVeryHighBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighlightPressedBrush}" />
         </Style>
 
         <Style Selector="^:disabled">

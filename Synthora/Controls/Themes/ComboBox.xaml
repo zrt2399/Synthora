@@ -70,42 +70,6 @@
                                           Right="True"
                                           Top="True" />
 
-    <ControlTheme x:Key="SimpleComboBoxDropDownButtonTheme" TargetType="ToggleButton">
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Focusable" Value="False" />
-        <!-- <Setter Property="ClickMode" Value="Press" /> -->
-        <Setter Property="Template">
-            <ControlTemplate>
-                <Panel Background="{TemplateBinding Background}">
-                    <PathIcon Name="pathIcon"
-                              Width="12"
-                              Height="12"
-                              Margin="{TemplateBinding Padding}"
-                              HorizontalAlignment="Center"
-                              VerticalAlignment="Center"
-                              Data="{DynamicResource ArrowDownData}" />
-                </Panel>
-            </ControlTemplate>
-        </Setter>
-
-        <Style Selector="^ /template/ PathIcon#pathIcon">
-            <Setter Property="Transitions">
-                <Transitions>
-                    <TransformOperationsTransition Easing="CubicEaseInOut"
-                                                   Property="RenderTransform"
-                                                   Duration="0:0:0.2" />
-                </Transitions>
-            </Setter>
-        </Style>
-        <Style Selector="^:checked /template/ PathIcon#pathIcon">
-            <Setter Property="RenderTransform" Value="rotate(180deg)" />
-        </Style>
-
-        <Style Selector="^:pointerover">
-            <Setter Property="Opacity" Value="0.8" />
-        </Style>
-    </ControlTheme>
-
     <ControlTheme x:Key="{x:Type ComboBox}" TargetType="ComboBox">
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
@@ -166,14 +130,13 @@
                                      Background="Transparent"
                                      BorderThickness="0"
                                      DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
-                                     Foreground="{TemplateBinding Foreground}"
                                      IsVisible="{TemplateBinding IsEditable}"
                                      PlaceholderForeground="{TemplateBinding PlaceholderForeground}"
                                      PlaceholderText="{TemplateBinding PlaceholderText}"
                                      Text="{TemplateBinding Text,
                                                             Mode=TwoWay}" />
 
-                            <ActionButton Name="clearButton"
+                            <ActionButton Name="ClearButton"
                                           Grid.Column="1"
                                           Margin="{TemplateBinding Padding,
                                                                    Converter={StaticResource ComboBoxButtonMarginMultiplier}}"
@@ -182,12 +145,16 @@
                                           IsVisible="False"
                                           Theme="{StaticResource SimpleTextBoxClearButtonTheme}" />
 
-                            <ToggleButton Grid.Column="2"
-                                          Margin="{TemplateBinding Padding,
-                                                                   Converter={StaticResource ComboBoxButtonMarginMultiplier}}"
-                                          IsChecked="{TemplateBinding IsDropDownOpen,
-                                                                      Mode=TwoWay}"
-                                          Theme="{StaticResource SimpleComboBoxDropDownButtonTheme}" />
+                            <PathIcon Name="DropDownGlyph"
+                                      Grid.Column="2"
+                                      Width="12"
+                                      Height="12"
+                                      Margin="{TemplateBinding Padding,
+                                                               Converter={StaticResource ComboBoxButtonMarginMultiplier}}"
+                                      HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"
+                                      Data="{DynamicResource ArrowDownData}"
+                                      IsHitTestVisible="False" />
 
                             <Popup Name="PART_Popup"
                                    InheritsTransform="True"
@@ -204,7 +171,10 @@
                                                     BorderThickness="{TemplateBinding BorderThickness}"
                                                     CornerRadius="{TemplateBinding CornerRadius}">
                                     <Panel>
-                                        <EmptyBox Margin="10" IsVisible="{Binding Items.Count, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static SynthoraConverters.IsZero}}" />
+                                        <EmptyBox Margin="10"
+                                                  HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"
+                                                  IsVisible="{Binding Items.Count, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static SynthoraConverters.IsZero}}" />
                                         <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
                                                       IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}"
                                                       IsScrollChainingEnabled="False"
@@ -221,11 +191,27 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^:pointerover,^:focus-within,^:dropdownopen">
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighBrush}" />
+        <Style Selector="^ /template/ PathIcon#DropDownGlyph">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <TransformOperationsTransition Easing="CubicEaseInOut"
+                                                   Property="RenderTransform"
+                                                   Duration="0:0:0.2" />
+                </Transitions>
+            </Setter>
+        </Style>
+        <Style Selector="^:dropdownopen /template/ PathIcon#DropDownGlyph">
+            <Setter Property="RenderTransform" Value="rotate(180deg)" />
+        </Style>
+
+        <Style Selector="^:pointerover,^:focus-within">
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighlightBrush}" />
         </Style>
         <Style Selector="^:pressed">
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeControlVeryHighBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighlightPressedBrush}" />
+        </Style>
+        <Style Selector="^:dropdownopen">
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighBrush}" />
         </Style>
         <Style Selector="^:error">
             <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
@@ -240,7 +226,7 @@
         </Style>
 
         <Style Selector="^.clearButton,^.ClearButton">
-            <Style Selector="^[IsEditable=False] /template/ ActionButton#clearButton">
+            <Style Selector="^[IsEditable=False] /template/ ActionButton#ClearButton">
                 <Setter Property="IsVisible" Value="{TemplateBinding SelectedItem, Converter={x:Static ObjectConverters.IsNotNull}}" />
             </Style>
         </Style>

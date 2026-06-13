@@ -79,25 +79,41 @@
                             <TextBlock Classes="sectionLabel" Text="COMBOBOX" />
                         </StackPanel>
                         <ComboBox IsEditable="True"
-                                  PlaceholderText="Select..."
-                                  TextBoxAttach.Header="ComboBox">
-                            <ComboBoxItem>Option A</ComboBoxItem>
-                            <ComboBoxItem>Option B</ComboBoxItem>
-                            <ComboBoxItem>Option C</ComboBoxItem>
-                            <ComboBoxItem>Option D</ComboBoxItem>
+                                  PlaceholderText="Search a region..."
+                                  TextBoxAttach.Header="Region">
+                            <ComboBoxItem>United States</ComboBoxItem>
+                            <ComboBoxItem>Canada</ComboBoxItem>
+                            <ComboBoxItem>United Kingdom</ComboBoxItem>
+                            <ComboBoxItem>Germany</ComboBoxItem>
+                            <ComboBoxItem>France</ComboBoxItem>
+                            <ComboBoxItem>Japan</ComboBoxItem>
+                            <ComboBoxItem>Singapore</ComboBoxItem>
+                            <ComboBoxItem>Australia</ComboBoxItem>
+                            <ComboBoxItem>China</ComboBoxItem>
+                            <ComboBoxItem>South Korea</ComboBoxItem>
+                            <ComboBoxItem>India</ComboBoxItem>
+                            <ComboBoxItem>Brazil</ComboBoxItem>
+                            <ComboBoxItem>Mexico</ComboBoxItem>
+                            <ComboBoxItem>Netherlands</ComboBoxItem>
+                            <ComboBoxItem>Sweden</ComboBoxItem>
+                            <ComboBoxItem>Italy</ComboBoxItem>
+                            <ComboBoxItem>Spain</ComboBoxItem>
                         </ComboBox>
                         <ComboBox Classes="clearButton"
-                                  PlaceholderText="Select..."
+                                  ItemsSource="{Binding SystemFonts}"
+                                  PlaceholderText="Choose a font..."
                                   SelectedIndex="0"
-                                  TextBoxAttach.Header="ComboBox(With clearButton)">
-                            <ComboBoxItem>Item 1</ComboBoxItem>
-                            <ComboBoxItem>Item 2</ComboBoxItem>
-                            <ComboBoxItem>Item 3</ComboBoxItem>
-                            <ComboBoxItem>Item 4</ComboBoxItem>
+                                  TextBoxAttach.Header="System fonts(With clearButton)">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate x:DataType="FontFamily">
+                                    <TextBlock FontFamily="{Binding}" Text="{Binding Name}" />
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
                         </ComboBox>
                         <ComboBox ItemsSource="{EnumBindingSource ThemeMode}"
                                   SelectedItem="{Binding SelectedEnumDescriptionMode}"
-                                  TextBoxAttach.Header="ComboBox(With GetDescription and EnumBindingSourceExtension)">
+                                  TextBoxAttach.Header="ComboBox(With GetDescription and EnumBindingSourceExtension)"
+                                  WrapSelection="True">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Converter={x:Static SynthoraConverters.EnumDescriptionConverter}, ConverterParameter={x:Type ThemeMode}}" />

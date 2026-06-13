@@ -1,4 +1,6 @@
 using System.Collections.ObjectModel;
+using Avalonia.Media;
+using Avalonia.Media.Fonts;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Material.Icons;
 using Synthora.Demo.Models;
@@ -27,6 +29,9 @@ namespace Synthora.Demo.ViewModels
             "TextBox",
             "Theme Variant"
         ];
+
+        [ObservableProperty]
+        public partial IFontCollection SystemFonts { get; set; } = FontManager.Current.SystemFonts;
 
         [ObservableProperty]
         public partial string AutoCompleteText { get; set; } = string.Empty;

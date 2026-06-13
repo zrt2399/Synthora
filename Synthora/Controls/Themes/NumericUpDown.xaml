@@ -5,12 +5,13 @@
                     x:CompileBindings="True">
 
     <Design.PreviewWith>
-        <Border Padding="20">
+        <Border Width="200" Padding="20">
             <StackPanel Spacing="20">
-                <NumericUpDown Increment="0.5"
+                <NumericUpDown Foreground="OrangeRed"
+                               Increment="0.5"
                                Maximum="10"
                                Minimum="0"
-                               PlaceholderText="Enter text" />
+                               Value="5" />
                 <NumericUpDown HorizontalContentAlignment="Center"
                                VerticalContentAlignment="Center"
                                ButtonSpinnerLocation="Left"

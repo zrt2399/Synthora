@@ -40,15 +40,14 @@
 
             <Color x:Key="ThemeOverlayColor">#40000000</Color>
 
-            <Color x:Key="HighlightColor">#FF0569B4</Color>
             <Color x:Key="HyperlinkVisitedColor">#FF681DA8</Color>
             <Color x:Key="MenuItemSelectedPointerOverColor">#FFC4D3F2</Color>
             <Color x:Key="MenuItemPointerOverColor">#FFCEDEFF</Color>
             <Color x:Key="MenuItemPressedColor">#FFD8E6FF</Color>
 
-            <Color x:Key="ScrollBarThumbColor">#33000000</Color>
-            <Color x:Key="ScrollBarThumbPointerOverColor">#55000000</Color>
-            <Color x:Key="ScrollBarThumbPressedColor">#77000000</Color>
+            <Color x:Key="ScrollBarThumbColor">#40000000</Color>
+            <Color x:Key="ScrollBarThumbPointerOverColor">#60000000</Color>
+            <Color x:Key="ScrollBarThumbPressedColor">#80000000</Color>
 
             <SolidColorBrush x:Key="ThemeSelectedLowBrush" Color="{StaticResource ThemeSelectedLowColor}" />
             <SolidColorBrush x:Key="ThemeSelectedMidBrush" Color="{StaticResource ThemeSelectedMidColor}" />
@@ -86,7 +85,6 @@
 
             <SolidColorBrush x:Key="ThemeOverlayBrush" Color="{StaticResource ThemeOverlayColor}" />
 
-            <SolidColorBrush x:Key="HighlightBrush" Color="{StaticResource HighlightColor}" />
             <SolidColorBrush x:Key="HyperlinkVisitedBrush" Color="{StaticResource HyperlinkVisitedColor}" />
             <SolidColorBrush x:Key="MenuItemSelectedPointerOverBrush" Color="{StaticResource MenuItemSelectedPointerOverColor}" />
             <SolidColorBrush x:Key="MenuItemPointerOverBrush" Color="{StaticResource MenuItemPointerOverColor}" />
@@ -176,15 +174,14 @@
 
             <Color x:Key="ThemeOverlayColor">#60000000</Color>
 
-            <Color x:Key="HighlightColor">#FF119EDA</Color>
             <Color x:Key="HyperlinkVisitedColor">#FFC58AF9</Color>
             <Color x:Key="MenuItemSelectedPointerOverColor">#FF1356BA</Color>
             <Color x:Key="MenuItemPointerOverColor">#FF145AC4</Color>
             <Color x:Key="MenuItemPressedColor">#FF2C6BCA</Color>
 
-            <Color x:Key="ScrollBarThumbColor">#33FFFFFF</Color>
-            <Color x:Key="ScrollBarThumbPointerOverColor">#55FFFFFF</Color>
-            <Color x:Key="ScrollBarThumbPressedColor">#77FFFFFF</Color>
+            <Color x:Key="ScrollBarThumbColor">#40FFFFFF</Color>
+            <Color x:Key="ScrollBarThumbPointerOverColor">#60FFFFFF</Color>
+            <Color x:Key="ScrollBarThumbPressedColor">#80FFFFFF</Color>
 
             <SolidColorBrush x:Key="ThemeSelectedLowBrush" Color="{StaticResource ThemeSelectedLowColor}" />
             <SolidColorBrush x:Key="ThemeSelectedMidBrush" Color="{StaticResource ThemeSelectedMidColor}" />
@@ -222,7 +219,6 @@
 
             <SolidColorBrush x:Key="ThemeOverlayBrush" Color="{StaticResource ThemeOverlayColor}" />
 
-            <SolidColorBrush x:Key="HighlightBrush" Color="{StaticResource HighlightColor}" />
             <SolidColorBrush x:Key="HyperlinkVisitedBrush" Color="{StaticResource HyperlinkVisitedColor}" />
             <SolidColorBrush x:Key="MenuItemSelectedPointerOverBrush" Color="{StaticResource MenuItemSelectedPointerOverColor}" />
             <SolidColorBrush x:Key="MenuItemPointerOverBrush" Color="{StaticResource MenuItemPointerOverColor}" />
@@ -283,6 +279,7 @@
     <Color x:Key="OnPrimaryColor">#FFFFFFFF</Color>
 
     <Color x:Key="ThemeBorderHighlightColor">#FF007AFF</Color>
+    <Color x:Key="ThemeBorderHighlightPressedColor">#FF3395FF</Color>
     <Color x:Key="HighlightForegroundColor">#FFFFFFFF</Color>
 
     <Color x:Key="ThemeAccentColor">#CC007AFF</Color>
@@ -313,6 +310,7 @@
     <SolidColorBrush x:Key="OnPrimaryBrush" Color="{StaticResource OnPrimaryColor}" />
 
     <SolidColorBrush x:Key="ThemeBorderHighlightBrush" Color="{StaticResource ThemeBorderHighlightColor}" />
+    <SolidColorBrush x:Key="ThemeBorderHighlightPressedBrush" Color="{StaticResource ThemeBorderHighlightPressedColor}" />
     <SolidColorBrush x:Key="HighlightForegroundBrush" Color="{StaticResource HighlightForegroundColor}" />
 
     <SolidColorBrush x:Key="ThemeAccentBrush" Color="{StaticResource ThemeAccentColor}" />
