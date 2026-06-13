@@ -11,23 +11,21 @@
                     x:CompileBindings="True">
 
     <ControlTheme x:Key="{x:Type CalendarButton}" TargetType="CalendarButton">
-        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
-        <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush2}" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="MinWidth" Value="40" />
         <Setter Property="MinHeight" Value="40" />
-        <Setter Property="Focusable" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel Name="panel" Background="Transparent">
+                <Panel Name="panel" Background="{TemplateBinding Background}">
                     <Rectangle Name="SelectedBackground"
-                               Fill="{TemplateBinding Background}"
+                               Fill="{DynamicResource ThemeAccentBrush2}"
                                IsVisible="False"
                                Opacity="0.75" />
 
                     <Rectangle Name="Background"
-                               Fill="{TemplateBinding Background}"
+                               Fill="{DynamicResource ThemeAccentBrush2}"
                                IsVisible="False"
                                Opacity="0.5" />
 
@@ -41,9 +39,8 @@
                     <Rectangle Name="FocusVisual"
                                IsHitTestVisible="False"
                                IsVisible="False"
-                               Stroke="{DynamicResource HighlightBrush}"
+                               Stroke="{DynamicResource PrimaryBrush}"
                                StrokeThickness="1" />
-
                 </Panel>
             </ControlTemplate>
         </Setter>

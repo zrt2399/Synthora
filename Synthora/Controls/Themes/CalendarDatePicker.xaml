@@ -96,7 +96,6 @@
                                  BorderThickness="{TemplateBinding BorderThickness}"
                                  CornerRadius="{TemplateBinding CornerRadius}"
                                  DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
-                                 Foreground="{TemplateBinding Foreground}"
                                  PlaceholderForeground="{TemplateBinding PlaceholderForeground}"
                                  PlaceholderText="{TemplateBinding PlaceholderText}"
                                  TemplatedControl.IsTemplateFocusTarget="True"
