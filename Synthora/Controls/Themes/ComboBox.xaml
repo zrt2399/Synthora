@@ -216,13 +216,14 @@
         <Style Selector="^:error">
             <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
         </Style>
-        <Style Selector="^:disabled /template/ Border#FocusTarget">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
-        </Style>
 
         <Style Selector="^[IsEditable=True]">
             <Setter Property="IsTabStop" Value="False" />
             <Setter Property="KeyboardNavigation.TabNavigation" Value="Local" />
+        </Style>
+
+        <Style Selector="^:disabled /template/ Border#FocusTarget">
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>
 
         <Style Selector="^.clearButton,^.ClearButton">
