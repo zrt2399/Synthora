@@ -1,13 +1,8 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:collections="using:Avalonia.Collections"
-                    xmlns:converters="using:Avalonia.Controls.Converters"
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
-
-    <converters:MarginMultiplierConverter x:Key="DataGridColumnSortIconMarginMultiplier"
-                                          Indent="1"
-                                          Left="True" />
 
     <ControlTheme x:Key="DataGridCellTextBlockTheme"
                   BasedOn="{StaticResource {x:Type TextBlock}}"
@@ -21,6 +16,7 @@
         <Setter Property="VerticalAlignment" Value="Stretch" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="BorderBrush" Value="{x:Null}" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="CornerRadius" Value="0" />
         <Setter Property="Background" Value="Transparent" />
@@ -119,26 +115,23 @@
                             <TemplateBinding Property="AreSeparatorsVisible" />
                         </MultiBinding>
                     </Border.BorderThickness>
-                    <Grid Margin="{TemplateBinding Padding}"
-                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                          ColumnDefinitions="*,Auto"
-                          UseLayoutRounding="{TemplateBinding UseLayoutRounding}">
-                        <ContentPresenter x:Name="PART_ContentPresenter"
-                                          Content="{TemplateBinding Content}"
-                                          ContentTemplate="{TemplateBinding ContentTemplate}" />
-
+                    <DockPanel HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                               UseLayoutRounding="{TemplateBinding UseLayoutRounding}">
                         <PathIcon Name="SortIcon"
-                                  Grid.Column="1"
                                   Width="10"
                                   Height="10"
-                                  Margin="{TemplateBinding Padding,
-                                                           Converter={StaticResource DataGridColumnSortIconMarginMultiplier}}"
-                                  HorizontalAlignment="Left"
+                                  HorizontalAlignment="Center"
                                   VerticalAlignment="Center"
                                   Data="{DynamicResource ArrowUpData}"
+                                  DockPanel.Dock="Right"
                                   IsVisible="False" />
-                    </Grid>
+
+                        <ContentPresenter x:Name="PART_ContentPresenter"
+                                          Margin="{TemplateBinding Padding}"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}" />
+                    </DockPanel>
                 </Border>
             </ControlTemplate>
         </Setter>
@@ -290,8 +283,7 @@
                   BasedOn="{StaticResource {x:Type DataGridColumnHeader}}"
                   TargetType="DataGridColumnHeader">
         <Setter Property="PointerPressAttach.PointerPressMode" Value="Left" />
-        <Setter Property="PointerPressAttach.Command" Value="{x:Static DataGridUtils.SelectAllCommand}" />
-        <Setter Property="PointerPressAttach.CommandParameter" Value="{Binding $parent[DataGrid]}" />
+        <Setter Property="PointerPressAttach.Command" Value="{Binding $parent[DataGrid].SelectAll}" />
         <Setter Property="HorizontalContentAlignment" Value="Right" />
         <Setter Property="VerticalContentAlignment" Value="Bottom" />
         <Setter Property="UseLayoutRounding" Value="False" />
@@ -303,11 +295,16 @@
                          HorizontalAlignment="Right"
                          VerticalAlignment="Bottom"
                          Fill="{DynamicResource ThemeForegroundBrush}"
-                         Opacity="0.5"
                          Points="0,10 10,10 10,0"
                          Stretch="None" />
             </Template>
         </Setter>
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Opacity" Value="0.5" />
+        </Style>
+        <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Opacity" Value="0.4" />
+        </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type DataGrid}" TargetType="DataGrid">
@@ -345,15 +342,18 @@
                           RowDefinitions="Auto,*,Auto">
 
                         <DataGridColumnHeader Name="PART_TopLeftCornerHeader" Theme="{StaticResource DataGridTopLeftColumnHeader}" />
+
                         <DataGridColumnHeadersPresenter Name="PART_ColumnHeadersPresenter"
                                                         Grid.Column="1"
                                                         Grid.ColumnSpan="2"
                                                         Background="{Binding #PART_TopRightCornerHeader.Background}" />
+
                         <Border Name="columnHeadersRowsSeparator"
                                 Grid.ColumnSpan="3"
                                 BorderBrush="{TemplateBinding HorizontalGridLinesBrush}"
                                 BorderThickness="0,0,0,1"
                                 UseLayoutRounding="False" />
+
                         <DataGridColumnHeader Name="PART_TopRightCornerHeader"
                                               Grid.Column="2"
                                               Width="0"
@@ -372,13 +372,15 @@
                                                          IsScrollInertiaEnabled="{Binding (ScrollViewer.IsScrollInertiaEnabled), ElementName=PART_RowsPresenter}" />
                             </DataGridRowsPresenter.GestureRecognizers>
                         </DataGridRowsPresenter>
+
                         <Rectangle Name="PART_BottomRightCorner"
                                    Grid.Row="2"
                                    Grid.Column="2" />
+
                         <!--<Rectangle Name="BottomLeftCorner"
-                        Grid.Row="2"
-                        Grid.ColumnSpan="2"
-                        Fill="{DynamicResource ThemeControlMidBrush}" />-->
+                                   Grid.Row="2"
+                                   Grid.ColumnSpan="2"
+                                   Fill="{DynamicResource ThemeControlMidBrush}" />-->
                         <ScrollBar Name="PART_VerticalScrollbar"
                                    Grid.Row="1"
                                    Grid.Column="2"
