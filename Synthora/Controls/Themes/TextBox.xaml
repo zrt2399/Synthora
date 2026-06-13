@@ -7,8 +7,8 @@
     <Design.PreviewWith>
         <Border Padding="20">
             <StackPanel Spacing="20">
-                <TextBox>Left</TextBox>
-                <TextBox TextAlignment="Center">Center</TextBox>
+                <TextBox Foreground="OrangeRed">Left</TextBox>
+                <TextBox BorderBrush="Blue" TextAlignment="Center">Center</TextBox>
                 <TextBox Classes="clearButton">Clear</TextBox>
                 <TextBox Classes="revealPasswordButton" PasswordChar="*">Reveal Password</TextBox>
                 <TextBox Classes="revealPasswordButton"
@@ -90,17 +90,14 @@
                   Header="{DynamicResource StringTextFlyoutCutText}"
                   IsEnabled="{Binding $parent[TextBox].CanCut}"
                   IsVisible="{Binding $parent[TextBox].CanCut}" />
-        <!--<Separator IsVisible="{Binding $parent[TextBox].CanCut}" Theme="{DynamicResource VerticalSeparatorTheme}" />-->
         <MenuItem Command="{Binding $parent[TextBox].Copy}"
                   Header="{DynamicResource StringTextFlyoutCopyText}"
                   IsEnabled="{Binding $parent[TextBox].CanCopy}"
                   IsVisible="{Binding $parent[TextBox].CanCopy}" />
-        <!--<Separator IsVisible="{Binding $parent[TextBox].CanCopy}" Theme="{DynamicResource VerticalSeparatorTheme}" />-->
         <MenuItem Command="{Binding $parent[TextBox].Paste}"
                   Header="{DynamicResource StringTextFlyoutPasteText}"
                   IsEnabled="{Binding $parent[TextBox].CanPaste}"
                   IsVisible="{Binding $parent[TextBox].CanPaste}" />
-        <!--<Separator Theme="{DynamicResource VerticalSeparatorTheme}" />-->
         <MenuItem Command="{Binding $parent[TextBox].SelectAll}" Header="{DynamicResource StringTextFlyoutSelectAllText}" />
     </MenuFlyout>
 
@@ -184,7 +181,7 @@
         <Setter Property="CaretBrush" Value="{DynamicResource ThemeForegroundBrush}" />
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
+        <!--<Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />-->
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
         <Setter Property="SelectionBrush" Value="{DynamicResource TextSelectionBrush}" />
@@ -210,10 +207,7 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{TemplateBinding CornerRadius}"
                             TemplatedControl.IsTemplateFocusTarget="True">
-                        <DockPanel Margin="{TemplateBinding Padding}"
-                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
-
+                        <DockPanel Margin="{TemplateBinding Padding}">
                             <TextBlock Name="floatingPlaceholderText"
                                        DockPanel.Dock="Top"
                                        FontSize="{DynamicResource FontSizeSmall}"
@@ -232,8 +226,11 @@
                             <DataValidationErrors>
                                 <Grid ColumnDefinitions="Auto,*,Auto">
                                     <ContentPresenter Content="{TemplateBinding InnerLeftContent}" />
+
                                     <ScrollViewer Name="PART_ScrollViewer"
                                                   Grid.Column="1"
+                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                                   AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
                                                   BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
                                                   HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
@@ -283,6 +280,7 @@
                                             </Style>
                                         </ScrollViewer.Styles>
                                     </ScrollViewer>
+
                                     <StackPanel Grid.Column="2"
                                                 Orientation="Horizontal"
                                                 Spacing="{TemplateBinding Padding,

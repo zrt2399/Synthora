@@ -142,31 +142,31 @@
         </Style>
 
         <Style Selector="^[IsSolid=True]:question">
-            <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+            <Setter Property="Foreground" Value="White" />
             <Setter Property="BorderBrush" Value="{DynamicResource QuestionBrush}" />
             <Setter Property="Background" Value="{DynamicResource QuestionBrush}" />
         </Style>
 
         <Style Selector="^[IsSolid=True]:success">
-            <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+            <Setter Property="Foreground" Value="White" />
             <Setter Property="BorderBrush" Value="{DynamicResource SuccessBrush}" />
             <Setter Property="Background" Value="{DynamicResource SuccessBrush}" />
         </Style>
 
         <Style Selector="^[IsSolid=True]:warning">
-            <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+            <Setter Property="Foreground" Value="White" />
             <Setter Property="BorderBrush" Value="{DynamicResource WarningBrush}" />
             <Setter Property="Background" Value="{DynamicResource WarningBrush}" />
         </Style>
 
         <Style Selector="^[IsSolid=True]:danger">
-            <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+            <Setter Property="Foreground" Value="White" />
             <Setter Property="BorderBrush" Value="{DynamicResource DangerBrush}" />
             <Setter Property="Background" Value="{DynamicResource DangerBrush}" />
         </Style>
 
         <Style Selector="^[IsSolid=True]:error">
-            <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+            <Setter Property="Foreground" Value="White" />
             <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
             <Setter Property="Background" Value="{DynamicResource ErrorBrush}" />
         </Style>

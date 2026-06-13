@@ -9,7 +9,7 @@ using Avalonia.Media;
 namespace Synthora.Controls
 {
     /// <summary>
-    /// Represents a control that displays a customizable divider.
+    /// Represents a customizable divider control.
     /// </summary>
     [PseudoClasses(pcNoContent)]
     public class Divider : ContentControl

@@ -10,7 +10,7 @@
     </Design.PreviewWith>
 
     <x:Double x:Key="NavigationPageBarHeight">36</x:Double>
-    <SolidColorBrush x:Key="NavigationPageHeaderBarBackground" Color="{DynamicResource ThemeControlLowColor}" />
+    <SolidColorBrush x:Key="NavigationPageHeaderBarBackground" Color="{DynamicResource SynthoraMidColor}" />
 
     <PageSlide x:Key="HorizontalPageSlideAnimation"
                FillMode="Forward"
