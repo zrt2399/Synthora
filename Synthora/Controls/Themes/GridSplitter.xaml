@@ -3,6 +3,7 @@
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
 
+    <x:Int32 x:Key="GridSplitterPointerOverZIndex">1000</x:Int32>
     <SolidColorBrush x:Key="GridSplitterOuterBorderBackground">#30999999</SolidColorBrush>
     <SolidColorBrush x:Key="GridSplitterPreviewContentBackground">#40999999</SolidColorBrush>
     <SolidColorBrush x:Key="GridSplitterInnerBorderBackground">#50999999</SolidColorBrush>
@@ -11,6 +12,7 @@
         <Setter Property="Focusable" Value="True" />
         <Setter Property="MinWidth" Value="6" />
         <Setter Property="MinHeight" Value="6" />
+        <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Background" Value="{DynamicResource GridSplitterOuterBorderBackground}" />
         <Setter Property="PreviewContent">
             <Template>
@@ -33,5 +35,11 @@
             </ControlTemplate>
         </Setter>
 
+        <Style Selector="^:pointerover,^:pressed">
+            <Setter Property="ZIndex" Value="{DynamicResource GridSplitterPointerOverZIndex}" />
+            <Style Selector="^ /template/ Border#OuterBorder">
+                <Setter Property="BoxShadow" Value="{TemplateBinding Background, Converter={x:Static SynthoraConverters.BoxShadowConverter}, ConverterParameter={x:Static BoxShadowConverter.ButtonPointerOverParameter}}" />
+            </Style>
+        </Style>
     </ControlTheme>
-</ResourceDictionary>   
+</ResourceDictionary>
