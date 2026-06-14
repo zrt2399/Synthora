@@ -11,15 +11,15 @@
     <ControlTheme x:Key="{x:Type StatusBar}" TargetType="StatusBar">
         <Setter Property="Background" Value="{DynamicResource StatusBarDefaultBackground}" />
         <Setter Property="Foreground" Value="{DynamicResource StatusBarDefaultForeground}" />
+        <Setter Property="RunningBackground" Value="{DynamicResource StatusBarRunningBackground}" />
+        <Setter Property="RunningForeground" Value="{DynamicResource StatusBarRunningForeground}" />
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
-
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}">
-
                     <ContentPresenter Name="PART_ContentPresenter"
                                       Margin="{TemplateBinding Padding}"
                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -32,8 +32,8 @@
         </Setter>
 
         <Style Selector="^[IsRunning=True]">
-            <Setter Property="Background" Value="{DynamicResource StatusBarRunningBackground}" />
-            <Setter Property="Foreground" Value="{DynamicResource StatusBarRunningForeground}" />
+            <Setter Property="Background" Value="{Binding RunningBackground, RelativeSource={RelativeSource Self}}" />
+            <Setter Property="Foreground" Value="{Binding RunningForeground, RelativeSource={RelativeSource Self}}" />
         </Style>
     </ControlTheme>
 
