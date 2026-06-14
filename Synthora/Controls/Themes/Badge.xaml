@@ -88,7 +88,7 @@
         </Setter>
 
         <Style Selector="^:none">
-            <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundMidBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
             <Setter Property="Background" Value="{DynamicResource SynthoraLowBrush}" />
             <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
         </Style>

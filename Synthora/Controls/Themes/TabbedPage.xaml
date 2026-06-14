@@ -33,7 +33,7 @@
 
     <x:Double x:Key="TabbedPageTabItemHeaderMinHeight">36</x:Double>
     <x:Double x:Key="TabbedPageTabItemHeaderPipeThickness">2</x:Double>
-    <BoxShadows x:Key="TabbedPageTabItemHeaderBoxShadow">0 0 6 0 #40000000</BoxShadows>
+    <BoxShadows x:Key="TabbedPageTabItemHeaderBoxShadow">0 0 6 0 #30000000</BoxShadows>
 
     <!--  Tab item sizing & shape  -->
     <CornerRadius x:Key="TabbedPageTabItemHeaderCornerRadius">0</CornerRadius>

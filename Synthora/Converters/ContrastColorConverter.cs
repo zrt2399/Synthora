@@ -32,7 +32,8 @@ namespace Synthora.Converters
                 _ => null
             };
 
-            if (bgColor == null || bgColor.Value.A == 0)
+            // If color is fully transparent or semi-transparent, fallback to theme-based contrast
+            if (bgColor == null || bgColor.Value.A < 128)
             {
                 var variant = Application.Current?.ActualThemeVariant;
                 // Dark theme → return White; Light (or default) theme → return Black

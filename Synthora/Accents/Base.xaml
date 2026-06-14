@@ -99,7 +99,7 @@
             <SolidColorBrush x:Key="TextSelectionBrush" Color="{StaticResource ThemeAccentColor3}" />
 
             <SolidColorBrush x:Key="InformationTipBackgroundBrush" Color="#FFEAF5FF" />
-            <SolidColorBrush x:Key="QuestionTipBackgroundBrush" Color="#FFF0F1FF" />
+            <SolidColorBrush x:Key="QuestionTipBackgroundBrush" Color="#FFF5F0FF" />
             <SolidColorBrush x:Key="SuccessTipBackgroundBrush" Color="#FFECF7EC" />
             <SolidColorBrush x:Key="WarningTipBackgroundBrush" Color="#FFFFF8EA" />
             <SolidColorBrush x:Key="DangerTipBackgroundBrush" Color="#FFFFF0F4" />
@@ -233,7 +233,7 @@
             <SolidColorBrush x:Key="TextSelectionBrush" Color="{StaticResource ThemeAccentColor2}" />
 
             <SolidColorBrush x:Key="InformationTipBackgroundBrush" Color="#FF2D3F54" />
-            <SolidColorBrush x:Key="QuestionTipBackgroundBrush" Color="#FF2A2B4A" />
+            <SolidColorBrush x:Key="QuestionTipBackgroundBrush" Color="#FF33224F" />
             <SolidColorBrush x:Key="SuccessTipBackgroundBrush" Color="#FF2F4435" />
             <SolidColorBrush x:Key="WarningTipBackgroundBrush" Color="#FF4F402E" />
             <SolidColorBrush x:Key="DangerTipBackgroundBrush" Color="#FF4D2F38" />
@@ -291,9 +291,9 @@
     <Color x:Key="SuccessColor">#FF359450</Color>
     <Color x:Key="SuccessPointerOverColor">#FF499F62</Color>
     <Color x:Key="SuccessPressedColor">#FF5DAA74</Color>
-    <Color x:Key="QuestionColor">#FF6366F1</Color>
-    <Color x:Key="QuestionPointerOverColor">#FF7972FF</Color>
-    <Color x:Key="QuestionPressedColor">#FF8D7DFF</Color>
+    <Color x:Key="QuestionColor">#9054FA</Color>
+    <Color x:Key="QuestionPointerOverColor">#FFA45FFF</Color>
+    <Color x:Key="QuestionPressedColor">#FFB86AFF</Color>
     <Color x:Key="WarningColor">#FFDC9B28</Color>
     <Color x:Key="WarningPointerOverColor">#FFE6A532</Color>
     <Color x:Key="WarningPressedColor">#FFF0AF3C</Color>

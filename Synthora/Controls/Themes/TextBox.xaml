@@ -90,7 +90,8 @@
                   IsEnabled="{Binding $parent[TextBox].CanPaste}" />
         <MenuItem Command="{Binding $parent[TextBox].SelectAll}"
                   Header="{DynamicResource StringTextFlyoutSelectAllText}"
-                  InputGesture="{x:Static GestureUtils.SelectAllGesture}" />
+                  InputGesture="{x:Static GestureUtils.SelectAllGesture}"
+                  IsEnabled="{Binding $parent[TextBox].Text, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
         <Separator />
         <MenuItem Command="{Binding $parent[TextBox].Undo}"
                   Header="{DynamicResource StringTextFlyoutUndoText}"
@@ -121,7 +122,17 @@
                   Header="{DynamicResource StringTextFlyoutPasteText}"
                   IsEnabled="{Binding $parent[TextBox].CanPaste}"
                   IsVisible="{Binding $parent[TextBox].CanPaste}" />
-        <MenuItem Command="{Binding $parent[TextBox].SelectAll}" Header="{DynamicResource StringTextFlyoutSelectAllText}" />
+        <MenuItem Command="{Binding $parent[TextBox].SelectAll}"
+                  Header="{DynamicResource StringTextFlyoutSelectAllText}"
+                  IsEnabled="{Binding $parent[TextBox].Text, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+        <MenuItem Command="{Binding $parent[TextBox].Undo}"
+                  Header="{DynamicResource StringTextFlyoutUndoText}"
+                  IsEnabled="{Binding $parent[TextBox].CanUndo}"
+                  IsVisible="{Binding $parent[TextBox].CanUndo}" />
+        <MenuItem Command="{Binding $parent[TextBox].Redo}"
+                  Header="{DynamicResource StringTextFlyoutRedoText}"
+                  IsEnabled="{Binding $parent[TextBox].CanRedo}"
+                  IsVisible="{Binding $parent[TextBox].CanRedo}" />
     </MenuFlyout>
 
     <ContextMenu x:Key="DefaultTextBoxContextMenu">
