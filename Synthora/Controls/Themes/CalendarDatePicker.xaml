@@ -13,7 +13,9 @@
                     x:CompileBindings="True">
 
     <Design.PreviewWith>
-        <Border Padding="20">
+        <Border Width="400"
+                Height="400"
+                Padding="20">
             <StackPanel Spacing="20">
                 <CalendarDatePicker />
                 <CalendarDatePicker BorderBrush="Blue"
@@ -65,7 +67,6 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type CalendarDatePicker}" TargetType="CalendarDatePicker">
-        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />

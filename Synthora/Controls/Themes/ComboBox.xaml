@@ -72,7 +72,6 @@
 
     <ControlTheme x:Key="{x:Type ComboBox}" TargetType="ComboBox">
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
@@ -213,7 +212,7 @@
         <Style Selector="^:dropdownopen">
             <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighBrush}" />
         </Style>
-        <Style Selector="^:error">
+        <Style Selector="^:error /template/ Border#FocusTarget">
             <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
         </Style>
 

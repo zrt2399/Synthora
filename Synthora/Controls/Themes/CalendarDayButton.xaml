@@ -24,11 +24,8 @@
                                Opacity="0.7" />
 
                     <Rectangle Name="TodayBackground"
-                               Fill="{DynamicResource ThemeAccentBrush2}"
-                               IsVisible="False"
-                               Opacity="0.75"
-                               Stroke="{DynamicResource ThemeBorderMidBrush}"
-                               StrokeThickness="1" />
+                               Fill="{DynamicResource ThemeAccentBrush}"
+                               IsVisible="False" />
 
                     <Rectangle Name="Background"
                                Fill="{DynamicResource ThemeAccentBrush2}"
@@ -46,6 +43,7 @@
                                IsHitTestVisible="False"
                                IsVisible="False"
                                Stroke="{DynamicResource PrimaryBrush}"
+                               StrokeDashArray="4,4"
                                StrokeThickness="1" />
                 </Panel>
             </ControlTemplate>
@@ -70,8 +68,11 @@
             <Setter Property="IsVisible" Value="True" />
         </Style>
 
-        <Style Selector="^:today /template/ Rectangle#TodayBackground">
-            <Setter Property="IsVisible" Value="True" />
+        <Style Selector="^:today">
+            <Setter Property="Foreground" Value="White" />
+            <Style Selector="^ /template/ Rectangle#TodayBackground">
+                <Setter Property="IsVisible" Value="True" />
+            </Style>
         </Style>
 
         <Style Selector="^:inactive /template/ ContentPresenter#PART_ContentPresenter">

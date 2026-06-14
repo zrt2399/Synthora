@@ -24,6 +24,7 @@
                                           RecognizesAccessKey="True" />
                     </ShadowChrome>
                     <Rectangle Name="indeterminateRectangle"
+                               IsHitTestVisible="False"
                                IsVisible="False"
                                RadiusX="{Binding CornerRadius.TopLeft, RelativeSource={RelativeSource TemplatedParent}}"
                                RadiusY="{Binding CornerRadius.TopLeft, RelativeSource={RelativeSource TemplatedParent}}"
@@ -39,7 +40,7 @@
                 <Setter Property="IsVisible" Value="True" />
             </Style>
             <Style Selector="^ /template/ ShadowChrome#RootChrome">
-                <Setter Property="BorderBrush" Value="{x:Null}" />
+                <Setter Property="BorderBrush" Value="Transparent" />
             </Style>
         </Style>
 

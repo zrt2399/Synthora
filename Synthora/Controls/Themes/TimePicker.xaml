@@ -30,7 +30,7 @@
         </Border>
     </Design.PreviewWith>
 
-    <x:Double x:Key="TimePickerFlyoutPresenterAcceptDismissHostGridHeight">28</x:Double>
+    <x:Double x:Key="TimePickerFlyoutPresenterAcceptDismissHostGridHeight">32</x:Double>
 
     <x:Double x:Key="TimePickerSpacerThemeThickness">1</x:Double>
     <x:Double x:Key="TimePickerPresenterThemeMaxHeight">400</x:Double>
@@ -61,13 +61,16 @@
             <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighlightPressedBrush}" />
         </Style>
 
+        <Style Selector="^:error">
+            <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
+        </Style>
+
         <Style Selector="^:disabled">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type TimePicker}" TargetType="TimePicker">
-        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
@@ -93,6 +96,7 @@
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
                                     CornerRadius="{TemplateBinding CornerRadius}"
+                                    DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
                                     IsEnabled="{TemplateBinding IsEnabled}"
                                     Theme="{StaticResource SimpleTimePickerFlyoutButtonTheme}">
 
@@ -210,7 +214,7 @@
                         <Panel Name="PART_HourHost" Grid.Column="0">
                             <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
                                 <DateTimePickerPanel Name="PART_HourSelector"
-                                                     ItemHeight="{DynamicResource DateTimePickerFlyoutPresenterItemHeight}"
+                                                     ItemHeight="{DynamicResource TimePickerFlyoutPresenterAcceptDismissHostGridHeight}"
                                                      PanelType="Hour"
                                                      ShouldLoop="True" />
                             </ScrollViewer>
@@ -221,7 +225,7 @@
                         <Panel Name="PART_MinuteHost" Grid.Column="2">
                             <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
                                 <DateTimePickerPanel Name="PART_MinuteSelector"
-                                                     ItemHeight="{DynamicResource DateTimePickerFlyoutPresenterItemHeight}"
+                                                     ItemHeight="{DynamicResource TimePickerFlyoutPresenterAcceptDismissHostGridHeight}"
                                                      PanelType="Minute"
                                                      ShouldLoop="True" />
                             </ScrollViewer>
@@ -232,7 +236,7 @@
                         <Panel Name="PART_SecondHost" Grid.Column="4">
                             <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
                                 <DateTimePickerPanel Name="PART_SecondSelector"
-                                                     ItemHeight="{DynamicResource DateTimePickerFlyoutPresenterItemHeight}"
+                                                     ItemHeight="{DynamicResource TimePickerFlyoutPresenterAcceptDismissHostGridHeight}"
                                                      PanelType="Second"
                                                      ShouldLoop="True" />
                             </ScrollViewer>
@@ -245,7 +249,7 @@
                                           ScrollViewerAttach.IsDisabled="True"
                                           VerticalScrollBarVisibility="Hidden">
                                 <DateTimePickerPanel Name="PART_PeriodSelector"
-                                                     ItemHeight="{DynamicResource DateTimePickerFlyoutPresenterItemHeight}"
+                                                     ItemHeight="{DynamicResource TimePickerFlyoutPresenterAcceptDismissHostGridHeight}"
                                                      PanelType="TimePeriod"
                                                      ShouldLoop="False" />
                             </ScrollViewer>

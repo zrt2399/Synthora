@@ -232,7 +232,7 @@
                     <StackPanel Orientation="Horizontal" Spacing="10">
                         <TextBlock VerticalAlignment="Center">StatusBar</TextBlock>
                         <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
-                        <CheckBox Foreground="White" IsChecked="{Binding $parent[StatusBar].IsRunning}">IsRunning</CheckBox>
+                        <CheckBox IsChecked="{Binding $parent[StatusBar].IsRunning}">IsRunning</CheckBox>
                     </StackPanel>
                     <TextBlock HorizontalAlignment="Right" Text="{x:Static demo:App.AppVersion}" />
                 </Panel>

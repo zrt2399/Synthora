@@ -19,7 +19,6 @@
     <ControlTheme x:Key="{x:Type NotificationCard}" TargetType="NotificationCard">
         <Setter Property="Padding" Value="{DynamicResource NotificationCardPadding}" />
         <Setter Property="Width" Value="{DynamicResource NotificationCardWidth}" />
-        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
         <!--  <Setter Property="RenderTransformOrigin" Value="50%,75%" />  -->
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeControlMidBrush}" />
