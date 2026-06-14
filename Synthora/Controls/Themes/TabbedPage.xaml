@@ -27,8 +27,6 @@
     <SolidColorBrush x:Key="TabbedPageTabItemHeaderBackgroundUnselectedPressed" Color="{DynamicResource ThemeControlHighlightMidColor}" />
     <SolidColorBrush x:Key="TabbedPageTabItemHeaderBackgroundSelectedPressed" Color="Transparent" />
 
-    <!--  Foregrounds (override via TabbedPageTabItemHeaderForegroundSelected / TabbedPageTabItemHeaderForegroundUnselected resources)  -->
-    <SolidColorBrush x:Key="TabbedPageTabItemHeaderForegroundUnselected" Color="{DynamicResource ThemeForegroundMidColor}" />
     <SolidColorBrush x:Key="TabbedPageTabItemHeaderForegroundSelected" Color="{DynamicResource PrimaryColor}" />
 
     <x:Double x:Key="TabbedPageTabItemHeaderMinHeight">36</x:Double>
@@ -124,7 +122,6 @@
     <ControlTheme x:Key="TabbedPageTabItemTheme" TargetType="TabItem">
         <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}" />
         <Setter Property="Background" Value="{DynamicResource TabbedPageTabItemHeaderBackgroundUnselected}" />
-        <Setter Property="Foreground" Value="{DynamicResource TabbedPageTabItemHeaderForegroundUnselected}" />
         <Setter Property="Padding" Value="{DynamicResource ThemeHeaderControlPadding}" />
         <Setter Property="Margin" Value="{DynamicResource TabbedPageTabItemHeaderMargin}" />
         <Setter Property="MinHeight" Value="{DynamicResource TabbedPageTabItemHeaderMinHeight}" />

@@ -6,7 +6,6 @@
     <ControlTheme x:Key="{x:Type TabStripItem}" TargetType="TabStripItem">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}" />
-        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundMidBrush}" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Padding" Value="{DynamicResource ThemeHeaderControlPadding}" />

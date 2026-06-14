@@ -33,7 +33,6 @@
     <ControlTheme x:Key="{x:Type SplitButton}" TargetType="SplitButton">
         <Setter Property="Background" Value="{DynamicResource SynthoraLowBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
 
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
@@ -232,7 +231,6 @@
                   TargetType="SplitButton">
         <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
 
         <Style Selector="^ /template/ Button">
             <Setter Property="Theme" Value="{StaticResource SecondaryButtonTheme}" />
