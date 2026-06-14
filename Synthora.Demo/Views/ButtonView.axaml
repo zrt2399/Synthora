@@ -51,6 +51,7 @@
                             <Button Theme="{StaticResource ErrorButtonTheme}">Error</Button>
                             <Button Theme="{StaticResource PrimaryButtonTheme}">Primary</Button>
                             <Button Theme="{StaticResource SecondaryButtonTheme}">Secondary</Button>
+                            <Button Classes="TextButton">TextButton</Button>
                         </SpacingWrapPanel>
                     </StackPanel>
                 </Border>
@@ -74,6 +75,7 @@
                             <ToggleButton Theme="{StaticResource ErrorToggleButtonTheme}">Error</ToggleButton>
                             <ToggleButton Theme="{StaticResource PrimaryToggleButtonTheme}">Primary</ToggleButton>
                             <ToggleButton Theme="{StaticResource SecondaryToggleButtonTheme}">Secondary</ToggleButton>
+                            <ToggleButton Classes="TextButton">TextButton</ToggleButton>
                         </SpacingWrapPanel>
                         <StackPanel Classes="sectionSubHeader">
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="Refresh" />
@@ -87,6 +89,7 @@
                             <RepeatButton Theme="{StaticResource ErrorRepeatButtonTheme}">Error</RepeatButton>
                             <RepeatButton Theme="{StaticResource PrimaryRepeatButtonTheme}">Primary</RepeatButton>
                             <RepeatButton Theme="{StaticResource SecondaryRepeatButtonTheme}">Secondary</RepeatButton>
+                            <RepeatButton Classes="TextButton">TextButton</RepeatButton>
                         </SpacingWrapPanel>
                         <StackPanel Classes="sectionSubHeader">
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ChevronDown" />

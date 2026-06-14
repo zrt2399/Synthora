@@ -57,6 +57,7 @@
                                      Theme="{StaticResource SegmentedListBoxTheme}" />
                             <ListBox AutoScrollToSelectedItem="False"
                                      Classes="Primary"
+                                     CornerRadiusAttach.IsCircular="True"
                                      ItemsSource="{EnumBindingSource HorizontalAlignment}"
                                      SelectedIndex="0"
                                      Theme="{StaticResource SegmentedListBoxTheme}" />

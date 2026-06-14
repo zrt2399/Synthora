@@ -383,7 +383,9 @@
                                     </ToggleSwitch.OffContent>
                                 </ToggleSwitch>
                             </SpacingWrapPanel>
-                            <ListBox AutoScrollToSelectedItem="False" Theme="{StaticResource SegmentedListBoxTheme}">
+                            <ListBox AutoScrollToSelectedItem="False"
+                                     CornerRadiusAttach.IsCircular="True"
+                                     Theme="{StaticResource SegmentedListBoxTheme}">
                                 <ListBoxItem IsSelected="True">macOS</ListBoxItem>
                                 <ListBoxItem>Windows</ListBoxItem>
                                 <ListBoxItem>Linux</ListBoxItem>

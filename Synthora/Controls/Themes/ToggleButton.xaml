@@ -197,10 +197,10 @@
         </Style>
 
         <Style Selector="^:unchecked:focus,^:unchecked:pointerover">
-            <Setter Property="Background" Value="{DynamicResource IconButtonPointerOverBrush}" />
+            <Setter Property="Background" Value="{DynamicResource TransparentButtonPointerOverBrush}" />
         </Style>
         <Style Selector="^:unchecked:pressed">
-            <Setter Property="Background" Value="{DynamicResource IconButtonPressedBrush}" />
+            <Setter Property="Background" Value="{DynamicResource TransparentButtonPressedBrush}" />
         </Style>
     </ControlTheme>
 

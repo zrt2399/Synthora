@@ -31,6 +31,18 @@
                 </ShadowChrome>
             </ControlTemplate>
         </Setter>
+
+        <Style Selector="^.TextButton">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
+            <Style Selector="^:focus,^:pointerover">
+                <Setter Property="Background" Value="{DynamicResource TransparentButtonPointerOverBrush}" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="Background" Value="{DynamicResource TransparentButtonPressedBrush}" />
+            </Style>
+        </Style>
+
         <Style Selector="^:focus,^:pointerover">
             <Setter Property="Background" Value="{DynamicResource SynthoraMidBrush}" />
             <Style Selector="^[(ButtonAttach.ShowShadow)=True] /template/ ShadowChrome#RootChrome">
@@ -146,10 +158,10 @@
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPaddingSmall}" />
 
         <Style Selector="^:focus,^:pointerover">
-            <Setter Property="Background" Value="{DynamicResource IconButtonPointerOverBrush}" />
+            <Setter Property="Background" Value="{DynamicResource TransparentButtonPointerOverBrush}" />
         </Style>
         <Style Selector="^:pressed">
-            <Setter Property="Background" Value="{DynamicResource IconButtonPressedBrush}" />
+            <Setter Property="Background" Value="{DynamicResource TransparentButtonPressedBrush}" />
         </Style>
     </ControlTheme>
 
