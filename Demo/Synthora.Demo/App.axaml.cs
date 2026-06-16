@@ -14,6 +14,8 @@ namespace Synthora.Demo
             ? mainWindow
             : null;
 
+        public static MainView? MainView { get; private set; }
+
         public static string AppVersion => $"{Assembly.GetExecutingAssembly().GetName().Version}";
 
         public override void Initialize()
@@ -27,8 +29,17 @@ namespace Synthora.Demo
             {
                 desktop.MainWindow = new MainWindow
                 {
-                    DataContext = new MainViewModel(),
+                    DataContext = new MainViewModel()
                 };
+            }
+            else if (ApplicationLifetime is IActivityApplicationLifetime singleViewFactoryApplicationLifetime)
+            {
+                singleViewFactoryApplicationLifetime.MainViewFactory = () => MainView = new MainView { DataContext = new MainViewModel() };
+            }
+            else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)
+            {
+                MainView = new MainView { DataContext = new MainViewModel() };
+                singleViewPlatform.MainView = MainView;
             }
 
             base.OnFrameworkInitializationCompleted();

@@ -2,7 +2,7 @@ using System;
 using Avalonia;
 using OPPOSans.Medium.Avalonia;
 
-namespace Synthora.Demo
+namespace Synthora.Demo.Desktop
 {
     internal sealed class Program
     {

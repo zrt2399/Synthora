@@ -10,8 +10,7 @@
              xmlns:so="https://github.com/zrt2399/synthora"
              xmlns:views="using:Synthora.Demo.Views"
              xmlns:vm="using:Synthora.Demo.ViewModels"
-             Margin="{OnFormFactor Desktop={Binding $parent[Window].WindowDecorationMargin},
-                                   Default=0}"
+             Margin="{OnFormFactor Desktop={Binding $parent[Window].WindowDecorationMargin}}"
              d:DesignHeight="550"
              d:DesignWidth="900"
              x:DataType="vm:MainViewModel"
@@ -61,7 +60,7 @@
 
     <AlertDialogHost Identifier="AlertDialogHost">
         <Grid RowDefinitions="*,Auto">
-            <TreeMenu ItemsSource="{Binding TreeMenuItems}" SelectedItem="{Binding SelectedTreeMenuItem}">
+            <TreeMenu ItemsSource="{Binding TreeMenuItems}">
                 <TreeMenu.DataTemplates>
                     <DataTemplate DataType="vm:OverviewViewModel">
                         <views:OverviewView />

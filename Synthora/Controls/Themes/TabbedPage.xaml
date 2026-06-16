@@ -223,7 +223,7 @@
 
         <!--  Disabled  -->
         <Style Selector="^:disabled">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledMidOpacity}" />
         </Style>
     </ControlTheme>
 

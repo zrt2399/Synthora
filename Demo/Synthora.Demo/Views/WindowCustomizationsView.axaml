@@ -1,0 +1,61 @@
+<UserControl x:Class="Synthora.Demo.Views.WindowCustomizationsView"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialIcons="using:Material.Icons.Avalonia"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Synthora.Demo.ViewModels"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             x:DataType="vm:WindowCustomizationsViewModel"
+             mc:Ignorable="d">
+
+    <DemoPage Title="Window Customizations" Padding="0"
+              Description="{Binding Description}"
+              IconKind="{Binding IconKind}">
+        <ScrollViewer Padding="16">
+            <StackPanel Spacing="16">
+                <Border Classes="card">
+                    <StackPanel IsEnabled="{OnFormFactor False, Desktop=True}" Spacing="16">
+                        <StackPanel Classes="sectionHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="Laptop" />
+                            <TextBlock Classes="sectionLabel" Text="Desktop properties" />
+                        </StackPanel>
+
+                        <CheckBox Content="Extend Client Area to Decorations" IsChecked="{Binding $parent[Window].ExtendClientAreaToDecorationsHint}" />
+
+                        <Slider Width="200"
+                                HorizontalAlignment="Left"
+                                IsEnabled="{Binding $parent[Window].ExtendClientAreaToDecorationsHint}"
+                                Maximum="200"
+                                Minimum="-1"
+                                Value="{Binding $parent[Window].ExtendClientAreaTitleBarHeightHint}" />
+
+                        <CheckBox Content="Can Resize" IsChecked="{Binding $parent[Window].CanResize}" />
+
+                        <CheckBox Content="Can Minimize" IsChecked="{Binding $parent[Window].CanMinimize}" />
+
+                        <CheckBox Content="Can Maximize"
+                                  IsChecked="{Binding $parent[Window].CanMaximize}"
+                                  IsEnabled="{Binding $parent[Window].CanResize}" />
+                    </StackPanel>
+                </Border>
+
+                <Border Classes="card">
+                    <StackPanel IsEnabled="{OnFormFactor false, Mobile=true}" Spacing="16">
+                        <StackPanel Classes="sectionHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="CellphoneText" />
+                            <TextBlock Classes="sectionLabel" Text="Mobile properties" />
+                        </StackPanel> 
+                        <CheckBox x:Name="IsSystemBarVisibleCheckBox" Content="Is System Bar Visible" />
+
+                        <CheckBox x:Name="DisplayEdgeToEdgeCheckBox" Content="Display Edge To Edge" />
+
+                        <TextBlock x:Name="SafeAreaPadding" Text="Safe Area Padding:"/> 
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+    </DemoPage>
+
+</UserControl> 

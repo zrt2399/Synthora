@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<OutputType>WinExe</OutputType>
@@ -6,10 +6,8 @@
 		<Nullable>enable</Nullable>
 		<DebugType>embedded</DebugType>
 		<ApplicationManifest>app.manifest</ApplicationManifest>
-		<AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
-		<ApplicationIcon>Assets/avalonia-logo.ico</ApplicationIcon>
-		<DemoAvaloniaVersion>12.0.4</DemoAvaloniaVersion>
-		<AssemblyName>SynthoraDemo</AssemblyName>
+		<ApplicationIcon>..\Synthora.Demo\Assets\avalonia-logo.ico</ApplicationIcon>
+		<AssemblyName>SynthoraDemo.Desktop</AssemblyName>
 		<PublishReadyToRun>true</PublishReadyToRun>
 	</PropertyGroup>
 
@@ -21,8 +19,8 @@
 	<!-- Clear all file attributes -->
 	<PropertyGroup>
 		<!-- Also defines .app file name -->
-		<CFBundleName>$(AssemblyName)</CFBundleName>
-		<CFBundleDisplayName>$(AssemblyName)</CFBundleDisplayName>
+		<CFBundleName>SynthoraDemo</CFBundleName>
+		<CFBundleDisplayName>SynthoraDemo</CFBundleDisplayName>
 		<CFBundleIdentifier>com.yoyo.synthora</CFBundleIdentifier>
 		<CFBundleShortVersionString>$(Version)</CFBundleShortVersionString>
 		<CFBundleVersion>1.0</CFBundleVersion>
@@ -38,39 +36,21 @@
 		<!-- <NSRequiresAquaSystemAppearance>true</NSRequiresAquaSystemAppearance>-->
 	</PropertyGroup>
 
-	<ItemGroup>
-		<AvaloniaResource Include="Assets/**" />
-		<AvaloniaResource Include="Styles/**" />
-		<TrimmerRootDescriptor Include="Roots.xml" />
-	</ItemGroup>
-
 	<ItemGroup Condition="'$(RuntimeIdentifier.StartsWith(osx))' == true">
 		<None Include="icon.icns" CopyToOutputDirectory="Always" />
 		<PackageReference Include="Dotnet.Bundle" Version="0.9.13" />
 	</ItemGroup>
 
-	<ItemGroup Condition="'$(Configuration)' == 'Debug'">
-		<PackageReference Include="Avalonia.Themes.Fluent" Version="$(DemoAvaloniaVersion)" />
-		<PackageReference Include="Avalonia.Themes.Simple" Version="$(DemoAvaloniaVersion)" />
-		<PackageReference Include="ActiproSoftware.Controls.Avalonia" Version="26.1.1" />
-		<PackageReference Include="ActiproSoftware.Controls.Avalonia.Themes.DataGrid" Version="26.1.1" />
-	</ItemGroup>
-
 	<ItemGroup>
-		<PackageReference Include="Avalonia" Version="$(DemoAvaloniaVersion)" />
 		<PackageReference Include="Avalonia.Desktop" Version="$(DemoAvaloniaVersion)" />
-		<!--<PackageReference Include="Avalonia.Fonts.Inter" Version="$(DemoAvaloniaVersion)" />-->
 		<PackageReference Include="AvaloniaUI.DiagnosticsSupport" Version="2.2.2">
 			<IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
 			<PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
 		</PackageReference>
-		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
-		<PackageReference Include="Material.Icons.Avalonia" Version="3.0.2" />
-		<PackageReference Include="OPPOSans.Medium.Avalonia" Version="1.0.3" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Synthora\Synthora.csproj" />
+		<ProjectReference Include="..\Synthora.Demo\Synthora.Demo.csproj" />
 	</ItemGroup>
 
 </Project>

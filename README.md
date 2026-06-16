@@ -30,7 +30,7 @@ The following instructions are for packaging the **SynthoraDemo** application.
 2. Run the build script:
 
 ```bash
-.\Synthora.Demo\win-build\build.bat
+.\Demo\Synthora.Demo.Desktop\win-build\build.bat
 ```
 
 ## macOS
@@ -39,8 +39,8 @@ The following instructions are for packaging the **SynthoraDemo** application.
 2. Run the build script:
 
 ```bash
-chmod +x Synthora.Demo/mac-build/build.command
-./Synthora.Demo/mac-build/build.command
+chmod +x Demo/Synthora.Demo.Desktop/mac-build/build.command
+./Demo/Synthora.Demo.Desktop/mac-build/build.command
 ```
 
 > **If the app cannot be opened after installation**, run the following command to remove the quarantine attribute:
