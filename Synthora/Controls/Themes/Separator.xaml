@@ -4,33 +4,38 @@
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
 
-    <ControlTheme x:Key="{x:Type Separator}" TargetType="Separator">
+    <ControlTheme x:Key="SeparatorBaseTheme" TargetType="Separator">
         <Setter Property="Focusable" Value="False" />
-        <Setter Property="Background" Value="{DynamicResource ThemeBorderLowBrush}" />
-        <Setter Property="Margin" Value="{DynamicResource MenuItemHorizontalSeparatorMargin}" />
-        <Setter Property="Height" Value="1" />
         <Setter Property="Template">
             <ControlTemplate>
-                <controls:PixelAlignedRectangle Width="{TemplateBinding Width}"
-                                                Height="{TemplateBinding Height}"
-                                                Fill="{TemplateBinding Background}" />
-
+                <Panel Background="{TemplateBinding Background}">
+                    <controls:PixelAlignedRectangle Width="{TemplateBinding Width}"
+                                                    Height="{TemplateBinding Height}"
+                                                    Margin="{TemplateBinding Padding}"
+                                                    Fill="{TemplateBinding Foreground}" />
+                </Panel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>
 
-    <ControlTheme x:Key="HorizontalSeparatorTheme"
-                  BasedOn="{StaticResource {x:Type Separator}}"
+    <ControlTheme x:Key="{x:Type Separator}"
+                  BasedOn="{StaticResource SeparatorBaseTheme}"
                   TargetType="Separator">
-        <Setter Property="Margin" Value="0" />
+        <Setter Property="Foreground" Value="{DynamicResource ThemeBorderLowBrush}" />
+        <Setter Property="Margin" Value="{DynamicResource MenuItemHorizontalSeparatorMargin}" />
+        <Setter Property="Height" Value="1" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="HorizontalSeparatorTheme"
+                  BasedOn="{StaticResource SeparatorBaseTheme}"
+                  TargetType="Separator">
+        <Setter Property="Height" Value="1" />
     </ControlTheme>
 
     <ControlTheme x:Key="VerticalSeparatorTheme"
-                  BasedOn="{StaticResource {x:Type Separator}}"
+                  BasedOn="{StaticResource SeparatorBaseTheme}"
                   TargetType="Separator">
-        <Setter Property="Margin" Value="0" />
         <Setter Property="Width" Value="1" />
-        <Setter Property="Height" Value="NaN" />
     </ControlTheme>
 
 </ResourceDictionary>

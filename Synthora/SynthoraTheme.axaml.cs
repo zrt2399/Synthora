@@ -8,27 +8,56 @@ using Avalonia.Styling;
 
 namespace Synthora
 {
+    /// <summary>
+    /// Defines theme modes that map to Avalonia <see cref="ThemeVariant"/> values.
+    /// </summary>
     public enum ThemeMode
     {
+        /// <summary>
+        /// Maps to <see cref="ThemeVariant.Default"/>.
+        /// </summary>
         [Description("系统")]
         Default,
+        /// <summary>
+        /// Maps to <see cref="ThemeVariant.Light"/>.
+        /// </summary>
         [Description("浅色")]
         Light,
+        /// <summary>
+        /// Maps to <see cref="ThemeVariant.Dark"/>.
+        /// </summary>
         [Description("深色")]
         Dark
     }
 
-    public enum DensityStyle
+    /// <summary>
+    /// Defines the density presets used by Synthora theme resources.
+    /// </summary>
+    public enum ThemeDensity
     {
+        /// <summary>
+        /// Uses compact density resources.
+        /// </summary>
         [Description("紧凑")]
         Compact,
-        [Description("正常")]
-        Normal
+        /// <summary>
+        /// Uses standard density resources.
+        /// </summary>
+        [Description("默认")]
+        Standard,
+        /// <summary>
+        /// Uses comfortable density resources.
+        /// </summary>
+        [Description("宽松")]
+        Comfortable
     }
 
+    /// <summary>
+    /// Provides the Synthora theme resources and control styles for an Avalonia application.
+    /// </summary>
     public class SynthoraTheme : Styles
     {
-        private DensityStyle _densityStyle;
+        private ThemeDensity _themeDensity = ThemeDensity.Standard;
         private IResourceProvider? _currentDensityResource;
 
         /// <summary>
@@ -38,32 +67,43 @@ namespace Synthora
         public SynthoraTheme(IServiceProvider? sp = null)
         {
             AvaloniaXamlLoader.Load(sp, this);
-            UpdateDensityResource(DensityStyle);
+            UpdateDensityResource(ThemeDensity);
         }
 
         static SynthoraTheme()
         {
-            DensityStyleProperty.Changed.AddClassHandler<SynthoraTheme, DensityStyle>((s, e) => s.OnDensityStyleChanged(e));
+            ThemeDensityProperty.Changed.AddClassHandler<SynthoraTheme, ThemeDensity>((s, e) => s.OnThemeDensityChanged(e));
         }
 
-        public static readonly DirectProperty<SynthoraTheme, DensityStyle> DensityStyleProperty =
-            AvaloniaProperty.RegisterDirect<SynthoraTheme, DensityStyle>(
-                nameof(DensityStyle), o => o.DensityStyle, (o, v) => o.DensityStyle = v);
+        /// <summary>
+        /// Defines the <see cref="ThemeDensity"/> property.
+        /// </summary>
+        public static readonly DirectProperty<SynthoraTheme, ThemeDensity> ThemeDensityProperty =
+            AvaloniaProperty.RegisterDirect<SynthoraTheme, ThemeDensity>(
+                nameof(ThemeDensity), o => o.ThemeDensity, (o, v) => o.ThemeDensity = v);
 
-        public DensityStyle DensityStyle
+        /// <summary>
+        /// Gets or sets the active density preset for <see cref="SynthoraTheme"/>.
+        /// </summary>
+        public ThemeDensity ThemeDensity
         {
-            get => _densityStyle;
-            set => SetAndRaise(DensityStyleProperty, ref _densityStyle, value);
+            get => _themeDensity;
+            set => SetAndRaise(ThemeDensityProperty, ref _themeDensity, value);
         }
 
-        private void OnDensityStyleChanged(AvaloniaPropertyChangedEventArgs<DensityStyle> e)
+        private void OnThemeDensityChanged(AvaloniaPropertyChangedEventArgs<ThemeDensity> e)
         {
             UpdateDensityResource(e.NewValue.Value);
         }
 
-        private void UpdateDensityResource(DensityStyle style)
+        private void UpdateDensityResource(ThemeDensity style)
         {
-            string resourceKey = style == DensityStyle.Compact ? "DensityCompact" : "DensityNormal";
+            string resourceKey = style switch
+            {
+                ThemeDensity.Compact => "DensityCompact",
+                ThemeDensity.Comfortable => "DensityComfortable",
+                _ => "DensityStandard",
+            };
 
             if (TryGetResource(resourceKey, null, out var res) && res is IResourceProvider newRes)
             {
@@ -86,19 +126,25 @@ namespace Synthora
             }
         }
 
-        public static bool SetDensity(DensityStyle newDensity)
+        /// <summary>
+        /// Sets the density preset on the <see cref="SynthoraTheme"/> in the current application.
+        /// </summary>
+        public static bool SetDensity(ThemeDensity newDensity)
         {
             if (Application.Current?.Styles.OfType<SynthoraTheme>().LastOrDefault() is { } currentThemeInstance)
             {
-                currentThemeInstance.DensityStyle = newDensity;
-                return currentThemeInstance.DensityStyle == newDensity;
+                currentThemeInstance.ThemeDensity = newDensity;
+                return currentThemeInstance.ThemeDensity == newDensity;
             }
             return false;
         }
 
-        public static DensityStyle GetCurrentDensity()
+        /// <summary>
+        /// Gets the density preset from the <see cref="SynthoraTheme"/> in the current application.
+        /// </summary>
+        public static ThemeDensity GetCurrentDensity()
         {
-            return Application.Current?.Styles.OfType<SynthoraTheme>().LastOrDefault()?.DensityStyle ?? DensityStyle.Normal;
+            return Application.Current?.Styles.OfType<SynthoraTheme>().LastOrDefault()?.ThemeDensity ?? ThemeDensity.Standard;
         }
     }
 }

@@ -12,7 +12,7 @@
 
     <ControlTheme x:Key="{x:Type Calendar}" TargetType="Calendar">
         <Setter Property="HorizontalAlignment" Value="Left" />
-        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="Focusable" Value="True" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />

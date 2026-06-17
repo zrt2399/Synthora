@@ -78,6 +78,20 @@
         </Style>
     </ControlTheme>
 
+    <ControlTheme x:Key="QuestionButtonTheme"
+                  BasedOn="{StaticResource SolidButtonBaseTheme}"
+                  TargetType="Button">
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Background" Value="{DynamicResource QuestionBrush}" />
+
+        <Style Selector="^:focus,^:pointerover">
+            <Setter Property="Background" Value="{DynamicResource QuestionPointerOverBrush}" />
+        </Style>
+        <Style Selector="^:pressed">
+            <Setter Property="Background" Value="{DynamicResource QuestionPressedBrush}" />
+        </Style>
+    </ControlTheme>
+
     <ControlTheme x:Key="WarningButtonTheme"
                   BasedOn="{StaticResource SolidButtonBaseTheme}"
                   TargetType="Button">

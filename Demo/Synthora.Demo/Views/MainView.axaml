@@ -65,8 +65,8 @@
                     <DataTemplate DataType="vm:OverviewViewModel">
                         <views:OverviewView />
                     </DataTemplate>
-                    <DataTemplate DataType="vm:BrushViewModel">
-                        <views:BrushView />
+                    <DataTemplate DataType="vm:BrushesViewModel">
+                        <views:BrushesView />
                     </DataTemplate>
                     <DataTemplate DataType="vm:InputViewModel">
                         <views:InputView />
@@ -74,8 +74,8 @@
                     <DataTemplate DataType="vm:TextBlockViewModel">
                         <views:TextBlockView />
                     </DataTemplate>
-                    <DataTemplate DataType="vm:ButtonViewModel">
-                        <views:ButtonView />
+                    <DataTemplate DataType="vm:ButtonsViewModel">
+                        <views:ButtonsView />
                     </DataTemplate>
                     <DataTemplate DataType="vm:DataGridViewModel">
                         <views:DataGridView />
@@ -92,8 +92,8 @@
                     <DataTemplate DataType="vm:OverlayViewModel">
                         <views:OverlayView />
                     </DataTemplate>
-                    <DataTemplate DataType="vm:SelectionControlViewModel">
-                        <views:SelectionControlView />
+                    <DataTemplate DataType="vm:SelectionControlsViewModel">
+                        <views:SelectionControlsView />
                     </DataTemplate>
                     <DataTemplate DataType="vm:ExpanderViewModel">
                         <views:ExpanderView />
@@ -113,8 +113,8 @@
                     <DataTemplate DataType="vm:ScrollViewerViewModel">
                         <views:ScrollViewerView />
                     </DataTemplate>
-                    <DataTemplate DataType="vm:ExtendedControlViewModel">
-                        <views:ExtendedControlView />
+                    <DataTemplate DataType="vm:ExtendedControlsViewModel">
+                        <views:ExtendedControlsView />
                     </DataTemplate>
                     <DataTemplate DataType="vm:BannerViewModel">
                         <views:BannerView />
@@ -168,16 +168,16 @@
                                 </ListBox.ItemTemplate>
                             </ListBox>
                             <ListBox AutoScrollToSelectedItem="False"
-                                     ItemsSource="{EnumBindingSource so:DensityStyle}"
-                                     SelectedItem="{Binding SelectedDensityStyle}"
+                                     ItemsSource="{EnumBindingSource so:ThemeDensity}"
+                                     SelectedItem="{Binding SelectedThemeDensity}"
                                      Theme="{StaticResource SegmentedListBoxTheme}"
-                                     ToolTip.Tip="Switch app theme density(Compact / Normal)">
+                                     ToolTip.Tip="Switch app theme density(Compact / Standard / Comfortable)">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <PathIcon Width="16"
                                                   Height="16"
                                                   Margin="-2,0"
-                                                  Data="{Binding Converter={x:Static SynthoraConverters.DensityStyleToPathDataConverter}}" />
+                                                  Data="{Binding Converter={x:Static SynthoraConverters.ThemeDensityToPathDataConverter}}" />
                                         <!-- <materialIcons:MaterialIcon Margin="-2,0" Kind="{Binding Converter={StaticResource DensityStyleToIconKindConverter}}" /> -->
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>

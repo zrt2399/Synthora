@@ -1,0 +1,30 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal">
+
+    <x:Double x:Key="DataGridRowMinHeight">30</x:Double>
+
+    <Thickness x:Key="ThemeControlBorderPadding">4</Thickness>
+    <x:Double x:Key="ThemeControlBorderPaddingDouble">4</x:Double>
+
+    <Thickness x:Key="ThemeControlPadding">7,5</Thickness>
+    <Thickness x:Key="ThemeHeaderControlPadding">9,7</Thickness>
+
+    <Thickness x:Key="ThemeMenuFlyoutPadding">4</Thickness>
+    <Thickness x:Key="ThemeMenuFlyoutItemPadding">7,5</Thickness>
+
+    <Thickness x:Key="ThemeControlLeftPadding">7,0,0,0</Thickness>
+    <Thickness x:Key="ThemeControlRightPadding">0,0,7,0</Thickness>
+    <Thickness x:Key="ThemeControlTopPadding">0,5,0,0</Thickness>
+    <Thickness x:Key="ThemeControlBottomPadding">0,0,0,5</Thickness>
+
+    <x:Double x:Key="MenuItemMinWidth">145</x:Double>
+    <Thickness x:Key="MenuItemHorizontalSeparatorMargin">0,4</Thickness>
+
+    <Thickness x:Key="NotificationCardPadding">14</Thickness>
+    <x:Double x:Key="NotificationCardPaddingDouble">14</x:Double>
+    <x:Double x:Key="NotificationCardWidth">325</x:Double>
+
+    <Thickness x:Key="CommandBarButtonPadding">5</Thickness>
+    <x:Double x:Key="CommandBarButtonPaddingDouble">5</x:Double>
+</ResourceDictionary>

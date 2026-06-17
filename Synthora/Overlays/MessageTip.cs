@@ -113,7 +113,13 @@ namespace Synthora.Overlays
                     _ => NoneBorderBrush
                 };
 
-                int padding = SynthoraTheme.GetCurrentDensity() == DensityStyle.Compact ? 4 : 6;
+                int padding = SynthoraTheme.GetCurrentDensity() switch
+                {
+                    ThemeDensity.Compact => 4,
+                    ThemeDensity.Comfortable => 6,
+                    _ => 5,
+                };
+
                 Grid grid = new Grid();
                 grid.ColumnDefinitions.Add(new ColumnDefinition(GridLength.Auto));
                 grid.ColumnDefinitions.Add(new ColumnDefinition());

@@ -4,9 +4,9 @@ using Avalonia.Markup.Xaml;
 
 namespace Synthora.Demo.Views
 {
-    public partial class BrushView : UserControl
+    public partial class ButtonsView : UserControl
     {
-        public BrushView()
+        public ButtonsView()
         {
             InitializeComponent();
         }

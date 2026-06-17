@@ -11,6 +11,10 @@
                   BasedOn="{StaticResource SuccessButtonTheme}"
                   TargetType="RepeatButton" />
 
+    <ControlTheme x:Key="QuestionRepeatButtonTheme"
+                  BasedOn="{StaticResource QuestionButtonTheme}"
+                  TargetType="RepeatButton" />
+
     <ControlTheme x:Key="WarningRepeatButtonTheme"
                   BasedOn="{StaticResource WarningButtonTheme}"
                   TargetType="RepeatButton" />

@@ -9,7 +9,7 @@
     <!--  "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options.  -->
 
     <Application.Styles>
-        <SynthoraTheme DensityStyle="Compact" />
+        <SynthoraTheme ThemeDensity="Standard" />
         <StyleInclude Source="avares://SynthoraDemo/Styles/DemoControlStyle.axaml" />
 
         <!--<SimpleTheme />

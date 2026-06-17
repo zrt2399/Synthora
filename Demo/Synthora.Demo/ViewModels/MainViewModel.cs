@@ -19,7 +19,7 @@ namespace Synthora.Demo.ViewModels
             {
                 SelectedThemeMode = ToThemeMode(application.RequestedThemeVariant);
             }
-            SelectedDensityStyle = SynthoraTheme.GetCurrentDensity();
+            SelectedThemeDensity = SynthoraTheme.GetCurrentDensity();
             InitializeTreeMenuDemo();
         }
 
@@ -44,8 +44,8 @@ namespace Synthora.Demo.ViewModels
         }
 
         [ObservableProperty]
-        public partial DensityStyle SelectedDensityStyle { get; set; }
-        partial void OnSelectedDensityStyleChanged(DensityStyle value) => SynthoraTheme.SetDensity(value);
+        public partial ThemeDensity SelectedThemeDensity { get; set; }
+        partial void OnSelectedThemeDensityChanged(ThemeDensity value) => SynthoraTheme.SetDensity(value);
 
         public static Uri GitHubDepositoryUri { get; } = new Uri("https://github.com/zrt2399/Synthora");
 
@@ -63,12 +63,12 @@ namespace Synthora.Demo.ViewModels
                 {
                     IsSelected = true
                 }),
-                CreateItem(new BrushViewModel()),
+                CreateItem(new BrushesViewModel()),
                 CreateItem(new InputViewModel()),
                 CreateItem(new TextBlockViewModel()),
-                CreateItem(new ButtonViewModel()),
-                CreateItem(new SelectionControlViewModel()),
-                CreateItem(new CollectionControlViewModel(), new DataGridViewModel(), new TreeViewViewModel(), new ListBoxViewModel()),
+                CreateItem(new ButtonsViewModel()),
+                CreateItem(new SelectionControlsViewModel()),
+                CreateItem(new CollectionControlsViewModel(), new DataGridViewModel(), new TreeViewViewModel(), new ListBoxViewModel()),
                 CreateItem(new MenuViewModel()),
                 CreateItem(new BannerViewModel()),
                 CreateItem(new OverlayViewModel()),
@@ -77,7 +77,7 @@ namespace Synthora.Demo.ViewModels
                 CreateItem(new ScrollViewerViewModel()),
                 CreateItem(new RangeControlViewModel()),
                 CreateItem(new GroupBoxViewModel()),
-                CreateItem(new ExtendedControlViewModel()),
+                CreateItem(new ExtendedControlsViewModel()),
                 CreateItem(new NavigationViewModel(), new SplitViewViewModel(), new TabControlViewModel(), new TabbedPageViewModel(), new DrawerPageViewModel(), new NavigationPageViewModel(), new CarouselViewModel(), new DragTabControlViewModel(), new TreeMenuViewModel()),
                 CreateItem(new WindowCustomizationsViewModel()),
             };

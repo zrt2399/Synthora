@@ -98,6 +98,22 @@
         </Style>
     </ControlTheme>
 
+    <ControlTheme x:Key="QuestionToggleButtonTheme"
+                  BasedOn="{StaticResource SolidToggleButtonBaseTheme}"
+                  TargetType="ToggleButton">
+        <Setter Property="Foreground" Value="{DynamicResource QuestionBrush}" />
+        <Style Selector="^:checked">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="{DynamicResource QuestionBrush}" />
+        </Style>
+        <Style Selector="^:checked:pointerover">
+            <Setter Property="Background" Value="{DynamicResource QuestionPointerOverBrush}" />
+        </Style>
+        <Style Selector="^:checked:pressed">
+            <Setter Property="Background" Value="{DynamicResource QuestionPressedBrush}" />
+        </Style>
+    </ControlTheme>
+
     <ControlTheme x:Key="WarningToggleButtonTheme"
                   BasedOn="{StaticResource SolidToggleButtonBaseTheme}"
                   TargetType="ToggleButton">

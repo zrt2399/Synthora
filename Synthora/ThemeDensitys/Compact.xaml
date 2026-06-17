@@ -16,7 +16,7 @@
     <Thickness x:Key="ThemeControlLeftPadding">6,0,0,0</Thickness>
     <Thickness x:Key="ThemeControlRightPadding">0,0,6,0</Thickness>
     <Thickness x:Key="ThemeControlTopPadding">0,4,0,0</Thickness>
-    <Thickness x:Key="ThemeControlBottomPadding">0,0,0,6</Thickness>
+    <Thickness x:Key="ThemeControlBottomPadding">0,0,0,4</Thickness>
 
     <x:Double x:Key="MenuItemMinWidth">140</x:Double>
     <Thickness x:Key="MenuItemHorizontalSeparatorMargin">0,4</Thickness>

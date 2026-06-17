@@ -153,7 +153,8 @@
                                               HorizontalAlignment="Center"
                                               HorizontalContentAlignment="Center"
                                               Content="{TemplateBinding Header}"
-                                              ContentTemplate="{TemplateBinding HeaderTemplate}" />
+                                              ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                              RecognizesAccessKey="True" />
                         </StackPanel>
                     </Border>
 
@@ -223,7 +224,7 @@
 
         <!--  Disabled  -->
         <Style Selector="^:disabled">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledMidOpacity}" />
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledHighOpacity}" />
         </Style>
     </ControlTheme>
 

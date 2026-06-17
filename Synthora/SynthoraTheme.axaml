@@ -7,8 +7,9 @@
 				<MergeResourceInclude Source="/Accents/Base.xaml" />
 				<MergeResourceInclude Source="/Strings/InvariantResources.xaml" />
 			</ResourceDictionary.MergedDictionaries>
-			<ResourceInclude x:Key="DensityCompact" Source="/DensityStyles/Compact.xaml" />
-			<ResourceInclude x:Key="DensityNormal" Source="/DensityStyles/Normal.xaml" />
+			<ResourceInclude x:Key="DensityCompact" Source="/ThemeDensitys/Compact.xaml" />
+			<ResourceInclude x:Key="DensityStandard" Source="/ThemeDensitys/Standard.xaml" />
+			<ResourceInclude x:Key="DensityComfortable" Source="/ThemeDensitys/Comfortable.xaml" />
 		</ResourceDictionary>
 	</Styles.Resources>
 

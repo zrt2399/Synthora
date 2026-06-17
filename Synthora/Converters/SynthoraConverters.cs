@@ -16,7 +16,7 @@
         public static DoubleToGridLengthConverter DoubleToGridLengthConverter { get; } = new DoubleToGridLengthConverter();
         public static DoubleToCornerRadiusConverter DoubleToCornerRadiusConverter { get; } = new DoubleToCornerRadiusConverter();
         public static ThemeModeToPathDataConverter ThemeModeToPathDataConverter { get; } = new ThemeModeToPathDataConverter();
-        public static DensityStyleToPathDataConverter DensityStyleToPathDataConverter { get; } = new DensityStyleToPathDataConverter();
+        public static ThemeDensityToPathDataConverter ThemeDensityToPathDataConverter { get; } = new ThemeDensityToPathDataConverter();
         public static SolidColorBrushToColorConverter SolidColorBrushToColorConverter { get; } = new SolidColorBrushToColorConverter();
     }
 }

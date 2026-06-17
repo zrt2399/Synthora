@@ -7,7 +7,7 @@ using Synthora.Demo.Models;
 
 namespace Synthora.Demo.ViewModels
 {
-    public partial class ExtendedControlViewModel : TreeMenuDemoItem
+    public partial class ExtendedControlsViewModel : TreeMenuDemoItem
     {
         [ObservableProperty]
         public partial IList? SelectedFiles { get; set; }
@@ -28,7 +28,7 @@ namespace Synthora.Demo.ViewModels
             }
         };
         
-        public ExtendedControlViewModel()
+        public ExtendedControlsViewModel()
         {
             IconKind = MaterialIconKind.Widgets;
             Description = "Badge, ShadowChrome, GroupBoxEx, PathPicker, SpacingWrapPanel, EmptyBox";

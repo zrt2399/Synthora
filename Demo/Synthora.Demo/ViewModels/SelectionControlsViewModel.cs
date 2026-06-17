@@ -3,9 +3,9 @@ using Synthora.Demo.Models;
 
 namespace Synthora.Demo.ViewModels
 {
-    public class SelectionControlViewModel : TreeMenuDemoItem
+    public class SelectionControlsViewModel : TreeMenuDemoItem
     {
-        public SelectionControlViewModel()
+        public SelectionControlsViewModel()
         {
             IconKind = MaterialIconKind.Selection;
             Description = "CheckBox, RadioButton, ToggleSwitch";

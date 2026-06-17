@@ -73,7 +73,7 @@
         </Style>
 
         <Style Selector="^:disabled">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledMidOpacity}" />
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledHighOpacity}" />
         </Style>
     </ControlTheme>
 
@@ -122,7 +122,7 @@
         </Style>
 
         <Style Selector="^:disabled">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledMidOpacity}" />
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledHighOpacity}" />
         </Style>
     </ControlTheme>
 
@@ -167,7 +167,7 @@
         </Style>
 
         <Style Selector="^:disabled">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledMidOpacity}" />
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledHighOpacity}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

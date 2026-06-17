@@ -335,20 +335,13 @@
     <SolidColorBrush x:Key="ErrorPointerOverBrush" Color="{StaticResource ErrorPointerOverColor}" />
     <SolidColorBrush x:Key="ErrorPressedBrush" Color="{StaticResource ErrorPressedColor}" />
 
-    <SolidColorBrush x:Key="DatePickerFlyoutPresenterHighlightFill"
-                     Opacity="0.4"
-                     Color="{StaticResource ThemeAccentColor}" />
-    <SolidColorBrush x:Key="TimePickerFlyoutPresenterHighlightFill"
-                     Opacity="0.4"
-                     Color="{StaticResource ThemeAccentColor}" />
-
     <SolidColorBrush x:Key="TransparentButtonPointerOverBrush">#30999999</SolidColorBrush>
     <SolidColorBrush x:Key="TransparentButtonPressedBrush">#40999999</SolidColorBrush>
 
     <Thickness x:Key="ThemeBorderThickness">1</Thickness>
 
     <Thickness x:Key="ThemeControlPaddingSmall">4</Thickness>
-    <Thickness x:Key="BadgePadding">6,4</Thickness>
+    <Thickness x:Key="BadgePadding">5,3</Thickness>
 
     <CornerRadius x:Key="ThemeBorderCornerRadiusSmall">4</CornerRadius>
     <CornerRadius x:Key="ThemeBorderCornerRadiusNormal">6</CornerRadius>
@@ -416,10 +409,13 @@
         M7.5,2C5.71,3.15 4.5,5.18 4.5,7.5C4.5,9.82 5.71,11.85 7.53,13C4.46,13 2,10.54 2,7.5A5.5,5.5 0 0,1 7.5,2M19.07,3.5L20.5,4.93L4.93,20.5L3.5,19.07L19.07,3.5M12.89,5.93L11.41,5L9.97,6L10.39,4.3L9,3.24L10.75,3.12L11.33,1.47L12,3.1L13.73,3.13L12.38,4.26L12.89,5.93M9.59,9.54L8.43,8.81L7.31,9.59L7.65,8.27L6.56,7.44L7.92,7.35L8.37,6.06L8.88,7.33L10.24,7.36L9.19,8.23L9.59,9.54M19,13.5A5.5,5.5 0 0,1 13.5,19C12.28,19 11.15,18.6 10.24,17.93L17.93,10.24C18.6,11.15 19,12.28 19,13.5M14.6,20.08L17.37,18.93L17.13,22.28L14.6,20.08M18.93,17.38L20.08,14.61L22.28,17.15L18.93,17.38M20.08,12.42L18.94,9.64L22.28,9.88L20.08,12.42M9.63,18.93L12.4,20.08L9.87,22.27L9.63,18.93Z
     </StreamGeometry>
 
-    <StreamGeometry x:Key="DensityStyleCompactData">
+    <StreamGeometry x:Key="ThemeDensityCompactData">
         M4,12H20V14H4V12M4,9H20V11H4V9M16,4L12,8L8,4H11V1H13V4H16M8,19L12,15L16,19H13V22H11V19H8Z
     </StreamGeometry>
-    <StreamGeometry x:Key="DensityStyleNormalData">
+    <StreamGeometry x:Key="ThemeDensityStandardData">
+        M9.29,21H12.12L21,12.12V9.29M19,21C19.55,21 20.05,20.78 20.41,20.41C20.78,20.05 21,19.55 21,19V17L17,21M5,3A2,2 0 0,0 3,5V7L7,3M11.88,3L3,11.88V14.71L14.71,3M19.5,3.08L3.08,19.5C3.17,19.85 3.35,20.16 3.59,20.41C3.84,20.65 4.15,20.83 4.5,20.92L20.93,4.5C20.74,3.8 20.2,3.26 19.5,3.08Z
+    </StreamGeometry>
+    <StreamGeometry x:Key="ThemeDensityComfortableData">
         M13,9V15H16L12,19L8,15H11V9H8L12,5L16,9H13M4,2H20V4H4V2M4,20H20V22H4V20Z
     </StreamGeometry>
 

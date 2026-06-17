@@ -33,11 +33,11 @@
                             <ColumnDefinition Width="Auto" SharedSizeGroup="MenuItemIGT" />
                             <ColumnDefinition Width="20" />
                         </Grid.ColumnDefinitions>
-                        <ContentControl x:Name="PART_ToggleIconPresenter"
-                                        Grid.Column="0"
-                                        Width="16"
-                                        Height="16"
-                                        IsVisible="False" />
+                        <ContentPresenter x:Name="PART_ToggleIconPresenter"
+                                          Grid.Column="0"
+                                          Width="16"
+                                          Height="16"
+                                          IsVisible="False" />
                         <ContentPresenter Name="PART_IconPresenter"
                                           Grid.Column="0"
                                           Width="16"
@@ -121,7 +121,7 @@
         </Style>
 
         <Style Selector="^:pressed">
-            <!-- <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" /> -->
+            <!--  <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />  -->
             <!--  Listen for root:pointerover, so it will not be triggered when subitem is pressed  -->
             <Style Selector="^ /template/ Border#root:pointerover">
                 <Setter Property="Background" Value="{DynamicResource MenuItemPressedBrush}" />
@@ -132,17 +132,13 @@
             <Setter Property="IsVisible" Value="False" />
         </Style>
 
-        <Style Selector="^:disabled">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
-        </Style>
-
-        <Style Selector="^:toggle /template/ ContentControl#PART_ToggleIconPresenter, ^:radio /template/ ContentControl#PART_ToggleIconPresenter">
+        <Style Selector="^:toggle /template/ ContentPresenter#PART_ToggleIconPresenter, ^:radio /template/ ContentPresenter#PART_ToggleIconPresenter">
             <Setter Property="IsVisible" Value="True" />
         </Style>
         <Style Selector="^:toggle /template/ ContentPresenter#PART_IconPresenter, ^:radio /template/ ContentPresenter#PART_IconPresenter">
             <Setter Property="IsVisible" Value="False" />
         </Style>
-        <Style Selector="^:checked:toggle /template/ ContentControl#PART_ToggleIconPresenter">
+        <Style Selector="^:checked:toggle /template/ ContentPresenter#PART_ToggleIconPresenter">
             <Setter Property="Content">
                 <Template>
                     <Path HorizontalAlignment="Center"
@@ -152,7 +148,7 @@
                 </Template>
             </Setter>
         </Style>
-        <Style Selector="^:checked:radio /template/ ContentControl#PART_ToggleIconPresenter">
+        <Style Selector="^:checked:radio /template/ ContentPresenter#PART_ToggleIconPresenter">
             <Setter Property="Content">
                 <Template>
                     <Ellipse Width="8"
@@ -163,6 +159,10 @@
                              Fill="{Binding $parent[MenuItem].Foreground}" />
                 </Template>
             </Setter>
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledHighOpacity}" />
         </Style>
     </ControlTheme>
 

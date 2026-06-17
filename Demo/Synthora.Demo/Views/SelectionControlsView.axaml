@@ -1,4 +1,4 @@
-<UserControl x:Class="Synthora.Demo.Views.SelectionControlView"
+<UserControl x:Class="Synthora.Demo.Views.SelectionControlsView"
              xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:converters="using:Synthora.Demo.Converters"
@@ -8,7 +8,7 @@
              xmlns:vm="using:Synthora.Demo.ViewModels"
              d:DesignHeight="450"
              d:DesignWidth="800"
-             x:DataType="vm:SelectionControlViewModel"
+             x:DataType="vm:SelectionControlsViewModel"
              mc:Ignorable="d">
 
     <DemoPage Title="Selection Controls"
@@ -29,6 +29,7 @@
                             <CheckBox>Unchecked</CheckBox>
                             <CheckBox IsChecked="True">Checked</CheckBox>
                             <CheckBox />
+                            <CheckBox CornerRadiusAttach.IsCircular="True"/>
                             <CheckBox IsChecked="{x:Null}" IsThreeState="True">Three-state</CheckBox>
                         </SpacingWrapPanel>
                     </StackPanel>
@@ -52,19 +53,26 @@
                                    Text="Segmented RadioButton" />
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
                             <ListBox AutoScrollToSelectedItem="False"
-                                     ItemsSource="{EnumBindingSource VerticalAlignment}"
+                                     Classes="Secondary Vertical"
+                                     ItemsSource="{EnumBindingSource Dock}"
                                      SelectedIndex="0"
                                      Theme="{StaticResource SegmentedListBoxTheme}" />
-                            <ListBox AutoScrollToSelectedItem="False"
-                                     Classes="Primary"
-                                     CornerRadiusAttach.IsCircular="True"
-                                     ItemsSource="{EnumBindingSource HorizontalAlignment}"
-                                     SelectedIndex="0"
-                                     Theme="{StaticResource SegmentedListBoxTheme}" />
+                            <StackPanel Spacing="16">
+                                <ListBox AutoScrollToSelectedItem="False"
+                                         ItemsSource="{EnumBindingSource HorizontalAlignment}"
+                                         SelectedIndex="0"
+                                         Theme="{StaticResource SegmentedListBoxTheme}" />
+                                <ListBox AutoScrollToSelectedItem="False"
+                                         Classes="Primary"
+                                         ItemsSource="{EnumBindingSource VerticalAlignment}"
+                                         SelectedIndex="0"
+                                         Theme="{StaticResource SegmentedListBoxTheme}" />
+                            </StackPanel>
                         </SpacingWrapPanel>
                         <ListBox AutoScrollToSelectedItem="False"
-                                 Classes="Secondary Uniform"
-                                 ItemsSource="{EnumBindingSource Dock}"
+                                 Classes="Primary Uniform"
+                                 CornerRadiusAttach.IsCircular="True"
+                                 ItemsSource="{EnumBindingSource SelectionMode}"
                                  SelectedIndex="0"
                                  Theme="{StaticResource SegmentedListBoxTheme}" />
                     </StackPanel>

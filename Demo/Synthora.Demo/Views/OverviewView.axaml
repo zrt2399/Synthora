@@ -490,7 +490,7 @@
                                       DockPanel.Dock="Top">
                                 <TreeViewItem Header="Views" IsExpanded="True">
                                     <TreeViewItem Header="Overview.axaml" />
-                                    <TreeViewItem Header="ButtonView.axaml" />
+                                    <TreeViewItem Header="ButtonsView.axaml" />
                                 </TreeViewItem>
                                 <TreeViewItem Header="Themes" IsExpanded="True">
                                     <TreeViewItem Header="Light.xaml" />

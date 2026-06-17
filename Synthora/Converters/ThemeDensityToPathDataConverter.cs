@@ -5,13 +5,13 @@ using Avalonia.Data.Converters;
 
 namespace Synthora.Converters
 {
-    public class DensityStyleToPathDataConverter : IValueConverter
+    public class ThemeDensityToPathDataConverter : IValueConverter
     {
         public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
-            if (Application.Current is { } application && value is DensityStyle densityStyle)
+            if (Application.Current is { } application && value is ThemeDensity themeDensity)
             {
-                if (application.TryGetResource($"DensityStyle{densityStyle}Data", application.ActualThemeVariant, out var pathData))
+                if (application.TryGetResource($"ThemeDensity{themeDensity}Data", application.ActualThemeVariant, out var pathData))
                 {
                     return pathData;
                 }

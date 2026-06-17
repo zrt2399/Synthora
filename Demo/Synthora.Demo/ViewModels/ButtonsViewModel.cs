@@ -3,9 +3,9 @@ using Synthora.Demo.Models;
 
 namespace Synthora.Demo.ViewModels
 {
-    public class ButtonViewModel : TreeMenuDemoItem
+    public class ButtonsViewModel : TreeMenuDemoItem
     {
-        public ButtonViewModel()
+        public ButtonsViewModel()
         {
             IconKind = MaterialIconKind.ButtonPointer;
             Description = "Button, SplitButton, ToggleSplitButton, ToggleButton, DropDownButton, RepeatButton, HyperlinkButton";

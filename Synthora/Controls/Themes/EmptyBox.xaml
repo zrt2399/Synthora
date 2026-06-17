@@ -33,7 +33,7 @@
 
     <ControlTheme x:Key="{x:Type EmptyBox}" TargetType="EmptyBox">
         <Setter Property="HorizontalAlignment" Value="Left" />
-        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="Spacing" Value="10" />
         <Setter Property="Text" Value="{DynamicResource StringEmptyBoxDescription}" />
         <Setter Property="Template">

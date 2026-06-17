@@ -11,12 +11,12 @@ using Synthora.Demo.Models;
 
 namespace Synthora.Demo.ViewModels
 {
-    public partial class BrushViewModel : TreeMenuDemoItem
+    public partial class BrushesViewModel : TreeMenuDemoItem
     {
         [ObservableProperty]
         public partial ObservableCollection<string>? BrushKeys { get; set; }
 
-        public BrushViewModel()
+        public BrushesViewModel()
         {
             IconKind = MaterialIconKind.BrushVariant;
             if (Application.Current is { } application)

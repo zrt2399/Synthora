@@ -36,13 +36,13 @@
             </ControlTemplate>
         </Setter>
         <!--<Style Selector="^:disabled">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
+        <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>-->
     </ControlTheme>
 
     <ControlTheme x:Key="SegmentedListBoxTheme" TargetType="ListBox">
         <Setter Property="HorizontalAlignment" Value="Left" />
-        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeControlMidBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
@@ -56,9 +56,7 @@
         <Setter Property="BoxShadowAttach.BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
         <Setter Property="ItemsPanel">
             <ItemsPanelTemplate>
-                <WrapPanel ItemSpacing="{DynamicResource ThemeControlBorderPaddingDouble}"
-                           LineSpacing="{DynamicResource ThemeControlBorderPaddingDouble}"
-                           Orientation="Horizontal" />
+                <WrapPanel ItemSpacing="{DynamicResource ThemeControlBorderPaddingDouble}" LineSpacing="{DynamicResource ThemeControlBorderPaddingDouble}" />
             </ItemsPanelTemplate>
         </Setter>
         <Setter Property="Template">
@@ -87,8 +85,15 @@
             </ControlTemplate>
         </Setter>
 
+        <Style Selector="^.Vertical">
+            <Style Selector="^ /template/ ItemsPresenter#PART_ItemsPresenter &gt; WrapPanel">
+                <Setter Property="Orientation" Value="Vertical" />
+            </Style>
+        </Style>
+
         <Style Selector="^.Uniform">
             <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="ItemsPanel">
                 <ItemsPanelTemplate>
                     <UniformGrid ColumnSpacing="{DynamicResource ThemeControlBorderPaddingDouble}"
@@ -96,7 +101,17 @@
                                  Rows="1" />
                 </ItemsPanelTemplate>
             </Setter>
+
+            <Style Selector="^.Vertical">
+                <Setter Property="HorizontalAlignment" Value="Left" />
+                <Setter Property="VerticalAlignment" Value="Stretch" />
+                <Style Selector="^ /template/ ItemsPresenter#PART_ItemsPresenter &gt; UniformGrid">
+                    <Setter Property="Rows" Value="0" />
+                    <Setter Property="Columns" Value="1" />
+                </Style>
+            </Style>
         </Style>
+
         <Style Selector="^.Primary">
             <Setter Property="ItemContainerTheme">
                 <ControlTheme BasedOn="{StaticResource SegmentedListBoxItemTheme}" TargetType="ListBoxItem">

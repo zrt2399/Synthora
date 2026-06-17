@@ -11,6 +11,10 @@
                   BasedOn="{StaticResource SuccessSplitButtonTheme}"
                   TargetType="ToggleSplitButton" />
 
+    <ControlTheme x:Key="QuestionToggleSplitButtonTheme"
+                  BasedOn="{StaticResource QuestionSplitButtonTheme}"
+                  TargetType="ToggleSplitButton" />
+
     <ControlTheme x:Key="WarningToggleSplitButtonTheme"
                   BasedOn="{StaticResource WarningSplitButtonTheme}"
                   TargetType="ToggleSplitButton" />

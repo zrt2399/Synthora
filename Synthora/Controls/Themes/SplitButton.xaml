@@ -182,6 +182,17 @@
         </Style>
     </ControlTheme>
 
+    <ControlTheme x:Key="QuestionSplitButtonTheme"
+                  BasedOn="{StaticResource SolidSplitButtonBaseTheme}"
+                  TargetType="SplitButton">
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Background" Value="{DynamicResource QuestionBrush}" />
+
+        <Style Selector="^ /template/ Button">
+            <Setter Property="Theme" Value="{StaticResource QuestionButtonTheme}" />
+        </Style>
+    </ControlTheme>
+
     <ControlTheme x:Key="WarningSplitButtonTheme"
                   BasedOn="{StaticResource SolidSplitButtonBaseTheme}"
                   TargetType="SplitButton">

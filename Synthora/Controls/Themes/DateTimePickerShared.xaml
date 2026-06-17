@@ -29,10 +29,6 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
 
-        <Style Selector="^:selected">
-            <Setter Property="IsHitTestVisible" Value="False" />
-            <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush3}" />
-        </Style>
         <!--<Style Selector="^.MonthItem">
             <Setter Property="Padding" Value="{DynamicResource DatePickerFlyoutPresenterMonthPadding}" />
             <Setter Property="HorizontalContentAlignment" Value="Center" />

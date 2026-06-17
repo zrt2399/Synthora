@@ -7,9 +7,9 @@ using Synthora.Demo.SampleData;
 
 namespace Synthora.Demo.ViewModels
 {
-    public class CollectionControlViewModel : TreeMenuDemoItem
+    public class CollectionControlsViewModel : TreeMenuDemoItem
     {
-        public CollectionControlViewModel()
+        public CollectionControlsViewModel()
         {
             IconKind = MaterialIconKind.FolderMultiple;
         }

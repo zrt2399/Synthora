@@ -1,4 +1,4 @@
-<UserControl x:Class="Synthora.Demo.Views.ButtonView"
+<UserControl x:Class="Synthora.Demo.Views.ButtonsView"
              xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,7 +7,7 @@
              xmlns:vm="using:Synthora.Demo.ViewModels"
              d:DesignHeight="450"
              d:DesignWidth="800"
-             x:DataType="vm:ButtonViewModel"
+             x:DataType="vm:ButtonsViewModel"
              mc:Ignorable="d">
 
     <UserControl.Resources>
@@ -46,6 +46,7 @@
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
                             <Button>Default</Button>
                             <Button Theme="{StaticResource SuccessButtonTheme}">Success</Button>
+                            <Button Theme="{StaticResource QuestionButtonTheme}">Question</Button>
                             <Button Theme="{StaticResource WarningButtonTheme}">Warning</Button>
                             <Button Theme="{StaticResource DangerButtonTheme}">Danger</Button>
                             <Button Theme="{StaticResource ErrorButtonTheme}">Error</Button>
@@ -70,6 +71,7 @@
                             </SpacingWrapPanel.Styles>
                             <ToggleButton>Default</ToggleButton>
                             <ToggleButton Theme="{StaticResource SuccessToggleButtonTheme}">Success</ToggleButton>
+                            <ToggleButton Theme="{StaticResource QuestionToggleButtonTheme}">Question</ToggleButton>
                             <ToggleButton Theme="{StaticResource WarningToggleButtonTheme}">Warning</ToggleButton>
                             <ToggleButton Theme="{StaticResource DangerToggleButtonTheme}">Danger</ToggleButton>
                             <ToggleButton Theme="{StaticResource ErrorToggleButtonTheme}">Error</ToggleButton>
@@ -84,6 +86,7 @@
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
                             <RepeatButton>Default</RepeatButton>
                             <RepeatButton Theme="{StaticResource SuccessRepeatButtonTheme}">Success</RepeatButton>
+                            <RepeatButton Theme="{StaticResource QuestionRepeatButtonTheme}">Question</RepeatButton>
                             <RepeatButton Theme="{StaticResource WarningRepeatButtonTheme}">Warning</RepeatButton>
                             <RepeatButton Theme="{StaticResource DangerRepeatButtonTheme}">Danger</RepeatButton>
                             <RepeatButton Theme="{StaticResource ErrorRepeatButtonTheme}">Error</RepeatButton>
@@ -107,6 +110,7 @@
                             </SpacingWrapPanel.Styles>
                             <DropDownButton>Default</DropDownButton>
                             <DropDownButton Theme="{StaticResource SuccessDropDownButtonTheme}">Success</DropDownButton>
+                            <DropDownButton Theme="{StaticResource QuestionDropDownButtonTheme}">Question</DropDownButton>
                             <DropDownButton Theme="{StaticResource WarningDropDownButtonTheme}">Warning</DropDownButton>
                             <DropDownButton Theme="{StaticResource DangerDropDownButtonTheme}">Danger</DropDownButton>
                             <DropDownButton Theme="{StaticResource ErrorDropDownButtonTheme}">Error</DropDownButton>
@@ -138,6 +142,7 @@
                             </SpacingWrapPanel.Styles>
                             <SplitButton>Default</SplitButton>
                             <SplitButton Theme="{StaticResource SuccessSplitButtonTheme}">Success</SplitButton>
+                            <SplitButton Theme="{StaticResource QuestionSplitButtonTheme}">Question</SplitButton>
                             <SplitButton Theme="{StaticResource WarningSplitButtonTheme}">Warning</SplitButton>
                             <SplitButton Theme="{StaticResource DangerSplitButtonTheme}">Danger</SplitButton>
                             <SplitButton Theme="{StaticResource ErrorSplitButtonTheme}">Error</SplitButton>
@@ -169,6 +174,7 @@
                             </SpacingWrapPanel.Styles>
                             <ToggleSplitButton>Default</ToggleSplitButton>
                             <ToggleSplitButton Theme="{StaticResource SuccessToggleSplitButtonTheme}">Success</ToggleSplitButton>
+                            <ToggleSplitButton Theme="{StaticResource QuestionToggleSplitButtonTheme}">Question</ToggleSplitButton>
                             <ToggleSplitButton Theme="{StaticResource WarningToggleSplitButtonTheme}">Warning</ToggleSplitButton>
                             <ToggleSplitButton Theme="{StaticResource DangerToggleSplitButtonTheme}">Danger</ToggleSplitButton>
                             <ToggleSplitButton Theme="{StaticResource ErrorToggleSplitButtonTheme}">Error</ToggleSplitButton>

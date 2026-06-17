@@ -120,7 +120,9 @@
                                               InputGesture="{Binding $self.HotKey}" />
                                     <MenuItem Foreground="{StaticResource WarningBrush}"
                                               Header="Refresh"
-                                              Icon="{materialIcons:MaterialIconExt Kind=Refresh}"
+                                              Icon="{materialIcons:MaterialIconExt Kind=Refresh}" />
+                                    <MenuItem Header="Disabled"
+                                              Icon="{materialIcons:MaterialIconExt Kind=MinusCircleOffOutline}"
                                               IsEnabled="False" />
                                     <MenuItem Header="Checkable"
                                               InputGesture="Alt+C"
