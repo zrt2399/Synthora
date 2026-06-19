@@ -37,7 +37,7 @@
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="RectangleOutline" />
                             <TextBlock Classes="sectionLabel" Text="BUTTON" />
                             <Badge BadgeType="None">Outline</Badge>
-                            <Badge BadgeType="Success" IsSolid="True">Solid</Badge>
+                            <Badge BadgeType="Information" IsSolid="True">Solid</Badge>
                             <Badge BadgeType="None" IsSolid="True">Borderless</Badge>
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
@@ -77,7 +77,7 @@
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="Refresh" />
                             <TextBlock Classes="sectionLabel" Text="REPEAT BUTTON" />
                             <Badge BadgeType="None">Outline</Badge>
-                            <Badge BadgeType="Success" IsSolid="True">Solid</Badge>
+                            <Badge BadgeType="Information" IsSolid="True">Solid</Badge>
                             <Badge BadgeType="None" IsSolid="True">Borderless</Badge>
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
@@ -122,7 +122,7 @@
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ToggleSwitch" />
                             <TextBlock Classes="sectionLabel" Text="TOGGLE BUTTON" />
                             <Badge BadgeType="None">Outline</Badge>
-                            <Badge BadgeType="Success" IsSolid="True">Solid</Badge>
+                            <Badge BadgeType="Information" IsSolid="True">Solid</Badge>
                             <Badge BadgeType="None" IsSolid="True">Borderless</Badge>
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
@@ -171,7 +171,7 @@
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ChevronDown" />
                             <TextBlock Classes="sectionLabel" Text="DROPDOWN BUTTON" />
                             <Badge BadgeType="None">Outline</Badge>
-                            <Badge BadgeType="Success" IsSolid="True">Solid</Badge>
+                            <Badge BadgeType="Information" IsSolid="True">Solid</Badge>
                             <Badge BadgeType="None" IsSolid="True">Borderless</Badge>
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
@@ -182,6 +182,9 @@
                             <DropDownButton Classes="Question" Theme="{StaticResource OutlineDropDownButtonTheme}">Question</DropDownButton>
                             <DropDownButton Classes="Warning" Theme="{StaticResource OutlineDropDownButtonTheme}">Warning</DropDownButton>
                             <DropDownButton Classes="Error" Theme="{StaticResource OutlineDropDownButtonTheme}">Error</DropDownButton>
+                            <DropDownButton DropDownButtonAttach.DropDownIcon="{StaticResource CustomIcon}" DropDownButtonAttach.EnableDropDownIconAnimation="False">
+                                Custom Icon
+                            </DropDownButton>
                         </SpacingWrapPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
                             <DropDownButton Theme="{StaticResource SolidDropDownButtonTheme}">Default</DropDownButton>
@@ -191,9 +194,6 @@
                             <DropDownButton Classes="Question" Theme="{StaticResource SolidDropDownButtonTheme}">Question</DropDownButton>
                             <DropDownButton Classes="Warning" Theme="{StaticResource SolidDropDownButtonTheme}">Warning</DropDownButton>
                             <DropDownButton Classes="Error" Theme="{StaticResource SolidDropDownButtonTheme}">Error</DropDownButton>
-                            <DropDownButton DropDownButtonAttach.DropDownIcon="{StaticResource CustomIcon}" DropDownButtonAttach.EnableDropDownIconAnimation="False">
-                                Custom Icon
-                            </DropDownButton>
                         </SpacingWrapPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
                             <DropDownButton Theme="{StaticResource BorderlessDropDownButtonTheme}">Default</DropDownButton>
@@ -229,7 +229,7 @@
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ArrowSplitHorizontal" />
                             <TextBlock Classes="sectionLabel" Text="SPLIT BUTTON" />
                             <Badge BadgeType="None">Outline</Badge>
-                            <Badge BadgeType="Success" IsSolid="True">Solid</Badge>
+                            <Badge BadgeType="Information" IsSolid="True">Solid</Badge>
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
                             <SplitButton Theme="{StaticResource OutlineSplitButtonTheme}">Default</SplitButton>
@@ -277,7 +277,7 @@
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ToggleSwitchOutline" />
                             <TextBlock Classes="sectionLabel" Text="TOGGLESPLIT BUTTON" />
                             <Badge BadgeType="None">Outline</Badge>
-                            <Badge BadgeType="Success" IsSolid="True">Solid</Badge>
+                            <Badge BadgeType="Information" IsSolid="True">Solid</Badge>
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
                             <ToggleSplitButton Theme="{StaticResource OutlineToggleSplitButtonTheme}">Default</ToggleSplitButton>
