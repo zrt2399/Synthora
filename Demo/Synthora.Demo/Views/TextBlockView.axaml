@@ -22,33 +22,42 @@
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="FormatText" />
                             <TextBlock Classes="sectionLabel" Text="TEXTBLOCK" />
                         </StackPanel>
-                        <StackPanel Spacing="10">
-                            <TextBlock FontSize="24"
-                                       FontWeight="SemiBold"
-                                       Text="Readable hierarchy with themed typography" />
-                            <TextBlock Foreground="{DynamicResource ThemeForegroundLowBrush}" Text="TextBlock is best for labels, descriptions, headings, and inline status text." />
-                            <TextBlock Text="Use TextBlock for lightweight, theme-aware text presentation where selection is not required." TextWrapping="Wrap" />
-                        </StackPanel>
+                        <UniformGrid Rows="1">
+                            <TextBlock Classes="H1">H1</TextBlock>
+                            <TextBlock Classes="H2">H2</TextBlock>
+                            <TextBlock Classes="H3">H3</TextBlock>
+                            <TextBlock Classes="H4">H4</TextBlock>
+                            <TextBlock Classes="H5">H5</TextBlock>
+                            <TextBlock Classes="H6">H6</TextBlock>
+                        </UniformGrid>
                         <Grid ColumnDefinitions="*,16,*">
                             <StackPanel Grid.Column="0" Spacing="8">
                                 <TextBlock Classes="sectionLabel" Text="INLINE FORMATTING" />
-                                <TextBlock TextWrapping="Wrap">
-                                    <Run Text="Combine " />
-                                    <Run FontWeight="Bold" Text="bold" />
-                                    <Run Text=", " />
-                                    <Run FontStyle="Italic" Text="italic" />
-                                    <Run Text=", and " />
-                                    <Run Text="underlined" TextDecorations="Underline" />
-                                    <Run Foreground="{DynamicResource PrimaryBrush}" Text=" runs to present rich explanatory copy." />
-                                </TextBlock>
+                                <Border Padding="8"
+                                        Classes="card"
+                                        CornerRadius="6">
+                                    <TextBlock Name="InlineTextBlock" TextWrapping="Wrap">
+                                        <Run Text="Combine" />
+                                        <Run FontWeight="Bold" Text="Bold" />
+                                        <Run Text="," />
+                                        <Run FontStyle="Italic" Text="Italic" />
+                                        <Run Text="," />
+                                        <Run Text="Strikethrough" TextDecorations="Strikethrough" />
+                                        <Run Text="," />
+                                        <Run Text="Overline" TextDecorations="Overline" />
+                                        <Run Text="," />
+                                        <Run Text="Baseline" TextDecorations="Baseline" />
+                                        <Run Text=", and" />
+                                        <Run Text="Underline" TextDecorations="Underline" />
+                                        <Run Foreground="{DynamicResource PrimaryBrush}" Text=" runs to present rich explanatory copy." />
+                                    </TextBlock>
+                                </Border>
                             </StackPanel>
                             <StackPanel Grid.Column="2" Spacing="8">
                                 <TextBlock Classes="sectionLabel" Text="TRIMMING" />
-                                <Border Padding="12"
-                                        Background="{DynamicResource ThemeBackgroundBrush}"
-                                        BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-                                        BorderThickness="1"
-                                        CornerRadius="10">
+                                <Border Padding="8"
+                                        Classes="card"
+                                        CornerRadius="6">
                                     <TextBlock MaxLines="2"
                                                Text="{Binding WrappingSample}"
                                                TextTrimming="CharacterEllipsis"
@@ -65,28 +74,28 @@
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="CursorText" />
                             <TextBlock Classes="sectionLabel" Text="SELECTABLETEXTBLOCK" />
                         </StackPanel>
-                        <SelectableTextBlock FontSize="20"
-                                             FontWeight="SemiBold"
-                                             Text="Try selecting and copying the samples below." />
-                        <SelectableTextBlock Text="SelectableTextBlock is ideal for content that users may need to inspect or copy, such as log output, command lines, URLs, tokens, or larger explanatory paragraphs." TextWrapping="Wrap" />
+                        <UniformGrid Rows="1">
+                            <SelectableTextBlock Classes="H1">H1</SelectableTextBlock>
+                            <SelectableTextBlock Classes="H2">H2</SelectableTextBlock>
+                            <SelectableTextBlock Classes="H3">H3</SelectableTextBlock>
+                            <SelectableTextBlock Classes="H4">H4</SelectableTextBlock>
+                            <SelectableTextBlock Classes="H5">H5</SelectableTextBlock>
+                            <SelectableTextBlock Classes="H6">H6</SelectableTextBlock>
+                        </UniformGrid>
                         <Grid ColumnDefinitions="*,16,*">
                             <StackPanel Grid.Column="0" Spacing="8">
                                 <TextBlock Classes="sectionLabel" Text="COPYABLE CONTENT" />
-                                <Border Padding="12"
-                                        Background="{DynamicResource ThemeBackgroundBrush}"
-                                        BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-                                        BorderThickness="1"
-                                        CornerRadius="10">
-                                    <SelectableTextBlock Text="https://github.com/zrt2399/Synthora" TextWrapping="Wrap" />
+                                <Border Padding="8"
+                                        Classes="card"
+                                        CornerRadius="6">
+                                    <SelectableTextBlock Inlines="{Binding #InlineTextBlock.Inlines}" TextWrapping="Wrap" />
                                 </Border>
                             </StackPanel>
                             <StackPanel Grid.Column="2" Spacing="8">
                                 <TextBlock Classes="sectionLabel" Text="CODE-LIKE SAMPLE" />
-                                <Border Padding="12"
-                                        Background="{DynamicResource ThemeBackgroundBrush}"
-                                        BorderBrush="{DynamicResource ThemeBorderLowBrush}"
-                                        BorderThickness="1"
-                                        CornerRadius="10">
+                                <Border Padding="8"
+                                        Classes="card"
+                                        CornerRadius="6">
                                     <SelectableTextBlock FontFamily="Cascadia Mono,Consolas,SF Mono,Menlo,monospace"
                                                          Text="{Binding CodeSample}"
                                                          TextWrapping="Wrap" />

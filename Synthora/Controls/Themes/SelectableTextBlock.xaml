@@ -15,7 +15,8 @@
                   IsEnabled="{Binding $parent[SelectableTextBlock].CanCopy}" />
         <MenuItem Command="{Binding $parent[SelectableTextBlock].SelectAll}"
                   Header="{DynamicResource StringTextFlyoutSelectAllText}"
-                  InputGesture="{x:Static GestureUtils.SelectAllGesture}" />
+                  InputGesture="{x:Static GestureUtils.SelectAllGesture}"
+                  IsEnabled="{Binding $parent[SelectableTextBlock].Text, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
     </MenuFlyout>
 
     <MenuFlyout x:Key="HorizontalSelectableTextBlockContextFlyout"
@@ -25,34 +26,49 @@
                                         Mobile=Transient}">
         <MenuItem Command="{Binding $parent[SelectableTextBlock].Copy}"
                   Header="{DynamicResource StringTextFlyoutCopyText}"
-                  Icon="{StaticResource TextCopyIcon}"
-                  InputGesture="{x:Static TextBox.CopyGesture}"
                   IsEnabled="{Binding $parent[SelectableTextBlock].CanCopy}" />
         <MenuItem Command="{Binding $parent[SelectableTextBlock].SelectAll}"
                   Header="{DynamicResource StringTextFlyoutSelectAllText}"
-                  InputGesture="{x:Static GestureUtils.SelectAllGesture}" />
+                  InputGesture="{x:Static GestureUtils.SelectAllGesture}"
+                  IsEnabled="{Binding $parent[SelectableTextBlock].Text, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
     </MenuFlyout>
-
-    <ContextMenu x:Key="SelectableTextBlockContextMenu">
-        <MenuItem Command="{Binding $parent[SelectableTextBlock].Copy}"
-                  Header="{DynamicResource StringTextFlyoutCopyText}"
-                  Icon="{StaticResource TextCopyIcon}"
-                  InputGesture="{x:Static TextBox.CopyGesture}"
-                  IsEnabled="{Binding $parent[SelectableTextBlock].CanCopy}" />
-        <MenuItem Command="{Binding $parent[SelectableTextBlock].SelectAll}"
-                  Header="{DynamicResource StringTextFlyoutSelectAllText}"
-                  InputGesture="{x:Static GestureUtils.SelectAllGesture}" />
-    </ContextMenu>
 
     <ControlTheme x:Key="{x:Type SelectableTextBlock}" TargetType="SelectableTextBlock">
         <Setter Property="SelectionBrush" Value="{DynamicResource TextSelectionBrush}" />
         <Setter Property="ContextFlyout" Value="{OnFormFactor Desktop={StaticResource DefaultSelectableTextBlockContextFlyout}, Mobile={StaticResource HorizontalSelectableTextBlockContextFlyout}}" />
-        <Style Selector="^[IsPointerOver=True]">
+
+        <Style Selector="^:pointerover">
             <Setter Property="Cursor" Value="IBeam" />
+        </Style>
+
+        <Style Selector="^.H1">
+            <Setter Property="FontSize" Value="{DynamicResource FontSizeH1}" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+        <Style Selector="^.H2">
+            <Setter Property="FontSize" Value="{DynamicResource FontSizeH2}" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+        <Style Selector="^.H3">
+            <Setter Property="FontSize" Value="{DynamicResource FontSizeH3}" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+        <Style Selector="^.H4">
+            <Setter Property="FontSize" Value="{DynamicResource FontSizeH4}" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+        <Style Selector="^.H5">
+            <Setter Property="FontSize" Value="{DynamicResource FontSizeH5}" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+        <Style Selector="^.H6">
+            <Setter Property="FontSize" Value="{DynamicResource FontSizeH6}" />
+            <Setter Property="FontWeight" Value="SemiBold" />
         </Style>
 
         <Style Selector="^:disabled">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>
     </ControlTheme>
+
 </ResourceDictionary>

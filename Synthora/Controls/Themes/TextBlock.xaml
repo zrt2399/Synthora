@@ -4,8 +4,34 @@
                     x:CompileBindings="True">
 
     <ControlTheme x:Key="{x:Type TextBlock}" TargetType="TextBlock">
+        <Style Selector="^.H1">
+            <Setter Property="FontSize" Value="{DynamicResource FontSizeH1}" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+        <Style Selector="^.H2">
+            <Setter Property="FontSize" Value="{DynamicResource FontSizeH2}" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+        <Style Selector="^.H3">
+            <Setter Property="FontSize" Value="{DynamicResource FontSizeH3}" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+        <Style Selector="^.H4">
+            <Setter Property="FontSize" Value="{DynamicResource FontSizeH4}" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+        <Style Selector="^.H5">
+            <Setter Property="FontSize" Value="{DynamicResource FontSizeH5}" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+        <Style Selector="^.H6">
+            <Setter Property="FontSize" Value="{DynamicResource FontSizeH6}" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+
         <Style Selector="^:disabled">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>
     </ControlTheme>
+
 </ResourceDictionary>
