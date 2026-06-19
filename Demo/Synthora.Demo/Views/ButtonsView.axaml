@@ -191,6 +191,9 @@
                             <DropDownButton Classes="Question" Theme="{StaticResource SolidDropDownButtonTheme}">Question</DropDownButton>
                             <DropDownButton Classes="Warning" Theme="{StaticResource SolidDropDownButtonTheme}">Warning</DropDownButton>
                             <DropDownButton Classes="Error" Theme="{StaticResource SolidDropDownButtonTheme}">Error</DropDownButton>
+                            <DropDownButton DropDownButtonAttach.DropDownIcon="{StaticResource CustomIcon}" DropDownButtonAttach.EnableDropDownIconAnimation="False">
+                                Custom Icon
+                            </DropDownButton>
                         </SpacingWrapPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
                             <DropDownButton Theme="{StaticResource BorderlessDropDownButtonTheme}">Default</DropDownButton>
@@ -200,9 +203,6 @@
                             <DropDownButton Classes="Question" Theme="{StaticResource BorderlessDropDownButtonTheme}">Question</DropDownButton>
                             <DropDownButton Classes="Warning" Theme="{StaticResource BorderlessDropDownButtonTheme}">Warning</DropDownButton>
                             <DropDownButton Classes="Error" Theme="{StaticResource BorderlessDropDownButtonTheme}">Error</DropDownButton>
-                            <DropDownButton DropDownButtonAttach.DropDownIcon="{StaticResource CustomIcon}" DropDownButtonAttach.EnableDropDownIconAnimation="False">
-                                Custom Icon
-                            </DropDownButton>
                         </SpacingWrapPanel>
                     </StackPanel>
                 </Border>
@@ -239,6 +239,9 @@
                             <SplitButton Classes="Question" Theme="{StaticResource OutlineSplitButtonTheme}">Question</SplitButton>
                             <SplitButton Classes="Warning" Theme="{StaticResource OutlineSplitButtonTheme}">Warning</SplitButton>
                             <SplitButton Classes="Error" Theme="{StaticResource OutlineSplitButtonTheme}">Error</SplitButton>
+                            <SplitButton DropDownButtonAttach.DropDownIcon="{StaticResource CustomIcon}" DropDownButtonAttach.EnableDropDownIconAnimation="False">
+                                Custom Icon
+                            </SplitButton>
                         </SpacingWrapPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
                             <SplitButton Theme="{StaticResource SolidSplitButtonTheme}">Default</SplitButton>
@@ -248,9 +251,6 @@
                             <SplitButton Classes="Question" Theme="{StaticResource SolidSplitButtonTheme}">Question</SplitButton>
                             <SplitButton Classes="Warning" Theme="{StaticResource SolidSplitButtonTheme}">Warning</SplitButton>
                             <SplitButton Classes="Error" Theme="{StaticResource SolidSplitButtonTheme}">Error</SplitButton>
-                            <SplitButton DropDownButtonAttach.DropDownIcon="{StaticResource CustomIcon}" DropDownButtonAttach.EnableDropDownIconAnimation="False">
-                                Custom Icon
-                            </SplitButton>
                         </SpacingWrapPanel>
                     </StackPanel>
                 </Border>
@@ -287,6 +287,9 @@
                             <ToggleSplitButton Classes="Question" Theme="{StaticResource OutlineToggleSplitButtonTheme}">Question</ToggleSplitButton>
                             <ToggleSplitButton Classes="Warning" Theme="{StaticResource OutlineToggleSplitButtonTheme}">Warning</ToggleSplitButton>
                             <ToggleSplitButton Classes="Error" Theme="{StaticResource OutlineToggleSplitButtonTheme}">Error</ToggleSplitButton>
+                            <ToggleSplitButton DropDownButtonAttach.DropDownIcon="{StaticResource CustomIcon}" DropDownButtonAttach.EnableDropDownIconAnimation="False">
+                                Custom Icon
+                            </ToggleSplitButton>
                         </SpacingWrapPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
                             <ToggleSplitButton Theme="{StaticResource SolidToggleSplitButtonTheme}">Default</ToggleSplitButton>
@@ -296,9 +299,6 @@
                             <ToggleSplitButton Classes="Question" Theme="{StaticResource SolidToggleSplitButtonTheme}">Question</ToggleSplitButton>
                             <ToggleSplitButton Classes="Warning" Theme="{StaticResource SolidToggleSplitButtonTheme}">Warning</ToggleSplitButton>
                             <ToggleSplitButton Classes="Error" Theme="{StaticResource SolidToggleSplitButtonTheme}">Error</ToggleSplitButton>
-                            <ToggleSplitButton DropDownButtonAttach.DropDownIcon="{StaticResource CustomIcon}" DropDownButtonAttach.EnableDropDownIconAnimation="False">
-                                Custom Icon
-                            </ToggleSplitButton>
                         </SpacingWrapPanel>
                     </StackPanel>
                 </Border>

@@ -364,7 +364,7 @@
     <Thickness x:Key="ThemeBorderThickness">1</Thickness>
 
     <Thickness x:Key="ThemeControlPaddingSmall">4</Thickness>
-    <Thickness x:Key="BadgePadding">5,3</Thickness>
+    <Thickness x:Key="BadgePadding">3,1</Thickness>
 
     <CornerRadius x:Key="ThemeBorderCornerRadiusSmall">4</CornerRadius>
     <CornerRadius x:Key="ThemeBorderCornerRadiusNormal">6</CornerRadius>
