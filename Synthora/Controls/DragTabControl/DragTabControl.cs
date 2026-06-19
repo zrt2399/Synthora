@@ -379,6 +379,12 @@ namespace Synthora.Controls
 
         private void ItemDragStarted(object? sender, DragTabDragStartedEventArgs e)
         {
+            if (_dragging && _draggedItem != e.TabItem)
+            {
+                e.Handled = true;
+                return;
+            }
+
             _draggedItem = e.TabItem;
 
             e.Handled = true;
@@ -400,9 +406,10 @@ namespace Synthora.Controls
 
         private void ItemDragDelta(object? sender, DragTabDragDeltaEventArgs e)
         {
-            if (_draggedItem is null)
+            if (_draggedItem is null || _draggedItem != e.TabItem)
             {
-                throw new Exception($"{nameof(DragTabControl)}.{nameof(ItemDragDelta)} - _draggedItem is null");
+                e.Handled = true;
+                return;
             }
 
             if (_draggedItem.LogicalIndex < FixedHeaderCount)
@@ -427,6 +434,12 @@ namespace Synthora.Controls
 
         private void ItemDragCompleted(object? sender, DragTabDragCompletedEventArgs e)
         {
+            if (_draggedItem is null || _draggedItem != e.TabItem)
+            {
+                e.Handled = true;
+                return;
+            }
+
             foreach (var item in DragTabItems())
             {
                 item.IsDragging = false;
