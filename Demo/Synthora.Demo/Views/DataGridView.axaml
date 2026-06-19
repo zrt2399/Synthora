@@ -11,10 +11,10 @@
              mc:Ignorable="d">
 
     <UserControl.Styles>
-        <Style Selector="DataGrid.hasShadow">
+        <Style Selector="DataGrid.HasShadow">
             <Setter Property="BoxShadowAttach.BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
         </Style>
-        <Style Selector="DataGrid.borderless">
+        <Style Selector="DataGrid.Borderless">
             <Setter Property="BorderThickness" Value="0" />
         </Style>
     </UserControl.Styles>
@@ -72,12 +72,20 @@
                                   SelectedItem="{Binding #DataGridEmployees.GridLinesVisibility}"
                                   TextBoxAttach.Header="GridLinesVisibility: "
                                   TextBoxAttach.HeaderPlacement="Left" />
-                        <Button Command="{Binding ClearEmployees}" Theme="{StaticResource WarningButtonTheme}">Clear</Button>
-                        <Button Command="{Binding ResetEmployees}" Theme="{StaticResource DangerButtonTheme}">Reset</Button>
+                        <Button Classes="Warning"
+                                Command="{Binding ClearEmployees}"
+                                Theme="{StaticResource SolidButtonTheme}">
+                            Clear
+                        </Button>
+                        <Button Classes="Error"
+                                Command="{Binding ResetEmployees}"
+                                Theme="{StaticResource SolidButtonTheme}">
+                            Reset
+                        </Button>
                     </WrapPanel>
                     <DataGrid Name="DataGridEmployees"
-                              Classes.borderless="{Binding #Borderless.IsChecked}"
-                              Classes.hasShadow="{Binding #HasShadow.IsChecked}"
+                              Classes.Borderless="{Binding #Borderless.IsChecked}"
+                              Classes.HasShadow="{Binding #HasShadow.IsChecked}"
                               CornerRadius="{Binding #Slider.Value, Converter={x:Static SynthoraConverters.DoubleToCornerRadiusConverter}}"
                               ItemsSource="{Binding Employees}" />
                 </DockPanel>

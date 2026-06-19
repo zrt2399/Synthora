@@ -18,173 +18,295 @@
                   Data="{DynamicResource EllipsisData}" />
     </UserControl.Resources>
 
+    <UserControl.Styles>
+        <Style Selector="Badge">
+            <Setter Property="IsCircular" Value="True" />
+        </Style>
+    </UserControl.Styles>
+
     <DemoPage Title="Buttons"
               Padding="0"
               Description="{Binding Description}"
               IconKind="{Binding IconKind}">
         <ScrollViewer Padding="16">
             <StackPanel Spacing="16">
-                <!--  Icon & Standard Buttons  -->
+                <!--  Button  -->
                 <Border Classes="card">
                     <StackPanel Spacing="16">
                         <StackPanel Classes="sectionHeader">
-                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="CursorDefaultClick" />
-                            <TextBlock Classes="sectionLabel" Text="ICON BUTTON" />
-                        </StackPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
-                            <Button Content="{materialIcons:MaterialIconTextExt Kind=About, Text=About}" />
-                            <Button Padding="{DynamicResource ThemeControlPaddingSmall}" Content="{materialIcons:MaterialIconTextExt Kind=Dad}" />
-                            <Button Content="{materialIcons:MaterialIconTextExt Kind=Mom}" />
-                            <Button Content="{materialIcons:MaterialIconExt Kind=GraphPie}" />
-                            <Button Content="{materialIcons:MaterialIconExt Kind=Decrement}" />
-                            <Button Content="{materialIcons:MaterialIconExt Kind=CloseBox}" Theme="{StaticResource IconButtonTheme}" />
-                        </SpacingWrapPanel>
-                        <StackPanel Classes="sectionSubHeader">
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="RectangleOutline" />
-                            <TextBlock Classes="sectionLabel" Text="BUTTON VARIANTS" />
+                            <TextBlock Classes="sectionLabel" Text="BUTTON" />
+                            <Badge BadgeType="None">Outline</Badge>
+                            <Badge BadgeType="Success" IsSolid="True">Solid</Badge>
+                            <Badge BadgeType="None" IsSolid="True">Borderless</Badge>
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
-                            <Button>Default</Button>
-                            <Button Theme="{StaticResource SuccessButtonTheme}">Success</Button>
-                            <Button Theme="{StaticResource QuestionButtonTheme}">Question</Button>
-                            <Button Theme="{StaticResource WarningButtonTheme}">Warning</Button>
-                            <Button Theme="{StaticResource DangerButtonTheme}">Danger</Button>
-                            <Button Theme="{StaticResource ErrorButtonTheme}">Error</Button>
-                            <Button Theme="{StaticResource PrimaryButtonTheme}">Primary</Button>
-                            <Button Theme="{StaticResource SecondaryButtonTheme}">Secondary</Button>
-                            <Button Classes="TextButton">TextButton</Button>
+                            <Button Theme="{StaticResource OutlineButtonTheme}">Default</Button>
+                            <Button Classes="Primary" Theme="{StaticResource OutlineButtonTheme}">Primary</Button>
+                            <Button Classes="Secondary" Theme="{StaticResource OutlineButtonTheme}">Secondary</Button>
+                            <Button Classes="Success" Theme="{StaticResource OutlineButtonTheme}">Success</Button>
+                            <Button Classes="Question" Theme="{StaticResource OutlineButtonTheme}">Question</Button>
+                            <Button Classes="Warning" Theme="{StaticResource OutlineButtonTheme}">Warning</Button>
+                            <Button Classes="Error" Theme="{StaticResource OutlineButtonTheme}">Error</Button>
+                        </SpacingWrapPanel>
+                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <Button Theme="{StaticResource SolidButtonTheme}">Default</Button>
+                            <Button Classes="Primary" Theme="{StaticResource SolidButtonTheme}">Primary</Button>
+                            <Button Classes="Secondary" Theme="{StaticResource SolidButtonTheme}">Secondary</Button>
+                            <Button Classes="Success" Theme="{StaticResource SolidButtonTheme}">Success</Button>
+                            <Button Classes="Question" Theme="{StaticResource SolidButtonTheme}">Question</Button>
+                            <Button Classes="Warning" Theme="{StaticResource SolidButtonTheme}">Warning</Button>
+                            <Button Classes="Error" Theme="{StaticResource SolidButtonTheme}">Error</Button>
+                        </SpacingWrapPanel>
+                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <Button Theme="{StaticResource BorderlessButtonTheme}">Default</Button>
+                            <Button Classes="Primary" Theme="{StaticResource BorderlessButtonTheme}">Primary</Button>
+                            <Button Classes="Secondary" Theme="{StaticResource BorderlessButtonTheme}">Secondary</Button>
+                            <Button Classes="Success" Theme="{StaticResource BorderlessButtonTheme}">Success</Button>
+                            <Button Classes="Question" Theme="{StaticResource BorderlessButtonTheme}">Question</Button>
+                            <Button Classes="Warning" Theme="{StaticResource BorderlessButtonTheme}">Warning</Button>
+                            <Button Classes="Error" Theme="{StaticResource BorderlessButtonTheme}">Error</Button>
                         </SpacingWrapPanel>
                     </StackPanel>
                 </Border>
-                <!--  Toggle & DropDown Buttons  -->
+
+                <!--  RepeatButton  -->
                 <Border Classes="card">
                     <StackPanel Spacing="16">
                         <StackPanel Classes="sectionHeader">
-                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ToggleSwitch" />
-                            <TextBlock Classes="sectionLabel" Text="TOGGLE BUTTON" />
-                        </StackPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
-                            <SpacingWrapPanel.Styles>
-                                <Style Selector="ToggleButton">
-                                    <Setter Property="IsThreeState" Value="True" />
-                                </Style>
-                            </SpacingWrapPanel.Styles>
-                            <ToggleButton>Default</ToggleButton>
-                            <ToggleButton Theme="{StaticResource SuccessToggleButtonTheme}">Success</ToggleButton>
-                            <ToggleButton Theme="{StaticResource QuestionToggleButtonTheme}">Question</ToggleButton>
-                            <ToggleButton Theme="{StaticResource WarningToggleButtonTheme}">Warning</ToggleButton>
-                            <ToggleButton Theme="{StaticResource DangerToggleButtonTheme}">Danger</ToggleButton>
-                            <ToggleButton Theme="{StaticResource ErrorToggleButtonTheme}">Error</ToggleButton>
-                            <ToggleButton Theme="{StaticResource PrimaryToggleButtonTheme}">Primary</ToggleButton>
-                            <ToggleButton Theme="{StaticResource SecondaryToggleButtonTheme}">Secondary</ToggleButton>
-                            <ToggleButton Classes="TextButton">TextButton</ToggleButton>
-                        </SpacingWrapPanel>
-                        <StackPanel Classes="sectionSubHeader">
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="Refresh" />
                             <TextBlock Classes="sectionLabel" Text="REPEAT BUTTON" />
+                            <Badge BadgeType="None">Outline</Badge>
+                            <Badge BadgeType="Success" IsSolid="True">Solid</Badge>
+                            <Badge BadgeType="None" IsSolid="True">Borderless</Badge>
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
-                            <RepeatButton>Default</RepeatButton>
-                            <RepeatButton Theme="{StaticResource SuccessRepeatButtonTheme}">Success</RepeatButton>
-                            <RepeatButton Theme="{StaticResource QuestionRepeatButtonTheme}">Question</RepeatButton>
-                            <RepeatButton Theme="{StaticResource WarningRepeatButtonTheme}">Warning</RepeatButton>
-                            <RepeatButton Theme="{StaticResource DangerRepeatButtonTheme}">Danger</RepeatButton>
-                            <RepeatButton Theme="{StaticResource ErrorRepeatButtonTheme}">Error</RepeatButton>
-                            <RepeatButton Theme="{StaticResource PrimaryRepeatButtonTheme}">Primary</RepeatButton>
-                            <RepeatButton Theme="{StaticResource SecondaryRepeatButtonTheme}">Secondary</RepeatButton>
-                            <RepeatButton Classes="TextButton">TextButton</RepeatButton>
+                            <RepeatButton Theme="{StaticResource OutlineRepeatButtonTheme}">Default</RepeatButton>
+                            <RepeatButton Classes="Primary" Theme="{StaticResource OutlineRepeatButtonTheme}">Primary</RepeatButton>
+                            <RepeatButton Classes="Secondary" Theme="{StaticResource OutlineRepeatButtonTheme}">Secondary</RepeatButton>
+                            <RepeatButton Classes="Success" Theme="{StaticResource OutlineRepeatButtonTheme}">Success</RepeatButton>
+                            <RepeatButton Classes="Question" Theme="{StaticResource OutlineRepeatButtonTheme}">Question</RepeatButton>
+                            <RepeatButton Classes="Warning" Theme="{StaticResource OutlineRepeatButtonTheme}">Warning</RepeatButton>
+                            <RepeatButton Classes="Error" Theme="{StaticResource OutlineRepeatButtonTheme}">Error</RepeatButton>
                         </SpacingWrapPanel>
-                        <StackPanel Classes="sectionSubHeader">
+                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <RepeatButton Theme="{StaticResource SolidRepeatButtonTheme}">Default</RepeatButton>
+                            <RepeatButton Classes="Primary" Theme="{StaticResource SolidRepeatButtonTheme}">Primary</RepeatButton>
+                            <RepeatButton Classes="Secondary" Theme="{StaticResource SolidRepeatButtonTheme}">Secondary</RepeatButton>
+                            <RepeatButton Classes="Success" Theme="{StaticResource SolidRepeatButtonTheme}">Success</RepeatButton>
+                            <RepeatButton Classes="Question" Theme="{StaticResource SolidRepeatButtonTheme}">Question</RepeatButton>
+                            <RepeatButton Classes="Warning" Theme="{StaticResource SolidRepeatButtonTheme}">Warning</RepeatButton>
+                            <RepeatButton Classes="Error" Theme="{StaticResource SolidRepeatButtonTheme}">Error</RepeatButton>
+                        </SpacingWrapPanel>
+                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <RepeatButton Theme="{StaticResource BorderlessRepeatButtonTheme}">Default</RepeatButton>
+                            <RepeatButton Classes="Primary" Theme="{StaticResource BorderlessRepeatButtonTheme}">Primary</RepeatButton>
+                            <RepeatButton Classes="Secondary" Theme="{StaticResource BorderlessRepeatButtonTheme}">Secondary</RepeatButton>
+                            <RepeatButton Classes="Success" Theme="{StaticResource BorderlessRepeatButtonTheme}">Success</RepeatButton>
+                            <RepeatButton Classes="Question" Theme="{StaticResource BorderlessRepeatButtonTheme}">Question</RepeatButton>
+                            <RepeatButton Classes="Warning" Theme="{StaticResource BorderlessRepeatButtonTheme}">Warning</RepeatButton>
+                            <RepeatButton Classes="Error" Theme="{StaticResource BorderlessRepeatButtonTheme}">Error</RepeatButton>
+                        </SpacingWrapPanel>
+                    </StackPanel>
+                </Border>
+
+                <!--  ToggleButton  -->
+                <Border Classes="card">
+                    <StackPanel Spacing="16">
+                        <StackPanel.Styles>
+                            <Style Selector="ToggleButton">
+                                <Setter Property="IsThreeState" Value="True" />
+                            </Style>
+                        </StackPanel.Styles>
+                        <StackPanel Classes="sectionHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ToggleSwitch" />
+                            <TextBlock Classes="sectionLabel" Text="TOGGLE BUTTON" />
+                            <Badge BadgeType="None">Outline</Badge>
+                            <Badge BadgeType="Success" IsSolid="True">Solid</Badge>
+                            <Badge BadgeType="None" IsSolid="True">Borderless</Badge>
+                        </StackPanel>
+                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <ToggleButton Theme="{StaticResource OutlineToggleButtonTheme}">Default</ToggleButton>
+                            <ToggleButton Classes="Primary" Theme="{StaticResource OutlineToggleButtonTheme}">Primary</ToggleButton>
+                            <ToggleButton Classes="Secondary" Theme="{StaticResource OutlineToggleButtonTheme}">Secondary</ToggleButton>
+                            <ToggleButton Classes="Success" Theme="{StaticResource OutlineToggleButtonTheme}">Success</ToggleButton>
+                            <ToggleButton Classes="Question" Theme="{StaticResource OutlineToggleButtonTheme}">Question</ToggleButton>
+                            <ToggleButton Classes="Warning" Theme="{StaticResource OutlineToggleButtonTheme}">Warning</ToggleButton>
+                            <ToggleButton Classes="Error" Theme="{StaticResource OutlineToggleButtonTheme}">Error</ToggleButton>
+                        </SpacingWrapPanel>
+                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <ToggleButton Theme="{StaticResource SolidToggleButtonTheme}">Default</ToggleButton>
+                            <ToggleButton Classes="Primary" Theme="{StaticResource SolidToggleButtonTheme}">Primary</ToggleButton>
+                            <ToggleButton Classes="Secondary" Theme="{StaticResource SolidToggleButtonTheme}">Secondary</ToggleButton>
+                            <ToggleButton Classes="Success" Theme="{StaticResource SolidToggleButtonTheme}">Success</ToggleButton>
+                            <ToggleButton Classes="Question" Theme="{StaticResource SolidToggleButtonTheme}">Question</ToggleButton>
+                            <ToggleButton Classes="Warning" Theme="{StaticResource SolidToggleButtonTheme}">Warning</ToggleButton>
+                            <ToggleButton Classes="Error" Theme="{StaticResource SolidToggleButtonTheme}">Error</ToggleButton>
+                        </SpacingWrapPanel>
+                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <ToggleButton Theme="{StaticResource BorderlessToggleButtonTheme}">Default</ToggleButton>
+                            <ToggleButton Classes="Primary" Theme="{StaticResource BorderlessToggleButtonTheme}">Primary</ToggleButton>
+                            <ToggleButton Classes="Secondary" Theme="{StaticResource BorderlessToggleButtonTheme}">Secondary</ToggleButton>
+                            <ToggleButton Classes="Success" Theme="{StaticResource BorderlessToggleButtonTheme}">Success</ToggleButton>
+                            <ToggleButton Classes="Question" Theme="{StaticResource BorderlessToggleButtonTheme}">Question</ToggleButton>
+                            <ToggleButton Classes="Warning" Theme="{StaticResource BorderlessToggleButtonTheme}">Warning</ToggleButton>
+                            <ToggleButton Classes="Error" Theme="{StaticResource BorderlessToggleButtonTheme}">Error</ToggleButton>
+                        </SpacingWrapPanel>
+                    </StackPanel>
+                </Border>
+
+                <!--  DropDownButton  -->
+                <Border Classes="card">
+                    <StackPanel Spacing="16">
+                        <StackPanel.Styles>
+                            <Style Selector="DropDownButton">
+                                <Setter Property="Flyout">
+                                    <Flyout Placement="BottomEdgeAlignedLeft">
+                                        <CheckBox>CheckBox</CheckBox>
+                                    </Flyout>
+                                </Setter>
+                            </Style>
+                        </StackPanel.Styles>
+                        <StackPanel Classes="sectionHeader">
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ChevronDown" />
                             <TextBlock Classes="sectionLabel" Text="DROPDOWN BUTTON" />
+                            <Badge BadgeType="None">Outline</Badge>
+                            <Badge BadgeType="Success" IsSolid="True">Solid</Badge>
+                            <Badge BadgeType="None" IsSolid="True">Borderless</Badge>
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
-                            <SpacingWrapPanel.Styles>
-                                <Style Selector="DropDownButton">
-                                    <Setter Property="Flyout">
-                                        <Flyout Placement="BottomEdgeAlignedLeft">
-                                            <CheckBox>CheckBox</CheckBox>
-                                        </Flyout>
-                                    </Setter>
-                                </Style>
-                            </SpacingWrapPanel.Styles>
-                            <DropDownButton>Default</DropDownButton>
-                            <DropDownButton Theme="{StaticResource SuccessDropDownButtonTheme}">Success</DropDownButton>
-                            <DropDownButton Theme="{StaticResource QuestionDropDownButtonTheme}">Question</DropDownButton>
-                            <DropDownButton Theme="{StaticResource WarningDropDownButtonTheme}">Warning</DropDownButton>
-                            <DropDownButton Theme="{StaticResource DangerDropDownButtonTheme}">Danger</DropDownButton>
-                            <DropDownButton Theme="{StaticResource ErrorDropDownButtonTheme}">Error</DropDownButton>
-                            <DropDownButton Theme="{StaticResource PrimaryDropDownButtonTheme}">Primary</DropDownButton>
-                            <DropDownButton Theme="{StaticResource SecondaryDropDownButtonTheme}">Secondary</DropDownButton>
+                            <DropDownButton Theme="{StaticResource OutlineDropDownButtonTheme}">Default</DropDownButton>
+                            <DropDownButton Classes="Primary" Theme="{StaticResource OutlineDropDownButtonTheme}">Primary</DropDownButton>
+                            <DropDownButton Classes="Secondary" Theme="{StaticResource OutlineDropDownButtonTheme}">Secondary</DropDownButton>
+                            <DropDownButton Classes="Success" Theme="{StaticResource OutlineDropDownButtonTheme}">Success</DropDownButton>
+                            <DropDownButton Classes="Question" Theme="{StaticResource OutlineDropDownButtonTheme}">Question</DropDownButton>
+                            <DropDownButton Classes="Warning" Theme="{StaticResource OutlineDropDownButtonTheme}">Warning</DropDownButton>
+                            <DropDownButton Classes="Error" Theme="{StaticResource OutlineDropDownButtonTheme}">Error</DropDownButton>
+                        </SpacingWrapPanel>
+                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <DropDownButton Theme="{StaticResource SolidDropDownButtonTheme}">Default</DropDownButton>
+                            <DropDownButton Classes="Primary" Theme="{StaticResource SolidDropDownButtonTheme}">Primary</DropDownButton>
+                            <DropDownButton Classes="Secondary" Theme="{StaticResource SolidDropDownButtonTheme}">Secondary</DropDownButton>
+                            <DropDownButton Classes="Success" Theme="{StaticResource SolidDropDownButtonTheme}">Success</DropDownButton>
+                            <DropDownButton Classes="Question" Theme="{StaticResource SolidDropDownButtonTheme}">Question</DropDownButton>
+                            <DropDownButton Classes="Warning" Theme="{StaticResource SolidDropDownButtonTheme}">Warning</DropDownButton>
+                            <DropDownButton Classes="Error" Theme="{StaticResource SolidDropDownButtonTheme}">Error</DropDownButton>
+                        </SpacingWrapPanel>
+                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <DropDownButton Theme="{StaticResource BorderlessDropDownButtonTheme}">Default</DropDownButton>
+                            <DropDownButton Classes="Primary" Theme="{StaticResource BorderlessDropDownButtonTheme}">Primary</DropDownButton>
+                            <DropDownButton Classes="Secondary" Theme="{StaticResource BorderlessDropDownButtonTheme}">Secondary</DropDownButton>
+                            <DropDownButton Classes="Success" Theme="{StaticResource BorderlessDropDownButtonTheme}">Success</DropDownButton>
+                            <DropDownButton Classes="Question" Theme="{StaticResource BorderlessDropDownButtonTheme}">Question</DropDownButton>
+                            <DropDownButton Classes="Warning" Theme="{StaticResource BorderlessDropDownButtonTheme}">Warning</DropDownButton>
+                            <DropDownButton Classes="Error" Theme="{StaticResource BorderlessDropDownButtonTheme}">Error</DropDownButton>
                             <DropDownButton DropDownButtonAttach.DropDownIcon="{StaticResource CustomIcon}" DropDownButtonAttach.EnableDropDownIconAnimation="False">
                                 Custom Icon
                             </DropDownButton>
                         </SpacingWrapPanel>
+                    </StackPanel>
+                </Border>
+
+                <!--  SplitButton  -->
+                <Border Classes="card">
+                    <StackPanel Spacing="16">
+                        <StackPanel.Styles>
+                            <Style Selector="SplitButton">
+                                <Setter Property="Flyout">
+                                    <MenuFlyout Placement="BottomEdgeAlignedLeft">
+                                        <MenuItem GroupName="IssueGroupName"
+                                                  Header="Create sub-issue"
+                                                  IsChecked="True"
+                                                  ToggleType="Radio" />
+                                        <MenuItem GroupName="IssueGroupName"
+                                                  Header="Add existing issue"
+                                                  ToggleType="Radio" />
+                                    </MenuFlyout>
+                                </Setter>
+                            </Style>
+                        </StackPanel.Styles>
                         <StackPanel Classes="sectionHeader">
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ArrowSplitHorizontal" />
                             <TextBlock Classes="sectionLabel" Text="SPLIT BUTTON" />
+                            <Badge BadgeType="None">Outline</Badge>
+                            <Badge BadgeType="Success" IsSolid="True">Solid</Badge>
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
-                            <SpacingWrapPanel.Styles>
-                                <Style Selector="SplitButton">
-                                    <Setter Property="Flyout">
-                                        <MenuFlyout Placement="BottomEdgeAlignedLeft">
-                                            <MenuItem GroupName="IssueGroupName"
-                                                      Header="Create sub-issue"
-                                                      IsChecked="True"
-                                                      ToggleType="Radio" />
-                                            <MenuItem GroupName="IssueGroupName"
-                                                      Header="Add existing issue"
-                                                      ToggleType="Radio" />
-                                        </MenuFlyout>
-                                    </Setter>
-                                </Style>
-                            </SpacingWrapPanel.Styles>
-                            <SplitButton>Default</SplitButton>
-                            <SplitButton Theme="{StaticResource SuccessSplitButtonTheme}">Success</SplitButton>
-                            <SplitButton Theme="{StaticResource QuestionSplitButtonTheme}">Question</SplitButton>
-                            <SplitButton Theme="{StaticResource WarningSplitButtonTheme}">Warning</SplitButton>
-                            <SplitButton Theme="{StaticResource DangerSplitButtonTheme}">Danger</SplitButton>
-                            <SplitButton Theme="{StaticResource ErrorSplitButtonTheme}">Error</SplitButton>
-                            <SplitButton Theme="{StaticResource PrimarySplitButtonTheme}">Primary</SplitButton>
-                            <SplitButton Theme="{StaticResource SecondarySplitButtonTheme}">Secondary</SplitButton>
+                            <SplitButton Theme="{StaticResource OutlineSplitButtonTheme}">Default</SplitButton>
+                            <SplitButton Classes="Primary" Theme="{StaticResource OutlineSplitButtonTheme}">Primary</SplitButton>
+                            <SplitButton Classes="Secondary" Theme="{StaticResource OutlineSplitButtonTheme}">Secondary</SplitButton>
+                            <SplitButton Classes="Success" Theme="{StaticResource OutlineSplitButtonTheme}">Success</SplitButton>
+                            <SplitButton Classes="Question" Theme="{StaticResource OutlineSplitButtonTheme}">Question</SplitButton>
+                            <SplitButton Classes="Warning" Theme="{StaticResource OutlineSplitButtonTheme}">Warning</SplitButton>
+                            <SplitButton Classes="Error" Theme="{StaticResource OutlineSplitButtonTheme}">Error</SplitButton>
+                        </SpacingWrapPanel>
+                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <SplitButton Theme="{StaticResource SolidSplitButtonTheme}">Default</SplitButton>
+                            <SplitButton Classes="Primary" Theme="{StaticResource SolidSplitButtonTheme}">Primary</SplitButton>
+                            <SplitButton Classes="Secondary" Theme="{StaticResource SolidSplitButtonTheme}">Secondary</SplitButton>
+                            <SplitButton Classes="Success" Theme="{StaticResource SolidSplitButtonTheme}">Success</SplitButton>
+                            <SplitButton Classes="Question" Theme="{StaticResource SolidSplitButtonTheme}">Question</SplitButton>
+                            <SplitButton Classes="Warning" Theme="{StaticResource SolidSplitButtonTheme}">Warning</SplitButton>
+                            <SplitButton Classes="Error" Theme="{StaticResource SolidSplitButtonTheme}">Error</SplitButton>
                             <SplitButton DropDownButtonAttach.DropDownIcon="{StaticResource CustomIcon}" DropDownButtonAttach.EnableDropDownIconAnimation="False">
                                 Custom Icon
                             </SplitButton>
                         </SpacingWrapPanel>
+                    </StackPanel>
+                </Border>
+
+                <!--  ToggleSplitButton  -->
+                <Border Classes="card">
+                    <StackPanel Spacing="16">
+                        <StackPanel.Styles>
+                            <Style Selector="SplitButton">
+                                <Setter Property="Flyout">
+                                    <Flyout Placement="BottomEdgeAlignedLeft">
+                                        <TextBox Width="200"
+                                                 Height="80"
+                                                 AcceptsReturn="True"
+                                                 BorderThickness="0"
+                                                 CornerRadius="0">
+                                            TextBox
+                                        </TextBox>
+                                    </Flyout>
+                                </Setter>
+                            </Style>
+                        </StackPanel.Styles>
                         <StackPanel Classes="sectionHeader">
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ToggleSwitchOutline" />
                             <TextBlock Classes="sectionLabel" Text="TOGGLESPLIT BUTTON" />
+                            <Badge BadgeType="None">Outline</Badge>
+                            <Badge BadgeType="Success" IsSolid="True">Solid</Badge>
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
-                            <SpacingWrapPanel.Styles>
-                                <Style Selector="SplitButton">
-                                    <Setter Property="Flyout">
-                                        <Flyout Placement="BottomEdgeAlignedLeft">
-                                            <TextBox Width="200"
-                                                     Height="80"
-                                                     AcceptsReturn="True"
-                                                     BorderThickness="0"
-                                                     CornerRadius="0">
-                                                TextBox
-                                            </TextBox>
-                                        </Flyout>
-                                    </Setter>
-                                </Style>
-                            </SpacingWrapPanel.Styles>
-                            <ToggleSplitButton>Default</ToggleSplitButton>
-                            <ToggleSplitButton Theme="{StaticResource SuccessToggleSplitButtonTheme}">Success</ToggleSplitButton>
-                            <ToggleSplitButton Theme="{StaticResource QuestionToggleSplitButtonTheme}">Question</ToggleSplitButton>
-                            <ToggleSplitButton Theme="{StaticResource WarningToggleSplitButtonTheme}">Warning</ToggleSplitButton>
-                            <ToggleSplitButton Theme="{StaticResource DangerToggleSplitButtonTheme}">Danger</ToggleSplitButton>
-                            <ToggleSplitButton Theme="{StaticResource ErrorToggleSplitButtonTheme}">Error</ToggleSplitButton>
-                            <ToggleSplitButton Theme="{StaticResource PrimaryToggleSplitButtonTheme}">Primary</ToggleSplitButton>
-                            <ToggleSplitButton Theme="{StaticResource SecondaryToggleSplitButtonTheme}">Secondary</ToggleSplitButton>
+                            <ToggleSplitButton Theme="{StaticResource OutlineToggleSplitButtonTheme}">Default</ToggleSplitButton>
+                            <ToggleSplitButton Classes="Primary" Theme="{StaticResource OutlineToggleSplitButtonTheme}">Primary</ToggleSplitButton>
+                            <ToggleSplitButton Classes="Secondary" Theme="{StaticResource OutlineToggleSplitButtonTheme}">Secondary</ToggleSplitButton>
+                            <ToggleSplitButton Classes="Success" Theme="{StaticResource OutlineToggleSplitButtonTheme}">Success</ToggleSplitButton>
+                            <ToggleSplitButton Classes="Question" Theme="{StaticResource OutlineToggleSplitButtonTheme}">Question</ToggleSplitButton>
+                            <ToggleSplitButton Classes="Warning" Theme="{StaticResource OutlineToggleSplitButtonTheme}">Warning</ToggleSplitButton>
+                            <ToggleSplitButton Classes="Error" Theme="{StaticResource OutlineToggleSplitButtonTheme}">Error</ToggleSplitButton>
+                        </SpacingWrapPanel>
+                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <ToggleSplitButton Theme="{StaticResource SolidToggleSplitButtonTheme}">Default</ToggleSplitButton>
+                            <ToggleSplitButton Classes="Primary" Theme="{StaticResource SolidToggleSplitButtonTheme}">Primary</ToggleSplitButton>
+                            <ToggleSplitButton Classes="Secondary" Theme="{StaticResource SolidToggleSplitButtonTheme}">Secondary</ToggleSplitButton>
+                            <ToggleSplitButton Classes="Success" Theme="{StaticResource SolidToggleSplitButtonTheme}">Success</ToggleSplitButton>
+                            <ToggleSplitButton Classes="Question" Theme="{StaticResource SolidToggleSplitButtonTheme}">Question</ToggleSplitButton>
+                            <ToggleSplitButton Classes="Warning" Theme="{StaticResource SolidToggleSplitButtonTheme}">Warning</ToggleSplitButton>
+                            <ToggleSplitButton Classes="Error" Theme="{StaticResource SolidToggleSplitButtonTheme}">Error</ToggleSplitButton>
                             <ToggleSplitButton DropDownButtonAttach.DropDownIcon="{StaticResource CustomIcon}" DropDownButtonAttach.EnableDropDownIconAnimation="False">
                                 Custom Icon
                             </ToggleSplitButton>
                         </SpacingWrapPanel>
-                        <StackPanel Classes="sectionSubHeader">
+                    </StackPanel>
+                </Border>
+
+                <!--  HyperlinkButton  -->
+                <Border Classes="card">
+                    <StackPanel Spacing="16">
+                        <StackPanel Classes="sectionHeader">
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="LinkVariant" />
                             <TextBlock Classes="sectionLabel" Text="HYPERLINK BUTTON" />
                         </StackPanel>

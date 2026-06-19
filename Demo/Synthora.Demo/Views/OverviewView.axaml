@@ -182,9 +182,9 @@
                                 </WrapPanel>
 
                                 <SpacingWrapPanel HorizontalSpacing="12" VerticalSpacing="12">
-                                    <Button>Launch Demo</Button>
-                                    <Button Theme="{StaticResource PrimaryButtonTheme}">Primary</Button>
-                                    <Button Theme="{StaticResource SecondaryButtonTheme}">Secondary</Button>
+                                    <Button Classes="Primary" Theme="{StaticResource SolidButtonTheme}">Launch Demo</Button>
+                                    <Button Classes="Primary" Theme="{StaticResource BorderlessButtonTheme}">Primary</Button>
+                                    <Button Classes="Secondary" Theme="{StaticResource BorderlessButtonTheme}">Secondary</Button>
                                 </SpacingWrapPanel>
                             </StackPanel>
 
@@ -231,13 +231,13 @@
                                             </StackPanel>
 
                                             <SpacingWrapPanel HorizontalSpacing="12" VerticalSpacing="12">
-                                                <Button>Default</Button>
-                                                <Button Theme="{StaticResource SuccessButtonTheme}">Success</Button>
-                                                <Button Theme="{StaticResource WarningButtonTheme}">Warning</Button>
-                                                <Button Theme="{StaticResource DangerButtonTheme}">Danger</Button>
-                                                <Button Theme="{StaticResource ErrorButtonTheme}">Error</Button>
-                                                <Button Theme="{StaticResource PrimaryButtonTheme}">Primary</Button>
-                                                <Button Theme="{StaticResource SecondaryButtonTheme}">Secondary</Button>
+                                                <Button Theme="{StaticResource OutlineButtonTheme}">Default</Button>
+                                                <Button Classes="Success" Theme="{StaticResource OutlineButtonTheme}">Success</Button>
+                                                <Button Classes="Warning" Theme="{StaticResource OutlineButtonTheme}">Warning</Button>
+                                                <Button Classes="Question" Theme="{StaticResource SolidButtonTheme}">Question</Button>
+                                                <Button Classes="Error" Theme="{StaticResource OutlineButtonTheme}">Error</Button>
+                                                <Button Classes="Primary" Theme="{StaticResource SolidButtonTheme}">Primary</Button>
+                                                <Button Classes="Secondary" Theme="{StaticResource SolidButtonTheme}">Secondary</Button>
                                             </SpacingWrapPanel>
                                         </StackPanel>
                                     </Border>
@@ -252,12 +252,12 @@
 
                                                 <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
                                                     <SplitButton DropDownButtonAttach.EnableDropDownIconAnimation="False">
+                                                        Publish
                                                         <DropDownButtonAttach.DropDownIcon>
                                                             <PathIcon Width="12"
                                                                       Height="12"
                                                                       Data="{DynamicResource EllipsisData}" />
                                                         </DropDownButtonAttach.DropDownIcon>
-                                                        Publish
                                                         <SplitButton.Flyout>
                                                             <MenuFlyout Placement="BottomEdgeAlignedLeft">
                                                                 <MenuItem GroupName="PublishGroupName"
@@ -270,7 +270,7 @@
                                                             </MenuFlyout>
                                                         </SplitButton.Flyout>
                                                     </SplitButton>
-                                                    <ToggleSplitButton Theme="{StaticResource SecondaryToggleSplitButtonTheme}">
+                                                    <ToggleSplitButton Classes="Secondary" Theme="{StaticResource SolidToggleSplitButtonTheme}">
                                                         Modes
                                                         <ToggleSplitButton.Flyout>
                                                             <MenuFlyout Placement="BottomEdgeAlignedLeft">
@@ -281,7 +281,7 @@
                                                             </MenuFlyout>
                                                         </ToggleSplitButton.Flyout>
                                                     </ToggleSplitButton>
-                                                    <DropDownButton Theme="{StaticResource PrimaryDropDownButtonTheme}">
+                                                    <DropDownButton Classes="Primary" Theme="{StaticResource OutlineDropDownButtonTheme}">
                                                         More
                                                         <DropDownButton.Flyout>
                                                             <MenuFlyout Placement="BottomEdgeAlignedLeft">
@@ -290,8 +290,8 @@
                                                             </MenuFlyout>
                                                         </DropDownButton.Flyout>
                                                     </DropDownButton>
-                                                    <ToggleButton Theme="{StaticResource WarningToggleButtonTheme}">Pin</ToggleButton>
-                                                    <RepeatButton Theme="{StaticResource DangerRepeatButtonTheme}">Repeat</RepeatButton>
+                                                    <ToggleButton Classes="Warning" Theme="{StaticResource OutlineToggleButtonTheme}">Pin</ToggleButton>
+                                                    <RepeatButton Classes="Error" Theme="{StaticResource BorderlessRepeatButtonTheme}">Repeat</RepeatButton>
                                                 </SpacingWrapPanel>
                                             </StackPanel>
                                         </Border>
@@ -363,17 +363,17 @@
 
                             <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
                                 <CheckBox IsChecked="True">Enable sync</CheckBox>
-                                <CheckBox>Use motion effects</CheckBox>
+                                <CheckBox Classes="Secondary">Use motion effects</CheckBox>
                                 <CheckBox IsChecked="{x:Null}" IsThreeState="True">Three-state</CheckBox>
                             </SpacingWrapPanel>
                             <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
                                 <RadioButton GroupName="runtime" IsChecked="True">Avalonia</RadioButton>
-                                <RadioButton GroupName="runtime">WPF</RadioButton>
-                                <RadioButton GroupName="runtime">Xamarin</RadioButton>
+                                <RadioButton Classes="Secondary" GroupName="runtime">WPF</RadioButton>
+                                <RadioButton GroupName="runtime">MAUI</RadioButton>
                             </SpacingWrapPanel>
                             <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
                                 <ToggleSwitch />
-                                <ToggleSwitch IsChecked="True" />
+                                <ToggleSwitch Classes="Secondary" IsChecked="True" />
                                 <ToggleSwitch IsChecked="True">
                                     <ToggleSwitch.OnContent>
                                         <materialIcons:MaterialIcon Kind="Apple" />
@@ -384,6 +384,7 @@
                                 </ToggleSwitch>
                             </SpacingWrapPanel>
                             <ListBox AutoScrollToSelectedItem="False"
+                                     Classes="Secondary"
                                      CornerRadiusAttach.IsCircular="True"
                                      Theme="{StaticResource SegmentedListBoxTheme}">
                                 <ListBoxItem IsSelected="True">macOS</ListBoxItem>
@@ -412,7 +413,9 @@
 
                             <ProgressBar Height="6" Value="{Binding #Slider.Value}" />
                             <Slider Name="Slider" Value="50" />
-                            <ProgressBar ShowProgressText="True" Value="{Binding #Slider.Value}" />
+                            <ProgressBar Classes="Secondary"
+                                         ShowProgressText="True"
+                                         Value="{Binding #Slider.Value}" />
                             <PipsPager MaxVisiblePips="10"
                                        NumberOfPages="10"
                                        SelectedPageIndex="2" />
@@ -482,7 +485,7 @@
                         <DockPanel VerticalSpacing="16">
                             <StackPanel Classes="sectionHeader" DockPanel.Dock="Top">
                                 <materialIcons:MaterialIcon Classes="sectionIcon" Kind="FileTreeOutline" />
-                                <TextBlock Classes="sectionLabel" Text="NAVIGATION &amp; EMPTY STATE" />
+                                <TextBlock Classes="sectionLabel" Text="NAVIGATION" />
                             </StackPanel>
 
                             <TreeView Height="160"

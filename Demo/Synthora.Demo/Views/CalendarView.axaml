@@ -11,7 +11,7 @@
              mc:Ignorable="d">
 
     <UserControl.Styles>
-        <Style Selector="Calendar.hasShadow">
+        <Style Selector="Calendar.HasShadow">
             <Setter Property="BoxShadowAttach.BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
         </Style>
     </UserControl.Styles>
@@ -24,7 +24,7 @@
             <StackPanel Spacing="16">
                 <Border Classes="card">
                     <StackPanel Spacing="16">
-                        <CalendarDatePicker TextBoxAttach.Header="CalendarDatePicker" />
+                        <CalendarDatePicker Classes.Highlight="{Binding #Highlight.IsChecked}" TextBoxAttach.Header="CalendarDatePicker" />
                         <DatePicker TextBoxAttach.Header="DatePicker" />
                         <TimePicker TextBoxAttach.Header="TimePicker" UseSeconds="True" />
                         <TimePicker TextBoxAttach.Header="TimePicker(Without second)" />
@@ -37,8 +37,8 @@
                                       TextBoxAttach.HeaderPlacement="Left" />
                         </StackPanel>
                         <Calendar Name="Calendar"
+                                  Classes.HasShadow="{Binding #HasShadow.IsChecked}"
                                   Classes.Highlight="{Binding #Highlight.IsChecked}"
-                                  Classes.hasShadow="{Binding #HasShadow.IsChecked}"
                                   SelectionMode="SingleRange" />
                     </StackPanel>
                 </Border>

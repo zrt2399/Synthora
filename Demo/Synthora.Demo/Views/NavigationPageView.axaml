@@ -46,7 +46,7 @@
                                   Label="PopAllModals"
                                   ToolTip.Tip="PopAllModalsAsync" />
             </CommandBar>
-            <NavigationPage Name="navigationPage" IsBackButtonVisible="{Binding #BackButtonToggle.IsChecked}" />
+            <NavigationPage Name="NavigationPage" IsBackButtonVisible="{Binding #BackButtonToggle.IsChecked}" />
         </DockPanel>
     </DemoPage>
 

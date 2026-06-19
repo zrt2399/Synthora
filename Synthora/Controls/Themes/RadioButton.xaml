@@ -6,13 +6,12 @@
     <ControlTheme x:Key="{x:Type RadioButton}" TargetType="RadioButton">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
-        <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="Padding" Value="{DynamicResource ThemeControlLeftPadding}" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Grid ColumnDefinitions="Auto,*">
+                <DockPanel>
                     <Panel Name="backgroundPanel">
                         <Ellipse Name="border"
                                  Width="18"
@@ -28,23 +27,20 @@
                                  VerticalAlignment="Center"
                                  Fill="{DynamicResource OnPrimaryBrush}"
                                  IsVisible="False"
-                                 Stretch="Uniform"
                                  UseLayoutRounding="False" />
                         <Ellipse Name="indeterminateMark"
-                                 Width="8"
-                                 Height="8"
+                                 Width="10"
+                                 Height="10"
                                  HorizontalAlignment="Center"
                                  VerticalAlignment="Center"
                                  Fill="{TemplateBinding Background}"
                                  IsVisible="False"
-                                 Stretch="Uniform"
                                  Stroke="{TemplateBinding BorderBrush}"
                                  StrokeThickness="2"
                                  UseLayoutRounding="False" />
                     </Panel>
 
                     <ContentPresenter Name="PART_ContentPresenter"
-                                      Grid.Column="1"
                                       Margin="{TemplateBinding Padding}"
                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
@@ -53,15 +49,17 @@
                                       IsVisible="{TemplateBinding Content,
                                                                   Converter={x:Static ObjectConverters.IsNotNull}}"
                                       RecognizesAccessKey="True" />
-                </Grid>
+                </DockPanel>
             </ControlTemplate>
         </Setter>
 
         <Style Selector="^:focus,^:pointerover">
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighlightBrush}" />
+            <Style Selector="^ /template/ Panel#backgroundPanel">
+                <Setter Property="Opacity" Value="0.9" />
+            </Style>
         </Style>
         <Style Selector="^:pressed /template/ Panel#backgroundPanel">
-            <Setter Property="Opacity" Value="0.9" />
+            <Setter Property="Opacity" Value="0.85" />
         </Style>
 
         <Style Selector="^:checked">
@@ -78,8 +76,19 @@
             </Style>
         </Style>
 
+        <Style Selector="^.Secondary">
+            <Style Selector="^/template/ Ellipse#checkMark">
+                <Setter Property="Fill" Value="{DynamicResource OnSecondaryBrush}" />
+            </Style>
+            <Style Selector="^:checked">
+                <Setter Property="Background" Value="{DynamicResource SecondaryBrush}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBrush}" />
+            </Style>
+        </Style>
+
         <Style Selector="^:disabled">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>
     </ControlTheme>
+
 </ResourceDictionary> 

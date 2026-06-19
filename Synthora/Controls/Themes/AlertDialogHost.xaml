@@ -103,6 +103,7 @@
                                                     <Button HorizontalAlignment="Right"
                                                             VerticalAlignment="Top"
                                                             Background="{DynamicResource ThemeBackgroundBrush}"
+                                                            Classes="Error"
                                                             Command="{Binding None}"
                                                             IsVisible="{Binding ShowCloseButton}"
                                                             Theme="{StaticResource IconButtonTheme}">
@@ -157,17 +158,19 @@
                                                         </Style>
                                                     </UniformGrid.Styles>
                                                     <Button Name="OKButton"
+                                                            Classes="Primary"
                                                             Command="{Binding OK}"
                                                             Content="{DynamicResource StringAlertDialogButtonOK}"
                                                             IsDefault="True"
                                                             IsVisible="{Binding DialogButton, Converter={x:Static SynthoraConverters.HasFlag}, ConverterParameter={x:Static overlays:DialogButton.OK}}"
-                                                            Theme="{StaticResource PrimaryButtonTheme}" />
+                                                            Theme="{StaticResource SolidButtonTheme}" />
                                                     <Button Name="YesButton"
+                                                            Classes="Primary"
                                                             Command="{Binding Yes}"
                                                             Content="{DynamicResource StringAlertDialogButtonYes}"
                                                             IsDefault="True"
                                                             IsVisible="{Binding DialogButton, Converter={x:Static SynthoraConverters.HasFlag}, ConverterParameter={x:Static overlays:DialogButton.Yes}}"
-                                                            Theme="{StaticResource PrimaryButtonTheme}" />
+                                                            Theme="{StaticResource SolidButtonTheme}" />
                                                     <Button Name="NoButton"
                                                             Command="{Binding No}"
                                                             Content="{DynamicResource StringAlertDialogButtonNo}"
@@ -178,10 +181,11 @@
                                                             IsCancel="True"
                                                             IsVisible="{Binding DialogButton, Converter={x:Static SynthoraConverters.HasFlag}, ConverterParameter={x:Static overlays:DialogButton.Cancel}}" />
                                                     <Button Name="AbortButton"
+                                                            Classes="Error"
                                                             Command="{Binding Abort}"
                                                             Content="{DynamicResource StringAlertDialogButtonAbort}"
                                                             IsVisible="{Binding DialogButton, Converter={x:Static SynthoraConverters.HasFlag}, ConverterParameter={x:Static overlays:DialogButton.Abort}}"
-                                                            Theme="{StaticResource ErrorButtonTheme}" />
+                                                            Theme="{StaticResource SolidButtonTheme}" />
                                                 </UniformGrid>
                                             </Grid>
                                         </Border>

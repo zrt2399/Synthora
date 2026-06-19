@@ -65,6 +65,10 @@
         <Style Selector="^[(TabControlAttach.ShowHeaderSeparator)=False] /template/ Border#contentBorder">
             <Setter Property="BorderThickness" Value="0" />
         </Style>
+
+        <Style Selector="^.Secondary">
+            <Setter Property="ItemContainerTheme" Value="{StaticResource SecondaryTabItemTheme}" />
+        </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="SegmentedTabControlTheme" TargetType="TabControl">
@@ -142,6 +146,10 @@
 
         <Style Selector="^[(TabControlAttach.ShowHeaderSeparator)=False] /template/ Border#contentBorder">
             <Setter Property="BorderThickness" Value="0" />
+        </Style>
+
+        <Style Selector="^.Primary">
+            <Setter Property="ItemContainerTheme" Value="{StaticResource PrimarySegmentedTabItemTheme}" />
         </Style>
 
         <Style Selector="^.Uniform">
@@ -239,5 +247,10 @@
         <Style Selector="^[(TabControlAttach.ShowHeaderSeparator)=False] /template/ Border#contentBorder">
             <Setter Property="BorderThickness" Value="0" />
         </Style>
+
+        <Style Selector="^.Primary">
+            <Setter Property="ItemContainerTheme" Value="{StaticResource PrimaryCardTabItemTheme}" />
+        </Style>
     </ControlTheme>
+
 </ResourceDictionary>

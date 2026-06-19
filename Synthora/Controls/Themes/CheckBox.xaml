@@ -13,7 +13,7 @@
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Grid ColumnDefinitions="Auto,*">
+                <DockPanel>
                     <Border Name="backgroundBorder"
                             Width="18"
                             Height="18"
@@ -43,8 +43,8 @@
                                        Stretch="Uniform" />
                         </Panel>
                     </Border>
+
                     <ContentPresenter Name="PART_ContentPresenter"
-                                      Grid.Column="1"
                                       Margin="{TemplateBinding Padding}"
                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
@@ -53,15 +53,17 @@
                                       IsVisible="{TemplateBinding Content,
                                                                   Converter={x:Static ObjectConverters.IsNotNull}}"
                                       RecognizesAccessKey="True" />
-                </Grid>
+                </DockPanel>
             </ControlTemplate>
         </Setter>
 
         <Style Selector="^:focus,^:pointerover">
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighlightBrush}" />
+            <Style Selector="^ /template/ Border#backgroundBorder">
+                <Setter Property="Opacity" Value="0.9" />
+            </Style>
         </Style>
         <Style Selector="^:pressed /template/ Border#backgroundBorder">
-            <Setter Property="Opacity" Value="0.9" />
+            <Setter Property="Opacity" Value="0.85" />
         </Style>
 
         <Style Selector="^:checked">
@@ -80,8 +82,26 @@
             </Style>
         </Style>
 
+        <Style Selector="^.Secondary">
+            <Style Selector="^:checked">
+                <Setter Property="Background" Value="{DynamicResource SecondaryBrush}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBrush}" />
+            </Style>
+            <Style Selector="^:indeterminate">
+                <Setter Property="Background" Value="{DynamicResource SecondaryBrush}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBrush}" />
+            </Style>
+            <Style Selector="^ /template/ Path#checkMark">
+                <Setter Property="Fill" Value="{DynamicResource OnSecondaryBrush}" />
+            </Style>
+            <Style Selector="^ /template/ Rectangle#indeterminateMark">
+                <Setter Property="Fill" Value="{DynamicResource OnSecondaryBrush}" />
+            </Style>
+        </Style>
+
         <Style Selector="^:disabled">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>
     </ControlTheme>
+
 </ResourceDictionary>

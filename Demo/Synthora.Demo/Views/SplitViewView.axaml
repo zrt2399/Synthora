@@ -18,18 +18,19 @@
                        ItemSpacing="16"
                        LineSpacing="16"
                        Orientation="Horizontal">
-                <CheckBox IsChecked="{Binding #splitView.IsPaneOpen}">IsPaneOpen</CheckBox>
-                <CheckBox IsChecked="{Binding #splitView.UseLightDismissOverlayMode}">UseLightDismissOverlayMode</CheckBox>
+                <CheckBox IsChecked="{Binding #SplitView.IsPaneOpen}">IsPaneOpen</CheckBox>
+                <CheckBox IsChecked="{Binding #SplitView.UseLightDismissOverlayMode}">UseLightDismissOverlayMode</CheckBox>
+                <CheckBox Name="Secondary">Secondary</CheckBox>
                 <ComboBox ItemsSource="{EnumBindingSource SplitViewDisplayMode}"
-                          SelectedItem="{Binding #splitView.DisplayMode}"
+                          SelectedItem="{Binding #SplitView.DisplayMode}"
                           TextBoxAttach.Header="SplitViewDisplayMode: "
                           TextBoxAttach.HeaderPlacement="Left" />
                 <ComboBox ItemsSource="{EnumBindingSource SplitViewPanePlacement}"
-                          SelectedItem="{Binding #splitView.PanePlacement}"
+                          SelectedItem="{Binding #SplitView.PanePlacement}"
                           TextBoxAttach.Header="SplitViewPanePlacement: "
                           TextBoxAttach.HeaderPlacement="Left" />
             </WrapPanel>
-            <SplitView Name="splitView"
+            <SplitView Name="SplitView"
                        CompactPaneLength="60"
                        DisplayMode="CompactOverlay"
                        OpenPaneLength="200">
@@ -41,7 +42,7 @@
                         <TextBlock HorizontalAlignment="Center">TabStrip</TextBlock>
                     </StackPanel>
                 </SplitView.Pane>
-                <TabStrip>
+                <TabStrip Classes.Secondary="{Binding #Secondary.IsChecked}">
                     <TabStripItem>Tab 1</TabStripItem>
                     <TabStripItem IsEnabled="False">Tab 2</TabStripItem>
                     <TabStripItem>Tab 3</TabStripItem>

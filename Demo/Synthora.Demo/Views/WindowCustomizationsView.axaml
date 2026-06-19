@@ -10,7 +10,8 @@
              x:DataType="vm:WindowCustomizationsViewModel"
              mc:Ignorable="d">
 
-    <DemoPage Title="Window Customizations" Padding="0"
+    <DemoPage Title="Window Customizations"
+              Padding="0"
               Description="{Binding Description}"
               IconKind="{Binding IconKind}">
         <ScrollViewer Padding="16">
@@ -27,8 +28,10 @@
                         <Slider Width="200"
                                 HorizontalAlignment="Left"
                                 IsEnabled="{Binding $parent[Window].ExtendClientAreaToDecorationsHint}"
+                                IsSnapToTickEnabled="True"
                                 Maximum="200"
                                 Minimum="-1"
+                                TickFrequency="1"
                                 Value="{Binding $parent[Window].ExtendClientAreaTitleBarHeightHint}" />
 
                         <CheckBox Content="Can Resize" IsChecked="{Binding $parent[Window].CanResize}" />
@@ -38,6 +41,10 @@
                         <CheckBox Content="Can Maximize"
                                   IsChecked="{Binding $parent[Window].CanMaximize}"
                                   IsEnabled="{Binding $parent[Window].CanResize}" />
+
+                        <TextBlock Text="{Binding $parent[Window].WindowDecorationMargin, StringFormat=Window Decoration Margin: {0}}" />
+
+                        <TextBlock Text="{Binding $parent[Window].OffScreenMargin, StringFormat=Off Screen Margin: {0}}" />
                     </StackPanel>
                 </Border>
 
@@ -46,12 +53,12 @@
                         <StackPanel Classes="sectionHeader">
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="CellphoneText" />
                             <TextBlock Classes="sectionLabel" Text="Mobile properties" />
-                        </StackPanel> 
+                        </StackPanel>
                         <CheckBox x:Name="IsSystemBarVisibleCheckBox" Content="Is System Bar Visible" />
 
                         <CheckBox x:Name="DisplayEdgeToEdgeCheckBox" Content="Display Edge To Edge" />
 
-                        <TextBlock x:Name="SafeAreaPadding" Text="Safe Area Padding:"/> 
+                        <TextBlock x:Name="SafeAreaPadding" Text="Safe Area Padding:" />
                     </StackPanel>
                 </Border>
             </StackPanel>

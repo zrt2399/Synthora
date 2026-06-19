@@ -28,12 +28,18 @@
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
                             <CheckBox>Unchecked</CheckBox>
                             <CheckBox IsChecked="True">Checked</CheckBox>
+                            <CheckBox Classes="Secondary"
+                                      IsChecked="True"
+                                      IsThreeState="True">
+                                Secondary
+                            </CheckBox>
                             <CheckBox />
-                            <CheckBox CornerRadiusAttach.IsCircular="True"/>
+                            <CheckBox CornerRadiusAttach.IsCircular="True" />
                             <CheckBox IsChecked="{x:Null}" IsThreeState="True">Three-state</CheckBox>
                         </SpacingWrapPanel>
                     </StackPanel>
                 </Border>
+
                 <!--  RadioButton  -->
                 <Border Classes="card">
                     <StackPanel Spacing="16">
@@ -44,9 +50,11 @@
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
                             <RadioButton>Unchecked</RadioButton>
                             <RadioButton IsChecked="True">Checked</RadioButton>
+                            <RadioButton Classes="Secondary" IsChecked="True">Secondary</RadioButton>
                             <RadioButton />
                             <RadioButton IsChecked="{x:Null}" IsThreeState="True">Three-state</RadioButton>
                         </SpacingWrapPanel>
+
                         <!--  Segmented RadioButton  -->
                         <TextBlock FontSize="11"
                                    Foreground="{DynamicResource ThemeForegroundLowBrush}"
@@ -77,6 +85,7 @@
                                  Theme="{StaticResource SegmentedListBoxTheme}" />
                     </StackPanel>
                 </Border>
+
                 <!--  ToggleSwitch  -->
                 <Border Classes="card">
                     <StackPanel Spacing="16">
@@ -90,7 +99,7 @@
                             <ToggleSwitch />
                             <ToggleSwitch IsChecked="True" />
                         </SpacingWrapPanel>
-                        <ToggleSwitch>ToggleSwitch</ToggleSwitch>
+                        <ToggleSwitch Classes="Secondary" IsChecked="True">Secondary</ToggleSwitch>
                     </StackPanel>
                 </Border>
             </StackPanel>

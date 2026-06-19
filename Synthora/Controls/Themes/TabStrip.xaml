@@ -20,5 +20,10 @@
                 <WrapPanel />
             </ItemsPanelTemplate>
         </Setter>
+
+        <Style Selector="^.Secondary">
+            <Setter Property="ItemContainerTheme" Value="{StaticResource SecondaryTabStripItemTheme}" />
+        </Style>
     </ControlTheme>
+
 </ResourceDictionary>

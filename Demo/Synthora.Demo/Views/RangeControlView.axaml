@@ -31,12 +31,25 @@
                                 Maximum="10"
                                 Orientation="Vertical"
                                 TickFrequency="1"
-                                TickPlacement="BottomRight" />
-                        <ProgressBar Margin="10,0,0,0"
-                                     Maximum="{Binding #VerticalSlider.Maximum}"
+                                TickPlacement="BottomRight"
+                                Value="5" />
+                        <Slider Name="SecondaryVerticalSlider"
+                                Classes="Secondary"
+                                IsSnapToTickEnabled="True"
+                                Maximum="10"
+                                Orientation="Vertical"
+                                TickFrequency="1"
+                                TickPlacement="BottomRight"
+                                Value="1" />
+                        <ProgressBar Maximum="{Binding #VerticalSlider.Maximum}"
                                      Orientation="Vertical"
                                      ShowProgressText="True"
                                      Value="{Binding #VerticalSlider.Value}" />
+                        <ProgressBar Classes="Secondary"
+                                     Maximum="{Binding #VerticalSlider.Maximum}"
+                                     Orientation="Vertical"
+                                     ShowProgressText="True"
+                                     Value="{Binding #SecondaryVerticalSlider.Value}" />
                     </DockPanel>
 
                     <Divider />
@@ -54,9 +67,17 @@
                     <Slider Name="slider"
                             TickFrequency="1"
                             TickPlacement="Outside" />
+                    <Slider Name="SecondarySlider"
+                            Classes="Secondary"
+                            TickFrequency="1"
+                            TickPlacement="Outside"
+                            Value="60" />
                     <ProgressBar CornerRadiusAttach.IsCircular="True"
                                  ShowProgressText="True"
                                  Value="{Binding #slider.Value}" />
+                    <ProgressBar Classes="Secondary"
+                                 ShowProgressText="True"
+                                 Value="{Binding #SecondarySlider.Value}" />
                     <Divider Content="PipsPager" Orientation="Horizontal" />
                     <PipsPager HorizontalAlignment="Left"
                                MaxVisiblePips="20"

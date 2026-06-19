@@ -228,6 +228,17 @@
         </Style>
     </ControlTheme>
 
+    <ControlTheme x:Key="SecondaryTabbedPageTabItemTheme"
+                  BasedOn="{StaticResource TabbedPageTabItemTheme}"
+                  TargetType="TabItem">
+        <Style Selector="^:selected">
+            <Setter Property="Foreground" Value="{DynamicResource SecondaryBrush}" />
+        </Style>
+        <Style Selector="^:selected /template/ Border#PART_SelectedPipe">
+            <Setter Property="Background" Value="{DynamicResource SecondaryBrush}" />
+        </Style>
+    </ControlTheme>
+
     <ControlTheme x:Key="{x:Type TabbedPage}" TargetType="TabbedPage">
         <!-- <Setter Property="Background" Value="Transparent" /> -->
         <Setter Property="Template">
@@ -245,5 +256,9 @@
                             Theme="{StaticResource TabbedPageTabControlTheme}" />
             </ControlTemplate>
         </Setter>
+
+        <Style Selector="^.Secondary /template/ TabControl#PART_TabControl">
+            <Setter Property="ItemContainerTheme" Value="{StaticResource SecondaryTabbedPageTabItemTheme}" />
+        </Style>
     </ControlTheme>
 </ResourceDictionary>

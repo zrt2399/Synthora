@@ -8,7 +8,7 @@ namespace Synthora.Demo.ViewModels
         public ButtonsViewModel()
         {
             IconKind = MaterialIconKind.ButtonPointer;
-            Description = "Button, SplitButton, ToggleSplitButton, ToggleButton, DropDownButton, RepeatButton, HyperlinkButton";
+            Description = "Button, RepeatButton, ToggleButton, DropDownButton, SplitButton, ToggleSplitButton, HyperlinkButton";
         }
     }
 }

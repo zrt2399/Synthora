@@ -145,6 +145,27 @@
             <Setter Property="BorderBrush" Value="{DynamicResource PrimaryPressedBrush}" />
         </Style>
 
+        <Style Selector="^.Secondary">
+            <Style Selector="^ /template/ Border#SwitchKnobBounds">
+                <Setter Property="Background" Value="{DynamicResource SecondaryBrush}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBrush}" />
+            </Style>
+            <Style Selector="^ /template/ Ellipse#SwitchKnobOn">
+                <Setter Property="Fill" Value="{DynamicResource OnSecondaryBrush}" />
+            </Style>
+            <Style Selector="^ /template/ Ellipse#SwitchKnobOff">
+                <Setter Property="Fill" Value="{DynamicResource OnSecondaryBrush}" />
+            </Style>
+            <Style Selector="^:pointerover /template/ Border#SwitchKnobBounds">
+                <Setter Property="Background" Value="{DynamicResource SecondaryPointerOverBrush}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource SecondaryPointerOverBrush}" />
+            </Style>
+            <Style Selector="^:pressed /template/ Border#SwitchKnobBounds">
+                <Setter Property="Background" Value="{DynamicResource SecondaryPressedBrush}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource SecondaryPressedBrush}" />
+            </Style>
+        </Style>
+
         <!--  CheckedState  -->
         <Style Selector="^:checked /template/ Border#OuterBorder">
             <Setter Property="Opacity" Value="0" />

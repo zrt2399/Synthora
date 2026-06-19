@@ -50,7 +50,9 @@
                                                     HorizontalAlignment="Center"
                                                     VerticalAlignment="Center"
                                                     IsVisible="{Binding ShowProgressText, RelativeSource={RelativeSource TemplatedParent}}">
-                                <TextBlock Classes="progressText" Foreground="{DynamicResource ThemeForegroundBrush}" />
+                                <TextBlock Name="BackgroundText"
+                                           Classes="progressText"
+                                           Foreground="{DynamicResource ThemeForegroundBrush}" />
                             </LayoutTransformControl>
                             <Border Name="PART_Indicator"
                                     Background="{TemplateBinding Foreground}"
@@ -63,7 +65,9 @@
                                       VerticalAlignment="Bottom"
                                       IsVisible="{Binding ShowProgressText, RelativeSource={RelativeSource TemplatedParent}}">
                                     <LayoutTransformControl HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <TextBlock Classes="progressText" Foreground="{DynamicResource OnPrimaryBrush}" />
+                                        <TextBlock Name="ForegroundText"
+                                                   Classes="progressText"
+                                                   Foreground="{DynamicResource OnPrimaryBrush}" />
                                     </LayoutTransformControl>
                                 </Grid>
                             </Border>
@@ -87,6 +91,13 @@
                     <Binding Path="Maximum" RelativeSource="{RelativeSource TemplatedParent}" />
                 </MultiBinding>
             </Setter>
+        </Style>
+
+        <Style Selector="^.Secondary">
+            <Setter Property="Foreground" Value="{DynamicResource SecondaryBrush}" />
+            <Style Selector="^ /template/ TextBlock#ForegroundText">
+                <Setter Property="Foreground" Value="{DynamicResource OnSecondaryBrush}" />
+            </Style>
         </Style>
 
         <Style Selector="^:horizontal /template/ Border#PART_Indicator">

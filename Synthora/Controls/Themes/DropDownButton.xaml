@@ -1,4 +1,4 @@
-﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:converters="using:Avalonia.Controls.Converters"
                     x:ClassModifier="internal"
@@ -52,8 +52,22 @@
                   Data="{DynamicResource ArrowDownData}" />
     </Template>
 
+    <ControlTheme x:Key="OutlineDropDownButtonTheme"
+                  BasedOn="{StaticResource OutlineButtonTheme}"
+                  TargetType="DropDownButton">
+        <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
+        <Setter Property="DropDownButtonAttach.DropDownIcon" Value="{StaticResource DropDownButtonIcon}" />
+        <Style Selector="^[(DropDownButtonAttach.EnableDropDownIconAnimation)=True]:flyout-open /template/ ContentPresenter#PART_DropDownContentPresenter">
+            <Setter Property="RenderTransform" Value="rotate(180deg)" />
+        </Style>
+    </ControlTheme>
+
     <ControlTheme x:Key="{x:Type DropDownButton}"
-                  BasedOn="{StaticResource {x:Type Button}}"
+                  BasedOn="{StaticResource OutlineDropDownButtonTheme}"
+                  TargetType="DropDownButton" />
+
+    <ControlTheme x:Key="SolidDropDownButtonTheme"
+                  BasedOn="{StaticResource SolidButtonTheme}"
                   TargetType="DropDownButton">
         <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
         <Setter Property="DropDownButtonAttach.DropDownIcon" Value="{StaticResource DropDownButtonIcon}" />
@@ -62,68 +76,8 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="SuccessDropDownButtonTheme"
-                  BasedOn="{StaticResource SuccessButtonTheme}"
-                  TargetType="DropDownButton">
-        <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
-        <Setter Property="DropDownButtonAttach.DropDownIcon" Value="{StaticResource DropDownButtonIcon}" />
-        <Style Selector="^[(DropDownButtonAttach.EnableDropDownIconAnimation)=True]:flyout-open /template/ ContentPresenter#PART_DropDownContentPresenter">
-            <Setter Property="RenderTransform" Value="rotate(180deg)" />
-        </Style>
-    </ControlTheme>
-
-    <ControlTheme x:Key="QuestionDropDownButtonTheme"
-                  BasedOn="{StaticResource QuestionButtonTheme}"
-                  TargetType="DropDownButton">
-        <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
-        <Setter Property="DropDownButtonAttach.DropDownIcon" Value="{StaticResource DropDownButtonIcon}" />
-        <Style Selector="^[(DropDownButtonAttach.EnableDropDownIconAnimation)=True]:flyout-open /template/ ContentPresenter#PART_DropDownContentPresenter">
-            <Setter Property="RenderTransform" Value="rotate(180deg)" />
-        </Style>
-    </ControlTheme>
-
-    <ControlTheme x:Key="WarningDropDownButtonTheme"
-                  BasedOn="{StaticResource WarningButtonTheme}"
-                  TargetType="DropDownButton">
-        <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
-        <Setter Property="DropDownButtonAttach.DropDownIcon" Value="{StaticResource DropDownButtonIcon}" />
-        <Style Selector="^[(DropDownButtonAttach.EnableDropDownIconAnimation)=True]:flyout-open /template/ ContentPresenter#PART_DropDownContentPresenter">
-            <Setter Property="RenderTransform" Value="rotate(180deg)" />
-        </Style>
-    </ControlTheme>
-
-    <ControlTheme x:Key="DangerDropDownButtonTheme"
-                  BasedOn="{StaticResource DangerButtonTheme}"
-                  TargetType="DropDownButton">
-        <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
-        <Setter Property="DropDownButtonAttach.DropDownIcon" Value="{StaticResource DropDownButtonIcon}" />
-        <Style Selector="^[(DropDownButtonAttach.EnableDropDownIconAnimation)=True]:flyout-open /template/ ContentPresenter#PART_DropDownContentPresenter">
-            <Setter Property="RenderTransform" Value="rotate(180deg)" />
-        </Style>
-    </ControlTheme>
-
-    <ControlTheme x:Key="ErrorDropDownButtonTheme"
-                  BasedOn="{StaticResource ErrorButtonTheme}"
-                  TargetType="DropDownButton">
-        <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
-        <Setter Property="DropDownButtonAttach.DropDownIcon" Value="{StaticResource DropDownButtonIcon}" />
-        <Style Selector="^[(DropDownButtonAttach.EnableDropDownIconAnimation)=True]:flyout-open /template/ ContentPresenter#PART_DropDownContentPresenter">
-            <Setter Property="RenderTransform" Value="rotate(180deg)" />
-        </Style>
-    </ControlTheme>
-
-    <ControlTheme x:Key="PrimaryDropDownButtonTheme"
-                  BasedOn="{StaticResource PrimaryButtonTheme}"
-                  TargetType="DropDownButton">
-        <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
-        <Setter Property="DropDownButtonAttach.DropDownIcon" Value="{StaticResource DropDownButtonIcon}" />
-        <Style Selector="^[(DropDownButtonAttach.EnableDropDownIconAnimation)=True]:flyout-open /template/ ContentPresenter#PART_DropDownContentPresenter">
-            <Setter Property="RenderTransform" Value="rotate(180deg)" />
-        </Style>
-    </ControlTheme>
-
-    <ControlTheme x:Key="SecondaryDropDownButtonTheme"
-                  BasedOn="{StaticResource SecondaryButtonTheme}"
+    <ControlTheme x:Key="BorderlessDropDownButtonTheme"
+                  BasedOn="{StaticResource BorderlessButtonTheme}"
                   TargetType="DropDownButton">
         <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
         <Setter Property="DropDownButtonAttach.DropDownIcon" Value="{StaticResource DropDownButtonIcon}" />

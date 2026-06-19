@@ -42,7 +42,11 @@
                         <GroupBoxEx Padding="0"
                                     Header="Right header"
                                     HeaderPlacement="Right">
-                            <Button CornerRadius="0" Theme="{StaticResource WarningButtonTheme}">Button</Button>
+                            <Button Classes="Question"
+                                    CornerRadius="0"
+                                    Theme="{StaticResource SolidButtonTheme}">
+                                Button
+                            </Button>
                         </GroupBoxEx>
                         <GroupBoxEx Padding="0"
                                     Header="Bottom header"
@@ -50,13 +54,15 @@
                             <ScrollViewer>
                                 <StackPanel>
                                     <Button Height="60"
-                                            Content="Highlight"
+                                            Classes="Error"
+                                            Content="Error"
                                             CornerRadius="0"
-                                            Theme="{StaticResource PrimaryButtonTheme}" />
+                                            Theme="{StaticResource SolidButtonTheme}" />
                                     <Button Height="60"
-                                            Content="Button"
+                                            Classes="Warning"
+                                            Content="Warning"
                                             CornerRadius="0"
-                                            Theme="{StaticResource SuccessButtonTheme}" />
+                                            Theme="{StaticResource SolidButtonTheme}" />
                                 </StackPanel>
                             </ScrollViewer>
                         </GroupBoxEx>

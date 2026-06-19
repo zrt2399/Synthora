@@ -86,9 +86,13 @@
         </Setter>
 
         <Style Selector="^.Vertical">
-            <Style Selector="^ /template/ ItemsPresenter#PART_ItemsPresenter &gt; WrapPanel">
-                <Setter Property="Orientation" Value="Vertical" />
-            </Style>
+            <Setter Property="ItemsPanel">
+                <ItemsPanelTemplate>
+                    <WrapPanel ItemSpacing="{DynamicResource ThemeControlBorderPaddingDouble}"
+                               LineSpacing="{DynamicResource ThemeControlBorderPaddingDouble}"
+                               Orientation="Vertical" />
+                </ItemsPanelTemplate>
+            </Setter>
         </Style>
 
         <Style Selector="^.Uniform">
@@ -134,16 +138,16 @@
             <Setter Property="ItemContainerTheme">
                 <ControlTheme BasedOn="{StaticResource SegmentedListBoxItemTheme}" TargetType="ListBoxItem">
                     <Style Selector="^:selected">
-                        <Setter Property="Background" Value="{DynamicResource MenuItemPointerOverColor}" />
+                        <Setter Property="Foreground" Value="{DynamicResource OnSecondaryBrush}" />
+                        <Setter Property="Background" Value="{DynamicResource SecondaryBrush}" />
                     </Style>
-                    <Style Selector="^:selected:pointerover">
-                        <Setter Property="Background" Value="{DynamicResource MenuItemSelectedPointerOverColor}" />
-                    </Style>
-                    <Style Selector="^:not(:selected):pointerover">
-                        <Setter Property="Background" Value="{DynamicResource MenuItemPointerOverColor}" />
+                    <Style Selector="^:pointerover">
+                        <Setter Property="Foreground" Value="{DynamicResource OnSecondaryBrush}" />
+                        <Setter Property="Background" Value="{DynamicResource SecondaryPointerOverBrush}" />
                     </Style>
                     <Style Selector="^:pressed">
-                        <Setter Property="Background" Value="{DynamicResource MenuItemPressedColor}" />
+                        <Setter Property="Foreground" Value="{DynamicResource OnSecondaryBrush}" />
+                        <Setter Property="Background" Value="{DynamicResource SecondaryPressedBrush}" />
                     </Style>
                 </ControlTheme>
             </Setter>

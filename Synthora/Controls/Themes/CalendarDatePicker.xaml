@@ -114,7 +114,8 @@
                                Placement="BottomEdgeAlignedLeft"
                                PlacementTarget="{Binding ElementName=PART_TextBox}"
                                WindowManagerAddShadowHint="False">
-                            <SystemShadowChrome Background="{TemplateBinding Background}"
+                            <SystemShadowChrome Name="SystemShadowChrome"
+                                                Background="{TemplateBinding Background}"
                                                 BorderBrush="{TemplateBinding BorderBrush}"
                                                 BorderThickness="{TemplateBinding BorderThickness}"
                                                 CornerRadius="{TemplateBinding CornerRadius}">
@@ -133,5 +134,16 @@
                 </DockPanel>
             </ControlTemplate>
         </Setter>
+
+        <Style Selector="^.Highlight">
+            <Style Selector="^ /template/ Calendar#PART_Calendar">
+                <Setter Property="HeaderBackground" Value="{DynamicResource SynthoraHighlightBackgroundBrush}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource SynthoraHighlightBorderBrush}" />
+            </Style>
+            <Style Selector="^ /template/ SystemShadowChrome#SystemShadowChrome">
+                <Setter Property="BorderBrush" Value="{DynamicResource SynthoraHighlightBorderBrush}" />
+            </Style>
+        </Style>
     </ControlTheme>
+
 </ResourceDictionary>

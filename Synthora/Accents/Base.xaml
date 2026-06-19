@@ -24,6 +24,11 @@
             <Color x:Key="ThemeForegroundColor">#FF25292E</Color>
             <Color x:Key="ThemeBackgroundColor">#FFFFFFFF</Color>
 
+            <Color x:Key="SecondaryColor">#FF181818</Color>
+            <Color x:Key="SecondaryPointerOverColor">#FF2F2F2F</Color>
+            <Color x:Key="SecondaryPressedColor">#FF464646</Color>
+            <Color x:Key="OnSecondaryColor">#FFFAFAFA</Color>
+
             <Color x:Key="ThemeBorderLowColor">#FFDEDEDE</Color>
             <Color x:Key="ThemeBorderMidColor">#FFBDBEBF</Color>
             <Color x:Key="ThemeBorderHighColor">#FFAAAAAA</Color>
@@ -39,6 +44,8 @@
             <Color x:Key="ThemeControlHighlightHighColor">#FFC2C2C2</Color>
 
             <Color x:Key="ThemeOverlayColor">#40000000</Color>
+            <Color x:Key="TransparentPointerOverColor">#0C000000</Color>
+            <Color x:Key="TransparentPressedColor">#16000000</Color>
 
             <Color x:Key="HyperlinkVisitedColor">#FF681DA8</Color>
             <Color x:Key="MenuItemSelectedPointerOverColor">#FFC4D3F2</Color>
@@ -68,6 +75,10 @@
             <SolidColorBrush x:Key="ThemeForegroundLowBrush" Color="{StaticResource ThemeForegroundLowColor}" />
             <SolidColorBrush x:Key="ThemeForegroundMidBrush" Color="{StaticResource ThemeForegroundMidColor}" />
             <SolidColorBrush x:Key="ThemeBackgroundBrush" Color="{StaticResource ThemeBackgroundColor}" />
+            <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource SecondaryColor}" />
+            <SolidColorBrush x:Key="SecondaryPointerOverBrush" Color="{StaticResource SecondaryPointerOverColor}" />
+            <SolidColorBrush x:Key="SecondaryPressedBrush" Color="{StaticResource SecondaryPressedColor}" />
+            <SolidColorBrush x:Key="OnSecondaryBrush" Color="{StaticResource OnSecondaryColor}" />
 
             <SolidColorBrush x:Key="ThemeBorderLowBrush" Color="{StaticResource ThemeBorderLowColor}" />
             <SolidColorBrush x:Key="ThemeBorderMidBrush" Color="{StaticResource ThemeBorderMidColor}" />
@@ -84,6 +95,8 @@
             <SolidColorBrush x:Key="ThemeControlHighlightHighBrush" Color="{StaticResource ThemeControlHighlightHighColor}" />
 
             <SolidColorBrush x:Key="ThemeOverlayBrush" Color="{StaticResource ThemeOverlayColor}" />
+            <SolidColorBrush x:Key="TransparentPointerOverBrush" Color="{StaticResource TransparentPointerOverColor}" />
+            <SolidColorBrush x:Key="TransparentPressedBrush" Color="{StaticResource TransparentPressedColor}" />
 
             <SolidColorBrush x:Key="HyperlinkVisitedBrush" Color="{StaticResource HyperlinkVisitedColor}" />
             <SolidColorBrush x:Key="MenuItemSelectedPointerOverBrush" Color="{StaticResource MenuItemSelectedPointerOverColor}" />
@@ -158,6 +171,11 @@
             <Color x:Key="ThemeForegroundColor">#FFDEDEDE</Color>
             <Color x:Key="ThemeBackgroundColor">#FF202020</Color>
 
+            <Color x:Key="SecondaryColor">#FFFAFAFA</Color>
+            <Color x:Key="SecondaryPointerOverColor">#FFE6E6E6</Color>
+            <Color x:Key="SecondaryPressedColor">#FFD2D2D2</Color>
+            <Color x:Key="OnSecondaryColor">#FF181818</Color>
+
             <Color x:Key="ThemeBorderLowColor">#FF3D3D3D</Color>
             <Color x:Key="ThemeBorderMidColor">#FF5D5E5F</Color>
             <Color x:Key="ThemeBorderHighColor">#FF727272</Color>
@@ -173,6 +191,8 @@
             <Color x:Key="ThemeControlHighlightHighColor">#FF585858</Color>
 
             <Color x:Key="ThemeOverlayColor">#60000000</Color>
+            <Color x:Key="TransparentPointerOverColor">#0CFFFFFF</Color>
+            <Color x:Key="TransparentPressedColor">#16FFFFFF</Color>
 
             <Color x:Key="HyperlinkVisitedColor">#FFC58AF9</Color>
             <Color x:Key="MenuItemSelectedPointerOverColor">#FF1356BA</Color>
@@ -202,6 +222,10 @@
             <SolidColorBrush x:Key="ThemeForegroundLowBrush" Color="{StaticResource ThemeForegroundLowColor}" />
             <SolidColorBrush x:Key="ThemeForegroundMidBrush" Color="{StaticResource ThemeForegroundMidColor}" />
             <SolidColorBrush x:Key="ThemeBackgroundBrush" Color="{StaticResource ThemeBackgroundColor}" />
+            <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource SecondaryColor}" />
+            <SolidColorBrush x:Key="SecondaryPointerOverBrush" Color="{StaticResource SecondaryPointerOverColor}" />
+            <SolidColorBrush x:Key="SecondaryPressedBrush" Color="{StaticResource SecondaryPressedColor}" />
+            <SolidColorBrush x:Key="OnSecondaryBrush" Color="{StaticResource OnSecondaryColor}" />
 
             <SolidColorBrush x:Key="ThemeBorderLowBrush" Color="{StaticResource ThemeBorderLowColor}" />
             <SolidColorBrush x:Key="ThemeBorderMidBrush" Color="{StaticResource ThemeBorderMidColor}" />
@@ -218,6 +242,8 @@
             <SolidColorBrush x:Key="ThemeControlHighlightHighBrush" Color="{StaticResource ThemeControlHighlightHighColor}" />
 
             <SolidColorBrush x:Key="ThemeOverlayBrush" Color="{StaticResource ThemeOverlayColor}" />
+            <SolidColorBrush x:Key="TransparentPointerOverBrush" Color="{StaticResource TransparentPointerOverColor}" />
+            <SolidColorBrush x:Key="TransparentPressedBrush" Color="{StaticResource TransparentPressedColor}" />
 
             <SolidColorBrush x:Key="HyperlinkVisitedBrush" Color="{StaticResource HyperlinkVisitedColor}" />
             <SolidColorBrush x:Key="MenuItemSelectedPointerOverBrush" Color="{StaticResource MenuItemSelectedPointerOverColor}" />
@@ -335,9 +361,6 @@
     <SolidColorBrush x:Key="ErrorPointerOverBrush" Color="{StaticResource ErrorPointerOverColor}" />
     <SolidColorBrush x:Key="ErrorPressedBrush" Color="{StaticResource ErrorPressedColor}" />
 
-    <SolidColorBrush x:Key="TransparentButtonPointerOverBrush">#30999999</SolidColorBrush>
-    <SolidColorBrush x:Key="TransparentButtonPressedBrush">#40999999</SolidColorBrush>
-
     <Thickness x:Key="ThemeBorderThickness">1</Thickness>
 
     <Thickness x:Key="ThemeControlPaddingSmall">4</Thickness>
@@ -413,7 +436,7 @@
         M4,12H20V14H4V12M4,9H20V11H4V9M16,4L12,8L8,4H11V1H13V4H16M8,19L12,15L16,19H13V22H11V19H8Z
     </StreamGeometry>
     <StreamGeometry x:Key="ThemeDensityStandardData">
-        M9.29,21H12.12L21,12.12V9.29M19,21C19.55,21 20.05,20.78 20.41,20.41C20.78,20.05 21,19.55 21,19V17L17,21M5,3A2,2 0 0,0 3,5V7L7,3M11.88,3L3,11.88V14.71L14.71,3M19.5,3.08L3.08,19.5C3.17,19.85 3.35,20.16 3.59,20.41C3.84,20.65 4.15,20.83 4.5,20.92L20.93,4.5C20.74,3.8 20.2,3.26 19.5,3.08Z
+        M21,6V8H3V6H21M3,18H12V16H3V18M3,13H21V11H3V13Z
     </StreamGeometry>
     <StreamGeometry x:Key="ThemeDensityComfortableData">
         M13,9V15H16L12,19L8,15H11V9H8L12,5L16,9H13M4,2H20V4H4V2M4,20H20V22H4V20Z

@@ -1,15 +1,9 @@
-﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="using:Synthora.Controls"
                     xmlns:converters="using:Avalonia.Controls.Converters"
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
-
-    <Design.PreviewWith>
-        <Border Padding="20">
-            <SplitButton>SplitButton</SplitButton>
-        </Border>
-    </Design.PreviewWith>
 
     <converters:CornerRadiusFilterConverter x:Key="PrimaryButtonBorderFilter" Filter="TopLeft,BottomLeft" />
     <converters:CornerRadiusFilterConverter x:Key="SecondaryButtonBorderFilter" Filter="TopRight,BottomRight" />
@@ -30,10 +24,9 @@
                                           Indent="1"
                                           Top="True" />
 
-    <ControlTheme x:Key="{x:Type SplitButton}" TargetType="SplitButton">
+    <ControlTheme x:Key="SplitButtonBaseTheme" TargetType="SplitButton">
         <Setter Property="Background" Value="{DynamicResource SynthoraLowBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
-
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -53,7 +46,6 @@
                         <Button x:Name="PART_PrimaryButton"
                                 Padding="{TemplateBinding Padding}"
                                 Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness,
                                                                   Converter={StaticResource PrimaryButtonBorderThicknessMultiplier}}"
                                 ButtonAttach.ShowShadow="False"
@@ -82,7 +74,6 @@
                                 Grid.Column="2"
                                 Padding="{TemplateBinding Padding}"
                                 Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
                                 ButtonAttach.ShowShadow="False"
                                 CornerRadius="{TemplateBinding CornerRadius,
                                                                Converter={StaticResource SecondaryButtonBorderFilter}}"
@@ -114,18 +105,14 @@
                 </Transitions>
             </Setter>
         </Style>
-
         <Style Selector="^ /template/ Border#SeparatorBorder">
             <Setter Property="IsVisible" Value="False" />
         </Style>
+        <Style Selector="^ /template/ Button">
+            <Setter Property="BorderBrush" Value="{TemplateBinding BorderBrush}" />
+        </Style>
         <Style Selector="^ /template/ Button#PART_SecondaryButton">
             <Setter Property="BorderThickness" Value="{TemplateBinding BorderThickness}" />
-        </Style>
-
-        <Style Selector="^:focus,^:pointerover">
-            <Style Selector="^[(ButtonAttach.ShowShadow)=True] /template/ Border#RootBorder">
-                <Setter Property="BoxShadow" Value="{TemplateBinding BorderBrush, Converter={x:Static SynthoraConverters.BoxShadowConverter}, ConverterParameter={x:Static BoxShadowConverter.ButtonPointerOverParameter}}" />
-            </Style>
         </Style>
 
         <Style Selector="^[(DropDownButtonAttach.EnableDropDownIconAnimation)=True]:flyout-open">
@@ -133,27 +120,66 @@
                 <Setter Property="RenderTransform" Value="rotate(180deg)" />
             </Style>
         </Style>
-
+        <Style Selector="^:focus,^:pointerover">
+            <Style Selector="^[(ButtonAttach.ShowShadow)=True] /template/ Border#RootBorder">
+                <Setter Property="BoxShadow" Value="{TemplateBinding BorderBrush, Converter={x:Static SynthoraConverters.BoxShadowConverter}, ConverterParameter={x:Static BoxShadowConverter.ButtonPointerOverParameter}}" />
+            </Style>
+        </Style>
         <Style Selector="^:checked">
             <Style Selector="^ /template/ Ellipse#checkedEllipse">
                 <Setter Property="IsVisible" Value="True" />
             </Style>
         </Style>
-
         <Style Selector="^:checked:flyout-open">
             <Style Selector="^ /template/ ContentPresenter#SecondaryContentPresenter">
                 <Setter Property="RenderTransform" Value="rotate(180deg)" />
             </Style>
         </Style>
-
         <Style Selector="^:disabled /template/ Border#SeparatorBorder">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="SolidSplitButtonBaseTheme"
-                  BasedOn="{StaticResource {x:Type SplitButton}}"
+    <ControlTheme x:Key="OutlineSplitButtonTheme"
+                  BasedOn="{StaticResource SplitButtonBaseTheme}"
                   TargetType="SplitButton">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
+
+        <Style Selector="^.Primary">
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+        </Style>
+        <Style Selector="^.Secondary">
+            <Setter Property="Foreground" Value="{DynamicResource SecondaryBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBrush}" />
+        </Style>
+        <Style Selector="^.Success">
+            <Setter Property="Foreground" Value="{DynamicResource SuccessBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource SuccessBrush}" />
+        </Style>
+        <Style Selector="^.Question">
+            <Setter Property="Foreground" Value="{DynamicResource QuestionBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource QuestionBrush}" />
+        </Style>
+        <Style Selector="^.Warning">
+            <Setter Property="Foreground" Value="{DynamicResource WarningBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource WarningBrush}" />
+        </Style>
+        <Style Selector="^.Error">
+            <Setter Property="Foreground" Value="{DynamicResource ErrorBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type SplitButton}"
+                  BasedOn="{StaticResource OutlineSplitButtonTheme}"
+                  TargetType="SplitButton" />
+
+    <ControlTheme x:Key="SolidSplitButtonTheme"
+                  BasedOn="{StaticResource SplitButtonBaseTheme}"
+                  TargetType="SplitButton">
+        <Setter Property="Background" Value="{DynamicResource SynthoraMidBrush}" />
         <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
 
         <Style Selector="^ /template/ Border#SeparatorBorder">
@@ -162,89 +188,75 @@
         <Style Selector="^ /template/ Button#PART_SecondaryButton">
             <Setter Property="BorderThickness" Value="{TemplateBinding BorderThickness, Converter={StaticResource SecondaryButtonBorderThicknessMultiplier}}" />
         </Style>
-
-        <Style Selector="^ /template/ Button:pointerover">
+        <Style Selector="^ /template/ Button">
             <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
+        </Style>
+        <Style Selector="^ /template/ Button:focus,^ /template/ Button:pointerover">
+            <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
         </Style>
         <Style Selector="^ /template/ Button:pressed">
-            <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
+            <Setter Property="Background" Value="{DynamicResource SynthoraVeryHighBrush}" />
         </Style>
-    </ControlTheme>
 
-    <ControlTheme x:Key="SuccessSplitButtonTheme"
-                  BasedOn="{StaticResource SolidSplitButtonBaseTheme}"
-                  TargetType="SplitButton">
-        <Setter Property="Foreground" Value="White" />
-        <Setter Property="Background" Value="{DynamicResource SuccessBrush}" />
-
-        <Style Selector="^ /template/ Button">
-            <Setter Property="Theme" Value="{StaticResource SuccessButtonTheme}" />
+        <Style Selector="^.Primary">
+            <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+            <Style Selector="^ /template/ Button:pointerover">
+                <Setter Property="Background" Value="{DynamicResource PrimaryPointerOverBrush}" />
+            </Style>
+            <Style Selector="^ /template/ Button:pressed">
+                <Setter Property="Background" Value="{DynamicResource PrimaryPressedBrush}" />
+            </Style>
         </Style>
-    </ControlTheme>
-
-    <ControlTheme x:Key="QuestionSplitButtonTheme"
-                  BasedOn="{StaticResource SolidSplitButtonBaseTheme}"
-                  TargetType="SplitButton">
-        <Setter Property="Foreground" Value="White" />
-        <Setter Property="Background" Value="{DynamicResource QuestionBrush}" />
-
-        <Style Selector="^ /template/ Button">
-            <Setter Property="Theme" Value="{StaticResource QuestionButtonTheme}" />
+        <Style Selector="^.Secondary">
+            <Setter Property="Foreground" Value="{DynamicResource OnSecondaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SecondaryBrush}" />
+            <Style Selector="^ /template/ Button:pointerover">
+                <Setter Property="Background" Value="{DynamicResource SecondaryPointerOverBrush}" />
+            </Style>
+            <Style Selector="^ /template/ Button:pressed">
+                <Setter Property="Background" Value="{DynamicResource SecondaryPressedBrush}" />
+            </Style>
         </Style>
-    </ControlTheme>
-
-    <ControlTheme x:Key="WarningSplitButtonTheme"
-                  BasedOn="{StaticResource SolidSplitButtonBaseTheme}"
-                  TargetType="SplitButton">
-        <Setter Property="Foreground" Value="White" />
-        <Setter Property="Background" Value="{DynamicResource WarningBrush}" />
-
-        <Style Selector="^ /template/ Button">
-            <Setter Property="Theme" Value="{StaticResource WarningButtonTheme}" />
+        <Style Selector="^.Success">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="{DynamicResource SuccessBrush}" />
+            <Style Selector="^ /template/ Button:pointerover">
+                <Setter Property="Background" Value="{DynamicResource SuccessPointerOverBrush}" />
+            </Style>
+            <Style Selector="^ /template/ Button:pressed">
+                <Setter Property="Background" Value="{DynamicResource SuccessPressedBrush}" />
+            </Style>
         </Style>
-    </ControlTheme>
-
-    <ControlTheme x:Key="DangerSplitButtonTheme"
-                  BasedOn="{StaticResource SolidSplitButtonBaseTheme}"
-                  TargetType="SplitButton">
-        <Setter Property="Foreground" Value="White" />
-        <Setter Property="Background" Value="{DynamicResource DangerBrush}" />
-
-        <Style Selector="^ /template/ Button">
-            <Setter Property="Theme" Value="{StaticResource DangerButtonTheme}" />
+        <Style Selector="^.Question">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="{DynamicResource QuestionBrush}" />
+            <Style Selector="^ /template/ Button:pointerover">
+                <Setter Property="Background" Value="{DynamicResource QuestionPointerOverBrush}" />
+            </Style>
+            <Style Selector="^ /template/ Button:pressed">
+                <Setter Property="Background" Value="{DynamicResource QuestionPressedBrush}" />
+            </Style>
         </Style>
-    </ControlTheme>
-
-    <ControlTheme x:Key="ErrorSplitButtonTheme"
-                  BasedOn="{StaticResource SolidSplitButtonBaseTheme}"
-                  TargetType="SplitButton">
-        <Setter Property="Foreground" Value="White" />
-        <Setter Property="Background" Value="{DynamicResource ErrorBrush}" />
-
-        <Style Selector="^ /template/ Button">
-            <Setter Property="Theme" Value="{StaticResource ErrorButtonTheme}" />
+        <Style Selector="^.Warning">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="{DynamicResource WarningBrush}" />
+            <Style Selector="^ /template/ Button:pointerover">
+                <Setter Property="Background" Value="{DynamicResource WarningPointerOverBrush}" />
+            </Style>
+            <Style Selector="^ /template/ Button:pressed">
+                <Setter Property="Background" Value="{DynamicResource WarningPressedBrush}" />
+            </Style>
         </Style>
-    </ControlTheme>
-
-    <ControlTheme x:Key="PrimarySplitButtonTheme"
-                  BasedOn="{StaticResource SolidSplitButtonBaseTheme}"
-                  TargetType="SplitButton">
-        <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
-        <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
-
-        <Style Selector="^ /template/ Button">
-            <Setter Property="Theme" Value="{StaticResource PrimaryButtonTheme}" />
-        </Style>
-    </ControlTheme>
-
-    <ControlTheme x:Key="SecondarySplitButtonTheme"
-                  BasedOn="{StaticResource {x:Type SplitButton}}"
-                  TargetType="SplitButton">
-        <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
-
-        <Style Selector="^ /template/ Button">
-            <Setter Property="Theme" Value="{StaticResource SecondaryButtonTheme}" />
+        <Style Selector="^.Error">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="{DynamicResource ErrorBrush}" />
+            <Style Selector="^ /template/ Button:pointerover">
+                <Setter Property="Background" Value="{DynamicResource ErrorPointerOverBrush}" />
+            </Style>
+            <Style Selector="^ /template/ Button:pressed">
+                <Setter Property="Background" Value="{DynamicResource ErrorPressedBrush}" />
+            </Style>
         </Style>
     </ControlTheme>
 

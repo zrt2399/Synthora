@@ -3,36 +3,20 @@
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
 
+    <ControlTheme x:Key="OutlineRepeatButtonTheme"
+                  BasedOn="{StaticResource OutlineButtonTheme}"
+                  TargetType="RepeatButton" />
+
     <ControlTheme x:Key="{x:Type RepeatButton}"
-                  BasedOn="{StaticResource {x:Type Button}}"
+                  BasedOn="{StaticResource OutlineRepeatButtonTheme}"
                   TargetType="RepeatButton" />
 
-    <ControlTheme x:Key="SuccessRepeatButtonTheme"
-                  BasedOn="{StaticResource SuccessButtonTheme}"
+    <ControlTheme x:Key="SolidRepeatButtonTheme"
+                  BasedOn="{StaticResource SolidButtonTheme}"
                   TargetType="RepeatButton" />
 
-    <ControlTheme x:Key="QuestionRepeatButtonTheme"
-                  BasedOn="{StaticResource QuestionButtonTheme}"
-                  TargetType="RepeatButton" />
-
-    <ControlTheme x:Key="WarningRepeatButtonTheme"
-                  BasedOn="{StaticResource WarningButtonTheme}"
-                  TargetType="RepeatButton" />
-
-    <ControlTheme x:Key="DangerRepeatButtonTheme"
-                  BasedOn="{StaticResource DangerButtonTheme}"
-                  TargetType="RepeatButton" />
-
-    <ControlTheme x:Key="ErrorRepeatButtonTheme"
-                  BasedOn="{StaticResource ErrorButtonTheme}"
-                  TargetType="RepeatButton" />
-
-    <ControlTheme x:Key="PrimaryRepeatButtonTheme"
-                  BasedOn="{StaticResource PrimaryButtonTheme}"
-                  TargetType="RepeatButton" />
-
-    <ControlTheme x:Key="SecondaryRepeatButtonTheme"
-                  BasedOn="{StaticResource SecondaryButtonTheme}"
+    <ControlTheme x:Key="BorderlessRepeatButtonTheme"
+                  BasedOn="{StaticResource BorderlessButtonTheme}"
                   TargetType="RepeatButton" />
 
 </ResourceDictionary>

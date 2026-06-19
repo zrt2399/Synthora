@@ -14,6 +14,5 @@ namespace Synthora.Demo.Views
         {
             e.Row.Header = e.Row.Index + 1;
         }
-
     }
 }

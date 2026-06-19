@@ -141,8 +141,9 @@
                                 </MenuFlyout>
                             </Button.ContextFlyout>
                         </Button>
-                        <Button Content="Button with ContextMenu and ToolTip"
-                                Theme="{StaticResource SuccessButtonTheme}"
+                        <Button Classes="Success"
+                                Content="Button with ContextMenu and ToolTip"
+                                Theme="{StaticResource SolidButtonTheme}"
                                 ToolTip.Tip="Right-click or long-press to open context menu">
                             <Button.ContextMenu>
                                 <ContextMenu>

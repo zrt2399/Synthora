@@ -49,9 +49,9 @@
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="CornerRadius">
             <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.All}">
-                <Binding Path="CornerRadius" RelativeSource="{RelativeSource AncestorType=ListBox}" />
-                <Binding Path="BorderThickness" RelativeSource="{RelativeSource AncestorType=ListBox}" />
-                <Binding Path="Padding" RelativeSource="{RelativeSource AncestorType=ListBox}" />
+                <Binding Path="$parent[ListBox].CornerRadius" />
+                <Binding Path="$parent[ListBox].BorderThickness" />
+                <Binding Path="$parent[ListBox].Padding" />
             </MultiBinding>
         </Setter>
         <Setter Property="Template">

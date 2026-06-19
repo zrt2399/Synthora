@@ -87,12 +87,14 @@
                     <Ellipse Width="18"
                              Height="18"
                              VerticalAlignment="Center"
-                             Fill="{TemplateBinding Background}">
+                             Fill="{TemplateBinding Background}"
+                             Stroke="{DynamicResource ThemeBorderLowBrush}"
+                             StrokeThickness="1">
                         <Ellipse.Effect>
-                            <DropShadowEffect BlurRadius="4"
+                            <DropShadowEffect BlurRadius="6"
                                               OffsetX="0"
                                               OffsetY="0"
-                                              Color="#40000000" />
+                                              Color="#30000000" />
                         </Ellipse.Effect>
                     </Ellipse>
                     <Ellipse Name="innerEllipse"
@@ -128,6 +130,10 @@
         <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
         <Setter Property="Background" Value="{DynamicResource OnPrimaryBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeControlMidBrush}" />
+        <Style Selector="^.Secondary">
+            <Setter Property="Foreground" Value="{DynamicResource SecondaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource OnSecondaryBrush}" />
+        </Style>
         <Style Selector="^:horizontal">
             <Setter Property="Template">
                 <ControlTemplate>

@@ -22,38 +22,38 @@ namespace Synthora.Demo.Views
         public NavigationPageView()
         {
             InitializeComponent();
-            navigationPage.PushAsync(CreateHomePage());
+            NavigationPage.PushAsync(CreateHomePage());
         }
 
         private void PushAsync(object? sender, RoutedEventArgs e)
         {
-            navigationPage.PushAsync(CreatePage(++_pageIndex, "Page"));
+            NavigationPage.PushAsync(CreatePage(++_pageIndex, "Page"));
         }
 
         private void PopAsync(object? sender, RoutedEventArgs e)
         {
-            navigationPage.PopAsync();
+            NavigationPage.PopAsync();
         }
 
         private void PopToRootAsync(object? sender, RoutedEventArgs e)
         {
-            navigationPage.PopToRootAsync();
+            NavigationPage.PopToRootAsync();
             _pageIndex = 0;
         }
 
         private void PushModalAsync(object? sender, RoutedEventArgs e)
         {
-            navigationPage.PushModalAsync(CreatePage(++_modalIndex, "Modal"));
+            NavigationPage.PushModalAsync(CreatePage(++_modalIndex, "Modal"));
         }
 
         private void PopModalAsync(object? sender, RoutedEventArgs e)
         {
-            navigationPage.PopModalAsync();
+            NavigationPage.PopModalAsync();
         }
 
         private void PopAllModalsAsync(object? sender, RoutedEventArgs e)
         {
-            navigationPage.PopAllModalsAsync();
+            NavigationPage.PopAllModalsAsync();
             _modalIndex = 0;
         }
 

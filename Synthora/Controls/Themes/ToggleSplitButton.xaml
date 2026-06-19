@@ -3,35 +3,16 @@
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
 
+    <ControlTheme x:Key="OutlineToggleSplitButtonTheme"
+                  BasedOn="{StaticResource OutlineSplitButtonTheme}"
+                  TargetType="ToggleSplitButton" />
+
     <ControlTheme x:Key="{x:Type ToggleSplitButton}"
-                  BasedOn="{StaticResource {x:Type ToggleSplitButton}}"
+                  BasedOn="{StaticResource OutlineToggleSplitButtonTheme}"
                   TargetType="ToggleSplitButton" />
 
-    <ControlTheme x:Key="SuccessToggleSplitButtonTheme"
-                  BasedOn="{StaticResource SuccessSplitButtonTheme}"
+    <ControlTheme x:Key="SolidToggleSplitButtonTheme"
+                  BasedOn="{StaticResource SolidSplitButtonTheme}"
                   TargetType="ToggleSplitButton" />
 
-    <ControlTheme x:Key="QuestionToggleSplitButtonTheme"
-                  BasedOn="{StaticResource QuestionSplitButtonTheme}"
-                  TargetType="ToggleSplitButton" />
-
-    <ControlTheme x:Key="WarningToggleSplitButtonTheme"
-                  BasedOn="{StaticResource WarningSplitButtonTheme}"
-                  TargetType="ToggleSplitButton" />
-
-    <ControlTheme x:Key="DangerToggleSplitButtonTheme"
-                  BasedOn="{StaticResource DangerSplitButtonTheme}"
-                  TargetType="ToggleSplitButton" />
-
-    <ControlTheme x:Key="ErrorToggleSplitButtonTheme"
-                  BasedOn="{StaticResource ErrorSplitButtonTheme}"
-                  TargetType="ToggleSplitButton" />
-
-    <ControlTheme x:Key="PrimaryToggleSplitButtonTheme"
-                  BasedOn="{StaticResource PrimarySplitButtonTheme}"
-                  TargetType="ToggleSplitButton" />
-
-    <ControlTheme x:Key="SecondaryToggleSplitButtonTheme"
-                  BasedOn="{StaticResource SecondarySplitButtonTheme}"
-                  TargetType="ToggleSplitButton" />
 </ResourceDictionary>
