@@ -24,45 +24,39 @@
                             <TextBlock Classes="sectionLabel" Text="BADGE" />
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
-                            <Badge Content="enhancement" />
-                            <Badge BadgeType="Question" Content="question" />
-                            <Badge BadgeType="Success" Content="ready" />
-                            <Badge BadgeType="Warning" Content="needs info" />
-                            <Badge BadgeType="Danger" Content="security" />
-                            <Badge BadgeType="Error" Content="bug" />
-                            <Badge BadgeType="None" Content="wontfix" />
+                            <Badge>enhancement</Badge>
+                            <Badge BadgeType="Question">question</Badge>
+                            <Badge BadgeType="Success">ready</Badge>
+                            <Badge BadgeType="Warning">needs info</Badge>
+                            <Badge BadgeType="Danger">security</Badge>
+                            <Badge BadgeType="Error">bug</Badge>
+                            <Badge BadgeType="None">wontfix</Badge>
                         </SpacingWrapPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
-                            <Badge Content="documentation" IsSolid="True" />
-                            <Badge BadgeType="Question" Content="discussion" IsSolid="True" />
-                            <Badge BadgeType="Success" Content="good first issue" IsSolid="True" />
-                            <Badge BadgeType="Warning" Content="help wanted" IsSolid="True" />
-                            <Badge BadgeType="Danger" Content="breaking change" IsSolid="True" />
-                            <Badge BadgeType="Error" Content="regression" IsSolid="True" />
-                            <Badge BadgeType="None" Content="duplicate" IsSolid="True" />
+                            <Badge IsSolid="True">documentation</Badge>
+                            <Badge BadgeType="Question" IsSolid="True">discussion</Badge>
+                            <Badge BadgeType="Success" IsSolid="True">good first issue</Badge>
+                            <Badge BadgeType="Warning" IsSolid="True">help wanted</Badge>
+                            <Badge BadgeType="Danger" IsSolid="True">breaking change</Badge>
+                            <Badge BadgeType="Error" IsSolid="True">regression</Badge>
+                            <Badge BadgeType="None" IsSolid="True">duplicate</Badge>
                         </SpacingWrapPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
-                            <Badge Content="triage"
-                                   IsCircular="True"
-                                   IsSolid="True" />
-                            <Badge BadgeType="Question"
-                                   Content="needs answer"
-                                   IsCircular="True" />
+                            <Badge IsCircular="True" IsSolid="True">triage</Badge>
+                            <Badge BadgeType="Question" IsCircular="True">needs answer</Badge>
                             <Badge BadgeType="Success"
-                                   Content="approved"
                                    IsCircular="True"
-                                   IsSolid="True" />
-                            <Badge BadgeType="Warning"
-                                   Content="blocked"
-                                   IsCircular="True" />
+                                   IsSolid="True">
+                                approved
+                            </Badge>
+                            <Badge BadgeType="Warning" IsCircular="True">blocked</Badge>
                             <Badge BadgeType="Danger"
-                                   Content="critical"
                                    IsCircular="True"
-                                   IsSolid="True" />
-                            <Badge BadgeType="Error"
-                                   Content="failed"
-                                   IsCircular="True" />
-                            <Badge BadgeType="None" Content="archived" />
+                                   IsSolid="True">
+                                critical
+                            </Badge>
+                            <Badge BadgeType="Error" IsCircular="True">failed</Badge>
+                            <Badge BadgeType="None">archived</Badge>
                         </SpacingWrapPanel>
                     </StackPanel>
                 </Border>
@@ -104,6 +98,8 @@
                         </StackPanel>
                     </StackPanel>
                 </Border>
+
+                <!--  PathPicker  -->
                 <Border Classes="card">
                     <StackPanel Spacing="16">
                         <StackPanel Classes="sectionHeader">
@@ -111,15 +107,16 @@
                             <TextBlock Classes="sectionLabel" Text="FILE PICKER" />
                         </StackPanel>
                         <PathPicker PlaceholderText="Pick a folder"
-                                    TextBoxAttach.Header="PathPicker (Folder)"
+                                    TextBoxAttach.Header="PathPicker(Folder)"
                                     UseFolderDialog="True" />
                         <PathPicker AllowMultiple="True"
                                     FilePickerFileTypes="{Binding FilePickerFileTypes}"
                                     PlaceholderText="Pick files"
                                     SelectedPaths="{Binding SelectedFiles}"
-                                    TextBoxAttach.Header="PathPicker (Multiple Files)" />
+                                    TextBoxAttach.Header="PathPicker(Multiple Files)" />
                     </StackPanel>
                 </Border>
+
                 <!--  SpacingWrapPanel  -->
                 <Border Classes="card">
                     <StackPanel Spacing="16">
