@@ -77,7 +77,8 @@
                   Header="{DynamicResource StringTextFlyoutCutText}"
                   Icon="{StaticResource TextCutIcon}"
                   InputGesture="{x:Static TextBox.CutGesture}"
-                  IsEnabled="{Binding $parent[TextBox].CanCut}" />
+                  IsEnabled="{Binding $parent[TextBox].CanCut}"
+                  IsVisible="{Binding !$parent[TextBox].IsReadOnly}" />
         <MenuItem Command="{Binding $parent[TextBox].Copy}"
                   Header="{DynamicResource StringTextFlyoutCopyText}"
                   Icon="{StaticResource TextCopyIcon}"
@@ -87,7 +88,8 @@
                   Header="{DynamicResource StringTextFlyoutPasteText}"
                   Icon="{StaticResource TextPasteIcon}"
                   InputGesture="{x:Static TextBox.PasteGesture}"
-                  IsEnabled="{Binding $parent[TextBox].CanPaste}" />
+                  IsEnabled="{Binding $parent[TextBox].CanPaste}"
+                  IsVisible="{Binding !$parent[TextBox].IsReadOnly}" />
         <MenuItem Command="{Binding $parent[TextBox].SelectAll}"
                   Header="{DynamicResource StringTextFlyoutSelectAllText}"
                   InputGesture="{x:Static GestureUtils.SelectAllGesture}"
