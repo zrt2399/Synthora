@@ -22,6 +22,9 @@ namespace Synthora.Controls
         End
     }
 
+    /// <summary>
+    /// Represents a panel that arranges child elements in sequential rows or columns and applies spacing between adjacent elements.
+    /// </summary>
     public class SpacingWrapPanel : Panel, INavigableContainer
     {
         private struct UVSize
@@ -179,7 +182,7 @@ namespace Synthora.Controls
             return null;
         }
 
-        //fix: https://github.com/AvaloniaUI/Avalonia/issues/18814
+        //Fix: https://github.com/AvaloniaUI/Avalonia/issues/18814
         private bool GreaterThan(double value1, double value2, double baseEpsilon = 1e-10)
         {
             var toplevel = TopLevel.GetTopLevel(this);
