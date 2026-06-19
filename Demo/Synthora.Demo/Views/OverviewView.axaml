@@ -182,8 +182,8 @@
                                 </WrapPanel>
 
                                 <SpacingWrapPanel HorizontalSpacing="12" VerticalSpacing="12">
-                                    <Button Classes="Primary" Theme="{StaticResource SolidButtonTheme}">Launch Demo</Button>
-                                    <Button Classes="Primary" Theme="{StaticResource BorderlessButtonTheme}">Primary</Button>
+                                    <Button Classes="Primary" Theme="{StaticResource OutlineButtonTheme}">Launch Demo</Button>
+                                    <Button Classes="Primary" Theme="{StaticResource SolidButtonTheme}">Primary</Button>
                                     <Button Classes="Secondary" Theme="{StaticResource BorderlessButtonTheme}">Secondary</Button>
                                 </SpacingWrapPanel>
                             </StackPanel>
@@ -440,7 +440,7 @@
                         <StackPanel Spacing="16">
                             <StackPanel Classes="sectionHeader">
                                 <materialIcons:MaterialIcon Classes="sectionIcon" Kind="CalendarMonthOutline" />
-                                <TextBlock Classes="sectionLabel" Text="DATE &amp; STRUCTURE" />
+                                <TextBlock Classes="sectionLabel" Text="DATE &amp; TIME" />
                             </StackPanel>
 
                             <CalendarDatePicker TextBoxAttach.Header="Release date" />
