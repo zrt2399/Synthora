@@ -7,64 +7,64 @@
         <Border Padding="20">
             <StackPanel Spacing="16">
                 <StackPanel Orientation="Horizontal" Spacing="16">
-                    <Badge Content="General" />
-                    <Badge BadgeType="Question" Content="Question" />
-                    <Badge BadgeType="Success" Content="Stable" />
-                    <Badge BadgeType="Warning" Content="Preview" />
-                    <Badge BadgeType="Danger" Content="Danger" />
-                    <Badge BadgeType="Error" Content="Error" />
-                    <Badge BadgeType="None" Content="Neutral" />
+                    <Tag Content="General" />
+                    <Tag Content="Question" TagType="Question" />
+                    <Tag Content="Stable" TagType="Success" />
+                    <Tag Content="Preview" TagType="Warning" />
+                    <Tag Content="Danger" TagType="Danger" />
+                    <Tag Content="Error" TagType="Error" />
+                    <Tag Content="Neutral" TagType="None" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Spacing="16">
-                    <Badge Content="General" IsSolid="True" />
-                    <Badge BadgeType="Question"
-                           Content="Question"
-                           IsSolid="True" />
-                    <Badge BadgeType="Success"
-                           Content="Stable"
-                           IsSolid="True" />
-                    <Badge BadgeType="Warning"
-                           Content="Preview"
-                           IsSolid="True" />
-                    <Badge BadgeType="Danger"
-                           Content="Danger"
-                           IsSolid="True" />
-                    <Badge BadgeType="Error"
-                           Content="Error"
-                           IsSolid="True" />
-                    <Badge BadgeType="None"
-                           Content="Neutral"
-                           IsSolid="True" />
+                    <Tag Content="General" IsSolid="True" />
+                    <Tag Content="Question"
+                         IsSolid="True"
+                         TagType="Question" />
+                    <Tag Content="Stable"
+                         IsSolid="True"
+                         TagType="Success" />
+                    <Tag Content="Preview"
+                         IsSolid="True"
+                         TagType="Warning" />
+                    <Tag Content="Danger"
+                         IsSolid="True"
+                         TagType="Danger" />
+                    <Tag Content="Error"
+                         IsSolid="True"
+                         TagType="Error" />
+                    <Tag Content="Neutral"
+                         IsSolid="True"
+                         TagType="None" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Spacing="16">
-                    <Badge Content="General"
-                           IsCircular="True"
-                           IsSolid="True" />
-                    <Badge BadgeType="Question"
-                           Content="Question"
-                           IsCircular="True" />
-                    <Badge BadgeType="Success"
-                           Content="Success"
-                           IsCircular="True"
-                           IsSolid="True" />
-                    <Badge BadgeType="Warning"
-                           Content="Warning"
-                           IsCircular="True" />
-                    <Badge BadgeType="Danger"
-                           Content="Danger"
-                           IsCircular="True"
-                           IsSolid="True" />
-                    <Badge BadgeType="Error"
-                           Content="Error"
-                           IsCircular="True" />
-                    <Badge BadgeType="None" Content="None" />
+                    <Tag Content="General"
+                         IsCircular="True"
+                         IsSolid="True" />
+                    <Tag Content="Question"
+                         IsCircular="True"
+                         TagType="Question" />
+                    <Tag Content="Success"
+                         IsCircular="True"
+                         IsSolid="True"
+                         TagType="Success" />
+                    <Tag Content="Warning"
+                         IsCircular="True"
+                         TagType="Warning" />
+                    <Tag Content="Danger"
+                         IsCircular="True"
+                         IsSolid="True"
+                         TagType="Danger" />
+                    <Tag Content="Error"
+                         IsCircular="True"
+                         TagType="Error" />
+                    <Tag Content="None" TagType="None" />
                 </StackPanel>
             </StackPanel>
         </Border>
     </Design.PreviewWith>
 
-    <ControlTheme x:Key="{x:Type Badge}" TargetType="Badge">
-        <Setter Property="Padding" Value="{DynamicResource BadgePadding}" />
+    <ControlTheme x:Key="{x:Type Tag}" TargetType="Tag">
+        <Setter Property="Padding" Value="{DynamicResource TagPadding}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
 

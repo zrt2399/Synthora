@@ -44,7 +44,7 @@
     "windowContentHeight" : 360,
     "windowContents" : [
       {
-        "filePath" : "\/Users\/djyoyo\/Desktop\/Code\/Synthora\/Synthora.Demo\/mac-build\/artifacts\/osx-arm64\/SynthoraDemo.app",
+        "filePath" : "\/Users\/djyoyo\/Desktop\/Code\/Synthora\/Demo\/Synthora.Demo.Desktop\/mac-build\/artifacts\/osx-arm64\/SynthoraDemo.app",
         "iconSize" : 100,
         "invisible" : false,
         "isAnAlias" : false,
@@ -60,7 +60,7 @@
         "relativeFilePath" : "..\/..\/..\/..\/..\/..\/..\/Applications"
       },
       {
-        "filePath" : "\/Users\/djyoyo\/Desktop\/Code\/Synthora\/Synthora.Demo\/mac-build\/安装必看.txt",
+        "filePath" : "\/Users\/djyoyo\/Desktop\/Code\/Synthora\/Demo\/Synthora.Demo.Desktop\/mac-build\/安装必看.txt",
         "iconSize" : 100,
         "invisible" : false,
         "isAnAlias" : false,

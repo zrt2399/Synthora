@@ -14,7 +14,7 @@
 //#define MyAppAssocExt ".tpg"
 //#define MyAppAssocKey StringChange(MyAppAssocName, " ", "") + MyAppAssocExt
 
-#define IconPath "..\Assets\avalonia-logo.ico"
+#define IconPath "..\..\Synthora.Demo\Assets\avalonia-logo.ico"
 #define MyUid "F47CE6E5-3533-4B56-9149-A949D6F53978"
 
 [Setup]

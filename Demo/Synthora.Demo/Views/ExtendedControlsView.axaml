@@ -16,47 +16,47 @@
               IconKind="{Binding IconKind}">
         <ScrollViewer Padding="16">
             <StackPanel Spacing="16">
-                <!--  Badge showcase  -->
+                <!--  Tag showcase  -->
                 <Border Classes="card">
                     <StackPanel Spacing="16">
                         <StackPanel Classes="sectionHeader">
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="Label" />
-                            <TextBlock Classes="sectionLabel" Text="BADGE" />
+                            <TextBlock Classes="sectionLabel" Text="TAG" />
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
-                            <Badge>enhancement</Badge>
-                            <Badge BadgeType="Question">question</Badge>
-                            <Badge BadgeType="Success">ready</Badge>
-                            <Badge BadgeType="Warning">needs info</Badge>
-                            <Badge BadgeType="Danger">security</Badge>
-                            <Badge BadgeType="Error">bug</Badge>
-                            <Badge BadgeType="None">wontfix</Badge>
+                            <Tag>enhancement</Tag>
+                            <Tag TagType="Question">question</Tag>
+                            <Tag TagType="Success">ready</Tag>
+                            <Tag TagType="Warning">needs info</Tag>
+                            <Tag TagType="Danger">security</Tag>
+                            <Tag TagType="Error">bug</Tag>
+                            <Tag TagType="None">wontfix</Tag>
                         </SpacingWrapPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
-                            <Badge IsSolid="True">documentation</Badge>
-                            <Badge BadgeType="Question" IsSolid="True">discussion</Badge>
-                            <Badge BadgeType="Success" IsSolid="True">good first issue</Badge>
-                            <Badge BadgeType="Warning" IsSolid="True">help wanted</Badge>
-                            <Badge BadgeType="Danger" IsSolid="True">breaking change</Badge>
-                            <Badge BadgeType="Error" IsSolid="True">regression</Badge>
-                            <Badge BadgeType="None" IsSolid="True">duplicate</Badge>
+                            <Tag IsSolid="True">documentation</Tag>
+                            <Tag TagType="Question" IsSolid="True">discussion</Tag>
+                            <Tag TagType="Success" IsSolid="True">good first issue</Tag>
+                            <Tag TagType="Warning" IsSolid="True">help wanted</Tag>
+                            <Tag TagType="Danger" IsSolid="True">breaking change</Tag>
+                            <Tag TagType="Error" IsSolid="True">regression</Tag>
+                            <Tag TagType="None" IsSolid="True">duplicate</Tag>
                         </SpacingWrapPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
-                            <Badge IsCircular="True" IsSolid="True">triage</Badge>
-                            <Badge BadgeType="Question" IsCircular="True">needs answer</Badge>
-                            <Badge BadgeType="Success"
+                            <Tag IsCircular="True" IsSolid="True">triage</Tag>
+                            <Tag TagType="Question" IsCircular="True">needs answer</Tag>
+                            <Tag TagType="Success"
                                    IsCircular="True"
                                    IsSolid="True">
                                 approved
-                            </Badge>
-                            <Badge BadgeType="Warning" IsCircular="True">blocked</Badge>
-                            <Badge BadgeType="Danger"
+                            </Tag>
+                            <Tag TagType="Warning" IsCircular="True">blocked</Tag>
+                            <Tag TagType="Danger"
                                    IsCircular="True"
                                    IsSolid="True">
                                 critical
-                            </Badge>
-                            <Badge BadgeType="Error" IsCircular="True">failed</Badge>
-                            <Badge BadgeType="None">archived</Badge>
+                            </Tag>
+                            <Tag TagType="Error" IsCircular="True">failed</Tag>
+                            <Tag TagType="None">archived</Tag>
                         </SpacingWrapPanel>
                     </StackPanel>
                 </Border>

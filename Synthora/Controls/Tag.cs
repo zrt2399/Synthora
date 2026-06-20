@@ -6,9 +6,9 @@ using Avalonia.Controls.Primitives;
 namespace Synthora.Controls
 {
     /// <summary>
-    /// Defines the visual type used by <see cref="Badge"/>.
+    /// Defines the visual type used by <see cref="Tag"/>.
     /// </summary>
-    public enum BadgeType
+    public enum TagType
     {
         None,
         Information,
@@ -23,7 +23,7 @@ namespace Synthora.Controls
     /// Represents a compact status label.
     /// </summary>
     [PseudoClasses(pcNone, pcInformation, pcQuestion, pcSuccess, pcWarning, pcDanger, pcError)]
-    public class Badge : ContentControl
+    public class Tag : ContentControl
     {
         private const string pcNone = ":none";
         private const string pcInformation = ":information";
@@ -34,39 +34,39 @@ namespace Synthora.Controls
         private const string pcError = ":error";
 
         /// <summary>
-        /// Defines the <see cref="BadgeType"/> property.
+        /// Defines the <see cref="TagType"/> property.
         /// </summary>
-        public static readonly StyledProperty<BadgeType> BadgeTypeProperty =
-            AvaloniaProperty.Register<Badge, BadgeType>(nameof(BadgeType), BadgeType.Information);
+        public static readonly StyledProperty<TagType> TagTypeProperty =
+            AvaloniaProperty.Register<Tag, TagType>(nameof(TagType), TagType.Information);
 
         /// <summary>
         /// Defines the <see cref="IsSolid"/> property.
         /// </summary>
         public static readonly StyledProperty<bool> IsSolidProperty =
-            AvaloniaProperty.Register<Badge, bool>(nameof(IsSolid));
+            AvaloniaProperty.Register<Tag, bool>(nameof(IsSolid));
 
         /// <summary>
         /// Defines the <see cref="IsCircular"/> property.
         /// </summary>
         public static readonly StyledProperty<bool> IsCircularProperty =
-            AvaloniaProperty.Register<Badge, bool>(nameof(IsCircular));
+            AvaloniaProperty.Register<Tag, bool>(nameof(IsCircular));
 
-        static Badge()
+        static Tag()
         {
-            BadgeTypeProperty.Changed.AddClassHandler<Badge, BadgeType>((s, e) => s.UpdatePseudoClasses());
+            TagTypeProperty.Changed.AddClassHandler<Tag, TagType>((s, e) => s.UpdatePseudoClasses());
         }
 
         /// <summary>
-        /// Gets or sets the visual type of the badge.
+        /// Gets or sets the visual type of the tag.
         /// </summary>
-        public BadgeType BadgeType
+        public TagType TagType
         {
-            get => GetValue(BadgeTypeProperty);
-            set => SetValue(BadgeTypeProperty, value);
+            get => GetValue(TagTypeProperty);
+            set => SetValue(TagTypeProperty, value);
         }
 
         /// <summary>
-        /// Gets or sets whether the badge uses a solid filled background.
+        /// Gets or sets whether the tag uses a solid filled background.
         /// </summary>
         public bool IsSolid
         {
@@ -75,7 +75,7 @@ namespace Synthora.Controls
         }
 
         /// <summary>
-        /// Gets or sets whether the badge uses a circular corner radius.
+        /// Gets or sets whether the tag uses a circular corner radius.
         /// </summary>
         public bool IsCircular
         {
@@ -93,13 +93,13 @@ namespace Synthora.Controls
 
         private void UpdatePseudoClasses()
         {
-            PseudoClasses.Set(pcNone, BadgeType == BadgeType.None);
-            PseudoClasses.Set(pcInformation, BadgeType == BadgeType.Information);
-            PseudoClasses.Set(pcQuestion, BadgeType == BadgeType.Question);
-            PseudoClasses.Set(pcSuccess, BadgeType == BadgeType.Success);
-            PseudoClasses.Set(pcWarning, BadgeType == BadgeType.Warning);
-            PseudoClasses.Set(pcDanger, BadgeType == BadgeType.Danger);
-            PseudoClasses.Set(pcError, BadgeType == BadgeType.Error);
+            PseudoClasses.Set(pcNone, TagType == TagType.None);
+            PseudoClasses.Set(pcInformation, TagType == TagType.Information);
+            PseudoClasses.Set(pcQuestion, TagType == TagType.Question);
+            PseudoClasses.Set(pcSuccess, TagType == TagType.Success);
+            PseudoClasses.Set(pcWarning, TagType == TagType.Warning);
+            PseudoClasses.Set(pcDanger, TagType == TagType.Danger);
+            PseudoClasses.Set(pcError, TagType == TagType.Error);
         }
     }
 }

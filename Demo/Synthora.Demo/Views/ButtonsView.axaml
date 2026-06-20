@@ -19,7 +19,7 @@
     </UserControl.Resources>
 
     <UserControl.Styles>
-        <Style Selector="Badge">
+        <Style Selector="Tag">
             <Setter Property="IsCircular" Value="True" />
         </Style>
     </UserControl.Styles>
@@ -36,9 +36,9 @@
                         <StackPanel Classes="sectionHeader">
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="RectangleOutline" />
                             <TextBlock Classes="sectionLabel" Text="BUTTON" />
-                            <Badge BadgeType="None">Outline</Badge>
-                            <Badge BadgeType="Information" IsSolid="True">Solid</Badge>
-                            <Badge BadgeType="None" IsSolid="True">Borderless</Badge>
+                            <Tag TagType="None">Outline</Tag>
+                            <Tag TagType="Information" IsSolid="True">Solid</Tag>
+                            <Tag TagType="None" IsSolid="True">Borderless</Tag>
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
                             <Button Theme="{StaticResource OutlineButtonTheme}">Default</Button>
@@ -76,9 +76,9 @@
                         <StackPanel Classes="sectionHeader">
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="Refresh" />
                             <TextBlock Classes="sectionLabel" Text="REPEAT BUTTON" />
-                            <Badge BadgeType="None">Outline</Badge>
-                            <Badge BadgeType="Information" IsSolid="True">Solid</Badge>
-                            <Badge BadgeType="None" IsSolid="True">Borderless</Badge>
+                            <Tag TagType="None">Outline</Tag>
+                            <Tag TagType="Information" IsSolid="True">Solid</Tag>
+                            <Tag TagType="None" IsSolid="True">Borderless</Tag>
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
                             <RepeatButton Theme="{StaticResource OutlineRepeatButtonTheme}">Default</RepeatButton>
@@ -121,9 +121,9 @@
                         <StackPanel Classes="sectionHeader">
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ToggleSwitch" />
                             <TextBlock Classes="sectionLabel" Text="TOGGLE BUTTON" />
-                            <Badge BadgeType="None">Outline</Badge>
-                            <Badge BadgeType="Information" IsSolid="True">Solid</Badge>
-                            <Badge BadgeType="None" IsSolid="True">Borderless</Badge>
+                            <Tag TagType="None">Outline</Tag>
+                            <Tag TagType="Information" IsSolid="True">Solid</Tag>
+                            <Tag TagType="None" IsSolid="True">Borderless</Tag>
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
                             <ToggleButton Theme="{StaticResource OutlineToggleButtonTheme}">Default</ToggleButton>
@@ -170,9 +170,9 @@
                         <StackPanel Classes="sectionHeader">
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ChevronDown" />
                             <TextBlock Classes="sectionLabel" Text="DROPDOWN BUTTON" />
-                            <Badge BadgeType="None">Outline</Badge>
-                            <Badge BadgeType="Information" IsSolid="True">Solid</Badge>
-                            <Badge BadgeType="None" IsSolid="True">Borderless</Badge>
+                            <Tag TagType="None">Outline</Tag>
+                            <Tag TagType="Information" IsSolid="True">Solid</Tag>
+                            <Tag TagType="None" IsSolid="True">Borderless</Tag>
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
                             <DropDownButton Theme="{StaticResource OutlineDropDownButtonTheme}">Default</DropDownButton>
@@ -228,8 +228,8 @@
                         <StackPanel Classes="sectionHeader">
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ArrowSplitHorizontal" />
                             <TextBlock Classes="sectionLabel" Text="SPLIT BUTTON" />
-                            <Badge BadgeType="None">Outline</Badge>
-                            <Badge BadgeType="Information" IsSolid="True">Solid</Badge>
+                            <Tag TagType="None">Outline</Tag>
+                            <Tag TagType="Information" IsSolid="True">Solid</Tag>
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
                             <SplitButton Theme="{StaticResource OutlineSplitButtonTheme}">Default</SplitButton>
@@ -276,8 +276,8 @@
                         <StackPanel Classes="sectionHeader">
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ToggleSwitchOutline" />
                             <TextBlock Classes="sectionLabel" Text="TOGGLESPLIT BUTTON" />
-                            <Badge BadgeType="None">Outline</Badge>
-                            <Badge BadgeType="Information" IsSolid="True">Solid</Badge>
+                            <Tag TagType="None">Outline</Tag>
+                            <Tag TagType="Information" IsSolid="True">Solid</Tag>
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
                             <ToggleSplitButton Theme="{StaticResource OutlineToggleSplitButtonTheme}">Default</ToggleSplitButton>

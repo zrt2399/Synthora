@@ -144,7 +144,7 @@
                   BasedOn="{StaticResource SplitButtonBaseTheme}"
                   TargetType="SplitButton">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
 
         <Style Selector="^.Primary">
             <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />

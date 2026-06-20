@@ -52,7 +52,7 @@
                   BasedOn="{StaticResource ToggleButtonBaseTheme}"
                   TargetType="ToggleButton">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
 
         <Style Selector="^:focus,^:pointerover">
             <Setter Property="Background" Value="{DynamicResource TransparentPointerOverBrush}" />

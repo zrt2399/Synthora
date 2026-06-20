@@ -30,11 +30,11 @@
             <Color x:Key="OnSecondaryColor">#FFFAFAFA</Color>
 
             <Color x:Key="ThemeBorderLowColor">#FFDEDEDE</Color>
-            <Color x:Key="ThemeBorderMidColor">#FFBDBEBF</Color>
+            <Color x:Key="ThemeBorderMidColor">#FFBCBEC0</Color>
             <Color x:Key="ThemeBorderHighColor">#FFAAAAAA</Color>
 
             <Color x:Key="ThemeControlLowColor">#FFF6F6F6</Color>
-            <Color x:Key="ThemeControlMidColor">#FFEEEFF0</Color>
+            <Color x:Key="ThemeControlMidColor">#FFECEEF0</Color>
             <Color x:Key="ThemeControlMidHighColor">#FFD2D2D2</Color>
             <Color x:Key="ThemeControlHighColor">#FFAAAAAA</Color>
             <Color x:Key="ThemeControlVeryHighColor">#FF8C8C8C</Color>
@@ -44,7 +44,7 @@
             <Color x:Key="ThemeControlHighlightHighColor">#FFC2C2C2</Color>
 
             <Color x:Key="ThemeOverlayColor">#40000000</Color>
-            <Color x:Key="TransparentPointerOverColor">#0C000000</Color>
+            <Color x:Key="TransparentPointerOverColor">#0B000000</Color>
             <Color x:Key="TransparentPressedColor">#16000000</Color>
 
             <Color x:Key="HyperlinkVisitedColor">#FF681DA8</Color>
@@ -177,11 +177,11 @@
             <Color x:Key="OnSecondaryColor">#FF181818</Color>
 
             <Color x:Key="ThemeBorderLowColor">#FF3D3D3D</Color>
-            <Color x:Key="ThemeBorderMidColor">#FF5D5E5F</Color>
+            <Color x:Key="ThemeBorderMidColor">#FF5C5E60</Color>
             <Color x:Key="ThemeBorderHighColor">#FF727272</Color>
 
             <Color x:Key="ThemeControlLowColor">#FF282828</Color>
-            <Color x:Key="ThemeControlMidColor">#FF323334</Color>
+            <Color x:Key="ThemeControlMidColor">#FF303234</Color>
             <Color x:Key="ThemeControlMidHighColor">#FF505050</Color>
             <Color x:Key="ThemeControlHighColor">#FF727272</Color>
             <Color x:Key="ThemeControlVeryHighColor">#FF909090</Color>
@@ -191,7 +191,7 @@
             <Color x:Key="ThemeControlHighlightHighColor">#FF585858</Color>
 
             <Color x:Key="ThemeOverlayColor">#60000000</Color>
-            <Color x:Key="TransparentPointerOverColor">#0CFFFFFF</Color>
+            <Color x:Key="TransparentPointerOverColor">#0BFFFFFF</Color>
             <Color x:Key="TransparentPressedColor">#16FFFFFF</Color>
 
             <Color x:Key="HyperlinkVisitedColor">#FFC58AF9</Color>
@@ -364,7 +364,7 @@
     <Thickness x:Key="ThemeBorderThickness">1</Thickness>
 
     <Thickness x:Key="ThemeControlPaddingSmall">4</Thickness>
-    <Thickness x:Key="BadgePadding">3,1</Thickness>
+    <Thickness x:Key="TagPadding">3,1</Thickness>
 
     <CornerRadius x:Key="ThemeBorderCornerRadiusSmall">4</CornerRadius>
     <CornerRadius x:Key="ThemeBorderCornerRadiusNormal">6</CornerRadius>

@@ -6,8 +6,8 @@
 		<Nullable>enable</Nullable>
 		<DebugType>embedded</DebugType>
 		<ApplicationManifest>app.manifest</ApplicationManifest>
-		<ApplicationIcon>..\Synthora.Demo\Assets\avalonia-logo.ico</ApplicationIcon>
-		<AssemblyName>SynthoraDemo.Desktop</AssemblyName>
+		<ApplicationIcon>..\Synthora.Demo\Assets\avalonia-logo.ico</ApplicationIcon> 
+		<AssemblyName>SynthoraDemo</AssemblyName>
 		<PublishReadyToRun>true</PublishReadyToRun>
 	</PropertyGroup>
 
