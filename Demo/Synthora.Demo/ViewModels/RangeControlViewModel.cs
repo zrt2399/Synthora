@@ -8,7 +8,7 @@ namespace Synthora.Demo.ViewModels
         public RangeControlViewModel()
         {
             IconKind = MaterialIconKind.TuneVariant;
-            Description = "Divider, PipsPager, Slider, ProgressBar";
+            Description = "Divider, PipsPager, Slider, ProgressBar, ProgressRing";
         }
     }
 }

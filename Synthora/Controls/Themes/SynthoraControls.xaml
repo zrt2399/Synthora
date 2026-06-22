@@ -70,6 +70,7 @@
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/TreeView.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/TreeViewItem.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ProgressBar.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ProgressRing.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/Separator.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/Menu.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/MenuItem.xaml" />

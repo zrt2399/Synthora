@@ -78,6 +78,25 @@
                     <ProgressBar Classes="Secondary"
                                  ShowProgressText="True"
                                  Value="{Binding #SecondarySlider.Value}" />
+                    <Divider Content="ProgressRing" Orientation="Horizontal" />
+                    <StackPanel Orientation="Horizontal" Spacing="20">
+                        <ProgressRing VerticalAlignment="Center" />
+                        <ProgressRing Width="48"
+                                      Height="48"
+                                      VerticalAlignment="Center"
+                                      StrokeThickness="3" />
+                        <ProgressRing Width="64"
+                                      Height="64"
+                                      Classes="Secondary"
+                                      VerticalAlignment="Center"
+                                      StrokeThickness="4" />
+                        <ProgressRing VerticalAlignment="Center"
+                                      IsActive="{Binding #ProgressRingToggle.IsChecked}" />
+                        <ToggleSwitch Name="ProgressRingToggle"
+                                      VerticalAlignment="Center"
+                                      Content="IsActive"
+                                      IsChecked="True" />
+                    </StackPanel>
                     <Divider Content="PipsPager" Orientation="Horizontal" />
                     <PipsPager HorizontalAlignment="Left"
                                MaxVisiblePips="20"
