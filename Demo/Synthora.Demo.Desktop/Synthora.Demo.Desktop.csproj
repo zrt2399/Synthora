@@ -6,7 +6,7 @@
 		<Nullable>enable</Nullable>
 		<DebugType>embedded</DebugType>
 		<ApplicationManifest>app.manifest</ApplicationManifest>
-		<ApplicationIcon>..\Synthora.Demo\Assets\avalonia-logo.ico</ApplicationIcon> 
+		<ApplicationIcon>..\Synthora.Demo\Assets\avalonia-logo.ico</ApplicationIcon>
 		<AssemblyName>SynthoraDemo</AssemblyName>
 		<PublishReadyToRun>true</PublishReadyToRun>
 	</PropertyGroup>
@@ -42,6 +42,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<TrimmerRootDescriptor Include="Roots.xml" />
 		<PackageReference Include="Avalonia.Desktop" Version="$(DemoAvaloniaVersion)" />
 		<PackageReference Include="AvaloniaUI.DiagnosticsSupport" Version="2.2.2">
 			<IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>

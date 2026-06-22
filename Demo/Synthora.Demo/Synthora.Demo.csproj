@@ -10,7 +10,6 @@
 	<ItemGroup>
 		<AvaloniaResource Include="Assets/**" />
 		<AvaloniaResource Include="Styles/**" />
-		<TrimmerRootDescriptor Include="Roots.xml" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(Configuration)' == 'Debug'">
