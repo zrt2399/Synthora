@@ -15,8 +15,14 @@
                   IsEnabled="{Binding $parent[SelectableTextBlock].CanCopy}" />
         <MenuItem Command="{Binding $parent[SelectableTextBlock].SelectAll}"
                   Header="{DynamicResource StringTextFlyoutSelectAllText}"
-                  InputGesture="{x:Static GestureUtils.SelectAllGesture}"
-                  IsEnabled="{Binding $parent[SelectableTextBlock].Text, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+                  InputGesture="{x:Static GestureUtils.SelectAllGesture}">
+            <MenuItem.IsEnabled>
+                <MultiBinding Converter="{x:Static SynthoraConverters.TextBlockHasContentConverter}">
+                    <Binding Path="$parent[SelectableTextBlock].Text" />
+                    <Binding Path="$parent[SelectableTextBlock].Inlines?.Count" />
+                </MultiBinding>
+            </MenuItem.IsEnabled>
+        </MenuItem>
     </MenuFlyout>
 
     <MenuFlyout x:Key="HorizontalSelectableTextBlockContextFlyout"
@@ -29,8 +35,14 @@
                   IsEnabled="{Binding $parent[SelectableTextBlock].CanCopy}" />
         <MenuItem Command="{Binding $parent[SelectableTextBlock].SelectAll}"
                   Header="{DynamicResource StringTextFlyoutSelectAllText}"
-                  InputGesture="{x:Static GestureUtils.SelectAllGesture}"
-                  IsEnabled="{Binding $parent[SelectableTextBlock].Text, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+                  InputGesture="{x:Static GestureUtils.SelectAllGesture}">
+            <MenuItem.IsEnabled>
+                <MultiBinding Converter="{x:Static SynthoraConverters.TextBlockHasContentConverter}">
+                    <Binding Path="$parent[SelectableTextBlock].Text" />
+                    <Binding Path="$parent[SelectableTextBlock].Inlines?.Count" />
+                </MultiBinding>
+            </MenuItem.IsEnabled>
+        </MenuItem>
     </MenuFlyout>
 
     <ControlTheme x:Key="{x:Type SelectableTextBlock}" TargetType="SelectableTextBlock">
