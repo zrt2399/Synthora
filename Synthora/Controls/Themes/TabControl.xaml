@@ -17,7 +17,7 @@
                                         VerticalAlignment="{TemplateBinding TabControlAttach.VerticalHeaderAlignment}"
                                         DockPanel.Dock="{TemplateBinding TabStripPlacement}"
                                         ItemsPanel="{TemplateBinding ItemsPanel}" />
-                        <Border Name="contentBorder" BorderBrush="{DynamicResource ThemeBorderLowBrush}">
+                        <Border Name="contentBorder" BorderBrush="{DynamicResource SynthoraBorderBrush}">
                             <Panel Margin="{TemplateBinding Padding}">
                                 <ContentPresenter Name="PART_SelectedContentHost2"
                                                   HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -73,6 +73,8 @@
 
     <ControlTheme x:Key="SegmentedTabControlTheme" TargetType="TabControl">
         <Setter Property="ItemContainerTheme" Value="{DynamicResource SegmentedTabItemTheme}" />
+        <Setter Property="TabControlAttach.HeaderCornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusLarge}" />
+        <Setter Property="TabControlAttach.HeaderPadding" Value="{DynamicResource ThemeControlBorderPadding}" />
         <Setter Property="ItemsPanel">
             <ItemsPanelTemplate>
                 <WrapPanel ItemSpacing="{DynamicResource ThemeControlBorderPaddingDouble}"
@@ -90,16 +92,17 @@
                     <DockPanel>
                         <Border Name="HeaderRoot"
                                 Margin="{DynamicResource ThemeControlBorderPadding}"
-                                Padding="{DynamicResource ThemeControlBorderPadding}"
+                                Padding="{TemplateBinding TabControlAttach.HeaderPadding}"
                                 HorizontalAlignment="{TemplateBinding TabControlAttach.HorizontalHeaderAlignment}"
                                 VerticalAlignment="{TemplateBinding TabControlAttach.VerticalHeaderAlignment}"
                                 Background="{DynamicResource SynthoraMidBrush}"
-                                CornerRadius="{DynamicResource ThemeBorderCornerRadiusLarge}"
+                                BorderThickness="{TemplateBinding TabControlAttach.HeaderBorderThickness}"
+                                CornerRadius="{TemplateBinding TabControlAttach.HeaderCornerRadius}"
                                 DockPanel.Dock="{TemplateBinding TabStripPlacement}">
                             <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
                         </Border>
 
-                        <Border Name="contentBorder" BorderBrush="{DynamicResource ThemeBorderLowBrush}">
+                        <Border Name="contentBorder" BorderBrush="{DynamicResource SynthoraBorderBrush}">
                             <Panel Margin="{TemplateBinding Padding}">
                                 <ContentPresenter Name="PART_SelectedContentHost2"
                                                   HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -175,6 +178,9 @@
 
     <ControlTheme x:Key="CardTabControlTheme" TargetType="TabControl">
         <Setter Property="TabControlAttach.ShowHeaderSeparator" Value="False" />
+        <Setter Property="TabControlAttach.HeaderPadding" Value="{DynamicResource ThemeControlPadding}" />
+        <Setter Property="TabControlAttach.HeaderCornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusSmall}" />
+        <Setter Property="TabControlAttach.HeaderBorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="ItemContainerTheme" Value="{DynamicResource CardTabItemTheme}" />
         <Setter Property="ItemsPanel">
             <ItemsPanelTemplate>
@@ -199,7 +205,7 @@
                             <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
                         </Border>
 
-                        <Border Name="contentBorder" BorderBrush="{DynamicResource ThemeBorderLowBrush}">
+                        <Border Name="contentBorder" BorderBrush="{DynamicResource SynthoraBorderBrush}">
                             <Panel Margin="{TemplateBinding Padding}">
                                 <ContentPresenter Name="PART_SelectedContentHost2"
                                                   HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"

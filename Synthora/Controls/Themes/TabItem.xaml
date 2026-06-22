@@ -98,9 +98,9 @@
         <Setter Property="MinWidth" Value="{DynamicResource SegmentedTabItemMinWidth}" />
         <Setter Property="CornerRadius">
             <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.All}">
-                <Binding Path="CornerRadius" RelativeSource="{RelativeSource AncestorType=Border}" />
-                <Binding Path="BorderThickness" RelativeSource="{RelativeSource AncestorType=Border}" />
-                <Binding Path="Padding" RelativeSource="{RelativeSource AncestorType=Border}" />
+                <Binding Path="$parent[TabControl].(TabControlAttach.HeaderCornerRadius)" />
+                <Binding Path="$parent[TabControl].(TabControlAttach.HeaderBorderThickness)" />
+                <Binding Path="$parent[TabControl].(TabControlAttach.HeaderPadding)" />
             </MultiBinding>
         </Setter>
         <Setter Property="Template">
@@ -148,14 +148,14 @@
     <ControlTheme x:Key="CardTabItemTheme" TargetType="TabItem">
         <Setter Property="Background" Value="{DynamicResource SynthoraMidBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
-        <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
+        <Setter Property="BorderThickness" Value="{Binding $parent[TabControl].(TabControlAttach.HeaderBorderThickness)}" />
+        <Setter Property="CornerRadius" Value="{Binding $parent[TabControl].(TabControlAttach.HeaderCornerRadius)}" />
+        <Setter Property="Padding" Value="{Binding $parent[TabControl].(TabControlAttach.HeaderPadding)}" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
         <Setter Property="MinWidth" Value="{DynamicResource CardTabItemMinWidth}" />
         <Setter Property="ClipToBounds" Value="False" />
-        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusSmall}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Name="PART_LayoutRoot"
