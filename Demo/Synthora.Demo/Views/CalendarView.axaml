@@ -11,7 +11,7 @@
              mc:Ignorable="d">
 
     <UserControl.Styles>
-        <Style Selector="Calendar.HasShadow">
+        <Style Selector="Calendar.Shadow">
             <Setter Property="BoxShadowAttach.BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
         </Style>
     </UserControl.Styles>
@@ -29,7 +29,7 @@
                         <TimePicker TextBoxAttach.Header="TimePicker" UseSeconds="True" />
                         <TimePicker TextBoxAttach.Header="TimePicker(Without second)" />
                         <StackPanel Orientation="Horizontal" Spacing="8">
-                            <CheckBox Name="HasShadow" Content="Shadow" />
+                            <CheckBox Name="Shadow" Content="Shadow" />
                             <CheckBox Name="Highlight" Content="Highlight" />
                             <ComboBox ItemsSource="{EnumBindingSource CalendarSelectionMode}"
                                       SelectedItem="{Binding #Calendar.SelectionMode}"
@@ -37,7 +37,7 @@
                                       TextBoxAttach.HeaderPlacement="Left" />
                         </StackPanel>
                         <Calendar Name="Calendar"
-                                  Classes.HasShadow="{Binding #HasShadow.IsChecked}"
+                                  Classes.Shadow="{Binding #Shadow.IsChecked}"
                                   Classes.Highlight="{Binding #Highlight.IsChecked}"
                                   SelectionMode="SingleRange" />
                     </StackPanel>

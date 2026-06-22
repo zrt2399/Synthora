@@ -28,6 +28,7 @@
                   TargetType="ListBoxItem">
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="CornerRadius" Value="0" />
 
         <!--<Style Selector="^.MonthItem">
             <Setter Property="Padding" Value="{DynamicResource DatePickerFlyoutPresenterMonthPadding}" />

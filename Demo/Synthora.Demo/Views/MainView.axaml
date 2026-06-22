@@ -10,7 +10,7 @@
              xmlns:so="https://github.com/zrt2399/synthora"
              xmlns:views="using:Synthora.Demo.Views"
              xmlns:vm="using:Synthora.Demo.ViewModels"
-             Margin="{OnFormFactor Desktop={Binding $parent[Window].WindowDecorationMargin}}"
+             Margin="{Binding $parent[Window].WindowDecorationMargin}"
              d:DesignHeight="550"
              d:DesignWidth="900"
              x:DataType="vm:MainViewModel"

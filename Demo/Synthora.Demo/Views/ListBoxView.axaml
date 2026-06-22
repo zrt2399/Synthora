@@ -14,7 +14,9 @@
     <DemoPage Title="List Box"
               Description="{Binding Description}"
               IconKind="{Binding IconKind}">
-        <ListBox CornerRadius="12" ItemsSource="{EnumBindingSource icons:MaterialIconKind}" />
+        <Border Classes="card">
+            <ListBox ItemsSource="{EnumBindingSource icons:MaterialIconKind}" />
+        </Border>
     </DemoPage>
 
 </UserControl>

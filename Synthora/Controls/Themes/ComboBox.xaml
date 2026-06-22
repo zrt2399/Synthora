@@ -173,11 +173,11 @@
                                         <EmptyBox Margin="10"
                                                   HorizontalAlignment="Center"
                                                   VerticalAlignment="Center"
-                                                  IsVisible="{Binding Items.Count, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static SynthoraConverters.IsZero}}" />
+                                                  IsVisible="{Binding $parent[ComboBox].Items.Count, Converter={x:Static SynthoraConverters.IsZero}}" />
                                         <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
                                                       IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}"
                                                       IsScrollChainingEnabled="False"
-                                                      IsVisible="{Binding Items.Count, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static SynthoraConverters.IsNotZero}}"
+                                                      IsVisible="{Binding $parent[ComboBox].Items.Count, Converter={x:Static SynthoraConverters.IsNotZero}}"
                                                       VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
                                             <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
                                         </ScrollViewer>

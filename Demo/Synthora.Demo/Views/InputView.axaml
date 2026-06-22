@@ -27,16 +27,17 @@
                                          MinimumPrefixLength="1"
                                          Text="{Binding AutoCompleteText}"
                                          TextBoxAttach.Header="AutoCompleteBox" />
-                         <TextBox InnerRightContent="Ω"
-                                     PlaceholderText="Type a message"
-                                     Text="{Binding Greeting}"
-                                     TextAlignment="Right"
-                                     TextBoxAttach.Header="TextBox(With InnerRightContent)"
-                                     TextWrapping="Wrap"
-                                     UseFloatingPlaceholder="True" />
-                        <UniformGrid Columns="2" ColumnSpacing="16" RowSpacing="16">
-                            <TextBox Text="TextBox"
-                                     TextBoxAttach.Header="TextBox" />
+                        <TextBox InnerRightContent="Ω"
+                                 PlaceholderText="Type a message"
+                                 Text="{Binding Greeting}"
+                                 TextAlignment="Right"
+                                 TextBoxAttach.Header="TextBox(With InnerRightContent)"
+                                 TextWrapping="Wrap"
+                                 UseFloatingPlaceholder="True" />
+                        <UniformGrid ColumnSpacing="16"
+                                     Columns="2"
+                                     RowSpacing="16">
+                            <TextBox Text="TextBox" TextBoxAttach.Header="TextBox" />
                             <TextBox IsReadOnly="True"
                                      Text="ReadOnly"
                                      TextBoxAttach.Header="TextBox(ReadOnly)" />

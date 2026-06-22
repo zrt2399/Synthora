@@ -138,7 +138,7 @@
         <Setter Property="BoxShadowAttach.BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusLarge}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
         <Setter Property="Padding" Value="10" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">

@@ -71,10 +71,11 @@
             <SolidColorBrush x:Key="SynthoraHighlightPressedBackgroundBrush" Color="{StaticResource SynthoraHighlightPressedBackgroundColor}" />
             <SolidColorBrush x:Key="SynthoraHighlightBorderBrush" Color="{StaticResource SynthoraHighlightBorderColor}" />
 
-            <SolidColorBrush x:Key="ThemeForegroundBrush" Color="{StaticResource ThemeForegroundColor}" />
             <SolidColorBrush x:Key="ThemeForegroundLowBrush" Color="{StaticResource ThemeForegroundLowColor}" />
             <SolidColorBrush x:Key="ThemeForegroundMidBrush" Color="{StaticResource ThemeForegroundMidColor}" />
+            <SolidColorBrush x:Key="ThemeForegroundBrush" Color="{StaticResource ThemeForegroundColor}" />
             <SolidColorBrush x:Key="ThemeBackgroundBrush" Color="{StaticResource ThemeBackgroundColor}" />
+
             <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource SecondaryColor}" />
             <SolidColorBrush x:Key="SecondaryPointerOverBrush" Color="{StaticResource SecondaryPointerOverColor}" />
             <SolidColorBrush x:Key="SecondaryPressedBrush" Color="{StaticResource SecondaryPressedColor}" />
@@ -218,10 +219,11 @@
             <SolidColorBrush x:Key="SynthoraHighlightPressedBackgroundBrush" Color="{StaticResource SynthoraHighlightPressedBackgroundColor}" />
             <SolidColorBrush x:Key="SynthoraHighlightBorderBrush" Color="{StaticResource SynthoraHighlightBorderColor}" />
 
-            <SolidColorBrush x:Key="ThemeForegroundBrush" Color="{StaticResource ThemeForegroundColor}" />
             <SolidColorBrush x:Key="ThemeForegroundLowBrush" Color="{StaticResource ThemeForegroundLowColor}" />
             <SolidColorBrush x:Key="ThemeForegroundMidBrush" Color="{StaticResource ThemeForegroundMidColor}" />
+            <SolidColorBrush x:Key="ThemeForegroundBrush" Color="{StaticResource ThemeForegroundColor}" />
             <SolidColorBrush x:Key="ThemeBackgroundBrush" Color="{StaticResource ThemeBackgroundColor}" />
+
             <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource SecondaryColor}" />
             <SolidColorBrush x:Key="SecondaryPointerOverBrush" Color="{StaticResource SecondaryPointerOverColor}" />
             <SolidColorBrush x:Key="SecondaryPressedBrush" Color="{StaticResource SecondaryPressedColor}" />

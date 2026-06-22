@@ -489,7 +489,6 @@
                             </StackPanel>
 
                             <TreeView Height="160"
-                                      CornerRadius="12"
                                       DockPanel.Dock="Top">
                                 <TreeViewItem Header="Views" IsExpanded="True">
                                     <TreeViewItem Header="Overview.axaml" />

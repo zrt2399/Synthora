@@ -11,11 +11,8 @@
              mc:Ignorable="d">
 
     <UserControl.Styles>
-        <Style Selector="DataGrid.HasShadow">
+        <Style Selector="DataGrid.Shadow">
             <Setter Property="BoxShadowAttach.BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
-        </Style>
-        <Style Selector="DataGrid.Borderless">
-            <Setter Property="BorderThickness" Value="0" />
         </Style>
     </UserControl.Styles>
 
@@ -38,6 +35,7 @@
 
             <TabItem Header="Grouping">
                 <DataGrid x:Name="DataGrid"
+                          Classes="Border"
                           HeadersVisibility="All"
                           ItemsSource="{Binding DataGridCollectionView}" />
             </TabItem>
@@ -48,8 +46,8 @@
                                ItemSpacing="16"
                                LineSpacing="16"
                                Orientation="Horizontal">
-                        <CheckBox Name="Borderless"
-                                  Content="Borderless"
+                        <CheckBox Name="Border"
+                                  Content="Border"
                                   IsChecked="True" />
                         <StackPanel Orientation="Horizontal" Spacing="8">
                             <TextBlock VerticalAlignment="Center">
@@ -63,7 +61,7 @@
                                     TickFrequency="1" />
                         </StackPanel>
 
-                        <CheckBox Name="HasShadow"
+                        <CheckBox Name="Shadow"
                                   Content="Shadow"
                                   IsChecked="True" />
                         <CheckBox Content="AllowAutoHide" IsChecked="{Binding #DataGridEmployees.(ScrollViewer.AllowAutoHide)}" />
@@ -84,8 +82,8 @@
                         </Button>
                     </WrapPanel>
                     <DataGrid Name="DataGridEmployees"
-                              Classes.Borderless="{Binding #Borderless.IsChecked}"
-                              Classes.HasShadow="{Binding #HasShadow.IsChecked}"
+                              Classes.Border="{Binding #Border.IsChecked}"
+                              Classes.Shadow="{Binding #Shadow.IsChecked}"
                               CornerRadius="{Binding #Slider.Value, Converter={x:Static SynthoraConverters.DoubleToCornerRadiusConverter}}"
                               ItemsSource="{Binding Employees}" />
                 </DockPanel>

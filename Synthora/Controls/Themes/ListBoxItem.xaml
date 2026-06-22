@@ -5,9 +5,8 @@
 
     <ControlTheme x:Key="{x:Type ListBoxItem}" TargetType="ListBoxItem">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusSmall}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Background="{TemplateBinding Background}"

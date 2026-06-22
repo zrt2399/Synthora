@@ -13,29 +13,31 @@
     <DemoPage Title="Tree View"
               Description="{Binding Description}"
               IconKind="{Binding IconKind}">
-        <TreeView CornerRadius="12">
-            <TreeViewItem Header="Documents" IsExpanded="True">
-                <TreeViewItem Header="Work">
-                    <TreeViewItem Header="ProjectProposal.docx" />
-                    <TreeViewItem Header="QuarterlyReport.xlsx" />
+        <Border Classes="card">
+            <TreeView >
+                <TreeViewItem Header="Documents" IsExpanded="True">
+                    <TreeViewItem Header="Work">
+                        <TreeViewItem Header="ProjectProposal.docx" />
+                        <TreeViewItem Header="QuarterlyReport.xlsx" />
+                    </TreeViewItem>
+                    <TreeViewItem Header="Personal">
+                        <TreeViewItem Header="Resume.pdf" />
+                        <TreeViewItem Header="Budget.xlsx" />
+                    </TreeViewItem>
                 </TreeViewItem>
-                <TreeViewItem Header="Personal">
-                    <TreeViewItem Header="Resume.pdf" />
-                    <TreeViewItem Header="Budget.xlsx" />
+                <TreeViewItem Header="Images" IsExpanded="True">
+                    <TreeViewItem Header="Vacation">
+                        <TreeViewItem Header="Beach.jpg" />
+                        <TreeViewItem Header="Mountains.png" />
+                    </TreeViewItem>
+                    <TreeViewItem Header="Screenshots" />
                 </TreeViewItem>
-            </TreeViewItem>
-            <TreeViewItem Header="Images" IsExpanded="True">
-                <TreeViewItem Header="Vacation">
-                    <TreeViewItem Header="Beach.jpg" />
-                    <TreeViewItem Header="Mountains.png" />
+                <TreeViewItem Header="Downloads">
+                    <TreeViewItem Header="Synthora-v1.0.zip" />
+                    <TreeViewItem Header="Avalonia_Logo.svg" />
                 </TreeViewItem>
-                <TreeViewItem Header="Screenshots" />
-            </TreeViewItem>
-            <TreeViewItem Header="Downloads">
-                <TreeViewItem Header="Synthora-v1.0.zip" />
-                <TreeViewItem Header="Avalonia_Logo.svg" />
-            </TreeViewItem>
-        </TreeView>
+            </TreeView>
+        </Border>
     </DemoPage>
 
 </UserControl>
