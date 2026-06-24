@@ -20,9 +20,6 @@
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="CornerRadius" Value="0" />
         <Setter Property="Background" Value="Transparent" />
-        <!--  Temporary solution  https://github.com/AvaloniaUI/Avalonia.Controls.DataGrid/issues/234  -->
-        <Setter Property="ContextFlyout" Value="{x:Null}" />
-        <Setter Property="ContextMenu" Value="{x:Null}" />
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type DataGridCell}" TargetType="DataGridCell">
