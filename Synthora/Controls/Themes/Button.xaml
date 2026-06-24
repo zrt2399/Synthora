@@ -208,6 +208,16 @@
             <Setter Property="Background" Value="{DynamicResource TransparentPressedBrush}" />
         </Style>
 
+        <Style Selector="^.Warning">
+            <Style Selector="^:focus,^:pointerover">
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Background" Value="{DynamicResource WarningPointerOverBrush}" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Background" Value="{DynamicResource WarningPressedBrush}" />
+            </Style>
+        </Style>
         <Style Selector="^.Error">
             <Style Selector="^:focus,^:pointerover">
                 <Setter Property="Foreground" Value="White" />

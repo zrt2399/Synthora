@@ -65,7 +65,7 @@
                                 <MenuItem Header="Paste"
                                           Icon="{materialIcons:MaterialIconExt Kind=ContentPaste}"
                                           InputGesture="Ctrl+V" />
-                                <MenuItem Header="Delete"
+                                <MenuItem Header="Delete" Classes="Error"
                                           Icon="{materialIcons:MaterialIconExt Kind=DeleteOutline}"
                                           InputGesture="Delete" />
                             </MenuItem>
@@ -114,6 +114,7 @@
                                     </MenuItem>
                                     <Separator />
                                     <MenuItem Foreground="{StaticResource DangerBrush}"
+                                              Classes="Error"
                                               Header="Delete"
                                               HotKey="Control+D"
                                               Icon="{materialIcons:MaterialIconExt Kind=Delete}"
@@ -151,6 +152,7 @@
                                               Icon="{materialIcons:MaterialIconExt Kind=ContentCut}"
                                               InputGesture="Ctrl+K" />
                                     <MenuItem Header="Ripple Delete"
+                                              Classes="Warning"
                                               Icon="{materialIcons:MaterialIconExt Kind=DeleteSweepOutline}"
                                               InputGesture="Shift+Delete" />
                                     <MenuItem Header="Duplicate Clip"
@@ -231,6 +233,10 @@
                                 <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=ContentPaste}"
                                                   Label="Paste"
                                                   ToolTip.Tip="Paste (Ctrl+V)" />
+                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=Delete}"
+                                                  Classes="Error"
+                                                  Label="Delete"
+                                                  ToolTip.Tip="Delete (Del)" />
                                 <CommandBarSeparator />
                                 <CommandBarToggleButton Icon="{materialIcons:MaterialIconExt Kind=FormatBold}"
                                                         Label="Bold"
@@ -270,6 +276,10 @@
                                     <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=Play}"
                                                       Label="Play"
                                                       ToolTip.Tip="Play/Pause (Space)" />
+                                    <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=Delete}"
+                                                      Classes="Error"
+                                                      Label="Delete"
+                                                      ToolTip.Tip="Delete (Del)" />
                                     <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=SkipPrevious}"
                                                       Label="Go to In"
                                                       ToolTip.Tip="Go to In Point" />

@@ -114,18 +114,13 @@
             </Setter>
         </Style>
 
-        <Style Selector="^:selected">
-            <Style Selector="^ /template/ Border#root">
-                <Setter Property="Background" Value="{DynamicResource MenuItemPointerOverBrush}" />
-            </Style>
+        <Style Selector="^:selected /template/ Border#root">
+            <Setter Property="Background" Value="{DynamicResource MenuItemPointerOverBrush}" />
         </Style>
 
-        <Style Selector="^:pressed">
-            <!--  <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />  -->
+        <Style Selector="^:pressed /template/ Border#root:pointerover">
             <!--  Listen for root:pointerover, so it will not be triggered when subitem is pressed  -->
-            <Style Selector="^ /template/ Border#root:pointerover">
-                <Setter Property="Background" Value="{DynamicResource MenuItemPressedBrush}" />
-            </Style>
+            <Setter Property="Background" Value="{DynamicResource MenuItemPressedBrush}" />
         </Style>
 
         <Style Selector="^:empty /template/ PathIcon#rightArrow">
@@ -159,6 +154,43 @@
                              Fill="{Binding $parent[MenuItem].Foreground}" />
                 </Template>
             </Setter>
+        </Style>
+
+        <Style Selector="^.Warning">
+            <Style Selector="^:selected /template/ Border#root PathIcon,^:pressed /template/ Border#root:pointerover PathIcon">
+                <Setter Property="Foreground" Value="White" />
+            </Style>
+            <Style Selector="^:selected /template/ Border#root TextBlock,^:pressed /template/ Border#root:pointerover TextBlock">
+                <Setter Property="Foreground" Value="White" />
+            </Style>
+            <Style Selector="^:selected /template/ Border#root ContentPresenter,^:pressed /template/ Border#root:pointerover ContentPresenter">
+                <Setter Property="Foreground" Value="White" />
+            </Style> 
+            <Style Selector="^:selected /template/ Border#root">
+                <Setter Property="Background" Value="{DynamicResource WarningPointerOverBrush}" />
+            </Style>
+            <Style Selector="^:pressed /template/ Border#root:pointerover">
+                <!--  Listen for root:pointerover, so it will not be triggered when subitem is pressed  -->
+                <Setter Property="Background" Value="{DynamicResource WarningPressedBrush}" />
+            </Style>
+        </Style>
+        <Style Selector="^.Error">
+            <Style Selector="^:selected /template/ Border#root PathIcon,^:pressed /template/ Border#root:pointerover PathIcon">
+                <Setter Property="Foreground" Value="White" />
+            </Style>
+            <Style Selector="^:selected /template/ Border#root TextBlock,^:pressed /template/ Border#root:pointerover TextBlock">
+                <Setter Property="Foreground" Value="White" />
+            </Style>
+            <Style Selector="^:selected /template/ Border#root ContentPresenter,^:pressed /template/ Border#root:pointerover ContentPresenter">
+                <Setter Property="Foreground" Value="White" />
+            </Style>
+            <Style Selector="^:selected /template/ Border#root">
+                <Setter Property="Background" Value="{DynamicResource ErrorPointerOverBrush}" />
+            </Style>
+            <Style Selector="^:pressed /template/ Border#root:pointerover">
+                <!--  Listen for root:pointerover, so it will not be triggered when subitem is pressed  -->
+                <Setter Property="Background" Value="{DynamicResource ErrorPressedBrush}" />
+            </Style>
         </Style>
 
         <Style Selector="^:disabled">
