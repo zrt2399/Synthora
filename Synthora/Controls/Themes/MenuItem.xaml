@@ -38,6 +38,7 @@
                                           Width="16"
                                           Height="16"
                                           IsVisible="False" />
+
                         <ContentPresenter Name="PART_IconPresenter"
                                           Grid.Column="0"
                                           Width="16"
@@ -55,6 +56,7 @@
                                 </DataTemplate>
                             </ContentPresenter.DataTemplates>
                         </ContentPresenter>
+
                         <ContentPresenter Name="PART_HeaderPresenter"
                                           Grid.Column="2"
                                           Margin="{TemplateBinding Padding}"
@@ -67,11 +69,12 @@
                                 </DataTemplate>
                             </ContentPresenter.DataTemplates>
                         </ContentPresenter>
+
                         <TextBlock x:Name="PART_InputGestureText"
                                    Grid.Column="3"
                                    Margin="20,0,0,0"
                                    VerticalAlignment="Center"
-                                   IsVisible="{Binding $self.Text, Converter={x:Static SynthoraConverters.IsNotNullOrEmpty}}"
+                                   IsVisible="{Binding $self.Text, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                                    Text="{TemplateBinding InputGesture,
                                                           Converter={StaticResource KeyGestureConverter}}" />
 
@@ -82,6 +85,7 @@
                                   Margin="0,0,4,0"
                                   VerticalAlignment="Center"
                                   Data="{DynamicResource ArrowRightData}" />
+
                         <Popup Name="PART_Popup"
                                IsLightDismissEnabled="False"
                                IsOpen="{TemplateBinding IsSubMenuOpen,
@@ -139,7 +143,7 @@
                     <Path HorizontalAlignment="Center"
                           VerticalAlignment="Center"
                           Data="F1M10,1.2L4.7,9.1 4.5,9.1 0,5.2 1.3,3.5 4.3,6.1 8.3,0 10,1.2z"
-                          Fill="{Binding $parent[MenuItem].Foreground}" />
+                          Fill="{Binding $parent[ContentPresenter].Foreground}" />
                 </Template>
             </Setter>
         </Style>
@@ -148,15 +152,59 @@
                 <Template>
                     <Ellipse Width="8"
                              Height="8"
-                             Margin="4"
                              HorizontalAlignment="Center"
                              VerticalAlignment="Center"
-                             Fill="{Binding $parent[MenuItem].Foreground}" />
+                             Fill="{Binding $parent[ContentPresenter].Foreground}" />
                 </Template>
             </Setter>
         </Style>
 
+        <Style Selector="^.Primary">
+            <Style Selector="^:selected /template/ Border#root PathIcon,^:pressed /template/ Border#root:pointerover PathIcon">
+                <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+            </Style>
+            <Style Selector="^:selected /template/ Border#root TextBlock,^:pressed /template/ Border#root:pointerover TextBlock">
+                <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+            </Style>
+            <Style Selector="^:selected /template/ Border#root ContentPresenter,^:pressed /template/ Border#root:pointerover ContentPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+            </Style>
+            <Style Selector="^:selected /template/ Border#root">
+                <Setter Property="Background" Value="{DynamicResource PrimaryPointerOverBrush}" />
+            </Style>
+            <Style Selector="^:pressed /template/ Border#root:pointerover">
+                <!--  Listen for root:pointerover, so it will not be triggered when subitem is pressed  -->
+                <Setter Property="Background" Value="{DynamicResource PrimaryPressedBrush}" />
+            </Style>
+        </Style>
+        <Style Selector="^.Secondary">
+            <Style Selector="^:selected /template/ Border#root PathIcon,^:pressed /template/ Border#root:pointerover PathIcon">
+                <Setter Property="Foreground" Value="{DynamicResource OnSecondaryBrush}" />
+            </Style>
+            <Style Selector="^:selected /template/ Border#root TextBlock,^:pressed /template/ Border#root:pointerover TextBlock">
+                <Setter Property="Foreground" Value="{DynamicResource OnSecondaryBrush}" />
+            </Style>
+            <Style Selector="^:selected /template/ Border#root ContentPresenter,^:pressed /template/ Border#root:pointerover ContentPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource OnSecondaryBrush}" />
+            </Style>
+            <Style Selector="^:selected /template/ Border#root">
+                <Setter Property="Background" Value="{DynamicResource SecondaryPointerOverBrush}" />
+            </Style>
+            <Style Selector="^:pressed /template/ Border#root:pointerover">
+                <!--  Listen for root:pointerover, so it will not be triggered when subitem is pressed  -->
+                <Setter Property="Background" Value="{DynamicResource SecondaryPressedBrush}" />
+            </Style>
+        </Style>
         <Style Selector="^.Warning">
+            <Style Selector="^ /template/ PathIcon">
+                <Setter Property="Foreground" Value="{DynamicResource WarningBrush}" />
+            </Style>
+            <Style Selector="^ /template/ TextBlock">
+                <Setter Property="Foreground" Value="{DynamicResource WarningBrush}" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource WarningBrush}" />
+            </Style>
             <Style Selector="^:selected /template/ Border#root PathIcon,^:pressed /template/ Border#root:pointerover PathIcon">
                 <Setter Property="Foreground" Value="White" />
             </Style>
@@ -165,7 +213,7 @@
             </Style>
             <Style Selector="^:selected /template/ Border#root ContentPresenter,^:pressed /template/ Border#root:pointerover ContentPresenter">
                 <Setter Property="Foreground" Value="White" />
-            </Style> 
+            </Style>
             <Style Selector="^:selected /template/ Border#root">
                 <Setter Property="Background" Value="{DynamicResource WarningPointerOverBrush}" />
             </Style>
@@ -175,6 +223,15 @@
             </Style>
         </Style>
         <Style Selector="^.Error">
+            <Style Selector="^ /template/ PathIcon">
+                <Setter Property="Foreground" Value="{DynamicResource ErrorBrush}" />
+            </Style>
+            <Style Selector="^ /template/ TextBlock">
+                <Setter Property="Foreground" Value="{DynamicResource ErrorBrush}" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource ErrorBrush}" />
+            </Style>
             <Style Selector="^:selected /template/ Border#root PathIcon,^:pressed /template/ Border#root:pointerover PathIcon">
                 <Setter Property="Foreground" Value="White" />
             </Style>

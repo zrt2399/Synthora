@@ -65,7 +65,8 @@
                                 <MenuItem Header="Paste"
                                           Icon="{materialIcons:MaterialIconExt Kind=ContentPaste}"
                                           InputGesture="Ctrl+V" />
-                                <MenuItem Header="Delete" Classes="Error"
+                                <MenuItem Header="Delete"
+                                          Classes="Error"
                                           Icon="{materialIcons:MaterialIconExt Kind=DeleteOutline}"
                                           InputGesture="Delete" />
                             </MenuItem>
@@ -113,15 +114,20 @@
                                         </MenuItem>
                                     </MenuItem>
                                     <Separator />
+                                    <MenuItem Classes="Primary"
+                                              Header="Classes: Primary"/>
+                                    <MenuItem Classes="Secondary"
+                                              Header="Classes: Secondary"/>
+                                    <MenuItem Classes="Warning"
+                                              Header="Classes: Warning"/>
+                                    <MenuItem Classes="Error"
+                                              Header="Classes: Error"/>
                                     <MenuItem Foreground="{StaticResource DangerBrush}"
                                               Classes="Error"
                                               Header="Delete"
                                               HotKey="Control+D"
                                               Icon="{materialIcons:MaterialIconExt Kind=Delete}"
                                               InputGesture="{Binding $self.HotKey}" />
-                                    <MenuItem Foreground="{StaticResource WarningBrush}"
-                                              Header="Refresh"
-                                              Icon="{materialIcons:MaterialIconExt Kind=Refresh}" />
                                     <MenuItem Header="Disabled"
                                               Icon="{materialIcons:MaterialIconExt Kind=MinusCircleOffOutline}"
                                               IsEnabled="False" />

@@ -49,14 +49,14 @@
                                     Classes="AutoHide"
                                     Command="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Explore}"
                                     Content="{TemplateBinding ExploreButtonContent}"
-                                    IsEnabled="{Binding ElementName=PART_TextBox, Path=Text, Converter={x:Static SynthoraConverters.IsNotNullOrEmpty}}"
+                                    IsEnabled="{Binding ElementName=PART_TextBox, Path=Text, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                                     ToolTip.Tip="{TemplateBinding ExploreButtonToolTip}" />
                             <Button Grid.Column="3"
                                     Margin="{TemplateBinding Spacing}"
                                     Classes="AutoHide"
                                     Command="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Open}"
                                     Content="{TemplateBinding OpenButtonContent}"
-                                    IsEnabled="{Binding ElementName=PART_TextBox, Path=Text, Converter={x:Static SynthoraConverters.IsNotNullOrEmpty}}"
+                                    IsEnabled="{Binding ElementName=PART_TextBox, Path=Text, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                                     ToolTip.Tip="{TemplateBinding OpenButtonToolTip}" />
                         </Grid>
                     </Border>
