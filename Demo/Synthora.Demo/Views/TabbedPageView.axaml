@@ -19,6 +19,7 @@
                        LineSpacing="16"
                        Orientation="Horizontal">
                 <CheckBox IsChecked="{Binding #TabbedPage.(TabControlAttach.ShowHeaderSeparator)}">ShowHeaderSeparator</CheckBox>
+                <CheckBox IsChecked="{Binding #TabbedPage.(TabControlAttach.ShowHeaderShadow)}">ShowHeaderShadow</CheckBox>
                 <CheckBox Name="Secondary">Secondary</CheckBox>
                 <ComboBox ItemsSource="{EnumBindingSource TabPlacement}"
                           SelectedItem="{Binding #TabbedPage.TabPlacement}"

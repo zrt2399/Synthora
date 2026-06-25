@@ -15,6 +15,9 @@ namespace Synthora.Attaches
         public static readonly AttachedProperty<bool> ShowHeaderSeparatorProperty =
             AvaloniaProperty.RegisterAttached<TabControlAttach, Control, bool>("ShowHeaderSeparator", defaultValue: true);
 
+        public static readonly AttachedProperty<bool> ShowHeaderShadowProperty =
+            AvaloniaProperty.RegisterAttached<TabControlAttach, Control, bool>("ShowHeaderShadow");
+
         public static readonly AttachedProperty<CornerRadius> HeaderCornerRadiusProperty =
             AvaloniaProperty.RegisterAttached<TabControlAttach, Control, CornerRadius>("HeaderCornerRadius");
 
@@ -32,6 +35,9 @@ namespace Synthora.Attaches
 
         public static bool GetShowHeaderSeparator(Control obj) => obj.GetValue(ShowHeaderSeparatorProperty);
         public static void SetShowHeaderSeparator(Control obj, bool value) => obj.SetValue(ShowHeaderSeparatorProperty, value);
+
+        public static bool GetShowHeaderShadow(Control obj) => obj.GetValue(ShowHeaderShadowProperty);
+        public static void SetShowHeaderShadow(Control obj, bool value) => obj.SetValue(ShowHeaderShadowProperty, value);
 
         public static CornerRadius GetHeaderCornerRadius(Control obj) => obj.GetValue(HeaderCornerRadiusProperty);
         public static void SetHeaderCornerRadius(Control obj, CornerRadius value) => obj.SetValue(HeaderCornerRadiusProperty, value);

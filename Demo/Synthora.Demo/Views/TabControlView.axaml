@@ -18,20 +18,21 @@
                        ItemSpacing="16"
                        LineSpacing="16"
                        Orientation="Horizontal">
-                <CheckBox Name="showHeaderSeparator" IsChecked="True">ShowHeaderSeparator</CheckBox>
+                <CheckBox Name="ShowHeaderSeparator" IsChecked="True">ShowHeaderSeparator</CheckBox>
+                <CheckBox Name="ShowHeaderShadow" IsChecked="True">ShowHeaderShadow</CheckBox>
                 <CheckBox Name="Primary">Primary</CheckBox>
                 <CheckBox Name="Secondary">Secondary</CheckBox>
-                <ComboBox Name="tabStripPlacement"
+                <ComboBox Name="TabStripPlacement"
                           ItemsSource="{EnumBindingSource Dock}"
                           SelectedItem="{x:Static Dock.Top}"
                           TextBoxAttach.Header="TabStripPlacement: "
                           TextBoxAttach.HeaderPlacement="Left" />
-                <ComboBox Name="horizontalHeaderAlignment"
+                <ComboBox Name="HorizontalHeaderAlignment"
                           ItemsSource="{EnumBindingSource HorizontalAlignment}"
                           SelectedItem="{x:Static HorizontalAlignment.Left}"
                           TextBoxAttach.Header="HorizontalHeaderAlignment: "
                           TextBoxAttach.HeaderPlacement="Left" />
-                <ComboBox Name="verticalHeaderAlignment"
+                <ComboBox Name="VerticalHeaderAlignment"
                           ItemsSource="{EnumBindingSource VerticalAlignment}"
                           SelectedItem="{x:Static VerticalAlignment.Top}"
                           TextBoxAttach.Header="VerticalHeaderAlignment: "
@@ -39,10 +40,11 @@
             </WrapPanel>
             <UniformGrid Columns="1" RowSpacing="16">
                 <TabControl Classes.Secondary="{Binding #Secondary.IsChecked}"
-                            TabControlAttach.HorizontalHeaderAlignment="{Binding #horizontalHeaderAlignment.SelectedItem}"
-                            TabControlAttach.ShowHeaderSeparator="{Binding #showHeaderSeparator.IsChecked}"
-                            TabControlAttach.VerticalHeaderAlignment="{Binding #verticalHeaderAlignment.SelectedItem}"
-                            TabStripPlacement="{Binding #tabStripPlacement.SelectedItem}">
+                            TabControlAttach.HorizontalHeaderAlignment="{Binding #HorizontalHeaderAlignment.SelectedItem}"
+                            TabControlAttach.ShowHeaderSeparator="{Binding #ShowHeaderSeparator.IsChecked}"
+                            TabControlAttach.ShowHeaderShadow="{Binding #ShowHeaderShadow.IsChecked}"
+                            TabControlAttach.VerticalHeaderAlignment="{Binding #VerticalHeaderAlignment.SelectedItem}"
+                            TabStripPlacement="{Binding #TabStripPlacement.SelectedItem}">
                     <TabItem Header="Tab 1">
                         <SelectableTextBlock>DefaultTheme</SelectableTextBlock>
                     </TabItem>
@@ -57,10 +59,11 @@
                     </TabItem>
                 </TabControl>
                 <TabControl Classes.Primary="{Binding #Primary.IsChecked}"
-                            TabControlAttach.HorizontalHeaderAlignment="{Binding #horizontalHeaderAlignment.SelectedItem}"
-                            TabControlAttach.ShowHeaderSeparator="{Binding #showHeaderSeparator.IsChecked}"
-                            TabControlAttach.VerticalHeaderAlignment="{Binding #verticalHeaderAlignment.SelectedItem}"
-                            TabStripPlacement="{Binding #tabStripPlacement.SelectedItem}"
+                            TabControlAttach.HorizontalHeaderAlignment="{Binding #HorizontalHeaderAlignment.SelectedItem}"
+                            TabControlAttach.ShowHeaderSeparator="{Binding #ShowHeaderSeparator.IsChecked}"
+                            TabControlAttach.ShowHeaderShadow="{Binding #ShowHeaderShadow.IsChecked}"
+                            TabControlAttach.VerticalHeaderAlignment="{Binding #VerticalHeaderAlignment.SelectedItem}"
+                            TabStripPlacement="{Binding #TabStripPlacement.SelectedItem}"
                             Theme="{StaticResource SegmentedTabControlTheme}">
                     <TabItem Header="Tab 1">
                         <SelectableTextBlock>SegmentedTabControlTheme</SelectableTextBlock>
@@ -77,8 +80,9 @@
                 </TabControl>
                 <TabControl Classes="Uniform"
                             Classes.Primary="{Binding #Primary.IsChecked}"
-                            TabControlAttach.ShowHeaderSeparator="{Binding #showHeaderSeparator.IsChecked}"
-                            TabStripPlacement="{Binding #tabStripPlacement.SelectedItem}"
+                            TabControlAttach.ShowHeaderSeparator="{Binding #ShowHeaderSeparator.IsChecked}"
+                            TabControlAttach.ShowHeaderShadow="{Binding #ShowHeaderShadow.IsChecked}"
+                            TabStripPlacement="{Binding #TabStripPlacement.SelectedItem}"
                             Theme="{StaticResource SegmentedTabControlTheme}">
                     <TabItem Header="Tab 1">
                         <SelectableTextBlock>SegmentedTabControlTheme with Classes Uniform</SelectableTextBlock>
@@ -94,10 +98,11 @@
                     </TabItem>
                 </TabControl>
                 <TabControl Classes.Primary="{Binding #Primary.IsChecked}"
-                            TabControlAttach.HorizontalHeaderAlignment="{Binding #horizontalHeaderAlignment.SelectedItem}"
-                            TabControlAttach.ShowHeaderSeparator="{Binding #showHeaderSeparator.IsChecked}"
-                            TabControlAttach.VerticalHeaderAlignment="{Binding #verticalHeaderAlignment.SelectedItem}"
-                            TabStripPlacement="{Binding #tabStripPlacement.SelectedItem}"
+                            TabControlAttach.HorizontalHeaderAlignment="{Binding #HorizontalHeaderAlignment.SelectedItem}"
+                            TabControlAttach.ShowHeaderSeparator="{Binding #ShowHeaderSeparator.IsChecked}"
+                            TabControlAttach.ShowHeaderShadow="{Binding #ShowHeaderShadow.IsChecked}"
+                            TabControlAttach.VerticalHeaderAlignment="{Binding #VerticalHeaderAlignment.SelectedItem}"
+                            TabStripPlacement="{Binding #TabStripPlacement.SelectedItem}"
                             Theme="{StaticResource CardTabControlTheme}">
                     <TabItem Header="Tab 1">
                         <SelectableTextBlock>CardTabControlTheme</SelectableTextBlock>
