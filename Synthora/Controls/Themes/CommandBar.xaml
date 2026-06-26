@@ -41,7 +41,7 @@
     <ControlTheme x:Key="CommandBarButtonBaseTheme" TargetType="Button">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="Padding" Value="{DynamicResource CommandBarButtonPadding}" />
+        <Setter Property="Padding" Value="{DynamicResource IconButtonPadding}" />
         <Setter Property="MaxWidth" Value="{DynamicResource CommandBarButtonMaxWidth}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -64,7 +64,7 @@
                     <StackPanel x:Name="PART_LayoutRoot"
                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                Spacing="{DynamicResource CommandBarButtonPaddingDouble}">
+                                Spacing="{DynamicResource IconButtonPaddingDouble}">
                         <ContentPresenter Name="PART_IconPresenter"
                                           HorizontalAlignment="Center"
                                           VerticalAlignment="Center">
@@ -179,7 +179,7 @@
             <Setter Property="IsVisible" Value="False" />
         </Style>
         <Style Selector="^[IsCompact=False][LabelPosition=Right] /template/ TextBlock#PART_Label">
-            <Setter Property="IsVisible" Value="{Binding $self.Text, Converter={x:Static ObjectConverters.IsNotNull}}" />
+            <Setter Property="IsVisible" Value="{Binding $self.Text, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
         </Style>
 
         <Style Selector="^[LabelPosition=Bottom]">
@@ -229,7 +229,7 @@
             <Setter Property="IsVisible" Value="False" />
         </Style>
         <Style Selector="^[IsCompact=False][LabelPosition=Right] /template/ TextBlock#PART_Label">
-            <Setter Property="IsVisible" Value="{Binding $self.Text, Converter={x:Static ObjectConverters.IsNotNull}}" />
+            <Setter Property="IsVisible" Value="{Binding $self.Text, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
         </Style>
 
         <Style Selector="^[LabelPosition=Bottom]">
