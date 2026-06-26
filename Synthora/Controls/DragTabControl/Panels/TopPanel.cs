@@ -6,6 +6,9 @@ using Avalonia.Layout;
 
 namespace Synthora.Controls
 {
+    /// <summary>
+    /// Arranges the fixed header content, drag thumbs, tab presenter, and add button for <see cref="DragTabControl"/>.
+    /// </summary>
     public sealed class TopPanel : Panel
     {
         private Parts? _parts;
@@ -172,21 +175,67 @@ namespace Synthora.Controls
 
         private readonly struct Parts
         {
+            /// <summary>
+            /// Gets the left content control.
+            /// </summary>
             public Control LeftContentControl { get; init; }
+
+            /// <summary>
+            /// Gets the left drag window thumb.
+            /// </summary>
             public Control LeftDragWindowThumb { get; init; }
+
+            /// <summary>
+            /// Gets the drag tab control.
+            /// </summary>
             public Control DragTabControl { get; init; }
+
+            /// <summary>
+            /// Gets the add tab button.
+            /// </summary>
             public Control AddTabButton { get; init; }
+
+            /// <summary>
+            /// Gets the right drag window thumb.
+            /// </summary>
             public Control RightDragWindowThumb { get; init; }
+
+            /// <summary>
+            /// Gets the right content control.
+            /// </summary>
             public Control RightContentControl { get; init; }
         }
 
         private readonly struct PartsWidth
         {
+            /// <summary>
+            /// Gets the left content control width.
+            /// </summary>
             public double LeftContentControl { get; init; }
+
+            /// <summary>
+            /// Gets the left drag window thumb width.
+            /// </summary>
             public double LeftDragWindowThumb { get; init; }
+
+            /// <summary>
+            /// Gets the drag tab control width.
+            /// </summary>
             public double DragTabControl { get; init; }
+
+            /// <summary>
+            /// Gets the add tab button width.
+            /// </summary>
             public double AddTabButton { get; init; }
+
+            /// <summary>
+            /// Gets the right drag window thumb width.
+            /// </summary>
             public double RightDragWindowThumb { get; init; }
+
+            /// <summary>
+            /// Gets the right content control width.
+            /// </summary>
             public double RightContentControl { get; init; }
         }
     }

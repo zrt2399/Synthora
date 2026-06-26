@@ -9,17 +9,29 @@ using Avalonia.Styling;
 
 namespace Synthora.Controls
 {
+    /// <summary>
+    /// Arranges draggable tab items for a <see cref="DragTabControl"/>.
+    /// </summary>
     public class TabsPanel(DragTabControl tabsControl) : Panel
     {
         private readonly Dictionary<DragTabItem, LocationInfo> _itemsLocations = [];
-        private double _itemWidth;
         private readonly Dictionary<DragTabItem, double> _activeStoryboardTargetLocations = [];
+        private double _itemWidth;
         private DragTabItem? _dragItem;
 
+        /// <summary>
+        /// Occurs when a tab drag operation has completed and the panel has finalized layout.
+        /// </summary>
         public event Action? DragCompleted;
 
+        /// <summary>
+        /// Gets or sets the width used to arrange each tab item.
+        /// </summary>
         public double ItemWidth { get; internal set; }
 
+        /// <summary>
+        /// Gets or sets the offset between adjacent tab items.
+        /// </summary>
         public double ItemOffset { get; internal set; }
 
         protected override Size MeasureOverride(Size availableSize)

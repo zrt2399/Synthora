@@ -16,14 +16,31 @@ using Synthora.Extensions;
 
 namespace Synthora.Controls
 {
+    /// <summary>
+    /// Represents a tab control whose tab headers can be reordered by dragging.
+    /// </summary>
     public class DragTabControl : TabControl
     {
         private const double DefaultTabWidth = 140;
 
+        /// <summary>
+        /// Gets the default left drag-thumb width on Windows and Linux.
+        /// </summary>
         public const double WindowsAndLinuxDefaultLeftThumbWidth = 0d;
+
+        /// <summary>
+        /// Gets the default left drag-thumb width on macOS.
+        /// </summary>
         public const double MacOsDefaultLeftThumbWidth = 80d;
 
+        /// <summary>
+        /// Gets the default right drag-thumb width on Windows and Linux.
+        /// </summary>
         public const double WindowsAndLinuxDefaultRightThumbWidth = 160d;
+
+        /// <summary>
+        /// Gets the default right drag-thumb width on macOS.
+        /// </summary>
         public const double MacOsDefaultRightThumbWidth = 0d;
 
         private Button? _addItemButton;
@@ -36,62 +53,119 @@ namespace Synthora.Controls
         private DragTabItem? _draggedItem;
         private bool _dragging;
 
+        /// <summary>
+        /// Defines the <see cref="AdjacentHeaderItemOffset"/> property.
+        /// </summary>
         public static readonly StyledProperty<double> AdjacentHeaderItemOffsetProperty =
             AvaloniaProperty.Register<DragTabControl, double>(nameof(AdjacentHeaderItemOffset));
 
+        /// <summary>
+        /// Defines the <see cref="TabItemWidth"/> property.
+        /// </summary>
         public static readonly StyledProperty<double> TabItemWidthProperty =
             AvaloniaProperty.Register<DragTabControl, double>(nameof(TabItemWidth), defaultValue: DefaultTabWidth);
 
+        /// <summary>
+        /// Defines the <see cref="ShowCloseButton"/> property.
+        /// </summary>
         public static readonly StyledProperty<bool> ShowCloseButtonProperty =
             AvaloniaProperty.Register<DragTabControl, bool>(nameof(ShowCloseButton), defaultValue: true);
 
+        /// <summary>
+        /// Defines the <see cref="ShowAddButton"/> property.
+        /// </summary>
         public static readonly StyledProperty<bool> ShowAddButtonProperty =
             AvaloniaProperty.Register<DragTabControl, bool>(nameof(ShowAddButton), defaultValue: true);
 
+        /// <summary>
+        /// Defines the <see cref="FixedHeaderCount"/> property.
+        /// </summary>
         public static readonly StyledProperty<int> FixedHeaderCountProperty =
             AvaloniaProperty.Register<DragTabControl, int>(nameof(FixedHeaderCount));
 
+        /// <summary>
+        /// Defines the <see cref="NewItemAsyncFactory"/> property.
+        /// </summary>
         public static readonly StyledProperty<Func<Task<object>>?> NewItemAsyncFactoryProperty =
             AvaloniaProperty.Register<DragTabControl, Func<Task<object>>?>(nameof(NewItemAsyncFactory));
 
+        /// <summary>
+        /// Defines the <see cref="NewItemFactory"/> property.
+        /// </summary>
         public static readonly StyledProperty<Func<object>?> NewItemFactoryProperty =
             AvaloniaProperty.Register<DragTabControl, Func<object>?>(nameof(NewItemFactory));
 
+        /// <summary>
+        /// Defines the <see cref="AddButtonFlyout"/> property.
+        /// </summary>
         public static readonly StyledProperty<FlyoutBase?> AddButtonFlyoutProperty =
             AvaloniaProperty.Register<DragTabControl, FlyoutBase?>(nameof(AddButtonFlyout));
 
+        /// <summary>
+        /// Defines the <see cref="TabClosed"/> property.
+        /// </summary>
         public static readonly StyledProperty<EventHandler<TabClosedEventArgs>?> TabClosedProperty =
             AvaloniaProperty.Register<DragTabControl, EventHandler<TabClosedEventArgs>?>(nameof(TabClosed));
 
+        /// <summary>
+        /// Defines the <see cref="TabClosing"/> property.
+        /// </summary>
         public static readonly StyledProperty<EventHandler<TabClosingEventArgs>?> TabClosingProperty =
             AvaloniaProperty.Register<DragTabControl, EventHandler<TabClosingEventArgs>?>(nameof(TabClosing));
 
+        /// <summary>
+        /// Defines the <see cref="LastTabClosedAction"/> property.
+        /// </summary>
         public static readonly StyledProperty<EventHandler<CloseLastTabEventArgs>?> LastTabClosedActionProperty =
             AvaloniaProperty.Register<DragTabControl, EventHandler<CloseLastTabEventArgs>?>(nameof(LastTabClosedAction));
 
+        /// <summary>
+        /// Defines the <see cref="LeftThumbMinWidth"/> property.
+        /// </summary>
         public static readonly StyledProperty<double> LeftThumbMinWidthProperty =
             AvaloniaProperty.Register<DragTabControl, double>(nameof(LeftThumbMinWidth),
                 defaultValue: OperatingSystem.IsMacOS() ? MacOsDefaultLeftThumbWidth : WindowsAndLinuxDefaultLeftThumbWidth);
 
+        /// <summary>
+        /// Defines the <see cref="RightThumbMinWidth"/> property.
+        /// </summary>
         public static readonly StyledProperty<double> RightThumbMinWidthProperty =
             AvaloniaProperty.Register<DragTabControl, double>(nameof(RightThumbMinWidth),
                 defaultValue: OperatingSystem.IsMacOS() ? MacOsDefaultRightThumbWidth : WindowsAndLinuxDefaultRightThumbWidth);
 
+        /// <summary>
+        /// Defines the <see cref="AddItemCommand"/> property.
+        /// </summary>
         public static readonly DirectProperty<DragTabControl, ICommand> AddItemCommandProperty =
             AvaloniaProperty.RegisterDirect<DragTabControl, ICommand>(nameof(AddItemCommand), o => o.AddItemCommand);
 
+        /// <summary>
+        /// Defines the <see cref="CloseItemCommand"/> property.
+        /// </summary>
         public static readonly DirectProperty<DragTabControl, ICommand> CloseItemCommandProperty =
             AvaloniaProperty.RegisterDirect<DragTabControl, ICommand>(nameof(CloseItemCommand), o => o.CloseItemCommand);
 
+        /// <summary>
+        /// Defines the <see cref="LeftContent"/> property.
+        /// </summary>
         public static readonly StyledProperty<object?> LeftContentProperty =
             AvaloniaProperty.Register<DragTabControl, object?>(nameof(LeftContent));
 
+        /// <summary>
+        /// Defines the <see cref="RightContent"/> property.
+        /// </summary>
         public static readonly StyledProperty<object?> RightContentProperty =
             AvaloniaProperty.Register<DragTabControl, object?>(nameof(RightContent));
 
+        /// <summary>
+        /// Defines the <see cref="ShowDragWindowThumb"/> property.
+        /// </summary>
         public static readonly StyledProperty<bool> ShowDragWindowThumbProperty =
             AvaloniaProperty.Register<DragTabControl, bool>(nameof(ShowDragWindowThumb));
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DragTabControl"/> class.
+        /// </summary>
         public DragTabControl()
         {
             AddHandler(DragTabItem.DragStarted, ItemDragStarted, handledEventsToo: true);
@@ -114,60 +188,90 @@ namespace Synthora.Controls
             _closeItemCommand = new RelayCommand<object?>(CloseItem);
         }
 
+        /// <summary>
+        /// Gets or sets the spacing offset between adjacent tab headers.
+        /// </summary>
         public double AdjacentHeaderItemOffset
         {
             get => GetValue(AdjacentHeaderItemOffsetProperty);
             set => SetValue(AdjacentHeaderItemOffsetProperty, value);
         }
 
+        /// <summary>
+        /// Gets or sets the preferred width of each tab item.
+        /// </summary>
         public double TabItemWidth
         {
             get => GetValue(TabItemWidthProperty);
             set => SetValue(TabItemWidthProperty, value);
         }
 
+        /// <summary>
+        /// Gets or sets whether close buttons are shown on tab items.
+        /// </summary>
         public bool ShowCloseButton
         {
             get => GetValue(ShowCloseButtonProperty);
             set => SetValue(ShowCloseButtonProperty, value);
         }
 
+        /// <summary>
+        /// Gets or sets whether the add-tab button is shown.
+        /// </summary>
         public bool ShowAddButton
         {
             get => GetValue(ShowAddButtonProperty);
             set => SetValue(ShowAddButtonProperty, value);
         }
 
+        /// <summary>
+        /// Gets or sets the asynchronous factory used to create new tab items.
+        /// </summary>
         public Func<Task<object>>? NewItemAsyncFactory
         {
             get => GetValue(NewItemAsyncFactoryProperty);
             set => SetValue(NewItemAsyncFactoryProperty, value);
         }
 
+        /// <summary>
+        /// Gets or sets the synchronous factory used to create new tab items.
+        /// </summary>
         public Func<object>? NewItemFactory
         {
             get => GetValue(NewItemFactoryProperty);
             set => SetValue(NewItemFactoryProperty, value);
         }
 
+        /// <summary>
+        /// Gets or sets the flyout attached to the add-tab button.
+        /// </summary>
         public FlyoutBase? AddButtonFlyout
         {
             get => GetValue(AddButtonFlyoutProperty);
             set => SetValue(AddButtonFlyoutProperty, value);
         }
 
+        /// <summary>
+        /// Gets or sets the callback invoked after a tab is closed.
+        /// </summary>
         public EventHandler<TabClosedEventArgs>? TabClosed
         {
             get => GetValue(TabClosedProperty);
             set => SetValue(TabClosedProperty, value);
         }
 
+        /// <summary>
+        /// Gets or sets the callback invoked before a tab is closed.
+        /// </summary>
         public EventHandler<TabClosingEventArgs>? TabClosing
         {
             get => GetValue(TabClosingProperty);
             set => SetValue(TabClosingProperty, value);
         }
 
+        /// <summary>
+        /// Gets or sets the callback invoked when the last tab is closed.
+        /// </summary>
         public EventHandler<CloseLastTabEventArgs>? LastTabClosedAction
         {
             get => GetValue(LastTabClosedActionProperty);
@@ -183,42 +287,63 @@ namespace Synthora.Controls
             set => SetValue(FixedHeaderCountProperty, value);
         }
 
+        /// <summary>
+        /// Gets or sets the minimum width of the left window drag thumb area.
+        /// </summary>
         public double LeftThumbMinWidth
         {
             get => GetValue(LeftThumbMinWidthProperty);
             set => SetValue(LeftThumbMinWidthProperty, value);
         }
 
+        /// <summary>
+        /// Gets or sets the minimum width of the right window drag thumb area.
+        /// </summary>
         public double RightThumbMinWidth
         {
             get => GetValue(RightThumbMinWidthProperty);
             set => SetValue(RightThumbMinWidthProperty, value);
         }
 
+        /// <summary>
+        /// Gets the command that adds a new tab item.
+        /// </summary>
         public ICommand AddItemCommand
         {
             get => _addItemCommand;
             private set => SetAndRaise(AddItemCommandProperty, ref _addItemCommand, value);
         }
 
+        /// <summary>
+        /// Gets the command that closes a tab item.
+        /// </summary>
         public ICommand CloseItemCommand
         {
             get => _closeItemCommand;
             private set => SetAndRaise(CloseItemCommandProperty, ref _closeItemCommand, value);
         }
 
+        /// <summary>
+        /// Gets or sets the content displayed to the left of the tab headers.
+        /// </summary>
         public object? LeftContent
         {
             get => GetValue(LeftContentProperty);
             set => SetValue(LeftContentProperty, value);
         }
 
+        /// <summary>
+        /// Gets or sets the content displayed to the right of the tab headers.
+        /// </summary>
         public object? RightContent
         {
             get => GetValue(RightContentProperty);
             set => SetValue(RightContentProperty, value);
         }
 
+        /// <summary>
+        /// Gets or sets whether window drag thumb areas are shown.
+        /// </summary>
         public bool ShowDragWindowThumb
         {
             get => GetValue(ShowDragWindowThumbProperty);

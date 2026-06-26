@@ -6,6 +6,9 @@ using Avalonia.Layout;
 
 namespace Synthora.Controls
 {
+    /// <summary>
+    /// Defines how items are aligned within each generated row or column.
+    /// </summary>
     public enum ItemsAlignment
     {
         /// <summary>
@@ -80,21 +83,39 @@ namespace Synthora.Controls
             }
         }
 
+        /// <summary>
+        /// Defines the <see cref="HorizontalSpacing"/> property.
+        /// </summary>
         public static readonly StyledProperty<double> HorizontalSpacingProperty =
             AvaloniaProperty.Register<SpacingWrapPanel, double>(nameof(HorizontalSpacing));
 
+        /// <summary>
+        /// Defines the <see cref="VerticalSpacing"/> property.
+        /// </summary>
         public static readonly StyledProperty<double> VerticalSpacingProperty =
             AvaloniaProperty.Register<SpacingWrapPanel, double>(nameof(VerticalSpacing));
 
+        /// <summary>
+        /// Defines the <see cref="Orientation"/> property.
+        /// </summary>
         public static readonly StyledProperty<Orientation> OrientationProperty =
             WrapPanel.OrientationProperty.AddOwner<SpacingWrapPanel>();
 
+        /// <summary>
+        /// Defines the <see cref="ItemsAlignment"/> property.
+        /// </summary>
         public static readonly StyledProperty<ItemsAlignment> ItemsAlignmentProperty =
             AvaloniaProperty.Register<SpacingWrapPanel, ItemsAlignment>(nameof(ItemsAlignment), defaultValue: ItemsAlignment.Start);
 
+        /// <summary>
+        /// Defines the <see cref="ItemWidth"/> property.
+        /// </summary>
         public static readonly StyledProperty<double> ItemWidthProperty =
             WrapPanel.ItemWidthProperty.AddOwner<SpacingWrapPanel>();
 
+        /// <summary>
+        /// Defines the <see cref="ItemHeight"/> property.
+        /// </summary>
         public static readonly StyledProperty<double> ItemHeightProperty =
             WrapPanel.ItemHeightProperty.AddOwner<SpacingWrapPanel>();
 
@@ -104,36 +125,54 @@ namespace Synthora.Controls
             AffectsArrange<WrapPanel>(ItemsAlignmentProperty);
         }
 
+        /// <summary>
+        /// Gets or sets the horizontal spacing between child elements.
+        /// </summary>
         public double HorizontalSpacing
         {
             get => GetValue(HorizontalSpacingProperty);
             set => SetValue(HorizontalSpacingProperty, value);
         }
 
+        /// <summary>
+        /// Gets or sets the vertical spacing between child elements.
+        /// </summary>
         public double VerticalSpacing
         {
             get => GetValue(VerticalSpacingProperty);
             set => SetValue(VerticalSpacingProperty, value);
         }
 
+        /// <summary>
+        /// Gets or sets the layout orientation of the panel.
+        /// </summary>
         public Orientation Orientation
         {
             get => GetValue(OrientationProperty);
             set => SetValue(OrientationProperty, value);
         }
 
+        /// <summary>
+        /// Gets or sets how items are aligned within each row or column.
+        /// </summary>
         public ItemsAlignment ItemsAlignment
         {
             get => GetValue(ItemsAlignmentProperty);
             set => SetValue(ItemsAlignmentProperty, value);
         }
 
+        /// <summary>
+        /// Gets or sets the fixed width assigned to each child element.
+        /// </summary>
         public double ItemWidth
         {
             get => GetValue(ItemWidthProperty);
             set => SetValue(ItemWidthProperty, value);
         }
 
+        /// <summary>
+        /// Gets or sets the fixed height assigned to each child element.
+        /// </summary>
         public double ItemHeight
         {
             get => GetValue(ItemHeightProperty);

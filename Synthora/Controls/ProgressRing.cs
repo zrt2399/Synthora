@@ -6,14 +6,26 @@ using Avalonia.Threading;
 
 namespace Synthora.Controls
 {
+    /// <summary>
+    /// Represents an indeterminate circular progress indicator.
+    /// </summary>
     public class ProgressRing : Control
     {
+        /// <summary>
+        /// Defines the <see cref="IsActive"/> property.
+        /// </summary>
         public static readonly StyledProperty<bool> IsActiveProperty =
             AvaloniaProperty.Register<ProgressRing, bool>(nameof(IsActive), true);
 
+        /// <summary>
+        /// Defines the <see cref="StrokeThickness"/> property.
+        /// </summary>
         public static readonly StyledProperty<double> StrokeThicknessProperty =
             AvaloniaProperty.Register<ProgressRing, double>(nameof(StrokeThickness));
 
+        /// <summary>
+        /// Defines the <see cref="Foreground"/> property.
+        /// </summary>
         public static readonly StyledProperty<IBrush?> ForegroundProperty =
             AvaloniaProperty.Register<ProgressRing, IBrush?>(nameof(Foreground));
 
@@ -28,23 +40,35 @@ namespace Synthora.Controls
             IsActiveProperty.Changed.AddClassHandler<ProgressRing>((s, e) => s.UpdateAnimationState());
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProgressRing"/> class.
+        /// </summary>
         public ProgressRing()
         {
             _animationTimer = new DispatcherTimer(TimeSpan.FromMilliseconds(16), DispatcherPriority.Render, OnAnimationTick);
         }
 
+        /// <summary>
+        /// Gets or sets whether the progress ring is actively animating.
+        /// </summary>
         public bool IsActive
         {
             get => GetValue(IsActiveProperty);
             set => SetValue(IsActiveProperty, value);
         }
 
+        /// <summary>
+        /// Gets or sets the thickness of the progress ring stroke.
+        /// </summary>
         public double StrokeThickness
         {
             get => GetValue(StrokeThicknessProperty);
             set => SetValue(StrokeThicknessProperty, value);
         }
 
+        /// <summary>
+        /// Gets or sets the brush used to draw the progress ring.
+        /// </summary>
         public IBrush? Foreground
         {
             get => GetValue(ForegroundProperty);

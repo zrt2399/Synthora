@@ -16,12 +16,25 @@ using Avalonia.VisualTree;
 
 namespace Synthora.Controls
 {
+    /// <summary>
+    /// Defines the side on which a tree menu item header is displayed.
+    /// </summary>
     public enum HeaderPosition
     {
+        /// <summary>
+        /// Displays the header on the left side.
+        /// </summary>
         Left,
+
+        /// <summary>
+        /// Displays the header on the right side.
+        /// </summary>
         Right
     }
 
+    /// <summary>
+    /// Represents an item in a <see cref="TreeMenu"/>.
+    /// </summary>
     [PseudoClasses(pcSelectedDescendant, pcExpanded, pcCurrentPressed)]
     public class TreeMenuItem : TreeViewItem
     {
@@ -30,15 +43,27 @@ namespace Synthora.Controls
         private const string pcCurrentPressed = ":current-pressed";
         private readonly TimeSpan _expandCollapseDuration = TimeSpan.FromMilliseconds(200);
 
+        /// <summary>
+        /// Defines the <see cref="HeaderPosition"/> property.
+        /// </summary>
         public static readonly StyledProperty<HeaderPosition> HeaderPositionProperty =
             AvaloniaProperty.Register<TreeMenuItem, HeaderPosition>(nameof(HeaderPosition));
 
+        /// <summary>
+        /// Defines the <see cref="HasSelectedDescendant"/> property.
+        /// </summary>
         public static readonly DirectProperty<TreeMenuItem, bool> HasSelectedDescendantProperty =
             AvaloniaProperty.RegisterDirect<TreeMenuItem, bool>(nameof(HasSelectedDescendant), o => o.HasSelectedDescendant);
 
+        /// <summary>
+        /// Defines the <see cref="Content"/> property.
+        /// </summary>
         public static readonly StyledProperty<object?> ContentProperty =
             ContentControl.ContentProperty.AddOwner<TreeMenuItem>();
 
+        /// <summary>
+        /// Defines the <see cref="ContentTemplate"/> property.
+        /// </summary>
         public static readonly StyledProperty<IDataTemplate?> ContentTemplateProperty =
             ContentControl.ContentTemplateProperty.AddOwner<TreeMenuItem>();
 
@@ -50,24 +75,36 @@ namespace Synthora.Controls
 
         private bool HasChildItems => ItemsView.Count > 0;
 
+        /// <summary>
+        /// Gets or sets the side on which the header is displayed.
+        /// </summary>
         public HeaderPosition HeaderPosition
         {
             get => GetValue(HeaderPositionProperty);
             set => SetValue(HeaderPositionProperty, value);
         }
 
+        /// <summary>
+        /// Gets a value indicating whether a descendant item is selected.
+        /// </summary>
         public bool HasSelectedDescendant
         {
             get => _hasSelectedDescendant;
             internal set => SetAndRaise(HasSelectedDescendantProperty, ref _hasSelectedDescendant, value);
         }
 
+        /// <summary>
+        /// Gets or sets the content displayed when the item is selected.
+        /// </summary>
         public object? Content
         {
             get => GetValue(ContentProperty);
             set => SetValue(ContentProperty, value);
         }
 
+        /// <summary>
+        /// Gets or sets the template used to display <see cref="Content"/>.
+        /// </summary>
         public IDataTemplate? ContentTemplate
         {
             get => GetValue(ContentTemplateProperty);
@@ -421,6 +458,9 @@ namespace Synthora.Controls
             double FromOpacity,
             double ToOpacity)
         {
+            /// <summary>
+            /// Gets a value indicating whether the animation state contains a height transition.
+            /// </summary>
             public bool HasAnimation => FromHeight > 0 || ToHeight > 0;
         }
     }

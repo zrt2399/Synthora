@@ -7,31 +7,52 @@ using Avalonia.Interactivity;
 
 namespace Synthora.Controls
 {
+    /// <summary>
+    /// Represents a thumb that starts dragging only from left pointer-button input.
+    /// </summary>
     public class LeftPressedThumb : TemplatedControl
     {
+        /// <summary>
+        /// Identifies the <see cref="DragStarted"/> routed event.
+        /// </summary>
         public static readonly RoutedEvent<VectorEventArgs> DragStartedEvent =
             RoutedEvent.Register<Thumb, VectorEventArgs>(nameof(DragStarted), RoutingStrategies.Bubble);
 
+        /// <summary>
+        /// Identifies the <see cref="DragDelta"/> routed event.
+        /// </summary>
         public static readonly RoutedEvent<VectorEventArgs> DragDeltaEvent =
             RoutedEvent.Register<Thumb, VectorEventArgs>(nameof(DragDelta), RoutingStrategies.Bubble);
 
+        /// <summary>
+        /// Identifies the <see cref="DragCompleted"/> routed event.
+        /// </summary>
         public static readonly RoutedEvent<VectorEventArgs> DragCompletedEvent =
             RoutedEvent.Register<Thumb, VectorEventArgs>(nameof(DragCompleted), RoutingStrategies.Bubble);
- 
+
         private Point? _lastPoint;
- 
+
+        /// <summary>
+        /// Occurs when a left-button drag operation starts.
+        /// </summary>
         public event EventHandler<VectorEventArgs>? DragStarted
         {
             add => AddHandler(DragStartedEvent, value);
             remove => RemoveHandler(DragStartedEvent, value);
         }
 
+        /// <summary>
+        /// Occurs when a left-button drag operation moves.
+        /// </summary>
         public event EventHandler<VectorEventArgs>? DragDelta
         {
             add => AddHandler(DragDeltaEvent, value);
             remove => RemoveHandler(DragDeltaEvent, value);
         }
 
+        /// <summary>
+        /// Occurs when a left-button drag operation completes.
+        /// </summary>
         public event EventHandler<VectorEventArgs>? DragCompleted
         {
             add => AddHandler(DragCompletedEvent, value);
