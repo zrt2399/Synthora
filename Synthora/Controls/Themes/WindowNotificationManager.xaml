@@ -21,11 +21,11 @@
                                         VerticalAlignment="Center"
                                         Spacing="{DynamicResource NotificationCardPaddingDouble}">
                                 <TextBlock FontWeight="SemiBold"
-                                           IsVisible="{Binding $self.Text, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                           IsVisible="{Binding $self.Text, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                                            Text="{Binding Title}"
                                            TextTrimming="CharacterEllipsis" />
                                 <TextBlock MaxHeight="{DynamicResource WindowNotificationManagerMessageMaxHeight}"
-                                           IsVisible="{Binding $self.Text, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                           IsVisible="{Binding $self.Text, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                                            Text="{Binding Message}"
                                            TextTrimming="CharacterEllipsis"
                                            TextWrapping="Wrap" />

@@ -98,7 +98,7 @@
                                                              Margin="2,0,2,10"
                                                              HorizontalAlignment="Left"
                                                              FontWeight="SemiBold"
-                                                             IsVisible="{Binding Title, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                                             IsVisible="{Binding Title, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                                                              Text="{Binding Title}" />
                                                     <Button HorizontalAlignment="Right"
                                                             VerticalAlignment="Top"

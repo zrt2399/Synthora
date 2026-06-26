@@ -305,6 +305,7 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type DataGrid}" TargetType="DataGrid">
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="RowBackground" Value="Transparent" />
         <Setter Property="HeadersVisibility" Value="Column" />
         <Setter Property="GridLinesVisibility" Value="None" />

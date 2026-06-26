@@ -33,7 +33,7 @@
                                     <SelectableTextBlock FontSize="11"
                                                          Foreground="{DynamicResource ThemeForegroundLowBrush}"
                                                          IsVisible="{TemplateBinding Description,
-                                                                                     Converter={x:Static ObjectConverters.IsNotNull}}"
+                                                                                     Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                                                          Text="{TemplateBinding Description}"
                                                          TextTrimming="CharacterEllipsis" />
                                 </StackPanel>
