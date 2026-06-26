@@ -36,6 +36,10 @@
             </Style>
         </Style>
 
+        <Style Selector="^.Icon">
+            <Setter Property="Padding" Value="{DynamicResource IconButtonPadding}" />
+        </Style>
+
         <Style Selector="^:disabled">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>
