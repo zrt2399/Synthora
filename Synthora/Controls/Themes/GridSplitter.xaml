@@ -4,14 +4,12 @@
                     x:CompileBindings="True">
 
     <x:Int32 x:Key="GridSplitterPointerOverZIndex">1000</x:Int32>
-    <SolidColorBrush x:Key="GridSplitterOuterBorderBackground">#30999999</SolidColorBrush>
-    <SolidColorBrush x:Key="GridSplitterPreviewContentBackground">#40999999</SolidColorBrush>
-    <SolidColorBrush x:Key="GridSplitterInnerBorderBackground">#50999999</SolidColorBrush>
+    <x:Double x:Key="GridSplitterInnerBorderMaxLength">80</x:Double>
 
     <ControlTheme x:Key="{x:Type GridSplitter}" TargetType="GridSplitter">
         <Setter Property="Focusable" Value="True" />
-        <Setter Property="MinWidth" Value="6" />
-        <Setter Property="MinHeight" Value="6" />
+        <Setter Property="MinWidth" Value="{DynamicResource GridSplitterMinLength}" />
+        <Setter Property="MinHeight" Value="{DynamicResource GridSplitterMinLength}" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Background" Value="{DynamicResource GridSplitterOuterBorderBackground}" />
         <Setter Property="PreviewContent">
@@ -27,8 +25,8 @@
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}">
                     <Border Name="InnerBorder"
-                            MaxWidth="60"
-                            MaxHeight="60"
+                            MaxWidth="{DynamicResource GridSplitterInnerBorderMaxLength}"
+                            MaxHeight="{DynamicResource GridSplitterInnerBorderMaxLength}"
                             Background="{DynamicResource GridSplitterInnerBorderBackground}"
                             CornerRadius="{DynamicResource ThemeBorderCornerRadiusNormal}" />
                 </Border>
