@@ -18,6 +18,9 @@ namespace Synthora.Attaches
         public static readonly AttachedProperty<VerticalAlignment> HeaderVerticalAlignmentProperty =
             AvaloniaProperty.RegisterAttached<TextBoxAttach, Control, VerticalAlignment>("HeaderVerticalAlignment", VerticalAlignment.Center);
 
+        public static readonly AttachedProperty<bool> IsRequiredProperty =
+            AvaloniaProperty.RegisterAttached<TextBoxAttach, Control, bool>("IsRequired");
+
         public static readonly AttachedProperty<double> MinWidthProperty =
             AvaloniaProperty.RegisterAttached<TextBoxAttach, Control, double>("MinWidth");
 
@@ -38,6 +41,9 @@ namespace Synthora.Attaches
 
         public static VerticalAlignment GetHeaderVerticalAlignment(Control obj) => obj.GetValue(HeaderVerticalAlignmentProperty);
         public static void SetHeaderVerticalAlignment(Control obj, VerticalAlignment value) => obj.SetValue(HeaderVerticalAlignmentProperty, value);
+
+        public static bool GetIsRequired(Control obj) => obj.GetValue(IsRequiredProperty);
+        public static void SetIsRequired(Control obj, bool value) => obj.SetValue(IsRequiredProperty, value);
 
         public static double GetMinWidth(Control obj) => obj.GetValue(MinWidthProperty);
         public static void SetMinWidth(Control obj, double value) => obj.SetValue(MinWidthProperty, value);

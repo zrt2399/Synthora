@@ -78,6 +78,7 @@
                                TextBoxAttach.HeaderHorizontalAlignment="{TemplateBinding (TextBoxAttach.HeaderHorizontalAlignment)}"
                                TextBoxAttach.HeaderPlacement="{TemplateBinding (TextBoxAttach.HeaderPlacement)}"
                                TextBoxAttach.HeaderVerticalAlignment="{TemplateBinding (TextBoxAttach.HeaderVerticalAlignment)}"
+                               TextBoxAttach.IsRequired="{TemplateBinding (TextBoxAttach.IsRequired)}"
                                TextBoxAttach.MaxWidth="{TemplateBinding (TextBoxAttach.MaxWidth)}"
                                TextBoxAttach.MinWidth="{TemplateBinding (TextBoxAttach.MinWidth)}"
                                TextBoxAttach.Width="{TemplateBinding (TextBoxAttach.Width)}">

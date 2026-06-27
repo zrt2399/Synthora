@@ -88,7 +88,8 @@
                         </StackPanel>
                         <ComboBox IsEditable="True"
                                   PlaceholderText="Search a region..."
-                                  TextBoxAttach.Header="Region">
+                                  TextBoxAttach.Header="Region"
+                                  TextBoxAttach.IsRequired="True">
                             <ComboBoxItem>United States</ComboBoxItem>
                             <ComboBoxItem>Canada</ComboBoxItem>
                             <ComboBoxItem>United Kingdom</ComboBoxItem>

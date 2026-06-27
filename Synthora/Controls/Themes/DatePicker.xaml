@@ -78,11 +78,9 @@
             <ControlTemplate>
                 <DataValidationErrors>
                     <Panel Name="LayoutRoot">
-                        <DockPanel>
-                            <ContentPresenter HorizontalAlignment="{TemplateBinding (TextBoxAttach.HeaderHorizontalAlignment)}"
-                                              VerticalAlignment="{TemplateBinding (TextBoxAttach.HeaderVerticalAlignment)}"
-                                              Content="{TemplateBinding (TextBoxAttach.Header)}"
-                                              DockPanel.Dock="{TemplateBinding (TextBoxAttach.HeaderPlacement)}" />
+                        <DockPanel HorizontalSpacing="{DynamicResource TextBoxAttachHeaderHorizontalSpacing}" VerticalSpacing="{DynamicResource TextBoxAttachHeaderVerticalSpacing}">
+                            <HeaderPresenter />
+
                             <Button Name="PART_FlyoutButton"
                                     Width="{TemplateBinding (TextBoxAttach.Width)}"
                                     MinWidth="{TemplateBinding (TextBoxAttach.MinWidth)}"

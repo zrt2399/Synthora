@@ -23,6 +23,7 @@
                 </Border>
             </ControlTemplate>
         </Setter>
+
         <Style Selector="^:pointerover">
             <Setter Property="Background" Value="{DynamicResource ThemeControlHighlightLowBrush}" />
         </Style>
@@ -39,4 +40,5 @@
             <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush3}" />
         </Style>
     </ControlTheme>
+
 </ResourceDictionary> 

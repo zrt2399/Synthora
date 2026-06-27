@@ -1,0 +1,25 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
+                    x:CompileBindings="True">
+
+    <ControlTheme x:Key="{x:Type HeaderPresenter}" TargetType="HeaderPresenter">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <StackPanel Margin="{TemplateBinding Padding}"
+                            Orientation="Horizontal"
+                            Spacing="{DynamicResource TextBoxAttachHeaderHorizontalSpacing}">
+                    <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}" />
+
+                    <Ellipse Width="6"
+                             Height="6"
+                             Fill="{DynamicResource ErrorBrush}"
+                             IsVisible="{TemplateBinding IsRequired}" />
+                </StackPanel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

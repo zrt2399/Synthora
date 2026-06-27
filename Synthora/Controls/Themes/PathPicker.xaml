@@ -10,11 +10,9 @@
         <Setter Property="PlaceholderForeground" Value="{DynamicResource ThemeForegroundBrush}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <DockPanel>
-                    <ContentPresenter HorizontalAlignment="{TemplateBinding (TextBoxAttach.HeaderHorizontalAlignment)}"
-                                      VerticalAlignment="{TemplateBinding (TextBoxAttach.HeaderVerticalAlignment)}"
-                                      Content="{TemplateBinding (TextBoxAttach.Header)}"
-                                      DockPanel.Dock="{TemplateBinding (TextBoxAttach.HeaderPlacement)}" />
+                <DockPanel HorizontalSpacing="{DynamicResource TextBoxAttachHeaderHorizontalSpacing}" VerticalSpacing="{DynamicResource TextBoxAttachHeaderVerticalSpacing}">
+                    <HeaderPresenter />
+
                     <Border Width="{TemplateBinding (TextBoxAttach.Width)}"
                             MinWidth="{TemplateBinding (TextBoxAttach.MinWidth)}"
                             MaxWidth="{TemplateBinding (TextBoxAttach.MaxWidth)}"

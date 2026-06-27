@@ -33,11 +33,8 @@
         <Setter Property="MaxDropDownHeight" Value="200" />
         <Setter Property="Template">
             <ControlTemplate>
-                <DockPanel>
-                    <ContentPresenter HorizontalAlignment="{TemplateBinding (TextBoxAttach.HeaderHorizontalAlignment)}"
-                                      VerticalAlignment="{TemplateBinding (TextBoxAttach.HeaderVerticalAlignment)}"
-                                      Content="{TemplateBinding (TextBoxAttach.Header)}"
-                                      DockPanel.Dock="{TemplateBinding (TextBoxAttach.HeaderPlacement)}" />
+                <DockPanel HorizontalSpacing="{DynamicResource TextBoxAttachHeaderHorizontalSpacing}" VerticalSpacing="{DynamicResource TextBoxAttachHeaderVerticalSpacing}">
+                    <HeaderPresenter />
                     <Panel>
                         <TextBox Name="PART_TextBox"
                                  Width="{TemplateBinding (TextBoxAttach.Width)}"
