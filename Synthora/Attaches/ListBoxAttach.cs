@@ -1,6 +1,7 @@
-﻿using System.Collections.Concurrent;
+using System;
 using System.Collections.Specialized;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Data;
@@ -11,7 +12,12 @@ namespace Synthora.Attaches
 {
     public class ListBoxAttach
     {
-        private static readonly ConcurrentDictionary<object, ListBox> CollectionToListBoxMap = [];
+        private static readonly ConditionalWeakTable<object, WeakReference<ListBox>> CollectionToListBoxMap = [];
+
+        static ListBoxAttach()
+        {
+            AutoScrollToEndProperty.Changed.AddClassHandler<ListBox, bool>((s, e) => OnAutoScrollToEndChanged(e));
+        }
 
         public static readonly AttachedProperty<bool> AutoScrollToEndProperty =
             AvaloniaProperty.RegisterAttached<ListBoxAttach, ListBox, bool>("AutoScrollToEnd");
@@ -19,16 +25,20 @@ namespace Synthora.Attaches
         public static readonly AttachedProperty<bool> IgnoreAutoScrollOnPointerOverProperty =
             AvaloniaProperty.RegisterAttached<ListBoxAttach, ListBox, bool>("IgnoreAutoScrollOnPointerOver");
 
-        static ListBoxAttach()
-        {
-            AutoScrollToEndProperty.Changed.AddClassHandler<ListBox, bool>((s, e) => OnAutoScrollToEndChanged(e));
-        }
-
         public static bool GetAutoScrollToEnd(ListBox obj) => obj.GetValue(AutoScrollToEndProperty);
         public static void SetAutoScrollToEnd(ListBox obj, bool value) => obj.SetValue(AutoScrollToEndProperty, value);
 
         public static bool GetIgnoreAutoScrollOnPointerOver(ListBox obj) => obj.GetValue(IgnoreAutoScrollOnPointerOverProperty);
         public static void SetIgnoreAutoScrollOnPointerOver(ListBox obj, bool value) => obj.SetValue(IgnoreAutoScrollOnPointerOverProperty, value);
+
+        private static void CleanUp(INotifyCollectionChanged? notifyCollectionChanged)
+        {
+            if (notifyCollectionChanged != null)
+            {
+                notifyCollectionChanged.CollectionChanged -= ListBoxAttach_CollectionChanged;
+                CollectionToListBoxMap.Remove(notifyCollectionChanged);
+            }
+        }
 
         private static void OnAutoScrollToEndChanged(AvaloniaPropertyChangedEventArgs<bool> e)
         {
@@ -38,19 +48,21 @@ namespace Synthora.Attaches
             }
 
             listBox.PropertyChanged -= ListBox_PropertyChanged;
-            listBox.PropertyChanged += ListBox_PropertyChanged;
+            if (e.NewValue.Value)
+            {
+                listBox.PropertyChanged += ListBox_PropertyChanged;
+            }
 
             if (listBox.ItemsSource is INotifyCollectionChanged notifyCollectionChanged)
             {
                 if (e.OldValue.Value)
                 {
-                    notifyCollectionChanged.CollectionChanged -= ListBoxAttach_CollectionChanged;
-                    CollectionToListBoxMap.TryRemove(notifyCollectionChanged, out _);
+                    CleanUp(notifyCollectionChanged);
                 }
 
                 if (e.NewValue.Value)
                 {
-                    CollectionToListBoxMap[notifyCollectionChanged] = listBox;
+                    CollectionToListBoxMap.AddOrUpdate(notifyCollectionChanged, new WeakReference<ListBox>(listBox));
                     notifyCollectionChanged.CollectionChanged += ListBoxAttach_CollectionChanged;
                 }
             }
@@ -60,8 +72,9 @@ namespace Synthora.Attaches
         {
             if (e.Property == ItemsControl.ItemsSourceProperty && sender is ListBox listBox)
             {
-                var args = new AvaloniaPropertyChangedEventArgs<bool>(listBox, AutoScrollToEndProperty, new Optional<bool>(true), new BindingValue<bool>(GetAutoScrollToEnd(listBox)), BindingPriority.LocalValue);
+                CleanUp(e.OldValue as INotifyCollectionChanged);
 
+                var args = new AvaloniaPropertyChangedEventArgs<bool>(listBox, AutoScrollToEndProperty, new Optional<bool>(true), new BindingValue<bool>(GetAutoScrollToEnd(listBox)), BindingPriority.LocalValue);
                 OnAutoScrollToEndChanged(args);
 
                 if (GetAutoScrollToEnd(listBox))
@@ -75,7 +88,14 @@ namespace Synthora.Attaches
         {
             if (sender != null && CollectionToListBoxMap.TryGetValue(sender, out var listBox) && e.Action == NotifyCollectionChangedAction.Add)
             {
-                ScrollToEnd(listBox);
+                if (listBox.TryGetTarget(out var actualListBox))
+                {
+                    ScrollToEnd(actualListBox);
+                }
+                else
+                {
+                    CleanUp(sender as INotifyCollectionChanged);
+                }
             }
         }
 

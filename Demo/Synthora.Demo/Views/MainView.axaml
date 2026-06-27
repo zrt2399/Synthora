@@ -165,7 +165,7 @@
                                      ItemsSource="{EnumBindingSource so:ThemeDensity}"
                                      SelectedItem="{Binding SelectedThemeDensity}"
                                      Theme="{StaticResource SegmentedListBoxTheme}"
-                                     ToolTip.Tip="Switch app theme density(Compact / Standard / Comfortable)">
+                                     ToolTip.Tip="Switch app theme density(Compact / Normal / Spacious)">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <PathIcon Width="16"

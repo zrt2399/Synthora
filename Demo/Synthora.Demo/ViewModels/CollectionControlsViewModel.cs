@@ -30,6 +30,21 @@ namespace Synthora.Demo.ViewModels
         [ObservableProperty]
         public partial DataGridCollectionView? DataGridCollectionView { get; set; }
 
+        [ObservableProperty]
+        public partial bool? IsAllExpanded { get; set; }
+
+        public void ExpandAllGroups()
+        {
+            IsAllExpanded = null;
+            IsAllExpanded = true;
+        }
+
+        public void CollapseAllGroups()
+        {
+            IsAllExpanded = null;
+            IsAllExpanded = false;
+        }
+
         public void ClearEmployees()
         {
             Employees?.Clear();

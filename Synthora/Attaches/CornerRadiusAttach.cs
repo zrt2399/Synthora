@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Concurrent;
+using System;
+using System.Runtime.CompilerServices;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
@@ -12,7 +12,7 @@ namespace Synthora.Attaches
         public static readonly AttachedProperty<bool> IsCircularProperty =
             AvaloniaProperty.RegisterAttached<CornerRadiusAttach, InputElement, bool>("IsCircular");
 
-        private static readonly ConcurrentDictionary<InputElement, EventHandler<AvaloniaPropertyChangedEventArgs>> Handlers = [];
+        private static readonly ConditionalWeakTable<InputElement, EventHandler<AvaloniaPropertyChangedEventArgs>> Handlers = [];
 
         static CornerRadiusAttach()
         {
@@ -36,30 +36,30 @@ namespace Synthora.Attaches
 
             if (e.NewValue.Value)
             {
-                if (Handlers.ContainsKey(element))
+                if (Handlers.TryGetValue(element, out _))
                 {
                     return;
                 }
 
                 UpdateCornerRadius(element, property);
 
-                EventHandler<AvaloniaPropertyChangedEventArgs> handler = (_, args) =>
+                EventHandler<AvaloniaPropertyChangedEventArgs> handler = (s, e) =>
                 {
-                    if (args.Property == Visual.BoundsProperty)
+                    if (e.Property == Visual.BoundsProperty)
                     {
                         UpdateCornerRadius(element, property);
                     }
                 };
 
                 element.PropertyChanged += handler;
-                Handlers[element] = handler;
+                Handlers.Add(element, handler);
             }
             else
             {
                 if (Handlers.TryGetValue(element, out var handler))
                 {
                     element.PropertyChanged -= handler;
-                    Handlers.TryRemove(element, out _);
+                    Handlers.Remove(element);
                 }
 
                 element.ClearValue(property);

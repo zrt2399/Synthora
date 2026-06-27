@@ -3,8 +3,6 @@
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
 
-    <BoxShadows x:Key="TabItemHeaderBoxShadow">0 0 6 0 #30000000</BoxShadows>
-
     <ControlTheme x:Key="TabControlBaseTheme" TargetType="TabControl">
         <Style Selector="^[TabStripPlacement=Top] /template/ Border#HeaderRoot">
             <Setter Property="BorderThickness" Value="0,0,0,1" />
@@ -21,7 +19,7 @@
         <Style Selector="^[(TabControlAttach.ShowHeaderSeparator)=False] /template/ Border#HeaderRoot">
             <Setter Property="BorderThickness" Value="0" />
         </Style>
-        <Style Selector="^[(TabControlAttach.ShowHeaderShadow)=True] /template/ Border#HeaderRoot"> 
+        <Style Selector="^[(TabControlAttach.ShowHeaderShadow)=True] /template/ Border#HeaderRoot">
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="ZIndex" Value="1" />
             <Setter Property="BoxShadow" Value="{DynamicResource TabItemHeaderBoxShadow}" />
