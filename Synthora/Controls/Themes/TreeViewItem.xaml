@@ -50,6 +50,14 @@
         </Style>
     </ControlTheme>
 
+    <ControlTheme x:Key="SimpleExpanderButtonNoTransitionTheme"
+                  BasedOn="{StaticResource SimpleExpanderButtonTheme}"
+                  TargetType="ToggleButton">
+        <Style Selector="^ /template/ PathIcon#pathIcon">
+            <Setter Property="Transitions" Value="{x:Null}" />
+        </Style>
+    </ControlTheme>
+
     <ControlTheme x:Key="{x:Type TreeViewItem}" TargetType="TreeViewItem">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />

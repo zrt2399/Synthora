@@ -34,10 +34,31 @@
             </TabControl.Styles>
 
             <TabItem Header="Grouping">
-                <DataGrid x:Name="DataGrid"
-                          Classes="Border"
-                          HeadersVisibility="All"
-                          ItemsSource="{Binding DataGridCollectionView}" />
+                <DockPanel HorizontalSpacing="16" VerticalSpacing="16">
+                    <WrapPanel DockPanel.Dock="Top"
+                               ItemSpacing="16"
+                               LineSpacing="16"
+                               Orientation="Horizontal">
+                        <CheckBox Name="AreRowGroupHeadersFrozen"
+                                  Content="AreRowGroupHeadersFrozen"
+                                  IsChecked="{Binding #DataGrid.AreRowGroupHeadersFrozen}" />
+                        <Button Classes="Primary"
+                                Content="Expand All"
+                                Command="{Binding ExpandAllGroups}"
+                                Theme="{StaticResource SolidButtonTheme}">
+                        </Button>
+                        <Button Classes="Secondary"
+                                Content="Collapse All"
+                                Command="{Binding CollapseAllGroups}"
+                                Theme="{StaticResource SolidButtonTheme}">
+                        </Button>
+                    </WrapPanel>
+                    <DataGrid x:Name="DataGrid"
+                              DataGridAttach.IsAllExpanded="{Binding IsAllExpanded}"
+                              Classes="Border"
+                              HeadersVisibility="All"
+                              ItemsSource="{Binding DataGridCollectionView}" />
+                </DockPanel>
             </TabItem>
 
             <TabItem Header="Styling">

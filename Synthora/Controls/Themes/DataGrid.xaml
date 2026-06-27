@@ -158,7 +158,7 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type DataGridRowHeader}" TargetType="DataGridRowHeader">
-        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <!-- <Setter Property="HorizontalContentAlignment" Value="Center" />-->
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
         <Setter Property="Background" Value="Transparent" />
@@ -174,7 +174,8 @@
                     <ContentPresenter Margin="{TemplateBinding Padding}"
                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                      Content="{TemplateBinding Content}" />
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}" />
                 </Border>
             </ControlTemplate>
         </Setter>
@@ -249,26 +250,32 @@
         <Setter Property="MinHeight" Value="{DynamicResource DataGridRowMinHeight}" />
         <Setter Property="Template">
             <ControlTemplate x:DataType="collections:DataGridCollectionViewGroup">
-                <Border Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
-                    <DataGridFrozenGrid Name="PART_Root"
-                                        Margin="{TemplateBinding Padding}"
-                                        ColumnDefinitions="Auto,Auto">
-                        <ToggleButton Name="PART_ExpanderButton" Theme="{StaticResource SimpleExpanderButtonTheme}" />
+                <DataGridFrozenGrid Name="PART_Root">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        <DockPanel Margin="{TemplateBinding Padding}">
+                            <DataGridRowHeader Name="PART_RowHeader"
+                                               Padding="0"
+                                               DataGridFrozenGrid.IsFrozen="True" />
 
-                        <StackPanel Grid.Column="1"
-                                    Margin="{DynamicResource ThemeControlLeftPadding}"
-                                    VerticalAlignment="Center"
-                                    Orientation="Horizontal"
-                                    Spacing="6">
-                            <TextBlock Name="PART_PropertyNameElement" IsVisible="{TemplateBinding IsPropertyNameVisible}" />
-                            <TextBlock Text="{Binding Key}" />
-                            <TextBlock Name="PART_ItemCountElement" IsVisible="{TemplateBinding IsItemCountVisible}" />
-                        </StackPanel>
-                    </DataGridFrozenGrid>
-                </Border>
+                            <Rectangle Name="PART_IndentSpacer" />
+
+                            <ToggleButton Name="PART_ExpanderButton"
+                                          Margin="0,0,8,0"
+                                          Theme="{StaticResource SimpleExpanderButtonNoTransitionTheme}" />
+
+                            <StackPanel VerticalAlignment="Center"
+                                        Orientation="Horizontal"
+                                        Spacing="8">
+                                <TextBlock Name="PART_PropertyNameElement" IsVisible="{TemplateBinding IsPropertyNameVisible}" />
+                                <TextBlock Text="{Binding Key}" />
+                                <TextBlock Name="PART_ItemCountElement" IsVisible="{TemplateBinding IsItemCountVisible}" />
+                            </StackPanel>
+                        </DockPanel>
+                    </Border>
+                </DataGridFrozenGrid>
             </ControlTemplate>
         </Setter>
         <Style Selector="^:pointerover,^:focus-within">

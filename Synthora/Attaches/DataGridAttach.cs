@@ -1,7 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Concurrent;
+﻿using System;
+using System.Collections;
 using System.Collections.Specialized;
+using System.Diagnostics;
+using System.Linq;
+using System.Runtime.CompilerServices;
 using Avalonia;
+using Avalonia.Collections;
 using Avalonia.Controls;
 using Avalonia.Data;
 using Avalonia.Threading;
@@ -10,7 +14,15 @@ namespace Synthora.Attaches
 {
     public class DataGridAttach
     {
-        private static readonly ConcurrentDictionary<object, DataGrid> CollectionToDataGridMap = [];
+        private static readonly ConditionalWeakTable<object, WeakReference<DataGrid>> CollectionToDataGridMap = [];
+
+        static DataGridAttach()
+        {
+            AutoScrollToEndProperty.Changed.AddClassHandler<DataGrid, bool>((s, e) => OnAutoScrollToEndChanged(e));
+            SelectedItemsAttachProperty.Changed.AddClassHandler<DataGrid, bool>((s, e) => SelectedItemsAttachChanged(e));
+            ScrollIntoItemProperty.Changed.AddClassHandler<DataGrid, object?>((s, e) => OnScrollIntoItemChanged(e));
+            IsAllExpandedProperty.Changed.AddClassHandler<DataGrid, bool?>((s, e) => OnIsAllExpandedChanged(e));
+        }
 
         public static readonly AttachedProperty<IList?> SelectedItemsProperty =
             AvaloniaProperty.RegisterAttached<DataGridAttach, DataGrid, IList?>("SelectedItems", defaultBindingMode: BindingMode.TwoWay);
@@ -27,12 +39,8 @@ namespace Synthora.Attaches
         public static readonly AttachedProperty<bool> IgnoreAutoScrollOnPointerOverProperty =
             AvaloniaProperty.RegisterAttached<DataGridAttach, DataGrid, bool>("IgnoreAutoScrollOnPointerOver");
 
-        static DataGridAttach()
-        {
-            SelectedItemsAttachProperty.Changed.AddClassHandler<DataGrid, bool>((s, e) => SelectedItemsAttachChanged(e));
-            ScrollIntoItemProperty.Changed.AddClassHandler<DataGrid, object?>((s, e) => OnScrollIntoItemChanged(e));
-            AutoScrollToEndProperty.Changed.AddClassHandler<DataGrid, bool>((s, e) => OnAutoScrollToEndChanged(e));
-        }
+        public static readonly AttachedProperty<bool?> IsAllExpandedProperty =
+            AvaloniaProperty.RegisterAttached<DataGridAttach, DataGrid, bool?>("IsAllExpanded");
 
         public static IList? GetSelectedItems(DataGrid obj) => obj.GetValue(SelectedItemsProperty);
         public static void SetSelectedItems(DataGrid obj, IList? value) => obj.SetValue(SelectedItemsProperty, value);
@@ -46,8 +54,22 @@ namespace Synthora.Attaches
         public static bool GetAutoScrollToEnd(DataGrid obj) => obj.GetValue(AutoScrollToEndProperty);
         public static void SetAutoScrollToEnd(DataGrid obj, bool value) => obj.SetValue(AutoScrollToEndProperty, value);
 
-        public static bool GetIgnoreAutoScrollOnPointerOver(DataGrid obj) => obj.GetValue(IgnoreAutoScrollOnPointerOverProperty); 
+        public static bool GetIgnoreAutoScrollOnPointerOver(DataGrid obj) => obj.GetValue(IgnoreAutoScrollOnPointerOverProperty);
         public static void SetIgnoreAutoScrollOnPointerOver(DataGrid obj, bool value) => obj.SetValue(IgnoreAutoScrollOnPointerOverProperty, value);
+
+        public static bool? GetIsAllExpanded(DataGrid obj) => obj.GetValue(IsAllExpandedProperty);
+        public static void SetIsAllExpanded(DataGrid obj, bool? value) => obj.SetValue(IsAllExpandedProperty, value);
+
+        private static void OnScrollIntoItemChanged(AvaloniaPropertyChangedEventArgs<object?> e)
+        {
+            if (e.Sender is DataGrid dataGrid && e.NewValue.Value != null)
+            {
+                Dispatcher.UIThread.InvokeAsync(() =>
+                {
+                    dataGrid.ScrollIntoView(e.NewValue.Value, null);
+                }, DispatcherPriority.Loaded);
+            }
+        }
 
         private static void SelectedItemsAttachChanged(AvaloniaPropertyChangedEventArgs<bool> e)
         {
@@ -69,14 +91,12 @@ namespace Synthora.Attaches
             }
         }
 
-        private static void OnScrollIntoItemChanged(AvaloniaPropertyChangedEventArgs<object?> e)
+        private static void CleanUp(INotifyCollectionChanged? notifyCollectionChanged)
         {
-            if (e.Sender is DataGrid dataGrid && e.NewValue.Value != null)
+            if (notifyCollectionChanged != null)
             {
-                Dispatcher.UIThread.InvokeAsync(() =>
-                {
-                    dataGrid.ScrollIntoView(e.NewValue.Value, null);
-                }, DispatcherPriority.Loaded);
+                notifyCollectionChanged.CollectionChanged -= DataGridAttach_CollectionChanged;
+                CollectionToDataGridMap.Remove(notifyCollectionChanged);
             }
         }
 
@@ -88,23 +108,21 @@ namespace Synthora.Attaches
             }
 
             dataGrid.PropertyChanged -= DataGrid_PropertyChanged;
-            dataGrid.PropertyChanged += DataGrid_PropertyChanged;
-
-            //DependencyPropertyDescriptor property = DependencyPropertyDescriptor.FromProperty(ItemsControl.ItemsSourceProperty, typeof(Selector));
-            //property?.RemoveValueChanged(dataGrid, OnItemsSourceChanged);
-            //property?.AddValueChanged(dataGrid, OnItemsSourceChanged);
+            if (e.NewValue.Value)
+            {
+                dataGrid.PropertyChanged += DataGrid_PropertyChanged;
+            }
 
             if (dataGrid.ItemsSource is INotifyCollectionChanged notifyCollectionChanged)
             {
                 if (e.OldValue.Value)
                 {
-                    notifyCollectionChanged.CollectionChanged -= DataGridAttach_CollectionChanged;
-                    CollectionToDataGridMap.TryRemove(notifyCollectionChanged, out _);
+                    CleanUp(notifyCollectionChanged);
                 }
 
                 if (e.NewValue.Value)
                 {
-                    CollectionToDataGridMap[notifyCollectionChanged] = dataGrid;
+                    CollectionToDataGridMap.AddOrUpdate(notifyCollectionChanged, new WeakReference<DataGrid>(dataGrid));
                     notifyCollectionChanged.CollectionChanged += DataGridAttach_CollectionChanged;
                 }
             }
@@ -114,8 +132,9 @@ namespace Synthora.Attaches
         {
             if (e.Property == DataGrid.ItemsSourceProperty && sender is DataGrid dataGrid)
             {
-                var args = new AvaloniaPropertyChangedEventArgs<bool>(dataGrid, AutoScrollToEndProperty, new Optional<bool>(true), new BindingValue<bool>(GetAutoScrollToEnd(dataGrid)), BindingPriority.LocalValue);
+                CleanUp(e.OldValue as INotifyCollectionChanged);
 
+                var args = new AvaloniaPropertyChangedEventArgs<bool>(dataGrid, AutoScrollToEndProperty, new Optional<bool>(true), new BindingValue<bool>(GetAutoScrollToEnd(dataGrid)), BindingPriority.LocalValue);
                 OnAutoScrollToEndChanged(args);
 
                 if (GetAutoScrollToEnd(dataGrid) && dataGrid.ItemsSource is IList list)
@@ -129,7 +148,14 @@ namespace Synthora.Attaches
         {
             if (sender != null && CollectionToDataGridMap.TryGetValue(sender, out var dataGrid))
             {
-                ScrollToEnd(dataGrid, e.NewItems);
+                if (dataGrid.TryGetTarget(out var actualDataGrid))
+                {
+                    ScrollToEnd(actualDataGrid, e.NewItems);
+                }
+                else
+                {
+                    CleanUp(sender as INotifyCollectionChanged);
+                }
             }
         }
 
@@ -139,12 +165,47 @@ namespace Synthora.Attaches
             {
                 return;
             }
-            if (list is { Count: > 0 })
+            if (list != null && list.Count > 0)
             {
                 Dispatcher.UIThread.InvokeAsync(() =>
                 {
                     dataGrid.ScrollIntoView(list[^1], null);
                 }, DispatcherPriority.Loaded);
+            }
+        }
+
+        private static void OnIsAllExpandedChanged(AvaloniaPropertyChangedEventArgs<bool?> e)
+        {
+            if (e.Sender is DataGrid dataGrid && dataGrid.ItemsSource is DataGridCollectionView cv && e.NewValue.Value is { } newValue)
+            {
+                var collectionViewGroups = cv.Groups.OfType<DataGridCollectionViewGroup>();
+                foreach (var group in collectionViewGroups)
+                {
+                    //dataGrid.ScrollIntoView(group, null);
+                    try
+                    {
+                        if (newValue)
+                        {
+                            dataGrid.ExpandRowGroup(group, expandAllSubgroups: true);
+                        }
+                        else
+                        {
+                            dataGrid.CollapseRowGroup(group, collapseAllSubgroups: true);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine(ex.ToString());
+                    }
+                }
+                if (collectionViewGroups.Any())
+                {
+                    Dispatcher.UIThread.InvokeAsync(() =>
+                    {
+                        //dataGrid.ScrollIntoView(collectionViewGroups.First(), null);
+                        cv.Refresh();
+                    }, DispatcherPriority.Loaded);
+                }
             }
         }
     }
