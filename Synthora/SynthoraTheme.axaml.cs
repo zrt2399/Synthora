@@ -41,15 +41,15 @@ namespace Synthora
         [Description("紧凑")]
         Compact,
         /// <summary>
-        /// Uses standard density resources.
+        /// Uses normal density resources.
         /// </summary>
         [Description("默认")]
-        Standard,
+        Normal,
         /// <summary>
-        /// Uses comfortable density resources.
+        /// Uses spacious density resources.
         /// </summary>
         [Description("宽松")]
-        Comfortable
+        Spacious
     }
 
     /// <summary>
@@ -57,7 +57,7 @@ namespace Synthora
     /// </summary>
     public class SynthoraTheme : Styles
     {
-        private ThemeDensity _themeDensity = ThemeDensity.Standard;
+        private ThemeDensity _themeDensity = ThemeDensity.Normal;
         private IResourceProvider? _currentDensityResource;
 
         /// <summary>
@@ -101,8 +101,8 @@ namespace Synthora
             string resourceKey = style switch
             {
                 ThemeDensity.Compact => "DensityCompact",
-                ThemeDensity.Comfortable => "DensityComfortable",
-                _ => "DensityStandard",
+                ThemeDensity.Spacious => "DensitySpacious",
+                _ => "DensityNormal",
             };
 
             if (TryGetResource(resourceKey, null, out var res) && res is IResourceProvider newRes)
@@ -144,7 +144,7 @@ namespace Synthora
         /// </summary>
         public static ThemeDensity GetCurrentDensity()
         {
-            return Application.Current?.Styles.OfType<SynthoraTheme>().LastOrDefault()?.ThemeDensity ?? ThemeDensity.Standard;
+            return Application.Current?.Styles.OfType<SynthoraTheme>().LastOrDefault()?.ThemeDensity ?? ThemeDensity.Normal;
         }
     }
 }

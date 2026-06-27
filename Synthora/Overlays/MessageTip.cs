@@ -116,7 +116,7 @@ namespace Synthora.Overlays
                 int padding = SynthoraTheme.GetCurrentDensity() switch
                 {
                     ThemeDensity.Compact => 4,
-                    ThemeDensity.Comfortable => 6,
+                    ThemeDensity.Spacious => 6,
                     _ => 5,
                 };
 
