@@ -205,7 +205,8 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="{x:Type TabbedPage}" TargetType="TabbedPage">
+    <ControlTheme x:Key="{x:Type TabbedPage}" TargetType="TabbedPage"> 
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
             <ControlTemplate>
                 <TabControl Name="PART_TabControl"

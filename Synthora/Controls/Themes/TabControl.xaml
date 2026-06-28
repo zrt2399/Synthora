@@ -4,6 +4,7 @@
                     x:CompileBindings="True">
 
     <ControlTheme x:Key="TabControlBaseTheme" TargetType="TabControl">
+        <Setter Property="Background" Value="Transparent" />
         <Style Selector="^[TabStripPlacement=Top] /template/ Border#HeaderRoot">
             <Setter Property="BorderThickness" Value="0,0,0,1" />
         </Style>

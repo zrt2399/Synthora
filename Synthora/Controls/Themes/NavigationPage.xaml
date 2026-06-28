@@ -48,9 +48,9 @@
         </PageSlide.SlideOutEasing>
     </PageSlide>
 
-    <ControlTheme x:Key="{x:Type NavigationPage}" TargetType="NavigationPage">
+    <ControlTheme x:Key="{x:Type NavigationPage}" TargetType="NavigationPage"> 
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="BarHeight" Value="{DynamicResource NavigationPageBarHeight}" />
-        <!-- <Setter Property="Background" Value="Transparent" /> -->
         <Setter Property="PageTransition" Value="{DynamicResource HorizontalPageSlideAnimation}" />
         <Setter Property="ModalTransition" Value="{DynamicResource VerticalPageSlideAnimation}" />
         <Setter Property="Template">

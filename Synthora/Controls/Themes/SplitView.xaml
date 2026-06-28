@@ -25,7 +25,8 @@
     <!-- Not used here (directly), but preserving for reference
         <x:String x:Key="SplitViewPaneAnimationOpenPreDuration">00:00:00.19999</x:String>-->
 
-    <ControlTheme x:Key="{x:Type SplitView}" TargetType="SplitView">
+    <ControlTheme x:Key="{x:Type SplitView}" TargetType="SplitView"> 
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="OpenPaneLength" Value="{DynamicResource SplitViewOpenPaneThemeLength}" />
         <Setter Property="CompactPaneLength" Value="{DynamicResource SplitViewCompactPaneThemeLength}" />
         <Setter Property="PaneBackground" Value="{DynamicResource ThemeControlLowBrush}" />

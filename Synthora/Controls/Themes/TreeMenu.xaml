@@ -4,6 +4,7 @@
                     x:CompileBindings="True">
 
     <ControlTheme x:Key="{x:Type TreeMenu}" TargetType="TreeMenu">
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="MenuMargin" Value="28,0" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
@@ -28,7 +29,6 @@
                             <ScrollViewer Grid.Row="1"
                                           Margin="{TemplateBinding MenuMargin}"
                                           AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
-                                          Background="Transparent"
                                           BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
                                           HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
                                           IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}"

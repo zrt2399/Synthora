@@ -20,8 +20,7 @@
     </StreamGeometry>
 
     <ControlTheme x:Key="{x:Type DrawerPage}" TargetType="DrawerPage">
-        <!--<Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />-->
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="CompactDrawerLength" Value="{DynamicResource NavigationControlNavBarHeight}" />
         <Setter Property="Template">
             <ControlTemplate>

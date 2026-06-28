@@ -71,7 +71,6 @@
                               CornerRadius="{TemplateBinding CornerRadius}">
                     <ScrollViewer Name="PART_ScrollViewer"
                                   AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
-                                  Background="Transparent"
                                   BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
                                   HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
                                   HorizontalSnapPointsType="{TemplateBinding (ScrollViewer.HorizontalSnapPointsType)}"
