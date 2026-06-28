@@ -42,9 +42,9 @@
                                   IsChecked="{Binding $parent[Window].CanMaximize}"
                                   IsEnabled="{Binding $parent[Window].CanResize}" />
 
-                        <TextBlock Text="{Binding $parent[Window].WindowDecorationMargin, StringFormat=Window Decoration Margin: {0}}" IsVisible="{Binding $self.Text,Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+                        <TextBlock IsVisible="{Binding $self.Text, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" Text="{Binding $parent[Window].WindowDecorationMargin, StringFormat=Window Decoration Margin: {0}}" />
 
-                        <TextBlock Text="{Binding $parent[Window].OffScreenMargin, StringFormat=Off Screen Margin: {0}}" IsVisible="{Binding $self.Text,Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+                        <TextBlock IsVisible="{Binding $self.Text, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" Text="{Binding $parent[Window].OffScreenMargin, StringFormat=Off Screen Margin: {0}}" />
                     </StackPanel>
                 </Border>
 
@@ -54,11 +54,11 @@
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="CellphoneText" />
                             <TextBlock Classes="sectionLabel" Text="Mobile properties" />
                         </StackPanel>
-                        <CheckBox x:Name="IsSystemBarVisibleCheckBox" Content="Is System Bar Visible" />
+                        <CheckBox Name="IsSystemBarVisibleCheckBox" Content="Is System Bar Visible" />
 
-                        <CheckBox x:Name="DisplayEdgeToEdgeCheckBox" Content="Display Edge To Edge" />
+                        <CheckBox Name="DisplayEdgeToEdgeCheckBox" Content="Display Edge To Edge" />
 
-                        <TextBlock x:Name="SafeAreaPadding" Text="Safe Area Padding:" />
+                        <TextBlock Name="SafeAreaPadding" IsVisible="{Binding $self.Text, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
                     </StackPanel>
                 </Border>
             </StackPanel>
