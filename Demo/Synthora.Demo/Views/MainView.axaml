@@ -112,6 +112,9 @@
                     <DataTemplate DataType="vm:ExtendedControlsViewModel">
                         <views:ExtendedControlsView />
                     </DataTemplate>
+                    <DataTemplate DataType="vm:ThemeVariantScopeViewModel">
+                        <views:ThemeVariantScopeView />
+                    </DataTemplate>
                     <DataTemplate DataType="vm:BannerViewModel">
                         <views:BannerView />
                     </DataTemplate>

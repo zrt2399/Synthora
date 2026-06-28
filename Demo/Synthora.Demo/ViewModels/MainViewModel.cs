@@ -78,6 +78,7 @@ namespace Synthora.Demo.ViewModels
                 CreateItem(new RangeControlViewModel()),
                 CreateItem(new GroupBoxViewModel()),
                 CreateItem(new ExtendedControlsViewModel()),
+                CreateItem(new ThemeVariantScopeViewModel()),
                 CreateItem(new NavigationViewModel(), new SplitViewViewModel(), new TabControlViewModel(), new TabbedPageViewModel(), new DrawerPageViewModel(), new NavigationPageViewModel(), new CarouselViewModel(), new DragTabControlViewModel(), new TreeMenuViewModel()),
                 CreateItem(new WindowCustomizationsViewModel()),
             };

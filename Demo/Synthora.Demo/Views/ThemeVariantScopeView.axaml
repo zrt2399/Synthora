@@ -1,0 +1,99 @@
+<UserControl x:Class="Synthora.Demo.Views.ThemeVariantScopeView"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialIcons="using:Material.Icons.Avalonia"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Synthora.Demo.ViewModels"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             x:DataType="vm:ThemeVariantScopeViewModel"
+             mc:Ignorable="d">
+
+    <DemoPage Title="Theme Variant Scope"
+              Padding="0"
+              Description="{Binding Description}"
+              IconKind="{Binding IconKind}">
+        <ScrollViewer Padding="16">
+            <StackPanel Spacing="16">
+                <ThemeVariantScope RequestedThemeVariant="Light">
+                    <Border Classes="card">
+                        <StackPanel Spacing="16">
+                            <StackPanel Classes="sectionHeader">
+                                <materialIcons:MaterialIcon Classes="sectionIcon" Kind="WhiteBalanceSunny" />
+                                <TextBlock Classes="sectionLabel" Text="LIGHT SCOPE" />
+                            </StackPanel>
+
+                            <UniformGrid ColumnSpacing="16" Rows="1">
+                                <StackPanel Spacing="12">
+                                    <TextBox Text="Synthora release review" TextBoxAttach.Header="Workspace" />
+                                    <ComboBox SelectedIndex="0" TextBoxAttach.Header="Track">
+                                        <ComboBoxItem>Stable</ComboBoxItem>
+                                        <ComboBoxItem>Preview</ComboBoxItem>
+                                        <ComboBoxItem>Internal</ComboBoxItem>
+                                    </ComboBox>
+                                    <ProgressBar ShowProgressText="True" Value="72" />
+                                    <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
+                                        <Button Classes="Primary" Theme="{StaticResource SolidButtonTheme}">Approve</Button>
+                                        <Button Theme="{StaticResource OutlineButtonTheme}">Review notes</Button>
+                                        <Tag TagType="Success" IsSolid="True">ready</Tag>
+                                    </SpacingWrapPanel>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="2" Spacing="12">
+                                    <Banner Content="All package checks completed." IconType="Success" />
+                                    <GroupBoxEx Header="Sign-off">
+                                        <StackPanel Spacing="10">
+                                            <StatusIndicator IconType="Success">Documentation updated</StatusIndicator>
+                                            <StatusIndicator IconType="Information">Screenshots captured</StatusIndicator>
+                                            <StatusIndicator IconType="Warning">Android smoke test pending</StatusIndicator>
+                                        </StackPanel>
+                                    </GroupBoxEx>
+                                </StackPanel>
+                            </UniformGrid>
+                        </StackPanel>
+                    </Border>
+                </ThemeVariantScope>
+
+                <ThemeVariantScope RequestedThemeVariant="Dark">
+                    <Border Classes="card">
+                        <StackPanel Spacing="16">
+                            <StackPanel Classes="sectionHeader">
+                                <materialIcons:MaterialIcon Classes="sectionIcon" Kind="WeatherNight" />
+                                <TextBlock Classes="sectionLabel" Text="DARK SCOPE" />
+                            </StackPanel>
+
+                            <UniformGrid ColumnSpacing="16" Rows="1">
+                                <StackPanel Spacing="12">
+                                    <TextBox Text="Production incident review" TextBoxAttach.Header="Workspace" />
+                                    <ComboBox SelectedIndex="1" TextBoxAttach.Header="Priority">
+                                        <ComboBoxItem>Low</ComboBoxItem>
+                                        <ComboBoxItem>Medium</ComboBoxItem>
+                                        <ComboBoxItem>High</ComboBoxItem>
+                                    </ComboBox>
+                                    <ProgressBar Classes="Secondary"
+                                                 ShowProgressText="True"
+                                                 Value="44" />
+                                    <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
+                                        <Button Classes="Secondary" Theme="{StaticResource SolidButtonTheme}">Open queue</Button>
+                                        <Button Theme="{StaticResource OutlineButtonTheme}">Create task</Button>
+                                        <Tag TagType="Question" IsSolid="True">triage</Tag>
+                                    </SpacingWrapPanel>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="2" Spacing="12">
+                                    <Banner Content="Telemetry is still collecting fresh samples." IconType="Information" />
+                                    <ListBox AutoScrollToSelectedItem="False" SelectedIndex="0">
+                                        <ListBoxItem>Alert volume normalized</ListBoxItem>
+                                        <ListBoxItem>Cache miss rate under review</ListBoxItem>
+                                        <ListBoxItem>Follow-up owner assigned</ListBoxItem>
+                                    </ListBox>
+                                </StackPanel>
+                            </UniformGrid>
+                        </StackPanel>
+                    </Border>
+                </ThemeVariantScope>
+            </StackPanel>
+        </ScrollViewer>
+    </DemoPage>
+</UserControl>
