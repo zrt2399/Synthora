@@ -69,7 +69,7 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type DatePicker}" TargetType="DatePicker">
-        <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
@@ -133,10 +133,9 @@
                            PlacementTarget="{Binding ElementName=PART_FlyoutButton}"
                            WindowManagerAddShadowHint="False">
                         <!--  ScrollViewerAttach.IsDisabled="True" fix mouse scrolling triggers parent  -->
-                        <Panel Margin="{Binding #borderRoot.Margin, Converter={x:Static DateTimePickerPopupMarginConverter.Instance}}" ScrollViewerAttach.IsDisabled="True">
-                            <SystemShadowChrome Name="borderRoot"
+                        <Panel Margin="{Binding #BorderRoot.Margin, Converter={x:Static DateTimePickerPopupMarginConverter.Instance}}" ScrollViewerAttach.IsDisabled="True">
+                            <SystemShadowChrome Name="BorderRoot"
                                                 Width="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
-                                                Background="{TemplateBinding Background}"
                                                 BorderBrush="{TemplateBinding BorderBrush}"
                                                 BorderThickness="{TemplateBinding BorderThickness}"
                                                 CornerRadius="{TemplateBinding CornerRadius}">
