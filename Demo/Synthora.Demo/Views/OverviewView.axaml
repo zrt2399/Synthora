@@ -453,7 +453,36 @@
 
                 <WrapPanel ItemSpacing="16" LineSpacing="16">
                     <Border MinWidth="380"
-                            MaxWidth="620"
+                            MaxWidth="520"
+                            Classes="card">
+                        <StackPanel Spacing="16">
+                            <StackPanel Classes="sectionHeader">
+                                <materialIcons:MaterialIcon Classes="sectionIcon" Kind="BellBadgeOutline" />
+                                <TextBlock Classes="sectionLabel" Text="STATUS &amp; NOTIFICATIONS" />
+                            </StackPanel>
+
+                            <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
+                                <StatusIndicator IconType="Success">Ready</StatusIndicator>
+                                <StatusIndicator IconType="Warning">Pending</StatusIndicator>
+                                <StatusIndicator IconType="Error">Failed</StatusIndicator>
+                                <StatusIndicator IconType="None">Idle</StatusIndicator>
+                            </SpacingWrapPanel>
+
+                            <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
+                                <Tag TagType="Success" IsSolid="True">healthy</Tag>
+                                <Tag TagType="Warning" IsCircular="True">attention</Tag>
+                                <Tag TagType="Error" IsSolid="True">blocked</Tag>
+                                <Tag TagType="None" IsCircular="True">muted</Tag>
+                            </SpacingWrapPanel>
+
+                            <Banner Content="System information has been refreshed." IconType="Information" />
+                            <Banner Content="Project indexing completed successfully." IconType="Success" />
+                            <Banner Content="Two background tasks need attention." IconType="Warning" />
+                        </StackPanel>
+                    </Border>
+
+                    <Border MinWidth="380"
+                            MaxWidth="520"
                             Classes="card">
                         <StackPanel Spacing="16">
                             <StackPanel Classes="sectionHeader">
@@ -480,7 +509,7 @@
                     </Border>
 
                     <Border MinWidth="380"
-                            MaxWidth="620"
+                            MaxWidth="520"
                             Classes="card">
                         <DockPanel VerticalSpacing="16">
                             <StackPanel Classes="sectionHeader" DockPanel.Dock="Top">

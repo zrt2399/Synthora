@@ -81,14 +81,14 @@
                             <StatusIndicator IconType="Success" StrokeThickness="2" />
                             <StatusIndicator IconType="Success"
                                              StrokeThickness="4"
-                                             Padding="6"/>
+                                             HighlightMargin="6"/>
                             <StatusIndicator IconType="Warning"
                                              BorderBrush="{DynamicResource WarningBrush}"
                                              StrokeThickness="3" />
                             <StatusIndicator IconType="Error"
-                                             Height="12"
-                                             Width="12"
-                                             Padding="2"
+                                             IconHeight="12"
+                                             IconWidth="12"
+                                             HighlightMargin="2"
                                              StrokeThickness="0" />
                         </SpacingWrapPanel>
                     </StackPanel>
