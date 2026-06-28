@@ -1,4 +1,4 @@
-﻿namespace Synthora.Converters
+namespace Synthora.Converters
 {
     public static class SynthoraConverters
     {

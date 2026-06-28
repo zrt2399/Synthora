@@ -5,7 +5,7 @@
 
     <x:Double x:Key="TabItemMinWidth">0</x:Double>
     <x:Double x:Key="SegmentedTabItemMinWidth">0</x:Double>
-    <x:Double x:Key="CardTabItemMinWidth">150</x:Double>
+    <x:Double x:Key="CardTabItemMinWidth">160</x:Double>
     <BoxShadows x:Key="SegmentedTabItemSelectedBoxShadow">0 0 6 0 #20000000</BoxShadows>
 
     <ControlTheme x:Key="{x:Type TabItem}" TargetType="TabItem">

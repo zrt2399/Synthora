@@ -42,9 +42,9 @@
                                   IsChecked="{Binding $parent[Window].CanMaximize}"
                                   IsEnabled="{Binding $parent[Window].CanResize}" />
 
-                        <TextBlock Text="{Binding $parent[Window].WindowDecorationMargin, StringFormat=Window Decoration Margin: {0}}" />
+                        <TextBlock Text="{Binding $parent[Window].WindowDecorationMargin, StringFormat=Window Decoration Margin: {0}}" IsVisible="{Binding $self.Text,Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
 
-                        <TextBlock Text="{Binding $parent[Window].OffScreenMargin, StringFormat=Off Screen Margin: {0}}" />
+                        <TextBlock Text="{Binding $parent[Window].OffScreenMargin, StringFormat=Off Screen Margin: {0}}" IsVisible="{Binding $self.Text,Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
                     </StackPanel>
                 </Border>
 
