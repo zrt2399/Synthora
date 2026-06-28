@@ -44,18 +44,18 @@
     </StreamGeometry>
 
     <ControlTheme x:Key="SimpleCalendarDatePickerButtonTheme" TargetType="Button">
-        <Setter Property="HorizontalAlignment" Value="Center" />
-        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Cursor" Value="{x:Null}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
             <ControlTemplate>
-                <PathIcon Width="12"
-                          Height="12"
-                          Margin="{TemplateBinding Padding}"
-                          HorizontalAlignment="Center"
-                          VerticalAlignment="Center"
-                          Background="{TemplateBinding Background}"
-                          Data="{DynamicResource CalendarDatePickerButtonData}" />
+                <Panel Background="{TemplateBinding Background}">
+                    <PathIcon Width="12"
+                              Height="12"
+                              Margin="{TemplateBinding Padding}"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Data="{DynamicResource CalendarDatePickerButtonData}" />
+                </Panel>
             </ControlTemplate>
         </Setter>
         <Style Selector="^:pointerover">
@@ -67,7 +67,7 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type CalendarDatePicker}" TargetType="CalendarDatePicker">
-        <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
@@ -113,7 +113,6 @@
                                PlacementTarget="{Binding ElementName=PART_TextBox}"
                                WindowManagerAddShadowHint="False">
                             <SystemShadowChrome Name="SystemShadowChrome"
-                                                Background="{TemplateBinding Background}"
                                                 BorderBrush="{TemplateBinding BorderBrush}"
                                                 BorderThickness="{TemplateBinding BorderThickness}"
                                                 CornerRadius="{TemplateBinding CornerRadius}">

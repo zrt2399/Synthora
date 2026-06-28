@@ -24,10 +24,10 @@
     </Design.PreviewWith>
 
     <ControlTheme x:Key="{x:Type AutoCompleteBox}" TargetType="AutoCompleteBox">
-        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
-        <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
         <Setter Property="PlaceholderForeground" Value="{DynamicResource ThemeForegroundBrush}" />
         <Setter Property="MaxDropDownHeight" Value="200" />
@@ -67,13 +67,12 @@
                             <!--  ScrollViewerAttach.IsDisabled="True" fix mouse scrolling triggers parent  -->
                             <SystemShadowChrome MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
                                                 MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                                                Background="{TemplateBinding Background}"
                                                 BorderBrush="{TemplateBinding BorderBrush}"
                                                 BorderThickness="{TemplateBinding BorderThickness}"
                                                 CornerRadius="{TemplateBinding CornerRadius}"
                                                 ScrollViewerAttach.IsDisabled="True">
                                 <ListBox Name="PART_SelectingItemsControl"
-                                         Background="{TemplateBinding Background}"
+                                         Background="Transparent"
                                          BorderThickness="0"
                                          Foreground="{TemplateBinding Foreground}"
                                          ItemTemplate="{TemplateBinding ItemTemplate}"

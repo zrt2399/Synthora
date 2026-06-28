@@ -71,7 +71,7 @@
                                           Top="True" />
 
     <ControlTheme x:Key="{x:Type ComboBox}" TargetType="ComboBox">
-        <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
@@ -163,7 +163,6 @@
                                    WindowManagerAddShadowHint="False">
                                 <SystemShadowChrome MinWidth="{Binding Bounds.Width, ElementName=FocusTarget}"
                                                     MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                                                    Background="{TemplateBinding Background}"
                                                     BorderBrush="{TemplateBinding BorderBrush}"
                                                     BorderThickness="{TemplateBinding BorderThickness}"
                                                     CornerRadius="{TemplateBinding CornerRadius}">

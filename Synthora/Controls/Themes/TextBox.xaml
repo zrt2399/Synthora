@@ -152,12 +152,14 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
             <ControlTemplate TargetType="Button">
-                <PathIcon Width="10"
-                          Height="10"
-                          HorizontalAlignment="Center"
-                          VerticalAlignment="Center"
-                          Background="{TemplateBinding Background}"
-                          Data="{StaticResource TextBoxClearButtonData}" />
+                <Panel Background="{TemplateBinding Background}">
+                    <PathIcon Width="10"
+                              Height="10"
+                              Margin="{TemplateBinding Padding}"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Data="{StaticResource TextBoxClearButtonData}" />
+                </Panel>
             </ControlTemplate>
         </Setter>
         <Style Selector="^:pointerover">
@@ -173,12 +175,14 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
             <ControlTemplate TargetType="ToggleButton">
-                <PathIcon x:Name="PART_GlyphElement"
-                          Width="12"
-                          Height="12"
-                          HorizontalAlignment="Center"
-                          VerticalAlignment="Center"
-                          Background="{TemplateBinding Background}" />
+                <Panel Background="{TemplateBinding Background}">
+                    <PathIcon x:Name="PART_GlyphElement"
+                              Width="12"
+                              Height="12"
+                              Margin="{TemplateBinding Padding}"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center" />
+                </Panel>
             </ControlTemplate>
         </Setter>
 
@@ -203,13 +207,13 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type TextBox}" TargetType="TextBox">
-        <Setter Property="CaretBrush" Value="{DynamicResource ThemeForegroundBrush}" />
-        <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
         <!--<Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />-->
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
         <Setter Property="SelectionBrush" Value="{DynamicResource TextSelectionBrush}" />
+        <Setter Property="CaretBrush" Value="{DynamicResource ThemeForegroundBrush}" />
         <!--<Setter Property="SelectionForegroundBrush" Value="{DynamicResource HighlightForegroundBrush}" />-->
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
         <Setter Property="PlaceholderForeground" Value="{DynamicResource ThemeForegroundBrush}" />
@@ -241,6 +245,9 @@
                                         <Binding Converter="{x:Static StringConverters.IsNotNullOrEmpty}"
                                                  Path="Text"
                                                  RelativeSource="{RelativeSource TemplatedParent}" />
+                                        <Binding Converter="{x:Static StringConverters.IsNotNullOrEmpty}"
+                                                 Path="Text"
+                                                 RelativeSource="{RelativeSource Self}" />
                                     </MultiBinding>
                                 </TextBlock.IsVisible>
                             </TextBlock>
