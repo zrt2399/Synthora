@@ -45,18 +45,51 @@
                             <Tag IsCircular="True" IsSolid="True">triage</Tag>
                             <Tag TagType="Question" IsCircular="True">needs answer</Tag>
                             <Tag TagType="Success"
-                                   IsCircular="True"
-                                   IsSolid="True">
+                                 IsCircular="True"
+                                 IsSolid="True">
                                 approved
                             </Tag>
                             <Tag TagType="Warning" IsCircular="True">blocked</Tag>
                             <Tag TagType="Danger"
-                                   IsCircular="True"
-                                   IsSolid="True">
+                                 IsCircular="True"
+                                 IsSolid="True">
                                 critical
                             </Tag>
                             <Tag TagType="Error" IsCircular="True">failed</Tag>
                             <Tag TagType="None">archived</Tag>
+                        </SpacingWrapPanel>
+                    </StackPanel>
+                </Border>
+
+                <!--  StatusIndicator showcase  -->
+                <Border Classes="card">
+                    <StackPanel Spacing="16">
+                        <StackPanel Classes="sectionHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="CircleSlice8" />
+                            <TextBlock Classes="sectionLabel" Text="STATUS INDICATOR" />
+                        </StackPanel>
+                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <StatusIndicator IconType="Information"/>
+                            <StatusIndicator IconType="Question" />
+                            <StatusIndicator IconType="Success" />
+                            <StatusIndicator IconType="Warning" />
+                            <StatusIndicator IconType="Error" />
+                            <StatusIndicator />
+                        </SpacingWrapPanel>
+                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <StatusIndicator IconType="Success" StrokeThickness="1" />
+                            <StatusIndicator IconType="Success" StrokeThickness="2" />
+                            <StatusIndicator IconType="Success"
+                                             StrokeThickness="4"
+                                             Padding="6"/>
+                            <StatusIndicator IconType="Warning"
+                                             BorderBrush="{DynamicResource WarningBrush}"
+                                             StrokeThickness="3" />
+                            <StatusIndicator IconType="Error"
+                                             Height="12"
+                                             Width="12"
+                                             Padding="2"
+                                             StrokeThickness="0" />
                         </SpacingWrapPanel>
                     </StackPanel>
                 </Border>

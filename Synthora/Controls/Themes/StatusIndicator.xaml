@@ -1,0 +1,71 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
+                    x:CompileBindings="True">
+
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <StackPanel Orientation="Horizontal" Spacing="16">
+                <StatusIndicator />
+                <StatusIndicator IconType="Question" />
+                <StatusIndicator IconType="Success" />
+                <StatusIndicator IconType="Warning" />
+                <StatusIndicator IconType="Error" />
+                <StatusIndicator IconType="None" />
+                <StatusIndicator IconType="Success" StrokeThickness="4" />
+            </StackPanel>
+        </Border>
+    </Design.PreviewWith>
+
+    <ControlTheme x:Key="{x:Type StatusIndicator}" TargetType="StatusIndicator">
+        <Setter Property="BorderBrush" Value="#FF374F5A" />
+        <Setter Property="StrokeThickness" Value="2" />
+        <Setter Property="Padding" Value="4" />
+        <Setter Property="Height" Value="20" />
+        <Setter Property="Width" Value="20" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <Ellipse Fill="{TemplateBinding Background}"
+                             Stroke="{TemplateBinding BorderBrush}"
+                             StrokeThickness="{TemplateBinding StrokeThickness}" />
+                    <Ellipse Margin="{TemplateBinding Padding}">
+                        <Ellipse.Fill>
+                            <RadialGradientBrush GradientOrigin="0.5,0.5">
+                                <GradientStop Offset="0.5" Color="#00B4B4B4" />
+                                <GradientStop Offset="0.9" Color="#44FFFFFF" />
+                            </RadialGradientBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:none">
+            <Setter Property="Background" Value="{DynamicResource ThemeControlVeryHighBrush}" />
+        </Style>
+
+        <Style Selector="^:information">
+            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+        </Style>
+
+        <Style Selector="^:question">
+            <Setter Property="Background" Value="{DynamicResource QuestionBrush}" />
+        </Style>
+
+        <Style Selector="^:success">
+            <Setter Property="Background" Value="{DynamicResource SuccessBrush}" />
+        </Style>
+
+        <Style Selector="^:warning">
+            <Setter Property="Background" Value="{DynamicResource WarningBrush}" />
+        </Style>
+
+        <Style Selector="^:error">
+            <Setter Property="Background" Value="{DynamicResource ErrorBrush}" />
+        </Style>
+    </ControlTheme>
+
+</ResourceDictionary>
