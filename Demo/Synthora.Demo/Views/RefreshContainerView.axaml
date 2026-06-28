@@ -1,0 +1,64 @@
+<UserControl x:Class="Synthora.Demo.Views.RefreshContainerView"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialIcons="using:Material.Icons.Avalonia"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Synthora.Demo.ViewModels"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             x:DataType="vm:RefreshContainerViewModel"
+             mc:Ignorable="d">
+
+    <DemoPage Title="Refresh Container"
+              Description="{Binding Description}"
+              IconKind="{Binding IconKind}">
+        <StackPanel Spacing="16">
+            <Border Classes="card">
+                <StackPanel Spacing="16">
+                    <StackPanel Classes="sectionHeader">
+                        <materialIcons:MaterialIcon Classes="sectionIcon" Kind="Refresh" />
+                        <TextBlock Classes="sectionLabel" Text="REFRESH CONTAINER" />
+                    </StackPanel>
+
+                    <RefreshContainer IsMouseEnabled="True" RefreshRequested="RefreshContainerRefreshRequested">
+                        <ScrollViewer>
+                            <DockPanel VerticalSpacing="10">
+                                <Border Classes="card"
+                                        Padding="16,12"
+                                        Background="{DynamicResource ThemeControlLowBrush}"
+                                        DockPanel.Dock="Top"
+                                        CornerRadius="6">
+                                    <Grid ColumnDefinitions="Auto,*,Auto">
+                                        <materialIcons:MaterialIcon VerticalAlignment="Center"
+                                                                    Foreground="{DynamicResource PrimaryBrush}"
+                                                                    Kind="CloudSyncOutline" />
+                                        <StackPanel Grid.Column="1"
+                                                    Margin="12,0"
+                                                    Spacing="2">
+                                            <TextBlock FontWeight="SemiBold" Text="Release feed" />
+                                            <TextBlock Name="RefreshStatusText"
+                                                       Foreground="{DynamicResource ThemeForegroundLowBrush}"
+                                                       Text="Feed ready" />
+                                        </StackPanel>
+                                        <Tag Grid.Column="2" TagType="Success">live</Tag>
+                                    </Grid>
+                                </Border>
+
+                                <ListBox AutoScrollToSelectedItem="False" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                                    <ListBoxItem IsSelected="True">12:40  Palette resources synchronized</ListBoxItem>
+                                    <ListBoxItem>12:28  Android package verification completed</ListBoxItem>
+                                    <ListBoxItem>12:16  Demo screenshots updated</ListBoxItem>
+                                    <ListBoxItem>12:02  Control theme cache warmed</ListBoxItem>
+                                    <ListBoxItem>11:48  Navigation samples indexed</ListBoxItem>
+                                    <ListBoxItem>11:32  Pull-to-refresh visualizer checked</ListBoxItem>
+                                </ListBox>
+                            </DockPanel>
+                        </ScrollViewer>
+                    </RefreshContainer>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </DemoPage>
+
+</UserControl>

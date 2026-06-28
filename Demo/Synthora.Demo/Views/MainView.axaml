@@ -106,6 +106,9 @@
                     <DataTemplate DataType="vm:ScrollViewerViewModel">
                         <views:ScrollViewerView />
                     </DataTemplate>
+                    <DataTemplate DataType="vm:RefreshContainerViewModel">
+                        <views:RefreshContainerView />
+                    </DataTemplate>
                     <DataTemplate DataType="vm:ExtendedControlsViewModel">
                         <views:ExtendedControlsView />
                     </DataTemplate>

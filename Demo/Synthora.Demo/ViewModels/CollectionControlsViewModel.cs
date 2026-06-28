@@ -76,4 +76,13 @@ namespace Synthora.Demo.ViewModels
             Description = "TreeView, TreeViewItem";
         }
     }
+
+    public class RefreshContainerViewModel : TreeMenuDemoItem
+    {
+        public RefreshContainerViewModel()
+        {
+            IconKind = MaterialIconKind.Refresh;
+            Description = "RefreshContainer, RefreshVisualizer";
+        }
+    }
 }
