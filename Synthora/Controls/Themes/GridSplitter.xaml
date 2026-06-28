@@ -4,7 +4,7 @@
                     x:CompileBindings="True">
 
     <x:Int32 x:Key="GridSplitterPointerOverZIndex">1000</x:Int32>
-    <x:Double x:Key="GridSplitterInnerBorderMaxLength">80</x:Double>
+    <x:Double x:Key="GridSplitterInnerBorderMaxLength">60</x:Double>
 
     <ControlTheme x:Key="{x:Type GridSplitter}" TargetType="GridSplitter">
         <Setter Property="Focusable" Value="True" />
