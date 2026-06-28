@@ -1,57 +1,57 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<OutputType>WinExe</OutputType>
-		<TargetFramework>net10.0</TargetFramework>
-		<Nullable>enable</Nullable>
-		<DebugType>embedded</DebugType>
-		<ApplicationManifest>app.manifest</ApplicationManifest>
-		<ApplicationIcon>..\Synthora.Demo\Assets\avalonia-logo.ico</ApplicationIcon>
-		<AssemblyName>SynthoraDemo</AssemblyName>
-		<PublishReadyToRun>true</PublishReadyToRun>
-	</PropertyGroup>
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net10.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <DebugType>embedded</DebugType>
+        <ApplicationManifest>app.manifest</ApplicationManifest>
+        <ApplicationIcon>..\Synthora.Demo\Assets\avalonia-logo.ico</ApplicationIcon>
+        <AssemblyName>SynthoraDemo</AssemblyName>
+        <PublishReadyToRun>true</PublishReadyToRun>
+    </PropertyGroup>
 
-	<!-- macOS packing -->
-	<!-- dotnet restore -r osx-arm64 -->
-	<!-- dotnet msbuild -t:BundleApp -p:RuntimeIdentifier=osx-arm64 -p:Configuration=Release -p:SelfContained=true -->
+    <!-- macOS packing -->
+    <!-- dotnet restore -r osx-arm64 -->
+    <!-- dotnet msbuild -t:BundleApp -p:RuntimeIdentifier=osx-arm64 -p:Configuration=Release -p:SelfContained=true -->
 
-	<!-- xattr -cr /Applications/SynthoraDemo.app -->
-	<!-- Clear all file attributes -->
-	<PropertyGroup>
-		<!-- Also defines .app file name -->
-		<CFBundleName>SynthoraDemo</CFBundleName>
-		<CFBundleDisplayName>SynthoraDemo</CFBundleDisplayName>
-		<CFBundleIdentifier>com.yoyo.synthora</CFBundleIdentifier>
-		<CFBundleShortVersionString>$(Version)</CFBundleShortVersionString>
-		<CFBundleVersion>1.0</CFBundleVersion>
-		<CFBundlePackageType>APPL</CFBundlePackageType>
-		<CFBundleSignature>????</CFBundleSignature>
-		<CFBundleExecutable>$(AssemblyName)</CFBundleExecutable>
-		<!-- Will be copied from output directory -->
-		<CFBundleIconFile>icon.icns</CFBundleIconFile>
-		<NSPrincipalClass>NSApplication</NSPrincipalClass>
-		<NSHighResolutionCapable>true</NSHighResolutionCapable>
+    <!-- xattr -cr /Applications/SynthoraDemo.app -->
+    <!-- Clear all file attributes -->
+    <PropertyGroup>
+        <!-- Also defines .app file name -->
+        <CFBundleName>SynthoraDemo</CFBundleName>
+        <CFBundleDisplayName>SynthoraDemo</CFBundleDisplayName>
+        <CFBundleIdentifier>com.yoyo.synthora</CFBundleIdentifier>
+        <CFBundleShortVersionString>$(Version)</CFBundleShortVersionString>
+        <CFBundleVersion>1.0</CFBundleVersion>
+        <CFBundlePackageType>APPL</CFBundlePackageType>
+        <CFBundleSignature>????</CFBundleSignature>
+        <CFBundleExecutable>$(AssemblyName)</CFBundleExecutable>
+        <!-- Will be copied from output directory -->
+        <CFBundleIconFile>icon.icns</CFBundleIconFile>
+        <NSPrincipalClass>NSApplication</NSPrincipalClass>
+        <NSHighResolutionCapable>true</NSHighResolutionCapable>
 
-		<!-- Optional -->
-		<!-- <NSRequiresAquaSystemAppearance>true</NSRequiresAquaSystemAppearance>-->
-	</PropertyGroup>
+        <!-- Optional -->
+        <!-- <NSRequiresAquaSystemAppearance>true</NSRequiresAquaSystemAppearance>-->
+    </PropertyGroup>
 
-	<ItemGroup Condition="'$(RuntimeIdentifier.StartsWith(osx))' == true">
-		<None Include="icon.icns" CopyToOutputDirectory="Always" />
-		<PackageReference Include="Dotnet.Bundle" Version="0.9.13" />
-	</ItemGroup>
+    <ItemGroup Condition="'$(RuntimeIdentifier.StartsWith(osx))' == true">
+        <None Include="icon.icns" CopyToOutputDirectory="Always" />
+        <PackageReference Include="Dotnet.Bundle" Version="0.9.13" />
+    </ItemGroup>
 
-	<ItemGroup>
-		<TrimmerRootDescriptor Include="Roots.xml" />
-		<PackageReference Include="Avalonia.Desktop" Version="$(DemoAvaloniaVersion)" />
-		<PackageReference Include="AvaloniaUI.DiagnosticsSupport" Version="2.2.2">
-			<IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
-			<PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
-		</PackageReference>
-	</ItemGroup>
+    <ItemGroup Condition="'$(Configuration)' == 'Debug'">
+        <PackageReference Include="AvaloniaUI.DiagnosticsSupport" Version="2.2.2" />
+    </ItemGroup>
 
-	<ItemGroup>
-		<ProjectReference Include="..\Synthora.Demo\Synthora.Demo.csproj" />
-	</ItemGroup>
+    <ItemGroup>
+        <TrimmerRootDescriptor Include="Roots.xml" />
+        <PackageReference Include="Avalonia.Desktop" Version="$(DemoAvaloniaVersion)" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Synthora.Demo\Synthora.Demo.csproj" />
+    </ItemGroup>
 
 </Project>
