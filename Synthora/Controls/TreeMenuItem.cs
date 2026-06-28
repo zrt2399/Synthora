@@ -113,13 +113,24 @@ namespace Synthora.Controls
 
         protected override void OnPointerPressed(PointerPressedEventArgs e)
         {
-            if (ShouldSuppressSelection(e))
+            if (ShouldSuppressSelection())
             {
                 e.Handled = true;
                 return;
             }
 
             base.OnPointerPressed(e);
+        }
+
+        protected override void OnPointerReleased(PointerReleasedEventArgs e)
+        {
+            if (ShouldSuppressSelection())
+            {
+                e.Handled = true;
+                return;
+            }
+
+            base.OnPointerReleased(e);
         }
 
         protected override void OnHeaderDoubleTapped(TappedEventArgs e)
@@ -447,7 +458,7 @@ namespace Synthora.Controls
             _itemsAnimationCancellationTokenSource = null;
         }
 
-        private bool ShouldSuppressSelection(PointerPressedEventArgs e)
+        private bool ShouldSuppressSelection()
         {
             return HasChildItems;
         }
