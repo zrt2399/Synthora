@@ -15,37 +15,35 @@
               IconKind="{Binding IconKind}">
         <StackPanel Spacing="16">
             <Border Classes="card">
-                <ScrollViewer>
-                    <StackPanel HorizontalAlignment="Left" Spacing="16">
-                        <StackPanel Orientation="Horizontal" Spacing="16">
-                            <CheckBox Name="autoHide" IsChecked="True">Allow Auto Hide</CheckBox>
-                            <ComboBox Name="orientation"
-                                      ItemsSource="{EnumBindingSource Orientation}"
-                                      SelectedItem="{x:Static Orientation.Vertical}"
-                                      TextBoxAttach.Header="Orientation:"
-                                      TextBoxAttach.HeaderPlacement="Left" />
-                        </StackPanel>
-
-                        <ScrollViewer Width="600"
-                                      Height="400"
-                                      AllowAutoHide="{Binding #autoHide.IsChecked}"
-                                      HorizontalScrollBarVisibility="Auto"
-                                      ScrollViewerAttach.Orientation="{Binding #orientation.SelectedItem}">
-                            <Grid Width="1000"
-                                  Height="800"
-                                  ColumnDefinitions="*,Auto,*"
-                                  RowDefinitions="*,Auto,*">
-                                <Rectangle Fill="#336366F1" />
-                                <GridSplitter Grid.Row="1" />
-                                <Rectangle Grid.Row="2" Fill="#3322C55E" />
-                                <GridSplitter Grid.RowSpan="3" Grid.Column="1" />
-                                <Rectangle Grid.RowSpan="3"
-                                           Grid.Column="2"
-                                           Fill="#33F59E0B" />
-                            </Grid>
-                        </ScrollViewer>
+                <StackPanel HorizontalAlignment="Left" Spacing="16">
+                    <StackPanel Orientation="Horizontal" Spacing="16">
+                        <CheckBox Name="AutoHide" IsChecked="True">Allow Auto Hide</CheckBox>
+                        <ComboBox Name="Orientation"
+                                  ItemsSource="{EnumBindingSource Orientation}"
+                                  SelectedItem="{x:Static Orientation.Vertical}"
+                                  TextBoxAttach.Header="Orientation:"
+                                  TextBoxAttach.HeaderPlacement="Left" />
                     </StackPanel>
-                </ScrollViewer>
+
+                    <ScrollViewer Width="600"
+                                  Height="400"
+                                  AllowAutoHide="{Binding #AutoHide.IsChecked}"
+                                  HorizontalScrollBarVisibility="Auto"
+                                  ScrollViewerAttach.Orientation="{Binding #Orientation.SelectedItem}">
+                        <Grid Width="1000"
+                              Height="800"
+                              ColumnDefinitions="*,Auto,*"
+                              RowDefinitions="*,Auto,*">
+                            <Rectangle Fill="#336366F1" />
+                            <GridSplitter Grid.Row="1" />
+                            <Rectangle Grid.Row="2" Fill="#3322C55E" />
+                            <GridSplitter Grid.RowSpan="3" Grid.Column="1" />
+                            <Rectangle Grid.RowSpan="3"
+                                       Grid.Column="2"
+                                       Fill="#33F59E0B" />
+                        </Grid>
+                    </ScrollViewer>
+                </StackPanel>
             </Border>
         </StackPanel>
     </DemoPage>

@@ -10,7 +10,7 @@
         <Setter Property="WindowManagerAddShadowHint" Value="False" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="Focusable" Value="True" />
-        <Setter Property="Padding" Value="{DynamicResource ThemeMenuFlyoutPadding}" /> 
+        <Setter Property="Padding" Value="{DynamicResource ThemeMenuFlyoutPadding}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <SystemShadowChrome Name="Popup_Border"
