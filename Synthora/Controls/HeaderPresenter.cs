@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Markup.Xaml.MarkupExtensions;
 using Synthora.Attaches;
 
 namespace Synthora.Controls
@@ -11,6 +12,9 @@ namespace Synthora.Controls
     /// </summary>
     public class HeaderPresenter : ContentControl
     {
+        private const string HeaderHorizontalSpacingResourceKey = "TextBoxAttachHeaderHorizontalSpacing";
+        private const string HeaderVerticalSpacingResourceKey = "TextBoxAttachHeaderVerticalSpacing";
+
         private readonly List<IDisposable> _subscriptions = [];
         private Control? _subscriptionParent;
 
@@ -32,7 +36,7 @@ namespace Synthora.Controls
         protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
         {
             base.OnAttachedToVisualTree(e);
-            UpdateTemplatedParent(TemplatedParent as Control);
+            UpdateTemplatedParent();
         }
 
         protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e)
@@ -48,7 +52,7 @@ namespace Synthora.Controls
 
             if (change.Property == TemplatedParentProperty)
             {
-                UpdateTemplatedParent(change.NewValue as Control);
+                UpdateTemplatedParent();
             }
             else if (change.Property == ContentProperty)
             {
@@ -56,8 +60,9 @@ namespace Synthora.Controls
             }
         }
 
-        private void UpdateTemplatedParent(Control? templatedParent)
+        private void UpdateTemplatedParent()
         {
+            var templatedParent = TemplatedParent as Control;
             if (ReferenceEquals(_subscriptionParent, templatedParent))
             {
                 return;
@@ -89,6 +94,24 @@ namespace Synthora.Controls
             _subscriptionParent = null;
         }
 
-        private void UpdateIsVisible() => SetCurrentValue(IsVisibleProperty, Content is not null);
+        private void UpdateIsVisible()
+        {
+            var visible = Content is not null;
+            SetCurrentValue(IsVisibleProperty, visible);
+
+            if (Parent is DockPanel dockPanel)
+            {
+                if (visible)
+                {
+                    dockPanel[!DockPanel.HorizontalSpacingProperty] = new DynamicResourceExtension(HeaderHorizontalSpacingResourceKey);
+                    dockPanel[!DockPanel.VerticalSpacingProperty] = new DynamicResourceExtension(HeaderVerticalSpacingResourceKey);
+                }
+                else
+                {
+                    dockPanel.ClearValue(DockPanel.HorizontalSpacingProperty);
+                    dockPanel.ClearValue(DockPanel.VerticalSpacingProperty);
+                }
+            }
+        }
     }
 }

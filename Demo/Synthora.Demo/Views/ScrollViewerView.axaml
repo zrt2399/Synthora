@@ -22,7 +22,7 @@
                             <ComboBox Name="orientation"
                                       ItemsSource="{EnumBindingSource Orientation}"
                                       SelectedItem="{x:Static Orientation.Vertical}"
-                                      TextBoxAttach.Header="Orientation: "
+                                      TextBoxAttach.Header="Orientation:"
                                       TextBoxAttach.HeaderPlacement="Left" />
                         </StackPanel>
 

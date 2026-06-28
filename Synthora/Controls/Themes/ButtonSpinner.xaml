@@ -61,7 +61,7 @@
         <Setter Property="Focusable" Value="True" />
         <Setter Property="Template">
             <ControlTemplate>
-                <DockPanel HorizontalSpacing="{DynamicResource TextBoxAttachHeaderHorizontalSpacing}" VerticalSpacing="{DynamicResource TextBoxAttachHeaderVerticalSpacing}">
+                <DockPanel>
                     <HeaderPresenter />
 
                     <ShadowChrome Name="FocusTarget"

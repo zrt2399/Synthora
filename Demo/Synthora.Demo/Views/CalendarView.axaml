@@ -33,7 +33,7 @@
                             <CheckBox Name="Highlight" Content="Highlight" />
                             <ComboBox ItemsSource="{EnumBindingSource CalendarSelectionMode}"
                                       SelectedItem="{Binding #Calendar.SelectionMode}"
-                                      TextBoxAttach.Header="SelectionMode: "
+                                      TextBoxAttach.Header="SelectionMode:"
                                       TextBoxAttach.HeaderPlacement="Left" />
                         </StackPanel>
                         <Calendar Name="Calendar"

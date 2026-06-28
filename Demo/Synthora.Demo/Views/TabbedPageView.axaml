@@ -23,7 +23,7 @@
                 <CheckBox Name="Secondary">Secondary</CheckBox>
                 <ComboBox ItemsSource="{EnumBindingSource TabPlacement}"
                           SelectedItem="{Binding #TabbedPage.TabPlacement}"
-                          TextBoxAttach.Header="TabPlacement: "
+                          TextBoxAttach.Header="TabPlacement:"
                           TextBoxAttach.HeaderPlacement="Left" />
             </WrapPanel>
             <TabbedPage Name="TabbedPage"

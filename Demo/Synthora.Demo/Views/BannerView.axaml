@@ -37,7 +37,7 @@
 
                                 <ComboBox ItemsSource="{EnumBindingSource controls:IconType}"
                                           SelectedItem="{Binding #LiveBanner.IconType}"
-                                          TextBoxAttach.Header="IconType: "
+                                          TextBoxAttach.Header="IconType:"
                                           TextBoxAttach.HeaderPlacement="Left" />
                                 <CheckBox Content="ShowIcon" IsChecked="{Binding #LiveBanner.ShowIcon}" />
                                 <CheckBox Content="ShowAccentBar" IsChecked="{Binding #LiveBanner.ShowAccentBar}" />
@@ -61,7 +61,7 @@
 
                                 <TextBox Width="320"
                                          Text="{Binding #LiveBanner.Content, UpdateSourceTrigger=PropertyChanged}"
-                                         TextBoxAttach.Header="Content: "
+                                         TextBoxAttach.Header="Content:"
                                          TextBoxAttach.HeaderPlacement="Left" />
                             </WrapPanel>
                             <Banner Name="LiveBanner"

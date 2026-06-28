@@ -25,17 +25,17 @@
                 <ComboBox Name="TabStripPlacement"
                           ItemsSource="{EnumBindingSource Dock}"
                           SelectedItem="{x:Static Dock.Top}"
-                          TextBoxAttach.Header="TabStripPlacement: "
+                          TextBoxAttach.Header="TabStripPlacement:"
                           TextBoxAttach.HeaderPlacement="Left" />
                 <ComboBox Name="HorizontalHeaderAlignment"
                           ItemsSource="{EnumBindingSource HorizontalAlignment}"
                           SelectedItem="{x:Static HorizontalAlignment.Left}"
-                          TextBoxAttach.Header="HorizontalHeaderAlignment: "
+                          TextBoxAttach.Header="HorizontalHeaderAlignment:"
                           TextBoxAttach.HeaderPlacement="Left" />
                 <ComboBox Name="VerticalHeaderAlignment"
                           ItemsSource="{EnumBindingSource VerticalAlignment}"
                           SelectedItem="{x:Static VerticalAlignment.Top}"
-                          TextBoxAttach.Header="VerticalHeaderAlignment: "
+                          TextBoxAttach.Header="VerticalHeaderAlignment:"
                           TextBoxAttach.HeaderPlacement="Left" />
             </WrapPanel>
             <UniformGrid Columns="1" RowSpacing="16">

@@ -22,7 +22,7 @@
                 <ComboBox Name="drawerLayoutBehavior"
                           ItemsSource="{EnumBindingSource DrawerLayoutBehavior}"
                           SelectedItem="{Binding #drawerPage.DrawerLayoutBehavior}"
-                          TextBoxAttach.Header="DrawerLayoutBehavior: "
+                          TextBoxAttach.Header="DrawerLayoutBehavior:"
                           TextBoxAttach.HeaderPlacement="Left" />
             </WrapPanel>
             <DrawerPage Name="drawerPage" Header="DrawerPage">

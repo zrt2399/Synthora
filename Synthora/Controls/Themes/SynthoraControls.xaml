@@ -10,6 +10,7 @@
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/Banner.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/HeaderPresenter.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/Tag.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/StatusIndicator.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/Button.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/RadioButton.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/Expander.xaml" />

@@ -78,9 +78,9 @@
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <DataValidationErrors>
-                    <Panel Name="LayoutRoot">
-                        <DockPanel HorizontalSpacing="{DynamicResource TextBoxAttachHeaderHorizontalSpacing}" VerticalSpacing="{DynamicResource TextBoxAttachHeaderVerticalSpacing}">
+                <Panel Name="LayoutRoot">
+                    <DataValidationErrors>
+                        <DockPanel>
                             <HeaderPresenter />
 
                             <Button x:Name="PART_FlyoutButton"
@@ -159,28 +159,28 @@
                                 </Grid>
                             </Button>
                         </DockPanel>
+                    </DataValidationErrors>
 
-                        <Popup Name="PART_Popup"
-                               IsLightDismissEnabled="True"
-                               IsOpen="{TemplateBinding (DateTimePickerAttach.IsDropDownOpen),
-                                                        Mode=TwoWay}"
-                               Placement="Bottom"
-                               PlacementTarget="{Binding ElementName=PART_FlyoutButton}"
-                               WindowManagerAddShadowHint="False">
-                            <!--  Add offset. ScrollViewerAttach.IsDisabled="True" fix mouse scrolling triggers parent  -->
-                            <Panel Margin="{Binding #borderRoot.Margin, Converter={x:Static DateTimePickerPopupMarginConverter.Instance}}" ScrollViewerAttach.IsDisabled="True">
-                                <SystemShadowChrome Name="borderRoot"
-                                                    Width="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
-                                                    Background="{TemplateBinding Background}"
-                                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                                    CornerRadius="{TemplateBinding CornerRadius}">
-                                    <TimePickerPresenter Name="PART_PickerPresenter" />
-                                </SystemShadowChrome>
-                            </Panel>
-                        </Popup>
-                    </Panel>
-                </DataValidationErrors>
+                    <Popup Name="PART_Popup"
+                           IsLightDismissEnabled="True"
+                           IsOpen="{TemplateBinding (DateTimePickerAttach.IsDropDownOpen),
+                                                    Mode=TwoWay}"
+                           Placement="Bottom"
+                           PlacementTarget="{Binding ElementName=PART_FlyoutButton}"
+                           WindowManagerAddShadowHint="False">
+                        <!--  Add offset. ScrollViewerAttach.IsDisabled="True" fix mouse scrolling triggers parent  -->
+                        <Panel Margin="{Binding #borderRoot.Margin, Converter={x:Static DateTimePickerPopupMarginConverter.Instance}}" ScrollViewerAttach.IsDisabled="True">
+                            <SystemShadowChrome Name="borderRoot"
+                                                Width="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                                                Background="{TemplateBinding Background}"
+                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                BorderThickness="{TemplateBinding BorderThickness}"
+                                                CornerRadius="{TemplateBinding CornerRadius}">
+                                <TimePickerPresenter Name="PART_PickerPresenter" />
+                            </SystemShadowChrome>
+                        </Panel>
+                    </Popup>
+                </Panel>
             </ControlTemplate>
         </Setter>
 
@@ -189,7 +189,7 @@
         </Style>
 
         <!--<Style Selector="^:disabled /template/ Rectangle">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
+        <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>-->
 
         <Style Selector="^:hasnotime /template/ Button#PART_FlyoutButton TextBlock">

@@ -33,7 +33,7 @@
                             </SpacingWrapPanel.Styles>
                             <ComboBox ItemsSource="{EnumBindingSource NotificationPosition}"
                                       SelectedItem="{Binding NotificationPosition}"
-                                      TextBoxAttach.Header="NotificationPosition: "
+                                      TextBoxAttach.Header="NotificationPosition:"
                                       TextBoxAttach.HeaderPlacement="Left" />
                             <Button Classes="Primary" Theme="{StaticResource SolidButtonTheme}">Information</Button>
                             <Button Theme="{StaticResource SolidButtonTheme}">WithoutTitle</Button>
@@ -60,7 +60,7 @@
                             </SpacingWrapPanel.Styles>
                             <ComboBox ItemsSource="{EnumBindingSource PlacementMode}"
                                       SelectedItem="{Binding MessageTipPlacement}"
-                                      TextBoxAttach.Header="PlacementMode: "
+                                      TextBoxAttach.Header="PlacementMode:"
                                       TextBoxAttach.HeaderPlacement="Left" />
                             <Button Classes="Primary" Theme="{StaticResource SolidButtonTheme}">Show</Button>
                             <Button Classes="Question" Theme="{StaticResource SolidButtonTheme}">ShowQuestion</Button>
@@ -88,7 +88,7 @@
                             </SpacingWrapPanel.Styles>
                             <ComboBox ItemsSource="{EnumBindingSource overlays:DialogButton}"
                                       SelectedItem="{Binding DialogButton}"
-                                      TextBoxAttach.Header="DialogButton: "
+                                      TextBoxAttach.Header="DialogButton:"
                                       TextBoxAttach.HeaderPlacement="Left" />
                             <Button Classes="Primary" Theme="{StaticResource SolidButtonTheme}">Information</Button>
                             <Button Classes="Question" Theme="{StaticResource SolidButtonTheme}">Question</Button>

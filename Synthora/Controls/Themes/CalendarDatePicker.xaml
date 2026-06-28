@@ -79,7 +79,7 @@
 
         <Setter Property="Template">
             <ControlTemplate>
-                <DockPanel HorizontalSpacing="{DynamicResource TextBoxAttachHeaderHorizontalSpacing}" VerticalSpacing="{DynamicResource TextBoxAttachHeaderVerticalSpacing}">
+                <DockPanel>
                     <HeaderPresenter />
 
                     <Panel>

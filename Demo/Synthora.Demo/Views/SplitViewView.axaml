@@ -23,11 +23,11 @@
                 <CheckBox Name="Secondary">Secondary</CheckBox>
                 <ComboBox ItemsSource="{EnumBindingSource SplitViewDisplayMode}"
                           SelectedItem="{Binding #SplitView.DisplayMode}"
-                          TextBoxAttach.Header="SplitViewDisplayMode: "
+                          TextBoxAttach.Header="SplitViewDisplayMode:"
                           TextBoxAttach.HeaderPlacement="Left" />
                 <ComboBox ItemsSource="{EnumBindingSource SplitViewPanePlacement}"
                           SelectedItem="{Binding #SplitView.PanePlacement}"
-                          TextBoxAttach.Header="SplitViewPanePlacement: "
+                          TextBoxAttach.Header="SplitViewPanePlacement:"
                           TextBoxAttach.HeaderPlacement="Left" />
             </WrapPanel>
             <SplitView Name="SplitView"

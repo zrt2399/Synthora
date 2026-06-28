@@ -82,7 +82,7 @@
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         <Setter Property="Template">
             <ControlTemplate>
-                <DockPanel HorizontalSpacing="{DynamicResource TextBoxAttachHeaderHorizontalSpacing}" VerticalSpacing="{DynamicResource TextBoxAttachHeaderVerticalSpacing}">
+                <DockPanel>
                     <HeaderPresenter />
 
                     <Border x:Name="FocusTarget"

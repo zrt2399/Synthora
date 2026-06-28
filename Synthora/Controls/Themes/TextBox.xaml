@@ -217,7 +217,7 @@
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
         <Setter Property="Template">
             <ControlTemplate>
-                <DockPanel HorizontalSpacing="{DynamicResource TextBoxAttachHeaderHorizontalSpacing}" VerticalSpacing="{DynamicResource TextBoxAttachHeaderVerticalSpacing}">
+                <DockPanel>
                     <HeaderPresenter />
 
                     <Border x:Name="FocusTarget"
@@ -309,12 +309,12 @@
                                                                           Converter={x:Static ThicknessToDoubleConverter.Instance},
                                                                           ConverterParameter={x:Static Thicknesses.Right}}">
                                         <ContentPresenter Content="{TemplateBinding InnerRightContent}" />
-                                        <Button Name="clearButton"
+                                        <Button Name="ClearButton"
                                                 Command="{Binding $parent[TextBox].Clear}"
                                                 Focusable="False"
                                                 IsVisible="False"
                                                 Theme="{StaticResource SimpleTextBoxClearButtonTheme}" />
-                                        <ToggleButton Name="revealPasswordButton"
+                                        <ToggleButton Name="RevealPasswordButton"
                                                       Focusable="False"
                                                       IsChecked="{TemplateBinding RevealPassword,
                                                                                   Mode=TwoWay}"
@@ -346,7 +346,7 @@
 
         <Style Selector="^.clearButton,^.ClearButton">
             <Style Selector="^[IsReadOnly=False]:focus:not(TextBox:empty),^[IsReadOnly=False]:pointerover:not(TextBox:empty)">
-                <Style Selector="^ /template/ Button#clearButton">
+                <Style Selector="^ /template/ Button#ClearButton">
                     <Setter Property="IsVisible" Value="True" />
                 </Style>
             </Style>
@@ -355,10 +355,11 @@
         <Style Selector="^.revealPasswordButton,^.RevealPasswordButton">
             <Setter Property="PasswordChar" Value="●" />
             <Style Selector="^[AcceptsReturn=False][IsReadOnly=False]">
-                <Style Selector="^ /template/ ToggleButton#revealPasswordButton">
+                <Style Selector="^ /template/ ToggleButton#RevealPasswordButton">
                     <Setter Property="IsVisible" Value="True" />
                 </Style>
             </Style>
         </Style>
     </ControlTheme>
+
 </ResourceDictionary>

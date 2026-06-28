@@ -10,7 +10,7 @@
         <Setter Property="PlaceholderForeground" Value="{DynamicResource ThemeForegroundBrush}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <DockPanel HorizontalSpacing="{DynamicResource TextBoxAttachHeaderHorizontalSpacing}" VerticalSpacing="{DynamicResource TextBoxAttachHeaderVerticalSpacing}">
+                <DockPanel>
                     <HeaderPresenter />
 
                     <Border Width="{TemplateBinding (TextBoxAttach.Width)}"
@@ -26,9 +26,10 @@
                                     <Setter Property="IsVisible" Value="{Binding RelativeSource={RelativeSource Self}, Path=Content, Converter={x:Static ObjectConverters.IsNotNull}}" />
                                 </Style>
                             </Grid.Styles>
-                            <TextBox x:Name="PART_TextBox"
+                            <TextBox Name="PART_TextBox"
                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                     DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
                                      IsReadOnly="{TemplateBinding IsReadOnly}"
                                      PlaceholderForeground="{TemplateBinding PlaceholderForeground}"
                                      PlaceholderText="{TemplateBinding PlaceholderText}"
@@ -47,14 +48,16 @@
                                     Classes="AutoHide"
                                     Command="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Explore}"
                                     Content="{TemplateBinding ExploreButtonContent}"
-                                    IsEnabled="{Binding ElementName=PART_TextBox, Path=Text, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                                    IsEnabled="{TemplateBinding SelectedPath,
+                                                                Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                                     ToolTip.Tip="{TemplateBinding ExploreButtonToolTip}" />
                             <Button Grid.Column="3"
                                     Margin="{TemplateBinding Spacing}"
                                     Classes="AutoHide"
                                     Command="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Open}"
                                     Content="{TemplateBinding OpenButtonContent}"
-                                    IsEnabled="{Binding ElementName=PART_TextBox, Path=Text, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                                    IsEnabled="{TemplateBinding SelectedPath,
+                                                                Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                                     ToolTip.Tip="{TemplateBinding OpenButtonToolTip}" />
                         </Grid>
                     </Border>
@@ -62,4 +65,5 @@
             </ControlTemplate>
         </Setter>
     </ControlTheme>
+
 </ResourceDictionary>
