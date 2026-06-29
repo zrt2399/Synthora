@@ -10,18 +10,20 @@
              x:DataType="vm:TreeMenuViewModel"
              mc:Ignorable="d">
 
+    <UserControl.Styles>
+        <Style Selector="materialIcons|MaterialIconText">
+            <Setter Property="IconSize" Value="20" />
+            <Setter Property="Spacing" Value="8" />
+        </Style>
+        <Style Selector="materialIcons|MaterialIcon">
+            <Setter Property="Foreground" Value="#007AFF" />
+        </Style>
+    </UserControl.Styles>
+
     <DemoPage Title="Tree Menu"
               Description="{Binding Description}"
               IconKind="{Binding IconKind}">
         <TreeMenu>
-            <TreeMenu.Styles>
-                <Style Selector="materialIcons|MaterialIconText">
-                    <Setter Property="IconSize" Value="20" />
-                </Style>
-                <Style Selector="materialIcons|MaterialIcon">
-                    <Setter Property="Foreground" Value="#007AFF" />
-                </Style>
-            </TreeMenu.Styles>
             <TreeMenu.PaneHeader>
                 <SelectableTextBlock Margin="32"
                                      FontSize="20"

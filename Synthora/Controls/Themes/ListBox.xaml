@@ -7,7 +7,6 @@
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
-        <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
                 <ShadowChrome Name="RootChrome"
@@ -36,6 +35,10 @@
         <Style Selector="^.Border">
             <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
             <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
+        </Style>
+        <Style Selector="^.Shadow">
+            <Setter Property="ClipToBounds" Value="False" />
+            <Setter Property="BoxShadowAttach.BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
         </Style>
         <!--<Style Selector="^:disabled">
         <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />

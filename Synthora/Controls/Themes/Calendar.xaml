@@ -14,7 +14,6 @@
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="Focusable" Value="True" />
-        <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
@@ -38,5 +37,10 @@
             <Setter Property="HeaderBackground" Value="{DynamicResource SynthoraHighlightBackgroundBrush}" />
             <Setter Property="BorderBrush" Value="{DynamicResource SynthoraHighlightBorderBrush}" />
         </Style>
+        <Style Selector="^.Shadow">
+            <Setter Property="ClipToBounds" Value="False" />
+            <Setter Property="BoxShadowAttach.BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
+        </Style>
     </ControlTheme>
+
 </ResourceDictionary>

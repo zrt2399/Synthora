@@ -21,7 +21,8 @@
                       ColumnDefinitions="6,Auto,*,6"
                       RowDefinitions="Auto,Auto,*,6">
                     <!--  Separate Border for the background because if the background is set in the Border with the Header the opacity mask will be applied to the background as well.  -->
-                    <Border Grid.Row="1"
+                    <Border Name="Border"
+                            Grid.Row="1"
                             Grid.RowSpan="3"
                             Grid.Column="0"
                             Grid.ColumnSpan="4"
@@ -56,8 +57,7 @@
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Content="{TemplateBinding Header}"
-                                          ContentTemplate="{TemplateBinding HeaderTemplate}"
-                                          UseLayoutRounding="{TemplateBinding UseLayoutRounding}" />
+                                          ContentTemplate="{TemplateBinding HeaderTemplate}" />
                     </Border>
                     <!--  Primary content for GroupBox  -->
                     <ContentPresenter Name="PART_ContentPresenter"
@@ -81,8 +81,17 @@
         <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
             <Setter Property="RecognizesAccessKey" Value="True" />
         </Style>
+
+        <Style Selector="^.Shadow">
+            <Setter Property="ClipToBounds" Value="False" />
+            <Style Selector="^ /template/ Border#Border">
+                <Setter Property="BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
+            </Style>
+        </Style>
+
         <Style Selector="^:disabled /template/ Border#Header">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>
     </ControlTheme>
+
 </ResourceDictionary> 

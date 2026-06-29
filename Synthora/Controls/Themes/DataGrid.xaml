@@ -323,7 +323,6 @@
         <Setter Property="HorizontalGridLinesBrush" Value="{DynamicResource SynthoraBorderBrush}" />
         <Setter Property="VerticalGridLinesBrush" Value="{DynamicResource SynthoraBorderBrush}" />
         <Setter Property="ScrollViewer.AllowAutoHide" Value="True" />
-        <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="DropLocationIndicatorTemplate">
             <Template>
                 <Rectangle Width="2" Fill="{DynamicResource SynthoraBorderBrush}" />
@@ -439,6 +438,10 @@
         <Style Selector="^.Border">
             <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
             <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
+        </Style>
+        <Style Selector="^.Shadow">
+            <Setter Property="ClipToBounds" Value="False" />
+            <Setter Property="BoxShadowAttach.BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
         </Style>
     </ControlTheme>
 
