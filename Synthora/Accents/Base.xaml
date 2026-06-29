@@ -336,9 +336,9 @@
     <Color x:Key="DangerColor">#FFDB3340</Color>
     <Color x:Key="DangerPointerOverColor">#FFE14652</Color>
     <Color x:Key="DangerPressedColor">#FFE75A65</Color>
-    <Color x:Key="ErrorColor">#FFF44B48</Color>
-    <Color x:Key="ErrorPointerOverColor">#FFF66461</Color>
-    <Color x:Key="ErrorPressedColor">#FFF87D7A</Color>
+    <Color x:Key="ErrorColor">#FFED4D4D</Color>
+    <Color x:Key="ErrorPointerOverColor">#FFF05C5C</Color>
+    <Color x:Key="ErrorPressedColor">#FFF36B6B</Color>
 
     <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource PrimaryColor}" />
     <SolidColorBrush x:Key="PrimaryPointerOverBrush" Color="{StaticResource PrimaryPointerOverColor}" />
