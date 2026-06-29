@@ -11,12 +11,6 @@
              x:DataType="vm:BannerViewModel"
              mc:Ignorable="d">
 
-    <UserControl.Styles>
-        <Style Selector="Banner.bordered">
-            <Setter Property="BorderThickness" Value="1" />
-        </Style>
-    </UserControl.Styles>
-
     <DemoPage Title="Banner"
               Padding="0"
               Description="{Binding Description}"
@@ -65,7 +59,7 @@
                                          TextBoxAttach.HeaderPlacement="Left" />
                             </WrapPanel>
                             <Banner Name="LiveBanner"
-                                    Classes.bordered="{Binding #LiveBannerBorder.IsChecked}"
+                                    Classes.Border="{Binding #LiveBannerBorder.IsChecked}"
                                     Content="This live banner updates as you change the styling options."
                                     CornerRadius="{Binding #LiveBannerCornerRadius.Value, Converter={x:Static SynthoraConverters.DoubleToCornerRadiusConverter}}"
                                     IconType="Information"

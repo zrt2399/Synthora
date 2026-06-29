@@ -10,12 +10,6 @@
              x:DataType="vm:CalendarViewModel"
              mc:Ignorable="d">
 
-    <UserControl.Styles>
-        <Style Selector="Calendar.Shadow">
-            <Setter Property="BoxShadowAttach.BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
-        </Style>
-    </UserControl.Styles>
-
     <DemoPage Title="Calendar Controls"
               Padding="0"
               Description="{Binding Description}"
@@ -37,8 +31,8 @@
                                       TextBoxAttach.HeaderPlacement="Left" />
                         </StackPanel>
                         <Calendar Name="Calendar"
-                                  Classes.Shadow="{Binding #Shadow.IsChecked}"
                                   Classes.Highlight="{Binding #Highlight.IsChecked}"
+                                  Classes.Shadow="{Binding #Shadow.IsChecked}"
                                   SelectionMode="SingleRange" />
                     </StackPanel>
                 </Border>

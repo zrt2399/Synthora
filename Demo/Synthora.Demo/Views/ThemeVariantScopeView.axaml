@@ -32,7 +32,7 @@
                                         <ComboBoxItem>Preview</ComboBoxItem>
                                         <ComboBoxItem>Internal</ComboBoxItem>
                                     </ComboBox>
-                                    <ProgressBar ShowProgressText="True" Value="72" />
+                                    <ProgressBar ShowProgressText="True" Value="49" />
                                     <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
                                         <Button Classes="Primary" Theme="{StaticResource SolidButtonTheme}">Approve</Button>
                                         <Button Theme="{StaticResource OutlineButtonTheme}">Review notes</Button>
@@ -73,7 +73,7 @@
                                     </ComboBox>
                                     <ProgressBar Classes="Secondary"
                                                  ShowProgressText="True"
-                                                 Value="44" />
+                                                 Value="51" />
                                     <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
                                         <Button Classes="Secondary" Theme="{StaticResource SolidButtonTheme}">Open queue</Button>
                                         <Button Theme="{StaticResource OutlineButtonTheme}">Create task</Button>

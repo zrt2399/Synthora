@@ -110,7 +110,6 @@
         <Style Selector="TextBlock.muted">
             <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundLowBrush}" />
         </Style>
-
         <Style Selector="SelectableTextBlock.muted">
             <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundLowBrush}" />
         </Style>

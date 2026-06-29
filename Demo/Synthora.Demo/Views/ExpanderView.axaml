@@ -11,7 +11,7 @@
              mc:Ignorable="d">
 
     <UserControl.Styles>
-        <Style Selector="Expander.withoutShadow">
+        <Style Selector="Expander.WithoutShadow">
             <Setter Property="BoxShadowAttach.BoxShadow" Value="none" />
         </Style>
     </UserControl.Styles>
@@ -22,13 +22,13 @@
         <Border Classes="card">
             <DockPanel VerticalSpacing="16">
                 <StackPanel DockPanel.Dock="Top" Spacing="8">
-                    <CheckBox Name="withoutShadow" Content="Without shadow" />
+                    <CheckBox Name="WithoutShadow" Content="Without shadow" />
                 </StackPanel>
                 <Grid ColumnDefinitions="*,*"
                       ColumnSpacing="16"
                       RowDefinitions="*,*"
                       RowSpacing="16">
-                    <Expander Classes.withoutShadow="{Binding #withoutShadow.IsChecked}"
+                    <Expander Classes.WithoutShadow="{Binding #WithoutShadow.IsChecked}"
                               ExpandDirection="Left"
                               Header="← Left">
                         <StackPanel Spacing="8">
@@ -37,13 +37,13 @@
                         </StackPanel>
                     </Expander>
                     <Expander Grid.Column="1"
-                              Classes.withoutShadow="{Binding #withoutShadow.IsChecked}"
+                              Classes.WithoutShadow="{Binding #WithoutShadow.IsChecked}"
                               ExpandDirection="Right"
                               Header="Right →">
                         <TextBox>TextBox</TextBox>
                     </Expander>
                     <Expander Grid.Row="1"
-                              Classes.withoutShadow="{Binding #withoutShadow.IsChecked}"
+                              Classes.WithoutShadow="{Binding #WithoutShadow.IsChecked}"
                               ExpandDirection="Up"
                               Header="↑ Up">
                         <CheckBox>CheckBox</CheckBox>
@@ -51,7 +51,7 @@
                     <Expander Grid.Row="1"
                               Grid.Column="1"
                               Classes="Highlight"
-                              Classes.withoutShadow="{Binding #withoutShadow.IsChecked}"
+                              Classes.WithoutShadow="{Binding #WithoutShadow.IsChecked}"
                               ExpandDirection="Down"
                               Header="Down(Highlight) ↓">
                         <GroupBoxEx>

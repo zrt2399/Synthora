@@ -27,7 +27,7 @@
                                SelectedPageIndex="{Binding #BasicCarousel.SelectedIndex}" />
 
                     <Carousel Name="BasicCarousel">
-                        <Border Padding="16" Background="#1E6AA5FF">
+                        <Border Padding="16" Background="#406AA5FF">
                             <StackPanel Spacing="12">
                                 <TextBlock FontSize="24"
                                            FontWeight="SemiBold"
@@ -35,7 +35,7 @@
                                 <TextBlock Text="Plain Carousel with direct content items." TextWrapping="Wrap" />
                             </StackPanel>
                         </Border>
-                        <Border Padding="16" Background="#1E00A86B">
+                        <Border Padding="16" Background="#4000D084">
                             <StackPanel Spacing="12">
                                 <TextBlock FontSize="24"
                                            FontWeight="SemiBold"
@@ -43,7 +43,7 @@
                                 <TextBlock Text="Swipe or switch with the selector below to validate transitions." TextWrapping="Wrap" />
                             </StackPanel>
                         </Border>
-                        <Border Padding="16" Background="#1ED67A00">
+                        <Border Padding="16" Background="#40FF9F1C">
                             <StackPanel Spacing="12">
                                 <TextBlock FontSize="24"
                                            FontWeight="SemiBold"
