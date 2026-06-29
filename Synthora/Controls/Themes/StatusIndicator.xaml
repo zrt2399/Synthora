@@ -52,7 +52,9 @@
                                       Content="{TemplateBinding Content}"
                                       ContentTemplate="{TemplateBinding ContentTemplate}"
                                       IsVisible="{TemplateBinding Content,
-                                                                  Converter={x:Static ObjectConverters.IsNotNull}}" />
+                                                                  Converter={x:Static ObjectConverters.IsNotNull}}"
+                                      RecognizesAccessKey="True"
+                                      TextWrapping="{TemplateBinding TextWrapping}" />
                 </DockPanel>
             </ControlTemplate>
         </Setter>
@@ -87,6 +89,10 @@
         </Style>
         <Style Selector="^:error">
             <Setter Property="Background" Value="{DynamicResource ErrorBrush}" />
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>
     </ControlTheme>
 

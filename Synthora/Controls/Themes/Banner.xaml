@@ -75,7 +75,8 @@
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Content="{TemplateBinding Content}"
-                                          TextWrapping="Wrap" />
+                                          RecognizesAccessKey="True"
+                                          TextWrapping="{TemplateBinding TextWrapping}" />
                     </DockPanel>
                 </Border>
             </ControlTemplate>
@@ -120,6 +121,14 @@
 
         <Style Selector="^[IsClosed=True]">
             <Setter Property="IsVisible" Value="False" />
+        </Style>
+
+        <Style Selector="^.Border">
+            <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>
     </ControlTheme>
 

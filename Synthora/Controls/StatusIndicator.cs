@@ -2,6 +2,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Primitives;
+using Avalonia.Media;
 
 namespace Synthora.Controls
 {
@@ -53,6 +54,12 @@ namespace Synthora.Controls
         /// </summary>
         public static readonly StyledProperty<Thickness> HighlightMarginProperty =
             AvaloniaProperty.Register<StatusIndicator, Thickness>(nameof(HighlightMargin));
+
+        /// <summary>
+        /// Defines the <see cref="TextWrapping"/> property.
+        /// </summary>
+        public static readonly StyledProperty<TextWrapping> TextWrappingProperty =
+            AvaloniaProperty.Register<StatusIndicator, TextWrapping>(nameof(TextWrapping));
 
         static StatusIndicator()
         {
@@ -111,6 +118,15 @@ namespace Synthora.Controls
         {
             get => GetValue(HighlightMarginProperty);
             set => SetValue(HighlightMarginProperty, value);
+        }
+
+        /// <summary>
+        /// Gets or sets how the content text wraps.
+        /// </summary>
+        public TextWrapping TextWrapping
+        {
+            get => GetValue(TextWrappingProperty);
+            set => SetValue(TextWrappingProperty, value);
         }
 
         /// <inheritdoc/>

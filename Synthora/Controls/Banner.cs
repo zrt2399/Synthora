@@ -2,6 +2,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Primitives;
+using Avalonia.Media;
 
 namespace Synthora.Controls
 {
@@ -47,6 +48,12 @@ namespace Synthora.Controls
         /// </summary>
         public static readonly DirectProperty<Banner, bool> IsClosedProperty =
             AvaloniaProperty.RegisterDirect<Banner, bool>(nameof(IsClosed), o => o.IsClosed, (o, v) => o.IsClosed = v);
+
+        /// <summary>
+        /// Defines the <see cref="TextWrapping"/> property.
+        /// </summary>
+        public static readonly StyledProperty<TextWrapping> TextWrappingProperty =
+            AvaloniaProperty.Register<Banner, TextWrapping>(nameof(TextWrapping), TextWrapping.Wrap);
 
         private bool _isClosed;
 
@@ -98,6 +105,15 @@ namespace Synthora.Controls
         {
             get => _isClosed;
             set => SetAndRaise(IsClosedProperty, ref _isClosed, value);
+        }
+
+        /// <summary>
+        /// Gets or sets how the content text wraps.
+        /// </summary>
+        public TextWrapping TextWrapping
+        {
+            get => GetValue(TextWrappingProperty);
+            set => SetValue(TextWrappingProperty, value);
         }
 
         /// <inheritdoc/>
