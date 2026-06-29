@@ -19,7 +19,7 @@ namespace Synthora.Attaches
         static DataGridAttach()
         {
             AutoScrollToEndProperty.Changed.AddClassHandler<DataGrid, bool>((s, e) => OnAutoScrollToEndChanged(e));
-            SelectedItemsAttachProperty.Changed.AddClassHandler<DataGrid, bool>((s, e) => SelectedItemsAttachChanged(e));
+            SelectedItemsSyncEnabledProperty.Changed.AddClassHandler<DataGrid, bool>((s, e) => OnSelectedItemsSyncEnabledChanged(e));
             ScrollIntoItemProperty.Changed.AddClassHandler<DataGrid, object?>((s, e) => OnScrollIntoItemChanged(e));
             IsAllExpandedProperty.Changed.AddClassHandler<DataGrid, bool?>((s, e) => OnIsAllExpandedChanged(e));
         }
@@ -27,8 +27,8 @@ namespace Synthora.Attaches
         public static readonly AttachedProperty<IList?> SelectedItemsProperty =
             AvaloniaProperty.RegisterAttached<DataGridAttach, DataGrid, IList?>("SelectedItems", defaultBindingMode: BindingMode.TwoWay);
 
-        public static readonly AttachedProperty<bool> SelectedItemsAttachProperty =
-            AvaloniaProperty.RegisterAttached<DataGridAttach, DataGrid, bool>("SelectedItemsAttach");
+        public static readonly AttachedProperty<bool> SelectedItemsSyncEnabledProperty =
+            AvaloniaProperty.RegisterAttached<DataGridAttach, DataGrid, bool>("SelectedItemsSyncEnabled");
 
         public static readonly AttachedProperty<object?> ScrollIntoItemProperty =
             AvaloniaProperty.RegisterAttached<DataGridAttach, DataGrid, object?>("ScrollIntoItem");
@@ -45,8 +45,8 @@ namespace Synthora.Attaches
         public static IList? GetSelectedItems(DataGrid obj) => obj.GetValue(SelectedItemsProperty);
         public static void SetSelectedItems(DataGrid obj, IList? value) => obj.SetValue(SelectedItemsProperty, value);
 
-        public static bool GetSelectedItemsAttach(DataGrid obj) => obj.GetValue(SelectedItemsAttachProperty);
-        public static void SetSelectedItemsAttach(DataGrid obj, bool value) => obj.SetValue(SelectedItemsAttachProperty, value);
+        public static bool GetSelectedItemsSyncEnabled(DataGrid obj) => obj.GetValue(SelectedItemsSyncEnabledProperty);
+        public static void SetSelectedItemsSyncEnabled(DataGrid obj, bool value) => obj.SetValue(SelectedItemsSyncEnabledProperty, value);
 
         public static object? GetScrollIntoItem(DataGrid obj) => obj.GetValue(ScrollIntoItemProperty);
         public static void SetScrollIntoItem(DataGrid obj, object? value) => obj.SetValue(ScrollIntoItemProperty, value);
@@ -71,7 +71,7 @@ namespace Synthora.Attaches
             }
         }
 
-        private static void SelectedItemsAttachChanged(AvaloniaPropertyChangedEventArgs<bool> e)
+        private static void OnSelectedItemsSyncEnabledChanged(AvaloniaPropertyChangedEventArgs<bool> e)
         {
             if (e.Sender is DataGrid dataGrid)
             {
