@@ -29,6 +29,7 @@
     </Application.Styles>
 
     <Application.Resources>
+        <FontFamily x:Key="JetBrainsMonoFontFamily">avares://Synthora.Demo/Assets/Fonts#JetBrains Mono</FontFamily>
         <x:String x:Key="StringCloseText">关闭</x:String>
         <x:String x:Key="StringTextFlyoutUndoText">撤销</x:String>
         <x:String x:Key="StringTextFlyoutRedoText">重做</x:String>

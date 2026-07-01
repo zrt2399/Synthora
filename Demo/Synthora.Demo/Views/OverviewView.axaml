@@ -516,7 +516,9 @@
                                 <TextBlock Classes="sectionLabel" Text="NAVIGATION" />
                             </StackPanel>
 
-                            <TreeView Height="160" DockPanel.Dock="Top">
+                            <TreeView Height="160"
+                                      AutoScrollToSelectedItem="False"
+                                      DockPanel.Dock="Top">
                                 <TreeViewItem Header="Views"
                                               IsExpanded="True"
                                               IsSelected="True">

@@ -24,11 +24,11 @@
                     <RefreshContainer IsMouseEnabled="True" RefreshRequested="RefreshContainerRefreshRequested">
                         <ScrollViewer>
                             <DockPanel VerticalSpacing="10">
-                                <Border Classes="card"
-                                        Padding="16,12"
+                                <Border Padding="16,12"
                                         Background="{DynamicResource ThemeControlLowBrush}"
-                                        DockPanel.Dock="Top"
-                                        CornerRadius="6">
+                                        Classes="card"
+                                        CornerRadius="6"
+                                        DockPanel.Dock="Top">
                                     <Grid ColumnDefinitions="Auto,*,Auto">
                                         <materialIcons:MaterialIcon VerticalAlignment="Center"
                                                                     Foreground="{DynamicResource PrimaryBrush}"

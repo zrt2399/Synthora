@@ -96,7 +96,7 @@
                                 <Border Padding="8"
                                         Classes="card"
                                         CornerRadius="6">
-                                    <SelectableTextBlock FontFamily="Cascadia Mono,Consolas,SF Mono,Menlo,monospace"
+                                    <SelectableTextBlock FontFamily="{StaticResource JetBrainsMonoFontFamily}"
                                                          Text="{Binding CodeSample}"
                                                          TextWrapping="Wrap" />
                                 </Border>
