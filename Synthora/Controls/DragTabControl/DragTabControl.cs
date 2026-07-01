@@ -9,7 +9,6 @@ using Avalonia.Controls.Primitives;
 using Avalonia.Controls.Templates;
 using Avalonia.Input;
 using Avalonia.Interactivity;
-using Avalonia.LogicalTree;
 using Synthora.Commands;
 using Synthora.Events;
 using Synthora.Extensions;
@@ -102,22 +101,40 @@ namespace Synthora.Controls
             AvaloniaProperty.Register<DragTabControl, FlyoutBase?>(nameof(AddButtonFlyout));
 
         /// <summary>
-        /// Defines the <see cref="TabClosed"/> property.
+        /// Defines the <see cref="TabClosed"/> routed event.
         /// </summary>
-        public static readonly StyledProperty<EventHandler<TabClosedEventArgs>?> TabClosedProperty =
-            AvaloniaProperty.Register<DragTabControl, EventHandler<TabClosedEventArgs>?>(nameof(TabClosed));
+        public static readonly RoutedEvent<TabClosedEventArgs> TabClosedEvent =
+            RoutedEvent.Register<DragTabControl, TabClosedEventArgs>(nameof(TabClosed), RoutingStrategies.Bubble);
 
         /// <summary>
-        /// Defines the <see cref="TabClosing"/> property.
+        /// Defines the <see cref="TabClosing"/> routed event.
         /// </summary>
-        public static readonly StyledProperty<EventHandler<TabClosingEventArgs>?> TabClosingProperty =
-            AvaloniaProperty.Register<DragTabControl, EventHandler<TabClosingEventArgs>?>(nameof(TabClosing));
+        public static readonly RoutedEvent<TabClosingEventArgs> TabClosingEvent =
+            RoutedEvent.Register<DragTabControl, TabClosingEventArgs>(nameof(TabClosing), RoutingStrategies.Bubble);
 
         /// <summary>
-        /// Defines the <see cref="LastTabClosedAction"/> property.
+        /// Defines the <see cref="LastTabClosed"/> routed event.
         /// </summary>
-        public static readonly StyledProperty<EventHandler<CloseLastTabEventArgs>?> LastTabClosedActionProperty =
-            AvaloniaProperty.Register<DragTabControl, EventHandler<CloseLastTabEventArgs>?>(nameof(LastTabClosedAction));
+        public static readonly RoutedEvent<LastTabClosedEventArgs> LastTabClosedEvent =
+            RoutedEvent.Register<DragTabControl, LastTabClosedEventArgs>(nameof(LastTabClosed), RoutingStrategies.Bubble);
+
+        /// <summary>
+        /// Defines the <see cref="TabClosedCallback"/> property.
+        /// </summary>
+        public static readonly StyledProperty<EventHandler<TabClosedEventArgs>?> TabClosedCallbackProperty =
+            AvaloniaProperty.Register<DragTabControl, EventHandler<TabClosedEventArgs>?>(nameof(TabClosedCallback));
+
+        /// <summary>
+        /// Defines the <see cref="TabClosingCallback"/> property.
+        /// </summary>
+        public static readonly StyledProperty<EventHandler<TabClosingEventArgs>?> TabClosingCallbackProperty =
+            AvaloniaProperty.Register<DragTabControl, EventHandler<TabClosingEventArgs>?>(nameof(TabClosingCallback));
+
+        /// <summary>
+        /// Defines the <see cref="LastTabClosedCallback"/> property.
+        /// </summary>
+        public static readonly StyledProperty<EventHandler<LastTabClosedEventArgs>?> LastTabClosedCallbackProperty =
+            AvaloniaProperty.Register<DragTabControl, EventHandler<LastTabClosedEventArgs>?>(nameof(LastTabClosedCallback));
 
         /// <summary>
         /// Defines the <see cref="LeftThumbMinWidth"/> property.
@@ -182,7 +199,7 @@ namespace Synthora.Controls
 
             ItemsPanel = new FuncTemplate<Panel?>(() => _tabsPanel);
 
-            // LastTabClosedAction = (_, _) => GetThisWindow()?.Close();
+            // LastTabClosedCallback = (_, _) => GetThisWindow()?.Close();
 
             _addItemCommand = new RelayCommand(AddItem);
             _closeItemCommand = new RelayCommand<object?>(CloseItem);
@@ -252,30 +269,57 @@ namespace Synthora.Controls
         }
 
         /// <summary>
+        /// Raised after a tab is closed.
+        /// </summary>
+        public event EventHandler<TabClosedEventArgs> TabClosed
+        {
+            add => AddHandler(TabClosedEvent, value);
+            remove => RemoveHandler(TabClosedEvent, value);
+        }
+
+        /// <summary>
+        /// Raised just before a tab is closed.
+        /// </summary>
+        public event EventHandler<TabClosingEventArgs> TabClosing
+        {
+            add => AddHandler(TabClosingEvent, value);
+            remove => RemoveHandler(TabClosingEvent, value);
+        }
+
+        /// <summary>
+        /// Raised after the last tab is closed.
+        /// </summary>
+        public event EventHandler<LastTabClosedEventArgs> LastTabClosed
+        {
+            add => AddHandler(LastTabClosedEvent, value);
+            remove => RemoveHandler(LastTabClosedEvent, value);
+        }
+
+        /// <summary>
         /// Gets or sets the callback invoked after a tab is closed.
         /// </summary>
-        public EventHandler<TabClosedEventArgs>? TabClosed
+        public EventHandler<TabClosedEventArgs>? TabClosedCallback
         {
-            get => GetValue(TabClosedProperty);
-            set => SetValue(TabClosedProperty, value);
+            get => GetValue(TabClosedCallbackProperty);
+            set => SetValue(TabClosedCallbackProperty, value);
         }
 
         /// <summary>
         /// Gets or sets the callback invoked before a tab is closed.
         /// </summary>
-        public EventHandler<TabClosingEventArgs>? TabClosing
+        public EventHandler<TabClosingEventArgs>? TabClosingCallback
         {
-            get => GetValue(TabClosingProperty);
-            set => SetValue(TabClosingProperty, value);
+            get => GetValue(TabClosingCallbackProperty);
+            set => SetValue(TabClosingCallbackProperty, value);
         }
 
         /// <summary>
-        /// Gets or sets the callback invoked when the last tab is closed.
+        /// Gets or sets the callback invoked after the last tab is closed.
         /// </summary>
-        public EventHandler<CloseLastTabEventArgs>? LastTabClosedAction
+        public EventHandler<LastTabClosedEventArgs>? LastTabClosedCallback
         {
-            get => GetValue(LastTabClosedActionProperty);
-            set => SetValue(LastTabClosedActionProperty, value);
+            get => GetValue(LastTabClosedCallbackProperty);
+            set => SetValue(LastTabClosedCallbackProperty, value);
         }
 
         /// <summary>
@@ -463,9 +507,7 @@ namespace Synthora.Controls
                 return;
             }
 
-            var tabClosingEventArgs = new TabClosingEventArgs(item);
-            TabClosing?.Invoke(this, tabClosingEventArgs);
-            if (tabClosingEventArgs.Cancel)
+            if (RaiseTabClosingEvent(item))
             {
                 return;
             }
@@ -474,11 +516,11 @@ namespace Synthora.Controls
 
             itemsList.Remove(item);
 
-            TabClosed?.Invoke(this, new TabClosedEventArgs(item));
+            RaiseTabClosedEvent(item);
 
             if (itemsList.Count == 0)
             {
-                LastTabClosedAction?.Invoke(this, new CloseLastTabEventArgs(GetThisWindow()));
+                RaiseLastTabClosedEvent(GetThisWindow());
             }
             else if (removedItemIsSelected)
             {
@@ -486,10 +528,48 @@ namespace Synthora.Controls
             }
         }
 
+        private bool RaiseTabClosingEvent(object item)
+        {
+            var eventArgs = new TabClosingEventArgs(item)
+            {
+                RoutedEvent = TabClosingEvent,
+                Source = this
+            };
+
+            RaiseEvent(eventArgs);
+            TabClosingCallback?.Invoke(this, eventArgs);
+
+            return eventArgs.Cancel;
+        }
+
+        private void RaiseTabClosedEvent(object item)
+        {
+            var eventArgs = new TabClosedEventArgs(item)
+            {
+                RoutedEvent = TabClosedEvent,
+                Source = this
+            };
+
+            RaiseEvent(eventArgs);
+            TabClosedCallback?.Invoke(this, eventArgs);
+        }
+
+        private void RaiseLastTabClosedEvent(Window? window)
+        {
+            var eventArgs = new LastTabClosedEventArgs(window)
+            {
+                RoutedEvent = LastTabClosedEvent,
+                Source = this
+            };
+
+            RaiseEvent(eventArgs);
+            LastTabClosedCallback?.Invoke(this, eventArgs);
+        }
+
         private void SetSelectedNewTab(IList items, int removedItemIndex) =>
             SelectedItem = removedItemIndex == items.Count ? items[^1] : items[removedItemIndex];
 
-        private Window? GetThisWindow() => this.FindLogicalAncestorOfType<Window>();
+        private Window? GetThisWindow() => TopLevel.GetTopLevel(this) as Window;
 
         private IEnumerable<DragTabItem> DragTabItems()
         {
@@ -627,8 +707,7 @@ namespace Synthora.Controls
 
         private void OnThumbBeginDrag(object? sender, PointerPressedEventArgs e)
         {
-            var toplevel = TopLevel.GetTopLevel(this);
-            if (toplevel is not Window window)
+            if (GetThisWindow() is not { } window)
             {
                 return;
             }
@@ -642,7 +721,7 @@ namespace Synthora.Controls
 
         private void WindowDragThumbOnDoubleTapped(object? sender, RoutedEventArgs e)
         {
-            var window = this.FindLogicalAncestorOfType<Window>();
+            var window = GetThisWindow();
 
             window?.RestoreWindow();
         }
@@ -650,7 +729,7 @@ namespace Synthora.Controls
         [Obsolete]
         private void WindowDragThumbOnDragDelta(object? sender, VectorEventArgs e)
         {
-            var window = this.FindLogicalAncestorOfType<Window>();
+            var window = GetThisWindow();
 
             window?.DragWindow(e.Vector.X, e.Vector.Y);
         }
