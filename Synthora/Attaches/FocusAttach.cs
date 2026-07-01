@@ -98,7 +98,7 @@ namespace Synthora.Attaches
                 textBox.Focus();
                 textBox.SelectAll();
             }
-            if (inputElement is Panel panel && panel.Children.FirstOrDefault(x => x.IsVisible && x.Focusable) is InputElement element)
+            else if (inputElement is Panel panel && panel.Children.FirstOrDefault(x => x.IsVisible && x.Focusable) is InputElement element)
             {
                 element.Focus();
             }
