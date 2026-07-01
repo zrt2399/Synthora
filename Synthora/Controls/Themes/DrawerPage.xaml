@@ -110,7 +110,7 @@
                                                               IsVisible="{Binding DrawerIcon, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNotNull}}" />
                                         </Panel>
                                     </ToggleButton>
-                                    <ContentPresenter x:Name="PART_TitlePresenter"
+                                    <ContentPresenter Name="PART_TitlePresenter"
                                                       VerticalAlignment="Center"
                                                       VerticalContentAlignment="Center"
                                                       Content="{TemplateBinding Header}"
@@ -146,7 +146,7 @@
                                                               IsVisible="{Binding DrawerIcon, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNotNull}}" />
                                         </Panel>
                                     </ToggleButton>
-                                    <ContentPresenter x:Name="PART_BottomTitlePresenter"
+                                    <ContentPresenter Name="PART_BottomTitlePresenter"
                                                       VerticalAlignment="Center"
                                                       VerticalContentAlignment="Center"
                                                       Content="{TemplateBinding Header}"

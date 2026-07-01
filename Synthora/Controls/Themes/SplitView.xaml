@@ -25,7 +25,7 @@
     <!-- Not used here (directly), but preserving for reference
         <x:String x:Key="SplitViewPaneAnimationOpenPreDuration">00:00:00.19999</x:String>-->
 
-    <ControlTheme x:Key="{x:Type SplitView}" TargetType="SplitView"> 
+    <ControlTheme x:Key="{x:Type SplitView}" TargetType="SplitView">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="OpenPaneLength" Value="{DynamicResource SplitViewOpenPaneThemeLength}" />
         <Setter Property="CompactPaneLength" Value="{DynamicResource SplitViewCompactPaneThemeLength}" />
@@ -49,14 +49,14 @@
                                    HorizontalAlignment="Left"
                                    ZIndex="100">
                                 <Border Name="PaneBorder" Background="{TemplateBinding PaneBackground}">
-                                    <ContentPresenter x:Name="PART_PanePresenter"
+                                    <ContentPresenter Name="PART_PanePresenter"
                                                       Content="{TemplateBinding Pane}"
                                                       ContentTemplate="{TemplateBinding PaneTemplate}" />
                                 </Border>
                             </Panel>
 
                             <Panel Name="ContentRoot" Grid.Column="1">
-                                <ContentPresenter x:Name="PART_ContentPresenter"
+                                <ContentPresenter Name="PART_ContentPresenter"
                                                   Content="{TemplateBinding Content}"
                                                   ContentTemplate="{TemplateBinding ContentTemplate}" />
                                 <Rectangle Name="LightDismissLayer" IsVisible="False" />
@@ -129,14 +129,14 @@
                                    HorizontalAlignment="Right"
                                    ZIndex="100">
                                 <Border Name="PaneBorder" Background="{TemplateBinding PaneBackground}">
-                                    <ContentPresenter x:Name="PART_PanePresenter"
+                                    <ContentPresenter Name="PART_PanePresenter"
                                                       Content="{TemplateBinding Pane}"
                                                       ContentTemplate="{TemplateBinding PaneTemplate}" />
                                 </Border>
                             </Panel>
 
                             <Panel Name="ContentRoot" Grid.Column="0">
-                                <ContentPresenter x:Name="PART_ContentPresenter"
+                                <ContentPresenter Name="PART_ContentPresenter"
                                                   Content="{TemplateBinding Content}"
                                                   ContentTemplate="{TemplateBinding ContentTemplate}" />
                                 <Rectangle Name="LightDismissLayer" IsVisible="False" />
@@ -209,14 +209,14 @@
                                    VerticalAlignment="Top"
                                    ZIndex="100">
                                 <Border Name="PaneBorder" Background="{TemplateBinding PaneBackground}">
-                                    <ContentPresenter x:Name="PART_PanePresenter"
+                                    <ContentPresenter Name="PART_PanePresenter"
                                                       Content="{TemplateBinding Pane}"
                                                       ContentTemplate="{TemplateBinding PaneTemplate}" />
                                 </Border>
                             </Panel>
 
                             <Panel Name="ContentRoot" Grid.Row="1">
-                                <ContentPresenter x:Name="PART_ContentPresenter"
+                                <ContentPresenter Name="PART_ContentPresenter"
                                                   Content="{TemplateBinding Content}"
                                                   ContentTemplate="{TemplateBinding ContentTemplate}" />
                                 <Rectangle Name="LightDismissLayer" IsVisible="False" />
@@ -289,14 +289,14 @@
                                    VerticalAlignment="Bottom"
                                    ZIndex="100">
                                 <Border Name="PaneBorder" Background="{TemplateBinding PaneBackground}">
-                                    <ContentPresenter x:Name="PART_PanePresenter"
+                                    <ContentPresenter Name="PART_PanePresenter"
                                                       Content="{TemplateBinding Pane}"
                                                       ContentTemplate="{TemplateBinding PaneTemplate}" />
                                 </Border>
                             </Panel>
 
                             <Panel Name="ContentRoot" Grid.Row="0">
-                                <ContentPresenter x:Name="PART_ContentPresenter"
+                                <ContentPresenter Name="PART_ContentPresenter"
                                                   Content="{TemplateBinding Content}"
                                                   ContentTemplate="{TemplateBinding ContentTemplate}" />
                                 <Rectangle Name="LightDismissLayer" IsVisible="False" />

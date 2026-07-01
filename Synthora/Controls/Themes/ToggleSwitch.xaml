@@ -44,7 +44,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid Background="{TemplateBinding Background}" RowDefinitions="Auto,*">
-                    <ContentPresenter x:Name="PART_ContentPresenter"
+                    <ContentPresenter Name="PART_ContentPresenter"
                                       Grid.Row="0"
                                       Margin="{DynamicResource ThemeControlBottomPadding}"
                                       VerticalAlignment="Top"
@@ -64,7 +64,7 @@
                               Margin="0,5"
                               Background="Transparent" />
 
-                        <ContentPresenter x:Name="PART_OffContentPresenter"
+                        <ContentPresenter Name="PART_OffContentPresenter"
                                           Grid.Column="1"
                                           Margin="{DynamicResource ThemeControlLeftPadding}"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -73,7 +73,7 @@
                                           ContentTemplate="{TemplateBinding OffContentTemplate}"
                                           IsVisible="{Binding RelativeSource={RelativeSource Self}, Path=Content, Converter={x:Static ObjectConverters.IsNotNull}}" />
 
-                        <ContentPresenter x:Name="PART_OnContentPresenter"
+                        <ContentPresenter Name="PART_OnContentPresenter"
                                           Grid.Column="1"
                                           Margin="{DynamicResource ThemeControlLeftPadding}"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"

@@ -33,7 +33,7 @@
                             <ColumnDefinition Width="Auto" SharedSizeGroup="MenuItemIGT" />
                             <ColumnDefinition Width="20" />
                         </Grid.ColumnDefinitions>
-                        <ContentPresenter x:Name="PART_ToggleIconPresenter"
+                        <ContentPresenter Name="PART_ToggleIconPresenter"
                                           Grid.Column="0"
                                           Width="16"
                                           Height="16"

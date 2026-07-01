@@ -34,7 +34,7 @@
                                     <TemplateBinding Property="HeaderDividerThickness" />
                                 </MultiBinding>
                             </Border.BorderThickness>
-                            <ContentPresenter x:Name="PART_HeaderContentPresenter"
+                            <ContentPresenter Name="PART_HeaderContentPresenter"
                                               Content="{TemplateBinding Header}"
                                               ContentTemplate="{TemplateBinding HeaderTemplate}"
                                               RecognizesAccessKey="True" />

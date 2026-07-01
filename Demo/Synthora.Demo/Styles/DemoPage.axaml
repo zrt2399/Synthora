@@ -45,7 +45,8 @@
                             </Grid>
                         </Border>
 
-                        <ContentPresenter Margin="{TemplateBinding Padding}"
+                        <ContentPresenter Name="PART_ContentPresenter"
+                                          Margin="{TemplateBinding Padding}"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Content="{TemplateBinding Content}"

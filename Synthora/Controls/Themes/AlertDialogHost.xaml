@@ -59,7 +59,9 @@
                               BorderThickness="{DynamicResource ThemeBorderThickness}"
                               BoxShadow="{Binding $parent[DialogHost].DialogBoxShadow}"
                               CornerRadius="{DynamicResource ThemeBorderCornerRadiusLarge}">
-                    <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" />
+                    <ContentPresenter Name="PART_ContentPresenter"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}" />
                 </ShadowChrome>
             </ControlTemplate>
         </Setter>

@@ -48,7 +48,7 @@
         </PageSlide.SlideOutEasing>
     </PageSlide>
 
-    <ControlTheme x:Key="{x:Type NavigationPage}" TargetType="NavigationPage"> 
+    <ControlTheme x:Key="{x:Type NavigationPage}" TargetType="NavigationPage">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BarHeight" Value="{DynamicResource NavigationPageBarHeight}" />
         <Setter Property="PageTransition" Value="{DynamicResource HorizontalPageSlideAnimation}" />
@@ -104,7 +104,7 @@
                                                   HorizontalAlignment="Center"
                                                   VerticalAlignment="Center"
                                                   Data="{DynamicResource ArrowLeftData}" />
-                                        <ContentPresenter x:Name="PART_BackButtonContentPresenter"
+                                        <ContentPresenter Name="PART_BackButtonContentPresenter"
                                                           HorizontalAlignment="Center"
                                                           VerticalAlignment="Center" />
                                     </Panel>
