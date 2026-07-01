@@ -125,7 +125,7 @@
                                         DialogClosing="CommandDialogHostDialogClosing"
                                         OverlayBackground="#22007AFF">
                                 <DialogHost.DialogContentTemplate>
-                                    <DataTemplate>
+                                    <DataTemplate x:DataType="x:String">
                                         <Border MinWidth="320" Padding="18">
                                             <StackPanel Spacing="12">
                                                 <TextBlock FontSize="16"
@@ -217,7 +217,7 @@
                                 </DialogHost.PopupTemplate>
 
                                 <DialogHost.DialogContentTemplate>
-                                    <DataTemplate>
+                                    <DataTemplate x:DataType="x:String">
                                         <StackPanel Spacing="12">
                                             <TextBlock Foreground="{DynamicResource ThemeForegroundLowBrush}"
                                                        Text="{Binding}"

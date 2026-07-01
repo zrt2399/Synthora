@@ -16,7 +16,7 @@ namespace Synthora.Demo
 
         public static MainView? MainView { get; private set; }
 
-        public static string AppVersion => $"{Assembly.GetExecutingAssembly().GetName().Version}";
+        public static string AppVersion => $"v{Assembly.GetExecutingAssembly().GetName().Version}";
 
         public override void Initialize()
         {
