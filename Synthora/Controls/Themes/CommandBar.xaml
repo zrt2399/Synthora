@@ -98,43 +98,43 @@
         <Style Selector="^.Primary">
             <Style Selector="^:pointerover">
                 <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
-                <Setter Property="Background" Value="{DynamicResource PrimaryPointerOverBrush}" />
+                <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
             </Style>
             <Style Selector="^:pressed">
                 <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
-                <Setter Property="Background" Value="{DynamicResource PrimaryPressedBrush}" />
+                <Setter Property="Background" Value="{DynamicResource PrimaryPointerOverBrush}" />
             </Style>
         </Style>
         <Style Selector="^.Secondary">
             <Style Selector="^:pointerover">
                 <Setter Property="Foreground" Value="{DynamicResource OnSecondaryBrush}" />
-                <Setter Property="Background" Value="{DynamicResource SecondaryPointerOverBrush}" />
+                <Setter Property="Background" Value="{DynamicResource SecondaryBrush}" />
             </Style>
             <Style Selector="^:pressed">
                 <Setter Property="Foreground" Value="{DynamicResource OnSecondaryBrush}" />
-                <Setter Property="Background" Value="{DynamicResource SecondaryPressedBrush}" />
+                <Setter Property="Background" Value="{DynamicResource SecondaryPointerOverBrush}" />
             </Style>
         </Style>
         <Style Selector="^.Warning">
             <Setter Property="Foreground" Value="{DynamicResource WarningBrush}" />
             <Style Selector="^:pointerover">
                 <Setter Property="Foreground" Value="White" />
-                <Setter Property="Background" Value="{DynamicResource WarningPointerOverBrush}" />
+                <Setter Property="Background" Value="{DynamicResource WarningBrush}" />
             </Style>
             <Style Selector="^:pressed">
                 <Setter Property="Foreground" Value="White" />
-                <Setter Property="Background" Value="{DynamicResource WarningPressedBrush}" />
+                <Setter Property="Background" Value="{DynamicResource WarningPointerOverBrush}" />
             </Style>
         </Style>
         <Style Selector="^.Error">
             <Setter Property="Foreground" Value="{DynamicResource ErrorBrush}" />
             <Style Selector="^:pointerover">
                 <Setter Property="Foreground" Value="White" />
-                <Setter Property="Background" Value="{DynamicResource ErrorPointerOverBrush}" />
+                <Setter Property="Background" Value="{DynamicResource ErrorBrush}" />
             </Style>
             <Style Selector="^:pressed">
                 <Setter Property="Foreground" Value="White" />
-                <Setter Property="Background" Value="{DynamicResource ErrorPressedBrush}" />
+                <Setter Property="Background" Value="{DynamicResource ErrorPointerOverBrush}" />
             </Style>
         </Style>
 
@@ -416,7 +416,7 @@
                                                 CornerRadius="{TemplateBinding CornerRadius}">
                                 <ScrollViewer Theme="{StaticResource SimpleMenuScrollViewer}">
                                     <ItemsControl x:Name="PART_OverflowPresenter"
-                                                  Margin="{TemplateBinding Padding}"
+                                                  Margin="{DynamicResource ThemeMenuFlyoutPadding}"
                                                   FocusAttach.FocusOnLoaded="True"
                                                   Focusable="True"
                                                   IsTabStop="False"

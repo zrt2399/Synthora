@@ -170,11 +170,11 @@
                 <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
             </Style>
             <Style Selector="^:selected /template/ Border#root">
-                <Setter Property="Background" Value="{DynamicResource PrimaryPointerOverBrush}" />
+                <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
             </Style>
             <Style Selector="^:pressed /template/ Border#root:pointerover">
                 <!--  Listen for root:pointerover, so it will not be triggered when subitem is pressed  -->
-                <Setter Property="Background" Value="{DynamicResource PrimaryPressedBrush}" />
+                <Setter Property="Background" Value="{DynamicResource PrimaryPointerOverBrush}" />
             </Style>
         </Style>
         <Style Selector="^.Secondary">
@@ -188,11 +188,11 @@
                 <Setter Property="Foreground" Value="{DynamicResource OnSecondaryBrush}" />
             </Style>
             <Style Selector="^:selected /template/ Border#root">
-                <Setter Property="Background" Value="{DynamicResource SecondaryPointerOverBrush}" />
+                <Setter Property="Background" Value="{DynamicResource SecondaryBrush}" />
             </Style>
             <Style Selector="^:pressed /template/ Border#root:pointerover">
                 <!--  Listen for root:pointerover, so it will not be triggered when subitem is pressed  -->
-                <Setter Property="Background" Value="{DynamicResource SecondaryPressedBrush}" />
+                <Setter Property="Background" Value="{DynamicResource SecondaryPointerOverBrush}" />
             </Style>
         </Style>
         <Style Selector="^.Warning">
@@ -215,11 +215,11 @@
                 <Setter Property="Foreground" Value="White" />
             </Style>
             <Style Selector="^:selected /template/ Border#root">
-                <Setter Property="Background" Value="{DynamicResource WarningPointerOverBrush}" />
+                <Setter Property="Background" Value="{DynamicResource WarningBrush}" />
             </Style>
             <Style Selector="^:pressed /template/ Border#root:pointerover">
                 <!--  Listen for root:pointerover, so it will not be triggered when subitem is pressed  -->
-                <Setter Property="Background" Value="{DynamicResource WarningPressedBrush}" />
+                <Setter Property="Background" Value="{DynamicResource WarningPointerOverBrush}" />
             </Style>
         </Style>
         <Style Selector="^.Error">
@@ -242,11 +242,11 @@
                 <Setter Property="Foreground" Value="White" />
             </Style>
             <Style Selector="^:selected /template/ Border#root">
-                <Setter Property="Background" Value="{DynamicResource ErrorPointerOverBrush}" />
+                <Setter Property="Background" Value="{DynamicResource ErrorBrush}" />
             </Style>
             <Style Selector="^:pressed /template/ Border#root:pointerover">
                 <!--  Listen for root:pointerover, so it will not be triggered when subitem is pressed  -->
-                <Setter Property="Background" Value="{DynamicResource ErrorPressedBrush}" />
+                <Setter Property="Background" Value="{DynamicResource ErrorPointerOverBrush}" />
             </Style>
         </Style>
 
@@ -289,7 +289,7 @@
                                                 Background="{DynamicResource ThemeBackgroundBrush}"
                                                 BorderBrush="{DynamicResource ThemeBorderMidBrush}"
                                                 BorderThickness="{DynamicResource ThemeBorderThickness}"
-                                                CornerRadius="{DynamicResource ThemeBorderCornerRadiusNormal}">
+                                                CornerRadius="{DynamicResource ThemeBorderCornerRadiusLarge}">
                                 <ScrollViewer Theme="{StaticResource SimpleMenuScrollViewer}">
                                     <ItemsPresenter Name="PART_ItemsPresenter"
                                                     Margin="{DynamicResource ThemeMenuFlyoutPadding}"
