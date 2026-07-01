@@ -468,10 +468,10 @@
                             </SpacingWrapPanel>
 
                             <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
-                                <Tag TagType="Success" IsSolid="True">healthy</Tag>
-                                <Tag TagType="Warning" IsCircular="True">attention</Tag>
-                                <Tag TagType="Error" IsSolid="True">blocked</Tag>
-                                <Tag TagType="None" IsCircular="True">muted</Tag>
+                                <Tag IsSolid="True" TagType="Success">healthy</Tag>
+                                <Tag IsCircular="True" TagType="Warning">attention</Tag>
+                                <Tag IsSolid="True" TagType="Error">blocked</Tag>
+                                <Tag IsCircular="True" TagType="None">muted</Tag>
                             </SpacingWrapPanel>
 
                             <Banner Content="System information has been refreshed." IconType="Information" />
@@ -516,9 +516,10 @@
                                 <TextBlock Classes="sectionLabel" Text="NAVIGATION" />
                             </StackPanel>
 
-                            <TreeView Height="160"
-                                      DockPanel.Dock="Top">
-                                <TreeViewItem Header="Views" IsExpanded="True">
+                            <TreeView Height="160" DockPanel.Dock="Top">
+                                <TreeViewItem Header="Views"
+                                              IsExpanded="True"
+                                              IsSelected="True">
                                     <TreeViewItem Header="Overview.axaml" />
                                     <TreeViewItem Header="ButtonsView.axaml" />
                                 </TreeViewItem>
