@@ -1,9 +1,11 @@
 using System.Text;
+using System.Windows.Input;
 using Avalonia.Controls;
 using Avalonia.Controls.Notifications;
 using Avalonia.Layout;
 using Avalonia.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using Material.Icons;
 using Synthora.Controls;
 using Synthora.Demo.Models;
@@ -27,11 +29,22 @@ namespace Synthora.Demo.ViewModels
         public OverlayViewModel()
         {
             IconKind = MaterialIconKind.Bell;
-            Description = "Notification, MessageTip, AlertDialog";
+            Description = "Notification, MessageTip, AlertDialog, DialogHost";
             Dispatcher.UIThread.InvokeAsync(() =>
             {
                 _notificationManager = new WindowNotificationManager(App.MainWindow);
             });
+        }
+
+        public async void ShowGlobalDialog()
+        {
+            var dialog = new DialogHostSampleDialog(
+                "Publish settings",
+                "Apply these changes to the live preview? You can keep editing after publishing.",
+                "DialogHost");
+
+            var result = await DialogHost.Show(dialog, "DialogHost");
+            MessageTip.Show($"Dialog closed: {result}");
         }
 
         public async void ShowAlertDialog(object? content)
@@ -71,6 +84,7 @@ namespace Synthora.Demo.ViewModels
                     HorizontalContentAlignment = HorizontalAlignment.Center,
                     VerticalContentAlignment = VerticalAlignment.Center,
                     CanResize = false,
+                    CanMinimize = false,
                     Height = 140,
                     Width = 280,
                     WindowStartupLocation = WindowStartupLocation.CenterOwner
@@ -143,6 +157,30 @@ namespace Synthora.Demo.ViewModels
                     _notificationManager.Show(new Notification(message, message, NotificationType.Error));
                     break;
             }
+        }
+    }
+
+    public class DialogHostSampleDialog
+    {
+        private readonly string _hostIdentifier;
+
+        public DialogHostSampleDialog(string title, string message, string hostIdentifier)
+        {
+            Title = title;
+            Message = message;
+            _hostIdentifier = hostIdentifier;
+            CloseCommand = new RelayCommand<object?>(Close);
+        }
+
+        public string Title { get; }
+
+        public string Message { get; }
+
+        public ICommand CloseCommand { get; }
+
+        private void Close(object? parameter)
+        {
+            DialogHost.Close(_hostIdentifier, parameter, this);
         }
     }
 }

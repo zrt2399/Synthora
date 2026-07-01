@@ -44,6 +44,7 @@
                         </SpacingWrapPanel>
                     </StackPanel>
                 </Border>
+
                 <!--  MessageTip  -->
                 <Border Classes="card">
                     <StackPanel Spacing="16">
@@ -71,6 +72,7 @@
                         </SpacingWrapPanel>
                     </StackPanel>
                 </Border>
+
                 <!--  AlertDialog  -->
                 <Border Classes="card">
                     <StackPanel Spacing="16">
@@ -99,6 +101,177 @@
                             <Button>None</Button>
                             <Button Theme="{StaticResource SolidButtonTheme}">Custom</Button>
                         </SpacingWrapPanel>
+                    </StackPanel>
+                </Border>
+
+                <!--  DialogHost  -->
+                <Border Classes="card">
+                    <StackPanel Spacing="16">
+                        <StackPanel Classes="sectionHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="MessageText" />
+                            <TextBlock Classes="sectionLabel" Text="DIALOG HOST" />
+                        </StackPanel>
+
+                        <Button HorizontalAlignment="Left"
+                                Classes="Primary"
+                                Command="{Binding ShowGlobalDialog}"
+                                Theme="{StaticResource SolidButtonTheme}">
+                            Global MVVM
+                        </Button>
+
+                        <Grid ColumnDefinitions="*,*" ColumnSpacing="16">
+                            <DialogHost Name="CommandDialogHost"
+                                        ClipToBounds="False"
+                                        DialogClosing="CommandDialogHostDialogClosing"
+                                        OverlayBackground="#22007AFF">
+                                <DialogHost.DialogContentTemplate>
+                                    <DataTemplate>
+                                        <Border MinWidth="320" Padding="18">
+                                            <StackPanel Spacing="12">
+                                                <TextBlock FontSize="16"
+                                                           FontWeight="SemiBold"
+                                                           Text="Archive project" />
+                                                <TextBlock Foreground="{DynamicResource ThemeForegroundLowBrush}"
+                                                           Text="{Binding}"
+                                                           TextWrapping="Wrap" />
+                                                <Border Padding="10"
+                                                        Background="{DynamicResource ThemeBackgroundLowBrush}"
+                                                        CornerRadius="{DynamicResource ThemeBorderCornerRadius}">
+                                                    <Grid ColumnDefinitions="Auto,*"
+                                                          RowDefinitions="Auto,Auto"
+                                                          RowSpacing="6">
+                                                        <TextBlock Foreground="{DynamicResource ThemeForegroundLowBrush}" Text="Project" />
+                                                        <TextBlock Grid.Column="1"
+                                                                   HorizontalAlignment="Right"
+                                                                   Text="Synthora Catalog" />
+                                                        <TextBlock Grid.Row="1"
+                                                                   Foreground="{DynamicResource ThemeForegroundLowBrush}"
+                                                                   Text="Access" />
+                                                        <TextBlock Grid.Row="1"
+                                                                   Grid.Column="1"
+                                                                   HorizontalAlignment="Right"
+                                                                   Text="Read-only after archive" />
+                                                    </Grid>
+                                                </Border>
+                                                <CheckBox Name="ArchiveConfirmationCheckBox">
+                                                    I understand the project will become read-only.
+                                                </CheckBox>
+                                                <Button HorizontalAlignment="Right"
+                                                        Classes="Primary"
+                                                        Command="{Binding $parent[DialogHost].CloseDialogCommand}"
+                                                        CommandParameter="Archived"
+                                                        Theme="{StaticResource SolidButtonTheme}">
+                                                    Archive
+                                                </Button>
+                                            </StackPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </DialogHost.DialogContentTemplate>
+
+                                <StackPanel Spacing="10">
+                                    <TextBlock FontWeight="SemiBold" Text="Command flow" />
+                                    <TextBlock Foreground="{DynamicResource ThemeForegroundLowBrush}"
+                                               Text="Open and close a confirmation dialog from bindings."
+                                               TextWrapping="Wrap" />
+                                    <Button HorizontalAlignment="Left"
+                                            Command="{Binding #CommandDialogHost.OpenDialogCommand}"
+                                            CommandParameter="Archive this project for the team? It can be restored from Activity within 30 days.">
+                                        Archive
+                                    </Button>
+                                </StackPanel>
+                            </DialogHost>
+
+                            <DialogHost Name="TemplateDialogHost"
+                                        Grid.Column="1"
+                                        ClipToBounds="False"
+                                        OverlayBackground="#33000000">
+                                <DialogHost.PopupTemplate>
+                                    <ControlTemplate TargetType="DialogOverlayPopupHost">
+                                        <Border MinWidth="320"
+                                                Margin="24"
+                                                Padding="18"
+                                                Background="{DynamicResource ThemeBackgroundBrush}"
+                                                BorderBrush="{DynamicResource ThemeBorderLowBrush}"
+                                                BorderThickness="{DynamicResource ThemeBorderThickness}"
+                                                BoxShadow="{DynamicResource DialogBoxShadow}"
+                                                CornerRadius="{DynamicResource ThemeBorderCornerRadiusLarge}">
+                                            <DockPanel VerticalSpacing="12">
+                                                <Panel DockPanel.Dock="Top">
+                                                    <TextBlock FontSize="16"
+                                                               FontWeight="SemiBold"
+                                                               Text="Invite teammates" />
+                                                    <Button Padding="0"
+                                                            HorizontalAlignment="Right"
+                                                            VerticalAlignment="Top"
+                                                            Classes="Error"
+                                                            Command="{Binding Close, RelativeSource={RelativeSource TemplatedParent}}"
+                                                            CommandParameter="Dismissed"
+                                                            Theme="{StaticResource IconButtonTheme}">
+                                                        <materialIcons:MaterialIcon IconSize="20" Kind="Close" />
+                                                    </Button>
+                                                </Panel>
+                                                <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" />
+                                            </DockPanel>
+                                        </Border>
+                                    </ControlTemplate>
+                                </DialogHost.PopupTemplate>
+
+                                <DialogHost.DialogContentTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Spacing="12">
+                                            <TextBlock Foreground="{DynamicResource ThemeForegroundLowBrush}"
+                                                       Text="{Binding}"
+                                                       TextWrapping="Wrap" />
+                                            <Border Padding="10"
+                                                    Background="{DynamicResource ThemeBackgroundLowBrush}"
+                                                    CornerRadius="{DynamicResource ThemeBorderCornerRadius}">
+                                                <Grid ColumnDefinitions="Auto,*"
+                                                      RowDefinitions="Auto,Auto,Auto"
+                                                      RowSpacing="6">
+                                                    <TextBlock Foreground="{DynamicResource ThemeForegroundLowBrush}" Text="Email" />
+                                                    <TextBlock Grid.Column="1"
+                                                               HorizontalAlignment="Right"
+                                                               Text="alex@synthora.dev" />
+                                                    <TextBlock Grid.Row="1"
+                                                               Foreground="{DynamicResource ThemeForegroundLowBrush}"
+                                                               Text="Role" />
+                                                    <TextBlock Grid.Row="1"
+                                                               Grid.Column="1"
+                                                               HorizontalAlignment="Right"
+                                                               Text="Editor" />
+                                                    <TextBlock Grid.Row="2"
+                                                               Foreground="{DynamicResource ThemeForegroundLowBrush}"
+                                                               Text="Expires" />
+                                                    <TextBlock Grid.Row="2"
+                                                               Grid.Column="1"
+                                                               HorizontalAlignment="Right"
+                                                               Text="7 days" />
+                                                </Grid>
+                                            </Border>
+                                            <Button HorizontalAlignment="Right"
+                                                    Classes="Primary"
+                                                    Command="{Binding $parent[DialogHost].CloseDialogCommand}"
+                                                    CommandParameter="Invitation sent"
+                                                    Theme="{StaticResource SolidButtonTheme}">
+                                                Send invitation
+                                            </Button>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DialogHost.DialogContentTemplate>
+
+                                <StackPanel Spacing="10">
+                                    <TextBlock FontWeight="SemiBold" Text="Custom shell" />
+                                    <TextBlock Foreground="{DynamicResource ThemeForegroundLowBrush}"
+                                               Text="Keep normal content binding while styling the popup chrome."
+                                               TextWrapping="Wrap" />
+                                    <Button HorizontalAlignment="Left"
+                                            Command="{Binding #TemplateDialogHost.OpenDialogCommand}"
+                                            CommandParameter="Send an invitation to alex@synthora.dev with editor access to this workspace.">
+                                        Invite
+                                    </Button>
+                                </StackPanel>
+                            </DialogHost>
+                        </Grid>
                     </StackPanel>
                 </Border>
             </StackPanel>

@@ -19,8 +19,8 @@ namespace Synthora.Overlays
     public static class MessageTip
     {
         private const int DefaultDelay = 2000;
-        private static readonly IImmutableSolidColorBrush NoneBorderBrush = new ImmutableSolidColorBrush(Color.FromArgb(64, 0, 0, 0));
-        private static readonly IImmutableSolidColorBrush NoneBackground = new ImmutableSolidColorBrush(Color.FromRgb(245, 245, 245));
+        private static readonly IImmutableSolidColorBrush NoneBorderBrush = new ImmutableSolidColorBrush(Color.FromArgb(52, 0, 0, 0));
+        private static readonly IImmutableSolidColorBrush NoneBackground = new ImmutableSolidColorBrush(Color.FromRgb(250, 250, 250));
 
         /// <summary>
         /// Display duration in milliseconds for all message tips.
