@@ -40,6 +40,9 @@
         <Style Selector="^.Shadow">
             <Setter Property="ClipToBounds" Value="False" />
             <Setter Property="BoxShadowAttach.BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
+            <Style Selector="^ /template/ CalendarItem#PART_CalendarItem">
+                <Setter Property="ClipToBounds" Value="False" />
+            </Style>
         </Style>
     </ControlTheme>
 

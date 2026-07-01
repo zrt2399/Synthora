@@ -10,7 +10,6 @@
         <Setter Property="Focusable" Value="True" />
         <Setter Property="MinWidth" Value="{DynamicResource GridSplitterMinLength}" />
         <Setter Property="MinHeight" Value="{DynamicResource GridSplitterMinLength}" />
-        <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Background" Value="{DynamicResource GridSplitterOuterBorderBackground}" />
         <Setter Property="PreviewContent">
             <Template>
@@ -34,6 +33,7 @@
         </Setter>
 
         <Style Selector="^:pointerover,^:pressed">
+            <Setter Property="ClipToBounds" Value="False" />
             <Setter Property="ZIndex" Value="{DynamicResource GridSplitterPointerOverZIndex}" />
             <Style Selector="^ /template/ Border#OuterBorder">
                 <Setter Property="BoxShadow" Value="{TemplateBinding Background, Converter={x:Static SynthoraConverters.BoxShadowConverter}, ConverterParameter={x:Static BoxShadowConverter.ButtonPointerOverParameter}}" />
