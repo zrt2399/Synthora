@@ -43,7 +43,10 @@
                                      VerticalAlignment="Top" />
                             <ContentPresenter Name="PART_ContentPresenter"
                                               Margin="{TemplateBinding Padding}"
-                                              Content="{TemplateBinding Content}" />
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}" />
                         </DockPanel>
                     </Border>
                 </LayoutTransformControl>

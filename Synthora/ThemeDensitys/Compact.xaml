@@ -26,8 +26,8 @@
     <x:Double x:Key="MenuItemMinWidth">140</x:Double>
     <Thickness x:Key="MenuItemHorizontalSeparatorMargin">0,4</Thickness>
 
-    <Thickness x:Key="NotificationCardPadding">12</Thickness>
-    <x:Double x:Key="NotificationCardPaddingDouble">12</x:Double>
+    <Thickness x:Key="NotificationCardPadding">10</Thickness>
+    <x:Double x:Key="NotificationCardPaddingDouble">10</x:Double>
     <x:Double x:Key="NotificationCardWidth">300</x:Double>
 
     <Thickness x:Key="IconButtonPadding">4</Thickness>
