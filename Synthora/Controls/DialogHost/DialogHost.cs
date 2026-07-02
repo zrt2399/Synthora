@@ -12,8 +12,8 @@ using Avalonia.Interactivity;
 using Avalonia.Layout;
 using Avalonia.Media;
 using Avalonia.Threading;
-using Synthora.Commands;
 using Synthora.Events;
+using Synthora.Input;
 
 namespace Synthora.Controls
 {

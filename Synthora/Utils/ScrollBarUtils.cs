@@ -1,7 +1,7 @@
 ﻿using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using Avalonia.Controls.Primitives;
-using Synthora.Commands;
+using Synthora.Input;
 
 namespace Synthora.Utils
 {

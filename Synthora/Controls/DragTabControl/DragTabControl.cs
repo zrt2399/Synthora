@@ -9,9 +9,9 @@ using Avalonia.Controls.Primitives;
 using Avalonia.Controls.Templates;
 using Avalonia.Input;
 using Avalonia.Interactivity;
-using Synthora.Commands;
 using Synthora.Events;
 using Synthora.Extensions;
+using Synthora.Input;
 
 namespace Synthora.Controls
 {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace Synthora.Commands
+namespace Synthora.Input
 {
     internal class RelayCommand : ICommand
     {
