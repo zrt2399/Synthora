@@ -1,7 +1,7 @@
 ![License](https://img.shields.io/badge/license-MIT-8CBA04) [![NuGet](https://img.shields.io/nuget/v/Synthora)](https://www.nuget.org/packages/Synthora)
 
 # Synthora
-Avalonia control styles and themes
+Modern control styles and themes for [Avalonia](https://github.com/AvaloniaUI/Avalonia) apps.
 
 # 💡 Install
 Add nuget package:

@@ -5,7 +5,7 @@
 		<Nullable>enable</Nullable>
 		<DebugType>embedded</DebugType>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<Title>AvaloniaUI Theme</Title>
+		<Title>Avalonia UI Theme</Title>
 		<Authors>Yoyo</Authors>
 		<Copyright>Copyright © $(Authors) $([System.DateTime]::Today.ToString(yyyy))</Copyright>
 		<PackageIcon>logo.png</PackageIcon>
