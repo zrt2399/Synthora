@@ -15,9 +15,9 @@
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="Focusable" Value="True" />
         <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
-        <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
         <Setter Property="HeaderBackground" Value="{DynamicResource SynthoraLowBrush}" />
         <Setter Property="Template">

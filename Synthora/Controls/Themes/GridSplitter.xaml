@@ -5,6 +5,7 @@
 
     <x:Int32 x:Key="GridSplitterPointerOverZIndex">1000</x:Int32>
     <x:Double x:Key="GridSplitterInnerBorderMaxLength">60</x:Double>
+    <BoxShadows x:Key="GridSplitterBoxPointeroverShadow">0 0 8 0 #18000000</BoxShadows>
 
     <ControlTheme x:Key="{x:Type GridSplitter}" TargetType="GridSplitter">
         <Setter Property="Focusable" Value="True" />
@@ -36,8 +37,9 @@
             <Setter Property="ClipToBounds" Value="False" />
             <Setter Property="ZIndex" Value="{DynamicResource GridSplitterPointerOverZIndex}" />
             <Style Selector="^ /template/ Border#OuterBorder">
-                <Setter Property="BoxShadow" Value="{TemplateBinding Background, Converter={x:Static SynthoraConverters.BoxShadowConverter}, ConverterParameter={x:Static BoxShadowConverter.ButtonPointerOverParameter}}" />
+                <Setter Property="BoxShadow" Value="{DynamicResource GridSplitterBoxPointeroverShadow}" />
             </Style>
         </Style>
     </ControlTheme>
+
 </ResourceDictionary>

@@ -31,7 +31,6 @@
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="KeyboardNavigation.IsTabStop" Value="True" />
         <Setter Property="Focusable" Value="True" />
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
         <Setter Property="DropDownButtonAttach.DropDownIcon" Value="{StaticResource DropDownButtonIcon}" />
@@ -259,6 +258,44 @@
             <Style Selector="^ /template/ Button:pressed">
                 <Setter Property="Background" Value="{DynamicResource ErrorPressedBrush}" />
             </Style>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="BorderlessSplitButtonTheme"
+                  BasedOn="{StaticResource SplitButtonBaseTheme}"
+                  TargetType="SplitButton">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
+        <Style Selector="^ /template/ Border#SeparatorBorder">
+            <Setter Property="IsVisible" Value="True" />
+        </Style>
+        <Style Selector="^ /template/ Button">
+            <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
+        </Style>
+        <Style Selector="^ /template/ Button:focus,^ /template/ Button:pointerover">
+            <Setter Property="Background" Value="{DynamicResource SynthoraMidBrush}" />
+        </Style>
+        <Style Selector="^ /template/ Button:pressed">
+            <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
+        </Style>
+
+        <Style Selector="^.Primary">
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
+        </Style>
+        <Style Selector="^.Secondary">
+            <Setter Property="Foreground" Value="{DynamicResource SecondaryBrush}" />
+        </Style>
+        <Style Selector="^.Success">
+            <Setter Property="Foreground" Value="{DynamicResource SuccessBrush}" />
+        </Style>
+        <Style Selector="^.Question">
+            <Setter Property="Foreground" Value="{DynamicResource QuestionBrush}" />
+        </Style>
+        <Style Selector="^.Warning">
+            <Setter Property="Foreground" Value="{DynamicResource WarningBrush}" />
+        </Style>
+        <Style Selector="^.Error">
+            <Setter Property="Foreground" Value="{DynamicResource ErrorBrush}" />
         </Style>
     </ControlTheme>
 

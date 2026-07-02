@@ -157,7 +157,7 @@
                   TargetType="TabControl">
         <Setter Property="TabControlAttach.ShowHeaderSeparator" Value="False" />
         <Setter Property="TabControlAttach.HeaderPadding" Value="{DynamicResource ThemeControlPadding}" />
-        <Setter Property="TabControlAttach.HeaderCornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusSmall}" />
+        <Setter Property="TabControlAttach.HeaderCornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
         <Setter Property="TabControlAttach.HeaderBorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="ItemContainerTheme" Value="{DynamicResource CardTabItemTheme}" />
         <Setter Property="ItemsPanel">

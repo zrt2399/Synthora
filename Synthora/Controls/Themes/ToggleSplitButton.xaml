@@ -15,4 +15,8 @@
                   BasedOn="{StaticResource SolidSplitButtonTheme}"
                   TargetType="ToggleSplitButton" />
 
+    <ControlTheme x:Key="BorderlessToggleSplitButtonTheme"
+                  BasedOn="{StaticResource BorderlessSplitButtonTheme}"
+                  TargetType="ToggleSplitButton" />
+
 </ResourceDictionary>

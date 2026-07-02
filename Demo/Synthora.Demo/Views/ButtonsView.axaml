@@ -37,8 +37,8 @@
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="RectangleOutline" />
                             <TextBlock Classes="sectionLabel" Text="BUTTON" />
                             <Tag TagType="None">Outline</Tag>
-                            <Tag TagType="Information" IsSolid="True">Solid</Tag>
-                            <Tag TagType="None" IsSolid="True">Borderless</Tag>
+                            <Tag IsSolid="True" TagType="Information">Solid</Tag>
+                            <Tag IsSolid="True" TagType="None">Borderless</Tag>
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
                             <Button Theme="{StaticResource OutlineButtonTheme}">Default</Button>
@@ -77,8 +77,8 @@
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="Refresh" />
                             <TextBlock Classes="sectionLabel" Text="REPEAT BUTTON" />
                             <Tag TagType="None">Outline</Tag>
-                            <Tag TagType="Information" IsSolid="True">Solid</Tag>
-                            <Tag TagType="None" IsSolid="True">Borderless</Tag>
+                            <Tag IsSolid="True" TagType="Information">Solid</Tag>
+                            <Tag IsSolid="True" TagType="None">Borderless</Tag>
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
                             <RepeatButton Theme="{StaticResource OutlineRepeatButtonTheme}">Default</RepeatButton>
@@ -122,8 +122,8 @@
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ToggleSwitch" />
                             <TextBlock Classes="sectionLabel" Text="TOGGLE BUTTON" />
                             <Tag TagType="None">Outline</Tag>
-                            <Tag TagType="Information" IsSolid="True">Solid</Tag>
-                            <Tag TagType="None" IsSolid="True">Borderless</Tag>
+                            <Tag IsSolid="True" TagType="Information">Solid</Tag>
+                            <Tag IsSolid="True" TagType="None">Borderless</Tag>
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
                             <ToggleButton Theme="{StaticResource OutlineToggleButtonTheme}">Default</ToggleButton>
@@ -171,8 +171,8 @@
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ChevronDown" />
                             <TextBlock Classes="sectionLabel" Text="DROPDOWN BUTTON" />
                             <Tag TagType="None">Outline</Tag>
-                            <Tag TagType="Information" IsSolid="True">Solid</Tag>
-                            <Tag TagType="None" IsSolid="True">Borderless</Tag>
+                            <Tag IsSolid="True" TagType="Information">Solid</Tag>
+                            <Tag IsSolid="True" TagType="None">Borderless</Tag>
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
                             <DropDownButton Theme="{StaticResource OutlineDropDownButtonTheme}">Default</DropDownButton>
@@ -229,7 +229,8 @@
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ArrowSplitHorizontal" />
                             <TextBlock Classes="sectionLabel" Text="SPLIT BUTTON" />
                             <Tag TagType="None">Outline</Tag>
-                            <Tag TagType="Information" IsSolid="True">Solid</Tag>
+                            <Tag IsSolid="True" TagType="Information">Solid</Tag>
+                            <Tag IsSolid="True" TagType="None">Borderless</Tag>
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
                             <SplitButton Theme="{StaticResource OutlineSplitButtonTheme}">Default</SplitButton>
@@ -251,6 +252,15 @@
                             <SplitButton Classes="Question" Theme="{StaticResource SolidSplitButtonTheme}">Question</SplitButton>
                             <SplitButton Classes="Warning" Theme="{StaticResource SolidSplitButtonTheme}">Warning</SplitButton>
                             <SplitButton Classes="Error" Theme="{StaticResource SolidSplitButtonTheme}">Error</SplitButton>
+                        </SpacingWrapPanel>
+                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <SplitButton Theme="{StaticResource BorderlessSplitButtonTheme}">Default</SplitButton>
+                            <SplitButton Classes="Primary" Theme="{StaticResource BorderlessSplitButtonTheme}">Primary</SplitButton>
+                            <SplitButton Classes="Secondary" Theme="{StaticResource BorderlessSplitButtonTheme}">Secondary</SplitButton>
+                            <SplitButton Classes="Success" Theme="{StaticResource BorderlessSplitButtonTheme}">Success</SplitButton>
+                            <SplitButton Classes="Question" Theme="{StaticResource BorderlessSplitButtonTheme}">Question</SplitButton>
+                            <SplitButton Classes="Warning" Theme="{StaticResource BorderlessSplitButtonTheme}">Warning</SplitButton>
+                            <SplitButton Classes="Error" Theme="{StaticResource BorderlessSplitButtonTheme}">Error</SplitButton>
                         </SpacingWrapPanel>
                     </StackPanel>
                 </Border>
@@ -277,7 +287,8 @@
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ToggleSwitchOutline" />
                             <TextBlock Classes="sectionLabel" Text="TOGGLESPLIT BUTTON" />
                             <Tag TagType="None">Outline</Tag>
-                            <Tag TagType="Information" IsSolid="True">Solid</Tag>
+                            <Tag IsSolid="True" TagType="Information">Solid</Tag>
+                            <Tag IsSolid="True" TagType="None">Borderless</Tag>
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
                             <ToggleSplitButton Theme="{StaticResource OutlineToggleSplitButtonTheme}">Default</ToggleSplitButton>
@@ -299,6 +310,15 @@
                             <ToggleSplitButton Classes="Question" Theme="{StaticResource SolidToggleSplitButtonTheme}">Question</ToggleSplitButton>
                             <ToggleSplitButton Classes="Warning" Theme="{StaticResource SolidToggleSplitButtonTheme}">Warning</ToggleSplitButton>
                             <ToggleSplitButton Classes="Error" Theme="{StaticResource SolidToggleSplitButtonTheme}">Error</ToggleSplitButton>
+                        </SpacingWrapPanel>
+                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <ToggleSplitButton Theme="{StaticResource BorderlessToggleSplitButtonTheme}">Default</ToggleSplitButton>
+                            <ToggleSplitButton Classes="Primary" Theme="{StaticResource BorderlessToggleSplitButtonTheme}">Primary</ToggleSplitButton>
+                            <ToggleSplitButton Classes="Secondary" Theme="{StaticResource BorderlessToggleSplitButtonTheme}">Secondary</ToggleSplitButton>
+                            <ToggleSplitButton Classes="Success" Theme="{StaticResource BorderlessToggleSplitButtonTheme}">Success</ToggleSplitButton>
+                            <ToggleSplitButton Classes="Question" Theme="{StaticResource BorderlessToggleSplitButtonTheme}">Question</ToggleSplitButton>
+                            <ToggleSplitButton Classes="Warning" Theme="{StaticResource BorderlessToggleSplitButtonTheme}">Warning</ToggleSplitButton>
+                            <ToggleSplitButton Classes="Error" Theme="{StaticResource BorderlessToggleSplitButtonTheme}">Error</ToggleSplitButton>
                         </SpacingWrapPanel>
                     </StackPanel>
                 </Border>
