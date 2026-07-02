@@ -6,6 +6,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/AdornerLayer.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/DialogHost.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/AlertDialogHost.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/Banner.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/HeaderPresenter.xaml" />

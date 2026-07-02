@@ -49,7 +49,7 @@
                 <Border Classes="card">
                     <StackPanel Spacing="16">
                         <StackPanel Classes="sectionHeader">
-                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="MessageText" />
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="TooltipText" />
                             <TextBlock Classes="sectionLabel" Text="MESSAGE TIP" />
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
@@ -108,7 +108,7 @@
                 <Border Classes="card">
                     <StackPanel Spacing="16">
                         <StackPanel Classes="sectionHeader">
-                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="MessageText" />
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="MessageBulleted" />
                             <TextBlock Classes="sectionLabel" Text="DIALOG HOST" />
                         </StackPanel>
 

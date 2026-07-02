@@ -68,8 +68,8 @@ namespace Synthora.Controls
         private const string pcOpen = ":open";
         private static readonly HashSet<DialogHost> _loadedInstances = [];
         private readonly ObservableCollection<DialogOverlayPopupHost> _dialogs = [];
-        private readonly ICommand _openDialogCommand;
-        private readonly ICommand _closeDialogCommand;
+        private ICommand _openDialogCommand = null!;
+        private ICommand _closeDialogCommand = null!;
 
         /// <summary>
         /// Defines the <see cref="BlurRadius"/> property.
@@ -105,13 +105,13 @@ namespace Synthora.Controls
         /// Defines the <see cref="HorizontalDialogAlignment"/> property.
         /// </summary>
         public static readonly StyledProperty<HorizontalAlignment> HorizontalDialogAlignmentProperty =
-            AvaloniaProperty.Register<DialogHost, HorizontalAlignment>(nameof(HorizontalDialogAlignment), HorizontalAlignment.Stretch);
+            AvaloniaProperty.Register<DialogHost, HorizontalAlignment>(nameof(HorizontalDialogAlignment));
 
         /// <summary>
         /// Defines the <see cref="VerticalDialogAlignment"/> property.
         /// </summary>
         public static readonly StyledProperty<VerticalAlignment> VerticalDialogAlignmentProperty =
-            AvaloniaProperty.Register<DialogHost, VerticalAlignment>(nameof(VerticalDialogAlignment), VerticalAlignment.Stretch);
+            AvaloniaProperty.Register<DialogHost, VerticalAlignment>(nameof(VerticalDialogAlignment));
 
         /// <summary>
         /// Defines the <see cref="DialogOpened"/> routed event.
@@ -316,20 +316,28 @@ namespace Synthora.Controls
         /// <summary>
         /// Gets the command to open the dialog.
         /// </summary>
-        public ICommand OpenDialogCommand => _openDialogCommand;
+        public ICommand OpenDialogCommand
+        {
+            get => _openDialogCommand;
+            private set => SetAndRaise(OpenDialogCommandProperty, ref _openDialogCommand, value);
+        }
 
         /// <summary>
         /// Gets the command to close the dialog.
         /// </summary>
-        public ICommand CloseDialogCommand => _closeDialogCommand;
+        public ICommand CloseDialogCommand
+        {
+            get => _closeDialogCommand;
+            private set => SetAndRaise(CloseDialogCommandProperty, ref _closeDialogCommand, value);
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DialogHost"/> class.
         /// </summary>
         public DialogHost()
         {
-            _openDialogCommand = new RelayCommand<object?>(ExecuteOpenDialogCommand, _ => !IsOpen);
-            _closeDialogCommand = new RelayCommand<object?>(ExecuteCloseDialogCommand, _ => IsOpen);
+            OpenDialogCommand = new RelayCommand<object?>(ExecuteOpenDialogCommand, _ => !IsOpen);
+            CloseDialogCommand = new RelayCommand<object?>(ExecuteCloseDialogCommand, _ => IsOpen);
 
             _dialogs.CollectionChanged += (s, e) =>
             {
@@ -364,25 +372,30 @@ namespace Synthora.Controls
         /// <summary>
         /// Shows dialog content.
         /// </summary>
-        public async Task<object?> Show(object? content)
+        public Task<object?> Show(object? content)
         {
             if (CheckAccess())
             {
                 var dialog = new DialogHostInstance(this, content);
                 OpenDialog(dialog);
 
-                return await dialog.Tcs.Task;
+                return dialog.Tcs.Task;
             }
-            else
-            {
-                return await Dispatcher.Invoke(() => Show(content));
-            }
+            return Dispatcher.Invoke(() => Show(content));
         }
 
         /// <summary>
         /// Closes a dialog.
         /// </summary>
-        public void Close(object? parameter = null, object? content = null)
+        public void Close(object? parameter = null)
+        {
+            Close(parameter, null);
+        }
+
+        /// <summary>
+        /// Closes a dialog.
+        /// </summary>
+        public void Close(object? parameter, object? content)
         {
             if (CheckAccess())
             {
@@ -419,21 +432,23 @@ namespace Synthora.Controls
             return targets[0];
         }
 
-        internal void CloseDialog(DialogHostInstance dialogInstance, object? parameter)
+        internal void CloseDialog(DialogHostInstance dialogInstance, object? parameter, bool canCancel = true)
         {
-            var dialogHost = _dialogs.FirstOrDefault(x => x.DialogHostInstance == dialogInstance);
-            if (dialogHost != null)
+            var dialogOverlayPopupHost = _dialogs.FirstOrDefault(x => x.DialogHostInstance == dialogInstance);
+            if (dialogOverlayPopupHost == null)
             {
-                if (RaiseDialogClosingEvent(dialogInstance, parameter))
-                {
-                    return;
-                }
-
-                _dialogs.Remove(dialogHost);
-                dialogHost.IsOpen = false;
-                dialogHost.ClearDialogReferences();
-                dialogInstance.SetResult(parameter);
+                return;
             }
+
+            if (RaiseDialogClosingEvent(dialogInstance, parameter) && canCancel)
+            {
+                return;
+            }
+
+            _dialogs.Remove(dialogOverlayPopupHost);
+            dialogOverlayPopupHost.IsOpen = false;
+            dialogOverlayPopupHost.ClearDialogReferences();
+            dialogInstance.SetResult(parameter);
         }
 
         internal void OpenDialog(DialogHostInstance dialogInstance)
@@ -460,12 +475,11 @@ namespace Synthora.Controls
         protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e)
         {
             base.OnDetachedFromVisualTree(e);
-            foreach (var item in _dialogs.ToArray())
+            foreach (var item in _dialogs.Select(x => x.DialogHostInstance).ToArray())
             {
-                var dialogHostInstance = item.DialogHostInstance;
-                if (dialogHostInstance != null)
+                if (item != null)
                 {
-                    CloseDialog(dialogHostInstance, null);
+                    CloseDialog(item, null, canCancel: false);
                 }
             }
             _loadedInstances.Remove(this);
@@ -473,7 +487,11 @@ namespace Synthora.Controls
 
         private void RaiseDialogOpenedEvent(DialogHostInstance dialogInstance)
         {
-            var eventArgs = new DialogOpenedEventArgs(dialogInstance) { RoutedEvent = DialogOpenedEvent, Source = this };
+            var eventArgs = new DialogOpenedEventArgs(dialogInstance)
+            {
+                RoutedEvent = DialogOpenedEvent,
+                Source = this
+            };
 
             RaiseEvent(eventArgs);
             DialogOpenedCallback?.Invoke(this, eventArgs);
@@ -481,7 +499,11 @@ namespace Synthora.Controls
 
         private bool RaiseDialogClosingEvent(DialogHostInstance dialogInstance, object? parameter)
         {
-            var eventArgs = new DialogClosingEventArgs(dialogInstance, parameter) { RoutedEvent = DialogClosingEvent, Source = this };
+            var eventArgs = new DialogClosingEventArgs(dialogInstance, parameter)
+            {
+                RoutedEvent = DialogClosingEvent,
+                Source = this
+            };
 
             RaiseEvent(eventArgs);
             DialogClosingCallback?.Invoke(this, eventArgs);
@@ -492,12 +514,7 @@ namespace Synthora.Controls
         private DialogHostInstance? ResolveDialog(object? content)
         {
             var dialogHostInstance = _dialogs.LastOrDefault(x => x.DialogHostInstance?.Content == content)?.DialogHostInstance;
-            if (dialogHostInstance != null)
-            {
-                return dialogHostInstance;
-            }
-
-            return _dialogs.LastOrDefault()?.DialogHostInstance;
+            return dialogHostInstance ?? _dialogs.LastOrDefault()?.DialogHostInstance;
         }
 
         private DialogOverlayPopupHost CreateDialogHost(DialogHostInstance dialogHostInstance)
