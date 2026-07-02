@@ -85,7 +85,7 @@
                 <DockPanel>
                     <HeaderPresenter />
 
-                    <Border x:Name="FocusTarget"
+                    <Border Name="FocusTarget"
                             Width="{TemplateBinding (TextBoxAttach.Width)}"
                             MinWidth="{TemplateBinding (TextBoxAttach.MinWidth)}"
                             MaxWidth="{TemplateBinding (TextBoxAttach.MaxWidth)}"

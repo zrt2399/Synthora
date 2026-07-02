@@ -29,7 +29,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border x:Name="RootBorder"
+                <Border Name="RootBorder"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
@@ -46,7 +46,7 @@
                                 IsVisible="{TemplateBinding ShowAccentBar}" />
 
                         <!--  Icon  -->
-                        <TipIcon x:Name="icon"
+                        <TipIcon Name="Icon"
                                  Width="20"
                                  Height="20"
                                  Margin="8,8,0,8"

@@ -31,7 +31,7 @@
         <Setter Property="MinHeight" Value="{DynamicResource DataGridRowMinHeight}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border x:Name="CellBorder"
+                <Border Name="CellBorder"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         CornerRadius="{TemplateBinding CornerRadius}">
@@ -59,7 +59,7 @@
                                    IsHitTestVisible="False"
                                    IsVisible="False"
                                    StrokeThickness="1" />
-                        <Rectangle x:Name="PART_RightGridLine"
+                        <Rectangle Name="PART_RightGridLine"
                                    Width="0"
                                    Height="0"
                                    HorizontalAlignment="Right"
@@ -100,7 +100,7 @@
         <Setter Property="MinHeight" Value="{DynamicResource DataGridRowMinHeight}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border x:Name="HeaderBorder"
+                <Border Name="HeaderBorder"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         CornerRadius="{TemplateBinding CornerRadius}"
@@ -165,18 +165,18 @@
         <Setter Property="BorderBrush" Value="{Binding $parent[DataGrid].VerticalGridLinesBrush}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border x:Name="PART_Root"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
+                <Panel Name="PART_Root">
                     <ContentPresenter Name="PART_ContentPresenter"
-                                      Margin="{TemplateBinding Padding}"
-                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      Padding="{TemplateBinding Padding}"
+                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      Background="{TemplateBinding Background}"
+                                      BorderBrush="{TemplateBinding BorderBrush}"
+                                      BorderThickness="{TemplateBinding BorderThickness}"
                                       Content="{TemplateBinding Content}"
-                                      ContentTemplate="{TemplateBinding ContentTemplate}" />
-                </Border>
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      CornerRadius="{TemplateBinding CornerRadius}" />
+                </Panel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>
@@ -188,36 +188,34 @@
         <!--<Setter Property="MinHeight" Value="{DynamicResource DataGridRowMinHeight}" />-->
         <Setter Property="Template">
             <ControlTemplate>
-                <Border x:Name="RowBorder"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
-                    <DataGridFrozenGrid Name="PART_Root"
-                                        ColumnDefinitions="Auto,*"
-                                        RowDefinitions="*,Auto">
+                <Panel Name="PART_Root">
+                    <Border Name="RowBorder"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        <DataGridFrozenGrid ColumnDefinitions="Auto,*" RowDefinitions="*,Auto">
+                            <Rectangle Name="InvalidVisualElement"
+                                       Grid.ColumnSpan="2"
+                                       IsHitTestVisible="False"
+                                       IsVisible="False">
+                                <Rectangle.Fill>
+                                    <SolidColorBrush Opacity="0.1" Color="Red" />
+                                </Rectangle.Fill>
+                            </Rectangle>
 
-                        <Rectangle Name="InvalidVisualElement"
-                                   Grid.ColumnSpan="2"
-                                   IsHitTestVisible="False"
-                                   IsVisible="False">
-                            <Rectangle.Fill>
-                                <SolidColorBrush Opacity="0.1" Color="Red" />
-                            </Rectangle.Fill>
-                        </Rectangle>
-
-                        <DataGridRowHeader Name="PART_RowHeader"
-                                           Grid.RowSpan="2"
-                                           DataGridFrozenGrid.IsFrozen="True" />
-                        <DataGridCellsPresenter Name="PART_CellsPresenter"
-                                                Grid.Column="1"
-                                                DataGridFrozenGrid.IsFrozen="True" />
-                        <DataGridDetailsPresenter Name="PART_DetailsPresenter"
-                                                  Grid.Row="1"
-                                                  Grid.Column="1" />
-
-                    </DataGridFrozenGrid>
-                </Border>
+                            <DataGridRowHeader Name="PART_RowHeader"
+                                               Grid.RowSpan="2"
+                                               DataGridFrozenGrid.IsFrozen="True" />
+                            <DataGridCellsPresenter Name="PART_CellsPresenter"
+                                                    Grid.Column="1"
+                                                    DataGridFrozenGrid.IsFrozen="True" />
+                            <DataGridDetailsPresenter Name="PART_DetailsPresenter"
+                                                      Grid.Row="1"
+                                                      Grid.Column="1" />
+                        </DataGridFrozenGrid>
+                    </Border>
+                </Panel>
             </ControlTemplate>
         </Setter>
 
@@ -294,7 +292,7 @@
         <Setter Property="Padding" Value="0,0,2,3" />
         <Setter Property="Content">
             <Template>
-                <Polygon x:Name="Arrow"
+                <Polygon Name="Arrow"
                          Margin="{TemplateBinding Padding}"
                          HorizontalAlignment="Right"
                          VerticalAlignment="Bottom"

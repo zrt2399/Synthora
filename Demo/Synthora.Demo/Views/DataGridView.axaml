@@ -9,24 +9,24 @@
              d:DesignWidth="800"
              x:DataType="vm:DataGridViewModel"
              mc:Ignorable="d">
- 
+
     <UserControl.Styles>
-         <Style Selector="DataGrid">
-              <Setter Property="CornerRadius" Value="12" />
-                    <Setter Property="AutoGenerateColumns" Value="True" />
-                    <Styles>
-                        <Style Selector="DataGridRow:nth-child(even)">
-                            <Setter Property="Background" Value="{DynamicResource SynthoraLowBrush}" />
-                        </Style>
-                    </Styles>
-            </Style>
+        <Style Selector="DataGrid">
+            <Setter Property="CornerRadius" Value="12" />
+            <Setter Property="AutoGenerateColumns" Value="True" />
+            <Styles>
+                <Style Selector="DataGridRow:nth-child(even)">
+                    <Setter Property="Background" Value="{DynamicResource SynthoraLowBrush}" />
+                </Style>
+            </Styles>
+        </Style>
     </UserControl.Styles>
 
     <DemoPage Title="Data Grid"
               Padding="0"
               Description="{Binding Description}"
               IconKind="{Binding IconKind}">
-        <TabControl Padding="16"> 
+        <TabControl Padding="16">
             <TabItem Header="Grouping">
                 <DockPanel HorizontalSpacing="16" VerticalSpacing="16">
                     <WrapPanel DockPanel.Dock="Top"
@@ -47,7 +47,7 @@
                                 Content="Collapse All"
                                 Theme="{StaticResource SolidButtonTheme}" />
                     </WrapPanel>
-                    <DataGrid x:Name="DataGrid"
+                    <DataGrid Name="DataGrid"
                               Classes="Border"
                               DataGridAttach.IsAllExpanded="{Binding IsAllExpanded}"
                               HeadersVisibility="All"

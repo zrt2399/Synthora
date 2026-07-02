@@ -176,7 +176,7 @@
         <Setter Property="Template">
             <ControlTemplate TargetType="ToggleButton">
                 <Panel Background="{TemplateBinding Background}">
-                    <PathIcon x:Name="PART_GlyphElement"
+                    <PathIcon Name="PART_GlyphElement"
                               Width="12"
                               Height="12"
                               Margin="{TemplateBinding Padding}"
@@ -224,7 +224,7 @@
                 <DockPanel>
                     <HeaderPresenter />
 
-                    <Border x:Name="FocusTarget"
+                    <Border Name="FocusTarget"
                             Width="{TemplateBinding (TextBoxAttach.Width)}"
                             MinWidth="{TemplateBinding (TextBoxAttach.MinWidth)}"
                             MaxWidth="{TemplateBinding (TextBoxAttach.MaxWidth)}"

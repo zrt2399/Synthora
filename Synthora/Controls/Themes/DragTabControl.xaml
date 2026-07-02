@@ -13,7 +13,7 @@
         <Setter Property="Width" Value="28" />-->
         <Setter Property="Template">
             <ControlTemplate>
-                <Border x:Name="border"
+                <Border Name="RootBorder"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
@@ -108,4 +108,5 @@
             </ControlTemplate>
         </Setter>
     </ControlTheme>
-</ResourceDictionary> 
+
+</ResourceDictionary>

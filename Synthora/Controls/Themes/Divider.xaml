@@ -11,7 +11,7 @@
         <Setter Property="LineBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <LayoutTransformControl x:Name="PART_LayoutTransformControl">
+                <LayoutTransformControl Name="PART_LayoutTransformControl">
                     <!--  Ignore col defs here, set in code  -->
                     <Grid x:Name="PART_DividerContainer" Background="{TemplateBinding Background}">
                         <controls:PixelAlignedRectangle Height="{TemplateBinding LineThickness}"
