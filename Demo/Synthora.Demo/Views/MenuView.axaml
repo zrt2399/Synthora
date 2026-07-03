@@ -115,15 +115,19 @@
                                     </MenuItem>
                                     <Separator />
                                     <MenuItem Classes="Primary"
+                                              StaysOpenOnClick="True"
+                                              ToggleType="CheckBox"
                                               Header="Classes: Primary"/>
-                                    <MenuItem Classes="Secondary"
+                                    <MenuItem Classes="Secondary" StaysOpenOnClick="True"
+                                              ToggleType="CheckBox"
                                               Header="Classes: Secondary"/>
-                                    <MenuItem Classes="Warning"
+                                    <MenuItem Classes="Warning" GroupName="RadioableMenuItem" StaysOpenOnClick="True"
+                                              ToggleType="Radio"
                                               Header="Classes: Warning"/>
-                                    <MenuItem Classes="Error"
+                                    <MenuItem Classes="Error" GroupName="RadioableMenuItem" StaysOpenOnClick="True"
+                                              ToggleType="Radio"
                                               Header="Classes: Error"/>
-                                    <MenuItem Foreground="{StaticResource DangerBrush}"
-                                              Classes="Error"
+                                    <MenuItem Classes="Error"
                                               Header="Delete"
                                               HotKey="Control+D"
                                               Icon="{materialIcons:MaterialIconExt Kind=Delete}"

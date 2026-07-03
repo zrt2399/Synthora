@@ -172,13 +172,15 @@
         <Style Selector="^[IsInOverflow=True]">
             <Setter Property="MaxWidth" Value="NaN" />
             <Setter Property="HorizontalContentAlignment" Value="Left" />
-            <Setter Property="MinWidth" Value="{DynamicResource MenuItemMinWidth}" />
-        </Style>
-        <Style Selector="^[IsInOverflow=True] /template/ StackPanel#PART_LayoutRoot">
-            <Setter Property="Orientation" Value="Horizontal" />
-        </Style>
-        <Style Selector="^[IsInOverflow=True] /template/ TextBlock#PART_Label">
-            <Setter Property="Margin" Value="6,0" />
+            <Style Selector="^[IsCompact=False]">
+                <Setter Property="MinWidth" Value="{DynamicResource MenuItemMinWidth}" />
+            </Style>
+            <Style Selector="^ /template/ StackPanel#PART_LayoutRoot">
+                <Setter Property="Orientation" Value="Horizontal" />
+            </Style>
+            <Style Selector="^ /template/ TextBlock#PART_Label">
+                <Setter Property="Margin" Value="6,0" />
+            </Style>
         </Style>
     </ControlTheme>
 
@@ -222,13 +224,15 @@
         <Style Selector="^[IsInOverflow=True]">
             <Setter Property="MaxWidth" Value="NaN" />
             <Setter Property="HorizontalContentAlignment" Value="Left" />
-            <Setter Property="MinWidth" Value="{DynamicResource MenuItemMinWidth}" />
-        </Style>
-        <Style Selector="^[IsInOverflow=True] /template/ StackPanel#PART_LayoutRoot">
-            <Setter Property="Orientation" Value="Horizontal" />
-        </Style>
-        <Style Selector="^[IsInOverflow=True] /template/ TextBlock#PART_Label">
-            <Setter Property="Margin" Value="6,0" />
+            <Style Selector="^[IsCompact=False]">
+                <Setter Property="MinWidth" Value="{DynamicResource MenuItemMinWidth}" />
+            </Style>
+            <Style Selector="^ /template/ StackPanel#PART_LayoutRoot">
+                <Setter Property="Orientation" Value="Horizontal" />
+            </Style>
+            <Style Selector="^ /template/ TextBlock#PART_Label">
+                <Setter Property="Margin" Value="6,0" />
+            </Style>
         </Style>
 
         <Style Selector="^.Primary">

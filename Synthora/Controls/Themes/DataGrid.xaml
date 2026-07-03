@@ -4,6 +4,9 @@
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
 
+    <Thickness x:Key="DataGridColumnHeaderRightBorderThickness">0,0,1,0</Thickness>
+    <Thickness x:Key="DataGridColumnHeaderBottomBorderThickness">0,0,0,1</Thickness>
+
     <ControlTheme x:Key="DataGridCellTextBlockTheme"
                   BasedOn="{StaticResource {x:Type TextBlock}}"
                   TargetType="TextBlock">
@@ -96,7 +99,7 @@
         <Setter Property="Padding" Value="{DynamicResource ThemeHeaderControlPadding}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="{Binding $parent[DataGrid].VerticalGridLinesBrush}" />
-        <Setter Property="BorderThickness" Value="0,0,1,0" />
+        <Setter Property="BorderThickness" Value="{DynamicResource DataGridColumnHeaderRightBorderThickness}" />
         <Setter Property="MinHeight" Value="{DynamicResource DataGridRowMinHeight}" />
         <Setter Property="Template">
             <ControlTemplate>
@@ -350,13 +353,13 @@
                         <Border Name="columnHeadersRowsSeparator"
                                 Grid.ColumnSpan="3"
                                 BorderBrush="{TemplateBinding HorizontalGridLinesBrush}"
-                                BorderThickness="0,0,0,1"
+                                BorderThickness="{DynamicResource DataGridColumnHeaderBottomBorderThickness}"
                                 UseLayoutRounding="False" />
 
                         <DataGridColumnHeader Name="PART_TopRightCornerHeader"
                                               Grid.Column="2"
                                               Width="0"
-                                              BorderThickness="0,0,0,1" />
+                                              BorderThickness="{DynamicResource DataGridColumnHeaderBottomBorderThickness}" />
 
                         <DataGridRowsPresenter Name="PART_RowsPresenter"
                                                Grid.Row="1"

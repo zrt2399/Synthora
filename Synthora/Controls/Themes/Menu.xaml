@@ -1,6 +1,5 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:sys="using:System"
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
 
@@ -18,14 +17,11 @@
                     <Panel>
                         <ContentPresenter Name="PART_HeaderPresenter"
                                           Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="Left"
+                                          VerticalAlignment="Center"
                                           Content="{TemplateBinding Header}"
-                                          ContentTemplate="{TemplateBinding HeaderTemplate}">
-                            <ContentPresenter.DataTemplates>
-                                <DataTemplate DataType="sys:String">
-                                    <AccessText Text="{Binding}" />
-                                </DataTemplate>
-                            </ContentPresenter.DataTemplates>
-                        </ContentPresenter>
+                                          ContentTemplate="{TemplateBinding HeaderTemplate}" />
+
                         <Popup Name="PART_Popup"
                                IsLightDismissEnabled="True"
                                IsOpen="{TemplateBinding IsSubMenuOpen,
@@ -49,6 +45,10 @@
                 </Border>
             </ControlTemplate>
         </Setter>
+
+        <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
 
         <Style Selector="^:selected /template/ Border#root">
             <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />

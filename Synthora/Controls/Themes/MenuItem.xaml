@@ -1,7 +1,6 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:converters="using:Avalonia.Controls.Converters"
-                    xmlns:sys="using:System"
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
 
@@ -31,12 +30,14 @@
                             <ColumnDefinition Width="0" />
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" SharedSizeGroup="MenuItemIGT" />
-                            <ColumnDefinition Width="20" />
+                            <ColumnDefinition Width="24" />
                         </Grid.ColumnDefinitions>
                         <ContentPresenter Name="PART_ToggleIconPresenter"
                                           Grid.Column="0"
                                           Width="16"
                                           Height="16"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
                                           IsVisible="False" />
 
                         <ContentPresenter Name="PART_IconPresenter"
@@ -60,17 +61,12 @@
                         <ContentPresenter Name="PART_HeaderPresenter"
                                           Grid.Column="2"
                                           Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="Left"
                                           VerticalAlignment="Center"
                                           Content="{TemplateBinding Header}"
-                                          ContentTemplate="{TemplateBinding HeaderTemplate}">
-                            <ContentPresenter.DataTemplates>
-                                <DataTemplate DataType="sys:String">
-                                    <AccessText Text="{Binding}" TextAlignment="Left" />
-                                </DataTemplate>
-                            </ContentPresenter.DataTemplates>
-                        </ContentPresenter>
+                                          ContentTemplate="{TemplateBinding HeaderTemplate}" />
 
-                        <TextBlock x:Name="PART_InputGestureText"
+                        <TextBlock Name="PART_InputGestureText"
                                    Grid.Column="3"
                                    Margin="20,0,0,0"
                                    VerticalAlignment="Center"
@@ -82,7 +78,7 @@
                                   Grid.Column="4"
                                   Width="12"
                                   Height="12"
-                                  Margin="0,0,4,0"
+                                  HorizontalAlignment="Center"
                                   VerticalAlignment="Center"
                                   Data="{DynamicResource ArrowRightData}" />
 
@@ -114,6 +110,10 @@
                     <Separator />
                 </ControlTemplate>
             </Setter>
+        </Style>
+
+        <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
         </Style>
 
         <Style Selector="^:selected /template/ Border#root">
@@ -267,14 +267,11 @@
                     <Panel>
                         <ContentPresenter Name="PART_HeaderPresenter"
                                           Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
                                           Content="{TemplateBinding Header}"
-                                          ContentTemplate="{TemplateBinding HeaderTemplate}">
-                            <ContentPresenter.DataTemplates>
-                                <DataTemplate DataType="sys:String">
-                                    <AccessText Text="{Binding}" />
-                                </DataTemplate>
-                            </ContentPresenter.DataTemplates>
-                        </ContentPresenter>
+                                          ContentTemplate="{TemplateBinding HeaderTemplate}" />
+
                         <Popup Name="PART_Popup"
                                IsLightDismissEnabled="True"
                                IsOpen="{TemplateBinding IsSubMenuOpen,

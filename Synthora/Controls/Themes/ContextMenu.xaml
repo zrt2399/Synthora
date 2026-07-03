@@ -7,10 +7,10 @@
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusLarge}" />
-        <Setter Property="WindowManagerAddShadowHint" Value="False" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
+        <Setter Property="Padding" Value="{DynamicResource ThemeMenuFlyoutPadding}" />  
         <Setter Property="Focusable" Value="True" />
-        <Setter Property="Padding" Value="{DynamicResource ThemeMenuFlyoutPadding}" />
+        <Setter Property="IsTabStop" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
                 <SystemShadowChrome Name="Popup_Border"
