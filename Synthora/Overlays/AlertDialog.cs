@@ -66,18 +66,18 @@ namespace Synthora.Overlays
         /// Displays an alert dialog asynchronously using the default <see cref="AlertDialogHost"/> instance
         /// and the specified <paramref name="alertDialogOptions"/>.
         /// </summary>
-        public static Task<DialogResult> ShowAsync(AlertDialogOptions alertDialogOptions, string? dialogIdentifier = null)
+        public static Task<DialogResult> Show(AlertDialogOptions alertDialogOptions, string? dialogIdentifier = null)
         {
-            return AlertDialogHost.GetInstance(dialogIdentifier).Show(alertDialogOptions);
+            return AlertDialogHost.GetInstance(dialogIdentifier).ShowDialog(alertDialogOptions);
         }
 
         /// <summary>
         /// Displays an alert dialog asynchronously,
         /// using the <paramref name="dialogIdentifier"/> to locate the specific <see cref="AlertDialogHost"/> instance.
         /// </summary>
-        public static Task<DialogResult> ShowAsync(string? dialogIdentifier, string message, string? title, DialogButton dialogButton = DialogButton.OK, IconType iconType = IconType.Information)
+        public static Task<DialogResult> Show(string? dialogIdentifier, string message, string? title, DialogButton dialogButton = DialogButton.OK, IconType iconType = IconType.Information)
         {
-            return ShowAsync(new AlertDialogOptions()
+            return Show(new AlertDialogOptions()
             {
                 Message = message,
                 Title = title,
@@ -89,29 +89,21 @@ namespace Synthora.Overlays
         /// <summary>
         /// Displays an alert dialog asynchronously using the default <see cref="AlertDialogHost"/> instance.
         /// </summary>
-        public static Task<DialogResult> ShowAsync(string message, string? title, DialogButton dialogButton = DialogButton.OK, IconType iconType = IconType.Information)
+        public static Task<DialogResult> Show(string message, string? title, DialogButton dialogButton = DialogButton.OK, IconType iconType = IconType.Information)
         {
-            return ShowAsync(null, message, title, dialogButton, iconType);
+            return Show(null, message, title, dialogButton, iconType);
         }
 
         /// <summary>
         /// Closes the most recently opened dialog for the specified host identifier.
         /// </summary>
-        public static void CloseDialog(string? dialogIdentifier, DialogResult dialogResult)
+        public static void Close(DialogResult dialogResult, string? dialogIdentifier = null, AlertDialogOptions? alertDialogOptions = null)
         {
             var host = AlertDialogHost.GetInstance(dialogIdentifier);
             if (host.Dialogs.Count > 0)
             {
-                host.Close(dialogResult);
+                host.CloseDialog(dialogResult, alertDialogOptions);
             }
-        }
-
-        /// <summary>
-        /// Closes the most recently opened dialog for the default host instance.
-        /// </summary>
-        public static void CloseDialog(DialogResult dialogResult)
-        {
-            CloseDialog(null, dialogResult);
         }
     }
 }

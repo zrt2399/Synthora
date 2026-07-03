@@ -15,6 +15,8 @@ namespace Synthora.Demo.ViewModels
 {
     public partial class OverlayViewModel : TreeMenuDemoItem
     {
+        public const string DialogIdentifier = "GlobalDialogHost";
+
         private WindowNotificationManager? _notificationManager;
 
         [ObservableProperty]
@@ -41,9 +43,9 @@ namespace Synthora.Demo.ViewModels
             var dialog = new DialogHostSampleDialog(
                 "Publish settings",
                 "Apply these changes to the live preview? You can keep editing after publishing.",
-                "DialogHost");
+                DialogIdentifier);
 
-            var result = await DialogHost.Show(dialog, "DialogHost");
+            var result = await DialogHost.Show(dialog, DialogIdentifier);
             MessageTip.Show($"Dialog closed: {result}");
         }
 
@@ -59,14 +61,14 @@ namespace Synthora.Demo.ViewModels
 
             var result = type switch
             {
-                nameof(IconType.None) => await AlertDialog.ShowAsync("AlertDialogHost", message, type, DialogButton, IconType.None),
-                nameof(IconType.Information) => await AlertDialog.ShowAsync(message, type, DialogButton, IconType.Information),
-                nameof(IconType.Question) => await AlertDialog.ShowAsync(message, type, DialogButton, IconType.Question),
-                nameof(IconType.Success) => await AlertDialog.ShowAsync(message, type, DialogButton, IconType.Success),
-                nameof(IconType.Warning) => await AlertDialog.ShowAsync(message, type, DialogButton, IconType.Warning),
-                nameof(IconType.Error) => await AlertDialog.ShowAsync(message, type, DialogButton, IconType.Error),
-                "Abort" => await AlertDialog.ShowAsync(message, type, DialogButton | DialogButton.Abort, IconType.Error),
-                _ => await AlertDialog.ShowAsync(new AlertDialogOptions()
+                nameof(IconType.None) => await AlertDialog.Show(message, null, DialogButton, IconType.None),
+                nameof(IconType.Information) => await AlertDialog.Show(message, type, DialogButton, IconType.Information),
+                nameof(IconType.Question) => await AlertDialog.Show(message, type, DialogButton, IconType.Question),
+                nameof(IconType.Success) => await AlertDialog.Show(message, type, DialogButton, IconType.Success),
+                nameof(IconType.Warning) => await AlertDialog.Show(message, type, DialogButton, IconType.Warning),
+                nameof(IconType.Error) => await AlertDialog.Show(message, type, DialogButton, IconType.Error),
+                "Abort" => await AlertDialog.Show(message, type, DialogButton | DialogButton.Abort, IconType.Error),
+                _ => await AlertDialog.Show(new AlertDialogOptions()
                 {
                     DialogButton = DialogButton,
                     Title = type,
@@ -180,7 +182,7 @@ namespace Synthora.Demo.ViewModels
 
         private void Close(object? parameter)
         {
-            DialogHost.Close(_hostIdentifier, parameter, this);
+            DialogHost.Close(parameter, _hostIdentifier, this);
         }
     }
 }

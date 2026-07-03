@@ -51,7 +51,7 @@
         </Style>
     </UserControl.Styles>
 
-    <DialogHost Identifier="DialogHost" VerticalDialogAlignment="Top">
+    <DialogHost Identifier="{x:Static vm:OverlayViewModel.DialogIdentifier}" VerticalDialogAlignment="Top">
         <DialogHost.DialogContentTemplate>
             <DataTemplate DataType="vm:DialogHostSampleDialog">
                 <Border Width="340" Padding="18">
@@ -109,7 +109,7 @@
                 </Border>
             </DataTemplate>
         </DialogHost.DialogContentTemplate>
-        <AlertDialogHost Identifier="AlertDialogHost">
+        <AlertDialogHost>
             <Grid RowDefinitions="*,Auto">
                 <TreeMenu ItemsSource="{Binding TreeMenuItems}">
                     <TreeMenu.DataTemplates>

@@ -42,15 +42,15 @@
                             </Style>
                         </Grid.Styles>
                         <Panel>
-                            <TextBox Name="title"
+                            <TextBox Name="Title"
                                      Margin="2,0,2,10"
                                      HorizontalAlignment="Left"
+                                     VerticalAlignment="Top"
                                      FontWeight="SemiBold"
                                      IsVisible="{Binding AlertDialogInstance?.Title, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                                      Text="{Binding AlertDialogInstance?.Title, RelativeSource={RelativeSource TemplatedParent}}" />
                             <Button HorizontalAlignment="Right"
                                     VerticalAlignment="Top"
-                                    Background="{DynamicResource ThemeBackgroundBrush}"
                                     Classes="Error"
                                     Command="{Binding AlertDialogInstance?.None, RelativeSource={RelativeSource TemplatedParent}}"
                                     IsVisible="{Binding AlertDialogInstance?.ShowCloseButton, RelativeSource={RelativeSource TemplatedParent}}"
@@ -71,7 +71,7 @@
                         </Panel>
 
                         <DockPanel Grid.Row="1">
-                            <TipIcon Name="icon"
+                            <TipIcon Name="Icon"
                                      Width="32"
                                      Height="32"
                                      Margin="10"
@@ -88,7 +88,7 @@
                                      TextWrapping="Wrap" />
                         </DockPanel>
 
-                        <UniformGrid x:Name="ButtonPanel"
+                        <UniformGrid Name="ButtonPanel"
                                      Grid.Row="2"
                                      Margin="10"
                                      HorizontalAlignment="Right"

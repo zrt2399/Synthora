@@ -56,9 +56,9 @@ namespace Synthora.Controls
         /// <summary>
         /// Finds a loaded dialog host by identifier.
         /// </summary>
-        public new static AlertDialogHost GetInstance(string? dialogIdentifier) => GetInstance<AlertDialogHost>(dialogIdentifier);
+        public static new AlertDialogHost GetInstance(string? dialogIdentifier) => GetInstance<AlertDialogHost>(dialogIdentifier);
 
-        public Task<DialogResult> Show(AlertDialogOptions alertDialogOptions)
+        public Task<DialogResult> ShowDialog(AlertDialogOptions alertDialogOptions)
         {
             if (CheckAccess())
             {
@@ -67,7 +67,7 @@ namespace Synthora.Controls
 
                 return dialog.Tcs.Task;
             }
-            return Dispatcher.Invoke(() => Show(alertDialogOptions));
+            return Dispatcher.Invoke(() => ShowDialog(alertDialogOptions));
         }
     }
 }
