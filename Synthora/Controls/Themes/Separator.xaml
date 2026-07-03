@@ -16,6 +16,13 @@
                 </Panel>
             </ControlTemplate>
         </Setter>
+
+        <Style Selector="^.Light">
+            <Setter Property="Foreground" Value="{DynamicResource ThemeBorderLowBrush}" />
+        </Style>
+        <Style Selector="^.Accent">
+            <Setter Property="Foreground" Value="{DynamicResource SynthoraBorderBrush}" />
+        </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type Separator}"

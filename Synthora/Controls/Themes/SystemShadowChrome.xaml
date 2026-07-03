@@ -7,6 +7,7 @@
                   BasedOn="{StaticResource {x:Type ShadowChrome}}"
                   TargetType="SystemShadowChrome">
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusLarge}" />
         <Setter Property="BoxShadow" Value="{DynamicResource PopupBoxShadow}" />
         <Setter Property="Margin" Value="{DynamicResource PopupBoxShadowMargin}" />
         <Setter Property="Template">

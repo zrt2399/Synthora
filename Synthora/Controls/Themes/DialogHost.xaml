@@ -3,6 +3,7 @@
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
 
+    <CornerRadius x:Key="DialogPopupCornerRadius">10</CornerRadius>
     <Thickness x:Key="DialogPopupMargin">32</Thickness>
 
     <ControlTheme x:Key="{x:Type DialogOverlayPopupHost}" TargetType="DialogOverlayPopupHost">
@@ -57,7 +58,7 @@
                               BorderBrush="{DynamicResource ThemeBorderLowBrush}"
                               BorderThickness="{DynamicResource ThemeBorderThickness}"
                               BoxShadow="{Binding $parent[DialogHost].DialogBoxShadow}"
-                              CornerRadius="{DynamicResource ThemeBorderCornerRadiusLarge}">
+                              CornerRadius="{DynamicResource DialogPopupCornerRadius}">
                     <ContentPresenter Name="PART_ContentPresenter"
                                       Margin="{TemplateBinding Padding}"
                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"

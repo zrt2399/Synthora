@@ -10,7 +10,7 @@
     <Thickness x:Key="ThemeControlPadding">8,6</Thickness>
     <Thickness x:Key="ThemeHeaderControlPadding">10,8</Thickness>
 
-    <Thickness x:Key="ThemeMenuFlyoutPadding">4</Thickness>
+    <Thickness x:Key="ThemeMenuFlyoutPadding">6</Thickness>
     <Thickness x:Key="ThemeMenuFlyoutItemPadding">8,6</Thickness>
 
     <Thickness x:Key="ThemeControlLeftPadding">8,0,0,0</Thickness>
@@ -24,7 +24,7 @@
     <Thickness x:Key="ThemeControlBottomPaddingSmall">0,0,0,4</Thickness>
 
     <x:Double x:Key="MenuItemMinWidth">150</x:Double>
-    <Thickness x:Key="MenuItemHorizontalSeparatorMargin">0,4</Thickness>
+    <Thickness x:Key="MenuItemHorizontalSeparatorMargin">0,6</Thickness>
 
     <Thickness x:Key="NotificationCardPadding">14</Thickness>
     <x:Double x:Key="NotificationCardPaddingDouble">14</x:Double>

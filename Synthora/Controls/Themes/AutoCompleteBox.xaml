@@ -69,7 +69,6 @@
                                                 MaxHeight="{TemplateBinding MaxDropDownHeight}"
                                                 BorderBrush="{TemplateBinding BorderBrush}"
                                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                                CornerRadius="{TemplateBinding CornerRadius}"
                                                 ScrollViewerAttach.IsDisabled="True">
                                 <ListBox Name="PART_SelectingItemsControl"
                                          Background="Transparent"
@@ -78,7 +77,13 @@
                                          ItemTemplate="{TemplateBinding ItemTemplate}"
                                          ScrollViewer.HorizontalScrollBarVisibility="Auto"
                                          ScrollViewer.IsScrollChainingEnabled="False"
-                                         ScrollViewer.VerticalScrollBarVisibility="Auto" />
+                                         ScrollViewer.VerticalScrollBarVisibility="Auto">
+                                    <ListBox.Styles>
+                                        <Style Selector="ListBoxItem">
+                                            <Setter Property="CornerRadius" Value="0" />
+                                        </Style>
+                                    </ListBox.Styles>
+                                </ListBox>
                             </SystemShadowChrome>
                         </Popup>
                     </Panel>
@@ -86,4 +91,5 @@
             </ControlTemplate>
         </Setter>
     </ControlTheme>
+
 </ResourceDictionary> 

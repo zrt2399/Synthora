@@ -51,65 +51,65 @@
         </Style>
     </UserControl.Styles>
 
-    <DialogHost Identifier="{x:Static vm:OverlayViewModel.DialogIdentifier}" VerticalDialogAlignment="Top">
-        <DialogHost.DialogContentTemplate>
-            <DataTemplate DataType="vm:DialogHostSampleDialog">
-                <Border Width="340" Padding="18">
-                    <StackPanel Spacing="14">
-                        <TextBlock FontSize="16"
-                                   FontWeight="SemiBold"
-                                   Text="{Binding Title}" />
-                        <TextBlock Foreground="{DynamicResource ThemeForegroundLowBrush}"
-                                   Text="{Binding Message}"
-                                   TextWrapping="Wrap" />
-                        <Border Padding="12"
-                                Background="{DynamicResource ThemeBackgroundLowBrush}"
-                                CornerRadius="{DynamicResource ThemeBorderCornerRadius}">
-                            <Grid ColumnDefinitions="Auto,*"
-                                  RowDefinitions="Auto,Auto,Auto"
-                                  RowSpacing="6">
-                                <TextBlock Foreground="{DynamicResource ThemeForegroundLowBrush}" Text="Environment" />
-                                <TextBlock Grid.Column="1"
-                                           HorizontalAlignment="Right"
-                                           FontWeight="SemiBold"
-                                           Text="Live Preview" />
-                                <TextBlock Grid.Row="1"
-                                           Foreground="{DynamicResource ThemeForegroundLowBrush}"
-                                           Text="Changes" />
-                                <TextBlock Grid.Row="1"
-                                           Grid.Column="1"
-                                           HorizontalAlignment="Right"
-                                           Text="Theme, spacing, buttons" />
-                                <TextBlock Grid.Row="2"
-                                           Foreground="{DynamicResource ThemeForegroundLowBrush}"
-                                           Text="Schedule" />
-                                <TextBlock Grid.Row="2"
-                                           Grid.Column="1"
-                                           HorizontalAlignment="Right"
-                                           Text="Immediately" />
-                            </Grid>
-                        </Border>
-                        <StackPanel HorizontalAlignment="Right"
-                                    Orientation="Horizontal"
-                                    Spacing="8">
-                            <Button MinWidth="80"
-                                    Classes="Primary"
-                                    Command="{Binding CloseCommand}"
-                                    CommandParameter="OK"
-                                    Theme="{StaticResource SolidButtonTheme}">
-                                OK
-                            </Button>
-                            <Button MinWidth="80"
-                                    Command="{Binding CloseCommand}"
-                                    CommandParameter="Cancel">
-                                Cancel
-                            </Button>
+    <AlertDialogHost>
+        <DialogHost Identifier="{x:Static vm:OverlayViewModel.DialogIdentifier}" VerticalDialogAlignment="Top">
+            <DialogHost.DialogContentTemplate>
+                <DataTemplate DataType="vm:DialogHostSampleDialog">
+                    <Border Width="340" Padding="18">
+                        <StackPanel Spacing="14">
+                            <TextBlock FontSize="16"
+                                       FontWeight="SemiBold"
+                                       Text="{Binding Title}" />
+                            <TextBlock Foreground="{DynamicResource ThemeForegroundLowBrush}"
+                                       Text="{Binding Message}"
+                                       TextWrapping="Wrap" />
+                            <Border Padding="12"
+                                    Background="{DynamicResource ThemeBackgroundLowBrush}"
+                                    CornerRadius="{DynamicResource ThemeBorderCornerRadius}">
+                                <Grid ColumnDefinitions="Auto,*"
+                                      RowDefinitions="Auto,Auto,Auto"
+                                      RowSpacing="6">
+                                    <TextBlock Foreground="{DynamicResource ThemeForegroundLowBrush}" Text="Environment" />
+                                    <TextBlock Grid.Column="1"
+                                               HorizontalAlignment="Right"
+                                               FontWeight="SemiBold"
+                                               Text="Live Preview" />
+                                    <TextBlock Grid.Row="1"
+                                               Foreground="{DynamicResource ThemeForegroundLowBrush}"
+                                               Text="Changes" />
+                                    <TextBlock Grid.Row="1"
+                                               Grid.Column="1"
+                                               HorizontalAlignment="Right"
+                                               Text="Theme, spacing, buttons" />
+                                    <TextBlock Grid.Row="2"
+                                               Foreground="{DynamicResource ThemeForegroundLowBrush}"
+                                               Text="Schedule" />
+                                    <TextBlock Grid.Row="2"
+                                               Grid.Column="1"
+                                               HorizontalAlignment="Right"
+                                               Text="Immediately" />
+                                </Grid>
+                            </Border>
+                            <StackPanel HorizontalAlignment="Right"
+                                        Orientation="Horizontal"
+                                        Spacing="8">
+                                <Button MinWidth="80"
+                                        Classes="Primary"
+                                        Command="{Binding CloseCommand}"
+                                        CommandParameter="OK"
+                                        Theme="{StaticResource SolidButtonTheme}">
+                                    OK
+                                </Button>
+                                <Button MinWidth="80"
+                                        Command="{Binding CloseCommand}"
+                                        CommandParameter="Cancel">
+                                    Cancel
+                                </Button>
+                            </StackPanel>
                         </StackPanel>
-                    </StackPanel>
-                </Border>
-            </DataTemplate>
-        </DialogHost.DialogContentTemplate>
-        <AlertDialogHost>
+                    </Border>
+                </DataTemplate>
+            </DialogHost.DialogContentTemplate>
             <Grid RowDefinitions="*,Auto">
                 <TreeMenu ItemsSource="{Binding TreeMenuItems}">
                     <TreeMenu.DataTemplates>
@@ -295,6 +295,6 @@
                     </Panel>
                 </StatusBar>
             </Grid>
-        </AlertDialogHost>
-    </DialogHost>
+        </DialogHost>
+    </AlertDialogHost>
 </UserControl>

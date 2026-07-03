@@ -114,8 +114,7 @@
                                WindowManagerAddShadowHint="False">
                             <SystemShadowChrome Name="SystemShadowChrome"
                                                 BorderBrush="{TemplateBinding BorderBrush}"
-                                                BorderThickness="{TemplateBinding BorderThickness}"
-                                                CornerRadius="{TemplateBinding CornerRadius}">
+                                                BorderThickness="{TemplateBinding BorderThickness}">
                                 <Calendar Name="PART_Calendar"
                                           BorderThickness="0"
                                           CornerRadius="0"

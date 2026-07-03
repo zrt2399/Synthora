@@ -164,8 +164,7 @@
                                 <SystemShadowChrome MinWidth="{Binding Bounds.Width, ElementName=FocusTarget}"
                                                     MaxHeight="{TemplateBinding MaxDropDownHeight}"
                                                     BorderBrush="{TemplateBinding BorderBrush}"
-                                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                                    CornerRadius="{TemplateBinding CornerRadius}">
+                                                    BorderThickness="{TemplateBinding BorderThickness}">
                                     <Panel>
                                         <EmptyBox Margin="10"
                                                   HorizontalAlignment="Center"

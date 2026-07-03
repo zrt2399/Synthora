@@ -20,7 +20,7 @@
                         BorderBrush="{DynamicResource ThemeBorderLowBrush}"
                         BorderThickness="{DynamicResource ThemeBorderThickness}"
                         BoxShadow="{Binding $parent[AlertDialogHost].DialogBoxShadow}"
-                        CornerRadius="{DynamicResource ThemeBorderCornerRadiusLarge}">
+                        CornerRadius="{DynamicResource DialogPopupCornerRadius}">
                     <Grid RowDefinitions="Auto,*,Auto">
                         <Grid.Styles>
                             <Style Selector="Button">

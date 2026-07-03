@@ -173,8 +173,7 @@
                             <SystemShadowChrome Name="BorderRoot"
                                                 Width="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
                                                 BorderBrush="{TemplateBinding BorderBrush}"
-                                                BorderThickness="{TemplateBinding BorderThickness}"
-                                                CornerRadius="{TemplateBinding CornerRadius}">
+                                                BorderThickness="{TemplateBinding BorderThickness}">
                                 <TimePickerPresenter Name="PART_PickerPresenter" />
                             </SystemShadowChrome>
                         </Panel>

@@ -409,10 +409,8 @@
                                PlacementTarget="{Binding #PART_OverflowButton}"
                                WindowManagerAddShadowHint="False">
                             <SystemShadowChrome Name="DropShadowChrome"
-                                                Background="{TemplateBinding Background}"
                                                 BorderBrush="{TemplateBinding BorderBrush}"
-                                                BorderThickness="{TemplateBinding BorderThickness}"
-                                                CornerRadius="{TemplateBinding CornerRadius}">
+                                                BorderThickness="{TemplateBinding BorderThickness}">
                                 <ScrollViewer Theme="{StaticResource SimpleMenuScrollViewer}">
                                     <ItemsControl x:Name="PART_OverflowPresenter"
                                                   Margin="{DynamicResource ThemeMenuFlyoutPadding}"
