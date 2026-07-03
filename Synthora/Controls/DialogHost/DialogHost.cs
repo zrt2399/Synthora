@@ -38,7 +38,7 @@ namespace Synthora.Controls
         /// <summary>
         /// Gets the completion source used to publish the dialog close parameter.
         /// </summary>
-        public TaskCompletionSource<object?> Tcs { get; } = new TaskCompletionSource<object?>();
+        internal TaskCompletionSource<object?> Tcs { get; } = new TaskCompletionSource<object?>();
 
         /// <summary>
         /// Gets the horizontal alignment applied to the popup host for this dialog.
@@ -376,10 +376,10 @@ namespace Synthora.Controls
         {
             if (CheckAccess())
             {
-                var dialog = new DialogHostInstance(this, content);
-                OpenDialog(dialog);
+                var dialogHostInstance = new DialogHostInstance(this, content);
+                OpenDialog(dialogHostInstance);
 
-                return dialog.Tcs.Task;
+                return dialogHostInstance.Tcs.Task;
             }
             return Dispatcher.Invoke(() => ShowDialog(content));
         }

@@ -19,7 +19,7 @@ namespace Synthora.Controls
         public double MaxHeight { get; }
         public override HorizontalAlignment HorizontalAlignment { get; }
         public override VerticalAlignment VerticalAlignment { get; }
-        public new TaskCompletionSource<DialogResult> Tcs { get; } = new TaskCompletionSource<DialogResult>();
+        internal new TaskCompletionSource<DialogResult> Tcs { get; } = new TaskCompletionSource<DialogResult>();
 
         public AlertDialogInstance(AlertDialogHost host, AlertDialogOptions options) : base(host, options)
         {
@@ -41,6 +41,7 @@ namespace Synthora.Controls
         public void No() => Host.CloseDialog(this, DialogResult.No);
         public void Abort() => Host.CloseDialog(this, DialogResult.Abort);
         public void None() => Host.CloseDialog(this, DialogResult.None);
+
         internal override void SetResult(object? parameter)
         {
             var dialogResult = parameter is DialogResult result ? result : DialogResult.None;
@@ -62,10 +63,10 @@ namespace Synthora.Controls
         {
             if (CheckAccess())
             {
-                var dialog = new AlertDialogInstance(this, alertDialogOptions);
-                OpenDialog(dialog);
+                var dialogInstance = new AlertDialogInstance(this, alertDialogOptions);
+                OpenDialog(dialogInstance);
 
-                return dialog.Tcs.Task;
+                return dialogInstance.Tcs.Task;
             }
             return Dispatcher.Invoke(() => ShowDialog(alertDialogOptions));
         }
