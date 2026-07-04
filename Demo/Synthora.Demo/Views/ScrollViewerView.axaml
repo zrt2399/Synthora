@@ -17,6 +17,7 @@
             <Border Classes="card">
                 <StackPanel HorizontalAlignment="Left" Spacing="16">
                     <StackPanel Orientation="Horizontal" Spacing="16">
+                        <CheckBox Name="ShowsPreview">ShowsPreview</CheckBox>
                         <CheckBox Name="AutoHide" IsChecked="True">Allow Auto Hide</CheckBox>
                         <ComboBox Name="Orientation"
                                   ItemsSource="{EnumBindingSource Orientation}"
@@ -35,9 +36,11 @@
                               ColumnDefinitions="*,Auto,*"
                               RowDefinitions="*,Auto,*">
                             <Rectangle Fill="#336366F1" />
-                            <GridSplitter Grid.Row="1" />
+                            <GridSplitter Grid.Row="1" ShowsPreview="{Binding #ShowsPreview.IsChecked}" />
                             <Rectangle Grid.Row="2" Fill="#3322C55E" />
-                            <GridSplitter Grid.RowSpan="3" Grid.Column="1" />
+                            <GridSplitter Grid.RowSpan="3"
+                                          Grid.Column="1"
+                                          ShowsPreview="{Binding #ShowsPreview.IsChecked}" />
                             <Rectangle Grid.RowSpan="3"
                                        Grid.Column="2"
                                        Fill="#33F59E0B" />

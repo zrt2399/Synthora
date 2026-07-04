@@ -65,8 +65,8 @@
                                 <MenuItem Header="Paste"
                                           Icon="{materialIcons:MaterialIconExt Kind=ContentPaste}"
                                           InputGesture="Ctrl+V" />
-                                <MenuItem Header="Delete"
-                                          Classes="Error"
+                                <MenuItem Classes="Error"
+                                          Header="Delete"
                                           Icon="{materialIcons:MaterialIconExt Kind=DeleteOutline}"
                                           InputGesture="Delete" />
                             </MenuItem>
@@ -115,18 +115,23 @@
                                     </MenuItem>
                                     <Separator />
                                     <MenuItem Classes="Primary"
+                                              Header="Classes: Primary"
                                               StaysOpenOnClick="True"
-                                              ToggleType="CheckBox"
-                                              Header="Classes: Primary"/>
-                                    <MenuItem Classes="Secondary" StaysOpenOnClick="True"
-                                              ToggleType="CheckBox"
-                                              Header="Classes: Secondary"/>
-                                    <MenuItem Classes="Warning" GroupName="RadioableMenuItem" StaysOpenOnClick="True"
-                                              ToggleType="Radio"
-                                              Header="Classes: Warning"/>
-                                    <MenuItem Classes="Error" GroupName="RadioableMenuItem" StaysOpenOnClick="True"
-                                              ToggleType="Radio"
-                                              Header="Classes: Error"/>
+                                              ToggleType="CheckBox" />
+                                    <MenuItem Classes="Secondary"
+                                              Header="Classes: Secondary"
+                                              StaysOpenOnClick="True"
+                                              ToggleType="CheckBox" />
+                                    <MenuItem Classes="Warning"
+                                              GroupName="RadioableMenuItem"
+                                              Header="Classes: Warning"
+                                              StaysOpenOnClick="True"
+                                              ToggleType="Radio" />
+                                    <MenuItem Classes="Error"
+                                              GroupName="RadioableMenuItem"
+                                              Header="Classes: Error"
+                                              StaysOpenOnClick="True"
+                                              ToggleType="Radio" />
                                     <MenuItem Classes="Error"
                                               Header="Delete"
                                               HotKey="Control+D"
@@ -161,8 +166,8 @@
                                     <MenuItem Header="Add Cut"
                                               Icon="{materialIcons:MaterialIconExt Kind=ContentCut}"
                                               InputGesture="Ctrl+K" />
-                                    <MenuItem Header="Ripple Delete"
-                                              Classes="Warning"
+                                    <MenuItem Classes="Warning"
+                                              Header="Ripple Delete"
                                               Icon="{materialIcons:MaterialIconExt Kind=DeleteSweepOutline}"
                                               InputGesture="Shift+Delete" />
                                     <MenuItem Header="Duplicate Clip"
@@ -243,8 +248,8 @@
                                 <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=ContentPaste}"
                                                   Label="Paste"
                                                   ToolTip.Tip="Paste (Ctrl+V)" />
-                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=Delete}"
-                                                  Classes="Error"
+                                <CommandBarButton Classes="Error"
+                                                  Icon="{materialIcons:MaterialIconExt Kind=Delete}"
                                                   Label="Delete"
                                                   ToolTip.Tip="Delete (Del)" />
                                 <CommandBarSeparator />
@@ -286,8 +291,8 @@
                                     <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=Play}"
                                                       Label="Play"
                                                       ToolTip.Tip="Play/Pause (Space)" />
-                                    <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=Delete}"
-                                                      Classes="Error"
+                                    <CommandBarButton Classes="Error"
+                                                      Icon="{materialIcons:MaterialIconExt Kind=Delete}"
                                                       Label="Delete"
                                                       ToolTip.Tip="Delete (Del)" />
                                     <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=SkipPrevious}"
