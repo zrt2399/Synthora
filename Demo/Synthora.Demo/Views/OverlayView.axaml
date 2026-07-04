@@ -36,11 +36,11 @@
                                       TextBoxAttach.Header="NotificationPosition:"
                                       TextBoxAttach.HeaderPlacement="Left" />
                             <Button Classes="Primary" Theme="{StaticResource SolidButtonTheme}">Information</Button>
-                            <Button Theme="{StaticResource SolidButtonTheme}">WithoutTitle</Button>
                             <Button Classes="Success" Theme="{StaticResource SolidButtonTheme}">Success</Button>
                             <Button Classes="Warning" Theme="{StaticResource SolidButtonTheme}">Warning</Button>
                             <Button Classes="Error" Theme="{StaticResource SolidButtonTheme}">Error</Button>
                             <Button Classes="Question" Theme="{StaticResource SolidButtonTheme}">Multiline</Button>
+                            <Button>WithoutTitle</Button>
                         </SpacingWrapPanel>
                     </StackPanel>
                 </Border>

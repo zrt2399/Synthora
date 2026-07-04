@@ -134,20 +134,17 @@ namespace Synthora.Demo.ViewModels
             _notificationManager.Position = NotificationPosition;
             switch (type)
             {
-                case "WithoutTitle":
-                    _notificationManager.Show(new Notification(null, "This is a without title message.", NotificationType.Information));
-                    break;
                 case nameof(NotificationType.Information):
-                    _notificationManager.Show(new Notification("Information", "This is an information message.", NotificationType.Information));
+                    _notificationManager.Show(new Notification(type, "This is an information message.", NotificationType.Information));
                     break;
                 case nameof(NotificationType.Success):
-                    _notificationManager.Show(new Notification("Success", "This is a success message.", NotificationType.Success));
+                    _notificationManager.Show(new Notification(type, "This is a success message.", NotificationType.Success));
                     break;
                 case nameof(NotificationType.Warning):
-                    _notificationManager.Show(new Notification("Warning", "This is a warning message.", NotificationType.Warning));
+                    _notificationManager.Show(new Notification(type, "This is a warning message.", NotificationType.Warning));
                     break;
                 case nameof(NotificationType.Error):
-                    _notificationManager.Show(new Notification("Error", "This is an error message.", NotificationType.Error));
+                    _notificationManager.Show(new Notification(type, "This is an error message.", NotificationType.Error));
                     break;
                 case "Multiline":
                     var stringBuilder = new StringBuilder();
@@ -157,6 +154,9 @@ namespace Synthora.Demo.ViewModels
                     }
                     var message = stringBuilder.ToString();
                     _notificationManager.Show(new Notification(message, message, NotificationType.Error));
+                    break;
+                case "WithoutTitle":
+                    _notificationManager.Show(new Notification(null, "This is a without title message.", NotificationType.Information));
                     break;
             }
         }
