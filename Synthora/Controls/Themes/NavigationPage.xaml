@@ -93,7 +93,7 @@
                                 <Button x:Name="PART_BackButton"
                                         Grid.Column="0"
                                         Width="{Binding $self.Bounds.Height}"
-                                        ButtonAttach.ShowShadow="False"
+                                        ButtonAttach.ShowShadowOnInteraction="False"
                                         CornerRadius="0"
                                         IsVisible="{TemplateBinding IsBackButtonEffectivelyVisible}"
                                         Theme="{StaticResource IconButtonTheme}">

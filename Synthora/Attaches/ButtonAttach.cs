@@ -5,10 +5,10 @@ namespace Synthora.Attaches
 {
     public class ButtonAttach
     { 
-        public static readonly AttachedProperty<bool> ShowShadowProperty =
-            AvaloniaProperty.RegisterAttached<ButtonAttach, Control, bool>("ShowShadow", defaultValue: true);
+        public static readonly AttachedProperty<bool> ShowShadowOnInteractionProperty =
+            AvaloniaProperty.RegisterAttached<ButtonAttach, Control, bool>("ShowShadowOnInteraction", defaultValue: true);
 
-        public static bool GetShowShadow(Control obj) => obj.GetValue(ShowShadowProperty);
-        public static void SetShowShadow(Control obj, bool value) => obj.SetValue(ShowShadowProperty, value);
+        public static bool GetShowShadowOnInteraction(Control obj) => obj.GetValue(ShowShadowOnInteractionProperty);
+        public static void SetShowShadowOnInteraction(Control obj, bool value) => obj.SetValue(ShowShadowOnInteractionProperty, value);
     }
 }

@@ -46,7 +46,7 @@
                                 Background="{TemplateBinding Background}"
                                 BorderThickness="{TemplateBinding BorderThickness,
                                                                   Converter={StaticResource PrimaryButtonBorderThicknessMultiplier}}"
-                                ButtonAttach.ShowShadow="False"
+                                ButtonAttach.ShowShadowOnInteraction="False"
                                 Command="{TemplateBinding Command}"
                                 CommandParameter="{TemplateBinding CommandParameter}"
                                 Content="{TemplateBinding Content}"
@@ -72,7 +72,7 @@
                                 Grid.Column="2"
                                 Padding="{TemplateBinding Padding}"
                                 Background="{TemplateBinding Background}"
-                                ButtonAttach.ShowShadow="False"
+                                ButtonAttach.ShowShadowOnInteraction="False"
                                 CornerRadius="{TemplateBinding CornerRadius,
                                                                Converter={StaticResource SecondaryButtonBorderFilter}}"
                                 Focusable="False"
@@ -119,7 +119,7 @@
             </Style>
         </Style>
         <Style Selector="^:focus,^:pointerover">
-            <Style Selector="^[(ButtonAttach.ShowShadow)=True]">
+            <Style Selector="^[(ButtonAttach.ShowShadowOnInteraction)=True]">
                 <Setter Property="ClipToBounds" Value="False" />
                 <Style Selector="^ /template/ Border#RootBorder">
                     <Setter Property="BoxShadow" Value="{TemplateBinding BorderBrush, Converter={x:Static SynthoraConverters.BoxShadowConverter}, ConverterParameter={x:Static BoxShadowConverter.ButtonPointerOverParameter}}" />

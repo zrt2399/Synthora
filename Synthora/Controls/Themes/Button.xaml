@@ -30,7 +30,7 @@
         </Setter>
 
         <Style Selector="^:focus,^:pointerover">
-            <Style Selector="^[(ButtonAttach.ShowShadow)=True]">
+            <Style Selector="^[(ButtonAttach.ShowShadowOnInteraction)=True]">
                 <Setter Property="ClipToBounds" Value="False" />
                 <Style Selector="^ /template/ ShadowChrome#RootChrome">
                     <Setter Property="BoxShadow" Value="{TemplateBinding BorderBrush, Converter={x:Static SynthoraConverters.BoxShadowConverter}, ConverterParameter={x:Static BoxShadowConverter.ButtonPointerOverParameter}}" />

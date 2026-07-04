@@ -36,7 +36,9 @@
                        OpenPaneLength="200">
                 <SplitView.Pane>
                     <StackPanel VerticalAlignment="Top" Spacing="10">
-                        <ToggleButton Content="{materialIcons:MaterialIconExt Kind=Menu}"
+                        <ToggleButton BorderThickness="0"
+                                      ButtonAttach.ShowShadowOnInteraction="False"
+                                      Content="{materialIcons:MaterialIconExt Kind=Menu}"
                                       CornerRadius="0"
                                       IsChecked="{Binding $parent[SplitView].IsPaneOpen}" />
                         <TextBlock HorizontalAlignment="Center">TabStrip</TextBlock>
