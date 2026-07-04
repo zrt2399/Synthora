@@ -18,13 +18,13 @@ namespace Synthora.Overlays
     /// </summary>
     public static class MessageTip
     {
-        private const int DefaultDelay = 2000;
+        private const int defaultDelay = 2000;
         private static readonly IImmutableSolidColorBrush NoneBorderBrush = new ImmutableSolidColorBrush(Color.FromArgb(52, 0, 0, 0));
         private static readonly IImmutableSolidColorBrush NoneBackground = new ImmutableSolidColorBrush(Color.FromRgb(250, 250, 250));
 
         /// <summary>
         /// Display duration in milliseconds for all message tips.
-        /// When set to a value greater than 0, this will override the default <see cref="DefaultDelay"/>.
+        /// When set to a value greater than 0, this will override the default <see cref="defaultDelay"/>.
         /// </summary>
         public static int Delay { get; set; } = 0;
 
@@ -54,27 +54,27 @@ namespace Synthora.Overlays
         /// <summary>
         /// Displays a transient message tip with a question icon.
         /// </summary>
-        public static void ShowQuestion(string message, int delay = DefaultDelay) => Show(message, IconType.Question, delay);
+        public static void ShowQuestion(string message, int delay = defaultDelay) => Show(message, IconType.Question, delay);
 
         /// <summary>
         /// Displays a transient message tip with a success icon.
         /// </summary>
-        public static void ShowSuccess(string message, int delay = DefaultDelay) => Show(message, IconType.Success, delay);
+        public static void ShowSuccess(string message, int delay = defaultDelay) => Show(message, IconType.Success, delay);
 
         /// <summary>
         /// Displays a transient message tip with a warning icon.
         /// </summary>
-        public static void ShowWarning(string message, int delay = DefaultDelay) => Show(message, IconType.Warning, delay);
+        public static void ShowWarning(string message, int delay = defaultDelay) => Show(message, IconType.Warning, delay);
 
         /// <summary>
         /// Displays a transient message tip with an error icon.
         /// </summary>
-        public static void ShowError(string message, int delay = DefaultDelay) => Show(message, IconType.Error, delay);
+        public static void ShowError(string message, int delay = defaultDelay) => Show(message, IconType.Error, delay);
 
         /// <summary>
         /// Displays a transient message tip with a specified icon type.
         /// </summary>
-        public static async void Show(string message, IconType iconType = IconType.Information, int delay = DefaultDelay)
+        public static async void Show(string message, IconType iconType = IconType.Information, int delay = defaultDelay)
         {
             if (Application.Current is not { } application)
             {
@@ -120,29 +120,11 @@ namespace Synthora.Overlays
                     _ => 5,
                 };
 
-                Grid grid = new Grid();
-                grid.ColumnDefinitions.Add(new ColumnDefinition(GridLength.Auto));
-                grid.ColumnDefinitions.Add(new ColumnDefinition());
+                var dockPanel = new DockPanel();
 
-                TextBlock textBlock = new TextBlock();
-                textBlock.TextWrapping = TextWrapping.Wrap;
-                textBlock.VerticalAlignment = VerticalAlignment.Center;
-                textBlock.Text = message;
-
-                if (!string.IsNullOrEmpty(textBlock.Text))
-                {
-                    textBlock.Margin = iconType == IconType.None ? new Thickness(2, 0) : new Thickness(padding, 0, 0, 0);
-                }
-
-                if (application.TryGetResource("FontSizeNormal", application.ActualThemeVariant, out var size) && size is double fontSize)
-                {
-                    textBlock.FontSize = fontSize;
-                }
-
-                textBlock.SetValue(Grid.ColumnProperty, 1);
                 if (iconType != IconType.None)
                 {
-                    grid.Children.Add(new Viewbox()
+                    dockPanel.Children.Add(new Viewbox()
                     {
                         Width = 16,
                         Height = 16,
@@ -153,9 +135,23 @@ namespace Synthora.Overlays
                     });
                 }
 
-                grid.Children.Add(textBlock);
+                if (!string.IsNullOrEmpty(message))
+                {
+                    var textBlock = new TextBlock();
+                    textBlock.TextWrapping = TextWrapping.Wrap;
+                    textBlock.VerticalAlignment = VerticalAlignment.Center;
+                    textBlock.Text = message;
 
-                Border border = new Border();
+                    if (application.TryGetResource("FontSizeNormal", application.ActualThemeVariant, out var size) && size is double fontSize)
+                    {
+                        textBlock.FontSize = fontSize;
+                    }
+
+                    textBlock.Margin = iconType == IconType.None ? new Thickness(2, 0) : new Thickness(padding, 0, 2, 0);
+                    dockPanel.Children.Add(textBlock);
+                }
+
+                var border = new Border();
                 if (application.TryGetResource("ThemeBorderCornerRadiusNormal", application.ActualThemeVariant, out var radius) && radius is CornerRadius cornerRadius)
                 {
                     border.CornerRadius = cornerRadius;
@@ -171,7 +167,7 @@ namespace Synthora.Overlays
                     _ => NoneBackground
                 };
 
-                border.Child = grid;
+                border.Child = dockPanel;
                 border.Margin = new Thickness(4);
                 border.Padding = new Thickness(padding);
                 border.BorderThickness = new Thickness(1);
@@ -182,7 +178,7 @@ namespace Synthora.Overlays
                     Color = borderBrush.Color
                 });
 
-                Popup popup = new Popup();
+                var popup = new Popup();
                 popup.Opened += Popup_Opened;
                 popup.Child = border;
                 popup.Placement = Placement;
@@ -208,7 +204,7 @@ namespace Synthora.Overlays
             }
             else
             {
-                Dispatcher.UIThread.Invoke(() => Show(message, iconType, delay));
+                Dispatcher.UIThread.Post(() => Show(message, iconType, delay));
             }
         }
 
