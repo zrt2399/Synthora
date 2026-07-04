@@ -354,7 +354,7 @@
         <!--  Open/Close Pane animation  -->
         <Style Selector="^:open">
             <Style Selector="^ /template/ Border#PaneBorder">
-                <Setter Property="BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
+                <Setter Property="BoxShadow" Value="{DynamicResource SplitViewPanelBoxShadow}" />
             </Style>
 
             <Style Selector="^:top /template/ Panel#PART_PaneRoot">

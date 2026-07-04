@@ -43,7 +43,7 @@
             <Color x:Key="ThemeControlHighlightMidColor">#FFD0D0D0</Color>
             <Color x:Key="ThemeControlHighlightHighColor">#FFC2C2C2</Color>
 
-            <Color x:Key="ThemeOverlayColor">#40000000</Color>
+            <Color x:Key="ThemeOverlayColor">#30000000</Color>
             <Color x:Key="TransparentPointerOverColor">#0B000000</Color>
             <Color x:Key="TransparentPressedColor">#16000000</Color>
 
@@ -195,7 +195,7 @@
             <Color x:Key="ThemeControlHighlightMidColor">#FF484848</Color>
             <Color x:Key="ThemeControlHighlightHighColor">#FF585858</Color>
 
-            <Color x:Key="ThemeOverlayColor">#60000000</Color>
+            <Color x:Key="ThemeOverlayColor">#40000000</Color>
             <Color x:Key="TransparentPointerOverColor">#0BFFFFFF</Color>
             <Color x:Key="TransparentPressedColor">#16FFFFFF</Color>
 
@@ -411,6 +411,7 @@
     <BoxShadows x:Key="DialogBoxShadow">0 5 40 0 #50000000</BoxShadows>
     <BoxShadows x:Key="DefaultBoxShadow">0 3 6 0 #40000000</BoxShadows>
     <BoxShadows x:Key="TabItemHeaderBoxShadow">0 0 6 0 #30000000</BoxShadows>
+    <BoxShadows x:Key="SplitViewPanelBoxShadow">0 0 10 0 #40000000</BoxShadows>
     <BoxShadows x:Key="EmptyBoxShadow">none</BoxShadows>
 
     <!--  Mobile Resources for MenuFlyout.xaml  -->
