@@ -1,0 +1,139 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
+                    x:CompileBindings="True">
+
+    <ControlTheme x:Key="{x:Type MultiComboBox}" TargetType="MultiComboBox">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
+        <Setter Property="PlaceholderForeground" Value="{DynamicResource ThemeForegroundBrush}" />
+        <Setter Property="Focusable" Value="True" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <DockPanel>
+                    <HeaderPresenter />
+
+                    <Border Name="PART_FocusTarget"
+                            Width="{TemplateBinding TextBoxAttach.Width}"
+                            MinWidth="{TemplateBinding TextBoxAttach.MinWidth}"
+                            MaxWidth="{TemplateBinding TextBoxAttach.MaxWidth}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            TemplatedControl.IsTemplateFocusTarget="True">
+                        <Grid ColumnDefinitions="*,Auto,Auto">
+                            <TextBox Name="PART_TextBox"
+                                     Padding="{TemplateBinding Padding}"
+                                     HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                     VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                     Background="Transparent"
+                                     BorderThickness="0"
+                                     DataValidationErrors.Errors="{TemplateBinding DataValidationErrors.Errors}"
+                                     Focusable="{TemplateBinding AllowTextSelection}"
+                                     IsHitTestVisible="{TemplateBinding AllowTextSelection}"
+                                     IsReadOnly="True"
+                                     PlaceholderForeground="{TemplateBinding PlaceholderForeground}"
+                                     PlaceholderText="{TemplateBinding PlaceholderText}"
+                                     Text="{TemplateBinding SelectedText}"
+                                     TextWrapping="{TemplateBinding TextWrapping}" />
+
+                            <ActionButton Name="ClearButton"
+                                          Grid.Column="1"
+                                          Margin="{TemplateBinding Padding,
+                                                                   Converter={StaticResource ComboBoxButtonMarginMultiplier}}"
+                                          Command="{Binding $parent[MultiComboBox].UnselectAll}"
+                                          Focusable="False"
+                                          IsVisible="{TemplateBinding ShowClearButton}"
+                                          Theme="{StaticResource SimpleTextBoxClearButtonTheme}" />
+
+                            <PathIcon Name="DropDownGlyph"
+                                      Grid.Column="2"
+                                      Width="12"
+                                      Height="12"
+                                      Margin="{TemplateBinding Padding,
+                                                               Converter={StaticResource ComboBoxButtonMarginMultiplier}}"
+                                      HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"
+                                      Data="{DynamicResource ArrowDownData}"
+                                      IsHitTestVisible="False" />
+
+                            <Popup Name="PART_Popup"
+                                   InheritsTransform="True"
+                                   IsLightDismissEnabled="True"
+                                   IsOpen="{TemplateBinding IsDropDownOpen,
+                                                            Mode=TwoWay}"
+                                   Placement="BottomEdgeAlignedLeft"
+                                   PlacementTarget="{Binding ElementName=PART_FocusTarget}"
+                                   WindowManagerAddShadowHint="False">
+                                <SystemShadowChrome MinWidth="{Binding Bounds.Width, ElementName=PART_FocusTarget}"
+                                                    MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                                    BorderThickness="{TemplateBinding BorderThickness}">
+                                    <Grid RowDefinitions="Auto,*,Auto">
+                                        <ContentPresenter Content="{TemplateBinding PopupTopContent}" />
+
+                                        <Panel Grid.Row="1">
+                                            <EmptyBox Name="EmptyBox"
+                                                      Margin="10"
+                                                      HorizontalAlignment="Center"
+                                                      VerticalAlignment="Center"
+                                                      IsVisible="{TemplateBinding ItemCount,
+                                                                                  Converter={x:Static SynthoraConverters.IsZero}}" />
+                                            <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                                          IsDeferredScrollingEnabled="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
+                                                          IsScrollChainingEnabled="False"
+                                                          IsVisible="{Binding !#EmptyBox.IsVisible}"
+                                                          VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                                                <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+                                            </ScrollViewer>
+                                        </Panel>
+
+                                        <ContentPresenter Grid.Row="2" Content="{TemplateBinding PopupBottomContent}" />
+                                    </Grid>
+                                </SystemShadowChrome>
+                            </Popup>
+                        </Grid>
+                    </Border>
+                </DockPanel>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^ /template/ PathIcon#DropDownGlyph">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <TransformOperationsTransition Easing="CubicEaseInOut"
+                                                   Property="RenderTransform"
+                                                   Duration="0:0:0.2" />
+                </Transitions>
+            </Setter>
+        </Style>
+        <Style Selector="^:dropdownopen /template/ PathIcon#DropDownGlyph">
+            <Setter Property="RenderTransform" Value="rotate(180deg)" />
+        </Style>
+
+        <Style Selector="^:pointerover,^:focus-within">
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighlightBrush}" />
+        </Style>
+        <Style Selector="^:pressed">
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighlightPressedBrush}" />
+        </Style>
+        <Style Selector="^:dropdownopen">
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighBrush}" />
+        </Style>
+        <Style Selector="^:error /template/ Border#PART_FocusTarget">
+            <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
+        </Style>
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
+        </Style>
+    </ControlTheme>
+
+</ResourceDictionary>

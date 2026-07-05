@@ -17,6 +17,7 @@
         <ScrollViewer Padding="16">
             <StackPanel Spacing="16">
                 <Border Classes="card">
+                    <!--  TextBox  -->
                     <StackPanel Spacing="16">
                         <StackPanel Classes="sectionHeader">
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="TextBoxOutline" />
@@ -51,6 +52,7 @@
                     </StackPanel>
                 </Border>
 
+                <!--  ButtonSpinner  -->
                 <Border Classes="card">
                     <StackPanel Spacing="16">
                         <StackPanel Classes="sectionHeader">
@@ -80,6 +82,7 @@
                     </StackPanel>
                 </Border>
 
+                <!--  ComboBox  -->
                 <Border Classes="card">
                     <StackPanel Spacing="16">
                         <StackPanel Classes="sectionHeader">
@@ -129,6 +132,97 @@
                                 </DataTemplate>
                             </ComboBox.ItemTemplate>
                         </ComboBox>
+                    </StackPanel>
+                </Border>
+
+                <!--  MultiComboBox  -->
+                <Border Classes="card">
+                    <StackPanel Spacing="16">
+                        <StackPanel.Styles>
+                            <Style Selector="MultiComboBox">
+                                <Setter Property="PopupTopContent">
+                                    <Template>
+                                        <Border Padding="4"
+                                                BorderBrush="{DynamicResource ThemeBorderLowBrush}"
+                                                BorderThickness="0,0,0,1">
+                                            <StackPanel Orientation="Horizontal" Spacing="4">
+                                                <Button Classes="Secondary"
+                                                        Command="{Binding $parent[MultiComboBox].SelectAll}"
+                                                        Content="Select All"
+                                                        Theme="{StaticResource SolidButtonTheme}" />
+                                                <Button Classes="Secondary"
+                                                        Command="{Binding $parent[MultiComboBox].InvertSelection}"
+                                                        Content="Invert"
+                                                        Theme="{StaticResource SolidButtonTheme}" />
+                                                <Button Classes="Secondary"
+                                                        Command="{Binding $parent[MultiComboBox].UnselectAll}"
+                                                        Content="Unselect All"
+                                                        Theme="{StaticResource SolidButtonTheme}" />
+                                            </StackPanel>
+                                        </Border>
+                                    </Template>
+                                </Setter>
+                            </Style>
+                        </StackPanel.Styles>
+                        <StackPanel Classes="sectionHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="SelectMultiple" />
+                            <TextBlock Classes="sectionLabel" Text="MULTI COMBOBOX" />
+                        </StackPanel>
+
+                        <UniformGrid ColumnSpacing="16"
+                                     Columns="2"
+                                     RowSpacing="16">
+                            <StackPanel Spacing="12">
+                                <MultiComboBox ItemsSource="{Binding MultiComboBoxRoles}"
+                                               PlaceholderText="Choose roles..."
+                                               SelectedItems="{Binding SelectedMultiComboBoxRoles}"
+                                               TextBoxAttach.Header="MVVM roles">
+                                    <MultiComboBox.ItemTemplate>
+                                        <DataTemplate x:DataType="vm:MultiComboBoxRole">
+                                            <Grid ColumnDefinitions="*,Auto">
+                                                <TextBlock Text="{Binding Name}" />
+                                                <TextBlock Grid.Column="1"
+                                                           FontSize="11"
+                                                           Foreground="{DynamicResource ThemeForegroundLowBrush}"
+                                                           Text="{Binding Group}" />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </MultiComboBox.ItemTemplate>
+                                </MultiComboBox>
+                                <SpacingWrapPanel HorizontalSpacing="8" VerticalSpacing="8">
+                                    <Button Command="{Binding AddMultiComboBoxRole}" Content="Add" />
+                                    <Button Command="{Binding RemoveSelectedMultiComboBoxRoles}" Content="Remove selected" />
+                                    <Button Command="{Binding SelectDefaultMultiComboBoxRoles}" Content="VM select" />
+                                    <Button Command="{Binding RemoveMultiComboBoxRolesLastItem}" Content="Remove last item" />
+                                    <Button Command="{Binding ResetMultiComboBoxRoles}" Content="Reset" />
+                                </SpacingWrapPanel>
+                                <TextBlock Foreground="{DynamicResource ThemeForegroundLowBrush}" Text="{Binding SelectedMultiComboBoxRoles.Count, StringFormat='Selected: {0}'}" />
+                                <TextBlock Foreground="{DynamicResource ThemeForegroundLowBrush}" Text="{Binding MultiComboBoxRoles.Count, StringFormat='Total: {0}'}" />
+                            </StackPanel>
+
+                            <StackPanel Spacing="12">
+                                <MultiComboBox Name="DirectMultiComboBox"
+                                               PlaceholderText="Choose modules..."
+                                               TextBoxAttach.Header="Non-MVVM modules">
+                                    <MultiComboBoxItem Name="DirectCalendarItem">Calendar</MultiComboBoxItem>
+                                    <MultiComboBoxItem>DataGrid</MultiComboBoxItem>
+                                    <MultiComboBoxItem Name="DirectDialogHostItem">DialogHost</MultiComboBoxItem>
+                                    <MultiComboBoxItem>DragTabControl</MultiComboBoxItem>
+                                    <MultiComboBoxItem>NavigationPage</MultiComboBoxItem>
+                                    <MultiComboBoxItem>PathPicker</MultiComboBoxItem>
+                                </MultiComboBox>
+                                <SpacingWrapPanel HorizontalSpacing="8" VerticalSpacing="8">
+                                    <Button Click="AddDirectMultiComboBoxItem" Content="Add" />
+                                    <Button Click="RemoveDirectMultiComboBoxSelectedItems" Content="Remove selected" />
+                                    <Button Click="SelectDefaultMultiComboBoxRoles" Content="Code-behind select" />
+                                    <Button Click="RemoveDirectMultiComboBoxLastItem" Content="Remove last item" />
+                                </SpacingWrapPanel>
+                                <TextBlock Foreground="{DynamicResource ThemeForegroundLowBrush}"
+                                           Text="{Binding #DirectMultiComboBox.SelectedText, StringFormat='SelectedText: {0}'}"
+                                           TextWrapping="Wrap" />
+                                <TextBlock Foreground="{DynamicResource ThemeForegroundLowBrush}" Text="{Binding #DirectMultiComboBox.ItemCount, StringFormat='Total: {0}'}" />
+                            </StackPanel>
+                        </UniformGrid>
                     </StackPanel>
                 </Border>
             </StackPanel>
