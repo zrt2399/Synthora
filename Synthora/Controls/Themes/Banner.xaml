@@ -33,7 +33,7 @@
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
-                        BoxShadow="{TemplateBinding (BoxShadowAttach.BoxShadow)}"
+                        BoxShadow="{TemplateBinding BoxShadowAttach.BoxShadow}"
                         CornerRadius="{TemplateBinding CornerRadius}">
                     <DockPanel>
                         <!--  Accent Bar  -->
@@ -85,7 +85,7 @@
         <Style Selector="^:none">
             <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
             <Setter Property="Background" Value="{DynamicResource SynthoraLowBrush}" />
-            <Style Selector="^ /template/ TipIcon#icon">
+            <Style Selector="^ /template/ TipIcon#Icon">
                 <Setter Property="IsVisible" Value="False" />
             </Style>
         </Style>
@@ -115,7 +115,7 @@
             <Setter Property="Background" Value="{DynamicResource ErrorTipBackgroundBrush}" />
         </Style>
 
-        <Style Selector="^[ShowIcon=False] /template/ TipIcon#icon">
+        <Style Selector="^[ShowIcon=False] /template/ TipIcon#Icon">
             <Setter Property="IsVisible" Value="False" />
         </Style>
 

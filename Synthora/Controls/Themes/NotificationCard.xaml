@@ -35,7 +35,7 @@
                             BoxShadow="{TemplateBinding BoxShadowAttach.BoxShadow}"
                             CornerRadius="{TemplateBinding CornerRadius}">
                         <DockPanel>
-                            <TipIcon Name="icon"
+                            <TipIcon Name="Icon"
                                      Width="20"
                                      Height="20"
                                      Margin="{TemplateBinding Padding,
@@ -110,25 +110,25 @@
         </Style>
 
         <Style Selector="^:information">
-            <Style Selector="^ /template/ TipIcon#icon">
+            <Style Selector="^ /template/ TipIcon#Icon">
                 <Setter Property="IconType" Value="Information" />
             </Style>
             <!-- <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" /> -->
         </Style>
         <Style Selector="^:success">
-            <Style Selector="^ /template/ TipIcon#icon">
+            <Style Selector="^ /template/ TipIcon#Icon">
                 <Setter Property="IconType" Value="Success" />
             </Style>
             <!-- <Setter Property="BorderBrush" Value="{DynamicResource SuccessBrush}" /> -->
         </Style>
         <Style Selector="^:warning">
-            <Style Selector="^ /template/ TipIcon#icon">
+            <Style Selector="^ /template/ TipIcon#Icon">
                 <Setter Property="IconType" Value="Warning" />
             </Style>
             <!-- <Setter Property="BorderBrush" Value="{DynamicResource WarningBrush}" /> -->
         </Style>
         <Style Selector="^:error">
-            <Style Selector="^ /template/ TipIcon#icon">
+            <Style Selector="^ /template/ TipIcon#Icon">
                 <Setter Property="IconType" Value="Error" />
             </Style>
             <!-- <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" /> -->

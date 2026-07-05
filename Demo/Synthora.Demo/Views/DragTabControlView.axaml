@@ -14,52 +14,70 @@
     <DemoPage Title="Drag Tab Control"
               Description="{Binding Description}"
               IconKind="{Binding IconKind}">
-        <UniformGrid Columns="1" RowSpacing="16">
-            <Border Background="{DynamicResource DragTabControlBackgroundBrush}" Classes="card">
-                <DockPanel VerticalSpacing="16">
-                    <TextBlock Classes="sectionLabel"
-                               DockPanel.Dock="Top"
-                               Text="DRAGTABCONTROL Non-MVVM" />
-                    <DragTabControl Name="dragTabControl" FixedHeaderCount="1">
-                        <DragTabItem Header="Tab 1(Fixed)">
-                            <SelectableTextBlock>Content 1</SelectableTextBlock>
-                        </DragTabItem>
-                        <DragTabItem Header="Tab 2(Disabled)" IsEnabled="False">
-                            <SelectableTextBlock>Content 2</SelectableTextBlock>
-                        </DragTabItem>
-                        <DragTabItem Header="Tab 3">
-                            <SelectableTextBlock>Content 3</SelectableTextBlock>
-                        </DragTabItem>
-                        <DragTabItem Header="Tab 4">
-                            <SelectableTextBlock>Content 4</SelectableTextBlock>
-                        </DragTabItem>
-                    </DragTabControl>
-                </DockPanel>
-            </Border>
-            <Border Background="{DynamicResource DragTabControlBackgroundBrush}" Classes="card">
-                <DockPanel VerticalSpacing="16">
-                    <TextBlock Classes="sectionLabel"
-                               DockPanel.Dock="Top"
-                               Text="DRAGTABCONTROL MVVM" />
-                    <DragTabControl ItemsSource="{Binding TabItems}" NewItemFactory="{Binding NewItemFactory}">
-                        <TabControl.ContentTemplate>
-                            <DataTemplate x:DataType="models:DragTabItemModel">
-                                <TextBlock Text="{Binding Title}" />
-                            </DataTemplate>
-                        </TabControl.ContentTemplate>
+        <DockPanel VerticalSpacing="16">
+            <WrapPanel DockPanel.Dock="Top"
+                       ItemSpacing="16"
+                       LineSpacing="16"
+                       Orientation="Horizontal">
+                <CheckBox Name="ShowAddButton" IsChecked="True">ShowAddButton</CheckBox>
+                <CheckBox Name="ShowCloseButton" IsChecked="True">ShowCloseButton</CheckBox>
+            </WrapPanel>
+            <UniformGrid Columns="1" RowSpacing="16">
+                <!--  Non-MVVM  -->
+                <Border Background="{DynamicResource DragTabControlBackgroundBrush}" Classes="card">
+                    <DockPanel VerticalSpacing="16">
+                        <TextBlock Classes="sectionLabel"
+                                   DockPanel.Dock="Top"
+                                   Text="DRAGTABCONTROL Non-MVVM" />
+                        <DragTabControl Name="DragTabControl"
+                                        FixedHeaderCount="1"
+                                        ShowAddButton="{Binding #ShowAddButton.IsChecked}"
+                                        ShowCloseButton="{Binding #ShowCloseButton.IsChecked}">
+                            <DragTabItem Header="Tab 1(Fixed)">
+                                <SelectableTextBlock>Content 1</SelectableTextBlock>
+                            </DragTabItem>
+                            <DragTabItem Header="Tab 2(Disabled)" IsEnabled="False">
+                                <SelectableTextBlock>Content 2</SelectableTextBlock>
+                            </DragTabItem>
+                            <DragTabItem Header="Tab 3">
+                                <SelectableTextBlock>Content 3</SelectableTextBlock>
+                            </DragTabItem>
+                            <DragTabItem Header="Tab 4">
+                                <SelectableTextBlock>Content 4</SelectableTextBlock>
+                            </DragTabItem>
+                        </DragTabControl>
+                    </DockPanel>
+                </Border>
 
-                        <TabControl.ItemTemplate>
-                            <DataTemplate x:DataType="models:DragTabItemModel">
-                                <StackPanel Orientation="Horizontal" Spacing="8">
-                                    <materialIcons:MaterialIcon Kind="{Binding IconKind}" />
+                <!--  MVVM  -->
+                <Border Background="{DynamicResource DragTabControlBackgroundBrush}" Classes="card">
+                    <DockPanel VerticalSpacing="16">
+                        <TextBlock Classes="sectionLabel"
+                                   DockPanel.Dock="Top"
+                                   Text="DRAGTABCONTROL MVVM" />
+                        <DragTabControl ItemsSource="{Binding TabItems}"
+                                        NewItemFactory="{Binding NewItemFactory}"
+                                        ShowAddButton="{Binding #ShowAddButton.IsChecked}"
+                                        ShowCloseButton="{Binding #ShowCloseButton.IsChecked}">
+                            <TabControl.ContentTemplate>
+                                <DataTemplate x:DataType="models:DragTabItemModel">
                                     <TextBlock Text="{Binding Title}" />
-                                </StackPanel>
-                            </DataTemplate>
-                        </TabControl.ItemTemplate>
-                    </DragTabControl>
-                </DockPanel>
-            </Border>
-        </UniformGrid>
+                                </DataTemplate>
+                            </TabControl.ContentTemplate>
+
+                            <TabControl.ItemTemplate>
+                                <DataTemplate x:DataType="models:DragTabItemModel">
+                                    <StackPanel Orientation="Horizontal" Spacing="8">
+                                        <materialIcons:MaterialIcon Kind="{Binding IconKind}" />
+                                        <TextBlock Text="{Binding Title}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </TabControl.ItemTemplate>
+                        </DragTabControl>
+                    </DockPanel>
+                </Border>
+            </UniformGrid>
+        </DockPanel>
     </DemoPage>
 
 </UserControl>

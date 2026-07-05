@@ -8,15 +8,15 @@ namespace Synthora.Demo.Views
         public DragTabControlView()
         {
             InitializeComponent();
-            dragTabControl.NewItemFactory = AddDragTabItem;
+            DragTabControl.NewItemFactory = AddDragTabItem;
         }
 
         private DragTabItem AddDragTabItem()
         {
             return new DragTabItem
             {
-                Header = $"Tab {dragTabControl.Items.Count + 1}",
-                Content = $"Content of Tab {dragTabControl.Items.Count + 1}"
+                Header = $"Tab {DragTabControl.Items.Count + 1}",
+                Content = $"Content of Tab {DragTabControl.Items.Count + 1}"
             };
         }
     }

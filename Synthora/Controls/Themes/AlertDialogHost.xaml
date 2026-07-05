@@ -80,7 +80,7 @@
                                      IconType="{Binding AlertDialogInstance?.IconType, RelativeSource={RelativeSource TemplatedParent}}"
                                      IsVisible="{Binding AlertDialogInstance?.IconType, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.NotEqual}, ConverterParameter={x:Static IconType.None}}" />
 
-                            <TextBox Name="message"
+                            <TextBox Name="Message"
                                      Margin="10"
                                      HorizontalAlignment="Left"
                                      VerticalAlignment="Top"

@@ -13,9 +13,9 @@
                 <DockPanel>
                     <HeaderPresenter />
 
-                    <Border Width="{TemplateBinding (TextBoxAttach.Width)}"
-                            MinWidth="{TemplateBinding (TextBoxAttach.MinWidth)}"
-                            MaxWidth="{TemplateBinding (TextBoxAttach.MaxWidth)}"
+                    <Border Width="{TemplateBinding TextBoxAttach.Width}"
+                            MinWidth="{TemplateBinding TextBoxAttach.MinWidth}"
+                            MaxWidth="{TemplateBinding TextBoxAttach.MaxWidth}"
                             Margin="{TemplateBinding Padding}"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
@@ -29,7 +29,7 @@
                             <TextBox Name="PART_TextBox"
                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                     DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
+                                     DataValidationErrors.Errors="{TemplateBinding DataValidationErrors.Errors}"
                                      IsReadOnly="{TemplateBinding IsReadOnly}"
                                      PlaceholderForeground="{TemplateBinding PlaceholderForeground}"
                                      PlaceholderText="{TemplateBinding PlaceholderText}"

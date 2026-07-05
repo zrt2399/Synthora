@@ -116,7 +116,6 @@ namespace Synthora.Controls
             set => SetValue(TextWrappingProperty, value);
         }
 
-        /// <inheritdoc/>
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
         {
             base.OnApplyTemplate(e);

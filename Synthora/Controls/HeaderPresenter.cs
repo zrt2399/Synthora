@@ -41,7 +41,6 @@ namespace Synthora.Controls
             ClearSubscriptions();
         }
 
-        /// <inheritdoc/>
         protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
         {
             base.OnPropertyChanged(change);

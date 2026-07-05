@@ -4,9 +4,6 @@
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
 
-    <!-- <Style Selector="ContentPresenter.HasCloseButton">
-    <Setter Property="Margin" Value="0,0,16,0" />
-    </Style>-->
     <ControlTheme x:Key="CloseItemButtonTheme" TargetType="Button">
         <Setter Property="Width" Value="16" />
         <Setter Property="Height" Value="16" />
@@ -97,7 +94,7 @@
                         <Panel>
                             <Panel Margin="{TemplateBinding Padding}">
                                 <ContentPresenter Name="PART_ContentPresenter"
-                                                  Margin="{Binding #closeButton.IsVisible, Converter={x:Static CloseButtonMarginConverter.Instance}}"
+                                                  Margin="{Binding #CloseButton.IsVisible, Converter={x:Static CloseButtonMarginConverter.Instance}}"
                                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                                   ClipToBounds="True"
@@ -107,7 +104,7 @@
 
                             <LeftPressedThumb Name="PART_Thumb" />
 
-                            <Button Name="closeButton"
+                            <Button Name="CloseButton"
                                     Margin="{TemplateBinding Padding}"
                                     HorizontalAlignment="Right"
                                     VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
@@ -116,8 +113,8 @@
                                     Theme="{StaticResource CloseItemButtonTheme}">
                                 <Button.IsVisible>
                                     <MultiBinding Converter="{x:Static ShowCloseButtonConverter.Instance}">
-                                        <Binding Path="ShowCloseButton" RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type DragTabControl}}" />
-                                        <Binding Path="FixedHeaderCount" RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type DragTabControl}}" />
+                                        <Binding Path="$parent[DragTabControl].ShowCloseButton" />
+                                        <Binding Path="$parent[DragTabControl].FixedHeaderCount" />
                                         <Binding Path="LogicalIndex" RelativeSource="{RelativeSource TemplatedParent}" />
                                     </MultiBinding>
                                 </Button.IsVisible>

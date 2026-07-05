@@ -18,7 +18,7 @@
         <Setter Property="MinHeight" Value="40" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel Name="panel" Background="{TemplateBinding Background}">
+                <Panel Background="{TemplateBinding Background}">
                     <Rectangle Name="SelectedBackground"
                                Fill="{DynamicResource ThemeAccentBrush2}"
                                IsVisible="False"

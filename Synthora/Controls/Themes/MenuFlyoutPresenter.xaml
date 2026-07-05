@@ -9,7 +9,6 @@
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusLarge}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="Padding" Value="{DynamicResource ThemeMenuFlyoutPadding}" />
-        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
         <Setter Property="Focusable" Value="True" />
         <Setter Property="IsTabStop" Value="False" />
         <Setter Property="Template">

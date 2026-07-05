@@ -84,9 +84,9 @@
 
                     <Panel>
                         <TextBox Name="PART_TextBox"
-                                 Width="{TemplateBinding (TextBoxAttach.Width)}"
-                                 MinWidth="{TemplateBinding (TextBoxAttach.MinWidth)}"
-                                 MaxWidth="{TemplateBinding (TextBoxAttach.MaxWidth)}"
+                                 Width="{TemplateBinding TextBoxAttach.Width}"
+                                 MinWidth="{TemplateBinding TextBoxAttach.MinWidth}"
+                                 MaxWidth="{TemplateBinding TextBoxAttach.MaxWidth}"
                                  Padding="{TemplateBinding Padding}"
                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
@@ -94,7 +94,7 @@
                                  BorderBrush="{TemplateBinding BorderBrush}"
                                  BorderThickness="{TemplateBinding BorderThickness}"
                                  CornerRadius="{TemplateBinding CornerRadius}"
-                                 DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
+                                 DataValidationErrors.Errors="{TemplateBinding DataValidationErrors.Errors}"
                                  PlaceholderForeground="{TemplateBinding PlaceholderForeground}"
                                  PlaceholderText="{TemplateBinding PlaceholderText}"
                                  TemplatedControl.IsTemplateFocusTarget="True"

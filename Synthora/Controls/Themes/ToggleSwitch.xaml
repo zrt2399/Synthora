@@ -4,11 +4,11 @@
                     x:CompileBindings="True">
 
     <Design.PreviewWith>
-        <StackPanel Width="250"
+        <StackPanel Width="400"
                     Margin="20"
                     Spacing="24">
             <StackPanel Spacing="12">
-                <TextBlock Classes="h1" Text="Automatic updates" />
+                <TextBlock Classes="H2" Text="Automatic updates" />
                 <TextBlock Text="Updates will be automaticly Downloaded and installed shile the computer is shutting down or restarting" TextWrapping="Wrap" />
                 <ToggleSwitch VerticalAlignment="Bottom"
                               HorizontalContentAlignment="Left"
@@ -18,7 +18,7 @@
             </StackPanel>
 
             <StackPanel Spacing="12">
-                <TextBlock Classes="h1" Text="Previewer" />
+                <TextBlock Classes="H2" Text="Previewer" />
                 <TextBlock Text="The previewer Shows a preview off your code, this could slow down your system" TextWrapping="Wrap" />
                 <ToggleSwitch Content="Previewer" IsChecked="True" />
             </StackPanel>

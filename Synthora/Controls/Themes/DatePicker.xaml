@@ -82,15 +82,15 @@
                             <HeaderPresenter />
 
                             <Button Name="PART_FlyoutButton"
-                                    Width="{TemplateBinding (TextBoxAttach.Width)}"
-                                    MinWidth="{TemplateBinding (TextBoxAttach.MinWidth)}"
-                                    MaxWidth="{TemplateBinding (TextBoxAttach.MaxWidth)}"
+                                    Width="{TemplateBinding TextBoxAttach.Width}"
+                                    MinWidth="{TemplateBinding TextBoxAttach.MinWidth}"
+                                    MaxWidth="{TemplateBinding TextBoxAttach.MaxWidth}"
                                     Padding="0"
                                     Background="{TemplateBinding Background}"
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
                                     CornerRadius="{TemplateBinding CornerRadius}"
-                                    DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
+                                    DataValidationErrors.Errors="{TemplateBinding DataValidationErrors.Errors}"
                                     IsEnabled="{TemplateBinding IsEnabled}"
                                     TemplatedControl.IsTemplateFocusTarget="True"
                                     Theme="{StaticResource SimpleDatePickerFlyoutButtonTheme}">

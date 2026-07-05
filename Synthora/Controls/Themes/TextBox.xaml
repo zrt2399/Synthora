@@ -347,7 +347,7 @@
             <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
         </Style>
 
-        <Style Selector="^:disabled /template/ Border#FocusTarget">
+        <Style Selector="^:disabled">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>
 

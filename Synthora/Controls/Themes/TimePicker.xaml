@@ -84,9 +84,9 @@
                             <HeaderPresenter />
 
                             <Button x:Name="PART_FlyoutButton"
-                                    Width="{TemplateBinding (TextBoxAttach.Width)}"
-                                    MinWidth="{TemplateBinding (TextBoxAttach.MinWidth)}"
-                                    MaxWidth="{TemplateBinding (TextBoxAttach.MaxWidth)}"
+                                    Width="{TemplateBinding TextBoxAttach.Width}"
+                                    MinWidth="{TemplateBinding TextBoxAttach.MinWidth}"
+                                    MaxWidth="{TemplateBinding TextBoxAttach.MaxWidth}"
                                     Padding="0"
                                     HorizontalAlignment="Stretch"
                                     VerticalAlignment="Stretch"
@@ -94,7 +94,7 @@
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
                                     CornerRadius="{TemplateBinding CornerRadius}"
-                                    DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
+                                    DataValidationErrors.Errors="{TemplateBinding DataValidationErrors.Errors}"
                                     IsEnabled="{TemplateBinding IsEnabled}"
                                     Theme="{StaticResource SimpleTimePickerFlyoutButtonTheme}">
 

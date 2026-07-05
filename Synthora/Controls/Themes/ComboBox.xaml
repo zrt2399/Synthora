@@ -86,9 +86,9 @@
                     <HeaderPresenter />
 
                     <Border Name="FocusTarget"
-                            Width="{TemplateBinding (TextBoxAttach.Width)}"
-                            MinWidth="{TemplateBinding (TextBoxAttach.MinWidth)}"
-                            MaxWidth="{TemplateBinding (TextBoxAttach.MaxWidth)}"
+                            Width="{TemplateBinding TextBoxAttach.Width}"
+                            MinWidth="{TemplateBinding TextBoxAttach.MinWidth}"
+                            MaxWidth="{TemplateBinding TextBoxAttach.MaxWidth}"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
@@ -126,7 +126,7 @@
                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                      Background="Transparent"
                                      BorderThickness="0"
-                                     DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
+                                     DataValidationErrors.Errors="{TemplateBinding DataValidationErrors.Errors}"
                                      IsVisible="{TemplateBinding IsEditable}"
                                      PlaceholderForeground="{TemplateBinding PlaceholderForeground}"
                                      PlaceholderText="{TemplateBinding PlaceholderText}"
@@ -166,14 +166,16 @@
                                                     BorderBrush="{TemplateBinding BorderBrush}"
                                                     BorderThickness="{TemplateBinding BorderThickness}">
                                     <Panel>
-                                        <EmptyBox Margin="10"
+                                        <EmptyBox Name="EmptyBox"
+                                                  Margin="10"
                                                   HorizontalAlignment="Center"
                                                   VerticalAlignment="Center"
-                                                  IsVisible="{Binding $parent[ComboBox].Items.Count, Converter={x:Static SynthoraConverters.IsZero}}" />
+                                                  IsVisible="{TemplateBinding ItemCount,
+                                                                              Converter={x:Static SynthoraConverters.IsZero}}" />
                                         <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
-                                                      IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}"
+                                                      IsDeferredScrollingEnabled="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
                                                       IsScrollChainingEnabled="False"
-                                                      IsVisible="{Binding $parent[ComboBox].Items.Count, Converter={x:Static SynthoraConverters.IsNotZero}}"
+                                                      IsVisible="{Binding !#EmptyBox.IsVisible}"
                                                       VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
                                             <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
                                         </ScrollViewer>
@@ -217,7 +219,7 @@
             <Setter Property="KeyboardNavigation.TabNavigation" Value="Local" />
         </Style>
 
-        <Style Selector="^:disabled /template/ Border#FocusTarget">
+        <Style Selector="^:disabled">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>
 

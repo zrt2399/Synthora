@@ -65,13 +65,13 @@
                     <HeaderPresenter />
 
                     <ShadowChrome Name="FocusTarget"
-                                  Width="{TemplateBinding (TextBoxAttach.Width)}"
-                                  MinWidth="{TemplateBinding (TextBoxAttach.MinWidth)}"
-                                  MaxWidth="{TemplateBinding (TextBoxAttach.MaxWidth)}"
+                                  Width="{TemplateBinding TextBoxAttach.Width}"
+                                  MinWidth="{TemplateBinding TextBoxAttach.MinWidth}"
+                                  MaxWidth="{TemplateBinding TextBoxAttach.MaxWidth}"
                                   Background="{TemplateBinding Background}"
                                   BorderBrush="{TemplateBinding BorderBrush}"
                                   BorderThickness="{TemplateBinding BorderThickness}"
-                                  BoxShadow="{TemplateBinding (BoxShadowAttach.BoxShadow)}"
+                                  BoxShadow="{TemplateBinding BoxShadowAttach.BoxShadow}"
                                   CornerRadius="{TemplateBinding CornerRadius}"
                                   TemplatedControl.IsTemplateFocusTarget="True">
 

@@ -83,7 +83,6 @@ namespace Synthora.Controls
             set => SetValue(IsCircularProperty, value);
         }
 
-        /// <inheritdoc/>
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
         {
             base.OnApplyTemplate(e);

@@ -122,7 +122,6 @@ namespace Synthora.Controls
             set => SetValue(RadiusYProperty, value);
         }
 
-        /// <inheritdoc/>
         protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs e)
         {
             if (e.Property == ContentProperty)
@@ -133,7 +132,6 @@ namespace Synthora.Controls
             base.OnPropertyChanged(e);
         }
 
-        /// <inheritdoc/>
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
         {
             base.OnApplyTemplate(e);
