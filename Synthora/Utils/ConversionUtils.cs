@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
+using System.Numerics;
 using System.Reflection;
 using System.Text;
 using Avalonia;
@@ -135,25 +136,6 @@ namespace Synthora.Utils
         }
 
         /// <summary>
-        /// Retrieves the <see cref="DescriptionAttribute"/> text for an enum value, 
-        /// or the enum's name if no description is found.
-        /// Potentially incompatible with Native AOT.
-        /// </summary>
-        public static string GetDescription<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicFields)] T>
-            (this T t) where T : Enum
-        {
-            Type type = typeof(T);
-            string enumName = t.ToString();
-
-            if (type.GetField(enumName)?.GetCustomAttribute<DescriptionAttribute>() is { } descriptionAttribute)
-            {
-                return descriptionAttribute.Description;
-            }
-
-            return enumName;
-        }
-
-        /// <summary>
         /// Calculates the inner radius of a shape given its outer radius and border thickness values.
         /// </summary>
         /// <param name="outerRadius">The outer radius of the shape.</param>
@@ -189,6 +171,57 @@ namespace Synthora.Utils
             }
 
             return Math.Max(0, result);
+        }
+
+        /// <summary>
+        /// Determines whether the specified value is a numeric zero.
+        /// </summary>
+        /// <remarks>
+        /// This method uses direct type matching instead of string parsing to avoid allocations,
+        /// culture-sensitive conversions, and precision loss from converting every value to <see cref="double"/>.
+        /// </remarks>
+        public static bool IsZero(object? value) => value switch
+        {
+            bool v => !v,
+            char v => v == 0,
+            byte v => v == 0,
+            sbyte v => v == 0,
+            short v => v == 0,
+            ushort v => v == 0,
+            int v => v == 0,
+            uint v => v == 0,
+            long v => v == 0,
+            ulong v => v == 0,
+            nint v => v == 0,
+            nuint v => v == 0,
+            Half v => v == Half.Zero,
+            float v => v == 0,
+            double v => v == 0,
+            decimal v => v == 0,
+            Int128 v => v == 0,
+            UInt128 v => v == 0,
+            BigInteger v => v.IsZero,
+            Complex v => v.Real == 0 && v.Imaginary == 0,
+            _ => false
+        };
+
+        /// <summary>
+        /// Retrieves the <see cref="DescriptionAttribute"/> text for an enum value, 
+        /// or the enum's name if no description is found.
+        /// Potentially incompatible with Native AOT.
+        /// </summary>
+        public static string GetDescription<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicFields)] T>
+            (this T t) where T : Enum
+        {
+            Type type = typeof(T);
+            string enumName = t.ToString();
+
+            if (type.GetField(enumName)?.GetCustomAttribute<DescriptionAttribute>() is { } descriptionAttribute)
+            {
+                return descriptionAttribute.Description;
+            }
+
+            return enumName;
         }
 
         /// <summary>

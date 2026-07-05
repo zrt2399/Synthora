@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using Avalonia.Data.Converters;
+using Synthora.Utils;
 
 namespace Synthora.Converters
 {
@@ -8,11 +9,7 @@ namespace Synthora.Converters
     {
         public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
-            if (double.TryParse(value?.ToString(), out var result))
-            {
-                return result == 0;
-            }
-            return false;
+            return ConversionUtils.IsZero(value);
         }
 
         public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
@@ -25,11 +22,7 @@ namespace Synthora.Converters
     {
         public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
-            if (double.TryParse(value?.ToString(), out var result))
-            {
-                return result != 0;
-            }
-            return false;
+            return !ConversionUtils.IsZero(value);
         }
 
         public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
