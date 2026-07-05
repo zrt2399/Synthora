@@ -332,6 +332,7 @@
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
                             <HyperlinkButton>HyperlinkButton</HyperlinkButton>
+                            <HyperlinkButton Classes="Underline">Underline</HyperlinkButton>
                             <HyperlinkButton NavigateUri="{x:Static vm:MainViewModel.GitHubDepositoryUri}">GitHub</HyperlinkButton>
                         </SpacingWrapPanel>
                     </StackPanel>

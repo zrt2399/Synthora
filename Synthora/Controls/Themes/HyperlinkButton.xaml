@@ -16,8 +16,6 @@
         <Setter Property="Background" Value="Transparent" />
         <!--<Setter Property="BackgroundSizing" Value="OuterBorderEdge" />-->
         <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
-        <Setter Property="TextBlock.TextDecorations" Value="Underline" />
-
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Name="RootBorder"
@@ -37,20 +35,25 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^:pointerover">
+        <Style Selector="^:pointerover,^:focus">
+            <Setter Property="TextBlock.TextDecorations" Value="Underline" />
             <Setter Property="Foreground" Value="{DynamicResource PrimaryPointerOverBrush}" />
         </Style>
         <Style Selector="^:pressed">
             <Setter Property="Foreground" Value="{DynamicResource PrimaryPressedBrush}" />
         </Style>
 
-        <Style Selector="^:disabled">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
+        <Style Selector="^.Underline">
+            <Setter Property="TextBlock.TextDecorations" Value="Underline" />
         </Style>
 
         <Style Selector="^:visited /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Foreground" Value="{DynamicResource HyperlinkVisitedBrush}" />
         </Style>
 
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
+        </Style>
     </ControlTheme>
+
 </ResourceDictionary>
