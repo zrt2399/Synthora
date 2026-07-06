@@ -89,39 +89,41 @@
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="SelectArrowDown" />
                             <TextBlock Classes="sectionLabel" Text="COMBOBOX" />
                         </StackPanel>
-                        <ComboBox IsEditable="True"
-                                  PlaceholderText="Search a region..."
-                                  TextBoxAttach.Header="Region"
-                                  TextBoxAttach.IsRequired="True">
-                            <ComboBoxItem>United States</ComboBoxItem>
-                            <ComboBoxItem>Canada</ComboBoxItem>
-                            <ComboBoxItem>United Kingdom</ComboBoxItem>
-                            <ComboBoxItem>Germany</ComboBoxItem>
-                            <ComboBoxItem>France</ComboBoxItem>
-                            <ComboBoxItem>Japan</ComboBoxItem>
-                            <ComboBoxItem>Singapore</ComboBoxItem>
-                            <ComboBoxItem>Australia</ComboBoxItem>
-                            <ComboBoxItem>China</ComboBoxItem>
-                            <ComboBoxItem>South Korea</ComboBoxItem>
-                            <ComboBoxItem>India</ComboBoxItem>
-                            <ComboBoxItem>Brazil</ComboBoxItem>
-                            <ComboBoxItem>Mexico</ComboBoxItem>
-                            <ComboBoxItem>Netherlands</ComboBoxItem>
-                            <ComboBoxItem>Sweden</ComboBoxItem>
-                            <ComboBoxItem>Italy</ComboBoxItem>
-                            <ComboBoxItem>Spain</ComboBoxItem>
-                        </ComboBox>
-                        <ComboBox Classes="clearButton"
-                                  ItemsSource="{Binding SystemFonts}"
-                                  PlaceholderText="Choose a font..."
-                                  SelectedIndex="0"
-                                  TextBoxAttach.Header="System fonts(With clearButton)">
-                            <ComboBox.ItemTemplate>
-                                <DataTemplate x:DataType="FontFamily">
-                                    <TextBlock FontFamily="{Binding}" Text="{Binding Name}" />
-                                </DataTemplate>
-                            </ComboBox.ItemTemplate>
-                        </ComboBox>
+                        <UniformGrid ColumnSpacing="16" Rows="1">
+                            <ComboBox IsEditable="True"
+                                      PlaceholderText="Search a region..."
+                                      TextBoxAttach.Header="Region"
+                                      TextBoxAttach.IsRequired="True">
+                                <ComboBoxItem>United States</ComboBoxItem>
+                                <ComboBoxItem>Canada</ComboBoxItem>
+                                <ComboBoxItem>United Kingdom</ComboBoxItem>
+                                <ComboBoxItem>Germany</ComboBoxItem>
+                                <ComboBoxItem>France</ComboBoxItem>
+                                <ComboBoxItem>Japan</ComboBoxItem>
+                                <ComboBoxItem>Singapore</ComboBoxItem>
+                                <ComboBoxItem>Australia</ComboBoxItem>
+                                <ComboBoxItem>China</ComboBoxItem>
+                                <ComboBoxItem>South Korea</ComboBoxItem>
+                                <ComboBoxItem>India</ComboBoxItem>
+                                <ComboBoxItem>Brazil</ComboBoxItem>
+                                <ComboBoxItem>Mexico</ComboBoxItem>
+                                <ComboBoxItem>Netherlands</ComboBoxItem>
+                                <ComboBoxItem>Sweden</ComboBoxItem>
+                                <ComboBoxItem>Italy</ComboBoxItem>
+                                <ComboBoxItem>Spain</ComboBoxItem>
+                            </ComboBox>
+                            <ComboBox Classes="clearButton"
+                                      ItemsSource="{Binding SystemFonts}"
+                                      PlaceholderText="Choose a font..."
+                                      SelectedIndex="0"
+                                      TextBoxAttach.Header="System fonts(With clearButton)">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate DataType="FontFamily">
+                                        <TextBlock FontFamily="{Binding}" Text="{Binding Name}" />
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </UniformGrid>
                         <ComboBox ItemsSource="{EnumBindingSource ThemeMode}"
                                   SelectedItem="{Binding SelectedEnumDescriptionMode}"
                                   TextBoxAttach.Header="ComboBox(With GetDescription and EnumBindingSourceExtension)"
@@ -178,7 +180,7 @@
                                                SelectedItems="{Binding SelectedMultiComboBoxRoles}"
                                                TextBoxAttach.Header="MVVM roles">
                                     <MultiComboBox.ItemTemplate>
-                                        <DataTemplate x:DataType="vm:MultiComboBoxRole">
+                                        <DataTemplate DataType="vm:MultiComboBoxRole">
                                             <Grid ColumnDefinitions="*,Auto">
                                                 <TextBlock Text="{Binding Name}" />
                                                 <TextBlock Grid.Column="1"

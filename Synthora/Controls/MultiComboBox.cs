@@ -1,5 +1,6 @@
 using System.Collections.Specialized;
 using System.Linq;
+using System.Text;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Metadata;
@@ -19,6 +20,7 @@ namespace Synthora.Controls
     {
         private const string pcDropDownOpen = ":dropdownopen";
         private const string pcPressed = ":pressed";
+        private const string defaultItemDisplayStringFormat = "{0}";
 
         private TextBox? _textBox;
         private bool _updatingSelectedItems;
@@ -83,6 +85,12 @@ namespace Synthora.Controls
         /// </summary>
         public static readonly StyledProperty<string?> SelectionSeparatorProperty =
             AvaloniaProperty.Register<MultiComboBox, string?>(nameof(SelectionSeparator), ", ");
+
+        /// <summary>
+        /// Defines the <see cref="ItemDisplayStringFormat"/> property.
+        /// </summary>
+        public static readonly StyledProperty<string> ItemDisplayStringFormatProperty =
+            AvaloniaProperty.Register<MultiComboBox, string>(nameof(ItemDisplayStringFormat), defaultItemDisplayStringFormat);
 
         /// <summary>
         /// Defines the <see cref="ShowClearButton"/> property.
@@ -199,6 +207,15 @@ namespace Synthora.Controls
         }
 
         /// <summary>
+        /// Gets or sets the format string used for each selected item in <see cref="SelectedText"/>.
+        /// </summary>
+        public string ItemDisplayStringFormat
+        {
+            get => GetValue(ItemDisplayStringFormatProperty);
+            set => SetValue(ItemDisplayStringFormatProperty, value);
+        }
+
+        /// <summary>
         /// Gets or sets whether the clear-selection button is shown.
         /// </summary>
         public bool ShowClearButton
@@ -310,7 +327,6 @@ namespace Synthora.Controls
                 {
                     SetCurrentValue(IsDropDownOpenProperty, !IsDropDownOpen);
                     e.Handled = true;
-                    return;
                 }
                 else if (IsDropDownOpen && e.Key == Key.Escape)
                 {
@@ -325,6 +341,10 @@ namespace Synthora.Controls
                 else if (IsDropDownOpen && e.Key == Key.Tab)
                 {
                     SetCurrentValue(IsDropDownOpenProperty, false);
+                }
+                if (e.Handled)
+                {
+                    return;
                 }
             }
 
@@ -384,14 +404,15 @@ namespace Synthora.Controls
 
             _updatingSelectedItems = true;
             try
-            {
-                var selected = selectedItems.Cast<object?>().ToHashSet();
+            { 
+                var itemCount = Items.Count;
+                var selectedIndexes = Selection.SelectedIndexes.ToHashSet();
 
                 Selection.Clear();
 
-                for (var i = 0; i < Items.Count; i++)
+                for (var i = 0; i < itemCount; i++)
                 {
-                    if (!selected.Contains(Items[i]))
+                    if (!selectedIndexes.Contains(i))
                     {
                         Selection.Select(i);
                     }
@@ -479,24 +500,40 @@ namespace Synthora.Controls
                 SelectedText = string.Empty;
                 return;
             }
-            if (selectedItems.Count == Items.Count && !string.IsNullOrEmpty(AllSelectedText))
+
+            var allSelectedText = AllSelectedText;
+            if (selectedItems.Count == Items.Count && !string.IsNullOrEmpty(allSelectedText))
             {
-                SelectedText = AllSelectedText;
+                SelectedText = allSelectedText;
                 return;
             }
 
-            var texts = selectedItems.Cast<object?>().Select(FormatSelectedItem);
+            var format = ItemDisplayStringFormat;
+            var useDefaultFormat = format == defaultItemDisplayStringFormat;
+            var separator = SelectionSeparator;
+            var stringBuilder = new StringBuilder();
+            var appendSeparator = false;
+            foreach (var item in selectedItems)
+            {
+                if (appendSeparator && !string.IsNullOrEmpty(separator))
+                {
+                    stringBuilder.Append(separator);
+                }
 
-            SelectedText = string.Join(SelectionSeparator, texts);
+                stringBuilder.Append(FormatSelectedItem(item, format, useDefaultFormat));
+                appendSeparator = true;
+            }
+
+            SelectedText = stringBuilder.ToString();
         }
 
-        private static string FormatSelectedItem(object? item)
+        private static string FormatSelectedItem(object? item, string format, bool useDefaultFormat)
         {
-            return item switch
-            {
-                ContentControl contentControl => contentControl.Content?.ToString() ?? string.Empty,
-                _ => item?.ToString() ?? string.Empty
-            };
+            var value = item is ContentControl contentControl ? contentControl.Content : item;
+
+            return useDefaultFormat
+                ? value?.ToString() ?? string.Empty
+                : string.Format(format, value);
         }
 
         private void UpdateDropDownPseudoClass()

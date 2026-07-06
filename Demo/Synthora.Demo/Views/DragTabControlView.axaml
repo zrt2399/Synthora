@@ -60,13 +60,13 @@
                                         ShowAddButton="{Binding #ShowAddButton.IsChecked}"
                                         ShowCloseButton="{Binding #ShowCloseButton.IsChecked}">
                             <TabControl.ContentTemplate>
-                                <DataTemplate x:DataType="models:DragTabItemModel">
+                                <DataTemplate DataType="models:DragTabItemModel">
                                     <TextBlock Text="{Binding Title}" />
                                 </DataTemplate>
                             </TabControl.ContentTemplate>
 
                             <TabControl.ItemTemplate>
-                                <DataTemplate x:DataType="models:DragTabItemModel">
+                                <DataTemplate DataType="models:DragTabItemModel">
                                     <StackPanel Orientation="Horizontal" Spacing="8">
                                         <materialIcons:MaterialIcon Kind="{Binding IconKind}" />
                                         <TextBlock Text="{Binding Title}" />
