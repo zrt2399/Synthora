@@ -114,6 +114,7 @@
                                                       VerticalAlignment="Center"
                                                       VerticalContentAlignment="Center"
                                                       Content="{TemplateBinding Header}"
+                                                      ContentTemplate="{TemplateBinding HeaderTemplate}"
                                                       FontSize="{DynamicResource FontSizeLarge}"
                                                       IsVisible="{TemplateBinding Header,
                                                                                   Converter={x:Static ObjectConverters.IsNotNull}}" />
@@ -150,6 +151,7 @@
                                                       VerticalAlignment="Center"
                                                       VerticalContentAlignment="Center"
                                                       Content="{TemplateBinding Header}"
+                                                      ContentTemplate="{TemplateBinding HeaderTemplate}"
                                                       FontSize="{DynamicResource FontSizeLarge}"
                                                       IsVisible="{TemplateBinding Header,
                                                                                   Converter={x:Static ObjectConverters.IsNotNull}}" />
