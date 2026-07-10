@@ -29,11 +29,14 @@
                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                       BackgroundSizing="{TemplateBinding BackgroundSizing}"
                                       Content="{TemplateBinding Content}"
-                                      ContentTemplate="{TemplateBinding ContentTemplate}"
-                                      RecognizesAccessKey="True" />
+                                      ContentTemplate="{TemplateBinding ContentTemplate}" />
                 </Border>
             </ControlTemplate>
         </Setter>
+
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
 
         <Style Selector="^:pointerover,^:focus">
             <Setter Property="TextBlock.TextDecorations" Value="Underline" />

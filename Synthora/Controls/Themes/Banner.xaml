@@ -75,12 +75,15 @@
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Content="{TemplateBinding Content}"
-                                          RecognizesAccessKey="True"
                                           TextWrapping="{TemplateBinding TextWrapping}" />
                     </DockPanel>
                 </Border>
             </ControlTemplate>
         </Setter>
+
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
 
         <Style Selector="^:none">
             <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />

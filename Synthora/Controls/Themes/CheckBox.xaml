@@ -51,11 +51,14 @@
                                       Content="{TemplateBinding Content}"
                                       ContentTemplate="{TemplateBinding ContentTemplate}"
                                       IsVisible="{TemplateBinding Content,
-                                                                  Converter={x:Static ObjectConverters.IsNotNull}}"
-                                      RecognizesAccessKey="True" />
+                                                                  Converter={x:Static ObjectConverters.IsNotNull}}" />
                 </DockPanel>
             </ControlTemplate>
         </Setter>
+
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
 
         <Style Selector="^:focus,^:pointerover">
             <Style Selector="^ /template/ Border#backgroundBorder">

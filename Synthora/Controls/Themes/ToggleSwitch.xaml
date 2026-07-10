@@ -50,8 +50,7 @@
                                       VerticalAlignment="Top"
                                       Content="{TemplateBinding Content}"
                                       ContentTemplate="{TemplateBinding ContentTemplate}"
-                                      IsVisible="{Binding RelativeSource={RelativeSource Self}, Path=Content, Converter={x:Static ObjectConverters.IsNotNull}}"
-                                      RecognizesAccessKey="True" />
+                                      IsVisible="{Binding RelativeSource={RelativeSource Self}, Path=Content, Converter={x:Static ObjectConverters.IsNotNull}}" />
 
                     <Grid Grid.Row="1"
                           MinWidth="{DynamicResource ToggleSwitchThemeMinWidth}"
@@ -123,6 +122,10 @@
             </ControlTemplate>
         </Setter>
 
+        <Style Selector="^ /template/ ContentPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
+
         <!--  PointerOverState  -->
         <Style Selector="^:pointerover /template/ Border#OuterBorder">
             <Setter Property="BorderBrush" Value="{DynamicResource ThemeControlHighlightMidBrush}" />
@@ -185,6 +188,7 @@
 
         <Style Selector="^:checked /template/ ContentPresenter#PART_OffContentPresenter">
             <Setter Property="Opacity" Value="0" />
+            <Setter Property="Focusable" Value="False" />
             <Setter Property="IsHitTestVisible" Value="False" />
         </Style>
 
@@ -215,6 +219,7 @@
 
         <Style Selector="^:unchecked /template/ ContentPresenter#PART_OnContentPresenter">
             <Setter Property="Opacity" Value="0" />
+            <Setter Property="Focusable" Value="False" />
             <Setter Property="IsHitTestVisible" Value="False" />
         </Style>
 
@@ -223,4 +228,5 @@
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>
     </ControlTheme>
+
 </ResourceDictionary>

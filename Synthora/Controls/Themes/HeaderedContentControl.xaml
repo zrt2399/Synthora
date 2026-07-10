@@ -17,17 +17,19 @@
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Content="{TemplateBinding Header}"
                                           ContentTemplate="{TemplateBinding HeaderTemplate}"
-                                          DockPanel.Dock="Top"
-                                          RecognizesAccessKey="True" />
+                                          DockPanel.Dock="Top" />
                         <ContentPresenter Name="PART_ContentPresenter"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Content="{TemplateBinding Content}"
-                                          ContentTemplate="{TemplateBinding ContentTemplate}"
-                                          RecognizesAccessKey="True" />
+                                          ContentTemplate="{TemplateBinding ContentTemplate}" />
                     </DockPanel>
                 </Border>
             </ControlTemplate>
         </Setter>
+        <Style Selector="^ /template/ ContentPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
     </ControlTheme>
+
 </ResourceDictionary> 

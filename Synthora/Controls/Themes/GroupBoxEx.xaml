@@ -36,8 +36,7 @@
                             </Border.BorderThickness>
                             <ContentPresenter Name="PART_HeaderContentPresenter"
                                               Content="{TemplateBinding Header}"
-                                              ContentTemplate="{TemplateBinding HeaderTemplate}"
-                                              RecognizesAccessKey="True" />
+                                              ContentTemplate="{TemplateBinding HeaderTemplate}" />
                         </Border>
                         <ContentPresenter Name="PART_ContentPresenter"
                                           Margin="{TemplateBinding Padding}"
@@ -49,8 +48,9 @@
                 </ShadowChrome>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:disabled /template/ Border#headerBorder">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
+
+        <Style Selector="^ /template/ ContentPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
         </Style>
 
         <Style Selector="^.Highlight">

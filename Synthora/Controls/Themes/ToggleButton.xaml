@@ -20,8 +20,7 @@
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Content="{TemplateBinding Content}"
-                                          ContentTemplate="{TemplateBinding ContentTemplate}"
-                                          RecognizesAccessKey="True" />
+                                          ContentTemplate="{TemplateBinding ContentTemplate}" />
                     </ShadowChrome>
                     <Rectangle Name="indeterminateRectangle"
                                IsHitTestVisible="False"
@@ -35,6 +34,9 @@
             </ControlTemplate>
         </Setter>
 
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
         <Style Selector="^:indeterminate">
             <Style Selector="^ /template/ Rectangle#indeterminateRectangle">
                 <Setter Property="IsVisible" Value="True" />

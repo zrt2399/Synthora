@@ -74,11 +74,7 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="RecognizesAccessKey" Value="True" />
-        </Style>
-
-        <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
+        <Style Selector="^ /template/ ContentPresenter">
             <Setter Property="RecognizesAccessKey" Value="True" />
         </Style>
 

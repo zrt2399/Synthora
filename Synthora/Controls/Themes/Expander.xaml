@@ -94,6 +94,9 @@
                 </Border>
             </ControlTemplate>
         </Setter>
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
         <Style Selector="^:pointerover">
             <Setter Property="Background" Value="{DynamicResource SynthoraMidBrush}" />
         </Style>
