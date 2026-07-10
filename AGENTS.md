@@ -23,7 +23,7 @@ Synthora is an Avalonia UI theme and control styles library. The main `Synthora`
    - `Synthora/Strings/`: Localized or shared string resources.
    - `Synthora/ThemeDensitys/`: Density-related theme resources.
    - `Synthora/Attaches/`: Attached behaviors and properties.
-   - `Synthora/Commands/`, `Synthora/Converters/`, `Synthora/Events/`, `Synthora/Extensions/`, `Synthora/Overlays/`, `Synthora/Resources/`, `Synthora/Utils/`: Supporting library infrastructure used by the theme package.
+   - `Synthora/Input/`, `Synthora/Converters/`, `Synthora/Events/`, `Synthora/Extensions/`, `Synthora/Overlays/`, `Synthora/Resources/`, `Synthora/Utils/`: Supporting library infrastructure used by the theme package.
    - `Demo/Synthora.Demo/Views/` and `Demo/Synthora.Demo/ViewModels/`: Demo pages and their view models.
    - `Demo/Synthora.Demo/Styles/` and `Demo/Synthora.Demo/Assets/`: Demo-only styles and assets.
 3. **Versioning & Dependencies**:
