@@ -19,7 +19,7 @@ namespace Synthora.Demo.ViewModels
             {
                 SelectedThemeMode = ToThemeMode(application.RequestedThemeVariant);
             }
-            SelectedThemeDensity = SynthoraTheme.GetCurrentDensity();
+            SelectedThemeDensity = SynthoraTheme.Current?.ThemeDensity ?? ThemeDensity.Normal;
             InitializeTreeMenuDemo();
         }
 
@@ -45,7 +45,7 @@ namespace Synthora.Demo.ViewModels
 
         [ObservableProperty]
         public partial ThemeDensity SelectedThemeDensity { get; set; }
-        partial void OnSelectedThemeDensityChanged(ThemeDensity value) => SynthoraTheme.SetDensity(value);
+        partial void OnSelectedThemeDensityChanged(ThemeDensity value) => SynthoraTheme.Current?.ThemeDensity = value;
 
         public static Uri GitHubDepositoryUri { get; } = new Uri("https://github.com/zrt2399/Synthora");
 

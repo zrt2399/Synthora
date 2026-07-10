@@ -1,0 +1,71 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal">
+
+    <x:String x:Key="StringCloseText">關閉</x:String>
+    <!--  DatePicker  -->
+    <x:String x:Key="StringDatePickerDayText">日</x:String>
+    <x:String x:Key="StringDatePickerMonthText">月</x:String>
+    <x:String x:Key="StringDatePickerYearText">年</x:String>
+    <!--  TimePicker  -->
+    <x:String x:Key="StringTimePickerHourText">時</x:String>
+    <x:String x:Key="StringTimePickerMinuteText">分</x:String>
+    <x:String x:Key="StringTimePickerSecondText">秒</x:String>
+    <!--  TextBox/SelectableTextBox flyout  -->
+    <x:String x:Key="StringTextFlyoutUndoText">復原</x:String>
+    <x:String x:Key="StringTextFlyoutRedoText">重做</x:String>
+    <x:String x:Key="StringTextFlyoutCutText">剪下</x:String>
+    <x:String x:Key="StringTextFlyoutCopyText">複製</x:String>
+    <x:String x:Key="StringTextFlyoutPasteText">貼上</x:String>
+    <x:String x:Key="StringTextFlyoutSelectAllText">全選</x:String>
+    <x:String x:Key="StringShowPasswordText">顯示密碼</x:String>
+    <x:String x:Key="StringHidePasswordText">隱藏密碼</x:String>
+    <!--  ManagedFileChooser  -->
+    <x:String x:Key="StringManagedFileChooserFileNamePlaceholder">檔案名稱</x:String>
+    <x:String x:Key="StringManagedFileChooserShowHiddenFilesText">顯示隱藏檔案</x:String>
+    <x:String x:Key="StringManagedFileChooserOkText">確定</x:String>
+    <x:String x:Key="StringManagedFileChooserCancelText">取消</x:String>
+    <x:String x:Key="StringManagedFileChooserNameColumn">名稱</x:String>
+    <x:String x:Key="StringManagedFileChooserDateModifiedColumn">修改日期</x:String>
+    <x:String x:Key="StringManagedFileChooserTypeColumn">類型</x:String>
+    <x:String x:Key="StringManagedFileChooserSizeColumn">大小</x:String>
+    <x:String x:Key="StringManagedFileChooserOverwritePromptFileAlreadyExistsText">{0} 已存在。要取代它嗎？</x:String>
+    <x:String x:Key="StringManagedFileChooserOverwritePromptConfirmText">是</x:String>
+    <x:String x:Key="StringManagedFileChooserOverwritePromptCancelText">否</x:String>
+    <!--  ScrollBar  -->
+    <x:String x:Key="StringScrollBarScrollHere">捲動至此</x:String>
+    <x:String x:Key="StringScrollBarTop">頂部</x:String>
+    <x:String x:Key="StringScrollBarBottom">底部</x:String>
+    <x:String x:Key="StringScrollBarPageUp">向上翻頁</x:String>
+    <x:String x:Key="StringScrollBarPageDown">向下翻頁</x:String>
+    <x:String x:Key="StringScrollBarScrollUp">向上捲動</x:String>
+    <x:String x:Key="StringScrollBarScrollDown">向下捲動</x:String>
+    <x:String x:Key="StringScrollBarLeftEdge">左邊緣</x:String>
+    <x:String x:Key="StringScrollBarRightEdge">右邊緣</x:String>
+    <x:String x:Key="StringScrollBarPageLeft">向左翻頁</x:String>
+    <x:String x:Key="StringScrollBarPageRight">向右翻頁</x:String>
+    <x:String x:Key="StringScrollBarScrollLeft">向左捲動</x:String>
+    <x:String x:Key="StringScrollBarScrollRight">向右捲動</x:String>
+    <!--  AlertDialog  -->
+    <x:String x:Key="StringAlertDialogButtonOK">確定</x:String>
+    <x:String x:Key="StringAlertDialogButtonYes">是</x:String>
+    <x:String x:Key="StringAlertDialogButtonNo">否</x:String>
+    <x:String x:Key="StringAlertDialogButtonCancel">取消</x:String>
+    <x:String x:Key="StringAlertDialogButtonAbort">中止</x:String>
+    <!--  EmptyBox  -->
+    <x:String x:Key="StringEmptyBoxDescription">暫無資料</x:String>
+    <!--  Pagination  -->
+    <x:String x:Key="StringPaginationStatusTextFormat">第 {0}-{1} 項，共 {2} 項</x:String>
+    <x:String x:Key="StringPaginationTotalTextFormat">共 {0} 項</x:String>
+    <x:String x:Key="StringPaginationPageSizeUnitText">頁</x:String>
+    <x:String x:Key="StringPaginationQuickJumpButtonText">跳轉</x:String>
+    <x:String x:Key="StringPaginationFirstPageToolTip">第一頁</x:String>
+    <x:String x:Key="StringPaginationPreviousPageToolTip">上一頁</x:String>
+    <x:String x:Key="StringPaginationNextPageToolTip">下一頁</x:String>
+    <x:String x:Key="StringPaginationLastPageToolTip">最後一頁</x:String>
+    <!--  CommandBar  -->
+    <x:String x:Key="StringCommandBarButtonMore">更多</x:String>
+    <!--  DrawerPage  -->
+    <x:String x:Key="StringDrawerPageToggleNavigationDrawer">切換導覽抽屜</x:String>
+
+</ResourceDictionary>

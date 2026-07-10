@@ -1,0 +1,71 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal">
+
+    <x:String x:Key="StringCloseText">닫기</x:String>
+    <!--  DatePicker  -->
+    <x:String x:Key="StringDatePickerDayText">일</x:String>
+    <x:String x:Key="StringDatePickerMonthText">월</x:String>
+    <x:String x:Key="StringDatePickerYearText">년</x:String>
+    <!--  TimePicker  -->
+    <x:String x:Key="StringTimePickerHourText">시</x:String>
+    <x:String x:Key="StringTimePickerMinuteText">분</x:String>
+    <x:String x:Key="StringTimePickerSecondText">초</x:String>
+    <!--  TextBox/SelectableTextBox flyout  -->
+    <x:String x:Key="StringTextFlyoutUndoText">실행 취소</x:String>
+    <x:String x:Key="StringTextFlyoutRedoText">다시 실행</x:String>
+    <x:String x:Key="StringTextFlyoutCutText">잘라내기</x:String>
+    <x:String x:Key="StringTextFlyoutCopyText">복사</x:String>
+    <x:String x:Key="StringTextFlyoutPasteText">붙여넣기</x:String>
+    <x:String x:Key="StringTextFlyoutSelectAllText">모두 선택</x:String>
+    <x:String x:Key="StringShowPasswordText">암호 표시</x:String>
+    <x:String x:Key="StringHidePasswordText">암호 숨기기</x:String>
+    <!--  ManagedFileChooser  -->
+    <x:String x:Key="StringManagedFileChooserFileNamePlaceholder">파일 이름</x:String>
+    <x:String x:Key="StringManagedFileChooserShowHiddenFilesText">숨김 파일 표시</x:String>
+    <x:String x:Key="StringManagedFileChooserOkText">확인</x:String>
+    <x:String x:Key="StringManagedFileChooserCancelText">취소</x:String>
+    <x:String x:Key="StringManagedFileChooserNameColumn">이름</x:String>
+    <x:String x:Key="StringManagedFileChooserDateModifiedColumn">수정한 날짜</x:String>
+    <x:String x:Key="StringManagedFileChooserTypeColumn">유형</x:String>
+    <x:String x:Key="StringManagedFileChooserSizeColumn">크기</x:String>
+    <x:String x:Key="StringManagedFileChooserOverwritePromptFileAlreadyExistsText">{0}이(가) 이미 있습니다. 바꾸시겠습니까?</x:String>
+    <x:String x:Key="StringManagedFileChooserOverwritePromptConfirmText">예</x:String>
+    <x:String x:Key="StringManagedFileChooserOverwritePromptCancelText">아니요</x:String>
+    <!--  ScrollBar  -->
+    <x:String x:Key="StringScrollBarScrollHere">여기로 스크롤</x:String>
+    <x:String x:Key="StringScrollBarTop">맨 위</x:String>
+    <x:String x:Key="StringScrollBarBottom">맨 아래</x:String>
+    <x:String x:Key="StringScrollBarPageUp">페이지 위로</x:String>
+    <x:String x:Key="StringScrollBarPageDown">페이지 아래로</x:String>
+    <x:String x:Key="StringScrollBarScrollUp">위로 스크롤</x:String>
+    <x:String x:Key="StringScrollBarScrollDown">아래로 스크롤</x:String>
+    <x:String x:Key="StringScrollBarLeftEdge">맨 왼쪽</x:String>
+    <x:String x:Key="StringScrollBarRightEdge">맨 오른쪽</x:String>
+    <x:String x:Key="StringScrollBarPageLeft">페이지 왼쪽</x:String>
+    <x:String x:Key="StringScrollBarPageRight">페이지 오른쪽</x:String>
+    <x:String x:Key="StringScrollBarScrollLeft">왼쪽으로 스크롤</x:String>
+    <x:String x:Key="StringScrollBarScrollRight">오른쪽으로 스크롤</x:String>
+    <!--  AlertDialog  -->
+    <x:String x:Key="StringAlertDialogButtonOK">확인</x:String>
+    <x:String x:Key="StringAlertDialogButtonYes">예</x:String>
+    <x:String x:Key="StringAlertDialogButtonNo">아니요</x:String>
+    <x:String x:Key="StringAlertDialogButtonCancel">취소</x:String>
+    <x:String x:Key="StringAlertDialogButtonAbort">중단</x:String>
+    <!--  EmptyBox  -->
+    <x:String x:Key="StringEmptyBoxDescription">데이터 없음</x:String>
+    <!--  Pagination  -->
+    <x:String x:Key="StringPaginationStatusTextFormat">총 {2}개 중 {0}-{1}</x:String>
+    <x:String x:Key="StringPaginationTotalTextFormat">총 {0}개</x:String>
+    <x:String x:Key="StringPaginationPageSizeUnitText">페이지</x:String>
+    <x:String x:Key="StringPaginationQuickJumpButtonText">이동</x:String>
+    <x:String x:Key="StringPaginationFirstPageToolTip">첫 페이지</x:String>
+    <x:String x:Key="StringPaginationPreviousPageToolTip">이전 페이지</x:String>
+    <x:String x:Key="StringPaginationNextPageToolTip">다음 페이지</x:String>
+    <x:String x:Key="StringPaginationLastPageToolTip">마지막 페이지</x:String>
+    <!--  CommandBar  -->
+    <x:String x:Key="StringCommandBarButtonMore">더 보기</x:String>
+    <!--  DrawerPage  -->
+    <x:String x:Key="StringDrawerPageToggleNavigationDrawer">탐색 창 전환</x:String>
+
+</ResourceDictionary>

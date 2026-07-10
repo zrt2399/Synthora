@@ -5,8 +5,13 @@
 		<ResourceDictionary>
 			<ResourceDictionary.MergedDictionaries>
 				<MergeResourceInclude Source="/Accents/Base.xaml" />
-				<MergeResourceInclude Source="/Strings/InvariantResources.xaml" />
 			</ResourceDictionary.MergedDictionaries>
+			<ResourceInclude x:Key="LanguageEnglish" Source="/Strings/English.xaml" />
+			<ResourceInclude x:Key="LanguageSimplifiedChinese" Source="/Strings/SimplifiedChinese.xaml" />
+			<ResourceInclude x:Key="LanguageTraditionalChinese" Source="/Strings/TraditionalChinese.xaml" />
+			<ResourceInclude x:Key="LanguageKorean" Source="/Strings/Korean.xaml" />
+			<ResourceInclude x:Key="LanguageJapanese" Source="/Strings/Japanese.xaml" />
+
 			<ResourceInclude x:Key="DensityCompact" Source="/ThemeDensitys/Compact.xaml" />
 			<ResourceInclude x:Key="DensityNormal" Source="/ThemeDensitys/Normal.xaml" />
 			<ResourceInclude x:Key="DensitySpacious" Source="/ThemeDensitys/Spacious.xaml" />

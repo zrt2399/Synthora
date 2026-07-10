@@ -1,0 +1,71 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal">
+
+    <x:String x:Key="StringCloseText">閉じる</x:String>
+    <!--  DatePicker  -->
+    <x:String x:Key="StringDatePickerDayText">日</x:String>
+    <x:String x:Key="StringDatePickerMonthText">月</x:String>
+    <x:String x:Key="StringDatePickerYearText">年</x:String>
+    <!--  TimePicker  -->
+    <x:String x:Key="StringTimePickerHourText">時</x:String>
+    <x:String x:Key="StringTimePickerMinuteText">分</x:String>
+    <x:String x:Key="StringTimePickerSecondText">秒</x:String>
+    <!--  TextBox/SelectableTextBox flyout  -->
+    <x:String x:Key="StringTextFlyoutUndoText">元に戻す</x:String>
+    <x:String x:Key="StringTextFlyoutRedoText">やり直し</x:String>
+    <x:String x:Key="StringTextFlyoutCutText">切り取り</x:String>
+    <x:String x:Key="StringTextFlyoutCopyText">コピー</x:String>
+    <x:String x:Key="StringTextFlyoutPasteText">貼り付け</x:String>
+    <x:String x:Key="StringTextFlyoutSelectAllText">すべて選択</x:String>
+    <x:String x:Key="StringShowPasswordText">パスワードを表示</x:String>
+    <x:String x:Key="StringHidePasswordText">パスワードを非表示</x:String>
+    <!--  ManagedFileChooser  -->
+    <x:String x:Key="StringManagedFileChooserFileNamePlaceholder">ファイル名</x:String>
+    <x:String x:Key="StringManagedFileChooserShowHiddenFilesText">隠しファイルを表示</x:String>
+    <x:String x:Key="StringManagedFileChooserOkText">OK</x:String>
+    <x:String x:Key="StringManagedFileChooserCancelText">キャンセル</x:String>
+    <x:String x:Key="StringManagedFileChooserNameColumn">名前</x:String>
+    <x:String x:Key="StringManagedFileChooserDateModifiedColumn">更新日時</x:String>
+    <x:String x:Key="StringManagedFileChooserTypeColumn">種類</x:String>
+    <x:String x:Key="StringManagedFileChooserSizeColumn">サイズ</x:String>
+    <x:String x:Key="StringManagedFileChooserOverwritePromptFileAlreadyExistsText">{0} は既に存在します。置き換えますか？</x:String>
+    <x:String x:Key="StringManagedFileChooserOverwritePromptConfirmText">はい</x:String>
+    <x:String x:Key="StringManagedFileChooserOverwritePromptCancelText">いいえ</x:String>
+    <!--  ScrollBar  -->
+    <x:String x:Key="StringScrollBarScrollHere">ここにスクロール</x:String>
+    <x:String x:Key="StringScrollBarTop">最上部</x:String>
+    <x:String x:Key="StringScrollBarBottom">最下部</x:String>
+    <x:String x:Key="StringScrollBarPageUp">前のページ</x:String>
+    <x:String x:Key="StringScrollBarPageDown">次のページ</x:String>
+    <x:String x:Key="StringScrollBarScrollUp">上へスクロール</x:String>
+    <x:String x:Key="StringScrollBarScrollDown">下へスクロール</x:String>
+    <x:String x:Key="StringScrollBarLeftEdge">左端</x:String>
+    <x:String x:Key="StringScrollBarRightEdge">右端</x:String>
+    <x:String x:Key="StringScrollBarPageLeft">左のページ</x:String>
+    <x:String x:Key="StringScrollBarPageRight">右のページ</x:String>
+    <x:String x:Key="StringScrollBarScrollLeft">左へスクロール</x:String>
+    <x:String x:Key="StringScrollBarScrollRight">右へスクロール</x:String>
+    <!--  AlertDialog  -->
+    <x:String x:Key="StringAlertDialogButtonOK">OK</x:String>
+    <x:String x:Key="StringAlertDialogButtonYes">はい</x:String>
+    <x:String x:Key="StringAlertDialogButtonNo">いいえ</x:String>
+    <x:String x:Key="StringAlertDialogButtonCancel">キャンセル</x:String>
+    <x:String x:Key="StringAlertDialogButtonAbort">中止</x:String>
+    <!--  EmptyBox  -->
+    <x:String x:Key="StringEmptyBoxDescription">データがありません</x:String>
+    <!--  Pagination  -->
+    <x:String x:Key="StringPaginationStatusTextFormat">{2} 件中 {0}-{1} 件</x:String>
+    <x:String x:Key="StringPaginationTotalTextFormat">合計 {0} 件</x:String>
+    <x:String x:Key="StringPaginationPageSizeUnitText">ページ</x:String>
+    <x:String x:Key="StringPaginationQuickJumpButtonText">移動</x:String>
+    <x:String x:Key="StringPaginationFirstPageToolTip">最初のページ</x:String>
+    <x:String x:Key="StringPaginationPreviousPageToolTip">前のページ</x:String>
+    <x:String x:Key="StringPaginationNextPageToolTip">次のページ</x:String>
+    <x:String x:Key="StringPaginationLastPageToolTip">最後のページ</x:String>
+    <!--  CommandBar  -->
+    <x:String x:Key="StringCommandBarButtonMore">その他</x:String>
+    <!--  DrawerPage  -->
+    <x:String x:Key="StringDrawerPageToggleNavigationDrawer">ナビゲーション ウィンドウの切り替え</x:String>
+
+</ResourceDictionary>

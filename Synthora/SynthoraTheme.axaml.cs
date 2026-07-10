@@ -53,27 +53,55 @@ namespace Synthora
     }
 
     /// <summary>
+    /// Defines the language resources used by Synthora theme strings.
+    /// </summary>
+    public enum ThemeLanguage
+    {
+        /// <summary>
+        /// Uses English string resources.
+        /// </summary>
+        [Description("英语")]
+        English,
+        /// <summary>
+        /// Uses Simplified Chinese string resources.
+        /// </summary>
+        [Description("简体中文")]
+        SimplifiedChinese,
+        /// <summary>
+        /// Uses Traditional Chinese string resources.
+        /// </summary>
+        [Description("繁體中文")]
+        TraditionalChinese,
+        /// <summary>
+        /// Uses Japanese string resources.
+        /// </summary>
+        [Description("日语")]
+        Japanese,
+        /// <summary>
+        /// Uses Korean string resources.
+        /// </summary>
+        [Description("韩语")]
+        Korean
+    }
+
+    /// <summary>
     /// Provides the Synthora theme resources and control styles for an Avalonia application.
     /// </summary>
     public class SynthoraTheme : Styles
     {
+        internal const string DensityCompactResourceKey = "DensityCompact";
+        internal const string DensityNormalResourceKey = "DensityNormal";
+        internal const string DensitySpaciousResourceKey = "DensitySpacious";
+        internal const string LanguageEnglishResourceKey = "LanguageEnglish";
+        internal const string LanguageSimplifiedChineseResourceKey = "LanguageSimplifiedChinese";
+        internal const string LanguageTraditionalChineseResourceKey = "LanguageTraditionalChinese";
+        internal const string LanguageKoreanResourceKey = "LanguageKorean";
+        internal const string LanguageJapaneseResourceKey = "LanguageJapanese";
+
         private ThemeDensity _themeDensity = ThemeDensity.Normal;
         private IResourceProvider? _currentDensityResource;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SynthoraTheme"/> class.
-        /// </summary>
-        /// <param name="sp">The parent's service provider.</param>
-        public SynthoraTheme(IServiceProvider? sp = null)
-        {
-            AvaloniaXamlLoader.Load(sp, this);
-            UpdateDensityResource(ThemeDensity);
-        }
-
-        static SynthoraTheme()
-        {
-            ThemeDensityProperty.Changed.AddClassHandler<SynthoraTheme, ThemeDensity>((s, e) => s.OnThemeDensityChanged(e));
-        }
+        private ThemeLanguage _themeLanguage = ThemeLanguage.English;
+        private IResourceProvider? _currentLanguageResource;
 
         /// <summary>
         /// Defines the <see cref="ThemeDensity"/> property.
@@ -81,6 +109,13 @@ namespace Synthora
         public static readonly DirectProperty<SynthoraTheme, ThemeDensity> ThemeDensityProperty =
             AvaloniaProperty.RegisterDirect<SynthoraTheme, ThemeDensity>(
                 nameof(ThemeDensity), o => o.ThemeDensity, (o, v) => o.ThemeDensity = v);
+
+        /// <summary>
+        /// Defines the <see cref="ThemeLanguage"/> property.
+        /// </summary>
+        public static readonly DirectProperty<SynthoraTheme, ThemeLanguage> ThemeLanguageProperty =
+            AvaloniaProperty.RegisterDirect<SynthoraTheme, ThemeLanguage>(
+                nameof(ThemeLanguage), o => o.ThemeLanguage, (o, v) => o.ThemeLanguage = v);
 
         /// <summary>
         /// Gets or sets the active density preset for <see cref="SynthoraTheme"/>.
@@ -91,60 +126,91 @@ namespace Synthora
             set => SetAndRaise(ThemeDensityProperty, ref _themeDensity, value);
         }
 
-        private void OnThemeDensityChanged(AvaloniaPropertyChangedEventArgs<ThemeDensity> e)
+        /// <summary>
+        /// Gets or sets the active language resources for <see cref="SynthoraTheme"/>.
+        /// </summary>
+        public ThemeLanguage ThemeLanguage
         {
-            UpdateDensityResource(e.NewValue.Value);
+            get => _themeLanguage;
+            set => SetAndRaise(ThemeLanguageProperty, ref _themeLanguage, value);
         }
 
-        private void UpdateDensityResource(ThemeDensity style)
+        /// <summary>
+        /// Gets the active <see cref="SynthoraTheme"/> instance from the current Avalonia application.
+        /// </summary>
+        public static SynthoraTheme? Current => Application.Current?.Styles.OfType<SynthoraTheme>().LastOrDefault();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SynthoraTheme"/> class.
+        /// </summary>
+        /// <param name="sp">The parent's service provider.</param>
+        public SynthoraTheme(IServiceProvider? sp = null)
         {
-            string resourceKey = style switch
+            AvaloniaXamlLoader.Load(sp, this);
+            UpdateLanguageResource(ThemeLanguage);
+            UpdateDensityResource(ThemeDensity);
+        }
+
+        protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
+        {
+            base.OnPropertyChanged(change);
+            if (change.Property == ThemeDensityProperty)
             {
-                ThemeDensity.Compact => "DensityCompact",
-                ThemeDensity.Spacious => "DensitySpacious",
-                _ => "DensityNormal",
+                UpdateDensityResource(change.GetNewValue<ThemeDensity>());
+            }
+            else if (change.Property == ThemeLanguageProperty)
+            {
+                UpdateLanguageResource(change.GetNewValue<ThemeLanguage>());
+            }
+        }
+
+        private void UpdateDensityResource(ThemeDensity density)
+        {
+            var resourceKey = density switch
+            {
+                ThemeDensity.Compact => DensityCompactResourceKey,
+                ThemeDensity.Spacious => DensitySpaciousResourceKey,
+                _ => DensityNormalResourceKey,
             };
 
-            if (TryGetResource(resourceKey, null, out var res) && res is IResourceProvider newRes)
+            UpdateMergedResource(resourceKey, ref _currentDensityResource);
+        }
+
+        private void UpdateLanguageResource(ThemeLanguage language)
+        {
+            var resourceKey = language switch
             {
-                if (ReferenceEquals(_currentDensityResource, newRes))
+                ThemeLanguage.SimplifiedChinese => LanguageSimplifiedChineseResourceKey,
+                ThemeLanguage.TraditionalChinese => LanguageTraditionalChineseResourceKey,
+                ThemeLanguage.Korean => LanguageKoreanResourceKey,
+                ThemeLanguage.Japanese => LanguageJapaneseResourceKey,
+                _ => LanguageEnglishResourceKey,
+            };
+
+            UpdateMergedResource(resourceKey, ref _currentLanguageResource);
+        }
+
+        private void UpdateMergedResource(string resourceKey, ref IResourceProvider? currentResource)
+        {
+            if (TryGetResource(resourceKey, null, out var res) && res is IResourceProvider newResource)
+            {
+                if (ReferenceEquals(currentResource, newResource))
                 {
                     return;
                 }
 
-                if (_currentDensityResource != null)
+                if (currentResource != null)
                 {
-                    Resources.MergedDictionaries.Remove(_currentDensityResource);
+                    Resources.MergedDictionaries.Remove(currentResource);
                 }
 
-                Resources.MergedDictionaries.Add(newRes);
-                _currentDensityResource = newRes;
+                Resources.MergedDictionaries.Add(newResource);
+                currentResource = newResource;
             }
             else
             {
                 throw new Exception($"[SynthoraTheme] Error: Resource key '{resourceKey}' not found.");
             }
-        }
-
-        /// <summary>
-        /// Sets the density preset on the <see cref="SynthoraTheme"/> in the current application.
-        /// </summary>
-        public static bool SetDensity(ThemeDensity newDensity)
-        {
-            if (Application.Current?.Styles.OfType<SynthoraTheme>().LastOrDefault() is { } currentThemeInstance)
-            {
-                currentThemeInstance.ThemeDensity = newDensity;
-                return currentThemeInstance.ThemeDensity == newDensity;
-            }
-            return false;
-        }
-
-        /// <summary>
-        /// Gets the density preset from the <see cref="SynthoraTheme"/> in the current application.
-        /// </summary>
-        public static ThemeDensity GetCurrentDensity()
-        {
-            return Application.Current?.Styles.OfType<SynthoraTheme>().LastOrDefault()?.ThemeDensity ?? ThemeDensity.Normal;
         }
     }
 }

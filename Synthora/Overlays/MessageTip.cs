@@ -113,7 +113,7 @@ namespace Synthora.Overlays
                     _ => NoneBorderBrush
                 };
 
-                int padding = SynthoraTheme.GetCurrentDensity() switch
+                int padding = SynthoraTheme.Current?.ThemeDensity switch
                 {
                     ThemeDensity.Compact => 4,
                     ThemeDensity.Spacious => 6,

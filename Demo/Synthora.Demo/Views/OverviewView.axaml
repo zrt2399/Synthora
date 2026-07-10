@@ -184,6 +184,46 @@
                                     <Button Classes="Primary" Theme="{StaticResource OutlineButtonTheme}">Launch Demo</Button>
                                     <Button Classes="Primary" Theme="{StaticResource SolidButtonTheme}">Primary</Button>
                                     <Button Classes="Secondary" Theme="{StaticResource BorderlessButtonTheme}">Secondary</Button>
+                                    <DropDownButton Classes="Primary" Theme="{StaticResource OutlineDropDownButtonTheme}">
+                                        <StackPanel Orientation="Horizontal" Spacing="8">
+                                            <materialIcons:MaterialIcon Kind="Translate" />
+                                            <TextBlock Text="Language" />
+                                        </StackPanel>
+                                        <DropDownButton.Flyout>
+                                            <MenuFlyout Placement="BottomEdgeAlignedLeft">
+                                                <MenuItem Command="{Binding SetThemeLanguage}"
+                                                          CommandParameter="{x:Static ThemeLanguage.English}"
+                                                          GroupName="ThemeLanguage"
+                                                          Header="English"
+                                                          IsChecked="{Binding SelectedThemeLanguage, Converter={x:Static SynthoraConverters.Equal}, ConverterParameter={x:Static ThemeLanguage.English}}"
+                                                          ToggleType="Radio" />
+                                                <MenuItem Command="{Binding SetThemeLanguage}"
+                                                          CommandParameter="{x:Static ThemeLanguage.SimplifiedChinese}"
+                                                          GroupName="ThemeLanguage"
+                                                          Header="简体中文"
+                                                          IsChecked="{Binding SelectedThemeLanguage, Converter={x:Static SynthoraConverters.Equal}, ConverterParameter={x:Static ThemeLanguage.SimplifiedChinese}}"
+                                                          ToggleType="Radio" />
+                                                <MenuItem Command="{Binding SetThemeLanguage}"
+                                                          CommandParameter="{x:Static ThemeLanguage.TraditionalChinese}"
+                                                          GroupName="ThemeLanguage"
+                                                          Header="繁體中文"
+                                                          IsChecked="{Binding SelectedThemeLanguage, Converter={x:Static SynthoraConverters.Equal}, ConverterParameter={x:Static ThemeLanguage.TraditionalChinese}}"
+                                                          ToggleType="Radio" />
+                                                <MenuItem Command="{Binding SetThemeLanguage}"
+                                                          CommandParameter="{x:Static ThemeLanguage.Japanese}"
+                                                          GroupName="ThemeLanguage"
+                                                          Header="日本語"
+                                                          IsChecked="{Binding SelectedThemeLanguage, Converter={x:Static SynthoraConverters.Equal}, ConverterParameter={x:Static ThemeLanguage.Japanese}}"
+                                                          ToggleType="Radio" />
+                                                <MenuItem Command="{Binding SetThemeLanguage}"
+                                                          CommandParameter="{x:Static ThemeLanguage.Korean}"
+                                                          GroupName="ThemeLanguage"
+                                                          Header="한국어"
+                                                          IsChecked="{Binding SelectedThemeLanguage, Converter={x:Static SynthoraConverters.Equal}, ConverterParameter={x:Static ThemeLanguage.Korean}}"
+                                                          ToggleType="Radio" />
+                                            </MenuFlyout>
+                                        </DropDownButton.Flyout>
+                                    </DropDownButton>
                                 </SpacingWrapPanel>
                             </StackPanel>
 

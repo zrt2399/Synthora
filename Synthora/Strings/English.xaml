@@ -1,9 +1,8 @@
-﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     x:ClassModifier="internal">
 
     <x:String x:Key="StringCloseText">Close</x:String>
-
     <!--  DatePicker  -->
     <x:String x:Key="StringDatePickerDayText">day</x:String>
     <x:String x:Key="StringDatePickerMonthText">month</x:String>
@@ -21,7 +20,6 @@
     <x:String x:Key="StringTextFlyoutSelectAllText">Select All</x:String>
     <x:String x:Key="StringShowPasswordText">Show Password</x:String>
     <x:String x:Key="StringHidePasswordText">Hide Password</x:String>
-
     <!--  ManagedFileChooser  -->
     <x:String x:Key="StringManagedFileChooserFileNamePlaceholder">File name</x:String>
     <x:String x:Key="StringManagedFileChooserShowHiddenFilesText">Show hidden files</x:String>
@@ -35,18 +33,19 @@
     <x:String x:Key="StringManagedFileChooserOverwritePromptConfirmText">Yes</x:String>
     <x:String x:Key="StringManagedFileChooserOverwritePromptCancelText">No</x:String>
     <!--  ScrollBar  -->
-    <x:String x:Key="StringScrollBarScrollToTop">Top</x:String>
-    <x:String x:Key="StringScrollBarScrollToBottom">Bottom</x:String>
+    <x:String x:Key="StringScrollBarScrollHere">Scroll Here</x:String>
+    <x:String x:Key="StringScrollBarTop">Top</x:String>
+    <x:String x:Key="StringScrollBarBottom">Bottom</x:String>
     <x:String x:Key="StringScrollBarPageUp">Page Up</x:String>
     <x:String x:Key="StringScrollBarPageDown">Page Down</x:String>
-    <x:String x:Key="StringScrollBarLineUp">Line Up</x:String>
-    <x:String x:Key="StringScrollBarLineDown">Line Down</x:String>
-    <x:String x:Key="StringScrollBarScrollToLeftEdge">Left Edge</x:String>
-    <x:String x:Key="StringScrollBarScrollToRightEdge">Right Edge</x:String>
+    <x:String x:Key="StringScrollBarScrollUp">Scroll Up</x:String>
+    <x:String x:Key="StringScrollBarScrollDown">Scroll Down</x:String>
+    <x:String x:Key="StringScrollBarLeftEdge">Left Edge</x:String>
+    <x:String x:Key="StringScrollBarRightEdge">Right Edge</x:String>
     <x:String x:Key="StringScrollBarPageLeft">Page Left</x:String>
     <x:String x:Key="StringScrollBarPageRight">Page Right</x:String>
-    <x:String x:Key="StringScrollBarLineLeft">Line Left</x:String>
-    <x:String x:Key="StringScrollBarLineRight">Line Right</x:String>
+    <x:String x:Key="StringScrollBarScrollLeft">Scroll Left</x:String>
+    <x:String x:Key="StringScrollBarScrollRight">Scroll Right</x:String>
     <!--  AlertDialog  -->
     <x:String x:Key="StringAlertDialogButtonOK">OK</x:String>
     <x:String x:Key="StringAlertDialogButtonYes">Yes</x:String>
@@ -55,6 +54,15 @@
     <x:String x:Key="StringAlertDialogButtonAbort">Abort</x:String>
     <!--  EmptyBox  -->
     <x:String x:Key="StringEmptyBoxDescription">No data</x:String>
+    <!--  Pagination  -->
+    <x:String x:Key="StringPaginationStatusTextFormat">{0}-{1} of {2}</x:String>
+    <x:String x:Key="StringPaginationTotalTextFormat">Total {0} items</x:String>
+    <x:String x:Key="StringPaginationPageSizeUnitText">page</x:String>
+    <x:String x:Key="StringPaginationQuickJumpButtonText">Go</x:String>
+    <x:String x:Key="StringPaginationFirstPageToolTip">First page</x:String>
+    <x:String x:Key="StringPaginationPreviousPageToolTip">Previous page</x:String>
+    <x:String x:Key="StringPaginationNextPageToolTip">Next page</x:String>
+    <x:String x:Key="StringPaginationLastPageToolTip">Last page</x:String>
     <!--  CommandBar  -->
     <x:String x:Key="StringCommandBarButtonMore">More</x:String>
     <!--  DrawerPage  -->
