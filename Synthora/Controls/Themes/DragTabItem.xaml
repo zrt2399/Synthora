@@ -108,7 +108,7 @@
                                     Margin="{TemplateBinding Padding}"
                                     HorizontalAlignment="Right"
                                     VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                    Command="{Binding $parent[DragTabControl].CloseItemCommand}"
+                                    Command="{Binding $parent[DragTabControl].CloseItem}"
                                     CommandParameter="{Binding RelativeSource={RelativeSource TemplatedParent}}"
                                     Theme="{StaticResource CloseItemButtonTheme}">
                                 <Button.IsVisible>

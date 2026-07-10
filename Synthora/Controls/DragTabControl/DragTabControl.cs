@@ -151,18 +151,6 @@ namespace Synthora.Controls
                 defaultValue: OperatingSystem.IsMacOS() ? MacOsDefaultRightThumbWidth : WindowsAndLinuxDefaultRightThumbWidth);
 
         /// <summary>
-        /// Defines the <see cref="AddItemCommand"/> property.
-        /// </summary>
-        public static readonly DirectProperty<DragTabControl, ICommand> AddItemCommandProperty =
-            AvaloniaProperty.RegisterDirect<DragTabControl, ICommand>(nameof(AddItemCommand), o => o.AddItemCommand);
-
-        /// <summary>
-        /// Defines the <see cref="CloseItemCommand"/> property.
-        /// </summary>
-        public static readonly DirectProperty<DragTabControl, ICommand> CloseItemCommandProperty =
-            AvaloniaProperty.RegisterDirect<DragTabControl, ICommand>(nameof(CloseItemCommand), o => o.CloseItemCommand);
-
-        /// <summary>
         /// Defines the <see cref="LeftContent"/> property.
         /// </summary>
         public static readonly StyledProperty<object?> LeftContentProperty =
@@ -350,24 +338,6 @@ namespace Synthora.Controls
         }
 
         /// <summary>
-        /// Gets the command that adds a new tab item.
-        /// </summary>
-        public ICommand AddItemCommand
-        {
-            get => _addItemCommand;
-            private set => SetAndRaise(AddItemCommandProperty, ref _addItemCommand, value);
-        }
-
-        /// <summary>
-        /// Gets the command that closes a tab item.
-        /// </summary>
-        public ICommand CloseItemCommand
-        {
-            get => _closeItemCommand;
-            private set => SetAndRaise(CloseItemCommandProperty, ref _closeItemCommand, value);
-        }
-
-        /// <summary>
         /// Gets or sets the content displayed to the left of the tab headers.
         /// </summary>
         public object? LeftContent
@@ -477,7 +447,7 @@ namespace Synthora.Controls
                 }
                 else
                 {
-                    AddItemCommand.Execute(null);
+                    AddItem();
                 }
             }
         }
@@ -734,7 +704,7 @@ namespace Synthora.Controls
             window?.DragWindow(e.Vector.X, e.Vector.Y);
         }
 
-        private void AddItem()
+        public void AddItem()
         {
             if (NewItemAsyncFactory is not null)
             {
@@ -753,7 +723,6 @@ namespace Synthora.Controls
             {
                 return;
             }
-            //ArgumentNullException.ThrowIfNull(newItem);
 
             if (GetItemsSource() is { } itemsList)
             {
@@ -763,10 +732,8 @@ namespace Synthora.Controls
             SelectedItem = newItem;
         }
 
-        private void CloseItem(object? tabItemSource)
+        public void CloseItem(object? tabItemSource)
         {
-            //ArgumentNullException.ThrowIfNull(tabItemSource);
-
             if (tabItemSource is not DragTabItem tabItem)
             {
                 return;

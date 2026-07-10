@@ -21,8 +21,6 @@
     <ControlTheme x:Key="{x:Type ProgressRing}" TargetType="ProgressRing">
         <Setter Property="Width" Value="32" />
         <Setter Property="Height" Value="32" />
-        <Setter Property="MinWidth" Value="16" />
-        <Setter Property="MinHeight" Value="16" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
         <Setter Property="StrokeThickness" Value="2" />
 
@@ -34,4 +32,5 @@
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>
     </ControlTheme>
+
 </ResourceDictionary>

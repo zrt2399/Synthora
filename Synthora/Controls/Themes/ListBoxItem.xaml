@@ -28,10 +28,7 @@
         <Style Selector="^:selected">
             <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush5}" />
         </Style>
-        <Style Selector="^:selected:focus">
-            <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush4}" />
-        </Style>
-        <Style Selector="^:selected:pointerover">
+        <Style Selector="^:selected:focus,^:selected:pointerover">
             <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush4}" />
         </Style>
         <Style Selector="^:selected:focus:pointerover">

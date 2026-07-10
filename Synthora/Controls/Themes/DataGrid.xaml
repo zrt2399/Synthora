@@ -191,34 +191,36 @@
         <!--<Setter Property="MinHeight" Value="{DynamicResource DataGridRowMinHeight}" />-->
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel Name="PART_Root">
-                    <Border Name="RowBorder"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{TemplateBinding CornerRadius}">
-                        <DataGridFrozenGrid ColumnDefinitions="Auto,*" RowDefinitions="*,Auto">
-                            <Rectangle Name="InvalidVisualElement"
-                                       Grid.ColumnSpan="2"
-                                       IsHitTestVisible="False"
-                                       IsVisible="False">
-                                <Rectangle.Fill>
-                                    <SolidColorBrush Opacity="0.1" Color="Red" />
-                                </Rectangle.Fill>
-                            </Rectangle>
+                <Border Name="RowBorder"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <DataGridFrozenGrid Name="PART_Root"
+                                        ColumnDefinitions="Auto,*"
+                                        RowDefinitions="*,Auto">
 
-                            <DataGridRowHeader Name="PART_RowHeader"
-                                               Grid.RowSpan="2"
-                                               DataGridFrozenGrid.IsFrozen="True" />
-                            <DataGridCellsPresenter Name="PART_CellsPresenter"
-                                                    Grid.Column="1"
-                                                    DataGridFrozenGrid.IsFrozen="True" />
-                            <DataGridDetailsPresenter Name="PART_DetailsPresenter"
-                                                      Grid.Row="1"
-                                                      Grid.Column="1" />
-                        </DataGridFrozenGrid>
-                    </Border>
-                </Panel>
+                        <Rectangle Name="InvalidVisualElement"
+                                   Grid.ColumnSpan="2"
+                                   IsHitTestVisible="False"
+                                   IsVisible="False">
+                            <Rectangle.Fill>
+                                <SolidColorBrush Opacity="0.1" Color="Red" />
+                            </Rectangle.Fill>
+                        </Rectangle>
+
+                        <DataGridRowHeader Name="PART_RowHeader"
+                                           Grid.RowSpan="2"
+                                           DataGridFrozenGrid.IsFrozen="True" />
+                        <DataGridCellsPresenter Name="PART_CellsPresenter"
+                                                Grid.Column="1"
+                                                DataGridFrozenGrid.IsFrozen="True" />
+                        <DataGridDetailsPresenter Name="PART_DetailsPresenter"
+                                                  Grid.Row="1"
+                                                  Grid.Column="1" />
+
+                    </DataGridFrozenGrid>
+                </Border>
             </ControlTemplate>
         </Setter>
 
@@ -235,10 +237,7 @@
         <Style Selector="^:selected:pointerover /template/ Border#RowBorder">
             <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush4}" />
         </Style>
-        <Style Selector="^:selected:focus-within /template/ Border#RowBorder">
-            <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush3}" />
-        </Style>
-        <Style Selector="^:selected:focus-within:pointerover /template/ Border#RowBorder">
+        <Style Selector="^:selected:focus-within /template/ Border#RowBorder,^:selected:focus-within:pointerover /template/ Border#RowBorder">
             <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush3}" />
         </Style>
     </ControlTheme>
@@ -259,6 +258,7 @@
                         <DockPanel Margin="{TemplateBinding Padding}">
                             <DataGridRowHeader Name="PART_RowHeader"
                                                Padding="0"
+                                               BorderThickness="0"
                                                DataGridFrozenGrid.IsFrozen="True" />
 
                             <Rectangle Name="PART_IndentSpacer" />
@@ -287,8 +287,7 @@
     <ControlTheme x:Key="DataGridTopLeftColumnHeader"
                   BasedOn="{StaticResource {x:Type DataGridColumnHeader}}"
                   TargetType="DataGridColumnHeader">
-        <Setter Property="PointerPressAttach.PointerPressMode" Value="Left" />
-        <Setter Property="PointerPressAttach.Command" Value="{Binding $parent[DataGrid].SelectAll}" />
+        <Setter Property="PointerReleasedAttach.Command" Value="{Binding $parent[DataGrid].SelectAll}" />
         <Setter Property="HorizontalContentAlignment" Value="Right" />
         <Setter Property="VerticalContentAlignment" Value="Bottom" />
         <Setter Property="UseLayoutRounding" Value="False" />
