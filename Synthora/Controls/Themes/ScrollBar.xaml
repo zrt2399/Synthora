@@ -4,49 +4,69 @@
                     x:CompileBindings="True">
 
     <MenuFlyout x:Key="SimpleScrollBarVerticalContextFlyout">
-        <MenuItem Command="{x:Static ScrollBarUtils.ScrollToHomeCommand}"
-                  CommandParameter="{Binding $parent[ScrollBar]}"
-                  Header="{DynamicResource StringScrollBarScrollToTop}" />
-        <MenuItem Command="{x:Static ScrollBarUtils.ScrollToEndCommand}"
-                  CommandParameter="{Binding $parent[ScrollBar]}"
-                  Header="{DynamicResource StringScrollBarScrollToBottom}" />
+        <MenuItem AutomationProperties.AutomationId="ScrollHere"
+                  Command="{Binding $parent[ScrollBar].ScrollHere}"
+                  Header="{DynamicResource StringScrollBarScrollHere}" />
         <Separator />
-        <MenuItem Command="{x:Static ScrollBarUtils.LargeDecrementCommand}"
+        <MenuItem AutomationProperties.AutomationId="Top"
+                  Command="{x:Static ScrollBarUtils.ScrollToHomeCommand}"
+                  CommandParameter="{Binding $parent[ScrollBar]}"
+                  Header="{DynamicResource StringScrollBarTop}" />
+        <MenuItem AutomationProperties.AutomationId="Bottom"
+                  Command="{x:Static ScrollBarUtils.ScrollToEndCommand}"
+                  CommandParameter="{Binding $parent[ScrollBar]}"
+                  Header="{DynamicResource StringScrollBarBottom}" />
+        <Separator />
+        <MenuItem AutomationProperties.AutomationId="PageUp"
+                  Command="{x:Static ScrollBarUtils.LargeDecrementCommand}"
                   CommandParameter="{Binding $parent[ScrollBar]}"
                   Header="{DynamicResource StringScrollBarPageUp}" />
-        <MenuItem Command="{x:Static ScrollBarUtils.LargeIncrementCommand}"
+        <MenuItem AutomationProperties.AutomationId="PageDown"
+                  Command="{x:Static ScrollBarUtils.LargeIncrementCommand}"
                   CommandParameter="{Binding $parent[ScrollBar]}"
                   Header="{DynamicResource StringScrollBarPageDown}" />
         <Separator />
-        <MenuItem Command="{x:Static ScrollBarUtils.SmallDecrementCommand}"
+        <MenuItem AutomationProperties.AutomationId="ScrollUp"
+                  Command="{x:Static ScrollBarUtils.SmallDecrementCommand}"
                   CommandParameter="{Binding $parent[ScrollBar]}"
-                  Header="{DynamicResource StringScrollBarLineUp}" />
-        <MenuItem Command="{x:Static ScrollBarUtils.SmallIncrementCommand}"
+                  Header="{DynamicResource StringScrollBarScrollUp}" />
+        <MenuItem AutomationProperties.AutomationId="ScrollDown"
+                  Command="{x:Static ScrollBarUtils.SmallIncrementCommand}"
                   CommandParameter="{Binding $parent[ScrollBar]}"
-                  Header="{DynamicResource StringScrollBarLineDown}" />
+                  Header="{DynamicResource StringScrollBarScrollDown}" />
     </MenuFlyout>
 
     <MenuFlyout x:Key="SimpleScrollBarHorizontalContextFlyout">
-        <MenuItem Command="{x:Static ScrollBarUtils.ScrollToHomeCommand}"
-                  CommandParameter="{Binding $parent[ScrollBar]}"
-                  Header="{DynamicResource StringScrollBarScrollToLeftEdge}" />
-        <MenuItem Command="{x:Static ScrollBarUtils.ScrollToEndCommand}"
-                  CommandParameter="{Binding $parent[ScrollBar]}"
-                  Header="{DynamicResource StringScrollBarScrollToRightEdge}" />
+        <MenuItem AutomationProperties.AutomationId="ScrollHere"
+                  Command="{Binding $parent[ScrollBar].ScrollHere}"
+                  Header="{DynamicResource StringScrollBarScrollHere}" />
         <Separator />
-        <MenuItem Command="{x:Static ScrollBarUtils.LargeDecrementCommand}"
+        <MenuItem AutomationProperties.AutomationId="LeftEdge"
+                  Command="{x:Static ScrollBarUtils.ScrollToHomeCommand}"
+                  CommandParameter="{Binding $parent[ScrollBar]}"
+                  Header="{DynamicResource StringScrollBarLeftEdge}" />
+        <MenuItem AutomationProperties.AutomationId="RightEdge"
+                  Command="{x:Static ScrollBarUtils.ScrollToEndCommand}"
+                  CommandParameter="{Binding $parent[ScrollBar]}"
+                  Header="{DynamicResource StringScrollBarRightEdge}" />
+        <Separator />
+        <MenuItem AutomationProperties.AutomationId="PageLeft"
+                  Command="{x:Static ScrollBarUtils.LargeDecrementCommand}"
                   CommandParameter="{Binding $parent[ScrollBar]}"
                   Header="{DynamicResource StringScrollBarPageLeft}" />
-        <MenuItem Command="{x:Static ScrollBarUtils.LargeIncrementCommand}"
+        <MenuItem AutomationProperties.AutomationId="PageRight"
+                  Command="{x:Static ScrollBarUtils.LargeIncrementCommand}"
                   CommandParameter="{Binding $parent[ScrollBar]}"
                   Header="{DynamicResource StringScrollBarPageRight}" />
         <Separator />
-        <MenuItem Command="{x:Static ScrollBarUtils.SmallDecrementCommand}"
+        <MenuItem AutomationProperties.AutomationId="ScrollLeft"
+                  Command="{x:Static ScrollBarUtils.SmallDecrementCommand}"
                   CommandParameter="{Binding $parent[ScrollBar]}"
-                  Header="{DynamicResource StringScrollBarLineLeft}" />
-        <MenuItem Command="{x:Static ScrollBarUtils.SmallIncrementCommand}"
+                  Header="{DynamicResource StringScrollBarScrollLeft}" />
+        <MenuItem AutomationProperties.AutomationId="ScrollRight"
+                  Command="{x:Static ScrollBarUtils.SmallIncrementCommand}"
                   CommandParameter="{Binding $parent[ScrollBar]}"
-                  Header="{DynamicResource StringScrollBarLineRight}" />
+                  Header="{DynamicResource StringScrollBarScrollRight}" />
     </MenuFlyout>
 
     <StreamGeometry x:Key="ScrollBarLeftGlyph">

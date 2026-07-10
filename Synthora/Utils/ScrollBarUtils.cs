@@ -7,12 +7,12 @@ namespace Synthora.Utils
 {
     internal class ScrollBarUtils
     {
-        public static ICommand ScrollToHomeCommand { get; } = new RelayCommand<ScrollBar>(ScrollBarScrollToHome);
-        public static ICommand ScrollToEndCommand { get; } = new RelayCommand<ScrollBar>(ScrollBarScrollToEnd);
-        public static ICommand LargeDecrementCommand { get; } = new RelayCommand<ScrollBar>(ScrollBarLargeDecrement);
-        public static ICommand LargeIncrementCommand { get; } = new RelayCommand<ScrollBar>(ScrollBarLargeIncrement);
-        public static ICommand SmallDecrementCommand { get; } = new RelayCommand<ScrollBar>(ScrollBarSmallDecrement);
-        public static ICommand SmallIncrementCommand { get; } = new RelayCommand<ScrollBar>(ScrollBarSmallIncrement);
+        public static ICommand ScrollToHomeCommand { get; } = new RelayCommand<ScrollBar?>(ScrollBarScrollToHome);
+        public static ICommand ScrollToEndCommand { get; } = new RelayCommand<ScrollBar?>(ScrollBarScrollToEnd);
+        public static ICommand LargeDecrementCommand { get; } = new RelayCommand<ScrollBar?>(ScrollBarLargeDecrement);
+        public static ICommand LargeIncrementCommand { get; } = new RelayCommand<ScrollBar?>(ScrollBarLargeIncrement);
+        public static ICommand SmallDecrementCommand { get; } = new RelayCommand<ScrollBar?>(ScrollBarSmallDecrement);
+        public static ICommand SmallIncrementCommand { get; } = new RelayCommand<ScrollBar?>(ScrollBarSmallIncrement);
 
         [UnsafeAccessor(UnsafeAccessorKind.Method, Name = nameof(LargeDecrement))]
         public static extern void LargeDecrement(ScrollBar scrollBar);
@@ -27,7 +27,7 @@ namespace Synthora.Utils
         {
             if (scrollBar != null)
             {
-                scrollBar.SetCurrentValue(RangeBase.ValueProperty, 0);
+                scrollBar.SetCurrentValue(RangeBase.ValueProperty, scrollBar.Minimum);
                 LargeDecrement(scrollBar);
             }
         }
@@ -36,7 +36,7 @@ namespace Synthora.Utils
         {
             if (scrollBar != null)
             {
-                scrollBar.SetCurrentValue(RangeBase.ValueProperty, double.MaxValue);
+                scrollBar.SetCurrentValue(RangeBase.ValueProperty, scrollBar.Maximum);
                 LargeIncrement(scrollBar);
             }
         }
