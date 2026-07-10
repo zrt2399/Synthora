@@ -131,6 +131,9 @@
                         <DataTemplate DataType="vm:DataGridViewModel">
                             <views:DataGridView />
                         </DataTemplate>
+                        <DataTemplate DataType="vm:TableViewViewModel">
+                            <views:TableViewView />
+                        </DataTemplate>
                         <DataTemplate DataType="vm:ListBoxViewModel">
                             <views:ListBoxView />
                         </DataTemplate>

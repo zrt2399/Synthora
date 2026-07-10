@@ -57,6 +57,18 @@ namespace Synthora.Demo.ViewModels
             DataGridCollectionView = new DataGridCollectionView(Employees);
             DataGridCollectionView.GroupDescriptions.Add(new DataGridPathGroupDescription(nameof(Employee.Age)));
         }
+    public partial class TableViewViewModel : TreeMenuDemoItem
+    {
+        public TableViewViewModel()
+        {
+            IconKind = MaterialIconKind.Table;
+            Description = "TableView";
+            var employees = EmployeeGenerator.Generate(1000);
+            Employees = new ObservableCollection<Employee>(employees);
+        }
+
+        [ObservableProperty]
+        public partial ObservableCollection<Employee>? Employees { get; set; }
     }
 
     public class ListBoxViewModel : TreeMenuDemoItem

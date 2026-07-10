@@ -82,6 +82,7 @@
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/NavigationPage.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ContextMenu.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/DataGrid.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/TableView.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/CalendarButton.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/CalendarDayButton.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/CalendarItem.xaml" />

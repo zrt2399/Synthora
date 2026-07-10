@@ -68,7 +68,7 @@ namespace Synthora.Demo.ViewModels
                 CreateItem(new TextBlockViewModel()),
                 CreateItem(new ButtonsViewModel()),
                 CreateItem(new SelectionControlsViewModel()),
-                CreateItem(new CollectionControlsViewModel(), new DataGridViewModel(), new TreeViewViewModel(), new ListBoxViewModel(), new RefreshContainerViewModel()),
+                CreateItem(new CollectionControlsViewModel(), new DataGridViewModel(), new TableViewViewModel(), new TreeViewViewModel(), new ListBoxViewModel(), new RefreshContainerViewModel()),
                 CreateItem(new MenuViewModel()),
                 CreateItem(new BannerViewModel()),
                 CreateItem(new OverlayViewModel()),

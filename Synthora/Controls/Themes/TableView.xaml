@@ -1,0 +1,180 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
+                    x:CompileBindings="True">
+
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <TableView Width="400" Height="200">
+                <TableView.Columns>
+                    <TableViewColumn Width="*" Header="Name" />
+                    <TableViewColumn Width="120" Header="Value" />
+                </TableView.Columns>
+            </TableView>
+        </Border>
+    </Design.PreviewWith>
+
+    <x:Double x:Key="TableViewColumnResizerWidth">4</x:Double>
+    <Thickness x:Key="TableViewColumnResizerMargin">0,0,-2,0</Thickness>
+
+    <Thickness x:Key="TableViewColumnHeaderRightBorderThickness">0,0,1,0</Thickness>
+    <Thickness x:Key="TableViewColumnHeaderBottomBorderThickness">0,0,0,1</Thickness>
+
+    <ControlTheme x:Key="{x:Type TableViewCell}" TargetType="TableViewCell">
+        <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </ControlTheme>
+
+    <ControlTemplate x:Key="TableViewColumnHeaderResizerTemplate" TargetType="Thumb">
+        <Rectangle Fill="Transparent" />
+    </ControlTemplate>
+
+    <ControlTheme x:Key="{x:Type TableViewColumnHeader}" TargetType="TableViewColumnHeader">
+        <Setter Property="Padding" Value="{DynamicResource ThemeHeaderControlPadding}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource TableViewColumnHeaderRightBorderThickness}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <ContentPresenter Name="PART_ContentPresenter"
+                                      Padding="{TemplateBinding Padding}"
+                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      Background="{TemplateBinding Background}"
+                                      BorderBrush="{TemplateBinding BorderBrush}"
+                                      BorderThickness="{TemplateBinding BorderThickness}"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      CornerRadius="{TemplateBinding CornerRadius}" />
+                    <Thumb Name="PART_Resizer"
+                           Width="{DynamicResource TableViewColumnResizerWidth}"
+                           Margin="{DynamicResource TableViewColumnResizerMargin}"
+                           HorizontalAlignment="Right"
+                           Cursor="SizeWestEast"
+                           IsEnabled="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Column?.CanUserEffectivelyResize, FallbackValue=False}"
+                           Template="{StaticResource TableViewColumnHeaderResizerTemplate}" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type TableViewRow}" TargetType="TableViewRow">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="MinHeight" Value="{DynamicResource TableViewRowMinHeight}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="Border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <TableViewCellsPresenter Name="PART_CellsPresenter"
+                                             Margin="{TemplateBinding Padding}"
+                                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Background" Value="{DynamicResource ThemeControlHighlightLowBrush}" />
+        </Style>
+        <Style Selector="^:selected">
+            <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush5}" />
+        </Style>
+        <Style Selector="^:selected:focus,^:selected:pointerover">
+            <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush4}" />
+        </Style>
+        <Style Selector="^:selected:focus:pointerover">
+            <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush3}" />
+        </Style>
+    </ControlTheme>
+
+    <!--  ScrollViewer in TableView  -->
+    <ControlTheme x:Key="TableViewScrollViewerTheme" TargetType="ScrollViewer">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,*,Auto">
+                    <Border Grid.ColumnSpan="2"
+                            BorderBrush="{DynamicResource SynthoraBorderBrush}"
+                            BorderThickness="{DynamicResource TableViewColumnHeaderBottomBorderThickness}">
+                        <TableViewColumnHeadersPresenter />
+                    </Border>
+                    <ScrollContentPresenter Name="PART_ContentPresenter"
+                                            Grid.Row="1"
+                                            Margin="{TemplateBinding Padding}"
+                                            Background="{TemplateBinding Background}"
+                                            HorizontalSnapPointsAlignment="{TemplateBinding HorizontalSnapPointsAlignment}"
+                                            HorizontalSnapPointsType="{TemplateBinding HorizontalSnapPointsType}"
+                                            ScrollViewer.IsScrollInertiaEnabled="{TemplateBinding IsScrollInertiaEnabled}"
+                                            VerticalSnapPointsAlignment="{TemplateBinding VerticalSnapPointsAlignment}"
+                                            VerticalSnapPointsType="{TemplateBinding VerticalSnapPointsType}">
+                        <ScrollContentPresenter.GestureRecognizers>
+                            <ScrollGestureRecognizer CanHorizontallyScroll="{Binding CanHorizontallyScroll, ElementName=PART_ContentPresenter}"
+                                                     CanVerticallyScroll="{Binding CanVerticallyScroll, ElementName=PART_ContentPresenter}"
+                                                     IsScrollInertiaEnabled="{Binding (ScrollViewer.IsScrollInertiaEnabled), ElementName=PART_ContentPresenter}" />
+                        </ScrollContentPresenter.GestureRecognizers>
+                    </ScrollContentPresenter>
+                    <ScrollBar Name="PART_HorizontalScrollBar"
+                               Grid.Row="2"
+                               Orientation="Horizontal" />
+                    <ScrollBar Name="PART_VerticalScrollBar"
+                               Grid.Row="1"
+                               Grid.Column="1"
+                               Orientation="Vertical" />
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^[AllowAutoHide=True] /template/ ScrollContentPresenter#PART_ContentPresenter">
+            <Setter Property="Grid.ColumnSpan" Value="2" />
+            <Setter Property="Grid.RowSpan" Value="2" />
+        </Style>
+    </ControlTheme>
+
+    <!--  TableView theme  -->
+    <ControlTheme x:Key="{x:Type TableView}" TargetType="TableView">
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
+        <Setter Property="ScrollViewer.IsScrollInertiaEnabled" Value="True" />
+        <Setter Property="ScrollViewer.AllowAutoHide" Value="True" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ShadowChrome Name="RootChrome"
+                              Background="{TemplateBinding Background}"
+                              BorderBrush="{TemplateBinding BorderBrush}"
+                              BorderThickness="{TemplateBinding BorderThickness}"
+                              BoxShadow="{TemplateBinding BoxShadowAttach.BoxShadow}"
+                              CornerRadius="{TemplateBinding CornerRadius}">
+                    <ScrollViewer Name="PART_ScrollViewer"
+                                  AllowAutoHide="{TemplateBinding ScrollViewer.AllowAutoHide}"
+                                  BringIntoViewOnFocusChange="{TemplateBinding ScrollViewer.BringIntoViewOnFocusChange}"
+                                  HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                  HorizontalSnapPointsType="{TemplateBinding ScrollViewer.HorizontalSnapPointsType}"
+                                  IsDeferredScrollingEnabled="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
+                                  IsScrollChainingEnabled="{TemplateBinding ScrollViewer.IsScrollChainingEnabled}"
+                                  IsScrollInertiaEnabled="{TemplateBinding ScrollViewer.IsScrollInertiaEnabled}"
+                                  Theme="{StaticResource TableViewScrollViewerTheme}"
+                                  VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"
+                                  VerticalSnapPointsType="{TemplateBinding ScrollViewer.VerticalSnapPointsType}">
+                        <ItemsPresenter Name="PART_ItemsPresenter"
+                                        Margin="{TemplateBinding Padding}"
+                                        ItemsPanel="{TemplateBinding ItemsPanel}" />
+                    </ScrollViewer>
+                </ShadowChrome>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^.Border">
+            <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
+            <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
+        </Style>
+        <Style Selector="^.Shadow">
+            <Setter Property="ClipToBounds" Value="False" />
+            <Setter Property="BoxShadowAttach.BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
+        </Style>
+    </ControlTheme>
+
+</ResourceDictionary>

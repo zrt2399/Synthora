@@ -3,6 +3,7 @@
                     x:ClassModifier="internal">
 
     <x:Double x:Key="DataGridRowMinHeight">28</x:Double>
+    <x:Double x:Key="TableViewRowMinHeight">28</x:Double>
 
     <Thickness x:Key="ThemeControlBorderPadding">4</Thickness>
     <x:Double x:Key="ThemeControlBorderPaddingDouble">4</x:Double>
