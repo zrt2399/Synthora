@@ -33,6 +33,7 @@
         <Setter Property="Padding" Value="{DynamicResource ThemeHeaderControlPadding}" />
         <Setter Property="BorderThickness" Value="{DynamicResource TableViewColumnHeaderRightBorderThickness}" />
         <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
+        <Setter Property="MinHeight" Value="{DynamicResource TableViewRowMinHeight}" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">

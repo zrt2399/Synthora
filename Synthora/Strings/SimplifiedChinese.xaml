@@ -55,6 +55,7 @@
     <!--  EmptyBox  -->
     <x:String x:Key="StringEmptyBoxDescription">暂无数据</x:String>
     <!--  Pagination  -->
+    <x:String x:Key="StringPaginationEmptyText">暂无项目</x:String>
     <x:String x:Key="StringPaginationStatusTextFormat">第 {0}-{1} 项，共 {2} 项</x:String>
     <x:String x:Key="StringPaginationTotalTextFormat">共 {0} 项</x:String>
     <x:String x:Key="StringPaginationPageSizeUnitText">页</x:String>

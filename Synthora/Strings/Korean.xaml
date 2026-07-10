@@ -55,6 +55,7 @@
     <!--  EmptyBox  -->
     <x:String x:Key="StringEmptyBoxDescription">데이터 없음</x:String>
     <!--  Pagination  -->
+    <x:String x:Key="StringPaginationEmptyText">항목 없음</x:String>
     <x:String x:Key="StringPaginationStatusTextFormat">총 {2}개 중 {0}-{1}</x:String>
     <x:String x:Key="StringPaginationTotalTextFormat">총 {0}개</x:String>
     <x:String x:Key="StringPaginationPageSizeUnitText">페이지</x:String>

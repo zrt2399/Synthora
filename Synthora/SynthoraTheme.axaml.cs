@@ -60,7 +60,7 @@ namespace Synthora
         /// <summary>
         /// Uses English string resources.
         /// </summary>
-        [Description("英语")]
+        [Description("English")]
         English,
         /// <summary>
         /// Uses Simplified Chinese string resources.
@@ -75,12 +75,12 @@ namespace Synthora
         /// <summary>
         /// Uses Japanese string resources.
         /// </summary>
-        [Description("日语")]
+        [Description("日本語")]
         Japanese,
         /// <summary>
         /// Uses Korean string resources.
         /// </summary>
-        [Description("韩语")]
+        [Description("한국어")]
         Korean
     }
 

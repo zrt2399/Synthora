@@ -1,0 +1,80 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
+                    x:CompileBindings="True">
+
+    <ControlTheme x:Key="PaginationButtonTheme"
+                  BasedOn="{StaticResource BorderlessButtonTheme}"
+                  TargetType="Button">
+        <Setter Property="MinWidth" Value="{Binding $self.Bounds.Height}" />
+        <Style Selector="^:current">
+            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{DynamicResource PrimaryPointerOverBrush}" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="Background" Value="{DynamicResource PrimaryPressedBrush}" />
+            </Style>
+        </Style>
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="0.25" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type PaginationItem}"
+                  BasedOn="{StaticResource PaginationButtonTheme}"
+                  TargetType="PaginationItem">
+        <Style Selector="^:jump-next,^:jump-previous">
+            <Setter Property="Content">
+                <Template>
+                    <PathIcon Width="10"
+                              Height="10"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Data="{DynamicResource EllipsisData}" />
+                </Template>
+            </Setter>
+        </Style>
+        <Style Selector="^:jump-previous:pointerover">
+            <Setter Property="Content">
+                <Template>
+                    <PathIcon Width="10"
+                              Height="10"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Data="{DynamicResource DoubleArrowLeftData}" />
+                </Template>
+            </Setter>
+        </Style>
+        <Style Selector="^:jump-next:pointerover">
+            <Setter Property="Content">
+                <Template>
+                    <PathIcon Width="10"
+                              Height="10"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Data="{DynamicResource DoubleArrowRightData}" />
+                </Template>
+            </Setter>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="SecondaryPaginationItemTheme"
+                  BasedOn="{StaticResource {x:Type PaginationItem}}"
+                  TargetType="PaginationItem">
+        <Style Selector="^:current">
+            <Setter Property="Background" Value="{DynamicResource SecondaryBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource OnSecondaryBrush}" />
+
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{DynamicResource SecondaryPointerOverBrush}" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="Background" Value="{DynamicResource SecondaryPressedBrush}" />
+            </Style>
+        </Style>
+    </ControlTheme>
+
+</ResourceDictionary> 

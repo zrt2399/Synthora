@@ -458,6 +458,11 @@
                             <PipsPager MaxVisiblePips="10"
                                        NumberOfPages="10"
                                        SelectedPageIndex="2" />
+                            <Pagination Classes="Secondary"
+                                        DisplayPageCount="8"
+                                        PageSize="10"
+                                        TotalItemCount="210"
+                                        PageIndex="2" />
                             <Divider Content="Navigation" Orientation="Horizontal" />
                             <TabControl Theme="{StaticResource SegmentedTabControlTheme}">
                                 <TabItem Header="Overview">

@@ -55,6 +55,7 @@
     <!--  EmptyBox  -->
     <x:String x:Key="StringEmptyBoxDescription">No data</x:String>
     <!--  Pagination  -->
+    <x:String x:Key="StringPaginationEmptyText">No items</x:String>
     <x:String x:Key="StringPaginationStatusTextFormat">{0}-{1} of {2}</x:String>
     <x:String x:Key="StringPaginationTotalTextFormat">Total {0} items</x:String>
     <x:String x:Key="StringPaginationPageSizeUnitText">page</x:String>

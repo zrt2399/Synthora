@@ -30,6 +30,8 @@
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/PathIcon.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/PathPicker.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/PipsPager.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/Pagination.xaml" />
+                <MergeResourceInclude Source="avares://Synthora/Controls/Themes/PaginationItem.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/CheckBox.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/ToolTip.xaml" />
                 <MergeResourceInclude Source="avares://Synthora/Controls/Themes/TipIcon.xaml" />

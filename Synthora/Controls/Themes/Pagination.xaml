@@ -1,0 +1,131 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
+                    x:CompileBindings="True">
+
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <Pagination PageSize="20"
+                        TotalItemCount="238"
+                        PageIndex="4" />
+        </Border>
+    </Design.PreviewWith>
+
+    <ControlTheme x:Key="{x:Type Pagination}" TargetType="Pagination">
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="StatusTextFormat" Value="{DynamicResource StringPaginationStatusTextFormat}" />
+        <Setter Property="TotalTextFormat" Value="{DynamicResource StringPaginationTotalTextFormat}" />
+        <Setter Property="PageSizeUnitText" Value="{DynamicResource StringPaginationPageSizeUnitText}" />
+        <Setter Property="QuickJumpButtonText" Value="{DynamicResource StringPaginationQuickJumpButtonText}" />
+        <Setter Property="ItemsPanel">
+            <ItemsPanelTemplate>
+                <StackPanel Orientation="Horizontal" Spacing="4" />
+            </ItemsPanelTemplate>
+        </Setter>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <StackPanel Orientation="Horizontal" Spacing="8">
+                    <TextBlock VerticalAlignment="Center"
+                               Foreground="{DynamicResource ThemeForegroundMidBrush}"
+                               IsVisible="{TemplateBinding ShowTotalItemCount}"
+                               Text="{TemplateBinding StatusText}" />
+
+                    <ComboBox HorizontalContentAlignment="Center"
+                              IsVisible="{TemplateBinding ShowPageSizeSelector}"
+                              ItemsSource="{TemplateBinding PageSizeOptions}"
+                              SelectedItem="{TemplateBinding PageSize,
+                                                             Mode=TwoWay}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding StringFormat='{}{0} / '}" />
+                                    <TextBlock Text="{Binding $parent[Pagination].PageSizeUnitText}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
+                    <StackPanel Orientation="Horizontal" Spacing="4">
+                        <Button Command="{Binding FirstPage, RelativeSource={RelativeSource TemplatedParent}}"
+                                IsEnabled="{TemplateBinding CanGoPrevious}"
+                                IsVisible="{TemplateBinding ShowFirstLastButtons}"
+                                Theme="{StaticResource PaginationButtonTheme}"
+                                ToolTip.Tip="{DynamicResource StringPaginationFirstPageToolTip}">
+                            <PathIcon Width="10"
+                                      Height="10"
+                                      HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"
+                                      Data="{DynamicResource DoubleArrowLeftData}" />
+                        </Button>
+                        <Button Command="{Binding PreviousPage, RelativeSource={RelativeSource TemplatedParent}}"
+                                IsEnabled="{TemplateBinding CanGoPrevious}"
+                                Theme="{StaticResource PaginationButtonTheme}"
+                                ToolTip.Tip="{DynamicResource StringPaginationPreviousPageToolTip}">
+                            <PathIcon Width="10"
+                                      Height="10"
+                                      HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"
+                                      Data="{DynamicResource ArrowLeftData}" />
+                        </Button>
+
+                        <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+
+                        <TextBlock Name="PART_EmptyTextBlock"
+                                   VerticalAlignment="Center"
+                                   IsVisible="False"
+                                   Opacity="{DynamicResource ThemePlaceholderTextOpacity}"
+                                   Text="{DynamicResource StringPaginationEmptyText}" />
+
+                        <Button Command="{Binding NextPage, RelativeSource={RelativeSource TemplatedParent}}"
+                                IsEnabled="{TemplateBinding CanGoNext}"
+                                Theme="{StaticResource PaginationButtonTheme}"
+                                ToolTip.Tip="{DynamicResource StringPaginationNextPageToolTip}">
+                            <PathIcon Width="10"
+                                      Height="10"
+                                      HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"
+                                      Data="{DynamicResource ArrowRightData}" />
+                        </Button>
+                        <Button Command="{Binding LastPage, RelativeSource={RelativeSource TemplatedParent}}"
+                                IsEnabled="{TemplateBinding CanGoNext}"
+                                IsVisible="{TemplateBinding ShowFirstLastButtons}"
+                                Theme="{StaticResource PaginationButtonTheme}"
+                                ToolTip.Tip="{DynamicResource StringPaginationLastPageToolTip}">
+                            <PathIcon Width="10"
+                                      Height="10"
+                                      HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"
+                                      Data="{DynamicResource DoubleArrowRightData}" />
+                        </Button>
+                    </StackPanel>
+
+                    <StackPanel IsVisible="{TemplateBinding ShowQuickJumper}"
+                                Orientation="Horizontal"
+                                Spacing="4">
+                        <TextBox Name="PART_QuickJumpBox"
+                                 Width="64"
+                                 TextAlignment="Center" />
+                        <Button Command="{Binding ConfirmQuickJump, RelativeSource={RelativeSource TemplatedParent}}"
+                                Content="{TemplateBinding QuickJumpButtonText}"
+                                IsEnabled="{Binding CanConfirmQuickJump, RelativeSource={RelativeSource TemplatedParent}}"
+                                Theme="{StaticResource PaginationButtonTheme}" />
+                    </StackPanel>
+                </StackPanel>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^.Secondary">
+            <Setter Property="ItemContainerTheme" Value="{StaticResource SecondaryPaginationItemTheme}" />
+        </Style>
+
+        <Style Selector="^:empty">
+            <Style Selector="^ /template/ ItemsPresenter#PART_ItemsPresenter">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+            <Style Selector="^ /template/ TextBlock#PART_EmptyTextBlock">
+                <Setter Property="IsVisible" Value="True" />
+            </Style>
+        </Style>
+    </ControlTheme>
+
+</ResourceDictionary>

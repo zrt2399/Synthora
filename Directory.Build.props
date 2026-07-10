@@ -3,9 +3,11 @@
 		<Version>2.4.0.0</Version>
 		<AvaloniaVersion>12.0.5</AvaloniaVersion>
 		<AvaloniaDataGridVersion>12.0.1</AvaloniaDataGridVersion>
+		<AvaloniaVersion>12.1.0</AvaloniaVersion>
+		<AvaloniaDataGridVersion>12.1.0</AvaloniaDataGridVersion>
 		<FileVersion>$(Version)</FileVersion>
 		<AssemblyVersion>$(Version)</AssemblyVersion>
 
-		<DemoAvaloniaVersion>12.1.999-cibuild0066977-alpha</DemoAvaloniaVersion>
+		<DemoAvaloniaVersion>12.1.0</DemoAvaloniaVersion>
 	</PropertyGroup>
 </Project>
