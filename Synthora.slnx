@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/Demo/">
+    <Project Path="Demo/Synthora.Demo.Android/Synthora.Demo.Android.csproj">
+      <Deploy />
+    </Project>
+    <Project Path="Demo/Synthora.Demo.Desktop/Synthora.Demo.Desktop.csproj" />
+    <Project Path="Demo/Synthora.Demo/Synthora.Demo.csproj" />
+  </Folder>
+  <Folder Name="/Solution Files/">
+    <File Path="Directory.Build.props" />
+  </Folder>
+  <Project Path="Synthora/Synthora.csproj" />
+</Solution>
