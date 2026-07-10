@@ -62,7 +62,7 @@
                             </Button>
                         </Grid>
                     </GroupBoxEx.Header>
-                    <Panel Name="panel">
+                    <Panel Name="Panel">
                         <Grid Name="PART_MonthView" IsVisible="False">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
@@ -114,8 +114,9 @@
             </Template>
         </Setter>
 
-        <!--<Style Selector="^:calendardisabled /template/ Rectangle#DisabledVisual">
-            <Setter Property="IsVisible" Value="True" />
-        </Style>-->
+        <Style Selector="^:disabled /template/ Panel#Panel">
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledMidOpacity}" />
+        </Style>
     </ControlTheme>
+
 </ResourceDictionary>

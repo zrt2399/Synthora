@@ -74,7 +74,6 @@
                                   BoxShadow="{TemplateBinding BoxShadowAttach.BoxShadow}"
                                   CornerRadius="{TemplateBinding CornerRadius}"
                                   TemplatedControl.IsTemplateFocusTarget="True">
-
                         <DockPanel>
                             <UniformGrid Name="PART_SpinnerPanel"
                                          Columns="1"
@@ -130,7 +129,7 @@
         <Style Selector="^:error">
             <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
         </Style>
-        <Style Selector="^:disabled /template/ ShadowChrome#FocusTarget">
+        <Style Selector="^:disabled">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>
     </ControlTheme>

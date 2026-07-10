@@ -191,6 +191,9 @@
         <!--  Disabled  -->
         <Style Selector="^:disabled">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledHighOpacity}" />
+            <Style Selector="^ /template/ ContentPresenter#PART_IconPresenter">
+                <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
+            </Style>
         </Style>
     </ControlTheme>
 
@@ -205,7 +208,7 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="{x:Type TabbedPage}" TargetType="TabbedPage"> 
+    <ControlTheme x:Key="{x:Type TabbedPage}" TargetType="TabbedPage">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
             <ControlTemplate>

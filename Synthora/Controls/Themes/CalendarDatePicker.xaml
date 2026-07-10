@@ -64,6 +64,9 @@
         <Style Selector="^:pressed">
             <Setter Property="Opacity" Value="0.6" />
         </Style>
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
+        </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type CalendarDatePicker}" TargetType="CalendarDatePicker">
@@ -139,6 +142,10 @@
             <Style Selector="^ /template/ SystemShadowChrome#SystemShadowChrome">
                 <Setter Property="BorderBrush" Value="{DynamicResource SynthoraHighlightBorderBrush}" />
             </Style>
+        </Style>
+
+        <Style Selector="^:disabled /template/ HeaderPresenter">
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>
     </ControlTheme>
 

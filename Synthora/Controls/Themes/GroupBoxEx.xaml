@@ -57,6 +57,10 @@
             <Setter Property="HeaderBackground" Value="{DynamicResource SynthoraHighlightBackgroundBrush}" />
             <Setter Property="BorderBrush" Value="{DynamicResource SynthoraHighlightBorderBrush}" />
         </Style>
+
+        <Style Selector="^:disabled /template/ Border#headerBorder">
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
+        </Style>
     </ControlTheme>
 
 </ResourceDictionary>

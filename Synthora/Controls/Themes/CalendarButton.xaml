@@ -64,8 +64,9 @@
             <Setter Property="IsVisible" Value="True" />
         </Style>
 
-        <Style Selector="^:disabled">
+        <!--  <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
-        </Style>
+        </Style>-->
     </ControlTheme>
+
 </ResourceDictionary> 

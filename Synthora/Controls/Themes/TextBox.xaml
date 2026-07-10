@@ -369,4 +369,10 @@
         </Style>
     </ControlTheme>
 
+    <ControlTheme x:Key="{x:Type TextPresenter}" TargetType="TextPresenter">
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
+        </Style>
+    </ControlTheme>
+
 </ResourceDictionary>

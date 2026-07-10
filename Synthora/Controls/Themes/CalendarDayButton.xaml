@@ -17,7 +17,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel Name="panel" Background="{TemplateBinding Background}">
+                <Panel Background="{TemplateBinding Background}">
                     <Rectangle Name="SelectedBackground"
                                Fill="{DynamicResource ThemeAccentBrush2}"
                                IsVisible="False"
@@ -83,8 +83,9 @@
             <Setter Property="TextBlock.TextDecorations" Value="Strikethrough" />
         </Style>
 
-        <Style Selector="^:disabled">
+        <!--  <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
-        </Style>
+        </Style>-->
     </ControlTheme>
+
 </ResourceDictionary>

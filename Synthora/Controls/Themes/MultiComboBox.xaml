@@ -20,22 +20,25 @@
                 <DockPanel>
                     <HeaderPresenter />
 
-                    <Border Name="PART_FocusTarget"
-                            Width="{TemplateBinding TextBoxAttach.Width}"
-                            MinWidth="{TemplateBinding TextBoxAttach.MinWidth}"
-                            MaxWidth="{TemplateBinding TextBoxAttach.MaxWidth}"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{TemplateBinding CornerRadius}"
-                            TemplatedControl.IsTemplateFocusTarget="True">
+                    <ShadowChrome Name="PART_FocusTarget"
+                                  Width="{TemplateBinding TextBoxAttach.Width}"
+                                  MinWidth="{TemplateBinding TextBoxAttach.MinWidth}"
+                                  MaxWidth="{TemplateBinding TextBoxAttach.MaxWidth}"
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  BoxShadow="{TemplateBinding BoxShadowAttach.BoxShadow}"
+                                  CornerRadius="{TemplateBinding CornerRadius}"
+                                  TemplatedControl.IsTemplateFocusTarget="True">
                         <Grid ColumnDefinitions="*,Auto,Auto">
                             <TextBox Name="PART_TextBox"
                                      Padding="{TemplateBinding Padding}"
-                                     HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                     VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                      Background="Transparent"
+                                     BorderBrush="{x:Null}"
                                      BorderThickness="0"
+                                     CornerRadius="0"
                                      DataValidationErrors.Errors="{TemplateBinding DataValidationErrors.Errors}"
                                      Focusable="{TemplateBinding AllowTextSelection}"
                                      IsHitTestVisible="{TemplateBinding AllowTextSelection}"
@@ -101,7 +104,7 @@
                                 </SystemShadowChrome>
                             </Popup>
                         </Grid>
-                    </Border>
+                    </ShadowChrome>
                 </DockPanel>
             </ControlTemplate>
         </Setter>
@@ -133,6 +136,10 @@
         </Style>
         <Style Selector="^:disabled">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
+            <!--  Avoid compounding disabled opacity with the outer control.  -->
+            <Style Selector="^ /template/ TextBox#PART_TextBox">
+                <Setter Property="Opacity" Value="1" />
+            </Style>
         </Style>
     </ControlTheme>
 

@@ -90,6 +90,9 @@
                 </DockPanel>
             </ControlTemplate>
         </Setter>
+        <Style Selector="^:disabled /template/ HeaderPresenter">
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
+        </Style>
     </ControlTheme>
 
 </ResourceDictionary> 

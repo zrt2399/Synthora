@@ -154,6 +154,9 @@
         <Style Selector="^:hasnodate /template/ Button#PART_FlyoutButton TextBlock">
             <Setter Property="Opacity" Value="{DynamicResource ThemePlaceholderTextOpacity}" />
         </Style>
+        <Style Selector="^:disabled /template/ HeaderPresenter">
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
+        </Style>
     </ControlTheme>
 
     <!--  WinUI: DatePickerFlyoutPresenter  -->

@@ -34,4 +34,8 @@
         </Style>
     </ControlTheme>
 
+    <ControlTheme x:Key="{x:Type AccessText}"
+                  BasedOn="{StaticResource {x:Type TextBlock}}"
+                  TargetType="AccessText" />
+
 </ResourceDictionary>

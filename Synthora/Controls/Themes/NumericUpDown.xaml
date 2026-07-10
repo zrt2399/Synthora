@@ -107,5 +107,10 @@
         <Style Selector="^:error /template/ ButtonSpinner#PART_Spinner">
             <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
         </Style>
+        <!--  Avoid compounding disabled opacity with the outer control.  -->
+        <Style Selector="^:disabled /template/ TextBox#PART_TextBox">
+            <Setter Property="Opacity" Value="1" />
+        </Style>
     </ControlTheme>
+
 </ResourceDictionary>
