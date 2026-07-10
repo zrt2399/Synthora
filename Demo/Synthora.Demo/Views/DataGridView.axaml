@@ -94,15 +94,11 @@
                             Reset
                         </Button>
                     </WrapPanel>
-                    <Pagination DockPanel.Dock="Bottom"
-                                PageIndex="{Binding StylingPageIndex, Mode=TwoWay}"
-                                PageSize="{Binding StylingPageSize, Mode=TwoWay}"
-                                TotalItemCount="{Binding StylingTotalItemCount}" />
                     <DataGrid Name="DataGridEmployees"
                               Classes.Border="{Binding #Border.IsChecked}"
                               Classes.Shadow="{Binding #Shadow.IsChecked}"
                               CornerRadius="{Binding #Slider.Value, Converter={x:Static SynthoraConverters.DoubleToCornerRadiusConverter}}"
-                              ItemsSource="{Binding PagedEmployees}" />
+                              ItemsSource="{Binding Employees}" />
                 </DockPanel>
             </TabItem>
         </TabControl>

@@ -21,7 +21,7 @@
 
             <Color x:Key="ThemeForegroundLowColor">#FF808080</Color>
             <Color x:Key="ThemeForegroundMidColor">#FF606060</Color>
-            <Color x:Key="ThemeForegroundColor">#FF25292E</Color>
+            <Color x:Key="ThemeForegroundColor">#FF1F2328</Color>
             <Color x:Key="ThemeBackgroundColor">#FFFFFFFF</Color>
 
             <Color x:Key="SecondaryColor">#FF181818</Color>
@@ -429,8 +429,14 @@
     <StreamGeometry x:Key="ArrowLeftData">
         M1581 109L1491 19L486 1024L1491 2029L1581 1939L666 1024Z
     </StreamGeometry>
+    <StreamGeometry x:Key="DoubleArrowLeftData">
+        M1095 109L1005 19L0 1024L1005 2029L1095 1939L180 1024Z M2048 109L1958 19L953 1024L1958 2029L2048 1939L1133 1024Z
+    </StreamGeometry>
     <StreamGeometry x:Key="ArrowRightData">
         M486 109L576 19L1581 1024L576 2029L486 1939L1401 1024L486 109Z
+    </StreamGeometry>
+    <StreamGeometry x:Key="DoubleArrowRightData">
+        M0 109L90 19L1095 1024L90 2029L0 1939L915 1024Z M953 109L1043 19L2048 1024L1043 2029L953 1939L1868 1024Z
     </StreamGeometry>
 
     <StreamGeometry x:Key="EllipsisData">
