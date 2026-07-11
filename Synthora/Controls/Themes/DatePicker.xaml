@@ -71,7 +71,7 @@
     <ControlTheme x:Key="{x:Type DatePicker}" TargetType="DatePicker">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusSmall}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
         <Setter Property="Template">

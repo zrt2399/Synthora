@@ -56,7 +56,7 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusSmall}" />
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
         <Setter Property="PlaceholderForeground" Value="{DynamicResource ThemeForegroundBrush}" />
         <Setter Property="Template">

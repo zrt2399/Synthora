@@ -211,7 +211,7 @@
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
         <!--<Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />-->
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusSmall}" />
         <Setter Property="SelectionBrush" Value="{DynamicResource TextSelectionBrush}" />
         <Setter Property="CaretBrush" Value="{DynamicResource ThemeForegroundBrush}" />
         <!--<Setter Property="SelectionForegroundBrush" Value="{DynamicResource HighlightForegroundBrush}" />-->

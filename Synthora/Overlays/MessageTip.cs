@@ -152,7 +152,7 @@ namespace Synthora.Overlays
                 }
 
                 var border = new Border();
-                if (application.TryGetResource("ThemeBorderCornerRadiusNormal", application.ActualThemeVariant, out var radius) && radius is CornerRadius cornerRadius)
+                if (application.TryGetResource("ThemeBorderCornerRadiusSmall", application.ActualThemeVariant, out var radius) && radius is CornerRadius cornerRadius)
                 {
                     border.CornerRadius = cornerRadius;
                 }
