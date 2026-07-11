@@ -250,33 +250,35 @@
         <Setter Property="MinHeight" Value="{DynamicResource DataGridRowMinHeight}" />
         <Setter Property="Template">
             <ControlTemplate x:DataType="collections:DataGridCollectionViewGroup">
-                <DataGridFrozenGrid Name="PART_Root">
-                    <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{TemplateBinding CornerRadius}">
-                        <DockPanel Margin="{TemplateBinding Padding}">
-                            <DataGridRowHeader Name="PART_RowHeader"
-                                               Padding="0"
-                                               BorderThickness="0"
-                                               DataGridFrozenGrid.IsFrozen="True" />
+                <Border Name="HeaderBorder"
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <DataGridFrozenGrid Name="PART_Root" ColumnDefinitions="Auto,Auto,Auto,*">
+                        <DataGridRowHeader Name="PART_RowHeader"
+                                           Padding="0"
+                                           BorderThickness="0"
+                                           DataGridFrozenGrid.IsFrozen="True" />
 
-                            <Rectangle Name="PART_IndentSpacer" />
+                        <Rectangle Name="PART_IndentSpacer" Grid.Column="1" />
 
-                            <ToggleButton Name="PART_ExpanderButton"
-                                          Margin="0,0,8,0"
-                                          Theme="{StaticResource SimpleExpanderButtonNoTransitionTheme}" />
+                        <ToggleButton Name="PART_ExpanderButton"
+                                      Grid.Column="2"
+                                      Margin="0,0,8,0"
+                                      Theme="{StaticResource SimpleExpanderButtonNoTransitionTheme}" />
 
-                            <StackPanel VerticalAlignment="Center"
-                                        Orientation="Horizontal"
-                                        Spacing="8">
-                                <TextBlock Name="PART_PropertyNameElement" IsVisible="{TemplateBinding IsPropertyNameVisible}" />
-                                <TextBlock Text="{Binding Key}" />
-                                <TextBlock Name="PART_ItemCountElement" IsVisible="{TemplateBinding IsItemCountVisible}" />
-                            </StackPanel>
-                        </DockPanel>
-                    </Border>
-                </DataGridFrozenGrid>
+                        <StackPanel Grid.Column="3"
+                                    VerticalAlignment="Center"
+                                    Orientation="Horizontal"
+                                    Spacing="8">
+                            <TextBlock Name="PART_PropertyNameElement" IsVisible="{TemplateBinding IsPropertyNameVisible}" />
+                            <TextBlock Text="{Binding Key}" />
+                            <TextBlock Name="PART_ItemCountElement" IsVisible="{TemplateBinding IsItemCountVisible}" />
+                        </StackPanel>
+                    </DataGridFrozenGrid>
+                </Border>
             </ControlTemplate>
         </Setter>
         <Style Selector="^:pointerover,^:focus-within">
