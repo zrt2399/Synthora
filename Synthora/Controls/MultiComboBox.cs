@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Layout;
 using Avalonia.Media;
-using Avalonia.Threading;
+using Avalonia.Utilities;
 
 namespace Synthora.Controls
 {
@@ -16,12 +17,13 @@ namespace Synthora.Controls
     /// Represents a combo-box style list that supports multiple selected items.
     /// </summary>
     [PseudoClasses(pcDropDownOpen, pcPressed)]
-    public class MultiComboBox : ListBox
+    public class MultiComboBox : ListBox, IWeakEventSubscriber<NotifyCollectionChangedEventArgs>
     {
         private const string pcDropDownOpen = ":dropdownopen";
         private const string pcPressed = ":pressed";
         private const string defaultItemDisplayStringFormat = "{0}";
 
+        private Popup? _popup;
         private TextBox? _textBox;
         private bool _updatingSelectedItems;
         private string? _selectedText;
@@ -257,6 +259,16 @@ namespace Synthora.Controls
         }
 
         /// <summary>
+        /// Occurs after the drop-down (popup) list of the <see cref="MultiComboBox"/> closes.
+        /// </summary>
+        public event EventHandler? DropDownClosed;
+
+        /// <summary>
+        /// Occurs after the drop-down (popup) list of the <see cref="MultiComboBox"/> opens.
+        /// </summary>
+        public event EventHandler? DropDownOpened;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="MultiComboBox"/> class.
         /// </summary>
         public MultiComboBox()
@@ -264,15 +276,28 @@ namespace Synthora.Controls
             SelectionChanged += OnSelectionChanged;
             if (Items is INotifyCollectionChanged notifyCollectionChanged)
             {
-                notifyCollectionChanged.CollectionChanged += OnItemsCollectionChanged;
+                WeakEvents.CollectionChanged.Subscribe(notifyCollectionChanged, this);
             }
         }
 
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
         {
+            if (_popup != null)
+            {
+                _popup.Opened -= OnPopupOpened;
+                _popup.Closed -= OnPopupClosed;
+            }
+
             base.OnApplyTemplate(e);
 
+            _popup = e.NameScope.Find<Popup>("PART_Popup");
             _textBox = e.NameScope.Find<TextBox>("PART_TextBox");
+
+            if (_popup != null)
+            {
+                _popup.Opened += OnPopupOpened;
+                _popup.Closed += OnPopupClosed;
+            }
 
             UpdateDropDownPseudoClass();
         }
@@ -367,12 +392,12 @@ namespace Synthora.Controls
 
             if (change.Property == IsDropDownOpenProperty)
             {
-                OnIsDropDownOpenChanged(change.GetNewValue<bool>());
+                UpdateDropDownPseudoClass();
             }
             else if (change.Property == SelectedItemsProperty)
             {
                 UpdateSelectedText();
-                SubscribeItemsSource(change.OldValue, change.NewValue);
+                SubscribeCollection(change.OldValue, change.NewValue);
             }
             else if (change.Property == SelectionSeparatorProperty || change.Property == AllSelectedTextProperty)
             {
@@ -381,7 +406,6 @@ namespace Synthora.Controls
             else if (change.Property == ItemsSourceProperty)
             {
                 UpdateSelectedText();
-                SubscribeItemsSource(change.OldValue, change.NewValue);
             }
         }
 
@@ -404,7 +428,7 @@ namespace Synthora.Controls
 
             _updatingSelectedItems = true;
             try
-            { 
+            {
                 var itemCount = Items.Count;
                 var selectedIndexes = Selection.SelectedIndexes.ToHashSet();
 
@@ -426,21 +450,28 @@ namespace Synthora.Controls
             UpdateSelectedText();
         }
 
-        private void OnIsDropDownOpenChanged(bool isOpen)
+        internal void ItemFocused(MultiComboBoxItem dropDownItem)
         {
-            Dispatcher.Post(() =>
+            if (IsDropDownOpen && dropDownItem.IsFocused && dropDownItem.IsArrangeValid)
             {
-                if (isOpen)
-                {
-                    TryFocusSelectedItem();
-                }
-                else
-                {
-                    Focus();
-                }
-            }, DispatcherPriority.Loaded);
+                dropDownItem.BringIntoView();
+            }
+        }
 
-            UpdateDropDownPseudoClass();
+        private void OnPopupOpened(object? sender, EventArgs e)
+        {
+            TryFocusSelectedItem();
+            DropDownOpened?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void OnPopupClosed(object? sender, EventArgs e)
+        {
+            if (AllowTextSelection && CanFocus(this))
+            {
+                Focus();
+            }
+
+            DropDownClosed?.Invoke(this, EventArgs.Empty);
         }
 
         private void TryFocusSelectedItem()
@@ -448,13 +479,8 @@ namespace Synthora.Controls
             var selectedIndex = SelectedIndex;
             if (IsDropDownOpen && selectedIndex != -1)
             {
+                ScrollIntoView(selectedIndex);
                 var container = ContainerFromIndex(selectedIndex);
-
-                if (container == null && SelectedIndex != -1)
-                {
-                    ScrollIntoView(Selection.SelectedIndex);
-                    container = ContainerFromIndex(selectedIndex);
-                }
 
                 if (container != null && CanFocus(container))
                 {
@@ -465,21 +491,24 @@ namespace Synthora.Controls
 
         private bool CanFocus(Control control) => control.Focusable && control.IsEffectivelyEnabled && control.IsVisible;
 
-        private void SubscribeItemsSource(object? oldValue, object? newValue)
+        private void SubscribeCollection(object? oldValue, object? newValue)
         {
             if (oldValue is INotifyCollectionChanged oldNotifyCollectionChanged)
             {
-                oldNotifyCollectionChanged.CollectionChanged -= OnItemsCollectionChanged;
+                WeakEvents.CollectionChanged.Unsubscribe(oldNotifyCollectionChanged, this);
             }
             if (newValue is INotifyCollectionChanged newNotifyCollectionChanged)
             {
-                newNotifyCollectionChanged.CollectionChanged += OnItemsCollectionChanged;
+                WeakEvents.CollectionChanged.Subscribe(newNotifyCollectionChanged, this);
             }
         }
 
-        private void OnItemsCollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
+        void IWeakEventSubscriber<NotifyCollectionChangedEventArgs>.OnEvent(object? sender, WeakEvent ev, NotifyCollectionChangedEventArgs e)
         {
-            UpdateSelectedText();
+            if (!ReferenceEquals(sender, SelectedItems))
+            {
+                UpdateSelectedText();
+            }
         }
 
         private void OnSelectionChanged(object? sender, SelectionChangedEventArgs e)

@@ -1,3 +1,4 @@
+using Avalonia;
 using Avalonia.Controls;
 
 namespace Synthora.Controls
@@ -7,5 +8,13 @@ namespace Synthora.Controls
     /// </summary>
     public class MultiComboBoxItem : ListBoxItem
     {
+        protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
+        {
+            base.OnPropertyChanged(change);
+            if (change.Property == IsFocusedProperty && change.GetNewValue<bool>())
+            {
+                (Parent as MultiComboBox)?.ItemFocused(this);
+            }
+        }
     }
 }
