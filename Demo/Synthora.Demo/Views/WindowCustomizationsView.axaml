@@ -42,6 +42,12 @@
                                   IsChecked="{Binding $parent[Window].CanMaximize}"
                                   IsEnabled="{Binding $parent[Window].CanResize}" />
 
+                        <ComboBox HorizontalAlignment="Left"
+                                  ItemsSource="{EnumBindingSource Win32Properties+WindowCornerPreference}"
+                                  SelectedItem="{Binding $parent[Window].(Win32Properties.WindowCornerPreference)}"
+                                  TextBoxAttach.Header="Corner Preference (Windows 11+):"
+                                  TextBoxAttach.HeaderPlacement="Left" />
+
                         <TextBlock IsVisible="{Binding $self.Text, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" Text="{Binding $parent[Window].WindowDecorationMargin, StringFormat=Window Decoration Margin: {0}}" />
 
                         <TextBlock IsVisible="{Binding $self.Text, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" Text="{Binding $parent[Window].OffScreenMargin, StringFormat=Off Screen Margin: {0}}" />

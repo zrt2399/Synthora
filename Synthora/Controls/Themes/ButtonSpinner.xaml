@@ -118,16 +118,17 @@
         <Style Selector="^ /template/ RepeatButton">
             <Setter Property="CornerRadius" Value="0" />
         </Style>
-        <Style Selector="^:left">
-            <Style Selector="^ /template/ UniformGrid#PART_SpinnerPanel">
-                <Setter Property="DockPanel.Dock" Value="Left" />
-            </Style>
+        <Style Selector="^:left /template/ UniformGrid#PART_SpinnerPanel">
+            <Setter Property="DockPanel.Dock" Value="Left" />
         </Style>
         <Style Selector="^:pointerover,^:focus-within">
             <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighlightBrush}" />
         </Style>
         <Style Selector="^:error">
             <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
+        </Style>
+        <Style Selector="^[AllowSpin=False] /template/ RepeatButton">
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledHighOpacity}" />
         </Style>
         <Style Selector="^:disabled">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
