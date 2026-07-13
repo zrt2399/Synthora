@@ -30,7 +30,6 @@
             </ControlTemplate>
         </Setter>
         <Style Selector="^:pointerover">
-            <Setter Property="Foreground" Value="{DynamicResource AddItemButtonPointerOverForegroundBrush}" />
             <Setter Property="Background" Value="{DynamicResource AddItemButtonPointerOverBackgroundBrush}" />
         </Style>
 

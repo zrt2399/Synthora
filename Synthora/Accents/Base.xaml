@@ -141,18 +141,14 @@
 
             <SolidColorBrush x:Key="DragTabItemSelectedBackgroundBrush" Color="#FFFFFF" />
 
-            <SolidColorBrush x:Key="DragTabItemUnselectedPointerOverBackgroundBrush" Color="#BBBBBB" />
+            <SolidColorBrush x:Key="DragTabItemUnselectedPointerOverBackgroundBrush" Color="#F5F5F5" />
             <SolidColorBrush x:Key="DragTabItemRightSeparatorBackgroundBrush" Color="#999999" />
 
-            <SolidColorBrush x:Key="AddItemButtonPointerOverForegroundBrush" Color="#0C0C0C" />
             <SolidColorBrush x:Key="AddItemButtonPointerOverBackgroundBrush" Color="#C7C7C7" />
             <SolidColorBrush x:Key="AddItemButtonPressedBackgroundBrush" Color="#BCBCBC" />
 
-            <SolidColorBrush x:Key="CloseItemButtonPointerOverForegroundBrush" Color="#272320" />
             <SolidColorBrush x:Key="CloseItemButtonPointerOverBackgroundBrush" Color="#E0E0E0" />
-            <SolidColorBrush x:Key="CloseItemButtonPressedForegroundBrush" Color="#272320" />
             <SolidColorBrush x:Key="CloseItemButtonPressedBackgroundBrush" Color="#CECECE" />
-            <SolidColorBrush x:Key="CloseItemButtonForegroundBrush" Color="#272320" />
         </ResourceDictionary>
 
         <ResourceDictionary x:Key="Dark">
@@ -296,15 +292,11 @@
             <SolidColorBrush x:Key="DragTabItemUnselectedPointerOverBackgroundBrush" Color="#2A2A2A" />
             <SolidColorBrush x:Key="DragTabItemRightSeparatorBackgroundBrush" Color="#777777" />
 
-            <SolidColorBrush x:Key="AddItemButtonPointerOverForegroundBrush" Color="#FAFAFA" />
             <SolidColorBrush x:Key="AddItemButtonPointerOverBackgroundBrush" Color="#1F1F1F" />
             <SolidColorBrush x:Key="AddItemButtonPressedBackgroundBrush" Color="#2C2C2C" />
 
-            <SolidColorBrush x:Key="CloseItemButtonPointerOverForegroundBrush" Color="#FAFAFA" />
             <SolidColorBrush x:Key="CloseItemButtonPointerOverBackgroundBrush" Color="#4C4C4C" />
-            <SolidColorBrush x:Key="CloseItemButtonPressedForegroundBrush" Color="#FAFAFA" />
             <SolidColorBrush x:Key="CloseItemButtonPressedBackgroundBrush" Color="#5A5A5A" />
-            <SolidColorBrush x:Key="CloseItemButtonForegroundBrush" Color="#FAFAFA" />
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
 
