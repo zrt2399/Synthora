@@ -41,8 +41,8 @@
                                 <Separator />
                                 <MenuItem Header="Save"
                                           Icon="{materialIcons:MaterialIconExt Kind=ContentSaveOutline}"
-                                          InputGesture="Ctrl+S" />
-                                <MenuItem Header="Save As..." InputGesture="Ctrl+Shift+S" />
+                                          InputGesture="{x:Static GestureUtils.SaveGesture}" />
+                                <MenuItem Header="Save As..." InputGesture="{x:Static GestureUtils.SaveAsGesture}" />
                                 <Separator />
                                 <MenuItem Header="Exit"
                                           Icon="{materialIcons:MaterialIconExt Kind=ExitToApp}"
@@ -51,20 +51,20 @@
                             <MenuItem Header="_Edit">
                                 <MenuItem Header="Undo"
                                           Icon="{materialIcons:MaterialIconExt Kind=Undo}"
-                                          InputGesture="Ctrl+Z" />
+                                          InputGesture="{x:Static GestureUtils.UndoGesture}" />
                                 <MenuItem Header="Redo"
                                           Icon="{materialIcons:MaterialIconExt Kind=Redo}"
-                                          InputGesture="Ctrl+Y" />
+                                          InputGesture="{x:Static GestureUtils.RedoGesture}" />
                                 <Separator />
                                 <MenuItem Header="Cut"
                                           Icon="{materialIcons:MaterialIconExt Kind=ContentCut}"
-                                          InputGesture="Ctrl+X" />
+                                          InputGesture="{x:Static GestureUtils.CutGesture}" />
                                 <MenuItem Header="Copy"
                                           Icon="{materialIcons:MaterialIconExt Kind=ContentCopy}"
-                                          InputGesture="Ctrl+C" />
+                                          InputGesture="{x:Static GestureUtils.CopyGesture}" />
                                 <MenuItem Header="Paste"
                                           Icon="{materialIcons:MaterialIconExt Kind=ContentPaste}"
-                                          InputGesture="Ctrl+V" />
+                                          InputGesture="{x:Static GestureUtils.PasteGesture}" />
                                 <MenuItem Classes="Error"
                                           Header="Delete"
                                           Icon="{materialIcons:MaterialIconExt Kind=DeleteOutline}"
@@ -83,11 +83,11 @@
                                 <MenuItem Header="Zoom">
                                     <MenuItem Header="Zoom In"
                                               Icon="{materialIcons:MaterialIconExt Kind=MagnifyPlusOutline}"
-                                              InputGesture="Ctrl++" />
+                                              InputGesture="{x:Static GestureUtils.ZoomInGesture}" />
                                     <MenuItem Header="Zoom Out"
                                               Icon="{materialIcons:MaterialIconExt Kind=MagnifyMinusOutline}"
-                                              InputGesture="Ctrl+-" />
-                                    <MenuItem Header="Actual Size" InputGesture="Ctrl+0" />
+                                              InputGesture="{x:Static GestureUtils.ZoomOutGesture}" />
+                                    <MenuItem Header="Actual Size" InputGesture="{x:Static GestureUtils.ZoomActualSizeGesture}" />
                                 </MenuItem>
                                 <Separator />
                                 <MenuItem Header="Toggle Full Screen"
