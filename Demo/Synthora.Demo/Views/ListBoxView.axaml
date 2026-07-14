@@ -26,11 +26,15 @@
                            ItemSpacing="16"
                            LineSpacing="16"
                            Orientation="Horizontal">
+                    <CheckBox Name="Primary" Content="Primary" />
+                    <CheckBox Name="Secondary" Content="Secondary" />
                     <CheckBox Name="Border" Content="Border" />
                     <CheckBox Name="Shadow" Content="Shadow" />
                     <CheckBox Name="SquareItems" Content="Square Items" />
                 </WrapPanel>
                 <ListBox Classes.Border="{Binding #Border.IsChecked}"
+                         Classes.Primary="{Binding #Primary.IsChecked}"
+                         Classes.Secondary="{Binding #Secondary.IsChecked}"
                          Classes.Shadow="{Binding #Shadow.IsChecked}"
                          Classes.SquareItems="{Binding #SquareItems.IsChecked}"
                          ItemsSource="{EnumBindingSource icons:MaterialIconKind}" />

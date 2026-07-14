@@ -25,14 +25,12 @@
                                           Top="True" />
 
     <ControlTheme x:Key="SplitButtonBaseTheme" TargetType="SplitButton">
-        <Setter Property="Background" Value="{DynamicResource SynthoraLowBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusSmall}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="Focusable" Value="True" />
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
+        <Setter Property="Focusable" Value="True" />
         <Setter Property="DropDownButtonAttach.DropDownIcon" Value="{StaticResource DropDownButtonIcon}" />
         <Setter Property="Template">
             <ControlTemplate>
@@ -145,7 +143,7 @@
                   BasedOn="{StaticResource SplitButtonBaseTheme}"
                   TargetType="SplitButton">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
 
         <Style Selector="^.Primary">
             <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />

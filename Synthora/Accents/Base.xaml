@@ -310,11 +310,11 @@
     <Color x:Key="ThemeBorderHighlightPressedColor">#FF3395FF</Color>
     <Color x:Key="HighlightForegroundColor">#FFFFFFFF</Color>
 
-    <Color x:Key="ThemeAccentColor">#CC2C70F7</Color>
-    <Color x:Key="ThemeAccentColor2">#AA2C70F7</Color>
-    <Color x:Key="ThemeAccentColor3">#882C70F7</Color>
-    <Color x:Key="ThemeAccentColor4">#662C70F7</Color>
-    <Color x:Key="ThemeAccentColor5">#442C70F7</Color>
+    <Color x:Key="ThemeAccentColor">#CC4682FF</Color>
+    <Color x:Key="ThemeAccentColor2">#AA4682FF</Color>
+    <Color x:Key="ThemeAccentColor3">#884682FF</Color>
+    <Color x:Key="ThemeAccentColor4">#664682FF</Color>
+    <Color x:Key="ThemeAccentColor5">#444682FF</Color>
 
     <Color x:Key="SuccessColor">#FF359450</Color>
     <Color x:Key="SuccessPointerOverColor">#FF499F62</Color>
@@ -397,7 +397,7 @@
     <x:Double x:Key="IconElementThemeWidth">20</x:Double>
 
     <Thickness x:Key="PopupBoxShadowMargin">0,0,4,4</Thickness>
-    <BoxShadows x:Key="PopupBoxShadow">3 3 3 0 #60000000</BoxShadows>
+    <BoxShadows x:Key="PopupBoxShadow">3 3 4 0 #30000000</BoxShadows>
     <BoxShadows x:Key="PopupRightToLeftBoxShadow">-3 3 3 0 #60000000</BoxShadows>
 
     <BoxShadows x:Key="DialogBoxShadow">0 5 40 0 #50000000</BoxShadows>

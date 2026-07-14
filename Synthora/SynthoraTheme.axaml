@@ -19,4 +19,5 @@
 	</Styles.Resources>
 
 	<StyleInclude Source="/Controls/Themes/SynthoraControls.xaml" />
+	<StyleInclude Source="/Controls/Styles/ControlStyles.xaml" />
 </Styles>

@@ -1,0 +1,120 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:ClassModifier="internal"
+        x:CompileBindings="True">
+
+    <Style Selector="TreeView.Primary TreeViewItem">
+        <Style Selector="^ /template/ Border#SelectionBorder:pointerover">
+            <Setter Property="TextElement.Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource PrimaryPointerOverBrush}" />
+        </Style>
+        <Style Selector="^:selected /template/ Border#SelectionBorder">
+            <Setter Property="TextElement.Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+        </Style>
+    </Style>
+    <Style Selector="TreeView.Secondary TreeViewItem">
+        <Style Selector="^ /template/ Border#SelectionBorder:pointerover">
+            <Setter Property="TextElement.Foreground" Value="{DynamicResource OnSecondaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SecondaryPointerOverBrush}" />
+        </Style>
+        <Style Selector="^:selected /template/ Border#SelectionBorder">
+            <Setter Property="TextElement.Foreground" Value="{DynamicResource OnSecondaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SecondaryBrush}" />
+        </Style>
+    </Style>
+
+    <Style Selector="ListBox.Primary ListBoxItem">
+        <Style Selector="^:selected">
+            <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+        </Style>
+        <Style Selector="^:pointerover">
+            <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource PrimaryPointerOverBrush}" />
+        </Style>
+        <Style Selector="^:pressed">
+            <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource PrimaryPressedBrush}" />
+        </Style>
+    </Style>
+    <Style Selector="ListBox.Secondary ListBoxItem">
+        <Style Selector="^:selected">
+            <Setter Property="Foreground" Value="{DynamicResource OnSecondaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SecondaryBrush}" />
+        </Style>
+        <Style Selector="^:pointerover">
+            <Setter Property="Foreground" Value="{DynamicResource OnSecondaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SecondaryPointerOverBrush}" />
+        </Style>
+        <Style Selector="^:pressed">
+            <Setter Property="Foreground" Value="{DynamicResource OnSecondaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SecondaryPressedBrush}" />
+        </Style>
+    </Style>
+
+    <Style Selector="TableView.Primary TableViewRow">
+        <Style Selector="^:selected">
+            <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+        </Style>
+        <Style Selector="^:pointerover">
+            <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource PrimaryPointerOverBrush}" />
+        </Style>
+        <Style Selector="^:pressed">
+            <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource PrimaryPressedBrush}" />
+        </Style>
+    </Style>
+    <Style Selector="TableView.Secondary TableViewRow">
+        <Style Selector="^:selected">
+            <Setter Property="Foreground" Value="{DynamicResource OnSecondaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SecondaryBrush}" />
+        </Style>
+        <Style Selector="^:pointerover">
+            <Setter Property="Foreground" Value="{DynamicResource OnSecondaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SecondaryPointerOverBrush}" />
+        </Style>
+        <Style Selector="^:pressed">
+            <Setter Property="Foreground" Value="{DynamicResource OnSecondaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SecondaryPressedBrush}" />
+        </Style>
+    </Style>
+
+    <Style Selector="DataGrid.Primary DataGridRow">
+        <Style Selector="^:selected /template/ Border#RowBorder">
+            <Setter Property="TextElement.Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+        </Style>
+        <Style Selector="^:pointerover /template/ Border#RowBorder,^:focus-within /template/ Border#RowBorder">
+            <Setter Property="TextElement.Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource PrimaryPointerOverBrush}" />
+        </Style>
+    </Style>
+    <Style Selector="DataGrid.Secondary DataGridRow">
+        <Style Selector="^:selected /template/ Border#RowBorder">
+            <Setter Property="TextElement.Foreground" Value="{DynamicResource OnSecondaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SecondaryBrush}" />
+        </Style>
+        <Style Selector="^:pointerover /template/ Border#RowBorder,^:focus-within /template/ Border#RowBorder">
+            <Setter Property="TextElement.Foreground" Value="{DynamicResource OnSecondaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SecondaryPointerOverBrush}" />
+        </Style>
+    </Style>
+
+    <Style Selector="TabControl.Primary TabItem">
+        <Style Selector="^:selected">
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
+        </Style>
+    </Style>
+    <Style Selector="TabControl.Secondary TabItem">
+        <Style Selector="^:selected">
+            <Setter Property="Foreground" Value="{DynamicResource SecondaryBrush}" />
+            <Style Selector="^ /template/ Border#PART_SelectedPipe">
+                <Setter Property="Background" Value="{DynamicResource SecondaryBrush}" />
+            </Style>
+        </Style>
+    </Style>
+
+</Styles>

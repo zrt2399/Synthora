@@ -78,17 +78,6 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="SecondaryTabItemTheme"
-                  BasedOn="{StaticResource {x:Type TabItem}}"
-                  TargetType="TabItem">
-        <Style Selector="^:selected">
-            <Setter Property="Foreground" Value="{DynamicResource SecondaryBrush}" />
-            <Style Selector="^ /template/ Border#PART_SelectedPipe">
-                <Setter Property="Background" Value="{DynamicResource SecondaryBrush}" />
-            </Style>
-        </Style>
-    </ControlTheme>
-
     <ControlTheme x:Key="SegmentedTabItemTheme" TargetType="TabItem">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}" />
@@ -138,14 +127,6 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="PrimarySegmentedTabItemTheme"
-                  BasedOn="{StaticResource SegmentedTabItemTheme}"
-                  TargetType="TabItem">
-        <Style Selector="^:selected">
-            <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
-        </Style>
-    </ControlTheme>
-
     <ControlTheme x:Key="CardTabItemTheme" TargetType="TabItem">
         <Setter Property="Background" Value="{DynamicResource SynthoraMidBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
@@ -188,14 +169,6 @@
 
         <Style Selector="^:disabled">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledMidOpacity}" />
-        </Style>
-    </ControlTheme>
-
-    <ControlTheme x:Key="PrimaryCardTabItemTheme"
-                  BasedOn="{StaticResource CardTabItemTheme}"
-                  TargetType="TabItem">
-        <Style Selector="^:selected">
-            <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
         </Style>
     </ControlTheme>
 

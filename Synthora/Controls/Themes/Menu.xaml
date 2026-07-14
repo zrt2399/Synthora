@@ -29,10 +29,7 @@
                                OverlayInputPassThroughElement="{Binding $parent[Menu]}"
                                Placement="BottomEdgeAlignedLeft"
                                WindowManagerAddShadowHint="False">
-                            <SystemShadowChrome Name="Popup_Border"
-                                                MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
-                                                BorderBrush="{DynamicResource ThemeBorderMidBrush}"
-                                                BorderThickness="{DynamicResource ThemeBorderThickness}">
+                            <SystemShadowChrome Name="Popup_Border" MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}">
                                 <ScrollViewer Theme="{StaticResource SimpleMenuScrollViewer}">
                                     <ItemsPresenter Name="PART_ItemsPresenter"
                                                     Margin="{DynamicResource ThemeMenuFlyoutPadding}"

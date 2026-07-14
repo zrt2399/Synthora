@@ -208,8 +208,7 @@
 
     <ControlTheme x:Key="{x:Type TextBox}" TargetType="TextBox">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
-        <!--<Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />-->
+        <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" /> 
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusSmall}" />
         <Setter Property="SelectionBrush" Value="{DynamicResource TextSelectionBrush}" />

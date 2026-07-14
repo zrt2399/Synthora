@@ -72,7 +72,7 @@
 
     <ControlTheme x:Key="{x:Type TimePicker}" TargetType="TimePicker">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusSmall}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
@@ -183,7 +183,7 @@
         </Setter>
 
         <Style Selector="^[(DateTimePickerAttach.IsDropDownOpen)=True]">
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
         </Style>
 
         <!--<Style Selector="^:disabled /template/ Rectangle">
@@ -260,17 +260,17 @@
                                    Grid.Column="1"
                                    Width="{DynamicResource TimePickerSpacerThemeThickness}"
                                    HorizontalAlignment="Center"
-                                   Fill="{DynamicResource ThemeControlMidHighBrush}" />
+                                   Fill="{DynamicResource SynthoraBorderBrush}" />
                         <Rectangle Name="PART_SecondSpacer"
                                    Grid.Column="3"
                                    Width="{DynamicResource TimePickerSpacerThemeThickness}"
                                    HorizontalAlignment="Center"
-                                   Fill="{DynamicResource ThemeControlMidHighBrush}" />
+                                   Fill="{DynamicResource SynthoraBorderBrush}" />
                         <Rectangle Name="PART_ThirdSpacer"
                                    Grid.Column="5"
                                    Width="{DynamicResource TimePickerSpacerThemeThickness}"
                                    HorizontalAlignment="Center"
-                                   Fill="{DynamicResource ThemeControlMidHighBrush}" />
+                                   Fill="{DynamicResource SynthoraBorderBrush}" />
                     </Grid>
 
                     <Grid Name="AcceptDismissGrid"
@@ -279,7 +279,7 @@
                         <Rectangle Grid.ColumnSpan="2"
                                    Height="{DynamicResource TimePickerSpacerThemeThickness}"
                                    VerticalAlignment="Top"
-                                   Fill="{DynamicResource ThemeControlMidHighBrush}" />
+                                   Fill="{DynamicResource SynthoraBorderBrush}" />
                         <Button Name="PART_AcceptButton"
                                 Grid.Column="0"
                                 Height="{DynamicResource TimePickerFlyoutPresenterAcceptDismissHostGridHeight}"

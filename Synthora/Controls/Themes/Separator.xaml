@@ -16,19 +16,12 @@
                 </Panel>
             </ControlTemplate>
         </Setter>
-
-        <Style Selector="^.Light">
-            <Setter Property="Foreground" Value="{DynamicResource ThemeBorderLowBrush}" />
-        </Style>
-        <Style Selector="^.Accent">
-            <Setter Property="Foreground" Value="{DynamicResource SynthoraBorderBrush}" />
-        </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type Separator}"
                   BasedOn="{StaticResource SeparatorBaseTheme}"
                   TargetType="Separator">
-        <Setter Property="Foreground" Value="{DynamicResource ThemeBorderLowBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource SynthoraBorderBrush}" />
         <Setter Property="Margin" Value="{DynamicResource MenuItemHorizontalSeparatorMargin}" />
         <Setter Property="Height" Value="1" />
     </ControlTheme>

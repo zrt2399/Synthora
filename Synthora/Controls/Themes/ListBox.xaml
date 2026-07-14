@@ -119,43 +119,6 @@
                 </Style>
             </Style>
         </Style>
-
-        <Style Selector="^.Primary">
-            <Setter Property="ItemContainerTheme">
-                <ControlTheme BasedOn="{StaticResource SegmentedListBoxItemTheme}" TargetType="ListBoxItem">
-                    <Style Selector="^:selected">
-                        <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
-                        <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
-                    </Style>
-                    <Style Selector="^:pointerover">
-                        <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
-                        <Setter Property="Background" Value="{DynamicResource PrimaryPointerOverBrush}" />
-                    </Style>
-                    <Style Selector="^:pressed">
-                        <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
-                        <Setter Property="Background" Value="{DynamicResource PrimaryPressedBrush}" />
-                    </Style>
-                </ControlTheme>
-            </Setter>
-        </Style>
-        <Style Selector="^.Secondary">
-            <Setter Property="ItemContainerTheme">
-                <ControlTheme BasedOn="{StaticResource SegmentedListBoxItemTheme}" TargetType="ListBoxItem">
-                    <Style Selector="^:selected">
-                        <Setter Property="Foreground" Value="{DynamicResource OnSecondaryBrush}" />
-                        <Setter Property="Background" Value="{DynamicResource SecondaryBrush}" />
-                    </Style>
-                    <Style Selector="^:pointerover">
-                        <Setter Property="Foreground" Value="{DynamicResource OnSecondaryBrush}" />
-                        <Setter Property="Background" Value="{DynamicResource SecondaryPointerOverBrush}" />
-                    </Style>
-                    <Style Selector="^:pressed">
-                        <Setter Property="Foreground" Value="{DynamicResource OnSecondaryBrush}" />
-                        <Setter Property="Background" Value="{DynamicResource SecondaryPressedBrush}" />
-                    </Style>
-                </ControlTheme>
-            </Setter>
-        </Style>
     </ControlTheme>
 
 </ResourceDictionary>

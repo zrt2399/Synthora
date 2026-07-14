@@ -12,7 +12,7 @@
              xmlns:vm="using:Synthora.Demo.ViewModels"
              Margin="{Binding $parent[Window].WindowDecorationMargin}"
              d:DesignHeight="550"
-             d:DesignWidth="900"
+             d:DesignWidth="900"  
              x:DataType="vm:MainViewModel"
              mc:Ignorable="d">
 
@@ -245,10 +245,10 @@
                                 </ListBox>
                             </WrapPanel>
                             <TextBox VerticalContentAlignment="Center"
-                                     PlaceholderText="Search"
+                                     PlaceholderText="Search" Background="{DynamicResource ThemeBackgroundBrush}"
                                      Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}">
                                 <TextBox.InnerLeftContent>
-                                    <materialIcons:MaterialIcon Margin="{DynamicResource ThemeControlRightPadding}" Kind="Search" />
+                                    <materialIcons:MaterialIcon Foreground="{DynamicResource PrimaryBrush}" Margin="{DynamicResource ThemeControlRightPadding}" Kind="Search" />
                                 </TextBox.InnerLeftContent>
                             </TextBox>
                         </StackPanel>

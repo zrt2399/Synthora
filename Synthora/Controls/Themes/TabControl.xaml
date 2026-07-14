@@ -66,10 +66,6 @@
                 <Setter Property="Orientation" Value="Vertical" />
             </Style>
         </Style>
-
-        <Style Selector="^.Secondary">
-            <Setter Property="ItemContainerTheme" Value="{StaticResource SecondaryTabItemTheme}" />
-        </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="SegmentedTabControlTheme"
@@ -125,10 +121,6 @@
             <Style Selector="^ /template/ ItemsPresenter#PART_ItemsPresenter &gt; WrapPanel">
                 <Setter Property="Orientation" Value="Vertical" />
             </Style>
-        </Style>
-
-        <Style Selector="^.Primary">
-            <Setter Property="ItemContainerTheme" Value="{StaticResource PrimarySegmentedTabItemTheme}" />
         </Style>
 
         <Style Selector="^.Uniform">
@@ -205,10 +197,6 @@
             <Style Selector="^ /template/ ItemsPresenter#PART_ItemsPresenter &gt; WrapPanel">
                 <Setter Property="Orientation" Value="Vertical" />
             </Style>
-        </Style>
-
-        <Style Selector="^.Primary">
-            <Setter Property="ItemContainerTheme" Value="{StaticResource PrimaryCardTabItemTheme}" />
         </Style>
     </ControlTheme>
 

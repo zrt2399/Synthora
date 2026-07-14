@@ -19,6 +19,7 @@
 	<ItemGroup>
 		<AvaloniaResource Include="Accents\**" />
 		<AvaloniaResource Include="Controls\Themes\**" />
+		<AvaloniaResource Include="Controls\Styles\**" />
 		<AvaloniaResource Include="Strings\**" />
 		<AvaloniaResource Include="ThemeDensitys\**" />
 		<None Include="logo.png" Pack="true" PackagePath="\" />
