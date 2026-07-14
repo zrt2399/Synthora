@@ -25,8 +25,8 @@
                            ItemSpacing="16"
                            LineSpacing="16"
                            Orientation="Horizontal">
-                    <CheckBox Name="Primary" Content="Primary" />
-                    <CheckBox Name="Secondary" Content="Secondary" />
+                    <RadioButton Name="Primary" GroupName="ColorVariant">Primary</RadioButton>
+                    <RadioButton Name="Secondary" GroupName="ColorVariant">Secondary</RadioButton>
                     <CheckBox Name="Border" Content="Border" />
                     <CheckBox Name="Shadow" Content="Shadow" />
                     <CheckBox Name="SquareItems" Content="Square Items" />
