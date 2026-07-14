@@ -1,6 +1,7 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows.Input;
 using Avalonia;
 using Avalonia.Controls;
@@ -51,13 +52,13 @@ namespace Synthora.Demo.ViewModels
 
         private static T CreateItem<T>(T item, params TreeMenuDemoItem[] children) where T : TreeMenuDemoItem
         {
-            item.Children = new ObservableCollection<TreeMenuDemoItem>(children);
+            item.Children = new ObservableCollection<TreeMenuDemoItem>(children.OrderBy(static x => x.Title, StringComparer.OrdinalIgnoreCase));
             return item;
         }
 
         private void InitializeTreeMenuDemo()
         {
-            TreeMenuItems = new ObservableCollection<TreeMenuDemoItem>
+            TreeMenuItems = new ObservableCollection<TreeMenuDemoItem>(new TreeMenuDemoItem[]
             {
                 CreateItem(new OverviewViewModel()
                 {
@@ -80,8 +81,8 @@ namespace Synthora.Demo.ViewModels
                 CreateItem(new ExtendedControlsViewModel()),
                 CreateItem(new ThemeVariantScopeViewModel()),
                 CreateItem(new NavigationViewModel(), new SplitViewViewModel(), new TabControlViewModel(), new TabbedPageViewModel(), new DrawerPageViewModel(), new NavigationPageViewModel(), new CarouselViewModel(), new DragTabControlViewModel(), new TreeMenuViewModel()),
-                CreateItem(new WindowCustomizationsViewModel()),
-            };
+                CreateItem(new WindowCustomizationsViewModel())
+            }.OrderByDescending(static x => x.IsSelected).ThenBy(static x => x.Title, StringComparer.OrdinalIgnoreCase));
         }
 
         private void FilterTreeMenu(string? searchText)
