@@ -7,7 +7,7 @@
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<Title>Avalonia UI Theme</Title>
 		<Authors>Yoyo</Authors>
-		<Copyright>Copyright © $(Authors) $([System.DateTime]::Today.ToString(yyyy))</Copyright>
+		<Copyright>Copyright © $(Authors) $([System.DateTime]::Today.ToString("yyyy"))</Copyright>
 		<PackageIcon>logo.png</PackageIcon>
 		<PackageTags>Avalonia;XAML;UI;Theme</PackageTags>
 		<Description>Avalonia control styles and themes</Description>
