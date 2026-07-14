@@ -23,7 +23,7 @@
 		<!--<PackageReference Include="Avalonia.Fonts.Inter" Version="$(DemoAvaloniaVersion)" />-->
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
 		<PackageReference Include="Material.Icons.Avalonia" Version="3.0.2" />
-		<PackageReference Include="OPPOSans.Medium.Avalonia" Version="1.0.3" />
+		<PackageReference Include="OPPOSans.Medium.Avalonia" Version="1.0.4" />
 	</ItemGroup>
 
 	<ItemGroup>

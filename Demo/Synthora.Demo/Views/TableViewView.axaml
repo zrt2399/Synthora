@@ -69,6 +69,7 @@
                 </TableView>
 
                 <Pagination Grid.Row="2"
+                            Classes.Secondary="{Binding #Secondary.IsChecked}"
                             PageSize="{Binding PageSize}"
                             ShowPageSizeSelector="True"
                             TotalItemCount="{Binding TotalItemCount}"
