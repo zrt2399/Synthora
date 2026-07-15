@@ -21,7 +21,7 @@
 		<!-- Also defines .app file name -->
 		<CFBundleName>SynthoraDemo</CFBundleName>
 		<CFBundleDisplayName>SynthoraDemo</CFBundleDisplayName>
-		<CFBundleIdentifier>com.yoyo.synthora</CFBundleIdentifier>
+		<CFBundleIdentifier>com.yoyo.synthorademo</CFBundleIdentifier>
 		<CFBundleShortVersionString>$(Version)</CFBundleShortVersionString>
 		<CFBundleVersion>1.0</CFBundleVersion>
 		<CFBundlePackageType>APPL</CFBundlePackageType>
