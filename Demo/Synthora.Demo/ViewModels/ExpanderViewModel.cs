@@ -7,7 +7,7 @@ namespace Synthora.Demo.ViewModels
     {
         public ExpanderViewModel()
         {
-            IconKind = MaterialIconKind.ExpansionCard;
+            IconKind = MaterialIconKind.ArrowExpandAll;
             Description = "Expander";
         } 
     }
