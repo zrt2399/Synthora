@@ -12,7 +12,7 @@
              xmlns:vm="using:Synthora.Demo.ViewModels"
              Margin="{Binding $parent[Window].WindowDecorationMargin}"
              d:DesignHeight="550"
-             d:DesignWidth="900"  
+             d:DesignWidth="900"
              x:DataType="vm:MainViewModel"
              mc:Ignorable="d">
 
@@ -245,10 +245,13 @@
                                 </ListBox>
                             </WrapPanel>
                             <TextBox VerticalContentAlignment="Center"
-                                     PlaceholderText="Search" Background="{DynamicResource ThemeBackgroundBrush}"
+                                     Background="{DynamicResource ThemeBackgroundBrush}"
+                                     PlaceholderText="Search"
                                      Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}">
                                 <TextBox.InnerLeftContent>
-                                    <materialIcons:MaterialIcon Foreground="{DynamicResource PrimaryBrush}" Margin="{DynamicResource ThemeControlRightPadding}" Kind="Search" />
+                                    <materialIcons:MaterialIcon Margin="{DynamicResource ThemeControlRightPadding}"
+                                                                Foreground="{DynamicResource PrimaryBrush}"
+                                                                Kind="Search" />
                                 </TextBox.InnerLeftContent>
                             </TextBox>
                         </StackPanel>
@@ -264,7 +267,7 @@
                     </TreeMenu.PaneFooter>
 
                     <TreeMenu.ItemTemplate>
-                        <TreeDataTemplate x:DataType="models:TreeMenuDemoItem" ItemsSource="{Binding Children}">
+                        <TreeDataTemplate DataType="models:TreeMenuDemoItem" ItemsSource="{Binding Children}">
                             <StackPanel Orientation="Horizontal" Spacing="10">
                                 <materialIcons:MaterialIcon HorizontalAlignment="Center"
                                                             VerticalAlignment="Center"
