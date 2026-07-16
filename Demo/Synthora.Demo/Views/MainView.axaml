@@ -18,8 +18,8 @@
 
     <Design.DataContext>
         <!--
-            This only sets the DataContext for the previewer in an IDE,
-            to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs)
+        This only sets the DataContext for the previewer in an IDE,
+        to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs)
         -->
         <vm:MainViewModel />
     </Design.DataContext>
@@ -28,8 +28,7 @@
         <!--  Card: content section card  -->
         <Style Selector="Border.card">
             <Setter Property="Padding" Value="16" />
-            <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="CornerRadius" Value="12" />
         </Style>
@@ -55,7 +54,7 @@
         <DialogHost Identifier="{x:Static vm:OverlayViewModel.DialogIdentifier}" VerticalDialogAlignment="Top">
             <DialogHost.DialogContentTemplate>
                 <DataTemplate DataType="vm:DialogHostSampleDialog">
-                    <Border Width="340" Padding="18">
+                    <Border Width="340" Padding="20">
                         <StackPanel Spacing="14">
                             <TextBlock FontSize="16"
                                        FontWeight="SemiBold"
@@ -92,7 +91,7 @@
                             </Border>
                             <StackPanel HorizontalAlignment="Right"
                                         Orientation="Horizontal"
-                                        Spacing="8">
+                                        Spacing="10">
                                 <Button MinWidth="80"
                                         Classes="Primary"
                                         Command="{Binding CloseCommand}"
@@ -247,7 +246,7 @@
                             <TextBox VerticalContentAlignment="Center"
                                      Background="{DynamicResource ThemeBackgroundBrush}"
                                      PlaceholderText="Search"
-                                     Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}">
+                                     Text="{Binding SearchText}">
                                 <TextBox.InnerLeftContent>
                                     <materialIcons:MaterialIcon Margin="{DynamicResource ThemeControlRightPadding}"
                                                                 Foreground="{DynamicResource PrimaryBrush}"

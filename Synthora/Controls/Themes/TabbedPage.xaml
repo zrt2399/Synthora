@@ -88,7 +88,7 @@
     <ControlTheme x:Key="TabbedPageTabItemTheme" TargetType="TabItem">
         <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}" />
         <Setter Property="Background" Value="{DynamicResource TabbedPageTabItemHeaderBackgroundUnselected}" />
-        <Setter Property="Padding" Value="{DynamicResource ThemeHeaderControlPadding}" />
+        <Setter Property="Padding" Value="{DynamicResource ThemeHeaderControlHeaderPadding}" />
         <Setter Property="Margin" Value="{DynamicResource TabbedPageTabItemHeaderMargin}" />
         <Setter Property="MinHeight" Value="{DynamicResource TabbedPageTabItemHeaderMinHeight}" />
         <Setter Property="CornerRadius" Value="{DynamicResource TabbedPageTabItemHeaderCornerRadius}" />

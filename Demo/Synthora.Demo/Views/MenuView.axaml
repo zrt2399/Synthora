@@ -10,7 +10,7 @@
              x:DataType="vm:MenuViewModel"
              mc:Ignorable="d">
 
-    <DemoPage Title="Menus &amp; Commands"
+    <DemoPage Title="Menus &amp; Flyouts"
               Padding="0"
               Description="{Binding Description}"
               IconKind="{Binding IconKind}">

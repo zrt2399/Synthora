@@ -38,10 +38,10 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <ShadowChrome MinWidth="100"
-                                      MinHeight="60"
-                                      Background="{Binding Converter={StaticResource ResourceKeyToBrushConverter}}"
-                                      BorderThickness="0"
-                                      CornerRadius="12">
+                                  MinHeight="60"
+                                  Background="{Binding Converter={StaticResource ResourceKeyToBrushConverter}}"
+                                  BorderThickness="0"
+                                  CornerRadius="12">
                         <StackPanel Margin="10"
                                     VerticalAlignment="Center"
                                     Spacing="10">

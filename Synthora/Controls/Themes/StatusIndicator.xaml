@@ -21,7 +21,6 @@
         <Setter Property="StrokeThickness" Value="2" />
         <Setter Property="IconWidth" Value="20" />
         <Setter Property="IconHeight" Value="20" />
-        <Setter Property="Padding" Value="4" />
         <Setter Property="HighlightMargin" Value="4" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Center" />

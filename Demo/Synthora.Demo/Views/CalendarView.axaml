@@ -10,7 +10,7 @@
              x:DataType="vm:CalendarViewModel"
              mc:Ignorable="d">
 
-    <DemoPage Title="Calendar Controls"
+    <DemoPage Title="Date &amp; Time Controls"
               Padding="0"
               Description="{Binding Description}"
               IconKind="{Binding IconKind}">
@@ -39,4 +39,5 @@
             </StackPanel>
         </ScrollViewer>
     </DemoPage>
+
 </UserControl>

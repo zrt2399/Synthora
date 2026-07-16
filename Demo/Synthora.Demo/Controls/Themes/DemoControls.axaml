@@ -8,7 +8,7 @@
     <Styles.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <MergeResourceInclude Source="/Styles/DemoPage.axaml" />
+                <MergeResourceInclude Source="/Controls/Themes/DemoPage.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources>

@@ -9,7 +9,8 @@
     <x:Double x:Key="ThemeControlBorderPaddingDouble">4</x:Double>
 
     <Thickness x:Key="ThemeControlPadding">6,4</Thickness>
-    <Thickness x:Key="ThemeHeaderControlPadding">8,6</Thickness>
+    <Thickness x:Key="ThemeHeaderControlHeaderPadding">8,6</Thickness>
+    <Thickness x:Key="ThemeHeaderControlPadding">8</Thickness>
 
     <Thickness x:Key="ThemeMenuFlyoutPadding">4</Thickness>
     <Thickness x:Key="ThemeMenuFlyoutItemPadding">2,4</Thickness>

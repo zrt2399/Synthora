@@ -30,7 +30,7 @@
     </ControlTemplate>
 
     <ControlTheme x:Key="{x:Type TableViewColumnHeader}" TargetType="TableViewColumnHeader">
-        <Setter Property="Padding" Value="{DynamicResource ThemeHeaderControlPadding}" />
+        <Setter Property="Padding" Value="{DynamicResource ThemeHeaderControlHeaderPadding}" />
         <Setter Property="BorderThickness" Value="{DynamicResource TableViewColumnHeaderRightBorderThickness}" />
         <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
         <Setter Property="MinHeight" Value="{DynamicResource TableViewRowMinHeight}" />

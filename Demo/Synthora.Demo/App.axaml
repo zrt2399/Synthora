@@ -10,7 +10,7 @@
 
     <Application.Styles>
         <SynthoraTheme />
-        <StyleInclude Source="avares://Synthora.Demo/Styles/DemoControlStyle.axaml" />
+        <StyleInclude Source="/Controls/Themes/DemoControls.axaml" />
 
         <!--<SimpleTheme />
         <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Simple.xaml" />-->
@@ -29,7 +29,7 @@
     </Application.Styles>
 
     <Application.Resources>
-        <FontFamily x:Key="JetBrainsMonoFontFamily">avares://Synthora.Demo/Assets/Fonts#JetBrains Mono</FontFamily>
+        <FontFamily x:Key="JetBrainsMonoFontFamily">/Assets/Fonts#JetBrains Mono</FontFamily>
     </Application.Resources>
 
     <TrayIcon.Icons>

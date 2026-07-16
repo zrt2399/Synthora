@@ -188,13 +188,13 @@
                                 <DialogHost.PopupTemplate>
                                     <ControlTemplate TargetType="DialogOverlayPopupHost">
                                         <Border MinWidth="320"
-                                                Margin="24"
-                                                Padding="18"
+                                                Margin="{DynamicResource DialogPopupMargin}"
+                                                Padding="20"
                                                 Background="{DynamicResource ThemeBackgroundBrush}"
                                                 BorderBrush="{DynamicResource ThemeBorderLowBrush}"
                                                 BorderThickness="{DynamicResource ThemeBorderThickness}"
-                                                BoxShadow="{DynamicResource DialogBoxShadow}"
-                                                CornerRadius="{DynamicResource ThemeBorderCornerRadiusLarge}">
+                                                BoxShadow="{Binding $parent[DialogHost].DialogBoxShadow}"
+                                                CornerRadius="{DynamicResource DialogPopupCornerRadius}">
                                             <DockPanel VerticalSpacing="12">
                                                 <Panel DockPanel.Dock="Top">
                                                     <TextBlock FontSize="16"

@@ -16,7 +16,7 @@
         </Style>
     </UserControl.Styles>
 
-    <DemoPage Title="Expander Variants"
+    <DemoPage Title="Expanders"
               Description="{Binding Description}"
               IconKind="{Binding IconKind}">
         <Border Classes="card">

@@ -22,7 +22,7 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
 
-        <Setter Property="Padding" Value="{DynamicResource ThemeHeaderControlPadding}" />
+        <Setter Property="Padding" Value="{DynamicResource ThemeHeaderControlHeaderPadding}" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}" />
         <Setter Property="Focusable" Value="False" />
         <Setter Property="IsTabStop" Value="False" />

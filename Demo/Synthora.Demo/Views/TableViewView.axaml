@@ -9,7 +9,7 @@
              x:DataType="vm:TableViewViewModel"
              mc:Ignorable="d">
 
-    <DemoPage Title="Table View"
+    <DemoPage Title="TableView &amp; Pagination"
               Padding="16"
               Description="{Binding Description}"
               IconKind="{Binding IconKind}">

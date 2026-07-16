@@ -10,7 +10,7 @@
              x:DataType="vm:TextBlockViewModel"
              mc:Ignorable="d">
 
-    <DemoPage Title="Text Blocks"
+    <DemoPage Title="Text &amp; Typography"
               Padding="0"
               Description="{Binding Description}"
               IconKind="{Binding IconKind}">

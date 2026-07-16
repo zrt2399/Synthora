@@ -14,7 +14,7 @@
         <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="Padding" Value="{DynamicResource ThemeHeaderControlPadding}" />
+        <Setter Property="Padding" Value="{DynamicResource ThemeHeaderControlHeaderPadding}" />
         <Setter Property="MinWidth" Value="{DynamicResource TabItemMinWidth}" />
         <Setter Property="Template">
             <ControlTemplate>

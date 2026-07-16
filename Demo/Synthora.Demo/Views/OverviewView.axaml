@@ -75,11 +75,11 @@
             <Setter Property="Background" Value="{DynamicResource HeroPanelBrush}" />
             <Setter Property="BorderBrush" Value="{DynamicResource CardBorderBrush}" />
             <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="CornerRadius" Value="12" />
+            <Setter Property="CornerRadius" Value="8" />
             <Setter Property="BoxShadow" Value="0 0 20 0 #1E000000" />
         </Style>
         <Style Selector="Border.showcasePanel Border.showcasePanel">
-            <Setter Property="CornerRadius" Value="6" />
+            <Setter Property="CornerRadius" Value="4" />
         </Style>
         <Style Selector="Border.badge">
             <Setter Property="Padding" Value="16" />
@@ -117,7 +117,7 @@
 
     <Panel>
         <Panel>
-            <Canvas IsHitTestVisible="False" Opacity="0.8">
+            <Canvas IsHitTestVisible="False">
                 <Ellipse Canvas.Left="-180"
                          Canvas.Top="-140"
                          Width="520"

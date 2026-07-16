@@ -10,7 +10,7 @@
              x:DataType="vm:WindowCustomizationsViewModel"
              mc:Ignorable="d">
 
-    <DemoPage Title="Window Customizations"
+    <DemoPage Title="Window Properties"
               Padding="0"
               Description="{Binding Description}"
               IconKind="{Binding IconKind}">

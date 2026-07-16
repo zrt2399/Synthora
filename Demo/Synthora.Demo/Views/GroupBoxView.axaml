@@ -22,57 +22,59 @@
     <DemoPage Title="Group Boxes"
               Description="{Binding Description}"
               IconKind="{Binding IconKind}">
-        <StackPanel Spacing="16">
-            <Border Classes="card">
-                <StackPanel Spacing="16">
-                    <UniformGrid ColumnSpacing="16"
-                                 Columns="2"
-                                 RowSpacing="16">
-                        <GroupBoxEx Padding="0"
-                                    Classes="Highlight"
-                                    Classes.WithoutShadow="{Binding #WithoutShadow.IsChecked}"
-                                    Header="Top header(Highlight)">
-                            <CheckBox Name="WithoutShadow" Content="Without shadow" />
-                        </GroupBoxEx>
-                        <GroupBoxEx Padding="0"
-                                    Header="Right header"
-                                    HeaderPlacement="Right">
-                            <Button Classes="Question"
-                                    CornerRadius="0"
-                                    Theme="{StaticResource SolidButtonTheme}">
-                                Button
-                            </Button>
-                        </GroupBoxEx>
-                        <GroupBoxEx Padding="0"
-                                    Header="Bottom header"
-                                    HeaderPlacement="Bottom">
-                            <ScrollViewer>
-                                <StackPanel>
-                                    <Button Height="60"
-                                            Classes="Error"
-                                            Content="Error"
-                                            CornerRadius="0"
-                                            Theme="{StaticResource SolidButtonTheme}" />
-                                    <Button Height="60"
-                                            Classes="Warning"
-                                            Content="Warning"
-                                            CornerRadius="0"
-                                            Theme="{StaticResource SolidButtonTheme}" />
-                                </StackPanel>
-                            </ScrollViewer>
-                        </GroupBoxEx>
-                        <GroupBoxEx Padding="0"
-                                    Header="Left header"
-                                    HeaderPlacement="Left">
-                            <TextBox BorderThickness="0">TextBox</TextBox>
-                        </GroupBoxEx>
-                    </UniformGrid>
-                    <GroupBox Classes.Shadow="{Binding #Shadow.IsChecked}" Header="GroupBox">
-                        <CheckBox Name="Shadow">Shadow</CheckBox>
-                    </GroupBox>
-                </StackPanel>
-            </Border>
-        </StackPanel>
+        <ScrollViewer Padding="16">
+            <StackPanel Spacing="16">
+                <Border Classes="card">
+                    <StackPanel Spacing="16">
+                        <UniformGrid ColumnSpacing="16"
+                                     Columns="2"
+                                     RowSpacing="16">
+                            <GroupBoxEx Padding="0"
+                                        Classes="Highlight"
+                                        Classes.WithoutShadow="{Binding #WithoutShadow.IsChecked}"
+                                        Header="Top header(Highlight)">
+                                <CheckBox Name="WithoutShadow" Content="Without shadow" />
+                            </GroupBoxEx>
+                            <GroupBoxEx Padding="0"
+                                        Header="Right header"
+                                        HeaderPlacement="Right">
+                                <Button Classes="Question"
+                                        CornerRadius="0"
+                                        Theme="{StaticResource SolidButtonTheme}">
+                                    Button
+                                </Button>
+                            </GroupBoxEx>
+                            <GroupBoxEx Padding="0"
+                                        Header="Bottom header"
+                                        HeaderPlacement="Bottom">
+                                <ScrollViewer>
+                                    <StackPanel>
+                                        <Button Height="60"
+                                                Classes="Error"
+                                                Content="Error"
+                                                CornerRadius="0"
+                                                Theme="{StaticResource SolidButtonTheme}" />
+                                        <Button Height="60"
+                                                Classes="Warning"
+                                                Content="Warning"
+                                                CornerRadius="0"
+                                                Theme="{StaticResource SolidButtonTheme}" />
+                                    </StackPanel>
+                                </ScrollViewer>
+                            </GroupBoxEx>
+                            <GroupBoxEx Padding="0"
+                                        Header="Left header"
+                                        HeaderPlacement="Left">
+                                <TextBox BorderThickness="0">TextBox</TextBox>
+                            </GroupBoxEx>
+                        </UniformGrid>
+                        <GroupBox Classes.Shadow="{Binding #Shadow.IsChecked}" Header="GroupBox">
+                            <CheckBox Name="Shadow">Shadow</CheckBox>
+                        </GroupBox>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
     </DemoPage>
 
 </UserControl>

@@ -7,9 +7,9 @@
         <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusLarge}" />
-        <Setter Property="Padding" Value="10" />
+        <Setter Property="Padding" Value="{DynamicResource ThemeHeaderControlPadding}" />
         <Setter Property="HeaderPlacement" Value="Top" />
-        <Setter Property="HeaderPadding" Value="{DynamicResource ThemeHeaderControlPadding}" />
+        <Setter Property="HeaderPadding" Value="{DynamicResource ThemeHeaderControlHeaderPadding}" />
         <Setter Property="HeaderBackground" Value="{DynamicResource SynthoraLowBrush}" />
         <Setter Property="BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
         <Setter Property="HeaderDividerThickness" Value="1" />

@@ -10,7 +10,7 @@
              x:DataType="vm:CarouselViewModel"
              mc:Ignorable="d">
 
-    <DemoPage Title="Carousel"
+    <DemoPage Title="Carousel Controls"
               Description="{Binding Description}"
               IconKind="{Binding IconKind}">
         <UniformGrid Columns="1" RowSpacing="16">
