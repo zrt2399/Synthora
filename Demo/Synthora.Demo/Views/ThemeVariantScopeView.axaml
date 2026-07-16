@@ -17,7 +17,7 @@
         <ScrollViewer Padding="16">
             <StackPanel Spacing="16">
                 <ThemeVariantScope RequestedThemeVariant="Light">
-                    <Border Classes="card">
+                    <Border Classes="card" Background="{DynamicResource ThemeBackgroundBrush}">
                         <StackPanel Spacing="16">
                             <StackPanel Classes="sectionHeader">
                                 <materialIcons:MaterialIcon Classes="sectionIcon" Kind="WhiteBalanceSunny" />
@@ -56,7 +56,7 @@
                 </ThemeVariantScope>
 
                 <ThemeVariantScope RequestedThemeVariant="Dark">
-                    <Border Classes="card">
+                    <Border Classes="card" Background="{DynamicResource ThemeBackgroundBrush}">
                         <StackPanel Spacing="16">
                             <StackPanel Classes="sectionHeader">
                                 <materialIcons:MaterialIcon Classes="sectionIcon" Kind="WeatherNight" />

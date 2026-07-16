@@ -78,6 +78,16 @@
                     <ProgressBar Classes="Secondary"
                                  ShowProgressText="True"
                                  Value="{Binding #SecondarySlider.Value}" />
+                    <ProgressBar Classes="Success"
+                                 ShowProgressText="True"
+                                 Value="{Binding #SecondarySlider.Value}" />
+                    <ProgressBar Classes="Warning"
+                                 ShowProgressText="True"
+                                 Value="{Binding #SecondarySlider.Value}" />
+                    <ProgressBar Classes="Error"
+                                 ShowProgressText="True"
+                                 Value="{Binding #SecondarySlider.Value}" />
+                    <ProgressBar IsIndeterminate="True" />
                     <Divider Content="ProgressRing" Orientation="Horizontal" />
                     <StackPanel Orientation="Horizontal" Spacing="20">
                         <ProgressRing VerticalAlignment="Center" />
@@ -91,11 +101,13 @@
                                       VerticalAlignment="Center"
                                       StrokeThickness="4" />
                         <ProgressRing VerticalAlignment="Center"
-                                      IsActive="{Binding #ProgressRingToggle.IsChecked}" />
+                                      IsActive="{Binding #ProgressRingToggle.IsChecked}" /> 
+                        <ProgressBar Theme="{StaticResource ProgressRingTheme}" IsIndeterminate="{Binding #ProgressRingToggle.IsChecked}" />  
                         <ToggleSwitch Name="ProgressRingToggle"
                                       VerticalAlignment="Center"
                                       Content="IsActive"
                                       IsChecked="True" />
+                        <ProgressBar Theme="{StaticResource ProgressRingTheme}" ShowProgressText="True"  Value="{Binding #SecondarySlider.Value}"/>  
                     </StackPanel>
                     <Divider Content="PipsPager" Orientation="Horizontal" />
                     <PipsPager HorizontalAlignment="Left"

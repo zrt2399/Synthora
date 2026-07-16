@@ -37,7 +37,6 @@ namespace Synthora.Controls
         {
             AffectsRender<ProgressRing>(IsActiveProperty, StrokeThicknessProperty, ForegroundProperty);
             AffectsMeasure<ProgressRing>(StrokeThicknessProperty);
-            IsActiveProperty.Changed.AddClassHandler<ProgressRing>((s, e) => s.UpdateAnimationState());
         }
 
         /// <summary>
@@ -92,7 +91,7 @@ namespace Synthora.Controls
         {
             base.OnPropertyChanged(change);
 
-            if (change.Property == IsVisibleProperty || change.Property.Name == nameof(IsEffectivelyVisible))
+            if (change.Property == IsActiveProperty || change.Property == IsVisibleProperty)
             {
                 UpdateAnimationState();
             }
@@ -157,7 +156,11 @@ namespace Synthora.Controls
             }
 
             _lastTimestamp = now;
-            InvalidateVisual();
+
+            if (IsEffectivelyVisible)
+            {
+                InvalidateVisual();
+            }
         }
 
         private void UpdateAnimationState()
@@ -169,15 +172,14 @@ namespace Synthora.Controls
                     _lastTimestamp = 0;
                     _animationTimer.Start();
                 }
-
-                InvalidateVisual();
             }
             else
             {
                 _animationTimer.Stop();
                 _lastTimestamp = 0;
-                InvalidateVisual();
             }
+
+            InvalidateVisual();
         }
     }
 }

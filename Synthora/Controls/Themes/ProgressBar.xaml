@@ -100,6 +100,27 @@
             </Style>
         </Style>
 
+        <Style Selector="^.Success">
+            <Setter Property="Foreground" Value="{DynamicResource SuccessBrush}" />
+            <Style Selector="^ /template/ TextBlock#ForegroundText">
+                <Setter Property="Foreground" Value="White" />
+            </Style>
+        </Style>
+
+        <Style Selector="^.Warning">
+            <Setter Property="Foreground" Value="{DynamicResource WarningBrush}" />
+            <Style Selector="^ /template/ TextBlock#ForegroundText">
+                <Setter Property="Foreground" Value="White" />
+            </Style>
+        </Style>
+
+        <Style Selector="^.Error">
+            <Setter Property="Foreground" Value="{DynamicResource ErrorBrush}" />
+            <Style Selector="^ /template/ TextBlock#ForegroundText">
+                <Setter Property="Foreground" Value="White" />
+            </Style>
+        </Style>
+
         <Style Selector="^:horizontal /template/ Border#PART_Indicator">
             <Setter Property="HorizontalAlignment" Value="Left" />
             <Setter Property="VerticalAlignment" Value="Stretch" />
@@ -154,4 +175,96 @@
             <Setter Property="Height" Value="{Binding TemplateSettings.ContainerWidth, RelativeSource={RelativeSource TemplatedParent}}" />
         </Style>
     </ControlTheme>
+
+    <ControlTheme x:Key="ProgressRingTheme" TargetType="ProgressBar">
+        <Setter Property="Width" Value="64" />
+        <Setter Property="Height" Value="64" />
+        <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="BorderThickness" Value="4" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ProgressBar">
+                <Panel>
+                    <Border Name="PART_Indicator" />
+                    <Arc Name="Background"
+                         StartAngle="-90"
+                         Stroke="{TemplateBinding Background}"
+                         StrokeJoin="Round"
+                         StrokeLineCap="Round"
+                         StrokeThickness="{Binding BorderThickness.Left, RelativeSource={RelativeSource TemplatedParent}}"
+                         SweepAngle="360" />
+                    <Arc Name="Indicator"
+                         StartAngle="-90"
+                         Stroke="{TemplateBinding Foreground}"
+                         StrokeJoin="Round"
+                         StrokeLineCap="Round"
+                         StrokeThickness="{Binding BorderThickness.Left, RelativeSource={RelativeSource TemplatedParent}}"
+                         SweepAngle="{TemplateBinding Percentage,
+                                                      Converter={x:Static PositionToAngleConverter.Instance}}" />
+                    <Arc Name="IndeterminateIndicator"
+                         Opacity="0"
+                         StartAngle="-90"
+                         Stroke="{TemplateBinding Foreground}"
+                         StrokeJoin="Round"
+                         StrokeLineCap="Round"
+                         StrokeThickness="{Binding BorderThickness.Left, RelativeSource={RelativeSource TemplatedParent}}"
+                         SweepAngle="{TemplateBinding Percentage,
+                                                      Converter={x:Static PositionToAngleConverter.Instance}}" />
+                    <TextBlock Name="PART_ProgressText"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               IsVisible="{TemplateBinding ShowProgressText}">
+                        <TextBlock.Text>
+                            <MultiBinding Converter="{StaticResource StringFormatConverter}">
+                                <TemplateBinding Property="ProgressTextFormat" />
+                                <TemplateBinding Property="Value" />
+                                <TemplateBinding Property="Percentage" />
+                                <TemplateBinding Property="Minimum" />
+                                <TemplateBinding Property="Maximum" />
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^.Primary">
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
+        </Style>
+        <Style Selector="^.Secondary">
+            <Setter Property="Foreground" Value="{DynamicResource SecondaryBrush}" />
+        </Style>
+        <Style Selector="^.Success">
+            <Setter Property="Foreground" Value="{DynamicResource SuccessBrush}" />
+        </Style>
+        <Style Selector="^.Warning">
+            <Setter Property="Foreground" Value="{DynamicResource WarningBrush}" />
+        </Style>
+        <Style Selector="^.Error">
+            <Setter Property="Foreground" Value="{DynamicResource ErrorBrush}" />
+        </Style>
+
+        <Style Selector="^:indeterminate /template/ Arc#Indicator">
+            <Setter Property="Opacity" Value="0" />
+        </Style>
+        <Style Selector="^:indeterminate /template/ Arc#IndeterminateIndicator">
+            <Setter Property="Opacity" Value="1" />
+            <Style.Animations>
+                <Animation IterationCount="Infinite" Duration="0:0:2">
+                    <KeyFrame KeyTime="0:0:0">
+                        <Setter Property="StartAngle" Value="-90" />
+                        <Setter Property="SweepAngle" Value="20" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:1.5">
+                        <Setter Property="StartAngle" Value="90" />
+                        <Setter Property="SweepAngle" Value="160" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:2">
+                        <Setter Property="StartAngle" Value="270" />
+                        <Setter Property="SweepAngle" Value="20" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+    </ControlTheme>
+
 </ResourceDictionary>
