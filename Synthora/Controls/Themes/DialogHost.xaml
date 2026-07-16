@@ -3,8 +3,8 @@
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
 
-    <CornerRadius x:Key="DialogPopupCornerRadius">10</CornerRadius>
-    <Thickness x:Key="DialogPopupMargin">32</Thickness>
+    <CornerRadius x:Key="DialogCornerRadius">10</CornerRadius>
+    <Thickness x:Key="DialogMargin">32</Thickness>
 
     <ControlTheme x:Key="{x:Type DialogOverlayPopupHost}" TargetType="DialogOverlayPopupHost">
         <Setter Property="KeyboardNavigation.TabNavigation" Value="Cycle" />
@@ -53,12 +53,12 @@
         <Setter Property="PopupTemplate">
             <ControlTemplate>
                 <ShadowChrome Name="RootChrome"
-                              Margin="{DynamicResource DialogPopupMargin}"
+                              Margin="{DynamicResource DialogMargin}"
                               Background="{DynamicResource ThemeBackgroundBrush}"
                               BorderBrush="{DynamicResource ThemeBorderLowBrush}"
                               BorderThickness="{DynamicResource ThemeBorderThickness}"
                               BoxShadow="{Binding $parent[DialogHost].DialogBoxShadow}"
-                              CornerRadius="{DynamicResource DialogPopupCornerRadius}">
+                              CornerRadius="{DynamicResource DialogCornerRadius}">
                     <ContentPresenter Name="PART_ContentPresenter"
                                       Margin="{TemplateBinding Padding}"
                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"

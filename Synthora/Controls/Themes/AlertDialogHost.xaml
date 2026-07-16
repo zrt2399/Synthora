@@ -14,13 +14,13 @@
                         MinHeight="160"
                         MaxWidth="{Binding AlertDialogInstance?.MaxWidth, RelativeSource={RelativeSource TemplatedParent}}"
                         MaxHeight="{Binding AlertDialogInstance?.MaxHeight, RelativeSource={RelativeSource TemplatedParent}}"
-                        Margin="{DynamicResource DialogPopupMargin}"
+                        Margin="{DynamicResource DialogMargin}"
                         Padding="10"
                         Background="{DynamicResource ThemeBackgroundBrush}"
                         BorderBrush="{DynamicResource ThemeBorderLowBrush}"
                         BorderThickness="{DynamicResource ThemeBorderThickness}"
                         BoxShadow="{Binding $parent[AlertDialogHost].DialogBoxShadow}"
-                        CornerRadius="{DynamicResource DialogPopupCornerRadius}">
+                        CornerRadius="{DynamicResource DialogCornerRadius}">
                     <Grid RowDefinitions="Auto,*,Auto">
                         <Grid.Styles>
                             <Style Selector="Button">
