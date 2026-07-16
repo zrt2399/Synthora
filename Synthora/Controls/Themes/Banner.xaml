@@ -1,5 +1,6 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="using:Avalonia.Controls.Converters"
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
 
@@ -21,6 +22,12 @@
             </StackPanel>
         </Border>
     </Design.PreviewWith>
+
+    <converters:MarginMultiplierConverter x:Key="BannerHeaderMarginMultiplier"
+                                          Indent="1"
+                                          Left="True"
+                                          Right="True"
+                                          Top="True" />
 
     <ControlTheme x:Key="{x:Type Banner}" TargetType="Banner">
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
@@ -69,13 +76,32 @@
                                       Data="{DynamicResource TextBoxClearButtonData}" />
                         </Button>
 
-                        <!--  Content  -->
-                        <ContentPresenter Name="PART_ContentPresenter"
-                                          Margin="{TemplateBinding Padding}"
-                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                          Content="{TemplateBinding Content}"
-                                          TextWrapping="{TemplateBinding TextWrapping}" />
+                        <DockPanel>
+                            <!--  Header  -->
+                            <ContentPresenter Name="PART_HeaderPresenter"
+                                              Margin="{TemplateBinding Padding,
+                                                                       Converter={StaticResource BannerHeaderMarginMultiplier}}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Content="{TemplateBinding Header}"
+                                              ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                              DockPanel.Dock="Top"
+                                              FontSize="{DynamicResource FontSizeLarge}"
+                                              IsVisible="{TemplateBinding Header,
+                                                                          Converter={x:Static ObjectConverters.IsNotNull}}"
+                                              TextWrapping="{TemplateBinding TextWrapping}" />
+
+                            <!--  Content  -->
+                            <ContentPresenter Name="PART_ContentPresenter"
+                                              Margin="{TemplateBinding Padding}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              IsVisible="{TemplateBinding Content,
+                                                                          Converter={x:Static ObjectConverters.IsNotNull}}"
+                                              TextWrapping="{TemplateBinding TextWrapping}" />
+                        </DockPanel>
                     </DockPanel>
                 </Border>
             </ControlTemplate>

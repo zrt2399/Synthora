@@ -1,7 +1,6 @@
 <UserControl x:Class="Synthora.Demo.Views.BannerView"
              xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:controls="using:Synthora.Controls"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:materialIcons="using:Material.Icons.Avalonia"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -16,86 +15,94 @@
               Description="{Binding Description}"
               IconKind="{Binding IconKind}">
         <ScrollViewer Padding="16">
-            <Border Classes="card">
-                <StackPanel Spacing="16">
-                    <StackPanel Classes="sectionHeader">
-                        <materialIcons:MaterialIcon Classes="sectionIcon" Kind="AlertCircleOutline" />
-                        <TextBlock Classes="sectionLabel" Text="BANNER" />
-                    </StackPanel>
+            <StackPanel Spacing="16">
+                <Border Classes="card">
                     <StackPanel Spacing="16">
-                        <DockPanel HorizontalSpacing="16" VerticalSpacing="16">
-                            <WrapPanel DockPanel.Dock="Top"
-                                       ItemSpacing="16"
-                                       LineSpacing="16"
-                                       Orientation="Horizontal">
+                        <StackPanel Classes="sectionHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="AlertCircleOutline" />
+                            <TextBlock Classes="sectionLabel" Text="BANNER" />
+                        </StackPanel>
+                        <StackPanel Spacing="16">
+                            <DockPanel HorizontalSpacing="16" VerticalSpacing="16">
+                                <WrapPanel DockPanel.Dock="Top"
+                                           ItemSpacing="16"
+                                           LineSpacing="16"
+                                           Orientation="Horizontal">
 
-                                <ComboBox ItemsSource="{EnumBindingSource controls:IconType}"
-                                          SelectedItem="{Binding #LiveBanner.IconType}"
-                                          TextBoxAttach.Header="IconType:"
-                                          TextBoxAttach.HeaderPlacement="Left" />
-                                <CheckBox Content="ShowIcon" IsChecked="{Binding #LiveBanner.ShowIcon}" />
-                                <CheckBox Content="ShowAccentBar" IsChecked="{Binding #LiveBanner.ShowAccentBar}" />
-                                <CheckBox Content="ShowCloseButton" IsChecked="{Binding #LiveBanner.ShowCloseButton}" />
+                                    <ComboBox ItemsSource="{EnumBindingSource IconType}"
+                                              SelectedItem="{Binding #LiveBanner.IconType}"
+                                              TextBoxAttach.Header="IconType:"
+                                              TextBoxAttach.HeaderPlacement="Left" />
+                                    <CheckBox Content="ShowIcon" IsChecked="{Binding #LiveBanner.ShowIcon}" />
+                                    <CheckBox Content="ShowAccentBar" IsChecked="{Binding #LiveBanner.ShowAccentBar}" />
+                                    <CheckBox Content="ShowCloseButton" IsChecked="{Binding #LiveBanner.ShowCloseButton}" />
 
-                                <CheckBox Name="LiveBannerBorder"
-                                          Content="Border"
-                                          IsChecked="True" />
-                                <StackPanel Orientation="Horizontal" Spacing="8">
-                                    <TextBlock VerticalAlignment="Center">
-                                        <Run>CornerRadius:</Run>
-                                        <Run Text="{Binding #LiveBannerCornerRadius.Value}" />
-                                    </TextBlock>
-                                    <Slider Name="LiveBannerCornerRadius"
-                                            Width="100"
-                                            IsSnapToTickEnabled="True"
-                                            Maximum="20"
-                                            TickFrequency="1"
-                                            Value="6" />
-                                </StackPanel>
+                                    <CheckBox Name="LiveBannerBorder"
+                                              Content="Border"
+                                              IsChecked="True" />
+                                    <StackPanel Orientation="Horizontal" Spacing="8">
+                                        <TextBlock VerticalAlignment="Center">
+                                            <Run>CornerRadius:</Run>
+                                            <Run Text="{Binding #LiveBannerCornerRadius.Value}" />
+                                        </TextBlock>
+                                        <Slider Name="LiveBannerCornerRadius"
+                                                Width="100"
+                                                IsSnapToTickEnabled="True"
+                                                Maximum="20"
+                                                TickFrequency="1"
+                                                Value="6" />
+                                    </StackPanel>
 
-                                <TextBox Width="320"
-                                         Text="{Binding #LiveBanner.Content, UpdateSourceTrigger=PropertyChanged}"
-                                         TextBoxAttach.Header="Content:"
-                                         TextBoxAttach.HeaderPlacement="Left" />
-                            </WrapPanel>
-                            <Banner Name="LiveBanner"
-                                    Classes.Border="{Binding #LiveBannerBorder.IsChecked}"
-                                    Content="This live banner updates as you change the styling options."
-                                    CornerRadius="{Binding #LiveBannerCornerRadius.Value, Converter={x:Static SynthoraConverters.DoubleToCornerRadiusConverter}}"
-                                    IconType="Information"
+                                    <StackPanel Orientation="Horizontal" Spacing="16">
+                                        <TextBox Width="200"
+                                                 Text="{Binding #LiveBanner.Header}"
+                                                 TextBoxAttach.Header="Header:"
+                                                 TextBoxAttach.HeaderPlacement="Left" />
+                                        <TextBox Width="320"
+                                                 Text="{Binding #LiveBanner.Content}"
+                                                 TextBoxAttach.Header="Content:"
+                                                 TextBoxAttach.HeaderPlacement="Left" />
+                                    </StackPanel>
+                                </WrapPanel>
+                                <Banner Name="LiveBanner"
+                                        Classes.Border="{Binding #LiveBannerBorder.IsChecked}"
+                                        Content="This live banner updates as you change the styling options."
+                                        CornerRadius="{Binding #LiveBannerCornerRadius.Value, Converter={x:Static SynthoraConverters.DoubleToCornerRadiusConverter}}"
+                                        IconType="Information"
+                                        ShowAccentBar="True" />
+                            </DockPanel>
+
+                            <Banner Content="This is a custom banner with error icon." IconType="Error" />
+
+                            <Banner Content="Do you want to continue with this operation?" IconType="Question" />
+
+                            <Banner Content="Operation completed successfully! Data has been saved." IconType="Success" />
+
+                            <Banner Content="Note: This operation may take a long time to complete." IconType="Warning" />
+
+                            <Banner Content="This banner displays an accent bar using the current icon type color."
+                                    IconType="Warning"
                                     ShowAccentBar="True" />
-                        </DockPanel>
 
-                        <Banner Content="This is a custom banner with error icon." IconType="Error" />
+                            <Banner Content="System information has been updated to the latest version." IconType="Information" />
 
-                        <Banner Content="Do you want to continue with this operation?" IconType="Question" />
+                            <Banner Content="This banner keeps the information color but hides the icon."
+                                    IconType="Information"
+                                    ShowIcon="False" />
 
-                        <Banner Content="Operation completed successfully! Data has been saved." IconType="Success" />
+                            <Banner BorderThickness="1"
+                                    Content="This is a bordered custom banner."
+                                    IconType="Information" />
 
-                        <Banner Content="Note: This operation may take a long time to complete." IconType="Warning" />
+                            <Banner Content="This is a custom banner without close button."
+                                    IconType="Information"
+                                    ShowCloseButton="False" />
 
-                        <Banner Content="This banner displays an accent bar using the current icon type color."
-                                IconType="Warning"
-                                ShowAccentBar="True" />
-
-                        <Banner Content="System information has been updated to the latest version." IconType="Information" />
-
-                        <Banner Content="This banner keeps the information color but hides the icon."
-                                IconType="Information"
-                                ShowIcon="False" />
-
-                        <Banner BorderThickness="1"
-                                Content="This is a bordered custom banner."
-                                IconType="Information" />
-
-                        <Banner Content="This is a custom banner without close button."
-                                IconType="Information"
-                                ShowCloseButton="False" />
-
-                        <Banner Content="This is a custom banner without icon." />
+                            <Banner Content="This is a custom banner without icon." />
+                        </StackPanel>
                     </StackPanel>
-                </StackPanel>
-            </Border>
+                </Border>
+            </StackPanel>
         </ScrollViewer>
     </DemoPage>
 </UserControl>

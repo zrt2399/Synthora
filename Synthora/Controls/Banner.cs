@@ -10,7 +10,7 @@ namespace Synthora.Controls
     /// Represents a banner control for displaying messages with different severity levels.
     /// </summary>
     [PseudoClasses(pcInformation, pcQuestion, pcSuccess, pcWarning, pcError, pcNone)]
-    public class Banner : ContentControl
+    public class Banner : HeaderedContentControl
     {
         private const string pcNone = ":none";
         private const string pcInformation = ":information";
