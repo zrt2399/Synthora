@@ -381,15 +381,19 @@
                                    Grid.Column="2" />
 
                         <!--<Rectangle Name="BottomLeftCorner"
-                        Grid.Row="2"
-                        Grid.ColumnSpan="2"
-                        Fill="{DynamicResource ThemeControlMidBrush}" />-->
+                                       Grid.Row="2"
+                                       Grid.ColumnSpan="2"
+                                       Fill="{DynamicResource ThemeControlMidBrush}" />-->
+
+                        <!--  https://github.com/AvaloniaUI/Avalonia.Controls.DataGrid/pull/255  -->
+                        <!--  DataGrid's code-behind does not synchronize the vertical scrollbar's LargeChange.  -->
                         <ScrollBar Name="PART_VerticalScrollbar"
                                    Grid.Row="1"
                                    Grid.Column="2"
                                    Width="{DynamicResource ScrollBarThickness}"
                                    HorizontalAlignment="Right"
                                    AllowAutoHide="{Binding Path=(ScrollViewer.AllowAutoHide), RelativeSource={RelativeSource TemplatedParent}}"
+                                   LargeChange="{Binding #PART_RowsPresenter.Bounds.Height}"
                                    Orientation="Vertical" />
 
                         <Grid Grid.Row="2"

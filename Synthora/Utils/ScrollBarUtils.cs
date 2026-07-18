@@ -22,13 +22,15 @@ namespace Synthora.Utils
         public static extern void SmallDecrement(ScrollBar scrollBar);
         [UnsafeAccessor(UnsafeAccessorKind.Method, Name = nameof(SmallIncrement))]
         public static extern void SmallIncrement(ScrollBar scrollBar);
+        [UnsafeAccessor(UnsafeAccessorKind.Method, Name = nameof(OnScroll))]
+        public static extern void OnScroll(ScrollBar scrollBar, ScrollEventType scrollEventType);
 
         public static void ScrollBarScrollToHome(ScrollBar? scrollBar)
         {
             if (scrollBar != null)
             {
                 scrollBar.SetCurrentValue(RangeBase.ValueProperty, scrollBar.Minimum);
-                LargeDecrement(scrollBar);
+                OnScroll(scrollBar, ScrollEventType.LargeDecrement);
             }
         }
 
@@ -37,7 +39,7 @@ namespace Synthora.Utils
             if (scrollBar != null)
             {
                 scrollBar.SetCurrentValue(RangeBase.ValueProperty, scrollBar.Maximum);
-                LargeIncrement(scrollBar);
+                OnScroll(scrollBar, ScrollEventType.LargeIncrement);
             }
         }
 
