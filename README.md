@@ -10,6 +10,7 @@ dotnet add package Synthora
 ```
 
 # 🚀 Quick Start
+Update your `App.axaml`:
 ``` xml
 <Application.Styles> 
     <SynthoraTheme /> 
