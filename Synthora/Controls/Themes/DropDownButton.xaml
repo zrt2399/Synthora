@@ -57,7 +57,7 @@
                   TargetType="DropDownButton">
         <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
         <Setter Property="DropDownButtonAttach.DropDownIcon" Value="{StaticResource DropDownButtonIcon}" />
-        <Style Selector="^[(DropDownButtonAttach.EnableDropDownIconAnimation)=True]:flyout-open /template/ ContentPresenter#PART_DropDownContentPresenter">
+        <Style Selector="^[(DropDownButtonAttach.DropDownIconAnimationEnabled)=True]:flyout-open /template/ ContentPresenter#PART_DropDownContentPresenter">
             <Setter Property="RenderTransform" Value="rotate(180deg)" />
         </Style>
     </ControlTheme>
@@ -71,7 +71,7 @@
                   TargetType="DropDownButton">
         <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
         <Setter Property="DropDownButtonAttach.DropDownIcon" Value="{StaticResource DropDownButtonIcon}" />
-        <Style Selector="^[(DropDownButtonAttach.EnableDropDownIconAnimation)=True]:flyout-open /template/ ContentPresenter#PART_DropDownContentPresenter">
+        <Style Selector="^[(DropDownButtonAttach.DropDownIconAnimationEnabled)=True]:flyout-open /template/ ContentPresenter#PART_DropDownContentPresenter">
             <Setter Property="RenderTransform" Value="rotate(180deg)" />
         </Style>
     </ControlTheme>
@@ -81,7 +81,7 @@
                   TargetType="DropDownButton">
         <Setter Property="Template" Value="{StaticResource DropDownButtonTemplate}" />
         <Setter Property="DropDownButtonAttach.DropDownIcon" Value="{StaticResource DropDownButtonIcon}" />
-        <Style Selector="^[(DropDownButtonAttach.EnableDropDownIconAnimation)=True]:flyout-open /template/ ContentPresenter#PART_DropDownContentPresenter">
+        <Style Selector="^[(DropDownButtonAttach.DropDownIconAnimationEnabled)=True]:flyout-open /template/ ContentPresenter#PART_DropDownContentPresenter">
             <Setter Property="RenderTransform" Value="rotate(180deg)" />
         </Style>
     </ControlTheme>

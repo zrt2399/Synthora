@@ -290,7 +290,7 @@
                                                 </StackPanel>
 
                                                 <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
-                                                    <SplitButton DropDownButtonAttach.EnableDropDownIconAnimation="False">
+                                                    <SplitButton DropDownButtonAttach.DropDownIconAnimationEnabled="False">
                                                         Publish
                                                         <DropDownButtonAttach.DropDownIcon>
                                                             <PathIcon Width="12"

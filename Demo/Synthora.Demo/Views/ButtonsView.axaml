@@ -162,7 +162,7 @@
                             <Style Selector="DropDownButton">
                                 <Setter Property="Flyout">
                                     <Flyout Placement="BottomEdgeAlignedLeft">
-                                        <CheckBox>CheckBox</CheckBox>
+                                        <CheckBox Margin="8">CheckBox</CheckBox>
                                     </Flyout>
                                 </Setter>
                             </Style>
@@ -182,7 +182,7 @@
                             <DropDownButton Classes="Question" Theme="{StaticResource OutlineDropDownButtonTheme}">Question</DropDownButton>
                             <DropDownButton Classes="Warning" Theme="{StaticResource OutlineDropDownButtonTheme}">Warning</DropDownButton>
                             <DropDownButton Classes="Error" Theme="{StaticResource OutlineDropDownButtonTheme}">Error</DropDownButton>
-                            <DropDownButton DropDownButtonAttach.DropDownIcon="{StaticResource CustomIcon}" DropDownButtonAttach.EnableDropDownIconAnimation="False">
+                            <DropDownButton DropDownButtonAttach.DropDownIcon="{StaticResource CustomIcon}" DropDownButtonAttach.DropDownIconAnimationEnabled="False">
                                 Custom Icon
                             </DropDownButton>
                         </SpacingWrapPanel>
@@ -240,7 +240,7 @@
                             <SplitButton Classes="Question" Theme="{StaticResource OutlineSplitButtonTheme}">Question</SplitButton>
                             <SplitButton Classes="Warning" Theme="{StaticResource OutlineSplitButtonTheme}">Warning</SplitButton>
                             <SplitButton Classes="Error" Theme="{StaticResource OutlineSplitButtonTheme}">Error</SplitButton>
-                            <SplitButton DropDownButtonAttach.DropDownIcon="{StaticResource CustomIcon}" DropDownButtonAttach.EnableDropDownIconAnimation="False">
+                            <SplitButton DropDownButtonAttach.DropDownIcon="{StaticResource CustomIcon}" DropDownButtonAttach.DropDownIconAnimationEnabled="False">
                                 Custom Icon
                             </SplitButton>
                         </SpacingWrapPanel>
@@ -298,7 +298,7 @@
                             <ToggleSplitButton Classes="Question" Theme="{StaticResource OutlineToggleSplitButtonTheme}">Question</ToggleSplitButton>
                             <ToggleSplitButton Classes="Warning" Theme="{StaticResource OutlineToggleSplitButtonTheme}">Warning</ToggleSplitButton>
                             <ToggleSplitButton Classes="Error" Theme="{StaticResource OutlineToggleSplitButtonTheme}">Error</ToggleSplitButton>
-                            <ToggleSplitButton DropDownButtonAttach.DropDownIcon="{StaticResource CustomIcon}" DropDownButtonAttach.EnableDropDownIconAnimation="False">
+                            <ToggleSplitButton DropDownButtonAttach.DropDownIcon="{StaticResource CustomIcon}" DropDownButtonAttach.DropDownIconAnimationEnabled="False">
                                 Custom Icon
                             </ToggleSplitButton>
                         </SpacingWrapPanel>
