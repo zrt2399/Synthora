@@ -39,7 +39,7 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{TemplateBinding CornerRadius}" />
                     <Grid ColumnDefinitions="*,Auto,Auto">
-                        <Button x:Name="PART_PrimaryButton"
+                        <Button Name="PART_PrimaryButton"
                                 Padding="{TemplateBinding Padding}"
                                 Background="{TemplateBinding Background}"
                                 BorderThickness="{TemplateBinding BorderThickness,
@@ -63,10 +63,11 @@
                                                                   Converter={StaticResource SplitButtonSeparatorBorderThicknessMultiplier}}">
                             <controls:PixelAlignedRectangle Width="1"
                                                             Margin="0,4"
-                                                            Fill="{TemplateBinding Foreground}" />
+                                                            Fill="{TemplateBinding Foreground}"
+                                                            Opacity="0.6" />
                         </Border>
 
-                        <Button x:Name="PART_SecondaryButton"
+                        <Button Name="PART_SecondaryButton"
                                 Grid.Column="2"
                                 Padding="{TemplateBinding Padding}"
                                 Background="{TemplateBinding Background}"
@@ -92,7 +93,7 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^[(DropDownButtonAttach.EnableDropDownIconAnimation)=True] /template/ ContentPresenter#SecondaryContentPresenter">
+        <Style Selector="^[(DropDownButtonAttach.DropDownIconAnimationEnabled)=True] /template/ ContentPresenter#SecondaryContentPresenter">
             <Setter Property="Transitions">
                 <Transitions>
                     <TransformOperationsTransition Easing="CubicEaseInOut"
@@ -111,7 +112,7 @@
             <Setter Property="BorderThickness" Value="{TemplateBinding BorderThickness}" />
         </Style>
 
-        <Style Selector="^[(DropDownButtonAttach.EnableDropDownIconAnimation)=True]:flyout-open">
+        <Style Selector="^[(DropDownButtonAttach.DropDownIconAnimationEnabled)=True]:flyout-open">
             <Style Selector="^ /template/ ContentPresenter#SecondaryContentPresenter">
                 <Setter Property="RenderTransform" Value="rotate(180deg)" />
             </Style>

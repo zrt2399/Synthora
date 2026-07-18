@@ -43,13 +43,13 @@ namespace Synthora.Controls
         /// Defines the <see cref="MenuMinWidth"/> property.
         /// </summary>
         public static readonly StyledProperty<double> MenuMinWidthProperty =
-            AvaloniaProperty.Register<TreeMenu, double>(nameof(MenuMinWidth), 200d);
+            AvaloniaProperty.Register<TreeMenu, double>(nameof(MenuMinWidth), 180d);
 
         /// <summary>
         /// Defines the <see cref="MenuMaxWidth"/> property.
         /// </summary>
         public static readonly StyledProperty<double> MenuMaxWidthProperty =
-            AvaloniaProperty.Register<TreeMenu, double>(nameof(MenuMaxWidth), 500d);
+            AvaloniaProperty.Register<TreeMenu, double>(nameof(MenuMaxWidth), 480d);
 
         /// <summary>
         /// Defines the <see cref="MenuBackground"/> property.
