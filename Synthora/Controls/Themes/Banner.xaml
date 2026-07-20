@@ -148,10 +148,6 @@
             <Setter Property="IsVisible" Value="False" />
         </Style>
 
-        <Style Selector="^[IsClosed=True]">
-            <Setter Property="IsVisible" Value="False" />
-        </Style>
-
         <Style Selector="^.Border">
             <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         </Style>

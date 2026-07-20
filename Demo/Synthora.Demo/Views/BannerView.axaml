@@ -33,13 +33,14 @@
                                               SelectedItem="{Binding #LiveBanner.IconType}"
                                               TextBoxAttach.Header="IconType:"
                                               TextBoxAttach.HeaderPlacement="Left" />
+                                    <CheckBox Content="IsVisible" IsChecked="{Binding #LiveBanner.IsVisible}" />
                                     <CheckBox Content="ShowIcon" IsChecked="{Binding #LiveBanner.ShowIcon}" />
                                     <CheckBox Content="ShowAccentBar" IsChecked="{Binding #LiveBanner.ShowAccentBar}" />
                                     <CheckBox Content="ShowCloseButton" IsChecked="{Binding #LiveBanner.ShowCloseButton}" />
-
                                     <CheckBox Name="LiveBannerBorder"
                                               Content="Border"
                                               IsChecked="True" />
+
                                     <StackPanel Orientation="Horizontal" Spacing="8">
                                         <TextBlock VerticalAlignment="Center">
                                             <Run>CornerRadius:</Run>

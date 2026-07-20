@@ -44,18 +44,10 @@ namespace Synthora.Controls
             AvaloniaProperty.Register<Banner, bool>(nameof(ShowAccentBar));
 
         /// <summary>
-        /// Defines the <see cref="IsClosed"/> property.
-        /// </summary>
-        public static readonly DirectProperty<Banner, bool> IsClosedProperty =
-            AvaloniaProperty.RegisterDirect<Banner, bool>(nameof(IsClosed), o => o.IsClosed, (o, v) => o.IsClosed = v);
-
-        /// <summary>
         /// Defines the <see cref="TextWrapping"/> property.
         /// </summary>
         public static readonly StyledProperty<TextWrapping> TextWrappingProperty =
             AvaloniaProperty.Register<Banner, TextWrapping>(nameof(TextWrapping), TextWrapping.Wrap);
-
-        private bool _isClosed;
 
         static Banner()
         {
@@ -99,15 +91,6 @@ namespace Synthora.Controls
         }
 
         /// <summary>
-        /// Gets or sets whether the banner is closed.
-        /// </summary>
-        public bool IsClosed
-        {
-            get => _isClosed;
-            set => SetAndRaise(IsClosedProperty, ref _isClosed, value);
-        }
-
-        /// <summary>
         /// Gets or sets how the content text wraps.
         /// </summary>
         public TextWrapping TextWrapping
@@ -133,9 +116,14 @@ namespace Synthora.Controls
             PseudoClasses.Set(pcError, IconType == IconType.Error);
         }
 
+        public void Show()
+        {
+            SetCurrentValue(IsVisibleProperty, true);
+        }
+
         public void Close()
         {
-            IsClosed = true;
+            SetCurrentValue(IsVisibleProperty, false);
         }
     }
 }
