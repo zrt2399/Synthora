@@ -1,4 +1,4 @@
-﻿using System.Runtime.CompilerServices;
+using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using Avalonia.Controls.Primitives;
 using Synthora.Input;

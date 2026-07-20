@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
@@ -103,7 +103,7 @@ namespace Synthora.Utils
                 return string.Empty;
             }
             var stringBuilder = new StringBuilder();
-            byte[] data = Encoding.UTF8.GetBytes(str);
+            var data = Encoding.UTF8.GetBytes(str);
             for (int i = 0; i < data.Length; i++)
             {
                 stringBuilder.Append(data[i].ToString("X2"));
@@ -122,7 +122,7 @@ namespace Synthora.Utils
             }
             try
             {
-                byte[] data = new byte[str.Length / 2];
+                var data = new byte[str.Length / 2];
                 for (int i = 0; i < str.Length; i += 2)
                 {
                     data[i / 2] = Convert.ToByte(str.Substring(i, 2), 16);
@@ -136,37 +136,31 @@ namespace Synthora.Utils
         }
 
         /// <summary>
-        /// Calculates the inner radius of a shape given its outer radius and border thickness values.
+        /// Calculates the corner radius for a nested inner border so that its corner curvature matches that of the outer border.
         /// </summary>
-        /// <param name="outerRadius">The outer radius of the shape.</param>
-        /// <param name="outerBorderThickness">The thickness of the outer border.</param>
-        /// <param name="outerBorderPadding">
-        /// Optional padding of an outer border. Defaults to 0 if not specified.
-        /// </param>
-        /// <returns>
-        /// The computed inner radius after subtracting half of each border's thickness;
-        /// returns 0 if the computed value would be negative.
-        /// </returns>
-        public static double CalcInnerRadius(double outerRadius, double outerBorderThickness, double outerBorderPadding = 0)
+        /// <param name="cornerRadius">The cornerRadius of the outer border.</param>
+        /// <param name="borderThickness">Optional thickness of the outer border. Defaults to 1 if not specified.</param>
+        /// <param name="padding">Optional padding of the outer border. Defaults to 0 if not specified.</param>
+        public static double CalcInnerRadius(double cornerRadius, double borderThickness = 1, double padding = 0)
         {
             double result;
-            if (outerBorderPadding < 0.5)
+            if (padding < 0.5)
             {
                 // R' = R - T/2 - T'/2
-                result = outerRadius - outerBorderThickness / 2 - outerBorderPadding / 2;
+                result = cornerRadius - borderThickness / 2 - padding / 2;
             }
             else
             {
-                var shrink = outerBorderThickness + outerBorderPadding;
-                if (outerBorderPadding >= outerRadius || shrink >= outerRadius)
+                var shrink = borderThickness + padding;
+                if (padding >= cornerRadius || shrink >= cornerRadius)
                 {
-                    result = outerRadius / 2 - outerBorderThickness / 2;
+                    result = cornerRadius / 2 - borderThickness / 2;
                 }
                 else
                 {
                     // result = outerRadius - outerBorderPadding /*- outerBorderThickness / 2*/;
                     // result = outerRadius - 0.7 * (outerBorderPadding + outerBorderThickness);
-                    result = outerRadius - shrink * Math.Sqrt(2) / 2;
+                    result = cornerRadius - shrink * Math.Sqrt(2) / 2;
                 }
             }
 
@@ -213,8 +207,8 @@ namespace Synthora.Utils
         public static string GetDescription<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicFields)] T>
             (this T t) where T : Enum
         {
-            Type type = typeof(T);
-            string enumName = t.ToString();
+            var type = typeof(T);
+            var enumName = t.ToString();
 
             if (type.GetField(enumName)?.GetCustomAttribute<DescriptionAttribute>() is { } descriptionAttribute)
             {
@@ -237,7 +231,7 @@ namespace Synthora.Utils
             var geometry = new StreamGeometry();
             using (var geometryContext = geometry.Open())
             {
-                geometryContext.BeginFigure(points[0], true);
+                geometryContext.BeginFigure(points[0]);
                 for (var i = 1; i < points.Length; i++)
                 {
                     geometryContext.LineTo(points[i]);
