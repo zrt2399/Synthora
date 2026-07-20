@@ -12,7 +12,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <DockPanel>
-                    <Panel Name="backgroundPanel">
+                    <Panel Name="backgroundPanel" UseLayoutRounding="False">
                         <Ellipse Name="border"
                                  Width="18"
                                  Height="18"
@@ -26,8 +26,7 @@
                                  HorizontalAlignment="Center"
                                  VerticalAlignment="Center"
                                  Fill="{DynamicResource OnPrimaryBrush}"
-                                 IsVisible="False"
-                                 UseLayoutRounding="False" />
+                                 IsVisible="False" />
                         <Ellipse Name="indeterminateMark"
                                  Width="10"
                                  Height="10"
@@ -36,8 +35,7 @@
                                  Fill="{TemplateBinding Background}"
                                  IsVisible="False"
                                  Stroke="{TemplateBinding BorderBrush}"
-                                 StrokeThickness="2"
-                                 UseLayoutRounding="False" />
+                                 StrokeThickness="2" />
                     </Panel>
 
                     <ContentPresenter Name="PART_ContentPresenter"
