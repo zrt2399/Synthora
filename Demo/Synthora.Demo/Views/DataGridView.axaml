@@ -32,9 +32,9 @@
                                ItemSpacing="16"
                                LineSpacing="16"
                                Orientation="Horizontal">
-                        <CheckBox Content="AreRowGroupHeadersFrozen" IsChecked="{Binding #DataGrid.AreRowGroupHeadersFrozen}" />
+                        <CheckBox Content="AreRowGroupHeadersFrozen" IsChecked="{Binding #GroupingDataGrid.AreRowGroupHeadersFrozen}" />
                         <ComboBox ItemsSource="{EnumBindingSource DataGridHeadersVisibility}"
-                                  SelectedItem="{Binding #DataGrid.HeadersVisibility}"
+                                  SelectedItem="{Binding #GroupingDataGrid.HeadersVisibility}"
                                   TextBoxAttach.Header="HeadersVisibility:"
                                   TextBoxAttach.HeaderPlacement="Left" />
                         <Button Classes="Primary"
@@ -46,7 +46,7 @@
                                 Content="Collapse All"
                                 Theme="{StaticResource SolidButtonTheme}" />
                     </WrapPanel>
-                    <DataGrid Name="DataGrid"
+                    <DataGrid Name="GroupingDataGrid"
                               DataGridAttach.IsAllExpanded="{Binding IsAllExpanded}"
                               HeadersVisibility="All"
                               ItemsSource="{Binding DataGridCollectionView}" />
@@ -61,9 +61,8 @@
                                Orientation="Horizontal">
                         <RadioButton Name="Primary" GroupName="ColorVariant">Primary</RadioButton>
                         <RadioButton Name="Secondary" GroupName="ColorVariant">Secondary</RadioButton>
-                        <CheckBox Name="Border"
-                                  Content="Border"
-                                  IsChecked="True" />
+                        <CheckBox Name="Border" IsChecked="True">Border</CheckBox>
+
                         <StackPanel Orientation="Horizontal" Spacing="8">
                             <TextBlock VerticalAlignment="Center">
                                 <Run>CornerRadius:</Run>
@@ -76,15 +75,19 @@
                                     TickFrequency="1" />
                         </StackPanel>
 
-                        <CheckBox Name="Shadow"
-                                  Content="Shadow"
-                                  IsChecked="True" />
-                        <CheckBox Content="AllowAutoHide" IsChecked="{Binding #DataGridEmployees.(ScrollViewer.AllowAutoHide)}" />
-                        <CheckBox Content="IsReadOnly" IsChecked="{Binding #DataGridEmployees.IsReadOnly}" />
+                        <CheckBox Name="Shadow" IsChecked="True">Shadow</CheckBox>
+                        <CheckBox Content="AllowAutoHide" IsChecked="{Binding #StylingDataGrid.(ScrollViewer.AllowAutoHide)}" />
+                        <CheckBox Content="IsReadOnly" IsChecked="{Binding #StylingDataGrid.IsReadOnly}" />
+
+                        <ComboBox ItemsSource="{EnumBindingSource DataGridHeadersVisibility}"
+                                  SelectedItem="{Binding #StylingDataGrid.HeadersVisibility}"
+                                  TextBoxAttach.Header="HeadersVisibility:"
+                                  TextBoxAttach.HeaderPlacement="Left" />
                         <ComboBox ItemsSource="{EnumBindingSource DataGridGridLinesVisibility}"
-                                  SelectedItem="{Binding #DataGridEmployees.GridLinesVisibility}"
+                                  SelectedItem="{Binding #StylingDataGrid.GridLinesVisibility}"
                                   TextBoxAttach.Header="GridLinesVisibility:"
                                   TextBoxAttach.HeaderPlacement="Left" />
+
                         <Button Classes="Warning"
                                 Command="{Binding ClearEmployees}"
                                 Theme="{StaticResource SolidButtonTheme}">
@@ -96,7 +99,7 @@
                             Reset
                         </Button>
                     </WrapPanel>
-                    <DataGrid Name="DataGridEmployees"
+                    <DataGrid Name="StylingDataGrid"
                               Classes.Border="{Binding #Border.IsChecked}"
                               Classes.Primary="{Binding #Primary.IsChecked}"
                               Classes.Secondary="{Binding #Secondary.IsChecked}"

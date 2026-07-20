@@ -7,7 +7,8 @@ namespace Synthora.Demo.Views
         public DataGridView()
         {
             InitializeComponent();
-            DataGrid.LoadingRow += DataGrid_LoadingRow;
+            GroupingDataGrid.LoadingRow += DataGrid_LoadingRow;
+            StylingDataGrid.LoadingRow += DataGrid_LoadingRow;
         }
 
         private void DataGrid_LoadingRow(object? sender, DataGridRowEventArgs e)
