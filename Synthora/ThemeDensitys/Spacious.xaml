@@ -10,7 +10,8 @@
 
     <Thickness x:Key="ThemeControlPadding">8,6</Thickness>
     <Thickness x:Key="ThemeHeaderControlHeaderPadding">10,8</Thickness>
-    <Thickness x:Key="ThemeHeaderControlPadding">10</Thickness>
+    <Thickness x:Key="ThemeHeaderControlHeaderPaddingLarge">12,10</Thickness>
+    <Thickness x:Key="ThemeHeaderControlPaddingLarge">12</Thickness>
 
     <Thickness x:Key="ThemeMenuFlyoutPadding">6</Thickness>
     <Thickness x:Key="ThemeMenuFlyoutItemPadding">4,6</Thickness>
