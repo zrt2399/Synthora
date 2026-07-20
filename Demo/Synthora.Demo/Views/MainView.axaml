@@ -18,8 +18,8 @@
 
     <Design.DataContext>
         <!--
-        This only sets the DataContext for the previewer in an IDE,
-        to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs)
+            This only sets the DataContext for the previewer in an IDE,
+            to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs)
         -->
         <vm:MainViewModel />
     </Design.DataContext>
@@ -248,9 +248,11 @@
                                      PlaceholderText="Search"
                                      Text="{Binding SearchText}">
                                 <TextBox.InnerLeftContent>
-                                    <materialIcons:MaterialIcon Margin="{DynamicResource ThemeControlRightPadding}"
-                                                                Foreground="{DynamicResource PrimaryBrush}"
-                                                                Kind="Search" />
+                                    <PathIcon Width="12"
+                                              Height="12"
+                                              Margin="{DynamicResource ThemeControlRightPadding}"
+                                              Data="M11.87 10.835c.018.015.035.03.051.047l3.864 3.863a.735.735 0 1 1-1.04 1.04l-3.863-3.864a.744.744 0 0 1-.047-.051 6.667 6.667 0 1 1 1.035-1.035zM6.667 12a5.333 5.333 0 1 0 0-10.667 5.333 5.333 0 0 0 0 10.667z"
+                                              Foreground="#007AFF" />
                                 </TextBox.InnerLeftContent>
                             </TextBox>
                         </StackPanel>

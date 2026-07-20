@@ -20,7 +20,7 @@
                 <DockPanel>
                     <HeaderPresenter />
 
-                    <ShadowChrome Name="PART_FocusTarget"
+                    <ShadowChrome Name="FocusTarget"
                                   Width="{TemplateBinding TextBoxAttach.Width}"
                                   MinWidth="{TemplateBinding TextBoxAttach.MinWidth}"
                                   MaxWidth="{TemplateBinding TextBoxAttach.MaxWidth}"
@@ -74,9 +74,9 @@
                                    IsOpen="{TemplateBinding IsDropDownOpen,
                                                             Mode=TwoWay}"
                                    Placement="BottomEdgeAlignedLeft"
-                                   PlacementTarget="{Binding ElementName=PART_FocusTarget}"
+                                   PlacementTarget="{Binding ElementName=FocusTarget}"
                                    WindowManagerAddShadowHint="False">
-                                <SystemShadowChrome MinWidth="{Binding Bounds.Width, ElementName=PART_FocusTarget}"
+                                <SystemShadowChrome MinWidth="{Binding Bounds.Width, ElementName=FocusTarget}"
                                                     MaxHeight="{TemplateBinding MaxDropDownHeight}"
                                                     BorderBrush="{TemplateBinding BorderBrush}"
                                                     BorderThickness="{TemplateBinding BorderThickness}">
@@ -131,7 +131,7 @@
         <Style Selector="^:dropdownopen">
             <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
         </Style>
-        <Style Selector="^:error /template/ Border#PART_FocusTarget">
+        <Style Selector="^:error /template/ ShadowChrome#FocusTarget">
             <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
         </Style>
         <Style Selector="^:disabled">

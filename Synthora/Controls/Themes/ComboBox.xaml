@@ -114,7 +114,7 @@
                             </TextBlock>
 
                             <DataValidationErrors Margin="{TemplateBinding Padding}" IsVisible="{TemplateBinding IsEditable, Converter={x:Static BoolConverters.Not}}">
-                                <ContentPresenter Name="ContentPresenter"
+                                <ContentPresenter Name="PART_ContentPresenter"
                                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                                   Content="{TemplateBinding SelectionBoxItem}"
@@ -213,7 +213,7 @@
         <Style Selector="^:dropdownopen">
             <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
         </Style>
-        <Style Selector="^:error /template/ Border#FocusTarget">
+        <Style Selector="^:error /template/ ShadowChrome#FocusTarget">
             <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
         </Style>
 
@@ -236,4 +236,5 @@
             </Style>
         </Style>
     </ControlTheme>
+
 </ResourceDictionary>

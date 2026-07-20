@@ -231,15 +231,13 @@
                                 <StackPanel Spacing="16">
                                     <Grid ColumnDefinitions="Auto,*,Auto">
                                         <StackPanel Orientation="Horizontal" Spacing="10">
-                                            <Border Width="42"
-                                                    Height="42"
+                                            <Border Width="{Binding $self.Bounds.Height}"
+                                                    Padding="0"
                                                     Background="{DynamicResource HeroTileBrush}"
-                                                    BorderBrush="{DynamicResource CardBorderBrush}"
-                                                    BorderThickness="1"
-                                                    CornerRadius="12">
+                                                    Classes="showcasePanel">
                                                 <materialIcons:MaterialIcon HorizontalAlignment="Center"
                                                                             VerticalAlignment="Center"
-                                                                            IconSize="22"
+                                                                            IconSize="28"
                                                                             Kind="ViewDashboard" />
                                             </Border>
                                             <StackPanel Spacing="2">
