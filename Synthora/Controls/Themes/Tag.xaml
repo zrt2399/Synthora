@@ -64,7 +64,7 @@
     </Design.PreviewWith>
 
     <ControlTheme x:Key="{x:Type Tag}" TargetType="Tag">
-        <Setter Property="Padding" Value="{DynamicResource TagPadding}" />
+        <Setter Property="Padding" Value="3,1" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusSmall}" />
 

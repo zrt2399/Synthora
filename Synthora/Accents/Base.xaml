@@ -366,7 +366,6 @@
     <Thickness x:Key="ThemeBorderThickness">1</Thickness>
 
     <Thickness x:Key="ThemeControlPaddingSmall">4</Thickness>
-    <Thickness x:Key="TagPadding">3,1</Thickness>
 
     <CornerRadius x:Key="ThemeBorderCornerRadiusSmall">4</CornerRadius>
     <CornerRadius x:Key="ThemeBorderCornerRadiusNormal">6</CornerRadius>
