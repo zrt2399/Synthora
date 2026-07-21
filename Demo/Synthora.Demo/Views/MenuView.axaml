@@ -105,7 +105,7 @@
                             <Button.ContextFlyout>
                                 <MenuFlyout>
                                     <MenuItem Header="More options">
-                                        <MenuItem Header="Down" Icon="{materialIcons:MaterialIconExt Kind=Download}" />
+                                        <MenuItem Header="Download" Icon="{materialIcons:MaterialIconExt Kind=Download}" />
                                         <MenuItem Header="Control">
                                             <MenuItem Header="Star" Icon="{materialIcons:MaterialIconExt Kind=Star}" />
                                             <MenuItem Header="Previous" Icon="{materialIcons:MaterialIconExt Kind=SkipPrevious}" />
