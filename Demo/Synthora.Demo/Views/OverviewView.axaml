@@ -120,8 +120,8 @@
             <Canvas IsHitTestVisible="False">
                 <Ellipse Canvas.Left="-180"
                          Canvas.Top="-140"
-                         Width="520"
-                         Height="520"
+                         Width="540"
+                         Height="540"
                          Fill="#56007DFF" />
                 <Ellipse Canvas.Top="50"
                          Canvas.Right="-180"
@@ -241,8 +241,8 @@
                                                                             Kind="ViewDashboard" />
                                             </Border>
                                             <StackPanel Spacing="2">
-                                                <TextBlock FontSize="22"
-                                                           FontWeight="Bold"
+                                                <TextBlock FontSize="20"
+                                                           FontWeight="SemiBold"
                                                            Text="Primary Interaction Deck" />
                                                 <TextBlock Classes="muted" Text="Real theme colors. No manual recoloring." />
                                             </StackPanel>
@@ -251,10 +251,10 @@
                                         <WrapPanel Grid.Column="2"
                                                    ItemSpacing="8"
                                                    LineSpacing="8">
-                                            <Border Classes="badge">
+                                            <Border Padding="16,14" Classes="badge">
                                                 <TextBlock FontWeight="SemiBold" Text="Desktop" />
                                             </Border>
-                                            <Border Classes="badge">
+                                            <Border Padding="16,14" Classes="badge">
                                                 <TextBlock FontWeight="SemiBold" Text="Fluid" />
                                             </Border>
                                         </WrapPanel>

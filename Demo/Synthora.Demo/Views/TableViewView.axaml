@@ -18,7 +18,10 @@
                 <WrapPanel ItemSpacing="16"
                            LineSpacing="16"
                            Orientation="Horizontal">
-                    <RadioButton Name="Default" GroupName="ColorVariant" IsChecked="True">Default</RadioButton>
+                    <RadioButton Name="Default"
+                                 Content="Default"
+                                 GroupName="ColorVariant"
+                                 IsChecked="True" />
                     <RadioButton Name="Primary" GroupName="ColorVariant">Primary</RadioButton>
                     <RadioButton Name="Secondary" GroupName="ColorVariant">Secondary</RadioButton>
                     <CheckBox Content="AllowAutoHide" IsChecked="{Binding #TableView.(ScrollViewer.AllowAutoHide)}" />
