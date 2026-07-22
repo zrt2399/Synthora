@@ -344,7 +344,9 @@
                                                     <CommandBar.PrimaryCommands>
                                                         <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=Play}" Label="Run" />
                                                         <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=ContentSaveOutline}" Label="Save" />
-                                                        <CommandBarToggleButton Icon="{materialIcons:MaterialIconExt Kind=ThemeLightDark}" Label="Theme" />
+                                                        <CommandBarToggleButton Icon="{materialIcons:MaterialIconExt Kind=ThemeLightDark}"
+                                                                                IsChecked="True"
+                                                                                Label="Theme" />
                                                     </CommandBar.PrimaryCommands>
                                                 </CommandBar>
                                             </StackPanel>
