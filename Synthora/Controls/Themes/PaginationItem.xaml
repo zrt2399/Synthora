@@ -61,20 +61,4 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="SecondaryPaginationItemTheme"
-                  BasedOn="{StaticResource {x:Type PaginationItem}}"
-                  TargetType="PaginationItem">
-        <Style Selector="^:current">
-            <Setter Property="Background" Value="{DynamicResource SecondaryBrush}" />
-            <Setter Property="Foreground" Value="{DynamicResource OnSecondaryBrush}" />
-
-            <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{DynamicResource SecondaryPointerOverBrush}" />
-            </Style>
-            <Style Selector="^:pressed">
-                <Setter Property="Background" Value="{DynamicResource SecondaryPressedBrush}" />
-            </Style>
-        </Style>
-    </ControlTheme>
-
 </ResourceDictionary> 

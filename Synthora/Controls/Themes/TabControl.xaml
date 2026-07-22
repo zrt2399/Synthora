@@ -71,9 +71,9 @@
     <ControlTheme x:Key="SegmentedTabControlTheme"
                   BasedOn="{StaticResource TabControlBaseTheme}"
                   TargetType="TabControl">
-        <Setter Property="ItemContainerTheme" Value="{DynamicResource SegmentedTabItemTheme}" />
         <Setter Property="TabControlAttach.HeaderCornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusLarge}" />
         <Setter Property="TabControlAttach.HeaderPadding" Value="{DynamicResource ThemeControlBorderPadding}" />
+        <Setter Property="ItemContainerTheme" Value="{StaticResource SegmentedTabItemTheme}" />
         <Setter Property="ItemsPanel">
             <ItemsPanelTemplate>
                 <WrapPanel ItemSpacing="{DynamicResource ThemeControlBorderPaddingDouble}"
@@ -151,7 +151,7 @@
         <Setter Property="TabControlAttach.HeaderPadding" Value="{DynamicResource ThemeControlPadding}" />
         <Setter Property="TabControlAttach.HeaderCornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
         <Setter Property="TabControlAttach.HeaderBorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
-        <Setter Property="ItemContainerTheme" Value="{DynamicResource CardTabItemTheme}" />
+        <Setter Property="ItemContainerTheme" Value="{StaticResource CardTabItemTheme}" />
         <Setter Property="ItemsPanel">
             <ItemsPanelTemplate>
                 <WrapPanel Margin="{DynamicResource ThemeControlBorderPadding}"

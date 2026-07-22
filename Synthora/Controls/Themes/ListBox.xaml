@@ -46,6 +46,7 @@
     </ControlTheme>
 
     <ControlTheme x:Key="SegmentedListBoxTheme" TargetType="ListBox">
+        <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
@@ -56,9 +57,8 @@
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled" />
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="False" />
-        <Setter Property="ItemContainerTheme" Value="{DynamicResource SegmentedListBoxItemTheme}" />
-        <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="BoxShadowAttach.BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
+        <Setter Property="ItemContainerTheme" Value="{StaticResource SegmentedListBoxItemTheme}" />
         <Setter Property="ItemsPanel">
             <ItemsPanelTemplate>
                 <WrapPanel ItemSpacing="{DynamicResource ThemeControlBorderPaddingDouble}" LineSpacing="{DynamicResource ThemeControlBorderPaddingDouble}" />

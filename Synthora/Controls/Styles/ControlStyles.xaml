@@ -117,4 +117,24 @@
         </Style>
     </Style>
 
+    <Style Selector="TabStrip.Secondary TabStripItem">
+        <Style Selector="^:selected /template/ Border#PART_SelectedPipe">
+            <Setter Property="Background" Value="{DynamicResource SecondaryBrush}" />
+        </Style>
+    </Style>
+
+    <Style Selector="Pagination.Secondary PaginationItem">
+        <Style Selector="^:current">
+            <Setter Property="Background" Value="{DynamicResource SecondaryBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource OnSecondaryBrush}" />
+
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{DynamicResource SecondaryPointerOverBrush}" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="Background" Value="{DynamicResource SecondaryPressedBrush}" />
+            </Style>
+        </Style>
+    </Style>
+
 </Styles>

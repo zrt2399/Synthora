@@ -114,10 +114,6 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^.Secondary">
-            <Setter Property="ItemContainerTheme" Value="{StaticResource SecondaryPaginationItemTheme}" />
-        </Style>
-
         <Style Selector="^:empty">
             <Style Selector="^ /template/ ItemsPresenter#PART_ItemsPresenter">
                 <Setter Property="IsVisible" Value="False" />

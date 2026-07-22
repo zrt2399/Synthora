@@ -49,12 +49,4 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="SecondaryTabStripItemTheme"
-                  BasedOn="{StaticResource {x:Type TabStripItem}}"
-                  TargetType="TabStripItem">
-        <Style Selector="^:selected /template/ Border#PART_SelectedPipe">
-            <Setter Property="Background" Value="{DynamicResource SecondaryBrush}" />
-        </Style>
-    </ControlTheme>
-
 </ResourceDictionary>
