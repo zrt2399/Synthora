@@ -356,9 +356,9 @@ namespace Synthora.Controls
         /// <summary>
         /// Shows content on the dialog host identified by <paramref name="dialogIdentifier"/>.
         /// </summary>
-        public static Task<object?> Show(object? content, string? dialogIdentifier = null)
+        public static Task<object?> ShowAsync(object? content, string? dialogIdentifier = null)
         {
-            return GetInstance(dialogIdentifier).ShowDialog(content);
+            return GetInstance(dialogIdentifier).ShowDialogAsync(content);
         }
 
         /// <summary>
@@ -372,7 +372,7 @@ namespace Synthora.Controls
         /// <summary>
         /// Shows dialog content.
         /// </summary>
-        public Task<object?> ShowDialog(object? content)
+        public Task<object?> ShowDialogAsync(object? content)
         {
             if (CheckAccess())
             {
@@ -381,7 +381,7 @@ namespace Synthora.Controls
 
                 return dialogHostInstance.Tcs.Task;
             }
-            return Dispatcher.Invoke(() => ShowDialog(content));
+            return Dispatcher.Invoke(() => ShowDialogAsync(content));
         }
 
         /// <summary>
@@ -520,7 +520,7 @@ namespace Synthora.Controls
  
         private async void ExecuteOpenDialogCommand(object? parameter)
         {
-            await ShowDialog(parameter);
+            await ShowDialogAsync(parameter);
         }
 
         private void ExecuteCloseDialogCommand(object? parameter)

@@ -66,18 +66,18 @@ namespace Synthora.Overlays
         /// Displays an alert dialog asynchronously using the default <see cref="AlertDialogHost"/> instance
         /// and the specified <paramref name="alertDialogOptions"/>.
         /// </summary>
-        public static Task<DialogResult> Show(AlertDialogOptions alertDialogOptions, string? dialogIdentifier = null)
+        public static Task<DialogResult> ShowAsync(AlertDialogOptions alertDialogOptions, string? dialogIdentifier = null)
         {
-            return AlertDialogHost.GetInstance(dialogIdentifier).ShowDialog(alertDialogOptions);
+            return AlertDialogHost.GetInstance(dialogIdentifier).ShowDialogAsync(alertDialogOptions);
         }
 
         /// <summary>
         /// Displays an alert dialog asynchronously,
         /// using the <paramref name="dialogIdentifier"/> to locate the specific <see cref="AlertDialogHost"/> instance.
         /// </summary>
-        public static Task<DialogResult> Show(string? dialogIdentifier, string message, string? title, DialogButton dialogButton = DialogButton.OK, IconType iconType = IconType.Information)
+        public static Task<DialogResult> ShowAsync(string? dialogIdentifier, string message, string? title, DialogButton dialogButton = DialogButton.OK, IconType iconType = IconType.Information)
         {
-            return Show(new AlertDialogOptions()
+            return ShowAsync(new AlertDialogOptions()
             {
                 Message = message,
                 Title = title,
@@ -89,9 +89,9 @@ namespace Synthora.Overlays
         /// <summary>
         /// Displays an alert dialog asynchronously using the default <see cref="AlertDialogHost"/> instance.
         /// </summary>
-        public static Task<DialogResult> Show(string message, string? title, DialogButton dialogButton = DialogButton.OK, IconType iconType = IconType.Information)
+        public static Task<DialogResult> ShowAsync(string message, string? title, DialogButton dialogButton = DialogButton.OK, IconType iconType = IconType.Information)
         {
-            return Show(null, message, title, dialogButton, iconType);
+            return ShowAsync(null, message, title, dialogButton, iconType);
         }
 
         /// <summary>

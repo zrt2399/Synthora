@@ -45,7 +45,7 @@ namespace Synthora.Demo.ViewModels
                 "Apply these changes to the live preview? You can keep editing after publishing.",
                 DialogIdentifier);
 
-            var result = await DialogHost.Show(dialog, DialogIdentifier);
+            var result = await DialogHost.ShowAsync(dialog, DialogIdentifier);
             MessageTip.Show($"Dialog closed: {result}");
         }
 
@@ -61,14 +61,14 @@ namespace Synthora.Demo.ViewModels
 
             var result = type switch
             {
-                nameof(IconType.None) => await AlertDialog.Show(message, null, DialogButton, IconType.None),
-                nameof(IconType.Information) => await AlertDialog.Show(message, type, DialogButton, IconType.Information),
-                nameof(IconType.Question) => await AlertDialog.Show(message, type, DialogButton, IconType.Question),
-                nameof(IconType.Success) => await AlertDialog.Show(message, type, DialogButton, IconType.Success),
-                nameof(IconType.Warning) => await AlertDialog.Show(message, type, DialogButton, IconType.Warning),
-                nameof(IconType.Error) => await AlertDialog.Show(message, type, DialogButton, IconType.Error),
-                "Abort" => await AlertDialog.Show(message, type, DialogButton | DialogButton.Abort, IconType.Error),
-                _ => await AlertDialog.Show(new AlertDialogOptions()
+                nameof(IconType.None) => await AlertDialog.ShowAsync(message, null, DialogButton, IconType.None),
+                nameof(IconType.Information) => await AlertDialog.ShowAsync(message, type, DialogButton, IconType.Information),
+                nameof(IconType.Question) => await AlertDialog.ShowAsync(message, type, DialogButton, IconType.Question),
+                nameof(IconType.Success) => await AlertDialog.ShowAsync(message, type, DialogButton, IconType.Success),
+                nameof(IconType.Warning) => await AlertDialog.ShowAsync(message, type, DialogButton, IconType.Warning),
+                nameof(IconType.Error) => await AlertDialog.ShowAsync(message, type, DialogButton, IconType.Error),
+                "Abort" => await AlertDialog.ShowAsync(message, type, DialogButton | DialogButton.Abort, IconType.Error),
+                _ => await AlertDialog.ShowAsync(new AlertDialogOptions()
                 {
                     DialogButton = DialogButton,
                     Title = type,

@@ -59,7 +59,7 @@ namespace Synthora.Controls
         /// </summary>
         public static new AlertDialogHost GetInstance(string? dialogIdentifier) => GetInstance<AlertDialogHost>(dialogIdentifier);
 
-        public Task<DialogResult> ShowDialog(AlertDialogOptions alertDialogOptions)
+        public Task<DialogResult> ShowDialogAsync(AlertDialogOptions alertDialogOptions)
         {
             if (CheckAccess())
             {
@@ -68,7 +68,7 @@ namespace Synthora.Controls
 
                 return dialogInstance.Tcs.Task;
             }
-            return Dispatcher.Invoke(() => ShowDialog(alertDialogOptions));
+            return Dispatcher.Invoke(() => ShowDialogAsync(alertDialogOptions));
         }
     }
 }
