@@ -213,6 +213,7 @@
                                        LineSpacing="16"
                                        Orientation="Horizontal">
                                 <ListBox AutoScrollToSelectedItem="False"
+                                         Background="{DynamicResource ThemeControlMidBrush}"
                                          ItemsSource="{EnumBindingSource ThemeMode}"
                                          SelectedItem="{Binding SelectedThemeMode}"
                                          Theme="{StaticResource SegmentedListBoxTheme}"
@@ -228,6 +229,7 @@
                                     </ListBox.ItemTemplate>
                                 </ListBox>
                                 <ListBox AutoScrollToSelectedItem="False"
+                                         Background="{DynamicResource ThemeControlMidBrush}"
                                          ItemsSource="{EnumBindingSource so:ThemeDensity}"
                                          SelectedItem="{Binding SelectedThemeDensity}"
                                          Theme="{StaticResource SegmentedListBoxTheme}"

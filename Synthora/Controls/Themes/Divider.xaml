@@ -8,7 +8,7 @@
         <Setter Property="Padding" Value="6,0" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Top" />
-        <Setter Property="LineBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
+        <Setter Property="LineBrush" Value="{DynamicResource SynthoraBorderBrush}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <LayoutTransformControl Name="PART_LayoutTransformControl">

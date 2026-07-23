@@ -111,7 +111,7 @@
         </Setter>
 
         <Style Selector="^:pointerover">
-            <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SynthoraVeryHighBrush}" />
         </Style>
 
         <Style Selector="^:selected">

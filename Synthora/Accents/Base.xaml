@@ -400,7 +400,7 @@
     <BoxShadows x:Key="PopupRightToLeftBoxShadow">-3 3 4 0 #30182028</BoxShadows>
 
     <BoxShadows x:Key="DialogBoxShadow">0 5 40 0 #50000000</BoxShadows>
-    <BoxShadows x:Key="DefaultBoxShadow">0 3 6 0 #40000000</BoxShadows>
+    <BoxShadows x:Key="DefaultBoxShadow">0 3 6 0 #30000000</BoxShadows>
     <BoxShadows x:Key="TabItemHeaderBoxShadow">0 0 6 0 #30000000</BoxShadows>
     <BoxShadows x:Key="SplitViewPanelBoxShadow">0 0 10 0 #40000000</BoxShadows>
     <BoxShadows x:Key="EmptyBoxShadow">none</BoxShadows>

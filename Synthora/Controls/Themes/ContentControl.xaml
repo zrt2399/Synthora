@@ -6,4 +6,5 @@
     <ControlTheme x:Key="{x:Type ContentControl}" TargetType="ContentControl">
         <Setter Property="ClipToBounds" Value="False" />
     </ControlTheme>
-</ResourceDictionary> 
+
+</ResourceDictionary>
