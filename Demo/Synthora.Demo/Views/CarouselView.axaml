@@ -21,8 +21,7 @@
                         <TextBlock Classes="sectionLabel" Text="CAROUSEL" />
                     </StackPanel>
 
-                    <PipsPager HorizontalAlignment="Center"
-                               DockPanel.Dock="Bottom"
+                    <PipsPager DockPanel.Dock="Bottom"
                                NumberOfPages="3"
                                SelectedPageIndex="{Binding #BasicCarousel.SelectedIndex}" />
 

@@ -87,7 +87,7 @@
                     <ProgressBar Classes="Error"
                                  ShowProgressText="True"
                                  Value="{Binding #SecondarySlider.Value}" />
-                    <ProgressBar IsIndeterminate="True" />
+                    <ProgressBar IsIndeterminate="{Binding #ProgressRingToggle.IsChecked}" />
                     <Divider Content="ProgressRing" Orientation="Horizontal" />
                     <StackPanel Orientation="Horizontal" Spacing="20">
                         <ProgressRing VerticalAlignment="Center" />
@@ -97,17 +97,18 @@
                                       StrokeThickness="3" />
                         <ProgressRing Width="64"
                                       Height="64"
-                                      Classes="Secondary"
                                       VerticalAlignment="Center"
+                                      Classes="Secondary"
                                       StrokeThickness="4" />
-                        <ProgressRing VerticalAlignment="Center"
-                                      IsActive="{Binding #ProgressRingToggle.IsChecked}" /> 
-                        <ProgressBar Theme="{StaticResource ProgressRingTheme}" IsIndeterminate="{Binding #ProgressRingToggle.IsChecked}" />  
+                        <ProgressRing VerticalAlignment="Center" IsActive="{Binding #ProgressRingToggle.IsChecked}" />
+                        <ProgressBar IsIndeterminate="{Binding #ProgressRingToggle.IsChecked}" Theme="{StaticResource ProgressRingTheme}" />
                         <ToggleSwitch Name="ProgressRingToggle"
                                       VerticalAlignment="Center"
                                       Content="IsActive"
                                       IsChecked="True" />
-                        <ProgressBar Theme="{StaticResource ProgressRingTheme}" ShowProgressText="True"  Value="{Binding #SecondarySlider.Value}"/>  
+                        <ProgressBar ShowProgressText="True"
+                                     Theme="{StaticResource ProgressRingTheme}"
+                                     Value="{Binding #SecondarySlider.Value}" />
                     </StackPanel>
                     <Divider Content="PipsPager" Orientation="Horizontal" />
                     <PipsPager HorizontalAlignment="Left"

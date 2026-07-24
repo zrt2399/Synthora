@@ -297,7 +297,7 @@
                     <Panel>
                         <StackPanel Orientation="Horizontal" Spacing="10">
                             <TextBlock VerticalAlignment="Center">StatusBar</TextBlock>
-                            <Separator Theme="{StaticResource VerticalSeparatorTheme}" />
+                            <Separator Foreground="{Binding $parent[StatusBar].Foreground}" Theme="{StaticResource VerticalSeparatorTheme}" />
                             <CheckBox IsChecked="{Binding $parent[StatusBar].IsRunning}">IsRunning</CheckBox>
                         </StackPanel>
                         <TextBlock HorizontalAlignment="Right" Text="{x:Static demo:App.AppVersion}" />
