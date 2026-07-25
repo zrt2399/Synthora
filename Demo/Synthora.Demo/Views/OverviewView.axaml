@@ -181,10 +181,10 @@
                                 </WrapPanel>
 
                                 <SpacingWrapPanel HorizontalSpacing="12" VerticalSpacing="12">
-                                    <Button Classes="Primary" Theme="{StaticResource OutlineButtonTheme}">Launch Demo</Button>
+                                    <Button Classes="Primary">Launch Demo</Button>
                                     <Button Classes="Primary" Theme="{StaticResource SolidButtonTheme}">Primary</Button>
                                     <Button Classes="Secondary" Theme="{StaticResource BorderlessButtonTheme}">Secondary</Button>
-                                    <DropDownButton Classes="Primary" Theme="{StaticResource OutlineDropDownButtonTheme}">
+                                    <DropDownButton Classes="Primary">
                                         <StackPanel Orientation="Horizontal" Spacing="8">
                                             <materialIcons:MaterialIcon Kind="Translate" />
                                             <TextBlock Text="Language" />
@@ -224,6 +224,9 @@
                                             </MenuFlyout>
                                         </DropDownButton.Flyout>
                                     </DropDownButton>
+                                    <Button Classes="Error Icon"
+                                            Content="{materialIcons:MaterialIconExt Kind=FruitCherries}"
+                                            Theme="{StaticResource SolidButtonTheme}" />
                                 </SpacingWrapPanel>
                             </StackPanel>
 
@@ -268,11 +271,11 @@
                                             </StackPanel>
 
                                             <SpacingWrapPanel HorizontalSpacing="12" VerticalSpacing="12">
-                                                <Button Theme="{StaticResource OutlineButtonTheme}">Default</Button>
-                                                <Button Classes="Success" Theme="{StaticResource OutlineButtonTheme}">Success</Button>
-                                                <Button Classes="Warning" Theme="{StaticResource OutlineButtonTheme}">Warning</Button>
+                                                <Button>Default</Button>
+                                                <Button Classes="Success">Success</Button>
+                                                <Button Classes="Warning">Warning</Button>
                                                 <Button Classes="Question" Theme="{StaticResource SolidButtonTheme}">Question</Button>
-                                                <Button Classes="Error" Theme="{StaticResource OutlineButtonTheme}">Error</Button>
+                                                <Button Classes="Error">Error</Button>
                                                 <Button Classes="Primary" Theme="{StaticResource SolidButtonTheme}">Primary</Button>
                                                 <Button Classes="Secondary" Theme="{StaticResource SolidButtonTheme}">Secondary</Button>
                                             </SpacingWrapPanel>
@@ -318,7 +321,7 @@
                                                             </MenuFlyout>
                                                         </ToggleSplitButton.Flyout>
                                                     </ToggleSplitButton>
-                                                    <DropDownButton Classes="Primary" Theme="{StaticResource OutlineDropDownButtonTheme}">
+                                                    <DropDownButton Classes="Primary">
                                                         More
                                                         <DropDownButton.Flyout>
                                                             <MenuFlyout Placement="BottomEdgeAlignedLeft">
@@ -327,7 +330,7 @@
                                                             </MenuFlyout>
                                                         </DropDownButton.Flyout>
                                                     </DropDownButton>
-                                                    <ToggleButton Classes="Warning" Theme="{StaticResource OutlineToggleButtonTheme}">Pin</ToggleButton>
+                                                    <ToggleButton Classes="Warning">Pin</ToggleButton>
                                                     <RepeatButton Classes="Error" Theme="{StaticResource BorderlessRepeatButtonTheme}">Repeat</RepeatButton>
                                                 </SpacingWrapPanel>
                                             </StackPanel>
