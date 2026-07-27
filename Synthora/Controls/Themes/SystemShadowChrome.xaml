@@ -8,32 +8,7 @@
                   TargetType="SystemShadowChrome">
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="BoxShadow" Value="{DynamicResource PopupBoxShadow}" />
-        <Setter Property="Margin" Value="{DynamicResource PopupBoxShadowMargin}" />
-        <Setter Property="Template">
-            <ControlTemplate>
-                <Border Name="RootBorder"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        BoxShadow="{TemplateBinding BoxShadow}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
-                    <Border ClipToBounds="True">
-                        <Border.CornerRadius>
-                            <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.All}">
-                                <TemplateBinding Property="CornerRadius" />
-                                <TemplateBinding Property="BorderThickness" />
-                            </MultiBinding>
-                        </Border.CornerRadius>
-                        <ContentPresenter Name="PART_ContentPresenter"
-                                          Margin="{TemplateBinding Padding}"
-                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                          Content="{TemplateBinding Content}"
-                                          ContentTemplate="{TemplateBinding ContentTemplate}" />
-                    </Border>
-                </Border>
-            </ControlTemplate>
-        </Setter>
+        <Setter Property="Margin" Value="{DynamicResource PopupBoxShadowMargin}" /> 
         <Style Selector="^[FlowDirection=RightToLeft]">
             <!--  For right-to-left languages, use a different shadow that is more appropriate for the layout direction  -->
             <Setter Property="BoxShadow" Value="{DynamicResource PopupRightToLeftBoxShadow}" />

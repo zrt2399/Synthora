@@ -7,57 +7,43 @@
         <Border Padding="20">
             <StackPanel Spacing="16">
                 <StackPanel Orientation="Horizontal" Spacing="16">
-                    <Tag Content="General" />
-                    <Tag Content="Question" TagType="Question" />
-                    <Tag Content="Stable" TagType="Success" />
-                    <Tag Content="Preview" TagType="Warning" />
-                    <Tag Content="Danger" TagType="Danger" />
-                    <Tag Content="Error" TagType="Error" />
-                    <Tag Content="Neutral" TagType="None" />
+                    <Tag>General</Tag>
+                    <Tag TagType="Information">Information</Tag>
+                    <Tag TagType="Question">Question</Tag>
+                    <Tag TagType="Success">Stable</Tag>
+                    <Tag TagType="Warning">Preview</Tag>
+                    <Tag TagType="Danger">Danger</Tag>
+                    <Tag TagType="Error">Error</Tag>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Spacing="16">
-                    <Tag Content="General" IsSolid="True" />
-                    <Tag Content="Question"
-                         IsSolid="True"
-                         TagType="Question" />
-                    <Tag Content="Stable"
-                         IsSolid="True"
-                         TagType="Success" />
-                    <Tag Content="Preview"
-                         IsSolid="True"
-                         TagType="Warning" />
-                    <Tag Content="Danger"
-                         IsSolid="True"
-                         TagType="Danger" />
-                    <Tag Content="Error"
-                         IsSolid="True"
-                         TagType="Error" />
-                    <Tag Content="Neutral"
-                         IsSolid="True"
-                         TagType="None" />
+                    <Tag IsSolid="True">General</Tag>
+                    <Tag IsSolid="True" TagType="Information">Information</Tag>
+                    <Tag IsSolid="True" TagType="Question">Question</Tag>
+                    <Tag IsSolid="True" TagType="Success">Stable</Tag>
+                    <Tag IsSolid="True" TagType="Warning">Preview</Tag>
+                    <Tag IsSolid="True" TagType="Danger">Danger</Tag>
+                    <Tag IsSolid="True" TagType="Error">Error</Tag>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Spacing="16">
-                    <Tag Content="General"
-                         IsCircular="True"
-                         IsSolid="True" />
-                    <Tag Content="Question"
-                         IsCircular="True"
-                         TagType="Question" />
-                    <Tag Content="Success"
-                         IsCircular="True"
+                    <Tag IsCircular="True" IsSolid="True">General</Tag>
+                    <Tag IsCircular="True" TagType="Information">Information</Tag>
+                    <Tag IsCircular="True"
                          IsSolid="True"
-                         TagType="Success" />
-                    <Tag Content="Warning"
-                         IsCircular="True"
-                         TagType="Warning" />
-                    <Tag Content="Danger"
-                         IsCircular="True"
+                         TagType="Question">
+                        Question
+                    </Tag>
+                    <Tag IsCircular="True" TagType="Success">Success</Tag>
+                    <Tag IsCircular="True"
                          IsSolid="True"
-                         TagType="Danger" />
-                    <Tag Content="Error"
-                         IsCircular="True"
-                         TagType="Error" />
-                    <Tag Content="None" TagType="None" />
+                         TagType="Warning">
+                        Warning
+                    </Tag>
+                    <Tag IsCircular="True" TagType="Danger">Danger</Tag>
+                    <Tag IsCircular="True"
+                         IsSolid="True"
+                         TagType="Error">
+                        Error
+                    </Tag>
                 </StackPanel>
             </StackPanel>
         </Border>
@@ -129,49 +115,49 @@
             <Setter Property="Background" Value="{DynamicResource ErrorTipBackgroundBrush}" />
         </Style>
 
-        <Style Selector="^[IsSolid=True]:none">
+        <Style Selector="^:solid:none">
             <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
             <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
             <Setter Property="Background" Value="{DynamicResource SynthoraBorderBrush}" />
         </Style>
 
-        <Style Selector="^[IsSolid=True]:information">
+        <Style Selector="^:solid:information">
             <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
             <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
             <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
         </Style>
 
-        <Style Selector="^[IsSolid=True]:question">
+        <Style Selector="^:solid:question">
             <Setter Property="Foreground" Value="White" />
             <Setter Property="BorderBrush" Value="{DynamicResource QuestionBrush}" />
             <Setter Property="Background" Value="{DynamicResource QuestionBrush}" />
         </Style>
 
-        <Style Selector="^[IsSolid=True]:success">
+        <Style Selector="^:solid:success">
             <Setter Property="Foreground" Value="White" />
             <Setter Property="BorderBrush" Value="{DynamicResource SuccessBrush}" />
             <Setter Property="Background" Value="{DynamicResource SuccessBrush}" />
         </Style>
 
-        <Style Selector="^[IsSolid=True]:warning">
+        <Style Selector="^:solid:warning">
             <Setter Property="Foreground" Value="White" />
             <Setter Property="BorderBrush" Value="{DynamicResource WarningBrush}" />
             <Setter Property="Background" Value="{DynamicResource WarningBrush}" />
         </Style>
 
-        <Style Selector="^[IsSolid=True]:danger">
+        <Style Selector="^:solid:danger">
             <Setter Property="Foreground" Value="White" />
             <Setter Property="BorderBrush" Value="{DynamicResource DangerBrush}" />
             <Setter Property="Background" Value="{DynamicResource DangerBrush}" />
         </Style>
 
-        <Style Selector="^[IsSolid=True]:error">
+        <Style Selector="^:solid:error">
             <Setter Property="Foreground" Value="White" />
             <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
             <Setter Property="Background" Value="{DynamicResource ErrorBrush}" />
         </Style>
 
-        <Style Selector="^[IsCircular=True]">
+        <Style Selector="^:circular">
             <Setter Property="CornerRadiusAttach.IsCircular" Value="True" />
         </Style>
     </ControlTheme>

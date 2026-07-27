@@ -4,17 +4,19 @@
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
 
-    <converters:MarginMultiplierConverter x:Key="NotificationCardIconMarginMultiplier"
-                                          Bottom="True"
-                                          Indent="1"
-                                          Left="True"
-                                          Top="True" />
-
     <Design.PreviewWith>
         <Border Padding="0" Background="White">
             <NotificationCard Content="Testing" />
         </Border>
     </Design.PreviewWith>
+
+    <BoxShadows x:Key="NotificationCardBoxShadow">0 0 8 0 #40000000</BoxShadows>
+
+    <converters:MarginMultiplierConverter x:Key="NotificationCardIconMarginMultiplier"
+                                          Bottom="True"
+                                          Indent="1"
+                                          Left="True"
+                                          Top="True" />
 
     <ControlTheme x:Key="{x:Type NotificationCard}" TargetType="NotificationCard">
         <Setter Property="Padding" Value="{DynamicResource NotificationCardPadding}" />
@@ -24,7 +26,7 @@
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeControlMidBrush}" />
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusLarge}" />
-        <Setter Property="BoxShadowAttach.BoxShadow" Value="0 0 6 0 #60000000" />
+        <Setter Property="BoxShadowAttach.BoxShadow" Value="{DynamicResource NotificationCardBoxShadow}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <LayoutTransformControl Name="PART_LayoutTransformControl" UseRenderTransform="True">

@@ -24,25 +24,30 @@
                             <TextBlock Classes="sectionLabel" Text="TAG" />
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
-                            <Tag>enhancement</Tag>
+                            <Tag>wontfix</Tag>
+                            <Tag TagType="Information">enhancement</Tag>
                             <Tag TagType="Question">question</Tag>
                             <Tag TagType="Success">ready</Tag>
                             <Tag TagType="Warning">needs info</Tag>
                             <Tag TagType="Danger">security</Tag>
                             <Tag TagType="Error">bug</Tag>
-                            <Tag TagType="None">wontfix</Tag>
                         </SpacingWrapPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
-                            <Tag IsSolid="True">documentation</Tag>
+                            <Tag IsSolid="True">duplicate</Tag>
+                            <Tag IsSolid="True" TagType="Information">documentation</Tag>
                             <Tag IsSolid="True" TagType="Question">discussion</Tag>
                             <Tag IsSolid="True" TagType="Success">good first issue</Tag>
                             <Tag IsSolid="True" TagType="Warning">help wanted</Tag>
                             <Tag IsSolid="True" TagType="Danger">breaking change</Tag>
                             <Tag IsSolid="True" TagType="Error">regression</Tag>
-                            <Tag IsSolid="True" TagType="None">duplicate</Tag>
                         </SpacingWrapPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
-                            <Tag IsCircular="True" IsSolid="True">triage</Tag>
+                            <Tag IsCircular="True">archived</Tag>
+                            <Tag IsCircular="True"
+                                 IsSolid="True"
+                                 TagType="Information">
+                                triage
+                            </Tag>
                             <Tag IsCircular="True" TagType="Question">needs answer</Tag>
                             <Tag IsCircular="True"
                                  IsSolid="True"
@@ -56,7 +61,6 @@
                                 critical
                             </Tag>
                             <Tag IsCircular="True" TagType="Error">failed</Tag>
-                            <Tag TagType="None">archived</Tag>
                         </SpacingWrapPanel>
                     </StackPanel>
                 </Border>

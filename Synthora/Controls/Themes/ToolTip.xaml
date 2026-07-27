@@ -9,6 +9,7 @@
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusSmall}" />
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
+        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
         <Setter Property="Template">
             <ControlTemplate>
                 <SystemShadowChrome Background="{TemplateBinding Background}"
@@ -20,15 +21,10 @@
                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                       Content="{TemplateBinding Content}"
-                                      ContentTemplate="{TemplateBinding ContentTemplate}">
-                        <ContentPresenter.DataTemplates>
-                            <DataTemplate DataType="x:String">
-                                <TextBlock Text="{Binding}" TextWrapping="Wrap" />
-                            </DataTemplate>
-                        </ContentPresenter.DataTemplates>
-                    </ContentPresenter>
+                                      ContentTemplate="{TemplateBinding ContentTemplate}" />
                 </SystemShadowChrome>
             </ControlTemplate>
         </Setter>
     </ControlTheme>
+
 </ResourceDictionary>

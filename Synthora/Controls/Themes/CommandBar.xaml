@@ -322,13 +322,16 @@
     <ControlTheme x:Key="{x:Type CommandBarSeparator}" TargetType="CommandBarSeparator">
         <Setter Property="Focusable" Value="False" />
         <Setter Property="Width" Value="1" />
-        <Setter Property="Background" Value="{DynamicResource ThemeBorderLowBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource SynthoraBorderBrush}" />
         <Setter Property="VerticalAlignment" Value="Stretch" />
         <Setter Property="Template">
             <ControlTemplate>
-                <controls:PixelAlignedRectangle Width="{TemplateBinding Width}"
-                                                Height="{TemplateBinding Height}"
-                                                Fill="{TemplateBinding Background}" />
+                <Panel Background="{TemplateBinding Background}">
+                    <controls:PixelAlignedRectangle Width="{TemplateBinding Width}"
+                                                    Height="{TemplateBinding Height}"
+                                                    Margin="{TemplateBinding Padding}"
+                                                    Fill="{TemplateBinding Foreground}" />
+                </Panel>
             </ControlTemplate>
         </Setter>
 
@@ -343,7 +346,6 @@
 
     <!--  CommandBar ControlTheme  -->
     <ControlTheme x:Key="{x:Type CommandBar}" TargetType="CommandBar">
-        <!-- <Setter Property="HorizontalAlignment" Value="Left" /> -->
         <!-- <Setter Property="IsDynamicOverflowEnabled" Value="True" /> -->
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeControlMidBrush}" />
@@ -412,9 +414,7 @@
                                Placement="BottomEdgeAlignedLeft"
                                PlacementTarget="{Binding #PART_OverflowButton}"
                                WindowManagerAddShadowHint="False">
-                            <SystemShadowChrome Name="DropShadowChrome"
-                                                BorderBrush="{TemplateBinding BorderBrush}"
-                                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <SystemShadowChrome Name="DropShadowChrome">
                                 <ScrollViewer Theme="{StaticResource SimpleMenuScrollViewer}">
                                     <ItemsControl Name="PART_OverflowPresenter"
                                                   Margin="{DynamicResource ThemeMenuFlyoutPadding}"
