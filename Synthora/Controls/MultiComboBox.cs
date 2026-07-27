@@ -278,6 +278,8 @@ namespace Synthora.Controls
             {
                 WeakEvents.CollectionChanged.Subscribe(notifyCollectionChanged, this);
             }
+
+            UpdateDropDownPseudoClass();
         }
 
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
@@ -298,8 +300,6 @@ namespace Synthora.Controls
                 _popup.Opened += OnPopupOpened;
                 _popup.Closed += OnPopupClosed;
             }
-
-            UpdateDropDownPseudoClass();
         }
 
         protected override void OnPointerPressed(PointerPressedEventArgs e)

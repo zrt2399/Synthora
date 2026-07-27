@@ -23,7 +23,7 @@ namespace Synthora.Controls
         /// Defines the <see cref="IconType"/> property.
         /// </summary>
         public static readonly StyledProperty<IconType> IconTypeProperty =
-            AvaloniaProperty.Register<Banner, IconType>(nameof(IconType));
+            IconBase.IconTypeProperty.AddOwner<Banner>();
 
         /// <summary>
         /// Defines the <see cref="ShowCloseButton"/> property.
@@ -48,11 +48,6 @@ namespace Synthora.Controls
         /// </summary>
         public static readonly StyledProperty<TextWrapping> TextWrappingProperty =
             AvaloniaProperty.Register<Banner, TextWrapping>(nameof(TextWrapping), TextWrapping.Wrap);
-
-        static Banner()
-        {
-            IconTypeProperty.Changed.AddClassHandler<Banner, IconType>((s, e) => s.UpdatePseudoClasses());
-        }
 
         /// <summary>
         /// Gets or sets the icon type of the banner.
@@ -99,21 +94,30 @@ namespace Synthora.Controls
             set => SetValue(TextWrappingProperty, value);
         }
 
-        protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
+        public Banner()
         {
-            base.OnApplyTemplate(e);
-
             UpdatePseudoClasses();
+        }
+
+        protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
+        {
+            base.OnPropertyChanged(change);
+
+            if (change.Property == IconTypeProperty)
+            {
+                UpdatePseudoClasses();
+            }
         }
 
         private void UpdatePseudoClasses()
         {
-            PseudoClasses.Set(pcNone, IconType == IconType.None);
-            PseudoClasses.Set(pcInformation, IconType == IconType.Information);
-            PseudoClasses.Set(pcQuestion, IconType == IconType.Question);
-            PseudoClasses.Set(pcSuccess, IconType == IconType.Success);
-            PseudoClasses.Set(pcWarning, IconType == IconType.Warning);
-            PseudoClasses.Set(pcError, IconType == IconType.Error);
+            var iconType = IconType;
+            PseudoClasses.Set(pcNone, iconType == IconType.None);
+            PseudoClasses.Set(pcInformation, iconType == IconType.Information);
+            PseudoClasses.Set(pcQuestion, iconType == IconType.Question);
+            PseudoClasses.Set(pcSuccess, iconType == IconType.Success);
+            PseudoClasses.Set(pcWarning, iconType == IconType.Warning);
+            PseudoClasses.Set(pcError, iconType == IconType.Error);
         }
 
         public void Show()

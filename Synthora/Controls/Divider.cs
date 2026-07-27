@@ -60,14 +60,6 @@ namespace Synthora.Controls
         public static readonly StyledProperty<double> RadiusYProperty =
             Rectangle.RadiusYProperty.AddOwner<Divider>();
 
-        static Divider()
-        {
-            MinLineLengthProperty.Changed.AddClassHandler<Divider, double>((s, e) => s.SetGrid());
-            HorizontalContentAlignmentProperty.Changed.AddClassHandler<Divider, HorizontalAlignment>((s, e) => s.SetGrid());
-            VerticalContentAlignmentProperty.Changed.AddClassHandler<Divider, VerticalAlignment>((s, e) => s.SetGrid());
-            OrientationProperty.Changed.AddClassHandler<Divider, Orientation>((s, e) => s.SetGrid());
-        }
-
         /// <summary>
         /// Gets or sets the height of the divider.
         /// </summary>
@@ -122,14 +114,26 @@ namespace Synthora.Controls
             set => SetValue(RadiusYProperty, value);
         }
 
-        protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs e)
+        public Divider()
         {
-            if (e.Property == ContentProperty)
+            UpdatePseudoClasses();
+        }
+
+        protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
+        {
+            base.OnPropertyChanged(change);
+
+            if (change.Property == MinLineLengthProperty ||
+                change.Property == HorizontalContentAlignmentProperty ||
+                change.Property == VerticalContentAlignmentProperty ||
+                change.Property == OrientationProperty)
+            {
+                SetGrid();
+            }
+            else if (change.Property == ContentProperty)
             {
                 UpdatePseudoClasses();
             }
-
-            base.OnPropertyChanged(e);
         }
 
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
@@ -137,7 +141,6 @@ namespace Synthora.Controls
             base.OnApplyTemplate(e);
             _dividerContainer = e.NameScope.Find<Grid>("PART_DividerContainer");
             SetGrid();
-            UpdatePseudoClasses();
         }
 
         private void UpdatePseudoClasses()

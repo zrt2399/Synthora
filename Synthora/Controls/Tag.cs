@@ -1,7 +1,6 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Metadata;
-using Avalonia.Controls.Primitives;
 
 namespace Synthora.Controls
 {
@@ -22,7 +21,7 @@ namespace Synthora.Controls
     /// <summary>
     /// Represents a compact status label.
     /// </summary>
-    [PseudoClasses(pcNone, pcInformation, pcQuestion, pcSuccess, pcWarning, pcDanger, pcError)]
+    [PseudoClasses(pcNone, pcInformation, pcQuestion, pcSuccess, pcWarning, pcDanger, pcError, pcSolid, pcCircular)]
     public class Tag : ContentControl
     {
         private const string pcNone = ":none";
@@ -32,12 +31,14 @@ namespace Synthora.Controls
         private const string pcWarning = ":warning";
         private const string pcDanger = ":danger";
         private const string pcError = ":error";
+        private const string pcSolid = ":solid";
+        private const string pcCircular = ":circular";
 
         /// <summary>
         /// Defines the <see cref="TagType"/> property.
         /// </summary>
         public static readonly StyledProperty<TagType> TagTypeProperty =
-            AvaloniaProperty.Register<Tag, TagType>(nameof(TagType), TagType.Information);
+            AvaloniaProperty.Register<Tag, TagType>(nameof(TagType));
 
         /// <summary>
         /// Defines the <see cref="IsSolid"/> property.
@@ -50,11 +51,6 @@ namespace Synthora.Controls
         /// </summary>
         public static readonly StyledProperty<bool> IsCircularProperty =
             AvaloniaProperty.Register<Tag, bool>(nameof(IsCircular));
-
-        static Tag()
-        {
-            TagTypeProperty.Changed.AddClassHandler<Tag, TagType>((s, e) => s.UpdatePseudoClasses());
-        }
 
         /// <summary>
         /// Gets or sets the visual type of the tag.
@@ -83,22 +79,36 @@ namespace Synthora.Controls
             set => SetValue(IsCircularProperty, value);
         }
 
-        protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
+        public Tag()
         {
-            base.OnApplyTemplate(e);
-
             UpdatePseudoClasses();
+        }
+
+        protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
+        {
+            base.OnPropertyChanged(change);
+
+            if (change.Property == TagTypeProperty ||
+                change.Property == IsSolidProperty ||
+                change.Property == IsCircularProperty)
+            {
+                UpdatePseudoClasses();
+            }
         }
 
         private void UpdatePseudoClasses()
         {
-            PseudoClasses.Set(pcNone, TagType == TagType.None);
-            PseudoClasses.Set(pcInformation, TagType == TagType.Information);
-            PseudoClasses.Set(pcQuestion, TagType == TagType.Question);
-            PseudoClasses.Set(pcSuccess, TagType == TagType.Success);
-            PseudoClasses.Set(pcWarning, TagType == TagType.Warning);
-            PseudoClasses.Set(pcDanger, TagType == TagType.Danger);
-            PseudoClasses.Set(pcError, TagType == TagType.Error);
+            var tagType = TagType;
+            PseudoClasses.Set(pcNone, tagType == TagType.None);
+            PseudoClasses.Set(pcInformation, tagType == TagType.Information);
+            PseudoClasses.Set(pcQuestion, tagType == TagType.Question);
+            PseudoClasses.Set(pcSuccess, tagType == TagType.Success);
+            PseudoClasses.Set(pcWarning, tagType == TagType.Warning);
+            PseudoClasses.Set(pcDanger, tagType == TagType.Danger);
+            PseudoClasses.Set(pcError, tagType == TagType.Error);
+
+            PseudoClasses.Set(pcSolid, IsSolid);
+            PseudoClasses.Set(pcCircular, IsCircular);
         }
     }
 }

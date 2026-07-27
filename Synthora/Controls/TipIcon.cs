@@ -1,4 +1,4 @@
-﻿using Avalonia;
+using Avalonia;
 using Avalonia.Controls.Primitives;
 using Avalonia.Media;
 using Synthora.Resources;
@@ -87,9 +87,9 @@ namespace Synthora.Controls
                 var geometry = new StreamGeometry();
                 using (var ctx = geometry.Open())
                 {
-                    ctx.BeginFigure(new Point(ActualWidth * 0.30, ActualHeight * 0.40), false);
-                    ctx.CubicBezierTo(new Point(ActualWidth * 0.40, ActualHeight * 0.1), new Point(ActualWidth * 0.90, ActualHeight * 0.2), new Point(ActualWidth * 0.50, ActualHeight * 0.5));
-                    ctx.LineTo(new Point(ActualWidth * 0.50, ActualHeight * 0.60));
+                    ctx.BeginFigure(new Point(ActualWidth * 0.3, ActualHeight * 0.4), false);
+                    ctx.CubicBezierTo(new Point(ActualWidth * 0.4, ActualHeight * 0.1), new Point(ActualWidth * 0.9, ActualHeight * 0.2), new Point(ActualWidth * 0.5, ActualHeight * 0.5));
+                    ctx.LineTo(new Point(ActualWidth * 0.5, ActualHeight * 0.6));
                 }
                 var markPen = new Pen(_iconForeground, 2);
                 drawingContext.DrawGeometry(null, markPen, geometry);
@@ -100,16 +100,18 @@ namespace Synthora.Controls
             }
             else if (IconType == IconType.Success)
             {
+                drawingContext.DrawEllipse(_successBackground, null, new Point(ActualHeight / 2, ActualWidth / 2), ActualHeight / 2, ActualWidth / 2);
+
                 var geometry = new StreamGeometry();
                 using (var ctx = geometry.Open())
                 {
-                    ctx.BeginFigure(new Point(1.4, 10), false);
-                    ctx.LineTo(new Point(8, 16));
-                    ctx.LineTo(new Point(18.4, 2));
+                    ctx.BeginFigure(new Point(5, 11), false);
+                    ctx.LineTo(new Point(8.5, 14));
+                    ctx.LineTo(new Point(15, 6));
                 }
 
-                var pen = new Pen(_successBackground, 4);
-                drawingContext.DrawGeometry(_successBackground, pen, geometry);
+                var checkPen = new Pen(_iconForeground, 2);
+                drawingContext.DrawGeometry(null, checkPen, geometry);
             }
             else if (IconType == IconType.Warning)
             {

@@ -38,6 +38,11 @@ namespace Synthora.Controls
         public static readonly StyledProperty<bool> IsJumpNextProperty =
             AvaloniaProperty.Register<PaginationItem, bool>(nameof(IsJumpNext));
 
+        public PaginationItem()
+        {
+            UpdatePseudoClasses();
+        }
+
         internal Pagination? Owner { get; set; }
 
         /// <summary>

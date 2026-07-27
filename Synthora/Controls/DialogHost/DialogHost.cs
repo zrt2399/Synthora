@@ -338,13 +338,14 @@ namespace Synthora.Controls
         {
             OpenDialogCommand = new RelayCommand<object?>(ExecuteOpenDialogCommand, _ => !IsOpen);
             CloseDialogCommand = new RelayCommand<object?>(ExecuteCloseDialogCommand, _ => IsOpen);
+            UpdatePseudoClasses();
 
             _dialogs.CollectionChanged += (_, _) =>
             {
                 IsOpen = _dialogs.Count > 0;
-                PseudoClasses.Set(pcOpen, IsOpen);
                 (OpenDialogCommand as RelayCommand<object?>)?.NotifyCanExecuteChanged();
                 (CloseDialogCommand as RelayCommand<object?>)?.NotifyCanExecuteChanged();
+                UpdatePseudoClasses();
             };
         }
 
@@ -409,7 +410,7 @@ namespace Synthora.Controls
             {
                 throw new InvalidOperationException($"No loaded {typeof(T).Name} instances.");
             }
-            
+
             var targets = _loadedInstances.OfType<T>().Where(x => x.Identifier == dialogIdentifier).ToList();
             if (targets.Count == 0)
             {
@@ -517,7 +518,7 @@ namespace Synthora.Controls
             var dialogHostInstance = _dialogs.LastOrDefault(x => x.DialogHostInstance?.Content == content)?.DialogHostInstance;
             return dialogHostInstance ?? _dialogs.LastOrDefault()?.DialogHostInstance;
         }
- 
+
         private async void ExecuteOpenDialogCommand(object? parameter)
         {
             await ShowDialogAsync(parameter);
@@ -526,6 +527,11 @@ namespace Synthora.Controls
         private void ExecuteCloseDialogCommand(object? parameter)
         {
             CloseDialog(parameter);
+        }
+
+        private void UpdatePseudoClasses()
+        {
+            PseudoClasses.Set(pcOpen, IsOpen);
         }
     }
 }
