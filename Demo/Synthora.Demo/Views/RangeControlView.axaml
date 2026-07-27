@@ -111,8 +111,7 @@
                                      Value="{Binding #SecondarySlider.Value}" />
                     </StackPanel>
                     <Divider Content="PipsPager" Orientation="Horizontal" />
-                    <PipsPager HorizontalAlignment="Left"
-                               MaxVisiblePips="20"
+                    <PipsPager MaxVisiblePips="20"
                                NumberOfPages="50"
                                SelectedPageIndex="2" />
                 </StackPanel>

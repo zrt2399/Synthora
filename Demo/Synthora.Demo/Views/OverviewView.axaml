@@ -458,7 +458,8 @@
                             <ProgressBar Classes="Secondary"
                                          ShowProgressText="True"
                                          Value="{Binding #Slider.Value}" />
-                            <PipsPager MaxVisiblePips="10"
+                            <PipsPager HorizontalAlignment="Center"
+                                       MaxVisiblePips="10"
                                        NumberOfPages="10"
                                        SelectedPageIndex="2" />
                             <Pagination Classes="Secondary"
