@@ -267,7 +267,6 @@
             </Style>
         </Style>
         <Style Selector="^.Warning">
-            <Setter Property="Foreground" Value="{DynamicResource WarningBrush}" />
             <Style Selector="^:checked">
                 <Setter Property="Foreground" Value="White" />
                 <Setter Property="Background" Value="{DynamicResource WarningBrush}" />
@@ -282,7 +281,6 @@
             </Style>
         </Style>
         <Style Selector="^.Error">
-            <Setter Property="Foreground" Value="{DynamicResource ErrorBrush}" />
             <Style Selector="^:checked">
                 <Setter Property="Foreground" Value="White" />
                 <Setter Property="Background" Value="{DynamicResource ErrorBrush}" />
@@ -437,7 +435,7 @@
         </Setter>
 
         <!--<Style Selector="^[DefaultLabelPosition=Collapsed] /template/ SystemShadowChrome#DropShadowChrome">
-        <Setter Property="MinWidth" Value="0" />
+            <Setter Property="MinWidth" Value="0" />
         </Style>-->
         <Style Selector="^[DefaultLabelPosition=Bottom] /template/ Button#PART_OverflowButton">
             <Setter Property="Width" Value="{DynamicResource CommandBarButtonLabelBottomWidth}" />
@@ -445,5 +443,11 @@
         <Style Selector="^[DefaultLabelPosition=Collapsed] /template/ Button#PART_OverflowButton">
             <Setter Property="Width" Value="{Binding $self.Bounds.Height}" />
         </Style>
+        <Style Selector="^.Borderless">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="BorderBrush" Value="{x:Null}" />
+            <Setter Property="BoxShadowAttach.BoxShadow" Value="{DynamicResource EmptyBoxShadow}" />
+        </Style>
     </ControlTheme>
+
 </ResourceDictionary>

@@ -219,11 +219,14 @@
                             <TextBlock Classes="sectionLabel" Text="COMMAND BAR" />
                         </StackPanel>
 
-                        <CommandBar Name="commandBar" DefaultLabelPosition="Collapsed">
+                        <CommandBar Name="CommandBar"
+                                    Classes.Borderless="{Binding #Borderless.IsChecked}"
+                                    DefaultLabelPosition="Collapsed">
                             <CommandBar.Content>
                                 <StackPanel Orientation="Horizontal" Spacing="{DynamicResource ThemeControlBorderPaddingDouble}">
-                                    <ComboBox ItemsSource="{EnumBindingSource CommandBarDefaultLabelPosition}" SelectedItem="{Binding #commandBar.DefaultLabelPosition}" />
-                                    <ComboBox ItemsSource="{EnumBindingSource HorizontalAlignment}" SelectedItem="{Binding #commandBar.HorizontalAlignment}" />
+                                    <ComboBox ItemsSource="{EnumBindingSource CommandBarDefaultLabelPosition}" SelectedItem="{Binding #CommandBar.DefaultLabelPosition}" />
+                                    <ComboBox ItemsSource="{EnumBindingSource HorizontalAlignment}" SelectedItem="{Binding #CommandBar.HorizontalAlignment}" />
+                                    <CheckBox Name="Borderless">Borderless</CheckBox>
                                 </StackPanel>
                             </CommandBar.Content>
                             <CommandBar.PrimaryCommands>
@@ -253,13 +256,16 @@
                                                   Label="Delete"
                                                   ToolTip.Tip="Delete (Del)" />
                                 <CommandBarSeparator />
-                                <CommandBarToggleButton Icon="{materialIcons:MaterialIconExt Kind=FormatBold}"
+                                <CommandBarToggleButton Classes="Primary"
+                                                        Icon="{materialIcons:MaterialIconExt Kind=FormatBold}"
                                                         Label="Bold"
                                                         ToolTip.Tip="Bold (Ctrl+B)" />
-                                <CommandBarToggleButton Icon="{materialIcons:MaterialIconExt Kind=FormatItalic}"
+                                <CommandBarToggleButton Classes="Secondary"
+                                                        Icon="{materialIcons:MaterialIconExt Kind=FormatItalic}"
                                                         Label="Italic"
                                                         ToolTip.Tip="Italic (Ctrl+I)" />
-                                <CommandBarToggleButton Icon="{materialIcons:MaterialIconExt Kind=FormatUnderline}"
+                                <CommandBarToggleButton Classes="Warning"
+                                                        Icon="{materialIcons:MaterialIconExt Kind=FormatUnderline}"
                                                         Label="Underline"
                                                         ToolTip.Tip="Underline (Ctrl+U)" />
                             </CommandBar.PrimaryCommands>
