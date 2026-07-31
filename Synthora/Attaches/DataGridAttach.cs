@@ -62,11 +62,11 @@ namespace Synthora.Attaches
 
         private static void OnScrollIntoItemChanged(AvaloniaPropertyChangedEventArgs<object?> e)
         {
-            if (e.Sender is DataGrid dataGrid && e.NewValue.Value != null)
+            if (e.Sender is DataGrid dataGrid && e.NewValue.Value is { } value)
             {
                 Dispatcher.UIThread.InvokeAsync(() =>
                 {
-                    dataGrid.ScrollIntoView(e.NewValue.Value, null);
+                    dataGrid.ScrollIntoView(value, null);
                 }, DispatcherPriority.Loaded);
             }
         }
@@ -165,7 +165,7 @@ namespace Synthora.Attaches
             {
                 return;
             }
-            if (list != null && list.Count > 0)
+            if (list is { Count: > 0 })
             {
                 Dispatcher.UIThread.InvokeAsync(() =>
                 {
@@ -176,7 +176,7 @@ namespace Synthora.Attaches
 
         private static void OnIsAllExpandedChanged(AvaloniaPropertyChangedEventArgs<bool?> e)
         {
-            if (e.Sender is DataGrid dataGrid && dataGrid.ItemsSource is DataGridCollectionView cv && e.NewValue.Value is { } newValue)
+            if (e.Sender is DataGrid { ItemsSource: DataGridCollectionView cv } dataGrid && e.NewValue.Value is { } newValue)
             {
                 var collectionViewGroups = cv.Groups.OfType<DataGridCollectionViewGroup>();
                 foreach (var group in collectionViewGroups)

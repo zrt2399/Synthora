@@ -212,6 +212,14 @@
                                     <MultiComboBoxItem>DragTabControl</MultiComboBoxItem>
                                     <MultiComboBoxItem>NavigationPage</MultiComboBoxItem>
                                     <MultiComboBoxItem>PathPicker</MultiComboBoxItem>
+                                    <MultiComboBoxItem>CheckBox</MultiComboBoxItem>
+                                    <MultiComboBoxItem>TextBox</MultiComboBoxItem>
+                                    <MultiComboBoxItem>ProgressRing</MultiComboBoxItem>
+                                    <MultiComboBoxItem>ShadowChrome</MultiComboBoxItem>
+                                    <MultiComboBoxItem>StatusBar</MultiComboBoxItem>
+                                    <MultiComboBoxItem>Tag</MultiComboBoxItem>
+                                    <MultiComboBoxItem>TextBlock</MultiComboBoxItem>
+                                    <MultiComboBoxItem>TreeMenu</MultiComboBoxItem>
                                 </MultiComboBox>
                                 <SpacingWrapPanel HorizontalSpacing="8" VerticalSpacing="8">
                                     <Button Click="AddDirectMultiComboBoxItem" Content="Add" />

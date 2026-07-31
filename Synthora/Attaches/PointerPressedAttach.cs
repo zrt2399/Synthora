@@ -32,7 +32,7 @@ namespace Synthora.Attaches
             AvaloniaProperty.RegisterAttached<PointerPressedAttach, InputElement, ICommand?>("Command");
 
         public static readonly AttachedProperty<object?> CommandParameterProperty =
-           AvaloniaProperty.RegisterAttached<PointerPressedAttach, InputElement, object?>("CommandParameter");
+            AvaloniaProperty.RegisterAttached<PointerPressedAttach, InputElement, object?>("CommandParameter");
 
         static PointerPressedAttach()
         {
@@ -62,7 +62,6 @@ namespace Synthora.Attaches
             }
 
             inputElement.RemoveHandler(InputElement.PointerPressedEvent, InputElement_PointerPressed);
-
             if (e.NewValue.Value != null)
             {
                 inputElement.AddHandler(InputElement.PointerPressedEvent, InputElement_PointerPressed, handledEventsToo: true);

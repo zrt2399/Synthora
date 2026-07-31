@@ -100,11 +100,18 @@ namespace Synthora.Demo.ViewModels
             MultiComboBoxRoles =
             [
                 new("Designer", "Product"),
+                new("Analyst", "Product"),
+                new("ScrumMaster", "Product"),
                 new("Developer", "Engineering"),
                 new("Reviewer", "Engineering"),
+                new("Architect", "Engineering"),
+                new("DevOps", "Engineering"),
+                new("Intern", "Engineering"),
                 new("Tester", "Quality"),
+                new("Lead", "Quality"),
                 new("Publisher", "Release"),
-                new("Support", "Operations")
+                new("Support", "Operations"),
+                new("Manager", "Operations")
             ];
 
             SelectedMultiComboBoxRoles = [MultiComboBoxRoles[0], MultiComboBoxRoles[2]];

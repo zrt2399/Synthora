@@ -28,7 +28,7 @@ namespace Synthora.Demo.ViewModels
 
         private void InitializeBrushResources()
         {
-            if (Application.Current?.Styles.OfType<SynthoraTheme>().LastOrDefault() is not { } synthoraTheme)
+            if (SynthoraTheme.Current is not { } synthoraTheme)
             {
                 return;
             }

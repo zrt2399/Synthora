@@ -16,7 +16,7 @@ namespace Synthora.Attaches
             AvaloniaProperty.RegisterAttached<PointerReleasedAttach, InputElement, ICommand?>("Command");
 
         public static readonly AttachedProperty<object?> CommandParameterProperty =
-           AvaloniaProperty.RegisterAttached<PointerReleasedAttach, InputElement, object?>("CommandParameter");
+            AvaloniaProperty.RegisterAttached<PointerReleasedAttach, InputElement, object?>("CommandParameter");
 
         static PointerReleasedAttach()
         {
@@ -43,7 +43,6 @@ namespace Synthora.Attaches
             }
 
             inputElement.RemoveHandler(InputElement.PointerReleasedEvent, InputElement_PointerReleased);
-
             if (e.NewValue.Value != null)
             {
                 inputElement.AddHandler(InputElement.PointerReleasedEvent, InputElement_PointerReleased, handledEventsToo: true);
