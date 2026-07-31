@@ -3,7 +3,8 @@
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
 
-    <ControlTheme x:Key="{x:Type Window}" TargetType="Window">
+    <ControlTheme x:Key="{x:Type Window}" TargetType="Window">   
+        <Setter Property="WindowAttach.SyncTitleBarTheme" Value="True" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
         <Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}" />
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />

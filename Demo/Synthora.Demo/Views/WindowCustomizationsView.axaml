@@ -42,6 +42,8 @@
                                   IsChecked="{Binding $parent[Window].CanMaximize}"
                                   IsEnabled="{Binding $parent[Window].CanResize}" />
 
+                       <CheckBox Content="Sync title bar theme (Windows 10 only)" IsChecked="{Binding $parent[Window].(WindowAttach.SyncTitleBarTheme)}" />
+
                         <ComboBox HorizontalAlignment="Left"
                                   ItemsSource="{EnumBindingSource Win32Properties+WindowCornerPreference}"
                                   SelectedItem="{Binding $parent[Window].(Win32Properties.WindowCornerPreference)}"
