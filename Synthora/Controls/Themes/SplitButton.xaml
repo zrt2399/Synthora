@@ -135,6 +135,9 @@
                 <Setter Property="RenderTransform" Value="rotate(180deg)" />
             </Style>
         </Style>
+        <Style Selector="^.Icon">
+            <Setter Property="Padding" Value="{DynamicResource IconButtonPadding}" />
+        </Style>
         <Style Selector="^:disabled /template/ Border#SeparatorBorder">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>
@@ -265,17 +268,15 @@
                   TargetType="SplitButton">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
-        <Style Selector="^ /template/ Border#SeparatorBorder">
-            <Setter Property="IsVisible" Value="True" />
-        </Style>
+
         <Style Selector="^ /template/ Button">
             <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
         </Style>
         <Style Selector="^ /template/ Button:focus,^ /template/ Button:pointerover">
-            <Setter Property="Background" Value="{DynamicResource SynthoraMidBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
         </Style>
         <Style Selector="^ /template/ Button:pressed">
-            <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SynthoraVeryHighBrush}" />
         </Style>
 
         <Style Selector="^.Primary">

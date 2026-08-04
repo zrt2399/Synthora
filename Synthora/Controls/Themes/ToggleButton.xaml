@@ -206,10 +206,10 @@
         <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
 
         <Style Selector="^:focus,^:pointerover">
-            <Setter Property="Background" Value="{DynamicResource SynthoraMidBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
         </Style>
         <Style Selector="^:pressed">
-            <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SynthoraVeryHighBrush}" />
         </Style>
         <Style Selector="^:checked">
             <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
@@ -266,34 +266,6 @@
                 <Setter Property="Foreground" Value="White" />
                 <Setter Property="Background" Value="{DynamicResource ErrorBrush}" />
             </Style>
-        </Style>
-    </ControlTheme>
-
-    <ControlTheme x:Key="IconToggleButtonTheme"
-                  BasedOn="{StaticResource ToggleButtonBaseTheme}"
-                  TargetType="ToggleButton">
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderBrush" Value="{x:Null}" />
-        <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusSmall}" />
-        <Setter Property="Padding" Value="{DynamicResource ThemeControlPaddingSmall}" />
-
-        <Style Selector="^:focus,^:pointerover">
-            <Setter Property="Background" Value="{DynamicResource TransparentPointerOverBrush}" />
-        </Style>
-        <Style Selector="^:pressed">
-            <Setter Property="Background" Value="{DynamicResource TransparentPressedBrush}" />
-        </Style>
-
-        <Style Selector="^:checked">
-            <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
-            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
-        </Style>
-        <Style Selector="^:checked:pointerover">
-            <Setter Property="Background" Value="{DynamicResource PrimaryPointerOverBrush}" />
-        </Style>
-        <Style Selector="^:checked:pressed">
-            <Setter Property="Background" Value="{DynamicResource PrimaryPressedBrush}" />
         </Style>
     </ControlTheme>
 

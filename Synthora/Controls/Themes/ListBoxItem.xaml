@@ -48,6 +48,8 @@
                 <Binding Path="$parent[ListBox].CornerRadius" />
                 <Binding Path="$parent[ListBox].BorderThickness" />
                 <Binding Path="$parent[ListBox].Padding" />
+                <Binding Path="$self.Margin" />
+                <Binding Path="$self.BorderThickness" />
             </MultiBinding>
         </Setter>
         <Setter Property="Template">

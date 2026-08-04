@@ -94,9 +94,10 @@
                                         Grid.Column="0"
                                         Width="{Binding $self.Bounds.Height}"
                                         ButtonAttach.ShowShadowOnInteraction="False"
+                                        Classes="Icon"
                                         CornerRadius="0"
                                         IsVisible="{TemplateBinding IsBackButtonEffectivelyVisible}"
-                                        Theme="{StaticResource IconButtonTheme}">
+                                        Theme="{StaticResource BorderlessButtonTheme}">
                                     <Panel>
                                         <PathIcon x:Name="PART_BackButtonDefaultIcon"
                                                   Width="16"

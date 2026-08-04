@@ -175,10 +175,10 @@
         <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
 
         <Style Selector="^:focus,^:pointerover">
-            <Setter Property="Background" Value="{DynamicResource SynthoraMidBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
         </Style>
         <Style Selector="^:pressed">
-            <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SynthoraVeryHighBrush}" />
         </Style>
 
         <Style Selector="^.Primary">
@@ -198,43 +198,6 @@
         </Style>
         <Style Selector="^.Error">
             <Setter Property="Foreground" Value="{DynamicResource ErrorBrush}" />
-        </Style>
-    </ControlTheme>
-
-    <ControlTheme x:Key="IconButtonTheme"
-                  BasedOn="{StaticResource ButtonBaseTheme}"
-                  TargetType="Button">
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderBrush" Value="{x:Null}" />
-        <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="Padding" Value="{DynamicResource IconButtonPadding}" />
-
-        <Style Selector="^:focus,^:pointerover">
-            <Setter Property="Background" Value="{DynamicResource TransparentPointerOverBrush}" />
-        </Style>
-        <Style Selector="^:pressed">
-            <Setter Property="Background" Value="{DynamicResource TransparentPressedBrush}" />
-        </Style>
-
-        <Style Selector="^.Warning">
-            <Style Selector="^:focus,^:pointerover">
-                <Setter Property="Foreground" Value="White" />
-                <Setter Property="Background" Value="{DynamicResource WarningPointerOverBrush}" />
-            </Style>
-            <Style Selector="^:pressed">
-                <Setter Property="Foreground" Value="White" />
-                <Setter Property="Background" Value="{DynamicResource WarningPressedBrush}" />
-            </Style>
-        </Style>
-        <Style Selector="^.Error">
-            <Style Selector="^:focus,^:pointerover">
-                <Setter Property="Foreground" Value="White" />
-                <Setter Property="Background" Value="{DynamicResource ErrorPointerOverBrush}" />
-            </Style>
-            <Style Selector="^:pressed">
-                <Setter Property="Foreground" Value="White" />
-                <Setter Property="Background" Value="{DynamicResource ErrorPressedBrush}" />
-            </Style>
         </Style>
     </ControlTheme>
 

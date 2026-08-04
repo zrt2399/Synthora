@@ -106,7 +106,7 @@
                     </Border>
                     <ScrollContentPresenter Name="PART_ContentPresenter"
                                             Grid.Row="1"
-                                            Margin="{TemplateBinding Padding}"
+                                            Padding="{TemplateBinding Padding}"
                                             Background="{TemplateBinding Background}"
                                             HorizontalSnapPointsAlignment="{TemplateBinding HorizontalSnapPointsAlignment}"
                                             HorizontalSnapPointsType="{TemplateBinding HorizontalSnapPointsType}"

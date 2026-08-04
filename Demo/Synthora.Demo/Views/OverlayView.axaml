@@ -203,10 +203,10 @@
                                                     <Button Padding="0"
                                                             HorizontalAlignment="Right"
                                                             VerticalAlignment="Top"
-                                                            Classes="Error"
+                                                            Classes="Icon"
                                                             Command="{Binding Close, RelativeSource={RelativeSource TemplatedParent}}"
                                                             CommandParameter="Dismissed"
-                                                            Theme="{StaticResource IconButtonTheme}">
+                                                            Theme="{StaticResource BorderlessButtonTheme}">
                                                         <materialIcons:MaterialIcon IconSize="20" Kind="Close" />
                                                     </Button>
                                                 </Panel>

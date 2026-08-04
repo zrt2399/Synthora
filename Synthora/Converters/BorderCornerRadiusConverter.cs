@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using Avalonia;
@@ -24,7 +24,7 @@ namespace Synthora.Converters
         {
             if (values.Count > 1 && values[0] is CornerRadius cornerRadius && values[1] is Thickness thickness)
             {
-                CornerRadiusType cornerRadiusType = CornerRadiusType.None;
+                var cornerRadiusType = CornerRadiusType.None;
                 if (parameter is CornerRadiusType type)
                 {
                     cornerRadiusType = type;
@@ -33,47 +33,41 @@ namespace Synthora.Converters
                 {
                     cornerRadiusType = Enum.Parse<CornerRadiusType>(stringCornerRadiusType);
                 }
+
                 if (cornerRadiusType != CornerRadiusType.None)
                 {
                     double outerLeft = 0, outerRight = 0, outerTop = 0, outerBottom = 0;
-                    if (values.Count == 3)
+                    double innerLeft = 0, innerRight = 0, innerTop = 0, innerBottom = 0;
+                    if (values.Count > 2 && values[2] is Thickness outerPadding)
                     {
-                        if (values[2] is Thickness outerPadding)
-                        {
-                            outerLeft = outerPadding.Left;
-                            outerRight = outerPadding.Right;
-                            outerTop = outerPadding.Top;
-                            outerBottom = outerPadding.Bottom;
-                        }
-                        else if (double.TryParse(values[2]?.ToString(), out var result))
-                        {
-                            outerLeft = outerRight = outerTop = outerBottom = result;
-                        }
+                        outerLeft = outerPadding.Left;
+                        outerRight = outerPadding.Right;
+                        outerTop = outerPadding.Top;
+                        outerBottom = outerPadding.Bottom;
                     }
 
-                    if (values.Count == 4)
+                    if (values.Count > 3 && values[3] is Thickness innerMargin)
                     {
-                        if (values[3] is Thickness innerMargin)
-                        {
-                            outerLeft += innerMargin.Left;
-                            outerRight += innerMargin.Right;
-                            outerTop += innerMargin.Top;
-                            outerBottom += innerMargin.Bottom;
-                        }
-                        else if (double.TryParse(values[3]?.ToString(), out var result))
-                        {
-                            outerLeft += result;
-                            outerRight = outerTop = outerBottom = outerLeft;
-                        }
+                        outerLeft += innerMargin.Left;
+                        outerRight += innerMargin.Right;
+                        outerTop += innerMargin.Top;
+                        outerBottom += innerMargin.Bottom;
+                    }
+
+                    if (values.Count > 4 && values[4] is Thickness innerThickness)
+                    {
+                        innerLeft = innerThickness.Left;
+                        innerRight = innerThickness.Right;
+                        innerTop = innerThickness.Top;
+                        innerBottom = innerThickness.Bottom;
                     }
 
                     return new CornerRadius(
-                        cornerRadiusType.HasFlag(CornerRadiusType.TopLeft) ? ConversionUtils.CalcInnerRadius(cornerRadius.TopLeft, thickness.Left, outerLeft) : 0,
-                        cornerRadiusType.HasFlag(CornerRadiusType.TopRight) ? ConversionUtils.CalcInnerRadius(cornerRadius.TopRight, thickness.Top, outerTop) : 0,
-                        cornerRadiusType.HasFlag(CornerRadiusType.BottomRight) ? ConversionUtils.CalcInnerRadius(cornerRadius.BottomRight, thickness.Right, outerRight) : 0,
-                        cornerRadiusType.HasFlag(CornerRadiusType.BottomLeft) ? ConversionUtils.CalcInnerRadius(cornerRadius.BottomLeft, thickness.Bottom, outerBottom) : 0);
+                        cornerRadiusType.HasFlag(CornerRadiusType.TopLeft) ? ConversionUtils.CalcInnerRadius(cornerRadius.TopLeft, thickness.Left, outerLeft, innerLeft) : 0,
+                        cornerRadiusType.HasFlag(CornerRadiusType.TopRight) ? ConversionUtils.CalcInnerRadius(cornerRadius.TopRight, thickness.Top, outerTop, innerTop) : 0,
+                        cornerRadiusType.HasFlag(CornerRadiusType.BottomRight) ? ConversionUtils.CalcInnerRadius(cornerRadius.BottomRight, thickness.Right, outerRight, innerRight) : 0,
+                        cornerRadiusType.HasFlag(CornerRadiusType.BottomLeft) ? ConversionUtils.CalcInnerRadius(cornerRadius.BottomLeft, thickness.Bottom, outerBottom, innerBottom) : 0);
                 }
-                return new CornerRadius(0);
             }
             return AvaloniaProperty.UnsetValue;
         }

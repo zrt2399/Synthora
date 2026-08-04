@@ -224,9 +224,9 @@
                                             </MenuFlyout>
                                         </DropDownButton.Flyout>
                                     </DropDownButton>
-                                    <Button Classes="Error Icon"
-                                            Content="{materialIcons:MaterialIconExt Kind=FruitCherries}"
-                                            Theme="{StaticResource SolidButtonTheme}" />
+                                    <Button Classes="Error Icon" Theme="{StaticResource SolidButtonTheme}">
+                                        <materialIcons:MaterialIcon Kind="FruitCherries" />
+                                    </Button>
                                 </SpacingWrapPanel>
                             </StackPanel>
 

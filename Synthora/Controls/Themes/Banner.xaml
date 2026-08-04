@@ -66,10 +66,11 @@
                                 Height="20"
                                 Margin="0,8,8,8"
                                 VerticalAlignment="Top"
+                                Classes="Icon"
                                 Command="{Binding $parent[Banner].Close}"
                                 DockPanel.Dock="Right"
                                 IsVisible="{TemplateBinding ShowCloseButton}"
-                                Theme="{StaticResource IconButtonTheme}"
+                                Theme="{StaticResource BorderlessButtonTheme}"
                                 ToolTip.Tip="{DynamicResource StringCloseText}">
                             <PathIcon Width="12"
                                       Height="12"

@@ -36,11 +36,12 @@
                         <StackPanel Classes="sectionHeader">
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="RectangleOutline" />
                             <TextBlock Classes="sectionLabel" Text="BUTTON" />
-                            <Tag TagType="None">Outline</Tag>
+                            <Tag>Outline</Tag>
                             <Tag IsSolid="True" TagType="Information">Solid</Tag>
-                            <Tag IsSolid="True" TagType="None">Borderless</Tag>
+                            <Tag IsSolid="True">Borderless</Tag>
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <Button Classes="Icon" Content="{materialIcons:MaterialIconExt Cog}" />
                             <Button>Default</Button>
                             <Button Classes="Primary">Primary</Button>
                             <Button Classes="Secondary">Secondary</Button>
@@ -50,6 +51,9 @@
                             <Button Classes="Error">Error</Button>
                         </SpacingWrapPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <Button Classes="Icon" Theme="{StaticResource SolidButtonTheme}">
+                                <materialIcons:MaterialIcon Kind="PaletteOutline" />
+                            </Button>
                             <Button Theme="{StaticResource SolidButtonTheme}">Default</Button>
                             <Button Classes="Primary" Theme="{StaticResource SolidButtonTheme}">Primary</Button>
                             <Button Classes="Secondary" Theme="{StaticResource SolidButtonTheme}">Secondary</Button>
@@ -59,6 +63,9 @@
                             <Button Classes="Error" Theme="{StaticResource SolidButtonTheme}">Error</Button>
                         </SpacingWrapPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <Button Classes="Icon" Theme="{StaticResource BorderlessButtonTheme}">
+                                <materialIcons:MaterialIcon Kind="VolumeHigh" />
+                            </Button>
                             <Button Theme="{StaticResource BorderlessButtonTheme}">Default</Button>
                             <Button Classes="Primary" Theme="{StaticResource BorderlessButtonTheme}">Primary</Button>
                             <Button Classes="Secondary" Theme="{StaticResource BorderlessButtonTheme}">Secondary</Button>
@@ -76,11 +83,12 @@
                         <StackPanel Classes="sectionHeader">
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="Refresh" />
                             <TextBlock Classes="sectionLabel" Text="REPEAT BUTTON" />
-                            <Tag TagType="None">Outline</Tag>
+                            <Tag>Outline</Tag>
                             <Tag IsSolid="True" TagType="Information">Solid</Tag>
-                            <Tag IsSolid="True" TagType="None">Borderless</Tag>
+                            <Tag IsSolid="True">Borderless</Tag>
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <RepeatButton Classes="Icon" Content="{materialIcons:MaterialIconExt Repeat}" />
                             <RepeatButton>Default</RepeatButton>
                             <RepeatButton Classes="Primary">Primary</RepeatButton>
                             <RepeatButton Classes="Secondary">Secondary</RepeatButton>
@@ -90,6 +98,9 @@
                             <RepeatButton Classes="Error">Error</RepeatButton>
                         </SpacingWrapPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <RepeatButton Classes="Icon" Theme="{StaticResource SolidRepeatButtonTheme}">
+                                <materialIcons:MaterialIcon Kind="SkipBackward" />
+                            </RepeatButton>
                             <RepeatButton Theme="{StaticResource SolidRepeatButtonTheme}">Default</RepeatButton>
                             <RepeatButton Classes="Primary" Theme="{StaticResource SolidRepeatButtonTheme}">Primary</RepeatButton>
                             <RepeatButton Classes="Secondary" Theme="{StaticResource SolidRepeatButtonTheme}">Secondary</RepeatButton>
@@ -99,6 +110,9 @@
                             <RepeatButton Classes="Error" Theme="{StaticResource SolidRepeatButtonTheme}">Error</RepeatButton>
                         </SpacingWrapPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <RepeatButton Classes="Icon"
+                                          Content="{materialIcons:MaterialIconExt SkipNext}"
+                                          Theme="{StaticResource BorderlessRepeatButtonTheme}" />
                             <RepeatButton Theme="{StaticResource BorderlessRepeatButtonTheme}">Default</RepeatButton>
                             <RepeatButton Classes="Primary" Theme="{StaticResource BorderlessRepeatButtonTheme}">Primary</RepeatButton>
                             <RepeatButton Classes="Secondary" Theme="{StaticResource BorderlessRepeatButtonTheme}">Secondary</RepeatButton>
@@ -121,11 +135,12 @@
                         <StackPanel Classes="sectionHeader">
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ToggleSwitch" />
                             <TextBlock Classes="sectionLabel" Text="TOGGLE BUTTON" />
-                            <Tag TagType="None">Outline</Tag>
+                            <Tag>Outline</Tag>
                             <Tag IsSolid="True" TagType="Information">Solid</Tag>
-                            <Tag IsSolid="True" TagType="None">Borderless</Tag>
+                            <Tag IsSolid="True">Borderless</Tag>
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <ToggleButton Classes="Icon" Content="{materialIcons:MaterialIconExt ToggleSwitchVariant}" />
                             <ToggleButton>Default</ToggleButton>
                             <ToggleButton Classes="Primary">Primary</ToggleButton>
                             <ToggleButton Classes="Secondary">Secondary</ToggleButton>
@@ -135,6 +150,9 @@
                             <ToggleButton Classes="Error">Error</ToggleButton>
                         </SpacingWrapPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <ToggleButton Classes="Icon" Theme="{StaticResource SolidToggleButtonTheme}">
+                                <materialIcons:MaterialIcon Kind="ThemeLightDark" />
+                            </ToggleButton>
                             <ToggleButton Theme="{StaticResource SolidToggleButtonTheme}">Default</ToggleButton>
                             <ToggleButton Classes="Primary" Theme="{StaticResource SolidToggleButtonTheme}">Primary</ToggleButton>
                             <ToggleButton Classes="Secondary" Theme="{StaticResource SolidToggleButtonTheme}">Secondary</ToggleButton>
@@ -144,6 +162,9 @@
                             <ToggleButton Classes="Error" Theme="{StaticResource SolidToggleButtonTheme}">Error</ToggleButton>
                         </SpacingWrapPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <ToggleButton Classes="Icon" Theme="{StaticResource BorderlessToggleButtonTheme}">
+                                <materialIcons:MaterialIcon Kind="FormatBold" />
+                            </ToggleButton>
                             <ToggleButton Theme="{StaticResource BorderlessToggleButtonTheme}">Default</ToggleButton>
                             <ToggleButton Classes="Primary" Theme="{StaticResource BorderlessToggleButtonTheme}">Primary</ToggleButton>
                             <ToggleButton Classes="Secondary" Theme="{StaticResource BorderlessToggleButtonTheme}">Secondary</ToggleButton>
@@ -170,9 +191,9 @@
                         <StackPanel Classes="sectionHeader">
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ChevronDown" />
                             <TextBlock Classes="sectionLabel" Text="DROPDOWN BUTTON" />
-                            <Tag TagType="None">Outline</Tag>
+                            <Tag>Outline</Tag>
                             <Tag IsSolid="True" TagType="Information">Solid</Tag>
-                            <Tag IsSolid="True" TagType="None">Borderless</Tag>
+                            <Tag IsSolid="True">Borderless</Tag>
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
                             <DropDownButton>Default</DropDownButton>
@@ -228,9 +249,9 @@
                         <StackPanel Classes="sectionHeader">
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ArrowSplitHorizontal" />
                             <TextBlock Classes="sectionLabel" Text="SPLIT BUTTON" />
-                            <Tag TagType="None">Outline</Tag>
+                            <Tag>Outline</Tag>
                             <Tag IsSolid="True" TagType="Information">Solid</Tag>
-                            <Tag IsSolid="True" TagType="None">Borderless</Tag>
+                            <Tag IsSolid="True">Borderless</Tag>
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
                             <SplitButton>Default</SplitButton>
@@ -286,9 +307,9 @@
                         <StackPanel Classes="sectionHeader">
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ToggleSwitchOutline" />
                             <TextBlock Classes="sectionLabel" Text="TOGGLESPLIT BUTTON" />
-                            <Tag TagType="None">Outline</Tag>
+                            <Tag>Outline</Tag>
                             <Tag IsSolid="True" TagType="Information">Solid</Tag>
-                            <Tag IsSolid="True" TagType="None">Borderless</Tag>
+                            <Tag IsSolid="True">Borderless</Tag>
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
                             <ToggleSplitButton>Default</ToggleSplitButton>
@@ -331,6 +352,7 @@
                             <TextBlock Classes="sectionLabel" Text="HYPERLINK BUTTON" />
                         </StackPanel>
                         <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                            <HyperlinkButton Content="{materialIcons:MaterialIconExt VectorLink}" />
                             <HyperlinkButton>HyperlinkButton</HyperlinkButton>
                             <HyperlinkButton Classes="Underline">Underline</HyperlinkButton>
                             <HyperlinkButton NavigateUri="{x:Static vm:MainViewModel.GitHubDepositoryUri}">GitHub</HyperlinkButton>

@@ -139,28 +139,28 @@ namespace Synthora.Utils
         /// Calculates the corner radius for a nested inner border so that its corner curvature matches that of the outer border.
         /// </summary>
         /// <param name="cornerRadius">The cornerRadius of the outer border.</param>
-        /// <param name="borderThickness">Optional thickness of the outer border. Defaults to 1 if not specified.</param>
+        /// <param name="outerBorderThickness">Optional thickness of the outer border. Defaults to 1 if not specified.</param>
         /// <param name="padding">Optional padding of the outer border. Defaults to 0 if not specified.</param>
-        public static double CalcInnerRadius(double cornerRadius, double borderThickness = 1, double padding = 0)
+        /// <param name="innerBorderThickness">Optional thickness of the inner border. Defaults to 0 if not specified.</param>
+        public static double CalcInnerRadius(double cornerRadius, double outerBorderThickness = 1, double padding = 0, double innerBorderThickness = 0)
         {
             double result;
-            if (padding < 0.5)
+            var borderThickness = outerBorderThickness + innerBorderThickness;
+
+            if (padding >= cornerRadius)
             {
-                // R' = R - T/2 - T'/2
-                result = cornerRadius - borderThickness / 2 - padding / 2;
+                result = cornerRadius / 2 - borderThickness / 2;
             }
             else
             {
-                var shrink = borderThickness + padding;
-                if (padding >= cornerRadius || shrink >= cornerRadius)
+                if (padding > 1)
                 {
-                    result = cornerRadius / 2 - borderThickness / 2;
+                    var shrink = borderThickness + padding;
+                    result = cornerRadius - shrink * Math.Sqrt(2) / 2;
                 }
                 else
                 {
-                    // result = outerRadius - outerBorderPadding /*- outerBorderThickness / 2*/;
-                    // result = outerRadius - 0.7 * (outerBorderPadding + outerBorderThickness);
-                    result = cornerRadius - shrink * Math.Sqrt(2) / 2;
+                    result = cornerRadius - padding - borderThickness / 2;
                 }
             }
 

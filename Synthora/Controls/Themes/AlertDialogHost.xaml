@@ -30,6 +30,7 @@
                                         <Binding Path="#DialogBorder.BorderThickness" />
                                         <Binding Path="#DialogBorder.Padding" />
                                         <Binding Path="#ButtonPanel.Margin" />
+                                        <Binding Path="$self.BorderThickness" />
                                     </MultiBinding>
                                 </Setter>
                             </Style>
@@ -52,15 +53,17 @@
                                      Text="{Binding AlertDialogInstance?.Title, RelativeSource={RelativeSource TemplatedParent}}" />
                             <Button HorizontalAlignment="Right"
                                     VerticalAlignment="Top"
-                                    Classes="Error"
+                                    Classes="Icon"
                                     Command="{Binding AlertDialogInstance?.None, RelativeSource={RelativeSource TemplatedParent}}"
                                     IsVisible="{Binding AlertDialogInstance?.ShowCloseButton, RelativeSource={RelativeSource TemplatedParent}}"
-                                    Theme="{StaticResource IconButtonTheme}">
+                                    Theme="{StaticResource BorderlessButtonTheme}">
                                 <Button.CornerRadius>
                                     <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.All}">
                                         <Binding Path="#DialogBorder.CornerRadius" />
                                         <Binding Path="#DialogBorder.BorderThickness" />
                                         <Binding Path="#DialogBorder.Padding" />
+                                        <Binding Path="$self.Margin" />
+                                        <Binding Path="$self.BorderThickness" />
                                     </MultiBinding>
                                 </Button.CornerRadius>
                                 <PathIcon Width="12"

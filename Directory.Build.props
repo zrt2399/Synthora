@@ -1,8 +1,8 @@
 <Project>
     <PropertyGroup>
         <Version>2.5.1.0</Version>
-        <AvaloniaVersion>12.1.0</AvaloniaVersion>
-        <AvaloniaDataGridVersion>12.1.0</AvaloniaDataGridVersion>
+        <AvaloniaVersion>12.1.1</AvaloniaVersion>
+        <AvaloniaDataGridVersion>12.1.2</AvaloniaDataGridVersion>
         <FileVersion>$(Version)</FileVersion>
         <AssemblyVersion>$(Version)</AssemblyVersion>
 

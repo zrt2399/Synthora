@@ -90,6 +90,8 @@
                 <Binding Path="$parent[TabControl].(TabControlAttach.HeaderCornerRadius)" />
                 <Binding Path="$parent[TabControl].(TabControlAttach.HeaderBorderThickness)" />
                 <Binding Path="$parent[TabControl].(TabControlAttach.HeaderPadding)" />
+                <Binding Path="$self.Margin" />
+                <Binding Path="$self.BorderThickness" />
             </MultiBinding>
         </Setter>
         <Setter Property="Template">
