@@ -512,10 +512,7 @@ namespace Synthora.Controls
             if (int.TryParse(text, NumberStyles.Integer, CultureInfo.CurrentCulture, out var pageNumber))
             {
                 SetCurrentPage(pageNumber - 1);
-                if (_quickJumpBox != null)
-                {
-                    _quickJumpBox.Text = string.Empty;
-                }
+                _quickJumpBox?.SetCurrentValue(TextBox.TextProperty, null);
             }
         }
 

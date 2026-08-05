@@ -150,7 +150,7 @@
                     </DataValidationErrors>
 
                     <Popup Name="PART_Popup"
-                           HorizontalOffset="{Binding #PopupBorder.Margin, Converter={x:Static DateTimePickerPopupMarginConverter.Instance}}"
+                           HorizontalOffset="{Binding #Popup_Border.Margin, Converter={x:Static DateTimePickerPopupMarginConverter.Instance}}"
                            IsLightDismissEnabled="True"
                            IsOpen="{TemplateBinding DateTimePickerAttach.IsDropDownOpen,
                                                     Mode=TwoWay}"
@@ -159,7 +159,7 @@
                            ScrollViewerAttach.IsDisabled="True"
                            WindowManagerAddShadowHint="False">
                         <!--  Add offset. ScrollViewerAttach.IsDisabled="True" fix mouse scrolling triggers parent  -->
-                        <SystemShadowChrome Name="PopupBorder"
+                        <SystemShadowChrome Name="Popup_Border"
                                             Width="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
                                             BorderBrush="{TemplateBinding BorderBrush}"
                                             BorderThickness="{TemplateBinding BorderThickness}">
@@ -236,9 +236,7 @@
                         </Panel>
 
                         <Panel Name="PART_PeriodHost" Grid.Column="6">
-                            <ScrollViewer HorizontalScrollBarVisibility="Disabled"
-                                          ScrollViewerAttach.IsDisabled="True"
-                                          VerticalScrollBarVisibility="Hidden">
+                            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
                                 <DateTimePickerPanel Name="PART_PeriodSelector"
                                                      ItemHeight="{DynamicResource TimePickerFlyoutPresenterHeight}"
                                                      PanelType="TimePeriod"

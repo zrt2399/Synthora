@@ -131,7 +131,7 @@
                         </DockPanel>
                     </DataValidationErrors>
                     <Popup Name="PART_Popup"
-                           HorizontalOffset="{Binding #PopupBorder.Margin, Converter={x:Static DateTimePickerPopupMarginConverter.Instance}}"
+                           HorizontalOffset="{Binding #Popup_Border.Margin, Converter={x:Static DateTimePickerPopupMarginConverter.Instance}}"
                            IsLightDismissEnabled="True"
                            IsOpen="{TemplateBinding DateTimePickerAttach.IsDropDownOpen,
                                                     Mode=TwoWay}"
@@ -140,7 +140,7 @@
                            ScrollViewerAttach.IsDisabled="True"
                            WindowManagerAddShadowHint="False">
                         <!--  ScrollViewerAttach.IsDisabled="True" fix mouse scrolling triggers parent  -->
-                        <SystemShadowChrome Name="PopupBorder"
+                        <SystemShadowChrome Name="Popup_Border"
                                             Width="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
                                             BorderBrush="{TemplateBinding BorderBrush}"
                                             BorderThickness="{TemplateBinding BorderThickness}">
