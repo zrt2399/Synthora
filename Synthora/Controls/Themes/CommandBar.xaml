@@ -145,6 +145,15 @@
 
         <!--  IsInOverflow: full-width horizontal layout  -->
         <Style Selector="^[IsInOverflow=True]">
+            <Setter Property="CornerRadius">
+                <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.All}">
+                    <Binding Path="CornerRadius" RelativeSource="{RelativeSource AncestorType=SystemShadowChrome}" />
+                    <Binding Path="BorderThickness" RelativeSource="{RelativeSource AncestorType=SystemShadowChrome}" />
+                    <Binding Path="Padding" RelativeSource="{RelativeSource AncestorType=ScrollViewer}" />
+                    <Binding Path="Margin" RelativeSource="{RelativeSource Mode=Self}" />
+                    <Binding Path="BorderThickness" RelativeSource="{RelativeSource Mode=Self}" />
+                </MultiBinding>
+            </Setter>
             <Setter Property="MaxWidth" Value="NaN" />
             <Setter Property="HorizontalContentAlignment" Value="Left" />
             <Style Selector="^[IsCompact=False]">
@@ -197,6 +206,15 @@
 
         <!--  IsInOverflow: full-width horizontal layout  -->
         <Style Selector="^[IsInOverflow=True]">
+            <Setter Property="CornerRadius">
+                <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.All}">
+                    <Binding Path="CornerRadius" RelativeSource="{RelativeSource AncestorType=SystemShadowChrome}" />
+                    <Binding Path="BorderThickness" RelativeSource="{RelativeSource AncestorType=SystemShadowChrome}" />
+                    <Binding Path="Padding" RelativeSource="{RelativeSource AncestorType=ScrollViewer}" />
+                    <Binding Path="Margin" RelativeSource="{RelativeSource Mode=Self}" />
+                    <Binding Path="BorderThickness" RelativeSource="{RelativeSource Mode=Self}" />
+                </MultiBinding>
+            </Setter>
             <Setter Property="MaxWidth" Value="NaN" />
             <Setter Property="HorizontalContentAlignment" Value="Left" />
             <Style Selector="^[IsCompact=False]">
@@ -385,9 +403,8 @@
                                PlacementTarget="{Binding #PART_OverflowButton}"
                                WindowManagerAddShadowHint="False">
                             <SystemShadowChrome Name="DropShadowChrome">
-                                <ScrollViewer Theme="{StaticResource SimpleMenuScrollViewer}">
+                                <ScrollViewer Padding="{DynamicResource ThemeMenuFlyoutPadding}" Theme="{StaticResource SimpleMenuScrollViewer}">
                                     <ItemsControl Name="PART_OverflowPresenter"
-                                                  Margin="{DynamicResource ThemeMenuFlyoutPadding}"
                                                   FocusAttach.IsFocused="{TemplateBinding IsOpen}"
                                                   Focusable="True"
                                                   IsTabStop="False"

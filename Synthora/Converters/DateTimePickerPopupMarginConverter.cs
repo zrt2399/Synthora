@@ -13,9 +13,9 @@ namespace Synthora.Converters
         {
             if (value is Thickness thickness)
             {
-                return new Thickness(thickness.Right, 0, 0, 0);
+                return (thickness.Right - thickness.Left) / 2;
             }
-            return value;
+            return AvaloniaProperty.UnsetValue;
         }
 
         public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)

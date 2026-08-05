@@ -36,7 +36,7 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
+        <Setter Property="Padding" Value="{DynamicResource IconButtonPadding}" />
         <Setter Property="Cursor" Value="{x:Null}" />
         <Setter Property="Template">
             <ControlTemplate>
@@ -54,11 +54,11 @@
         </Setter>
 
         <Style Selector="^:pointerover">
-            <Setter Property="Background" Value="{DynamicResource ThemeSelectedLowBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SynthoraMidBrush}" />
         </Style>
 
         <Style Selector="^:pressed">
-            <Setter Property="Background" Value="{DynamicResource ThemeSelectedMidBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
         </Style>
     </ControlTheme>
 
@@ -66,9 +66,8 @@
                   BasedOn="{StaticResource SimpleDateTimePickerButtonTheme}"
                   TargetType="RepeatButton">
         <Setter Property="VerticalAlignment" Value="Top" />
-        <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="Focusable" Value="False" />
-        <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
+        <Setter Property="Background" Value="{DynamicResource SynthoraLowBrush}" />
         <Setter Property="IsVisible" Value="False" />
         <Setter Property="Content">
             <Template>
@@ -88,9 +87,8 @@
                   BasedOn="{StaticResource SimpleDateTimePickerButtonTheme}"
                   TargetType="RepeatButton">
         <Setter Property="VerticalAlignment" Value="Bottom" />
-        <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="Focusable" Value="False" />
-        <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
+        <Setter Property="Background" Value="{DynamicResource SynthoraLowBrush}" />
         <Setter Property="IsVisible" Value="False" />
         <Setter Property="Content">
             <Template>
@@ -103,6 +101,21 @@
                           StrokeThickness="1" />
                 </Viewbox>
             </Template>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="SimpleDateTimePickerAcceptDismissButtonTheme"
+                  BasedOn="{StaticResource SimpleDateTimePickerButtonTheme}"
+                  TargetType="Button">
+        <Setter Property="Margin" Value="{DynamicResource ThemeControlBorderPadding}" />
+        <Setter Property="CornerRadius">
+            <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.All}">
+                <Binding Path="CornerRadius" RelativeSource="{RelativeSource AncestorType=SystemShadowChrome}" />
+                <Binding Path="BorderThickness" RelativeSource="{RelativeSource AncestorType=SystemShadowChrome}" />
+                <Binding Path="Padding" RelativeSource="{RelativeSource AncestorType=SystemShadowChrome}" />
+                <Binding Path="Margin" RelativeSource="{RelativeSource Mode=Self}" />
+                <Binding Path="BorderThickness" RelativeSource="{RelativeSource Mode=Self}" />
+            </MultiBinding>
         </Setter>
     </ControlTheme>
 

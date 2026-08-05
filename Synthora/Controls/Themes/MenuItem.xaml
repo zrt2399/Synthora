@@ -14,7 +14,7 @@
             <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.All}">
                 <Binding Path="CornerRadius" RelativeSource="{RelativeSource AncestorType=SystemShadowChrome}" />
                 <Binding Path="BorderThickness" RelativeSource="{RelativeSource AncestorType=SystemShadowChrome}" />
-                <Binding Path="Margin" RelativeSource="{RelativeSource AncestorType=ItemsPresenter}" />
+                <Binding Path="Padding" RelativeSource="{RelativeSource AncestorType=ScrollViewer}" />
                 <Binding Path="Margin" RelativeSource="{RelativeSource Mode=Self}" />
                 <Binding Path="BorderThickness" RelativeSource="{RelativeSource Mode=Self}" />
             </MultiBinding>
@@ -91,9 +91,8 @@
                                Placement="RightEdgeAlignedTop"
                                WindowManagerAddShadowHint="False">
                             <SystemShadowChrome Name="Popup_Border">
-                                <ScrollViewer Theme="{StaticResource SimpleMenuScrollViewer}">
+                                <ScrollViewer Padding="{DynamicResource ThemeMenuFlyoutPadding}" Theme="{StaticResource SimpleMenuScrollViewer}">
                                     <ItemsPresenter Name="PART_ItemsPresenter"
-                                                    Margin="{DynamicResource ThemeMenuFlyoutPadding}"
                                                     Grid.IsSharedSizeScope="True"
                                                     ItemsPanel="{TemplateBinding ItemsPanel}" />
                                 </ScrollViewer>
@@ -284,9 +283,8 @@
                                Placement="BottomEdgeAlignedLeft"
                                WindowManagerAddShadowHint="False">
                             <SystemShadowChrome Name="Popup_Border" MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}">
-                                <ScrollViewer Theme="{StaticResource SimpleMenuScrollViewer}">
+                                <ScrollViewer Padding="{DynamicResource ThemeMenuFlyoutPadding}" Theme="{StaticResource SimpleMenuScrollViewer}">
                                     <ItemsPresenter Name="PART_ItemsPresenter"
-                                                    Margin="{DynamicResource ThemeMenuFlyoutPadding}"
                                                     Grid.IsSharedSizeScope="True"
                                                     ItemsPanel="{TemplateBinding ItemsPanel}" />
                                 </ScrollViewer>

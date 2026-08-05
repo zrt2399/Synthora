@@ -18,9 +18,8 @@
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
                                     CornerRadius="{TemplateBinding CornerRadius}">
-                    <ScrollViewer Theme="{StaticResource SimpleMenuScrollViewer}">
+                    <ScrollViewer Padding="{TemplateBinding Padding}" Theme="{StaticResource SimpleMenuScrollViewer}">
                         <ItemsPresenter Name="PART_ItemsPresenter"
-                                        Margin="{TemplateBinding Padding}"
                                         Grid.IsSharedSizeScope="True"
                                         ItemsPanel="{TemplateBinding ItemsPanel}"
                                         KeyboardNavigation.TabNavigation="Continue" />
@@ -46,12 +45,12 @@
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
                                     CornerRadius="{TemplateBinding CornerRadius}">
-                    <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                    <ScrollViewer Padding="{TemplateBinding Padding}"
+                                  HorizontalScrollBarVisibility="Auto"
                                   IsScrollChainingEnabled="False"
                                   ScrollViewerAttach.Orientation="Horizontal"
                                   VerticalScrollBarVisibility="Disabled">
                         <ItemsPresenter Name="PART_ItemsPresenter"
-                                        Margin="{TemplateBinding Padding}"
                                         Grid.IsSharedSizeScope="True"
                                         ItemsPanel="{TemplateBinding ItemsPanel}"
                                         KeyboardNavigation.TabNavigation="Continue" />

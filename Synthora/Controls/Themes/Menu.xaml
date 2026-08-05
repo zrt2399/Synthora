@@ -30,9 +30,8 @@
                                Placement="BottomEdgeAlignedLeft"
                                WindowManagerAddShadowHint="False">
                             <SystemShadowChrome Name="Popup_Border" MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}">
-                                <ScrollViewer Theme="{StaticResource SimpleMenuScrollViewer}">
+                                <ScrollViewer Padding="{DynamicResource ThemeMenuFlyoutPadding}" Theme="{StaticResource SimpleMenuScrollViewer}">
                                     <ItemsPresenter Name="PART_ItemsPresenter"
-                                                    Margin="{DynamicResource ThemeMenuFlyoutPadding}"
                                                     Grid.IsSharedSizeScope="True"
                                                     ItemsPanel="{TemplateBinding ItemsPanel}" />
                                 </ScrollViewer>
@@ -69,12 +68,12 @@
         <Setter Property="ItemContainerTheme" Value="{StaticResource SimpleTopLevelMenuItem}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Padding="{TemplateBinding Padding}"
-                        Background="{TemplateBinding Background}"
+                <Border Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}">
                     <ItemsPresenter Name="PART_ItemsPresenter"
+                                    Margin="{TemplateBinding Padding}"
                                     ItemsPanel="{TemplateBinding ItemsPanel}"
                                     KeyboardNavigation.TabNavigation="Continue" />
                 </Border>
