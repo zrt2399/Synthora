@@ -68,5 +68,7 @@
     <x:String x:Key="StringCommandBarButtonMore">More</x:String>
     <!--  DrawerPage  -->
     <x:String x:Key="StringDrawerPageToggleNavigationDrawer">Toggle navigation drawer</x:String>
+    <!--  TreeMenu  -->
+    <x:String x:Key="StringTreeMenuToggleNavigationPane">Toggle navigation pane</x:String>
 
 </ResourceDictionary>

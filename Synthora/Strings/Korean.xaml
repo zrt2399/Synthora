@@ -68,5 +68,7 @@
     <x:String x:Key="StringCommandBarButtonMore">더 보기</x:String>
     <!--  DrawerPage  -->
     <x:String x:Key="StringDrawerPageToggleNavigationDrawer">탐색 창 전환</x:String>
+    <!--  TreeMenu  -->
+    <x:String x:Key="StringTreeMenuToggleNavigationPane">탐색 패널 전환</x:String>
 
 </ResourceDictionary>

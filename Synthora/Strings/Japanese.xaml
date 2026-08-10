@@ -68,5 +68,7 @@
     <x:String x:Key="StringCommandBarButtonMore">その他</x:String>
     <!--  DrawerPage  -->
     <x:String x:Key="StringDrawerPageToggleNavigationDrawer">ナビゲーション ウィンドウの切り替え</x:String>
+    <!--  TreeMenu  -->
+    <x:String x:Key="StringTreeMenuToggleNavigationPane">ナビゲーション パネルの切り替え</x:String>
 
 </ResourceDictionary>

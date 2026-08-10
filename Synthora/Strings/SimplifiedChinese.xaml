@@ -68,5 +68,7 @@
     <x:String x:Key="StringCommandBarButtonMore">更多</x:String>
     <!--  DrawerPage  -->
     <x:String x:Key="StringDrawerPageToggleNavigationDrawer">切换导航抽屉</x:String>
+    <!--  TreeMenu  -->
+    <x:String x:Key="StringTreeMenuToggleNavigationPane">切换导航面板</x:String>
 
 </ResourceDictionary>
