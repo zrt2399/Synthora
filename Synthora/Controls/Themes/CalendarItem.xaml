@@ -13,9 +13,11 @@
     <ControlTheme x:Key="{x:Type CalendarItem}" TargetType="CalendarItem">
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Padding" Value="{DynamicResource ThemeHeaderControlPaddingLarge}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <GroupBoxEx Background="{TemplateBinding Background}"
+                <GroupBoxEx Padding="{TemplateBinding Padding}"
+                            Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             BoxShadow="{TemplateBinding BoxShadowAttach.BoxShadow}"

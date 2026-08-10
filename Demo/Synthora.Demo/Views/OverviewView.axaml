@@ -426,7 +426,6 @@
                             <TextBlock Classes="sectionLabel" Text="DATE &amp; TIME" />
                         </StackPanel>
 
-                        <CalendarDatePicker TextBoxAttach.Header="Release date" />
                         <DatePicker TextBoxAttach.Header="Date picker" />
                         <TimePicker TextBoxAttach.Header="Launch time" UseSeconds="True" />
                         <Calendar SelectionMode="SingleRange" />

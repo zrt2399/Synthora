@@ -114,24 +114,32 @@
                 <Panel>
                     <controls:GridBackground GridBrush="{DynamicResource ThemeBorderLowBrush}" Opacity="0.3" />
                     <Canvas>
-                        <Ellipse Canvas.Left="40"
-                                 Canvas.Top="40"
-                                 Width="800"
-                                 Height="800">
+                        <Canvas.Styles>
+                            <Style Selector="Ellipse">
+                                <Setter Property="Width" Value="400" />
+                                <Setter Property="Height" Value="400" />
+                            </Style>
+                        </Canvas.Styles>
+                        <Ellipse Canvas.Left="300" Canvas.Top="60">
                             <Ellipse.Fill>
                                 <RadialGradientBrush>
-                                    <GradientStop Offset="0" Color="#38007DFF" />
+                                    <GradientStop Offset="0" Color="#40007DFF" />
                                     <GradientStop Offset="1" Color="Transparent" />
                                 </RadialGradientBrush>
                             </Ellipse.Fill>
                         </Ellipse>
-                        <Ellipse Canvas.Top="100"
-                                 Canvas.Right="-140"
-                                 Width="960"
-                                 Height="960">
+                        <Ellipse Canvas.Top="60" Canvas.Right="120">
                             <Ellipse.Fill>
                                 <RadialGradientBrush>
-                                    <GradientStop Offset="0" Color="#30A855F7" />
+                                    <GradientStop Offset="0" Color="#40A855F7" />
+                                    <GradientStop Offset="1" Color="Transparent" />
+                                </RadialGradientBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <Ellipse Canvas.Right="400" Canvas.Bottom="60">
+                            <Ellipse.Fill>
+                                <RadialGradientBrush>
+                                    <GradientStop Offset="0" Color="#4099FBF3" />
                                     <GradientStop Offset="1" Color="Transparent" />
                                 </RadialGradientBrush>
                             </Ellipse.Fill>

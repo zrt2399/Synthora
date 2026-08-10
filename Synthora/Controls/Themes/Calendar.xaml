@@ -20,17 +20,19 @@
         <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
         <Setter Property="HeaderBackground" Value="{DynamicResource SynthoraLowBrush}" />
+        <Setter Property="Padding" Value="{DynamicResource ThemeHeaderControlPaddingLarge}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <StackPanel Name="PART_Root">
+                <Panel Name="PART_Root">
                     <CalendarItem Name="PART_CalendarItem"
+                                  Padding="{TemplateBinding Padding}"
                                   Background="{TemplateBinding Background}"
                                   BorderBrush="{TemplateBinding BorderBrush}"
                                   BorderThickness="{TemplateBinding BorderThickness}"
                                   BoxShadowAttach.BoxShadow="{TemplateBinding BoxShadowAttach.BoxShadow}"
                                   CornerRadius="{TemplateBinding CornerRadius}"
                                   HeaderBackground="{TemplateBinding HeaderBackground}" />
-                </StackPanel>
+                </Panel>
             </ControlTemplate>
         </Setter>
 
