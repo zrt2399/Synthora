@@ -2,7 +2,6 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Primitives;
-using Avalonia.Media;
 
 namespace Synthora.Controls
 {
@@ -44,12 +43,6 @@ namespace Synthora.Controls
             AvaloniaProperty.Register<Banner, bool>(nameof(ShowAccentBar));
 
         /// <summary>
-        /// Defines the <see cref="TextWrapping"/> property.
-        /// </summary>
-        public static readonly StyledProperty<TextWrapping> TextWrappingProperty =
-            AvaloniaProperty.Register<Banner, TextWrapping>(nameof(TextWrapping), TextWrapping.Wrap);
-
-        /// <summary>
         /// Gets or sets the icon type of the banner.
         /// </summary>
         public IconType IconType
@@ -83,15 +76,6 @@ namespace Synthora.Controls
         {
             get => GetValue(ShowAccentBarProperty);
             set => SetValue(ShowAccentBarProperty, value);
-        }
-
-        /// <summary>
-        /// Gets or sets how the content text wraps.
-        /// </summary>
-        public TextWrapping TextWrapping
-        {
-            get => GetValue(TextWrappingProperty);
-            set => SetValue(TextWrappingProperty, value);
         }
 
         public Banner()

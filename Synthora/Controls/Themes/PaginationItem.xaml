@@ -37,27 +37,31 @@
                 </Template>
             </Setter>
         </Style>
-        <Style Selector="^:jump-previous:pointerover">
-            <Setter Property="Content">
-                <Template>
-                    <PathIcon Width="10"
-                              Height="10"
-                              HorizontalAlignment="Center"
-                              VerticalAlignment="Center"
-                              Data="{DynamicResource DoubleArrowLeftData}" />
-                </Template>
-            </Setter>
+        <Style Selector="^:jump-previous">
+            <Style Selector="^:pointerover,^:focus,^:pressed">
+                <Setter Property="Content">
+                    <Template>
+                        <PathIcon Width="10"
+                                  Height="10"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  Data="{DynamicResource DoubleArrowLeftData}" />
+                    </Template>
+                </Setter>
+            </Style>
         </Style>
-        <Style Selector="^:jump-next:pointerover">
-            <Setter Property="Content">
-                <Template>
-                    <PathIcon Width="10"
-                              Height="10"
-                              HorizontalAlignment="Center"
-                              VerticalAlignment="Center"
-                              Data="{DynamicResource DoubleArrowRightData}" />
-                </Template>
-            </Setter>
+        <Style Selector="^:jump-next">
+            <Style Selector="^:pointerover,^:focus,^:pressed">
+                <Setter Property="Content">
+                    <Template>
+                        <PathIcon Width="10"
+                                  Height="10"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  Data="{DynamicResource DoubleArrowRightData}" />
+                    </Template>
+                </Setter>
+            </Style>
         </Style>
     </ControlTheme>
 

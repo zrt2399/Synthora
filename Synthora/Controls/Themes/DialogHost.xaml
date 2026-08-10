@@ -4,7 +4,7 @@
                     x:CompileBindings="True">
 
     <CornerRadius x:Key="DialogCornerRadius">10</CornerRadius>
-    <Thickness x:Key="DialogMargin">32</Thickness>
+    <Thickness x:Key="DialogMargin">28</Thickness>
 
     <ControlTheme x:Key="{x:Type DialogOverlayPopupHost}" TargetType="DialogOverlayPopupHost">
         <Setter Property="KeyboardNavigation.TabNavigation" Value="Cycle" />

@@ -29,7 +29,6 @@
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="24" />
-                            <ColumnDefinition Width="0" />
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" SharedSizeGroup="MenuItemIGT" />
                             <ColumnDefinition Width="24" />
@@ -61,7 +60,7 @@
                         </ContentPresenter>
 
                         <ContentPresenter Name="PART_HeaderPresenter"
-                                          Grid.Column="2"
+                                          Grid.Column="1"
                                           Margin="{TemplateBinding Padding}"
                                           HorizontalAlignment="Left"
                                           VerticalAlignment="Center"
@@ -69,15 +68,16 @@
                                           ContentTemplate="{TemplateBinding HeaderTemplate}" />
 
                         <TextBlock Name="PART_InputGestureText"
-                                   Grid.Column="3"
+                                   Grid.Column="2"
                                    Margin="20,0,0,0"
+                                   HorizontalAlignment="Right"
                                    VerticalAlignment="Center"
                                    IsVisible="{Binding $self.Text, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                                    Text="{TemplateBinding InputGesture,
                                                           Converter={StaticResource KeyGestureConverter}}" />
 
                         <PathIcon Name="rightArrow"
-                                  Grid.Column="4"
+                                  Grid.Column="3"
                                   Width="12"
                                   Height="12"
                                   HorizontalAlignment="Center"

@@ -34,6 +34,7 @@
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusNormal}" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Name="RootBorder"
@@ -89,8 +90,7 @@
                                               DockPanel.Dock="Top"
                                               FontSize="{DynamicResource FontSizeLarge}"
                                               IsVisible="{TemplateBinding Header,
-                                                                          Converter={x:Static ObjectConverters.IsNotNull}}"
-                                              TextWrapping="{TemplateBinding TextWrapping}" />
+                                                                          Converter={x:Static ObjectConverters.IsNotNull}}" />
 
                             <!--  Content  -->
                             <ContentPresenter Name="PART_ContentPresenter"
@@ -100,8 +100,7 @@
                                               Content="{TemplateBinding Content}"
                                               ContentTemplate="{TemplateBinding ContentTemplate}"
                                               IsVisible="{TemplateBinding Content,
-                                                                          Converter={x:Static ObjectConverters.IsNotNull}}"
-                                              TextWrapping="{TemplateBinding TextWrapping}" />
+                                                                          Converter={x:Static ObjectConverters.IsNotNull}}" />
                         </DockPanel>
                     </DockPanel>
                 </Border>

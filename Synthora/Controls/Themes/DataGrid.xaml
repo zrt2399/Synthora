@@ -348,15 +348,12 @@
                           RowDefinitions="Auto,Auto,*,Auto">
                         <DataGridColumnHeader Name="PART_TopLeftCornerHeader" Theme="{StaticResource DataGridTopLeftColumnHeaderTheme}" />
 
-                        <DataGridColumnHeadersPresenter Name="PART_ColumnHeadersPresenter"
-                                                        Grid.Column="1"
-                                                        Grid.ColumnSpan="2"
-                                                        Background="{Binding #PART_TopRightCornerHeader.Background}" />
+                        <DataGridColumnHeadersPresenter Name="PART_ColumnHeadersPresenter" Grid.Column="1" />
 
                         <DataGridColumnHeader Name="PART_TopRightCornerHeader"
                                               Grid.Column="2"
                                               Width="0"
-                                              BorderThickness="{DynamicResource DataGridColumnHeaderBottomBorderThickness}" />
+                                              AreSeparatorsVisible="False" />
 
                         <Rectangle Name="ColumnHeadersAndRowsSeparator"
                                    Grid.Row="1"
@@ -433,12 +430,12 @@
             <Style Selector="^ /template/ DataGridColumnHeader#PART_TopRightCornerHeader">
                 <Setter Property="Width" Value="{DynamicResource ScrollBarThickness}" />
             </Style>
+            <Style Selector="^ /template/ DataGridColumnHeadersPresenter#PART_ColumnHeadersPresenter">
+                <Setter Property="ClipToBounds" Value="True" />
+            </Style>
             <Style Selector="^ /template/ DataGridRowsPresenter#PART_RowsPresenter">
                 <Setter Property="Grid.RowSpan" Value="1" />
                 <Setter Property="Grid.ColumnSpan" Value="2" />
-            </Style>
-            <Style Selector="^ /template/ DataGridColumnHeadersPresenter#PART_ColumnHeadersPresenter">
-                <Setter Property="Grid.ColumnSpan" Value="1" />
             </Style>
         </Style>
 

@@ -55,12 +55,6 @@ namespace Synthora.Controls
             AvaloniaProperty.Register<StatusIndicator, Thickness>(nameof(HighlightMargin));
 
         /// <summary>
-        /// Defines the <see cref="TextWrapping"/> property.
-        /// </summary>
-        public static readonly StyledProperty<TextWrapping> TextWrappingProperty =
-            AvaloniaProperty.Register<StatusIndicator, TextWrapping>(nameof(TextWrapping));
-
-        /// <summary>
         /// Gets or sets the status type.
         /// </summary>
         public IconType IconType
@@ -112,15 +106,6 @@ namespace Synthora.Controls
         {
             get => GetValue(HighlightMarginProperty);
             set => SetValue(HighlightMarginProperty, value);
-        }
-
-        /// <summary>
-        /// Gets or sets how the content text wraps.
-        /// </summary>
-        public TextWrapping TextWrapping
-        {
-            get => GetValue(TextWrappingProperty);
-            set => SetValue(TextWrappingProperty, value);
         }
 
         public StatusIndicator()

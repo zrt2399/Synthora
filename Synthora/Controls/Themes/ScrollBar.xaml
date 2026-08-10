@@ -163,8 +163,8 @@
                                                   Theme="{StaticResource ScrollBarRepeatButtonTheme}" />
                                 </Track.IncreaseButton>
                                 <Thumb Name="thumb"
-                                       Width="{DynamicResource ScrollBarThickness}"
-                                       MinHeight="{DynamicResource ScrollBarMinLength}"
+                                       Width="{DynamicResource ScrollBarThumbThickness}"
+                                       MinHeight="{DynamicResource ScrollBarThumbMinLength}"
                                        AutomationProperties.Name="Position" />
                             </Track>
                             <RepeatButton Name="PART_LineDownButton"
@@ -213,8 +213,8 @@
                                                   Theme="{StaticResource ScrollBarRepeatButtonTheme}" />
                                 </Track.IncreaseButton>
                                 <Thumb Name="thumb"
-                                       Height="{DynamicResource ScrollBarThickness}"
-                                       MinWidth="{DynamicResource ScrollBarMinLength}"
+                                       Height="{DynamicResource ScrollBarThumbThickness}"
+                                       MinWidth="{DynamicResource ScrollBarThumbMinLength}"
                                        AutomationProperties.Name="Position" />
                             </Track>
                             <RepeatButton Name="PART_LineDownButton"

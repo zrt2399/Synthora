@@ -20,6 +20,7 @@
                                     CornerRadius="{TemplateBinding CornerRadius}">
                     <ScrollViewer Padding="{TemplateBinding Padding}" Theme="{StaticResource SimpleMenuScrollViewer}">
                         <ItemsPresenter Name="PART_ItemsPresenter"
+                                        Grid.IsSharedSizeScope="True"
                                         ItemsPanel="{TemplateBinding ItemsPanel}"
                                         KeyboardNavigation.TabNavigation="Continue" />
                     </ScrollViewer>

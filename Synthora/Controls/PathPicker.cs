@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -145,7 +145,7 @@ namespace Synthora.Controls
         /// Defines the <see cref="TextWrapping"/> property.
         /// </summary>
         public static readonly StyledProperty<TextWrapping> TextWrappingProperty =
-            AvaloniaProperty.Register<PathPicker, TextWrapping>(nameof(TextWrapping));
+            TextBox.TextWrappingProperty.AddOwner<PathPicker>();
 
         /// <summary>
         /// Defines the <see cref="TextAlignment"/> property.

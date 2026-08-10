@@ -51,8 +51,7 @@
                                       Content="{TemplateBinding Content}"
                                       ContentTemplate="{TemplateBinding ContentTemplate}"
                                       IsVisible="{TemplateBinding Content,
-                                                                  Converter={x:Static ObjectConverters.IsNotNull}}"
-                                      TextWrapping="{TemplateBinding TextWrapping}" />
+                                                                  Converter={x:Static ObjectConverters.IsNotNull}}" />
                 </DockPanel>
             </ControlTemplate>
         </Setter>
