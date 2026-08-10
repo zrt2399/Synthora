@@ -19,4 +19,8 @@
                   BasedOn="{StaticResource BorderlessButtonTheme}"
                   TargetType="RepeatButton" />
 
+    <ControlTheme x:Key="IconRepeatButtonTheme"
+                  BasedOn="{StaticResource IconButtonTheme}"
+                  TargetType="RepeatButton" />
+
 </ResourceDictionary>

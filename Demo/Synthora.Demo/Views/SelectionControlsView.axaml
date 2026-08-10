@@ -25,7 +25,7 @@
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="CheckboxMarked" />
                             <TextBlock Classes="sectionLabel" Text="CHECK BOX" />
                         </StackPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                        <WrapPanel ItemSpacing="16" LineSpacing="16">
                             <CheckBox>Unchecked</CheckBox>
                             <CheckBox IsChecked="True">Checked</CheckBox>
                             <CheckBox Classes="Secondary"
@@ -36,7 +36,7 @@
                             <CheckBox />
                             <CheckBox CornerRadiusAttach.IsCircular="True" />
                             <CheckBox IsChecked="{x:Null}" IsThreeState="True">Three-state</CheckBox>
-                        </SpacingWrapPanel>
+                        </WrapPanel>
                     </StackPanel>
                 </Border>
 
@@ -47,19 +47,19 @@
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="RadioboxMarked" />
                             <TextBlock Classes="sectionLabel" Text="RADIO BUTTON" />
                         </StackPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                        <WrapPanel ItemSpacing="16" LineSpacing="16">
                             <RadioButton>Unchecked</RadioButton>
                             <RadioButton IsChecked="True">Checked</RadioButton>
                             <RadioButton Classes="Secondary" IsChecked="True">Secondary</RadioButton>
                             <RadioButton />
                             <RadioButton IsChecked="{x:Null}" IsThreeState="True">Three-state</RadioButton>
-                        </SpacingWrapPanel>
+                        </WrapPanel>
 
                         <!--  Segmented RadioButton  -->
                         <TextBlock FontSize="11"
                                    Foreground="{DynamicResource ThemeForegroundLowBrush}"
                                    Text="Segmented RadioButton" />
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                        <WrapPanel ItemSpacing="16" LineSpacing="16">
                             <ListBox AutoScrollToSelectedItem="False"
                                      Classes="Secondary Vertical"
                                      ItemsSource="{EnumBindingSource Dock}"
@@ -76,7 +76,7 @@
                                          SelectedIndex="0"
                                          Theme="{StaticResource SegmentedListBoxTheme}" />
                             </StackPanel>
-                        </SpacingWrapPanel>
+                        </WrapPanel>
                         <ListBox AutoScrollToSelectedItem="False"
                                  Classes="Primary Uniform"
                                  CornerRadiusAttach.IsCircular="True"
@@ -93,12 +93,12 @@
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ToggleSwitch" />
                             <TextBlock Classes="sectionLabel" Text="TOGGLE SWITCH" />
                         </StackPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                        <WrapPanel ItemSpacing="16" LineSpacing="16">
                             <ToggleSwitch OffContent="{x:Null}" OnContent="{x:Null}" />
                             <ToggleSwitch OffContent="Avalonia" OnContent="WPF" />
                             <ToggleSwitch />
                             <ToggleSwitch IsChecked="True" />
-                        </SpacingWrapPanel>
+                        </WrapPanel>
                         <ToggleSwitch Classes="Secondary" IsChecked="True">Secondary</ToggleSwitch>
                     </StackPanel>
                 </Border>

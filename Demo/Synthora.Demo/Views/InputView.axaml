@@ -191,13 +191,13 @@
                                         </DataTemplate>
                                     </MultiComboBox.ItemTemplate>
                                 </MultiComboBox>
-                                <SpacingWrapPanel HorizontalSpacing="8" VerticalSpacing="8">
+                                <WrapPanel ItemSpacing="8" LineSpacing="8">
                                     <Button Command="{Binding AddMultiComboBoxRole}" Content="Add" />
                                     <Button Command="{Binding RemoveSelectedMultiComboBoxRoles}" Content="Remove selected" />
                                     <Button Command="{Binding SelectDefaultMultiComboBoxRoles}" Content="VM select" />
                                     <Button Command="{Binding RemoveMultiComboBoxRolesLastItem}" Content="Remove last item" />
                                     <Button Command="{Binding ResetMultiComboBoxRoles}" Content="Reset" />
-                                </SpacingWrapPanel>
+                                </WrapPanel>
                                 <TextBlock Foreground="{DynamicResource ThemeForegroundLowBrush}" Text="{Binding SelectedMultiComboBoxRoles.Count, StringFormat='Selected: {0}'}" />
                                 <TextBlock Foreground="{DynamicResource ThemeForegroundLowBrush}" Text="{Binding MultiComboBoxRoles.Count, StringFormat='Total: {0}'}" />
                             </StackPanel>
@@ -221,12 +221,12 @@
                                     <MultiComboBoxItem>TextBlock</MultiComboBoxItem>
                                     <MultiComboBoxItem>TreeMenu</MultiComboBoxItem>
                                 </MultiComboBox>
-                                <SpacingWrapPanel HorizontalSpacing="8" VerticalSpacing="8">
+                                <WrapPanel ItemSpacing="8" LineSpacing="8">
                                     <Button Click="AddDirectMultiComboBoxItem" Content="Add" />
                                     <Button Click="RemoveDirectMultiComboBoxSelectedItems" Content="Remove selected" />
                                     <Button Click="SelectDefaultMultiComboBoxRoles" Content="Code-behind select" />
                                     <Button Click="RemoveDirectMultiComboBoxLastItem" Content="Remove last item" />
-                                </SpacingWrapPanel>
+                                </WrapPanel>
                                 <TextBlock Foreground="{DynamicResource ThemeForegroundLowBrush}"
                                            Text="{Binding #DirectMultiComboBox.SelectedText, StringFormat='SelectedText: {0}'}"
                                            TextWrapping="Wrap" />

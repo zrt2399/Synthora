@@ -1,6 +1,7 @@
 <UserControl x:Class="Synthora.Demo.Views.MainView"
              xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="using:Synthora.Demo.Controls"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:demo="using:Synthora.Demo"
              xmlns:local="using:Synthora.Demo.Views"
@@ -28,9 +29,11 @@
         <!--  Card: content section card  -->
         <Style Selector="Border.card">
             <Setter Property="Padding" Value="16" />
-            <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
+            <Setter Property="Background" Value="{DynamicResource CardSurfaceBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource CardBorderBrush}" />
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="CornerRadius" Value="12" />
+            <Setter Property="BoxShadow" Value="0 4 20 0 #2C000000" />
         </Style>
         <!--  Section header row (first sub-section in a card)  -->
         <Style Selector="StackPanel.sectionHeader">
@@ -96,202 +99,232 @@
                                         Classes="Primary"
                                         Command="{Binding CloseCommand}"
                                         CommandParameter="OK"
-                                        Theme="{StaticResource SolidButtonTheme}">
-                                    OK
-                                </Button>
+                                        Content="OK"
+                                        Theme="{StaticResource SolidButtonTheme}" />
                                 <Button MinWidth="80"
                                         Command="{Binding CloseCommand}"
-                                        CommandParameter="Cancel">
-                                    Cancel
-                                </Button>
+                                        CommandParameter="Cancel"
+                                        Content="Cancel" />
                             </StackPanel>
                         </StackPanel>
                     </Border>
                 </DataTemplate>
             </DialogHost.DialogContentTemplate>
             <Grid RowDefinitions="*,Auto">
-                <TreeMenu ItemsSource="{Binding TreeMenuItems}">
-                    <TreeMenu.DataTemplates>
-                        <DataTemplate DataType="vm:OverviewViewModel">
-                            <views:OverviewView />
-                        </DataTemplate>
-                        <DataTemplate DataType="vm:BrushesViewModel">
-                            <views:BrushesView />
-                        </DataTemplate>
-                        <DataTemplate DataType="vm:InputViewModel">
-                            <views:InputView />
-                        </DataTemplate>
-                        <DataTemplate DataType="vm:TextBlockViewModel">
-                            <views:TextBlockView />
-                        </DataTemplate>
-                        <DataTemplate DataType="vm:ButtonsViewModel">
-                            <views:ButtonsView />
-                        </DataTemplate>
-                        <DataTemplate DataType="vm:DataGridViewModel">
-                            <views:DataGridView />
-                        </DataTemplate>
-                        <DataTemplate DataType="vm:TableViewViewModel">
-                            <views:TableViewView />
-                        </DataTemplate>
-                        <DataTemplate DataType="vm:ListBoxViewModel">
-                            <views:ListBoxView />
-                        </DataTemplate>
-                        <DataTemplate DataType="vm:TreeViewViewModel">
-                            <views:TreeViewView />
-                        </DataTemplate>
-                        <DataTemplate DataType="vm:TreeMenuViewModel">
-                            <views:TreeMenuView />
-                        </DataTemplate>
-                        <DataTemplate DataType="vm:OverlayViewModel">
-                            <views:OverlayView />
-                        </DataTemplate>
-                        <DataTemplate DataType="vm:SelectionControlsViewModel">
-                            <views:SelectionControlsView />
-                        </DataTemplate>
-                        <DataTemplate DataType="vm:ExpanderViewModel">
-                            <views:ExpanderView />
-                        </DataTemplate>
-                        <DataTemplate DataType="vm:MenuViewModel">
-                            <views:MenuView />
-                        </DataTemplate>
-                        <DataTemplate DataType="vm:RangeControlViewModel">
-                            <views:RangeControlView />
-                        </DataTemplate>
-                        <DataTemplate DataType="vm:GroupBoxViewModel">
-                            <views:GroupBoxView />
-                        </DataTemplate>
-                        <DataTemplate DataType="vm:CalendarViewModel">
-                            <views:CalendarView />
-                        </DataTemplate>
-                        <DataTemplate DataType="vm:ScrollViewerViewModel">
-                            <views:ScrollViewerView />
-                        </DataTemplate>
-                        <DataTemplate DataType="vm:RefreshContainerViewModel">
-                            <views:RefreshContainerView />
-                        </DataTemplate>
-                        <DataTemplate DataType="vm:ExtendedControlsViewModel">
-                            <views:ExtendedControlsView />
-                        </DataTemplate>
-                        <DataTemplate DataType="vm:ThemeVariantScopeViewModel">
-                            <views:ThemeVariantScopeView />
-                        </DataTemplate>
-                        <DataTemplate DataType="vm:BannerViewModel">
-                            <views:BannerView />
-                        </DataTemplate>
-                        <DataTemplate DataType="vm:DragTabControlViewModel">
-                            <views:DragTabControlView />
-                        </DataTemplate>
-                        <DataTemplate DataType="vm:SplitViewViewModel">
-                            <views:SplitViewView />
-                        </DataTemplate>
-                        <DataTemplate DataType="vm:TabControlViewModel">
-                            <views:TabControlView />
-                        </DataTemplate>
-                        <DataTemplate DataType="vm:TabbedPageViewModel">
-                            <views:TabbedPageView />
-                        </DataTemplate>
-                        <DataTemplate DataType="vm:DrawerPageViewModel">
-                            <views:DrawerPageView />
-                        </DataTemplate>
-                        <DataTemplate DataType="vm:NavigationPageViewModel">
-                            <views:NavigationPageView />
-                        </DataTemplate>
-                        <DataTemplate DataType="vm:CarouselViewModel">
-                            <views:CarouselView />
-                        </DataTemplate>
-                        <DataTemplate DataType="vm:WindowCustomizationsViewModel">
-                            <views:WindowCustomizationsView />
-                        </DataTemplate>
-                    </TreeMenu.DataTemplates>
-                    <TreeMenu.PaneHeader>
-                        <StackPanel Margin="32"
-                                    HorizontalAlignment="Stretch"
-                                    VerticalAlignment="Center"
-                                    Spacing="16">
-                            <WrapPanel HorizontalAlignment="Center"
-                                       ItemSpacing="16"
-                                       LineSpacing="16"
-                                       Orientation="Horizontal">
-                                <ListBox AutoScrollToSelectedItem="False"
-                                         Background="{DynamicResource ThemeControlMidBrush}"
-                                         ItemsSource="{EnumBindingSource ThemeMode}"
-                                         SelectedItem="{Binding SelectedThemeMode}"
-                                         Theme="{StaticResource SegmentedListBoxTheme}"
-                                         ToolTip.Tip="Switch app theme mode(Default / Light / Dark)">
-                                    <ListBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <PathIcon Width="16"
-                                                      Height="16"
-                                                      Margin="-2,0"
-                                                      Data="{Binding Converter={x:Static SynthoraConverters.ThemeModeToPathDataConverter}}" />
-                                            <!-- <materialIcons:MaterialIcon Margin="-2,0" Kind="{Binding Converter={StaticResource ThemeModeToIconKindConverter}}" /> -->
-                                        </DataTemplate>
-                                    </ListBox.ItemTemplate>
-                                </ListBox>
-                                <ListBox AutoScrollToSelectedItem="False"
-                                         Background="{DynamicResource ThemeControlMidBrush}"
-                                         ItemsSource="{EnumBindingSource so:ThemeDensity}"
-                                         SelectedItem="{Binding SelectedThemeDensity}"
-                                         Theme="{StaticResource SegmentedListBoxTheme}"
-                                         ToolTip.Tip="Switch app theme density(Compact / Normal / Spacious)">
-                                    <ListBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <PathIcon Width="16"
-                                                      Height="16"
-                                                      Margin="-2,0"
-                                                      Data="{Binding Converter={x:Static SynthoraConverters.ThemeDensityToPathDataConverter}}" />
-                                            <!-- <materialIcons:MaterialIcon Margin="-2,0" Kind="{Binding Converter={StaticResource DensityStyleToIconKindConverter}}" /> -->
-                                        </DataTemplate>
-                                    </ListBox.ItemTemplate>
-                                </ListBox>
-                            </WrapPanel>
-                            <TextBox VerticalContentAlignment="Center"
-                                     Background="{DynamicResource ThemeBackgroundBrush}"
-                                     PlaceholderText="Search"
-                                     Text="{Binding SearchText}">
-                                <TextBox.InnerLeftContent>
-                                    <PathIcon Width="12"
-                                              Height="12"
-                                              Margin="{DynamicResource ThemeControlRightPadding}"
-                                              Data="M11.87 10.835c.018.015.035.03.051.047l3.864 3.863a.735.735 0 1 1-1.04 1.04l-3.863-3.864a.744.744 0 0 1-.047-.051 6.667 6.667 0 1 1 1.035-1.035zM6.667 12a5.333 5.333 0 1 0 0-10.667 5.333 5.333 0 0 0 0 10.667z"
-                                              Foreground="#007AFF" />
-                                </TextBox.InnerLeftContent>
-                            </TextBox>
-                        </StackPanel>
-                    </TreeMenu.PaneHeader>
+                <Panel>
+                    <controls:GridBackground GridBrush="{DynamicResource ThemeBorderLowBrush}" Opacity="0.3" />
+                    <Canvas>
+                        <Ellipse Canvas.Left="40"
+                                 Canvas.Top="40"
+                                 Width="800"
+                                 Height="800">
+                            <Ellipse.Fill>
+                                <RadialGradientBrush>
+                                    <GradientStop Offset="0" Color="#38007DFF" />
+                                    <GradientStop Offset="1" Color="Transparent" />
+                                </RadialGradientBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <Ellipse Canvas.Top="100"
+                                 Canvas.Right="-140"
+                                 Width="960"
+                                 Height="960">
+                            <Ellipse.Fill>
+                                <RadialGradientBrush>
+                                    <GradientStop Offset="0" Color="#30A855F7" />
+                                    <GradientStop Offset="1" Color="Transparent" />
+                                </RadialGradientBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                    </Canvas>
 
-                    <TreeMenu.PaneFooter>
-                        <SelectableTextBlock Margin="32"
-                                             FontSize="13"
-                                             Foreground="{DynamicResource ThemeForegroundLowBrush}"
-                                             Text="Synthora Avalonia Catalog"
-                                             TextAlignment="Center"
-                                             TextWrapping="Wrap" />
-                    </TreeMenu.PaneFooter>
-
-                    <TreeMenu.ItemTemplate>
-                        <TreeDataTemplate DataType="models:TreeMenuDemoItem" ItemsSource="{Binding Children}">
-                            <StackPanel Orientation="Horizontal" Spacing="10">
-                                <materialIcons:MaterialIcon HorizontalAlignment="Center"
-                                                            VerticalAlignment="Center"
-                                                            Foreground="#007AFF"
-                                                            IconSize="20"
-                                                            Kind="{Binding IconKind}" />
-                                <TextBlock Text="{Binding Title}" />
+                    <TreeMenu HeaderBackground="Transparent" ItemsSource="{Binding TreeMenuItems}">
+                        <TreeMenu.DataTemplates>
+                            <DataTemplate DataType="vm:OverviewViewModel">
+                                <views:OverviewView />
+                            </DataTemplate>
+                            <DataTemplate DataType="vm:BrushesViewModel">
+                                <views:BrushesView />
+                            </DataTemplate>
+                            <DataTemplate DataType="vm:InputViewModel">
+                                <views:InputView />
+                            </DataTemplate>
+                            <DataTemplate DataType="vm:TextBlockViewModel">
+                                <views:TextBlockView />
+                            </DataTemplate>
+                            <DataTemplate DataType="vm:ButtonsViewModel">
+                                <views:ButtonsView />
+                            </DataTemplate>
+                            <DataTemplate DataType="vm:DataGridViewModel">
+                                <views:DataGridView />
+                            </DataTemplate>
+                            <DataTemplate DataType="vm:TableViewViewModel">
+                                <views:TableViewView />
+                            </DataTemplate>
+                            <DataTemplate DataType="vm:ListBoxViewModel">
+                                <views:ListBoxView />
+                            </DataTemplate>
+                            <DataTemplate DataType="vm:TreeViewViewModel">
+                                <views:TreeViewView />
+                            </DataTemplate>
+                            <DataTemplate DataType="vm:TreeMenuViewModel">
+                                <views:TreeMenuView />
+                            </DataTemplate>
+                            <DataTemplate DataType="vm:OverlayViewModel">
+                                <views:OverlayView />
+                            </DataTemplate>
+                            <DataTemplate DataType="vm:SelectionControlsViewModel">
+                                <views:SelectionControlsView />
+                            </DataTemplate>
+                            <DataTemplate DataType="vm:ExpanderViewModel">
+                                <views:ExpanderView />
+                            </DataTemplate>
+                            <DataTemplate DataType="vm:MenuViewModel">
+                                <views:MenuView />
+                            </DataTemplate>
+                            <DataTemplate DataType="vm:RangeControlViewModel">
+                                <views:RangeControlView />
+                            </DataTemplate>
+                            <DataTemplate DataType="vm:GroupBoxViewModel">
+                                <views:GroupBoxView />
+                            </DataTemplate>
+                            <DataTemplate DataType="vm:CalendarViewModel">
+                                <views:CalendarView />
+                            </DataTemplate>
+                            <DataTemplate DataType="vm:ScrollViewerViewModel">
+                                <views:ScrollViewerView />
+                            </DataTemplate>
+                            <DataTemplate DataType="vm:RefreshContainerViewModel">
+                                <views:RefreshContainerView />
+                            </DataTemplate>
+                            <DataTemplate DataType="vm:ExtendedControlsViewModel">
+                                <views:ExtendedControlsView />
+                            </DataTemplate>
+                            <DataTemplate DataType="vm:ThemeVariantScopeViewModel">
+                                <views:ThemeVariantScopeView />
+                            </DataTemplate>
+                            <DataTemplate DataType="vm:BannerViewModel">
+                                <views:BannerView />
+                            </DataTemplate>
+                            <DataTemplate DataType="vm:DragTabControlViewModel">
+                                <views:DragTabControlView />
+                            </DataTemplate>
+                            <DataTemplate DataType="vm:SplitViewViewModel">
+                                <views:SplitViewView />
+                            </DataTemplate>
+                            <DataTemplate DataType="vm:TabControlViewModel">
+                                <views:TabControlView />
+                            </DataTemplate>
+                            <DataTemplate DataType="vm:TabbedPageViewModel">
+                                <views:TabbedPageView />
+                            </DataTemplate>
+                            <DataTemplate DataType="vm:DrawerPageViewModel">
+                                <views:DrawerPageView />
+                            </DataTemplate>
+                            <DataTemplate DataType="vm:NavigationPageViewModel">
+                                <views:NavigationPageView />
+                            </DataTemplate>
+                            <DataTemplate DataType="vm:CarouselViewModel">
+                                <views:CarouselView />
+                            </DataTemplate>
+                            <DataTemplate DataType="vm:WindowCustomizationsViewModel">
+                                <views:WindowCustomizationsView />
+                            </DataTemplate>
+                        </TreeMenu.DataTemplates>
+                        <TreeMenu.Header>
+                            <StackPanel VerticalAlignment="Bottom" Spacing="16">
+                                <TextBlock FontWeight="SemiBold" Text="Synthora Demo" />
                             </StackPanel>
-                        </TreeDataTemplate>
-                    </TreeMenu.ItemTemplate>
+                        </TreeMenu.Header>
+                        <TreeMenu.PaneHeader>
+                            <StackPanel Margin="32"
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Center"
+                                        Spacing="16">
+                                <StackPanel HorizontalAlignment="Center"
+                                            Orientation="Horizontal"
+                                            Spacing="16">
+                                    <ListBox AutoScrollToSelectedItem="False"
+                                             Background="{DynamicResource ThemeControlMidBrush}"
+                                             ItemsSource="{EnumBindingSource ThemeMode}"
+                                             SelectedItem="{Binding SelectedThemeMode}"
+                                             Theme="{StaticResource SegmentedListBoxTheme}"
+                                             ToolTip.Tip="Switch app theme mode(Default / Light / Dark)">
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <PathIcon Width="16"
+                                                          Height="16"
+                                                          Margin="-2,0"
+                                                          Data="{Binding Converter={x:Static SynthoraConverters.ThemeModeToPathDataConverter}}" />
+                                                <!-- <materialIcons:MaterialIcon Margin="-2,0" Kind="{Binding Converter={StaticResource ThemeModeToIconKindConverter}}" /> -->
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+                                    <ListBox AutoScrollToSelectedItem="False"
+                                             Background="{DynamicResource ThemeControlMidBrush}"
+                                             ItemsSource="{EnumBindingSource so:ThemeDensity}"
+                                             SelectedItem="{Binding SelectedThemeDensity}"
+                                             Theme="{StaticResource SegmentedListBoxTheme}"
+                                             ToolTip.Tip="Switch app theme density(Compact / Normal / Spacious)">
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <PathIcon Width="16"
+                                                          Height="16"
+                                                          Margin="-2,0"
+                                                          Data="{Binding Converter={x:Static SynthoraConverters.ThemeDensityToPathDataConverter}}" />
+                                                <!-- <materialIcons:MaterialIcon Margin="-2,0" Kind="{Binding Converter={StaticResource DensityStyleToIconKindConverter}}" /> -->
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+                                </StackPanel>
+                                <TextBox VerticalContentAlignment="Center"
+                                         Background="{DynamicResource ThemeBackgroundBrush}"
+                                         PlaceholderText="Search"
+                                         Text="{Binding SearchText}">
+                                    <TextBox.InnerLeftContent>
+                                        <PathIcon Width="12"
+                                                  Height="12"
+                                                  Margin="{DynamicResource ThemeControlRightPadding}"
+                                                  Data="M11.87 10.835c.018.015.035.03.051.047l3.864 3.863a.735.735 0 1 1-1.04 1.04l-3.863-3.864a.744.744 0 0 1-.047-.051 6.667 6.667 0 1 1 1.035-1.035zM6.667 12a5.333 5.333 0 1 0 0-10.667 5.333 5.333 0 0 0 0 10.667z"
+                                                  Foreground="#007AFF" />
+                                    </TextBox.InnerLeftContent>
+                                </TextBox>
+                            </StackPanel>
+                        </TreeMenu.PaneHeader>
 
-                    <TreeMenu.ItemContainerTheme>
-                        <ControlTheme x:DataType="models:TreeMenuDemoItem"
-                                      BasedOn="{StaticResource {x:Type TreeMenuItem}}"
-                                      TargetType="TreeMenuItem">
-                            <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
-                            <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
-                            <Setter Property="IsVisible" Value="{Binding IsVisible}" />
-                        </ControlTheme>
-                    </TreeMenu.ItemContainerTheme>
-                </TreeMenu>
+                        <TreeMenu.PaneFooter>
+                            <SelectableTextBlock Margin="32"
+                                                 FontSize="13"
+                                                 Foreground="{DynamicResource ThemeForegroundLowBrush}"
+                                                 Text="Synthora Avalonia Catalog"
+                                                 TextAlignment="Center"
+                                                 TextWrapping="Wrap" />
+                        </TreeMenu.PaneFooter>
+
+                        <TreeMenu.ItemTemplate>
+                            <TreeDataTemplate DataType="models:TreeMenuDemoItem" ItemsSource="{Binding Children}">
+                                <StackPanel Orientation="Horizontal" Spacing="10">
+                                    <materialIcons:MaterialIcon HorizontalAlignment="Center"
+                                                                VerticalAlignment="Center"
+                                                                Foreground="#007AFF"
+                                                                IconSize="20"
+                                                                Kind="{Binding IconKind}" />
+                                    <TextBlock Text="{Binding Title}" />
+                                </StackPanel>
+                            </TreeDataTemplate>
+                        </TreeMenu.ItemTemplate>
+
+                        <TreeMenu.ItemContainerTheme>
+                            <ControlTheme x:DataType="models:TreeMenuDemoItem"
+                                          BasedOn="{StaticResource {x:Type TreeMenuItem}}"
+                                          TargetType="TreeMenuItem">
+                                <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+                                <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
+                                <Setter Property="IsVisible" Value="{Binding IsVisible}" />
+                            </ControlTheme>
+                        </TreeMenu.ItemContainerTheme>
+                    </TreeMenu>
+                </Panel>
 
                 <StatusBar Grid.Row="1">
                     <Panel>

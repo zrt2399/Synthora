@@ -20,6 +20,7 @@
     </UserControl.Styles>
 
     <DemoPage Title="Group Boxes"
+              Padding="0"
               Description="{Binding Description}"
               IconKind="{Binding IconKind}">
         <ScrollViewer Padding="16">

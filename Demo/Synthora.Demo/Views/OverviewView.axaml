@@ -10,50 +10,11 @@
              x:DataType="vm:OverviewViewModel"
              mc:Ignorable="d">
 
-    <UserControl.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.ThemeDictionaries>
-                <ResourceDictionary x:Key="Default">
-                    <SolidColorBrush x:Key="CardSurfaceBrush" Color="#B8F7FBFF" />
-                    <SolidColorBrush x:Key="CardBorderBrush" Color="#7AA8C7EA" />
-                    <SolidColorBrush x:Key="BadgeSurfaceBrush" Color="#B8F4F8FF" />
-                    <SolidColorBrush x:Key="HeroPanelBrush" Color="#D8EEF5FF" />
-                    <SolidColorBrush x:Key="HeroTileBrush" Color="#C8F7FBFF" />
-                    <LinearGradientBrush x:Key="HeroBorderBrush" StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Offset="0" Color="#66B8CCFF" />
-                        <GradientStop Offset="0.5" Color="#66AABEFF" />
-                        <GradientStop Offset="1" Color="#66C5D7FF" />
-                    </LinearGradientBrush>
-                    <LinearGradientBrush x:Key="GlassOverlayBrush" StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Offset="0" Color="#CFF8FBFF" />
-                        <GradientStop Offset="1" Color="#BAF1F7FF" />
-                    </LinearGradientBrush>
-                </ResourceDictionary>
-                <ResourceDictionary x:Key="Dark">
-                    <SolidColorBrush x:Key="CardSurfaceBrush" Color="#38486A92" />
-                    <SolidColorBrush x:Key="CardBorderBrush" Color="#70A1BFE6" />
-                    <SolidColorBrush x:Key="BadgeSurfaceBrush" Color="#32506F94" />
-                    <SolidColorBrush x:Key="HeroPanelBrush" Color="#31415EBA" />
-                    <SolidColorBrush x:Key="HeroTileBrush" Color="#344764B8" />
-                    <LinearGradientBrush x:Key="HeroBorderBrush" StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Offset="0" Color="#5889AEE0" />
-                        <GradientStop Offset="0.5" Color="#587C9FD2" />
-                        <GradientStop Offset="1" Color="#5894B8C9" />
-                    </LinearGradientBrush>
-                    <LinearGradientBrush x:Key="GlassOverlayBrush" StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Offset="0" Color="#42324A9A" />
-                        <GradientStop Offset="1" Color="#3C2A417F" />
-                    </LinearGradientBrush>
-                </ResourceDictionary>
-            </ResourceDictionary.ThemeDictionaries>
-        </ResourceDictionary>
-    </UserControl.Resources>
-
     <UserControl.Styles>
         <Style Selector="Border.heroFrame">
-            <Setter Property="Background" Value="{DynamicResource HeroBorderBrush}" />
+            <Setter Property="Background" Value="{DynamicResource HeroFrameBrush}" />
             <Setter Property="CornerRadius" Value="20" />
-            <Setter Property="BoxShadow" Value="0 0 40 0 #44000000" />
+            <Setter Property="BoxShadow" Value="0 4 20 0 #2C000000" />
         </Style>
         <Style Selector="Border.heroShell">
             <Setter Property="Padding" Value="16" />
@@ -115,488 +76,462 @@
         </Style>
     </UserControl.Styles>
 
-    <Panel>
-        <Panel>
-            <Canvas IsHitTestVisible="False">
-                <Ellipse Canvas.Left="-180"
-                         Canvas.Top="-140"
-                         Width="540"
-                         Height="540"
-                         Fill="#56007DFF" />
-                <Ellipse Canvas.Top="50"
-                         Canvas.Right="-180"
-                         Width="460"
-                         Height="460"
-                         Fill="#50A855F7" />
-                <Ellipse Canvas.Left="300"
-                         Canvas.Bottom="-250"
-                         Width="620"
-                         Height="620"
-                         Fill="#44F59E0B" />
-                <Ellipse Canvas.Right="180"
-                         Canvas.Bottom="-220"
-                         Width="560"
-                         Height="560"
-                         Fill="#307B61FF" />
-            </Canvas>
-        </Panel>
+    <ScrollViewer>
+        <StackPanel Margin="16"
+                    HorizontalAlignment="Left"
+                    Spacing="16">
+            <Border Classes="heroFrame">
+                <Border Classes="heroShell">
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <StackPanel Spacing="16">
+                            <SelectableTextBlock Classes="heroEyebrow" Text="COLORFUL / RESPONSIVE / MAIN CONTROLS" />
+                            <SelectableTextBlock FontSize="32"
+                                                 FontWeight="SemiBold"
+                                                 Text="Synthora Avalonia Gallery"
+                                                 TextWrapping="Wrap" />
+                            <SelectableTextBlock Classes="muted"
+                                                 FontSize="16"
+                                                 Text="A UI library where every detail is polished to perfection—from consistent spacing to fluid micro-interactions."
+                                                 TextWrapping="Wrap" />
 
-        <ScrollViewer>
-            <StackPanel Margin="16"
-                        HorizontalAlignment="Left"
-                        Spacing="16">
-                <Border Classes="heroFrame">
-                    <Border Classes="heroShell">
-                        <WrapPanel ItemSpacing="16" LineSpacing="16">
+                            <WrapPanel ItemSpacing="10" LineSpacing="10">
+                                <Border Classes="badge">
+                                    <StackPanel Orientation="Horizontal" Spacing="8">
+                                        <materialIcons:MaterialIcon Kind="PaletteOutline" />
+                                        <TextBlock FontWeight="SemiBold" Text="Themed Buttons" />
+                                    </StackPanel>
+                                </Border>
+                                <Border Classes="badge">
+                                    <StackPanel Orientation="Horizontal" Spacing="8">
+                                        <materialIcons:MaterialIcon Kind="Responsive" />
+                                        <TextBlock FontWeight="SemiBold" Text="Adaptive Layout" />
+                                    </StackPanel>
+                                </Border>
+                                <Border Classes="badge">
+                                    <StackPanel Orientation="Horizontal" Spacing="8">
+                                        <materialIcons:MaterialIcon Kind="LayersTripleOutline" />
+                                        <TextBlock FontWeight="SemiBold" Text="Glassy Surfaces" />
+                                    </StackPanel>
+                                </Border>
+                            </WrapPanel>
+
+                            <WrapPanel ItemSpacing="12" LineSpacing="12">
+                                <Button Classes="Primary">Launch Demo</Button>
+                                <Button Classes="Primary" Theme="{StaticResource SolidButtonTheme}">Primary</Button>
+                                <Button Classes="Secondary" Theme="{StaticResource BorderlessButtonTheme}">Secondary</Button>
+                                <DropDownButton Classes="Primary">
+                                    <StackPanel Orientation="Horizontal" Spacing="8">
+                                        <materialIcons:MaterialIcon Kind="Translate" />
+                                        <TextBlock Text="Language" />
+                                    </StackPanel>
+                                    <DropDownButton.Flyout>
+                                        <MenuFlyout Placement="BottomEdgeAlignedLeft">
+                                            <MenuItem Command="{Binding SetThemeLanguage}"
+                                                      CommandParameter="{x:Static ThemeLanguage.English}"
+                                                      GroupName="ThemeLanguage"
+                                                      Header="English"
+                                                      IsChecked="{Binding SelectedThemeLanguage, Converter={x:Static SynthoraConverters.Equal}, ConverterParameter={x:Static ThemeLanguage.English}}"
+                                                      ToggleType="Radio" />
+                                            <MenuItem Command="{Binding SetThemeLanguage}"
+                                                      CommandParameter="{x:Static ThemeLanguage.SimplifiedChinese}"
+                                                      GroupName="ThemeLanguage"
+                                                      Header="简体中文"
+                                                      IsChecked="{Binding SelectedThemeLanguage, Converter={x:Static SynthoraConverters.Equal}, ConverterParameter={x:Static ThemeLanguage.SimplifiedChinese}}"
+                                                      ToggleType="Radio" />
+                                            <MenuItem Command="{Binding SetThemeLanguage}"
+                                                      CommandParameter="{x:Static ThemeLanguage.TraditionalChinese}"
+                                                      GroupName="ThemeLanguage"
+                                                      Header="繁體中文"
+                                                      IsChecked="{Binding SelectedThemeLanguage, Converter={x:Static SynthoraConverters.Equal}, ConverterParameter={x:Static ThemeLanguage.TraditionalChinese}}"
+                                                      ToggleType="Radio" />
+                                            <MenuItem Command="{Binding SetThemeLanguage}"
+                                                      CommandParameter="{x:Static ThemeLanguage.Japanese}"
+                                                      GroupName="ThemeLanguage"
+                                                      Header="日本語"
+                                                      IsChecked="{Binding SelectedThemeLanguage, Converter={x:Static SynthoraConverters.Equal}, ConverterParameter={x:Static ThemeLanguage.Japanese}}"
+                                                      ToggleType="Radio" />
+                                            <MenuItem Command="{Binding SetThemeLanguage}"
+                                                      CommandParameter="{x:Static ThemeLanguage.Korean}"
+                                                      GroupName="ThemeLanguage"
+                                                      Header="한국어"
+                                                      IsChecked="{Binding SelectedThemeLanguage, Converter={x:Static SynthoraConverters.Equal}, ConverterParameter={x:Static ThemeLanguage.Korean}}"
+                                                      ToggleType="Radio" />
+                                        </MenuFlyout>
+                                    </DropDownButton.Flyout>
+                                </DropDownButton>
+                                <Button Classes="Error Icon" Theme="{StaticResource SolidButtonTheme}">
+                                    <materialIcons:MaterialIcon Kind="FruitCherries" />
+                                </Button>
+                            </WrapPanel>
+                        </StackPanel>
+
+                        <Border MinWidth="360" Classes="showcasePanel">
                             <StackPanel Spacing="16">
-                                <SelectableTextBlock Classes="heroEyebrow" Text="COLORFUL / RESPONSIVE / MAIN CONTROLS" />
-                                <SelectableTextBlock FontSize="32"
-                                                     FontWeight="SemiBold"
-                                                     Text="Synthora Avalonia Gallery"
-                                                     TextWrapping="Wrap" />
-                                <SelectableTextBlock Classes="muted"
-                                                     FontSize="16"
-                                                     Text="A UI library where every detail is polished to perfection—from consistent spacing to fluid micro-interactions."
-                                                     TextWrapping="Wrap" />
+                                <Grid ColumnDefinitions="Auto,*,Auto">
+                                    <StackPanel Orientation="Horizontal" Spacing="10">
+                                        <Border Width="{Binding $self.Bounds.Height}"
+                                                Padding="0"
+                                                Background="{DynamicResource HeroTileBrush}"
+                                                Classes="showcasePanel">
+                                            <materialIcons:MaterialIcon HorizontalAlignment="Center"
+                                                                        VerticalAlignment="Center"
+                                                                        IconSize="28"
+                                                                        Kind="ViewDashboard" />
+                                        </Border>
+                                        <StackPanel Spacing="2">
+                                            <TextBlock FontSize="20"
+                                                       FontWeight="SemiBold"
+                                                       Text="Primary Interaction Deck" />
+                                            <TextBlock Classes="muted" Text="Real theme colors. No manual recoloring." />
+                                        </StackPanel>
+                                    </StackPanel>
 
-                                <WrapPanel ItemSpacing="10" LineSpacing="10">
-                                    <Border Classes="badge">
-                                        <StackPanel Orientation="Horizontal" Spacing="8">
-                                            <materialIcons:MaterialIcon Kind="PaletteOutline" />
-                                            <TextBlock FontWeight="SemiBold" Text="Themed Buttons" />
-                                        </StackPanel>
-                                    </Border>
-                                    <Border Classes="badge">
-                                        <StackPanel Orientation="Horizontal" Spacing="8">
-                                            <materialIcons:MaterialIcon Kind="Responsive" />
-                                            <TextBlock FontWeight="SemiBold" Text="Adaptive Layout" />
-                                        </StackPanel>
-                                    </Border>
-                                    <Border Classes="badge">
-                                        <StackPanel Orientation="Horizontal" Spacing="8">
-                                            <materialIcons:MaterialIcon Kind="LayersTripleOutline" />
-                                            <TextBlock FontWeight="SemiBold" Text="Glassy Surfaces" />
-                                        </StackPanel>
-                                    </Border>
-                                </WrapPanel>
+                                    <WrapPanel Grid.Column="2"
+                                               ItemSpacing="8"
+                                               LineSpacing="8">
+                                        <Border Padding="16,14" Classes="badge">
+                                            <TextBlock FontWeight="SemiBold" Text="Desktop" />
+                                        </Border>
+                                        <Border Padding="16,14" Classes="badge">
+                                            <TextBlock FontWeight="SemiBold" Text="Fluid" />
+                                        </Border>
+                                    </WrapPanel>
+                                </Grid>
 
-                                <SpacingWrapPanel HorizontalSpacing="12" VerticalSpacing="12">
-                                    <Button Classes="Primary">Launch Demo</Button>
-                                    <Button Classes="Primary" Theme="{StaticResource SolidButtonTheme}">Primary</Button>
-                                    <Button Classes="Secondary" Theme="{StaticResource BorderlessButtonTheme}">Secondary</Button>
-                                    <DropDownButton Classes="Primary">
-                                        <StackPanel Orientation="Horizontal" Spacing="8">
-                                            <materialIcons:MaterialIcon Kind="Translate" />
-                                            <TextBlock Text="Language" />
-                                        </StackPanel>
-                                        <DropDownButton.Flyout>
-                                            <MenuFlyout Placement="BottomEdgeAlignedLeft">
-                                                <MenuItem Command="{Binding SetThemeLanguage}"
-                                                          CommandParameter="{x:Static ThemeLanguage.English}"
-                                                          GroupName="ThemeLanguage"
-                                                          Header="English"
-                                                          IsChecked="{Binding SelectedThemeLanguage, Converter={x:Static SynthoraConverters.Equal}, ConverterParameter={x:Static ThemeLanguage.English}}"
-                                                          ToggleType="Radio" />
-                                                <MenuItem Command="{Binding SetThemeLanguage}"
-                                                          CommandParameter="{x:Static ThemeLanguage.SimplifiedChinese}"
-                                                          GroupName="ThemeLanguage"
-                                                          Header="简体中文"
-                                                          IsChecked="{Binding SelectedThemeLanguage, Converter={x:Static SynthoraConverters.Equal}, ConverterParameter={x:Static ThemeLanguage.SimplifiedChinese}}"
-                                                          ToggleType="Radio" />
-                                                <MenuItem Command="{Binding SetThemeLanguage}"
-                                                          CommandParameter="{x:Static ThemeLanguage.TraditionalChinese}"
-                                                          GroupName="ThemeLanguage"
-                                                          Header="繁體中文"
-                                                          IsChecked="{Binding SelectedThemeLanguage, Converter={x:Static SynthoraConverters.Equal}, ConverterParameter={x:Static ThemeLanguage.TraditionalChinese}}"
-                                                          ToggleType="Radio" />
-                                                <MenuItem Command="{Binding SetThemeLanguage}"
-                                                          CommandParameter="{x:Static ThemeLanguage.Japanese}"
-                                                          GroupName="ThemeLanguage"
-                                                          Header="日本語"
-                                                          IsChecked="{Binding SelectedThemeLanguage, Converter={x:Static SynthoraConverters.Equal}, ConverterParameter={x:Static ThemeLanguage.Japanese}}"
-                                                          ToggleType="Radio" />
-                                                <MenuItem Command="{Binding SetThemeLanguage}"
-                                                          CommandParameter="{x:Static ThemeLanguage.Korean}"
-                                                          GroupName="ThemeLanguage"
-                                                          Header="한국어"
-                                                          IsChecked="{Binding SelectedThemeLanguage, Converter={x:Static SynthoraConverters.Equal}, ConverterParameter={x:Static ThemeLanguage.Korean}}"
-                                                          ToggleType="Radio" />
-                                            </MenuFlyout>
-                                        </DropDownButton.Flyout>
-                                    </DropDownButton>
-                                    <Button Classes="Error Icon" Theme="{StaticResource SolidButtonTheme}">
-                                        <materialIcons:MaterialIcon Kind="FruitCherries" />
-                                    </Button>
-                                </SpacingWrapPanel>
-                            </StackPanel>
-
-                            <Border MinWidth="360" Classes="showcasePanel">
-                                <StackPanel Spacing="16">
-                                    <Grid ColumnDefinitions="Auto,*,Auto">
-                                        <StackPanel Orientation="Horizontal" Spacing="10">
-                                            <Border Width="{Binding $self.Bounds.Height}"
-                                                    Padding="0"
-                                                    Background="{DynamicResource HeroTileBrush}"
-                                                    Classes="showcasePanel">
-                                                <materialIcons:MaterialIcon HorizontalAlignment="Center"
-                                                                            VerticalAlignment="Center"
-                                                                            IconSize="28"
-                                                                            Kind="ViewDashboard" />
-                                            </Border>
-                                            <StackPanel Spacing="2">
-                                                <TextBlock FontSize="20"
-                                                           FontWeight="SemiBold"
-                                                           Text="Primary Interaction Deck" />
-                                                <TextBlock Classes="muted" Text="Real theme colors. No manual recoloring." />
-                                            </StackPanel>
+                                <Border Classes="showcasePanel">
+                                    <StackPanel Spacing="16">
+                                        <StackPanel Classes="sectionHeader">
+                                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="CursorDefaultClick" />
+                                            <TextBlock Classes="sectionLabel" Text="BUTTON SPECTRUM" />
                                         </StackPanel>
 
-                                        <WrapPanel Grid.Column="2"
-                                                   ItemSpacing="8"
-                                                   LineSpacing="8">
-                                            <Border Padding="16,14" Classes="badge">
-                                                <TextBlock FontWeight="SemiBold" Text="Desktop" />
-                                            </Border>
-                                            <Border Padding="16,14" Classes="badge">
-                                                <TextBlock FontWeight="SemiBold" Text="Fluid" />
-                                            </Border>
+                                        <WrapPanel ItemSpacing="12" LineSpacing="12">
+                                            <Button>Default</Button>
+                                            <Button Classes="Success">Success</Button>
+                                            <Button Classes="Warning">Warning</Button>
+                                            <Button Classes="Question" Theme="{StaticResource SolidButtonTheme}">Question</Button>
+                                            <Button Classes="Error">Error</Button>
+                                            <Button Classes="Primary" Theme="{StaticResource SolidButtonTheme}">Primary</Button>
+                                            <Button Classes="Secondary" Theme="{StaticResource SolidButtonTheme}">Secondary</Button>
                                         </WrapPanel>
-                                    </Grid>
+                                    </StackPanel>
+                                </Border>
+
+                                <WrapPanel ItemSpacing="16" LineSpacing="16">
+                                    <Border Classes="showcasePanel">
+                                        <StackPanel Spacing="16">
+                                            <StackPanel Classes="sectionHeader">
+                                                <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ArrowSplitHorizontal" />
+                                                <TextBlock Classes="sectionLabel" Text="COMMANDS" />
+                                            </StackPanel>
+
+                                            <WrapPanel ItemSpacing="12" LineSpacing="12">
+                                                <SplitButton DropDownButtonAttach.DropDownIconAnimationEnabled="False">
+                                                    Publish
+                                                    <DropDownButtonAttach.DropDownIcon>
+                                                        <PathIcon Width="12"
+                                                                  Height="12"
+                                                                  Data="{DynamicResource EllipsisData}" />
+                                                    </DropDownButtonAttach.DropDownIcon>
+                                                    <SplitButton.Flyout>
+                                                        <MenuFlyout Placement="BottomEdgeAlignedLeft">
+                                                            <MenuItem GroupName="PublishGroupName"
+                                                                      Header="Publish now"
+                                                                      IsChecked="True"
+                                                                      ToggleType="Radio" />
+                                                            <MenuItem GroupName="PublishGroupName"
+                                                                      Header="Schedule"
+                                                                      ToggleType="Radio" />
+                                                        </MenuFlyout>
+                                                    </SplitButton.Flyout>
+                                                </SplitButton>
+                                                <ToggleSplitButton Classes="Secondary" Theme="{StaticResource SolidToggleSplitButtonTheme}">
+                                                    Modes
+                                                    <ToggleSplitButton.Flyout>
+                                                        <MenuFlyout Placement="BottomEdgeAlignedLeft">
+                                                            <MenuItem Header="Aurora"
+                                                                      IsChecked="True"
+                                                                      ToggleType="CheckBox" />
+                                                            <MenuItem Header="Compact" ToggleType="CheckBox" />
+                                                        </MenuFlyout>
+                                                    </ToggleSplitButton.Flyout>
+                                                </ToggleSplitButton>
+                                                <DropDownButton Classes="Primary">
+                                                    More
+                                                    <DropDownButton.Flyout>
+                                                        <MenuFlyout Placement="BottomEdgeAlignedLeft">
+                                                            <MenuItem Header="New tab" />
+                                                            <MenuItem Header="Open docs" />
+                                                        </MenuFlyout>
+                                                    </DropDownButton.Flyout>
+                                                </DropDownButton>
+                                                <ToggleButton Classes="Warning">Pin</ToggleButton>
+                                                <RepeatButton Classes="Error" Theme="{StaticResource BorderlessRepeatButtonTheme}">Repeat</RepeatButton>
+                                            </WrapPanel>
+                                        </StackPanel>
+                                    </Border>
 
                                     <Border Classes="showcasePanel">
                                         <StackPanel Spacing="16">
                                             <StackPanel Classes="sectionHeader">
-                                                <materialIcons:MaterialIcon Classes="sectionIcon" Kind="CursorDefaultClick" />
-                                                <TextBlock Classes="sectionLabel" Text="BUTTON SPECTRUM" />
+                                                <materialIcons:MaterialIcon Classes="sectionIcon" Kind="AppleKeyboardCommand" />
+                                                <TextBlock Classes="sectionLabel" Text="QUICK TOOLS" />
                                             </StackPanel>
 
-                                            <SpacingWrapPanel HorizontalSpacing="12" VerticalSpacing="12">
-                                                <Button>Default</Button>
-                                                <Button Classes="Success">Success</Button>
-                                                <Button Classes="Warning">Warning</Button>
-                                                <Button Classes="Question" Theme="{StaticResource SolidButtonTheme}">Question</Button>
-                                                <Button Classes="Error">Error</Button>
-                                                <Button Classes="Primary" Theme="{StaticResource SolidButtonTheme}">Primary</Button>
-                                                <Button Classes="Secondary" Theme="{StaticResource SolidButtonTheme}">Secondary</Button>
-                                            </SpacingWrapPanel>
+                                            <CommandBar DefaultLabelPosition="Right">
+                                                <CommandBar.PrimaryCommands>
+                                                    <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=Play}" Label="Run" />
+                                                    <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=ContentSaveOutline}" Label="Save" />
+                                                    <CommandBarToggleButton Icon="{materialIcons:MaterialIconExt Kind=ThemeLightDark}"
+                                                                            IsChecked="True"
+                                                                            Label="Theme" />
+                                                </CommandBar.PrimaryCommands>
+                                            </CommandBar>
                                         </StackPanel>
                                     </Border>
+                                </WrapPanel>
+                            </StackPanel>
+                        </Border>
+                    </WrapPanel>
+                </Border>
+            </Border>
 
-                                    <WrapPanel ItemSpacing="16" LineSpacing="16">
-                                        <Border Classes="showcasePanel">
-                                            <StackPanel Spacing="16">
-                                                <StackPanel Classes="sectionHeader">
-                                                    <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ArrowSplitHorizontal" />
-                                                    <TextBlock Classes="sectionLabel" Text="COMMANDS" />
-                                                </StackPanel>
+            <WrapPanel ItemSpacing="16" LineSpacing="16">
+                <Border MinWidth="320"
+                        MaxWidth="460"
+                        Classes="card">
+                    <StackPanel Spacing="16">
+                        <StackPanel Classes="sectionHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="TextBoxOutline" />
+                            <TextBlock Classes="sectionLabel" Text="INPUTS" />
+                        </StackPanel>
 
-                                                <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
-                                                    <SplitButton DropDownButtonAttach.DropDownIconAnimationEnabled="False">
-                                                        Publish
-                                                        <DropDownButtonAttach.DropDownIcon>
-                                                            <PathIcon Width="12"
-                                                                      Height="12"
-                                                                      Data="{DynamicResource EllipsisData}" />
-                                                        </DropDownButtonAttach.DropDownIcon>
-                                                        <SplitButton.Flyout>
-                                                            <MenuFlyout Placement="BottomEdgeAlignedLeft">
-                                                                <MenuItem GroupName="PublishGroupName"
-                                                                          Header="Publish now"
-                                                                          IsChecked="True"
-                                                                          ToggleType="Radio" />
-                                                                <MenuItem GroupName="PublishGroupName"
-                                                                          Header="Schedule"
-                                                                          ToggleType="Radio" />
-                                                            </MenuFlyout>
-                                                        </SplitButton.Flyout>
-                                                    </SplitButton>
-                                                    <ToggleSplitButton Classes="Secondary" Theme="{StaticResource SolidToggleSplitButtonTheme}">
-                                                        Modes
-                                                        <ToggleSplitButton.Flyout>
-                                                            <MenuFlyout Placement="BottomEdgeAlignedLeft">
-                                                                <MenuItem Header="Aurora"
-                                                                          IsChecked="True"
-                                                                          ToggleType="CheckBox" />
-                                                                <MenuItem Header="Compact" ToggleType="CheckBox" />
-                                                            </MenuFlyout>
-                                                        </ToggleSplitButton.Flyout>
-                                                    </ToggleSplitButton>
-                                                    <DropDownButton Classes="Primary">
-                                                        More
-                                                        <DropDownButton.Flyout>
-                                                            <MenuFlyout Placement="BottomEdgeAlignedLeft">
-                                                                <MenuItem Header="New tab" />
-                                                                <MenuItem Header="Open docs" />
-                                                            </MenuFlyout>
-                                                        </DropDownButton.Flyout>
-                                                    </DropDownButton>
-                                                    <ToggleButton Classes="Warning">Pin</ToggleButton>
-                                                    <RepeatButton Classes="Error" Theme="{StaticResource BorderlessRepeatButtonTheme}">Repeat</RepeatButton>
-                                                </SpacingWrapPanel>
-                                            </StackPanel>
-                                        </Border>
-
-                                        <Border Classes="showcasePanel">
-                                            <StackPanel Spacing="16">
-                                                <StackPanel Classes="sectionHeader">
-                                                    <materialIcons:MaterialIcon Classes="sectionIcon" Kind="AppleKeyboardCommand" />
-                                                    <TextBlock Classes="sectionLabel" Text="QUICK TOOLS" />
-                                                </StackPanel>
-
-                                                <CommandBar DefaultLabelPosition="Right">
-                                                    <CommandBar.PrimaryCommands>
-                                                        <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=Play}" Label="Run" />
-                                                        <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=ContentSaveOutline}" Label="Save" />
-                                                        <CommandBarToggleButton Icon="{materialIcons:MaterialIconExt Kind=ThemeLightDark}"
-                                                                                IsChecked="True"
-                                                                                Label="Theme" />
-                                                    </CommandBar.PrimaryCommands>
-                                                </CommandBar>
-                                            </StackPanel>
-                                        </Border>
-                                    </WrapPanel>
-                                </StackPanel>
-                            </Border>
-                        </WrapPanel>
-                    </Border>
+                        <TextBox PlaceholderText="Project name"
+                                 Text="Synthora Aurora"
+                                 UseFloatingPlaceholder="True" />
+                        <TextBox Height="86"
+                                 AcceptsReturn="True"
+                                 Text="A polished component library should feel exciting before you even click into the dedicated demo pages."
+                                 TextBoxAttach.Header="Description" />
+                        <ComboBox SelectedIndex="0" TextBoxAttach.Header="Platform">
+                            <ComboBoxItem>Windows</ComboBoxItem>
+                            <ComboBoxItem>macOS</ComboBoxItem>
+                            <ComboBoxItem>Linux</ComboBoxItem>
+                        </ComboBox>
+                        <Grid ColumnDefinitions="*,12,*">
+                            <ButtonSpinner Grid.Column="0" TextBoxAttach.Header="Quick value">1280</ButtonSpinner>
+                            <NumericUpDown Grid.Column="2"
+                                           Increment="1"
+                                           TextBoxAttach.Header="Density"
+                                           Value="12" />
+                        </Grid>
+                        <SelectableTextBlock Classes="muted">Selectable text matters when samples turn into real documentation.</SelectableTextBlock>
+                    </StackPanel>
                 </Border>
 
-                <WrapPanel ItemSpacing="16" LineSpacing="16">
-                    <Border MinWidth="320"
-                            MaxWidth="460"
-                            Classes="card">
-                        <StackPanel Spacing="16">
-                            <StackPanel Classes="sectionHeader">
-                                <materialIcons:MaterialIcon Classes="sectionIcon" Kind="TextBoxOutline" />
-                                <TextBlock Classes="sectionLabel" Text="INPUTS" />
-                            </StackPanel>
-
-                            <TextBox PlaceholderText="Project name"
-                                     Text="Synthora Aurora"
-                                     UseFloatingPlaceholder="True" />
-                            <TextBox Height="86"
-                                     AcceptsReturn="True"
-                                     Text="A polished component library should feel exciting before you even click into the dedicated demo pages."
-                                     TextBoxAttach.Header="Description" />
-                            <ComboBox SelectedIndex="0" TextBoxAttach.Header="Platform">
-                                <ComboBoxItem>Windows</ComboBoxItem>
-                                <ComboBoxItem>macOS</ComboBoxItem>
-                                <ComboBoxItem>Linux</ComboBoxItem>
-                            </ComboBox>
-                            <Grid ColumnDefinitions="*,12,*">
-                                <ButtonSpinner Grid.Column="0" TextBoxAttach.Header="Quick value">1280</ButtonSpinner>
-                                <NumericUpDown Grid.Column="2"
-                                               Increment="1"
-                                               TextBoxAttach.Header="Density"
-                                               Value="12" />
-                            </Grid>
-                            <SelectableTextBlock Classes="muted">Selectable text matters when samples turn into real documentation.</SelectableTextBlock>
+                <Border MinWidth="320"
+                        MaxWidth="460"
+                        Classes="card">
+                    <StackPanel Spacing="16">
+                        <StackPanel Classes="sectionHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="CheckboxMarkedCircleOutline" />
+                            <TextBlock Classes="sectionLabel" Text="SELECTION" />
                         </StackPanel>
-                    </Border>
 
-                    <Border MinWidth="320"
-                            MaxWidth="460"
-                            Classes="card">
-                        <StackPanel Spacing="16">
-                            <StackPanel Classes="sectionHeader">
-                                <materialIcons:MaterialIcon Classes="sectionIcon" Kind="CheckboxMarkedCircleOutline" />
-                                <TextBlock Classes="sectionLabel" Text="SELECTION" />
-                            </StackPanel>
+                        <WrapPanel ItemSpacing="12" LineSpacing="12">
+                            <CheckBox IsChecked="True">Enable sync</CheckBox>
+                            <CheckBox Classes="Secondary">Use motion effects</CheckBox>
+                            <CheckBox IsChecked="{x:Null}" IsThreeState="True">Three-state</CheckBox>
+                        </WrapPanel>
+                        <WrapPanel ItemSpacing="12" LineSpacing="12">
+                            <RadioButton GroupName="runtime" IsChecked="True">Avalonia</RadioButton>
+                            <RadioButton Classes="Secondary" GroupName="runtime">WPF</RadioButton>
+                            <RadioButton GroupName="runtime">MAUI</RadioButton>
+                        </WrapPanel>
+                        <WrapPanel ItemSpacing="12" LineSpacing="12">
+                            <ToggleSwitch />
+                            <ToggleSwitch Classes="Secondary" IsChecked="True" />
+                            <ToggleSwitch IsChecked="True">
+                                <ToggleSwitch.OnContent>
+                                    <materialIcons:MaterialIcon Kind="Apple" />
+                                </ToggleSwitch.OnContent>
+                                <ToggleSwitch.OffContent>
+                                    <materialIcons:MaterialIcon Kind="Android" />
+                                </ToggleSwitch.OffContent>
+                            </ToggleSwitch>
+                        </WrapPanel>
+                        <ListBox AutoScrollToSelectedItem="False"
+                                 Classes="Secondary"
+                                 CornerRadiusAttach.IsCircular="True"
+                                 Theme="{StaticResource SegmentedListBoxTheme}">
+                            <ListBoxItem IsSelected="True">macOS</ListBoxItem>
+                            <ListBoxItem>Windows</ListBoxItem>
+                            <ListBoxItem>Linux</ListBoxItem>
+                        </ListBox>
+                        <ListBox AutoScrollToSelectedItem="False"
+                                 Classes="Primary Uniform"
+                                 Theme="{StaticResource SegmentedListBoxTheme}">
+                            <ListBoxItem IsSelected="True">Ant Design</ListBoxItem>
+                            <ListBoxItem>Fluent Design</ListBoxItem>
+                            <ListBoxItem>Material Design</ListBoxItem>
+                        </ListBox>
+                        <SelectableTextBlock Classes="muted">Selection states stay clear at a glance.</SelectableTextBlock>
+                    </StackPanel>
+                </Border>
 
-                            <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
-                                <CheckBox IsChecked="True">Enable sync</CheckBox>
-                                <CheckBox Classes="Secondary">Use motion effects</CheckBox>
-                                <CheckBox IsChecked="{x:Null}" IsThreeState="True">Three-state</CheckBox>
-                            </SpacingWrapPanel>
-                            <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
-                                <RadioButton GroupName="runtime" IsChecked="True">Avalonia</RadioButton>
-                                <RadioButton Classes="Secondary" GroupName="runtime">WPF</RadioButton>
-                                <RadioButton GroupName="runtime">MAUI</RadioButton>
-                            </SpacingWrapPanel>
-                            <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
-                                <ToggleSwitch />
-                                <ToggleSwitch Classes="Secondary" IsChecked="True" />
-                                <ToggleSwitch IsChecked="True">
-                                    <ToggleSwitch.OnContent>
-                                        <materialIcons:MaterialIcon Kind="Apple" />
-                                    </ToggleSwitch.OnContent>
-                                    <ToggleSwitch.OffContent>
-                                        <materialIcons:MaterialIcon Kind="Android" />
-                                    </ToggleSwitch.OffContent>
-                                </ToggleSwitch>
-                            </SpacingWrapPanel>
-                            <ListBox AutoScrollToSelectedItem="False"
-                                     Classes="Secondary"
-                                     CornerRadiusAttach.IsCircular="True"
-                                     Theme="{StaticResource SegmentedListBoxTheme}">
-                                <ListBoxItem IsSelected="True">macOS</ListBoxItem>
-                                <ListBoxItem>Windows</ListBoxItem>
-                                <ListBoxItem>Linux</ListBoxItem>
-                            </ListBox>
-                            <ListBox AutoScrollToSelectedItem="False"
-                                     Classes="Primary Uniform"
-                                     Theme="{StaticResource SegmentedListBoxTheme}">
-                                <ListBoxItem IsSelected="True">Ant Design</ListBoxItem>
-                                <ListBoxItem>Fluent Design</ListBoxItem>
-                                <ListBoxItem>Material Design</ListBoxItem>
-                            </ListBox>
-                            <SelectableTextBlock Classes="muted">Selection states stay clear at a glance.</SelectableTextBlock>
+                <Border MinWidth="320"
+                        MaxWidth="460"
+                        Classes="card">
+                    <StackPanel Spacing="16">
+                        <StackPanel Classes="sectionHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ChartTimelineVariant" />
+                            <TextBlock Classes="sectionLabel" Text="RANGE &amp; TABS" />
                         </StackPanel>
-                    </Border>
 
-                    <Border MinWidth="320"
-                            MaxWidth="460"
-                            Classes="card">
-                        <StackPanel Spacing="16">
-                            <StackPanel Classes="sectionHeader">
-                                <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ChartTimelineVariant" />
-                                <TextBlock Classes="sectionLabel" Text="RANGE &amp; TABS" />
-                            </StackPanel>
+                        <ProgressBar Height="6" Value="{Binding #Slider.Value}" />
+                        <Slider Name="Slider" Value="50" />
+                        <ProgressBar Classes="Secondary"
+                                     ShowProgressText="True"
+                                     Value="{Binding #Slider.Value}" />
+                        <PipsPager HorizontalAlignment="Center"
+                                   MaxVisiblePips="10"
+                                   NumberOfPages="10"
+                                   SelectedPageIndex="2" />
+                        <Pagination Classes="Secondary"
+                                    DisplayPageCount="8"
+                                    PageSize="10"
+                                    TotalItemCount="210"
+                                    PageIndex="2" />
+                        <Divider Content="Navigation" Orientation="Horizontal" />
+                        <TabControl Theme="{StaticResource SegmentedTabControlTheme}">
+                            <TabItem Header="Overview">
+                                <TextBlock Margin="0,10,0,0" Text="High-impact first impression." />
+                            </TabItem>
+                            <TabItem Header="Styles">
+                                <TextBlock Margin="0,10,0,0" Text="Theme-rich controls." />
+                            </TabItem>
+                            <TabItem Header="Tokens">
+                                <TextBlock Margin="0,10,0,0" Text="Spacing, radius and motion." />
+                            </TabItem>
+                        </TabControl>
+                    </StackPanel>
+                </Border>
 
-                            <ProgressBar Height="6" Value="{Binding #Slider.Value}" />
-                            <Slider Name="Slider" Value="50" />
-                            <ProgressBar Classes="Secondary"
-                                         ShowProgressText="True"
-                                         Value="{Binding #Slider.Value}" />
-                            <PipsPager HorizontalAlignment="Center"
-                                       MaxVisiblePips="10"
-                                       NumberOfPages="10"
-                                       SelectedPageIndex="2" />
-                            <Pagination Classes="Secondary"
-                                        DisplayPageCount="8"
-                                        PageSize="10"
-                                        TotalItemCount="210"
-                                        PageIndex="2" />
-                            <Divider Content="Navigation" Orientation="Horizontal" />
-                            <TabControl Theme="{StaticResource SegmentedTabControlTheme}">
-                                <TabItem Header="Overview">
-                                    <TextBlock Margin="0,10,0,0" Text="High-impact first impression." />
-                                </TabItem>
-                                <TabItem Header="Styles">
-                                    <TextBlock Margin="0,10,0,0" Text="Theme-rich controls." />
-                                </TabItem>
-                                <TabItem Header="Tokens">
-                                    <TextBlock Margin="0,10,0,0" Text="Spacing, radius and motion." />
-                                </TabItem>
-                            </TabControl>
+                <Border MinWidth="320"
+                        MaxWidth="460"
+                        Classes="card">
+                    <StackPanel Spacing="16">
+                        <StackPanel Classes="sectionHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="CalendarMonthOutline" />
+                            <TextBlock Classes="sectionLabel" Text="DATE &amp; TIME" />
                         </StackPanel>
-                    </Border>
 
-                    <Border MinWidth="320"
-                            MaxWidth="460"
-                            Classes="card">
-                        <StackPanel Spacing="16">
-                            <StackPanel Classes="sectionHeader">
-                                <materialIcons:MaterialIcon Classes="sectionIcon" Kind="CalendarMonthOutline" />
-                                <TextBlock Classes="sectionLabel" Text="DATE &amp; TIME" />
-                            </StackPanel>
+                        <CalendarDatePicker TextBoxAttach.Header="Release date" />
+                        <DatePicker TextBoxAttach.Header="Date picker" />
+                        <TimePicker TextBoxAttach.Header="Launch time" UseSeconds="True" />
+                        <Calendar SelectionMode="SingleRange" />
+                    </StackPanel>
+                </Border>
+            </WrapPanel>
 
-                            <CalendarDatePicker TextBoxAttach.Header="Release date" />
-                            <DatePicker TextBoxAttach.Header="Date picker" />
-                            <TimePicker TextBoxAttach.Header="Launch time" UseSeconds="True" />
-                            <Calendar SelectionMode="SingleRange" />
+            <WrapPanel ItemSpacing="16" LineSpacing="16">
+                <Border MinWidth="380"
+                        MaxWidth="520"
+                        Classes="card">
+                    <StackPanel Spacing="16">
+                        <StackPanel Classes="sectionHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="BellBadgeOutline" />
+                            <TextBlock Classes="sectionLabel" Text="STATUS &amp; NOTIFICATIONS" />
                         </StackPanel>
-                    </Border>
-                </WrapPanel>
 
-                <WrapPanel ItemSpacing="16" LineSpacing="16">
-                    <Border MinWidth="380"
-                            MaxWidth="520"
-                            Classes="card">
-                        <StackPanel Spacing="16">
-                            <StackPanel Classes="sectionHeader">
-                                <materialIcons:MaterialIcon Classes="sectionIcon" Kind="BellBadgeOutline" />
-                                <TextBlock Classes="sectionLabel" Text="STATUS &amp; NOTIFICATIONS" />
-                            </StackPanel>
+                        <WrapPanel ItemSpacing="12" LineSpacing="12">
+                            <StatusIndicator IconType="Success">Ready</StatusIndicator>
+                            <StatusIndicator IconType="Warning">Pending</StatusIndicator>
+                            <StatusIndicator IconType="Error">Failed</StatusIndicator>
+                            <StatusIndicator IconType="None">Idle</StatusIndicator>
+                        </WrapPanel>
 
-                            <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
-                                <StatusIndicator IconType="Success">Ready</StatusIndicator>
-                                <StatusIndicator IconType="Warning">Pending</StatusIndicator>
-                                <StatusIndicator IconType="Error">Failed</StatusIndicator>
-                                <StatusIndicator IconType="None">Idle</StatusIndicator>
-                            </SpacingWrapPanel>
+                        <WrapPanel ItemSpacing="12" LineSpacing="12">
+                            <Tag IsSolid="True" TagType="Success">healthy</Tag>
+                            <Tag IsCircular="True" TagType="Warning">attention</Tag>
+                            <Tag IsSolid="True" TagType="Error">blocked</Tag>
+                            <Tag IsCircular="True" TagType="None">muted</Tag>
+                        </WrapPanel>
 
-                            <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
-                                <Tag IsSolid="True" TagType="Success">healthy</Tag>
-                                <Tag IsCircular="True" TagType="Warning">attention</Tag>
-                                <Tag IsSolid="True" TagType="Error">blocked</Tag>
-                                <Tag IsCircular="True" TagType="None">muted</Tag>
-                            </SpacingWrapPanel>
+                        <Banner Content="System information has been refreshed." IconType="Information" />
+                        <Banner Content="Project indexing completed successfully." IconType="Success" />
+                        <Banner Content="Two background tasks need attention." IconType="Warning" />
+                    </StackPanel>
+                </Border>
 
-                            <Banner Content="System information has been refreshed." IconType="Information" />
-                            <Banner Content="Project indexing completed successfully." IconType="Success" />
-                            <Banner Content="Two background tasks need attention." IconType="Warning" />
+                <Border MinWidth="380"
+                        MaxWidth="520"
+                        Classes="card">
+                    <StackPanel Spacing="16">
+                        <StackPanel Classes="sectionHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ViewDashboardOutline" />
+                            <TextBlock Classes="sectionLabel" Text="WORKSPACE CONTAINERS" />
                         </StackPanel>
-                    </Border>
 
-                    <Border MinWidth="380"
-                            MaxWidth="520"
-                            Classes="card">
-                        <StackPanel Spacing="16">
-                            <StackPanel Classes="sectionHeader">
-                                <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ViewDashboardOutline" />
-                                <TextBlock Classes="sectionLabel" Text="WORKSPACE CONTAINERS" />
+                        <GroupBoxEx Padding="12" Header="Project setup">
+                            <StackPanel Spacing="12">
+                                <PathPicker PlaceholderText="Pick a workspace folder" UseFolderDialog="True" />
+                                <Expander Header="Advanced options" IsExpanded="True">
+                                    <StackPanel Spacing="12">
+                                        <CheckBox IsChecked="True">Cache metadata</CheckBox>
+                                        <CheckBox>Open last workspace on startup</CheckBox>
+                                    </StackPanel>
+                                </Expander>
+                                <Divider Content="Inspector" Orientation="Horizontal" />
+                                <ShadowChrome Padding="12" CornerRadius="4">
+                                    <SelectableTextBlock Text="ShadowChrome adds depth to elevated areas without interfering with the actual control theme colors." TextWrapping="Wrap" />
+                                </ShadowChrome>
                             </StackPanel>
+                        </GroupBoxEx>
+                    </StackPanel>
+                </Border>
 
-                            <GroupBoxEx Padding="12" Header="Project setup">
-                                <StackPanel Spacing="12">
-                                    <PathPicker PlaceholderText="Pick a workspace folder" UseFolderDialog="True" />
-                                    <Expander Header="Advanced options" IsExpanded="True">
-                                        <StackPanel Spacing="12">
-                                            <CheckBox IsChecked="True">Cache metadata</CheckBox>
-                                            <CheckBox>Open last workspace on startup</CheckBox>
-                                        </StackPanel>
-                                    </Expander>
-                                    <Divider Content="Inspector" Orientation="Horizontal" />
-                                    <ShadowChrome Padding="12" CornerRadius="4">
-                                        <SelectableTextBlock Text="ShadowChrome adds depth to elevated areas without interfering with the actual control theme colors." TextWrapping="Wrap" />
-                                    </ShadowChrome>
-                                </StackPanel>
-                            </GroupBoxEx>
+                <Border MinWidth="380"
+                        MaxWidth="520"
+                        Classes="card">
+                    <DockPanel VerticalSpacing="16">
+                        <StackPanel Classes="sectionHeader" DockPanel.Dock="Top">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="FileTreeOutline" />
+                            <TextBlock Classes="sectionLabel" Text="NAVIGATION" />
                         </StackPanel>
-                    </Border>
 
-                    <Border MinWidth="380"
-                            MaxWidth="520"
-                            Classes="card">
-                        <DockPanel VerticalSpacing="16">
-                            <StackPanel Classes="sectionHeader" DockPanel.Dock="Top">
-                                <materialIcons:MaterialIcon Classes="sectionIcon" Kind="FileTreeOutline" />
-                                <TextBlock Classes="sectionLabel" Text="NAVIGATION" />
-                            </StackPanel>
+                        <TreeView Height="160"
+                                  AutoScrollToSelectedItem="False"
+                                  DockPanel.Dock="Top">
+                            <TreeViewItem Header="Views"
+                                          IsExpanded="True"
+                                          IsSelected="True">
+                                <TreeViewItem Header="Overview.axaml" />
+                                <TreeViewItem Header="ButtonsView.axaml" />
+                            </TreeViewItem>
+                            <TreeViewItem Header="Themes" IsExpanded="True">
+                                <TreeViewItem Header="Light.xaml" />
+                                <TreeViewItem Header="Dark.xaml" />
+                            </TreeViewItem>
+                        </TreeView>
 
-                            <TreeView Height="160"
-                                      AutoScrollToSelectedItem="False"
-                                      DockPanel.Dock="Top">
-                                <TreeViewItem Header="Views"
-                                              IsExpanded="True"
-                                              IsSelected="True">
-                                    <TreeViewItem Header="Overview.axaml" />
-                                    <TreeViewItem Header="ButtonsView.axaml" />
-                                </TreeViewItem>
-                                <TreeViewItem Header="Themes" IsExpanded="True">
-                                    <TreeViewItem Header="Light.xaml" />
-                                    <TreeViewItem Header="Dark.xaml" />
-                                </TreeViewItem>
-                            </TreeView>
+                        <Border ClipToBounds="True" CornerRadius="0,0,8,8">
+                            <DragTabControl>
+                                <DragTabItem Header="Home">
+                                    <TextBlock Margin="8" Text="Responsive composition." />
+                                </DragTabItem>
+                                <DragTabItem Header="Colors">
+                                    <TextBlock Margin="8" Text="Theme colors come from real control variants." />
+                                </DragTabItem>
+                                <DragTabItem Header="States">
+                                    <TextBlock Margin="8" Text="Focused on primary interactions." />
+                                </DragTabItem>
+                            </DragTabControl>
+                        </Border>
+                    </DockPanel>
+                </Border>
+            </WrapPanel>
+        </StackPanel>
+    </ScrollViewer>
 
-                            <Border Background="{DynamicResource DragTabControlBackgroundBrush}" CornerRadius="14">
-                                <DragTabControl>
-                                    <DragTabItem Header="Home">
-                                        <TextBlock Margin="8" Text="Responsive composition." />
-                                    </DragTabItem>
-                                    <DragTabItem Header="Colors">
-                                        <TextBlock Margin="8" Text="Theme colors come from real control variants." />
-                                    </DragTabItem>
-                                    <DragTabItem Header="States">
-                                        <TextBlock Margin="8" Text="Focused on primary interactions." />
-                                    </DragTabItem>
-                                </DragTabControl>
-                            </Border>
-                        </DockPanel>
-                    </Border>
-                </WrapPanel>
-            </StackPanel>
-        </ScrollViewer>
-    </Panel>
 </UserControl>

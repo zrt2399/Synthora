@@ -23,7 +23,7 @@
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="Label" />
                             <TextBlock Classes="sectionLabel" Text="TAG" />
                         </StackPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                        <WrapPanel ItemSpacing="16" LineSpacing="16">
                             <Tag>wontfix</Tag>
                             <Tag TagType="Information">enhancement</Tag>
                             <Tag TagType="Question">question</Tag>
@@ -31,8 +31,8 @@
                             <Tag TagType="Warning">needs info</Tag>
                             <Tag TagType="Danger">security</Tag>
                             <Tag TagType="Error">bug</Tag>
-                        </SpacingWrapPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                        </WrapPanel>
+                        <WrapPanel ItemSpacing="16" LineSpacing="16">
                             <Tag IsSolid="True">duplicate</Tag>
                             <Tag IsSolid="True" TagType="Information">documentation</Tag>
                             <Tag IsSolid="True" TagType="Question">discussion</Tag>
@@ -40,8 +40,8 @@
                             <Tag IsSolid="True" TagType="Warning">help wanted</Tag>
                             <Tag IsSolid="True" TagType="Danger">breaking change</Tag>
                             <Tag IsSolid="True" TagType="Error">regression</Tag>
-                        </SpacingWrapPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                        </WrapPanel>
+                        <WrapPanel ItemSpacing="16" LineSpacing="16">
                             <Tag IsCircular="True">archived</Tag>
                             <Tag IsCircular="True"
                                  IsSolid="True"
@@ -61,7 +61,7 @@
                                 critical
                             </Tag>
                             <Tag IsCircular="True" TagType="Error">failed</Tag>
-                        </SpacingWrapPanel>
+                        </WrapPanel>
                     </StackPanel>
                 </Border>
 
@@ -72,15 +72,15 @@
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="CircleSlice8" />
                             <TextBlock Classes="sectionLabel" Text="STATUS INDICATOR" />
                         </StackPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                        <WrapPanel ItemSpacing="16" LineSpacing="16">
                             <StatusIndicator IconType="Information" />
                             <StatusIndicator IconType="Question" />
                             <StatusIndicator IconType="Success" />
                             <StatusIndicator IconType="Warning" />
                             <StatusIndicator IconType="Error" />
                             <StatusIndicator />
-                        </SpacingWrapPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                        </WrapPanel>
+                        <WrapPanel ItemSpacing="16" LineSpacing="16">
                             <StatusIndicator IconType="Success" StrokeThickness="1">Content</StatusIndicator>
                             <StatusIndicator IconType="Success" StrokeThickness="2" />
                             <StatusIndicator HighlightMargin="6"
@@ -94,7 +94,7 @@
                                              IconType="Error"
                                              IconWidth="12"
                                              StrokeThickness="0" />
-                        </SpacingWrapPanel>
+                        </WrapPanel>
                     </StackPanel>
                 </Border>
 
@@ -161,7 +161,7 @@
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ViewDashboard" />
                             <TextBlock Classes="sectionLabel" Text="SPACING WRAPPANEL" />
                         </StackPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                        <SpacingWrapPanel ItemSpacing="16" LineSpacing="16">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock VerticalAlignment="Center">TextBlock</TextBlock>
                                 <TextBox Margin="6,0,0,0">TextBox</TextBox>

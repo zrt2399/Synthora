@@ -13,7 +13,7 @@
     <DemoPage Title="Tree Menu"
               Description="{Binding Description}"
               IconKind="{Binding IconKind}">
-        <TreeMenu>
+        <TreeMenu Header="TreeMenu Example">
             <TreeMenu.Styles>
                 <Style Selector="materialIcons|MaterialIconText">
                     <Setter Property="IconSize" Value="20" />

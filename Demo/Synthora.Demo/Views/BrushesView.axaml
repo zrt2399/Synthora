@@ -26,9 +26,9 @@
                         <ItemsPresenter>
                             <ItemsPresenter.ItemsPanel>
                                 <ItemsPanelTemplate>
-                                    <SpacingWrapPanel Margin="16"
-                                                      HorizontalSpacing="10"
-                                                      VerticalSpacing="10" />
+                                    <WrapPanel Margin="16"
+                                               ItemSpacing="10"
+                                               LineSpacing="10" />
                                 </ItemsPanelTemplate>
                             </ItemsPresenter.ItemsPanel>
                         </ItemsPresenter>

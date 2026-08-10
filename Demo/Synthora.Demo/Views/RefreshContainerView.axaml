@@ -26,8 +26,9 @@
                             <DockPanel VerticalSpacing="10">
                                 <Border Padding="16,12"
                                         Background="{DynamicResource ThemeControlLowBrush}"
-                                        Classes="card"
-                                        CornerRadius="6"
+                                        BorderBrush="{DynamicResource ThemeBorderLowBrush}"
+                                        BorderThickness="{DynamicResource ThemeBorderThickness}"
+                                        CornerRadius="{DynamicResource ThemeBorderCornerRadiusNormal}"
                                         DockPanel.Dock="Top">
                                     <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="16">
                                         <materialIcons:MaterialIcon VerticalAlignment="Center"

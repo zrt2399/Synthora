@@ -35,10 +35,11 @@
         <Style Selector="^:left">
             <Setter Property="Template">
                 <ControlTemplate TargetType="SplitView">
-                    <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{TemplateBinding CornerRadius}">
+                    <ShadowChrome Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  BoxShadow="{TemplateBinding BoxShadowAttach.BoxShadow}"
+                                  CornerRadius="{TemplateBinding CornerRadius}">
                         <Grid Name="Container">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.PaneColumnGridLength}" />
@@ -62,7 +63,7 @@
                                 <Rectangle Name="LightDismissLayer" IsVisible="False" />
                             </Panel>
                         </Grid>
-                    </Border>
+                    </ShadowChrome>
                 </ControlTemplate>
             </Setter>
         </Style>
@@ -115,10 +116,11 @@
         <Style Selector="^:right">
             <Setter Property="Template">
                 <ControlTemplate TargetType="SplitView">
-                    <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{TemplateBinding CornerRadius}">
+                    <ShadowChrome Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  BoxShadow="{TemplateBinding BoxShadowAttach.BoxShadow}"
+                                  CornerRadius="{TemplateBinding CornerRadius}">
                         <Grid Name="Container">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
@@ -142,7 +144,7 @@
                                 <Rectangle Name="LightDismissLayer" IsVisible="False" />
                             </Panel>
                         </Grid>
-                    </Border>
+                    </ShadowChrome>
                 </ControlTemplate>
             </Setter>
         </Style>
@@ -195,10 +197,11 @@
         <Style Selector="^:top">
             <Setter Property="Template">
                 <ControlTemplate TargetType="SplitView">
-                    <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{TemplateBinding CornerRadius}">
+                    <ShadowChrome Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  BoxShadow="{TemplateBinding BoxShadowAttach.BoxShadow}"
+                                  CornerRadius="{TemplateBinding CornerRadius}">
                         <Grid Name="Container">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.PaneRowGridLength}" />
@@ -222,7 +225,7 @@
                                 <Rectangle Name="LightDismissLayer" IsVisible="False" />
                             </Panel>
                         </Grid>
-                    </Border>
+                    </ShadowChrome>
                 </ControlTemplate>
             </Setter>
         </Style>
@@ -275,10 +278,11 @@
         <Style Selector="^:bottom">
             <Setter Property="Template">
                 <ControlTemplate TargetType="SplitView">
-                    <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{TemplateBinding CornerRadius}">
+                    <ShadowChrome Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  BoxShadow="{TemplateBinding BoxShadowAttach.BoxShadow}"
+                                  CornerRadius="{TemplateBinding CornerRadius}">
                         <Grid Name="Container">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*" />
@@ -302,7 +306,7 @@
                                 <Rectangle Name="LightDismissLayer" IsVisible="False" />
                             </Panel>
                         </Grid>
-                    </Border>
+                    </ShadowChrome>
                 </ControlTemplate>
             </Setter>
         </Style>
@@ -353,8 +357,10 @@
 
         <!--  Open/Close Pane animation  -->
         <Style Selector="^:open">
-            <Style Selector="^ /template/ Border#PaneBorder">
-                <Setter Property="BoxShadow" Value="{DynamicResource SplitViewPanelBoxShadow}" />
+            <Style Selector="^:overlay,^:compactoverlay">
+                <Style Selector="^ /template/ Border#PaneBorder">
+                    <Setter Property="BoxShadow" Value="{DynamicResource SplitViewPanelBoxShadow}" />
+                </Style>
             </Style>
 
             <Style Selector="^:top /template/ Panel#PART_PaneRoot">
@@ -463,6 +469,10 @@
             </Style>
         </Style>
 
+        <Style Selector="^ /template/ ContentPresenter#PART_PanePresenter">
+            <Setter Property="ClipToBounds" Value="True" />
+        </Style>
+
         <Style Selector="^:lightDismiss /template/ Rectangle#LightDismissLayer">
             <Setter Property="Fill" Value="{DynamicResource ThemeOverlayBrush}" />
         </Style>
@@ -473,5 +483,15 @@
         <Style Selector="^:compactoverlay:open /template/ Rectangle#LightDismissLayer">
             <Setter Property="IsVisible" Value="True" />
         </Style>
+
+        <Style Selector="^.Border">
+            <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
+            <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
+        </Style>
+        <Style Selector="^.Shadow">
+            <Setter Property="ClipToBounds" Value="False" />
+            <Setter Property="BoxShadowAttach.BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
+        </Style>
     </ControlTheme>
+
 </ResourceDictionary>

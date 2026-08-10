@@ -54,16 +54,14 @@
                                                 Value="6" />
                                     </StackPanel>
 
-                                    <StackPanel Orientation="Horizontal" Spacing="16">
-                                        <TextBox Width="200"
-                                                 Text="{Binding #LiveBanner.Header}"
-                                                 TextBoxAttach.Header="Header:"
-                                                 TextBoxAttach.HeaderPlacement="Left" />
-                                        <TextBox Width="320"
-                                                 Text="{Binding #LiveBanner.Content}"
-                                                 TextBoxAttach.Header="Content:"
-                                                 TextBoxAttach.HeaderPlacement="Left" />
-                                    </StackPanel>
+                                    <TextBox Width="200"
+                                             Text="{Binding #LiveBanner.Header}"
+                                             TextBoxAttach.Header="Header:"
+                                             TextBoxAttach.HeaderPlacement="Left" />
+                                    <TextBox Width="320"
+                                             Text="{Binding #LiveBanner.Content}"
+                                             TextBoxAttach.Header="Content:"
+                                             TextBoxAttach.HeaderPlacement="Left" />
                                 </WrapPanel>
                                 <Banner Name="LiveBanner"
                                         Classes.Border="{Binding #LiveBannerBorder.IsChecked}"

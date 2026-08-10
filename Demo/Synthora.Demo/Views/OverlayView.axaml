@@ -24,13 +24,13 @@
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="Bell" />
                             <TextBlock Classes="sectionLabel" Text="NOTIFICATION" />
                         </StackPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
-                            <SpacingWrapPanel.Styles>
+                        <WrapPanel ItemSpacing="16" LineSpacing="16">
+                            <WrapPanel.Styles>
                                 <Style Selector="Button">
                                     <Setter Property="Command" Value="{Binding ShowNotification}" />
                                     <Setter Property="CommandParameter" Value="{Binding $self.Content}" />
                                 </Style>
-                            </SpacingWrapPanel.Styles>
+                            </WrapPanel.Styles>
                             <ComboBox ItemsSource="{EnumBindingSource NotificationPosition}"
                                       SelectedItem="{Binding NotificationPosition}"
                                       TextBoxAttach.Header="NotificationPosition:"
@@ -41,7 +41,7 @@
                             <Button Classes="Error" Theme="{StaticResource SolidButtonTheme}">Error</Button>
                             <Button Classes="Question" Theme="{StaticResource SolidButtonTheme}">Multiline</Button>
                             <Button>WithoutTitle</Button>
-                        </SpacingWrapPanel>
+                        </WrapPanel>
                     </StackPanel>
                 </Border>
 
@@ -52,13 +52,13 @@
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="TooltipText" />
                             <TextBlock Classes="sectionLabel" Text="MESSAGE TIP" />
                         </StackPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
-                            <SpacingWrapPanel.Styles>
+                        <WrapPanel ItemSpacing="16" LineSpacing="16">
+                            <WrapPanel.Styles>
                                 <Style Selector="Button">
                                     <Setter Property="Command" Value="{Binding ShowMessageTip}" />
                                     <Setter Property="CommandParameter" Value="{Binding $self.Content}" />
                                 </Style>
-                            </SpacingWrapPanel.Styles>
+                            </WrapPanel.Styles>
                             <ComboBox ItemsSource="{EnumBindingSource PlacementMode}"
                                       SelectedItem="{Binding MessageTipPlacement}"
                                       TextBoxAttach.Header="PlacementMode:"
@@ -69,7 +69,7 @@
                             <Button Classes="Warning" Theme="{StaticResource SolidButtonTheme}">ShowWarning</Button>
                             <Button Classes="Error" Theme="{StaticResource SolidButtonTheme}">ShowError</Button>
                             <Button>None</Button>
-                        </SpacingWrapPanel>
+                        </WrapPanel>
                     </StackPanel>
                 </Border>
 
@@ -80,14 +80,14 @@
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="AlertCircle" />
                             <TextBlock Classes="sectionLabel" Text="ALERT DIALOG" />
                         </StackPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
-                            <SpacingWrapPanel.Styles>
+                        <WrapPanel ItemSpacing="16" LineSpacing="16">
+                            <WrapPanel.Styles>
                                 <Style Selector="Button">
                                     <Setter Property="Command" Value="{Binding ShowAlertDialog}" />
                                     <Setter Property="CommandParameter" Value="{Binding $self.Content}" />
                                     <Setter Property="CornerRadiusAttach.IsCircular" Value="True" />
                                 </Style>
-                            </SpacingWrapPanel.Styles>
+                            </WrapPanel.Styles>
                             <ComboBox ItemsSource="{EnumBindingSource overlays:DialogButton}"
                                       SelectedItem="{Binding DialogButton}"
                                       TextBoxAttach.Header="DialogButton:"
@@ -100,7 +100,7 @@
                             <Button Classes="Error" Theme="{StaticResource SolidButtonTheme}">Abort</Button>
                             <Button>None</Button>
                             <Button Theme="{StaticResource SolidButtonTheme}">Custom</Button>
-                        </SpacingWrapPanel>
+                        </WrapPanel>
                     </StackPanel>
                 </Border>
 

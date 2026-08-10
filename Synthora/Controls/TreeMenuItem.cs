@@ -350,9 +350,9 @@ namespace Synthora.Controls
                 return;
             }
 
-            _itemsContainer.IsVisible = isExpanded;
-            _itemsContainer.Opacity = isExpanded ? 1 : 0;
-            _itemsContainer.MaxHeight = isExpanded ? double.PositiveInfinity : 0;
+            _itemsContainer.SetCurrentValue(IsVisibleProperty, isExpanded);
+            _itemsContainer.SetCurrentValue(OpacityProperty, isExpanded ? 1 : 0);
+            _itemsContainer.SetCurrentValue(MaxHeightProperty, isExpanded ? double.PositiveInfinity : 0);
         }
 
         private async Task<ItemsContainerAnimationState> GetItemsContainerAnimationStateAsync(bool isExpanded, CancellationToken cancellationToken)

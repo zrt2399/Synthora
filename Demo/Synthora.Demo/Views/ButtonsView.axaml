@@ -39,8 +39,9 @@
                             <Tag>Outline</Tag>
                             <Tag IsSolid="True" TagType="Information">Solid</Tag>
                             <Tag IsSolid="True">Borderless</Tag>
+                            <Tag TagType="Information">Icon</Tag>
                         </StackPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                        <WrapPanel ItemSpacing="12" LineSpacing="12">
                             <Button Classes="Icon" Content="{materialIcons:MaterialIconExt Cog}" />
                             <Button>Default</Button>
                             <Button Classes="Primary">Primary</Button>
@@ -49,8 +50,8 @@
                             <Button Classes="Question">Question</Button>
                             <Button Classes="Warning">Warning</Button>
                             <Button Classes="Error">Error</Button>
-                        </SpacingWrapPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                        </WrapPanel>
+                        <WrapPanel ItemSpacing="12" LineSpacing="12">
                             <Button Classes="Icon" Theme="{StaticResource SolidButtonTheme}">
                                 <materialIcons:MaterialIcon Kind="PaletteOutline" />
                             </Button>
@@ -61,8 +62,8 @@
                             <Button Classes="Question" Theme="{StaticResource SolidButtonTheme}">Question</Button>
                             <Button Classes="Warning" Theme="{StaticResource SolidButtonTheme}">Warning</Button>
                             <Button Classes="Error" Theme="{StaticResource SolidButtonTheme}">Error</Button>
-                        </SpacingWrapPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                        </WrapPanel>
+                        <WrapPanel ItemSpacing="12" LineSpacing="12">
                             <Button Classes="Icon" Theme="{StaticResource BorderlessButtonTheme}">
                                 <materialIcons:MaterialIcon Kind="VolumeHigh" />
                             </Button>
@@ -73,7 +74,28 @@
                             <Button Classes="Question" Theme="{StaticResource BorderlessButtonTheme}">Question</Button>
                             <Button Classes="Warning" Theme="{StaticResource BorderlessButtonTheme}">Warning</Button>
                             <Button Classes="Error" Theme="{StaticResource BorderlessButtonTheme}">Error</Button>
-                        </SpacingWrapPanel>
+                        </WrapPanel>
+                        <WrapPanel ItemSpacing="12" LineSpacing="12">
+                            <Button Content="{materialIcons:MaterialIconExt Information}" Theme="{StaticResource IconButtonTheme}" />
+                            <Button Classes="Primary" Theme="{StaticResource IconButtonTheme}">
+                                <materialIcons:MaterialIcon Kind="Star" />
+                            </Button>
+                            <Button Classes="Secondary" Theme="{StaticResource IconButtonTheme}">
+                                <materialIcons:MaterialIcon Kind="Palette" />
+                            </Button>
+                            <Button Classes="Success" Theme="{StaticResource IconButtonTheme}">
+                                <materialIcons:MaterialIcon Kind="CheckCircle" />
+                            </Button>
+                            <Button Classes="Question" Theme="{StaticResource IconButtonTheme}">
+                                <materialIcons:MaterialIcon Kind="HelpCircle" />
+                            </Button>
+                            <Button Classes="Warning" Theme="{StaticResource IconButtonTheme}">
+                                <materialIcons:MaterialIcon Kind="AlertCircle" />
+                            </Button>
+                            <Button Classes="Error" Theme="{StaticResource IconButtonTheme}">
+                                <materialIcons:MaterialIcon Kind="CloseCircle" />
+                            </Button>
+                        </WrapPanel>
                     </StackPanel>
                 </Border>
 
@@ -86,8 +108,9 @@
                             <Tag>Outline</Tag>
                             <Tag IsSolid="True" TagType="Information">Solid</Tag>
                             <Tag IsSolid="True">Borderless</Tag>
+                            <Tag TagType="Information">Icon</Tag>
                         </StackPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                        <WrapPanel ItemSpacing="16" LineSpacing="16">
                             <RepeatButton Classes="Icon" Content="{materialIcons:MaterialIconExt Repeat}" />
                             <RepeatButton>Default</RepeatButton>
                             <RepeatButton Classes="Primary">Primary</RepeatButton>
@@ -96,8 +119,8 @@
                             <RepeatButton Classes="Question">Question</RepeatButton>
                             <RepeatButton Classes="Warning">Warning</RepeatButton>
                             <RepeatButton Classes="Error">Error</RepeatButton>
-                        </SpacingWrapPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                        </WrapPanel>
+                        <WrapPanel ItemSpacing="16" LineSpacing="16">
                             <RepeatButton Classes="Icon" Theme="{StaticResource SolidRepeatButtonTheme}">
                                 <materialIcons:MaterialIcon Kind="SkipBackward" />
                             </RepeatButton>
@@ -108,8 +131,8 @@
                             <RepeatButton Classes="Question" Theme="{StaticResource SolidRepeatButtonTheme}">Question</RepeatButton>
                             <RepeatButton Classes="Warning" Theme="{StaticResource SolidRepeatButtonTheme}">Warning</RepeatButton>
                             <RepeatButton Classes="Error" Theme="{StaticResource SolidRepeatButtonTheme}">Error</RepeatButton>
-                        </SpacingWrapPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                        </WrapPanel>
+                        <WrapPanel ItemSpacing="16" LineSpacing="16">
                             <RepeatButton Classes="Icon"
                                           Content="{materialIcons:MaterialIconExt SkipNext}"
                                           Theme="{StaticResource BorderlessRepeatButtonTheme}" />
@@ -120,7 +143,28 @@
                             <RepeatButton Classes="Question" Theme="{StaticResource BorderlessRepeatButtonTheme}">Question</RepeatButton>
                             <RepeatButton Classes="Warning" Theme="{StaticResource BorderlessRepeatButtonTheme}">Warning</RepeatButton>
                             <RepeatButton Classes="Error" Theme="{StaticResource BorderlessRepeatButtonTheme}">Error</RepeatButton>
-                        </SpacingWrapPanel>
+                        </WrapPanel>
+                        <WrapPanel ItemSpacing="12" LineSpacing="12">
+                            <RepeatButton Content="{materialIcons:MaterialIconExt RefreshCircle}" Theme="{StaticResource IconRepeatButtonTheme}" />
+                            <RepeatButton Classes="Primary" Theme="{StaticResource IconRepeatButtonTheme}">
+                                <materialIcons:MaterialIcon Kind="Heart" />
+                            </RepeatButton>
+                            <RepeatButton Classes="Secondary" Theme="{StaticResource IconRepeatButtonTheme}">
+                                <materialIcons:MaterialIcon Kind="Shape" />
+                            </RepeatButton>
+                            <RepeatButton Classes="Success" Theme="{StaticResource IconRepeatButtonTheme}">
+                                <materialIcons:MaterialIcon Kind="CheckDecagram" />
+                            </RepeatButton>
+                            <RepeatButton Classes="Question" Theme="{StaticResource IconRepeatButtonTheme}">
+                                <materialIcons:MaterialIcon Kind="CommentQuestion" />
+                            </RepeatButton>
+                            <RepeatButton Classes="Warning" Theme="{StaticResource IconRepeatButtonTheme}">
+                                <materialIcons:MaterialIcon Kind="BellAlert" />
+                            </RepeatButton>
+                            <RepeatButton Classes="Error" Theme="{StaticResource IconRepeatButtonTheme}">
+                                <materialIcons:MaterialIcon Kind="CloseBox" />
+                            </RepeatButton>
+                        </WrapPanel>
                     </StackPanel>
                 </Border>
 
@@ -139,7 +183,7 @@
                             <Tag IsSolid="True" TagType="Information">Solid</Tag>
                             <Tag IsSolid="True">Borderless</Tag>
                         </StackPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                        <WrapPanel ItemSpacing="16" LineSpacing="16">
                             <ToggleButton Classes="Icon" Content="{materialIcons:MaterialIconExt ToggleSwitchVariant}" />
                             <ToggleButton>Default</ToggleButton>
                             <ToggleButton Classes="Primary">Primary</ToggleButton>
@@ -148,8 +192,8 @@
                             <ToggleButton Classes="Question">Question</ToggleButton>
                             <ToggleButton Classes="Warning">Warning</ToggleButton>
                             <ToggleButton Classes="Error">Error</ToggleButton>
-                        </SpacingWrapPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                        </WrapPanel>
+                        <WrapPanel ItemSpacing="16" LineSpacing="16">
                             <ToggleButton Classes="Icon" Theme="{StaticResource SolidToggleButtonTheme}">
                                 <materialIcons:MaterialIcon Kind="ThemeLightDark" />
                             </ToggleButton>
@@ -160,8 +204,8 @@
                             <ToggleButton Classes="Question" Theme="{StaticResource SolidToggleButtonTheme}">Question</ToggleButton>
                             <ToggleButton Classes="Warning" Theme="{StaticResource SolidToggleButtonTheme}">Warning</ToggleButton>
                             <ToggleButton Classes="Error" Theme="{StaticResource SolidToggleButtonTheme}">Error</ToggleButton>
-                        </SpacingWrapPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                        </WrapPanel>
+                        <WrapPanel ItemSpacing="16" LineSpacing="16">
                             <ToggleButton Classes="Icon" Theme="{StaticResource BorderlessToggleButtonTheme}">
                                 <materialIcons:MaterialIcon Kind="FormatBold" />
                             </ToggleButton>
@@ -172,7 +216,7 @@
                             <ToggleButton Classes="Question" Theme="{StaticResource BorderlessToggleButtonTheme}">Question</ToggleButton>
                             <ToggleButton Classes="Warning" Theme="{StaticResource BorderlessToggleButtonTheme}">Warning</ToggleButton>
                             <ToggleButton Classes="Error" Theme="{StaticResource BorderlessToggleButtonTheme}">Error</ToggleButton>
-                        </SpacingWrapPanel>
+                        </WrapPanel>
                     </StackPanel>
                 </Border>
 
@@ -195,7 +239,7 @@
                             <Tag IsSolid="True" TagType="Information">Solid</Tag>
                             <Tag IsSolid="True">Borderless</Tag>
                         </StackPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                        <WrapPanel ItemSpacing="16" LineSpacing="16">
                             <DropDownButton>Default</DropDownButton>
                             <DropDownButton Classes="Primary">Primary</DropDownButton>
                             <DropDownButton Classes="Secondary">Secondary</DropDownButton>
@@ -206,8 +250,8 @@
                             <DropDownButton DropDownButtonAttach.DropDownIcon="{StaticResource CustomIcon}" DropDownButtonAttach.DropDownIconAnimationEnabled="False">
                                 Custom Icon
                             </DropDownButton>
-                        </SpacingWrapPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                        </WrapPanel>
+                        <WrapPanel ItemSpacing="16" LineSpacing="16">
                             <DropDownButton Theme="{StaticResource SolidDropDownButtonTheme}">Default</DropDownButton>
                             <DropDownButton Classes="Primary" Theme="{StaticResource SolidDropDownButtonTheme}">Primary</DropDownButton>
                             <DropDownButton Classes="Secondary" Theme="{StaticResource SolidDropDownButtonTheme}">Secondary</DropDownButton>
@@ -215,8 +259,8 @@
                             <DropDownButton Classes="Question" Theme="{StaticResource SolidDropDownButtonTheme}">Question</DropDownButton>
                             <DropDownButton Classes="Warning" Theme="{StaticResource SolidDropDownButtonTheme}">Warning</DropDownButton>
                             <DropDownButton Classes="Error" Theme="{StaticResource SolidDropDownButtonTheme}">Error</DropDownButton>
-                        </SpacingWrapPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                        </WrapPanel>
+                        <WrapPanel ItemSpacing="16" LineSpacing="16">
                             <DropDownButton Theme="{StaticResource BorderlessDropDownButtonTheme}">Default</DropDownButton>
                             <DropDownButton Classes="Primary" Theme="{StaticResource BorderlessDropDownButtonTheme}">Primary</DropDownButton>
                             <DropDownButton Classes="Secondary" Theme="{StaticResource BorderlessDropDownButtonTheme}">Secondary</DropDownButton>
@@ -224,7 +268,7 @@
                             <DropDownButton Classes="Question" Theme="{StaticResource BorderlessDropDownButtonTheme}">Question</DropDownButton>
                             <DropDownButton Classes="Warning" Theme="{StaticResource BorderlessDropDownButtonTheme}">Warning</DropDownButton>
                             <DropDownButton Classes="Error" Theme="{StaticResource BorderlessDropDownButtonTheme}">Error</DropDownButton>
-                        </SpacingWrapPanel>
+                        </WrapPanel>
                     </StackPanel>
                 </Border>
 
@@ -253,7 +297,7 @@
                             <Tag IsSolid="True" TagType="Information">Solid</Tag>
                             <Tag IsSolid="True">Borderless</Tag>
                         </StackPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                        <WrapPanel ItemSpacing="16" LineSpacing="16">
                             <SplitButton>Default</SplitButton>
                             <SplitButton Classes="Primary">Primary</SplitButton>
                             <SplitButton Classes="Secondary">Secondary</SplitButton>
@@ -264,8 +308,8 @@
                             <SplitButton DropDownButtonAttach.DropDownIcon="{StaticResource CustomIcon}" DropDownButtonAttach.DropDownIconAnimationEnabled="False">
                                 Custom Icon
                             </SplitButton>
-                        </SpacingWrapPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                        </WrapPanel>
+                        <WrapPanel ItemSpacing="16" LineSpacing="16">
                             <SplitButton Theme="{StaticResource SolidSplitButtonTheme}">Default</SplitButton>
                             <SplitButton Classes="Primary" Theme="{StaticResource SolidSplitButtonTheme}">Primary</SplitButton>
                             <SplitButton Classes="Secondary" Theme="{StaticResource SolidSplitButtonTheme}">Secondary</SplitButton>
@@ -273,8 +317,8 @@
                             <SplitButton Classes="Question" Theme="{StaticResource SolidSplitButtonTheme}">Question</SplitButton>
                             <SplitButton Classes="Warning" Theme="{StaticResource SolidSplitButtonTheme}">Warning</SplitButton>
                             <SplitButton Classes="Error" Theme="{StaticResource SolidSplitButtonTheme}">Error</SplitButton>
-                        </SpacingWrapPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                        </WrapPanel>
+                        <WrapPanel ItemSpacing="16" LineSpacing="16">
                             <SplitButton Theme="{StaticResource BorderlessSplitButtonTheme}">Default</SplitButton>
                             <SplitButton Classes="Primary" Theme="{StaticResource BorderlessSplitButtonTheme}">Primary</SplitButton>
                             <SplitButton Classes="Secondary" Theme="{StaticResource BorderlessSplitButtonTheme}">Secondary</SplitButton>
@@ -282,7 +326,7 @@
                             <SplitButton Classes="Question" Theme="{StaticResource BorderlessSplitButtonTheme}">Question</SplitButton>
                             <SplitButton Classes="Warning" Theme="{StaticResource BorderlessSplitButtonTheme}">Warning</SplitButton>
                             <SplitButton Classes="Error" Theme="{StaticResource BorderlessSplitButtonTheme}">Error</SplitButton>
-                        </SpacingWrapPanel>
+                        </WrapPanel>
                     </StackPanel>
                 </Border>
 
@@ -311,7 +355,7 @@
                             <Tag IsSolid="True" TagType="Information">Solid</Tag>
                             <Tag IsSolid="True">Borderless</Tag>
                         </StackPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                        <WrapPanel ItemSpacing="16" LineSpacing="16">
                             <ToggleSplitButton>Default</ToggleSplitButton>
                             <ToggleSplitButton Classes="Primary">Primary</ToggleSplitButton>
                             <ToggleSplitButton Classes="Secondary">Secondary</ToggleSplitButton>
@@ -322,8 +366,8 @@
                             <ToggleSplitButton DropDownButtonAttach.DropDownIcon="{StaticResource CustomIcon}" DropDownButtonAttach.DropDownIconAnimationEnabled="False">
                                 Custom Icon
                             </ToggleSplitButton>
-                        </SpacingWrapPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                        </WrapPanel>
+                        <WrapPanel ItemSpacing="16" LineSpacing="16">
                             <ToggleSplitButton Theme="{StaticResource SolidToggleSplitButtonTheme}">Default</ToggleSplitButton>
                             <ToggleSplitButton Classes="Primary" Theme="{StaticResource SolidToggleSplitButtonTheme}">Primary</ToggleSplitButton>
                             <ToggleSplitButton Classes="Secondary" Theme="{StaticResource SolidToggleSplitButtonTheme}">Secondary</ToggleSplitButton>
@@ -331,8 +375,8 @@
                             <ToggleSplitButton Classes="Question" Theme="{StaticResource SolidToggleSplitButtonTheme}">Question</ToggleSplitButton>
                             <ToggleSplitButton Classes="Warning" Theme="{StaticResource SolidToggleSplitButtonTheme}">Warning</ToggleSplitButton>
                             <ToggleSplitButton Classes="Error" Theme="{StaticResource SolidToggleSplitButtonTheme}">Error</ToggleSplitButton>
-                        </SpacingWrapPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                        </WrapPanel>
+                        <WrapPanel ItemSpacing="16" LineSpacing="16">
                             <ToggleSplitButton Theme="{StaticResource BorderlessToggleSplitButtonTheme}">Default</ToggleSplitButton>
                             <ToggleSplitButton Classes="Primary" Theme="{StaticResource BorderlessToggleSplitButtonTheme}">Primary</ToggleSplitButton>
                             <ToggleSplitButton Classes="Secondary" Theme="{StaticResource BorderlessToggleSplitButtonTheme}">Secondary</ToggleSplitButton>
@@ -340,7 +384,7 @@
                             <ToggleSplitButton Classes="Question" Theme="{StaticResource BorderlessToggleSplitButtonTheme}">Question</ToggleSplitButton>
                             <ToggleSplitButton Classes="Warning" Theme="{StaticResource BorderlessToggleSplitButtonTheme}">Warning</ToggleSplitButton>
                             <ToggleSplitButton Classes="Error" Theme="{StaticResource BorderlessToggleSplitButtonTheme}">Error</ToggleSplitButton>
-                        </SpacingWrapPanel>
+                        </WrapPanel>
                     </StackPanel>
                 </Border>
 
@@ -351,12 +395,12 @@
                             <materialIcons:MaterialIcon Classes="sectionIcon" Kind="LinkVariant" />
                             <TextBlock Classes="sectionLabel" Text="HYPERLINK BUTTON" />
                         </StackPanel>
-                        <SpacingWrapPanel HorizontalSpacing="16" VerticalSpacing="16">
+                        <WrapPanel ItemSpacing="16" LineSpacing="16">
                             <HyperlinkButton Content="{materialIcons:MaterialIconExt VectorLink}" />
                             <HyperlinkButton>HyperlinkButton</HyperlinkButton>
                             <HyperlinkButton Classes="Underline">Underline</HyperlinkButton>
                             <HyperlinkButton NavigateUri="{x:Static vm:MainViewModel.GitHubDepositoryUri}">GitHub</HyperlinkButton>
-                        </SpacingWrapPanel>
+                        </WrapPanel>
                     </StackPanel>
                 </Border>
             </StackPanel>

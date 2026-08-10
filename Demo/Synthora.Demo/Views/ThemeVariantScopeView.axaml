@@ -17,7 +17,7 @@
         <ScrollViewer Padding="16">
             <StackPanel Spacing="16">
                 <ThemeVariantScope RequestedThemeVariant="Light">
-                    <Border Classes="card" Background="{DynamicResource ThemeBackgroundBrush}">
+                    <Border Background="{DynamicResource ThemeBackgroundBrush}" Classes="card">
                         <StackPanel Spacing="16">
                             <StackPanel Classes="sectionHeader">
                                 <materialIcons:MaterialIcon Classes="sectionIcon" Kind="WhiteBalanceSunny" />
@@ -33,17 +33,17 @@
                                         <ComboBoxItem>Internal</ComboBoxItem>
                                     </ComboBox>
                                     <ProgressBar ShowProgressText="True" Value="49" />
-                                    <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
+                                    <WrapPanel ItemSpacing="12" LineSpacing="12">
                                         <Button Classes="Primary" Theme="{StaticResource SolidButtonTheme}">Approve</Button>
                                         <Button Theme="{StaticResource OutlineButtonTheme}">Review notes</Button>
-                                        <Tag TagType="Success" IsSolid="True">ready</Tag>
-                                    </SpacingWrapPanel>
+                                        <Tag IsSolid="True" TagType="Success">ready</Tag>
+                                    </WrapPanel>
                                 </StackPanel>
 
-                                <StackPanel Grid.Column="2" Spacing="12">
+                                <StackPanel Spacing="12">
                                     <Banner Content="All package checks completed." IconType="Success" />
                                     <GroupBoxEx Header="Sign-off">
-                                        <StackPanel Spacing="10">
+                                        <StackPanel Spacing="12">
                                             <StatusIndicator IconType="Success">Documentation updated</StatusIndicator>
                                             <StatusIndicator IconType="Information">Screenshots captured</StatusIndicator>
                                             <StatusIndicator IconType="Warning">Android smoke test pending</StatusIndicator>
@@ -56,7 +56,7 @@
                 </ThemeVariantScope>
 
                 <ThemeVariantScope RequestedThemeVariant="Dark">
-                    <Border Classes="card" Background="{DynamicResource ThemeBackgroundBrush}">
+                    <Border Background="{DynamicResource ThemeBackgroundBrush}" Classes="card">
                         <StackPanel Spacing="16">
                             <StackPanel Classes="sectionHeader">
                                 <materialIcons:MaterialIcon Classes="sectionIcon" Kind="WeatherNight" />
@@ -74,10 +74,10 @@
                                     <ProgressBar Classes="Secondary"
                                                  ShowProgressText="True"
                                                  Value="51" />
-                                    <SpacingWrapPanel HorizontalSpacing="10" VerticalSpacing="10">
+                                    <SpacingWrapPanel ItemSpacing="12" LineSpacing="12">
                                         <Button Classes="Secondary" Theme="{StaticResource SolidButtonTheme}">Open queue</Button>
                                         <Button Theme="{StaticResource OutlineButtonTheme}">Create task</Button>
-                                        <Tag TagType="Question" IsSolid="True">triage</Tag>
+                                        <Tag IsSolid="True" TagType="Question">triage</Tag>
                                     </SpacingWrapPanel>
                                 </StackPanel>
 
@@ -96,4 +96,5 @@
             </StackPanel>
         </ScrollViewer>
     </DemoPage>
+
 </UserControl>

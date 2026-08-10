@@ -10,7 +10,7 @@
     </Design.PreviewWith>
 
     <x:Double x:Key="NavigationPageBarHeight">36</x:Double>
-    <SolidColorBrush x:Key="NavigationPageHeaderBarBackground" Color="{DynamicResource SynthoraMidColor}" />
+    <SolidColorBrush x:Key="NavigationPageHeaderBarBackground" Color="{DynamicResource ThemeBackgroundColor}" />
 
     <PageSlide x:Key="HorizontalPageSlideAnimation"
                FillMode="Forward"
@@ -55,42 +55,37 @@
         <Setter Property="ModalTransition" Value="{DynamicResource VerticalPageSlideAnimation}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Padding="{TemplateBinding Padding}"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
-                    <Panel>
-                        <DockPanel>
+                <ShadowChrome Background="{TemplateBinding Background}"
+                              BorderBrush="{TemplateBinding BorderBrush}"
+                              BorderThickness="{TemplateBinding BorderThickness}"
+                              BoxShadow="{TemplateBinding BoxShadowAttach.BoxShadow}"
+                              CornerRadius="{TemplateBinding CornerRadius}">
+                    <Panel Margin="{TemplateBinding Margin}">
+                        <Grid RowDefinitions="Auto,*,Auto">
                             <Border Name="PART_NavBarSpacer"
                                     Height="{TemplateBinding EffectiveBarHeight}"
-                                    DockPanel.Dock="Top"
                                     IsVisible="False" />
 
-                            <ContentPresenter Name="PART_BottomCommandBar"
-                                              HorizontalContentAlignment="Stretch"
-                                              Background="{TemplateBinding Background}"
-                                              Content="{Binding CurrentPage?.(NavigationPage.BottomCommandBar), RelativeSource={RelativeSource TemplatedParent}, FallbackValue={x:Null}}"
-                                              DockPanel.Dock="Bottom" />
-
                             <Grid Name="PART_ContentHost"
+                                  Grid.Row="1"
                                   Background="{TemplateBinding Background}"
                                   ClipToBounds="True">
-                                <ContentPresenter Name="PART_PageBackPresenter"
-                                                  HorizontalAlignment="Stretch"
-                                                  VerticalAlignment="Stretch" />
-                                <ContentPresenter Name="PART_PagePresenter"
-                                                  HorizontalAlignment="Stretch"
-                                                  VerticalAlignment="Stretch" />
+                                <ContentPresenter Name="PART_PageBackPresenter" />
+                                <ContentPresenter Name="PART_PagePresenter" />
                             </Grid>
-                        </DockPanel>
+
+                            <ContentPresenter Name="PART_BottomCommandBar"
+                                              Grid.Row="2"
+                                              Background="{TemplateBinding Background}"
+                                              Content="{Binding CurrentPage?.(NavigationPage.BottomCommandBar), RelativeSource={RelativeSource TemplatedParent}, FallbackValue={x:Null}}" />
+                        </Grid>
 
                         <Border Name="PART_NavigationBar"
                                 Height="{TemplateBinding EffectiveBarHeight}"
                                 VerticalAlignment="Top"
                                 Background="{DynamicResource NavigationPageHeaderBarBackground}">
                             <Grid ColumnDefinitions="Auto, *, Auto">
-                                <Button x:Name="PART_BackButton"
+                                <Button Name="PART_BackButton"
                                         Grid.Column="0"
                                         Width="{Binding $self.Bounds.Height}"
                                         ButtonAttach.ShowShadowOnInteraction="False"
@@ -99,7 +94,7 @@
                                         IsVisible="{TemplateBinding IsBackButtonEffectivelyVisible}"
                                         Theme="{StaticResource BorderlessButtonTheme}">
                                     <Panel>
-                                        <PathIcon x:Name="PART_BackButtonDefaultIcon"
+                                        <PathIcon Name="PART_BackButtonDefaultIcon"
                                                   Width="16"
                                                   Height="16"
                                                   HorizontalAlignment="Center"
@@ -149,7 +144,7 @@
                                           IsVisible="False"
                                           ZIndex="100" />
                     </Panel>
-                </Border>
+                </ShadowChrome>
             </ControlTemplate>
         </Setter>
 
@@ -160,5 +155,15 @@
         <Style Selector="^:nav-bar-compact /template/ ContentPresenter#PART_TopCommandBar CommandBar">
             <Setter Property="DefaultLabelPosition" Value="Collapsed" />
         </Style>
+
+        <Style Selector="^.Border">
+            <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
+            <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
+        </Style>
+        <Style Selector="^.Shadow">
+            <Setter Property="ClipToBounds" Value="False" />
+            <Setter Property="BoxShadowAttach.BoxShadow" Value="{DynamicResource DefaultBoxShadow}" />
+        </Style>
     </ControlTheme>
+
 </ResourceDictionary>

@@ -14,15 +14,12 @@
                         CornerRadius="{TemplateBinding CornerRadius}">
                     <DockPanel>
                         <Border Margin="16,16,16,0"
-                                Padding="12"
-                                Background="{DynamicResource SynthoraMidBrush}"
-                                CornerRadius="12"
+                                Classes="card"
                                 DockPanel.Dock="Top">
                             <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="16">
                                 <materialIcons:MaterialIcon VerticalAlignment="Center"
                                                             IconSize="24"
                                                             Kind="{TemplateBinding IconKind}" />
-
                                 <StackPanel Grid.Column="1"
                                             VerticalAlignment="Center"
                                             Spacing="2">
@@ -57,4 +54,5 @@
             </ControlTemplate>
         </Setter>
     </ControlTheme>
+
 </ResourceDictionary>

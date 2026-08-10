@@ -201,4 +201,80 @@
         </Style>
     </ControlTheme>
 
+    <ControlTheme x:Key="IconButtonTheme"
+                  BasedOn="{StaticResource ButtonBaseTheme}"
+                  TargetType="Button">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="{Binding $self.Background}" />
+        <Setter Property="Padding" Value="{DynamicResource IconButtonPadding}" />
+
+        <Style Selector="^:focus,^:pointerover">
+            <Setter Property="Background" Value="{DynamicResource SynthoraHighBrush}" />
+        </Style>
+        <Style Selector="^:pressed">
+            <Setter Property="Background" Value="{DynamicResource SynthoraVeryHighBrush}" />
+        </Style>
+
+        <Style Selector="^.Primary">
+            <Style Selector="^:focus,^:pointerover">
+                <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+                <Setter Property="Background" Value="{DynamicResource PrimaryPointerOverBrush}" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="Foreground" Value="{DynamicResource OnPrimaryBrush}" />
+                <Setter Property="Background" Value="{DynamicResource PrimaryPressedBrush}" />
+            </Style>
+        </Style>
+        <Style Selector="^.Secondary">
+            <Style Selector="^:focus,^:pointerover">
+                <Setter Property="Foreground" Value="{DynamicResource OnSecondaryBrush}" />
+                <Setter Property="Background" Value="{DynamicResource SecondaryPointerOverBrush}" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="Foreground" Value="{DynamicResource OnSecondaryBrush}" />
+                <Setter Property="Background" Value="{DynamicResource SecondaryPressedBrush}" />
+            </Style>
+        </Style>
+        <Style Selector="^.Success">
+            <Style Selector="^:focus,^:pointerover">
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Background" Value="{DynamicResource SuccessPointerOverBrush}" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Background" Value="{DynamicResource SuccessPressedBrush}" />
+            </Style>
+        </Style>
+        <Style Selector="^.Question">
+            <Style Selector="^:focus,^:pointerover">
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Background" Value="{DynamicResource QuestionPointerOverBrush}" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Background" Value="{DynamicResource QuestionPressedBrush}" />
+            </Style>
+        </Style>
+        <Style Selector="^.Warning">
+            <Style Selector="^:focus,^:pointerover">
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Background" Value="{DynamicResource WarningPointerOverBrush}" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Background" Value="{DynamicResource WarningPressedBrush}" />
+            </Style>
+        </Style>
+        <Style Selector="^.Error">
+            <Style Selector="^:focus,^:pointerover">
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Background" Value="{DynamicResource ErrorPointerOverBrush}" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Background" Value="{DynamicResource ErrorPressedBrush}" />
+            </Style>
+        </Style>
+    </ControlTheme>
+
 </ResourceDictionary>

@@ -242,13 +242,16 @@
                                                   Label="Redo"
                                                   ToolTip.Tip="Redo (Ctrl+Y)" />
                                 <CommandBarSeparator />
-                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=ContentCut}"
+                                <CommandBarButton Classes="Warning"
+                                                  Icon="{materialIcons:MaterialIconExt Kind=ContentCut}"
                                                   Label="Cut"
                                                   ToolTip.Tip="Cut (Ctrl+X)" />
-                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=ContentCopy}"
+                                <CommandBarButton Classes="Primary"
+                                                  Icon="{materialIcons:MaterialIconExt Kind=ContentCopy}"
                                                   Label="Copy"
                                                   ToolTip.Tip="Copy (Ctrl+C)" />
-                                <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=ContentPaste}"
+                                <CommandBarButton Classes="Secondary"
+                                                  Icon="{materialIcons:MaterialIconExt Kind=ContentPaste}"
                                                   Label="Paste"
                                                   ToolTip.Tip="Paste (Ctrl+V)" />
                                 <CommandBarButton Classes="Error"
@@ -290,7 +293,8 @@
                                                             IsChecked="True"
                                                             Label="Selection Tool"
                                                             ToolTip.Tip="Selection Tool (V)" />
-                                    <CommandBarToggleButton Icon="{materialIcons:MaterialIconExt Kind=ContentCut}"
+                                    <CommandBarToggleButton Classes="Secondary"
+                                                            Icon="{materialIcons:MaterialIconExt Kind=ContentCut}"
                                                             Label="Razor Tool"
                                                             ToolTip.Tip="Razor Tool (C)" />
                                     <CommandBarSeparator />
@@ -308,7 +312,8 @@
                                                       Label="Go to Out"
                                                       ToolTip.Tip="Go to Out Point" />
                                     <CommandBarSeparator />
-                                    <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=MapMarkerPlus}"
+                                    <CommandBarButton Classes="Primary"
+                                                      Icon="{materialIcons:MaterialIconExt Kind=MapMarkerPlus}"
                                                       Label="Add Marker"
                                                       ToolTip.Tip="Add Marker (M)" />
                                     <CommandBarButton Icon="{materialIcons:MaterialIconExt Kind=ExportVariant}"

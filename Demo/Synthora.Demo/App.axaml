@@ -29,7 +29,45 @@
     </Application.Styles>
 
     <Application.Resources>
-        <FontFamily x:Key="JetBrainsMonoFontFamily">/Assets/Fonts#JetBrains Mono</FontFamily>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Default">
+                    <SolidColorBrush x:Key="CardSurfaceBrush" Color="#B8FBFDFF" />
+                    <SolidColorBrush x:Key="CardBorderBrush" Color="#7AA8C7EA" />
+                    <SolidColorBrush x:Key="BadgeSurfaceBrush" Color="#70EAF4F8" />
+                    <SolidColorBrush x:Key="BadgeSurfaceBorderBrush" Color="#80B9D3DE" />
+                    <SolidColorBrush x:Key="HeroPanelBrush" Color="#78F6F8FA" />
+                    <SolidColorBrush x:Key="HeroTileBrush" Color="#66F9FAFC" />
+                    <LinearGradientBrush x:Key="HeroFrameBrush" StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Offset="0" Color="#48E6EFF5" />
+                        <GradientStop Offset="0.5" Color="#38D7E6F0" />
+                        <GradientStop Offset="1" Color="#48DEEBF3" />
+                    </LinearGradientBrush>
+                    <LinearGradientBrush x:Key="GlassOverlayBrush" StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Offset="0" Color="#78FAFDFF" />
+                        <GradientStop Offset="1" Color="#68F2F7FE" />
+                    </LinearGradientBrush>
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="Dark">
+                    <SolidColorBrush x:Key="CardSurfaceBrush" Color="#E0212223" />
+                    <SolidColorBrush x:Key="CardBorderBrush" Color="#904A525B" />
+                    <SolidColorBrush x:Key="BadgeSurfaceBrush" Color="#6033475A" />
+                    <SolidColorBrush x:Key="BadgeSurfaceBorderBrush" Color="#807C9DB2" />
+                    <SolidColorBrush x:Key="HeroPanelBrush" Color="#70283238" />
+                    <SolidColorBrush x:Key="HeroTileBrush" Color="#66303C46" />
+                    <LinearGradientBrush x:Key="HeroFrameBrush" StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Offset="0" Color="#5E596F80" />
+                        <GradientStop Offset="0.5" Color="#45415460" />
+                        <GradientStop Offset="1" Color="#5E506270" />
+                    </LinearGradientBrush>
+                    <LinearGradientBrush x:Key="GlassOverlayBrush" StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Offset="0" Color="#7821272E" />
+                        <GradientStop Offset="1" Color="#68222C35" />
+                    </LinearGradientBrush>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+            <FontFamily x:Key="JetBrainsMonoFontFamily">/Assets/Fonts#JetBrains Mono</FontFamily>
+        </ResourceDictionary>
     </Application.Resources>
 
     <TrayIcon.Icons>
