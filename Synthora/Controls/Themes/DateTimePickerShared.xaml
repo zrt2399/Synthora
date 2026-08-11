@@ -10,18 +10,6 @@
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
 
-    <Design.PreviewWith>
-        <Border Width="200" Padding="20">
-            <StackPanel Spacing="20">
-                <ListBoxItem Theme="{DynamicResource SimpleDateTimePickerItemTheme}">Standard Item</ListBoxItem>
-                <ListBoxItem Theme="{DynamicResource SimpleDateTimePickerItemTheme}">Month Item</ListBoxItem>
-                <RepeatButton Theme="{DynamicResource SimpleDateTimePickerButtonTheme}">Button</RepeatButton>
-                <RepeatButton IsVisible="True" Theme="{DynamicResource SimpleDateTimePickerUpButtonTheme}" />
-                <RepeatButton IsVisible="True" Theme="{DynamicResource SimpleDateTimePickerDownButtonTheme}" />
-            </StackPanel>
-        </Border>
-    </Design.PreviewWith>
-
     <!--  Theme for the items displayed in the selectors  -->
     <ControlTheme x:Key="SimpleDateTimePickerItemTheme"
                   BasedOn="{StaticResource {x:Type ListBoxItem}}"
@@ -32,7 +20,7 @@
     </ControlTheme>
 
     <!--  This is used for both the accept/dismiss & repeatbuttons in the presenter  -->
-    <ControlTheme x:Key="SimpleDateTimePickerButtonTheme" TargetType="Button">
+    <ControlTheme x:Key="SimpleDateTimePickerButtonBaseTheme" TargetType="Button">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -63,7 +51,7 @@
     </ControlTheme>
 
     <ControlTheme x:Key="SimpleDateTimePickerUpButtonTheme"
-                  BasedOn="{StaticResource SimpleDateTimePickerButtonTheme}"
+                  BasedOn="{StaticResource SimpleDateTimePickerButtonBaseTheme}"
                   TargetType="RepeatButton">
         <Setter Property="VerticalAlignment" Value="Top" />
         <Setter Property="Focusable" Value="False" />
@@ -84,7 +72,7 @@
     </ControlTheme>
 
     <ControlTheme x:Key="SimpleDateTimePickerDownButtonTheme"
-                  BasedOn="{StaticResource SimpleDateTimePickerButtonTheme}"
+                  BasedOn="{StaticResource SimpleDateTimePickerButtonBaseTheme}"
                   TargetType="RepeatButton">
         <Setter Property="VerticalAlignment" Value="Bottom" />
         <Setter Property="Focusable" Value="False" />
@@ -104,8 +92,8 @@
         </Setter>
     </ControlTheme>
 
-    <ControlTheme x:Key="SimpleDateTimePickerAcceptDismissButtonTheme"
-                  BasedOn="{StaticResource SimpleDateTimePickerButtonTheme}"
+    <ControlTheme x:Key="SimpleDateTimePickerAcceptDismissButtonBaseTheme"
+                  BasedOn="{StaticResource SimpleDateTimePickerButtonBaseTheme}"
                   TargetType="Button">
         <Setter Property="Margin" Value="{DynamicResource ThemeControlBorderPadding}" />
         <Setter Property="CornerRadius">
@@ -117,6 +105,68 @@
                 <Binding Path="BorderThickness" RelativeSource="{RelativeSource Mode=Self}" />
             </MultiBinding>
         </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="SimpleDateTimePickerAcceptButtonTheme"
+                  BasedOn="{StaticResource SimpleDateTimePickerAcceptDismissButtonBaseTheme}"
+                  TargetType="Button">
+        <Setter Property="IsDefault" Value="True" />
+        <Setter Property="Content">
+            <Template>
+                <Path Width="16"
+                      Height="16"
+                      Data="M0.5,8.25 5,13.25 15.5,2.75"
+                      Stroke="{Binding $parent[Button].Foreground}"
+                      StrokeThickness="0.75" />
+            </Template>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="SimpleDateTimePickerDismissButtonTheme"
+                  BasedOn="{StaticResource SimpleDateTimePickerAcceptDismissButtonBaseTheme}"
+                  TargetType="Button">
+        <Setter Property="IsCancel" Value="True" />
+        <Setter Property="Content">
+            <Template>
+                <Path Width="16"
+                      Height="16"
+                      Data="M2,2 14,14 M2,14 14 2"
+                      Stroke="{Binding $parent[Button].Foreground}"
+                      StrokeThickness="0.75" />
+            </Template>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="SimpleDateTimePickerFlyoutButtonTheme" TargetType="Button">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter Name="PART_ContentPresenter"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  Content="{TemplateBinding Content}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  CornerRadius="{TemplateBinding CornerRadius}" />
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pointerover,^:focus">
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighlightBrush}" />
+        </Style>
+
+        <Style Selector="^:pressed">
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighlightPressedBrush}" />
+        </Style>
+
+        <Style Selector="^:error">
+            <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
+        </Style>
     </ControlTheme>
 
 </ResourceDictionary>

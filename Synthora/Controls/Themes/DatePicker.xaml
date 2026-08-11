@@ -31,41 +31,8 @@
     </Design.PreviewWith>
 
     <x:Double x:Key="DatePickerFlyoutPresenterHeight">32</x:Double>
-
     <x:Double x:Key="DatePickerSpacerThemeThickness">1</x:Double>
     <x:Double x:Key="DatePickerPresenterThemeMaxHeight">400</x:Double>
-
-    <ControlTheme x:Key="SimpleDatePickerFlyoutButtonTheme" TargetType="Button">
-        <Setter Property="Template">
-            <ControlTemplate>
-                <ContentPresenter Name="PART_ContentPresenter"
-                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                  Background="{TemplateBinding Background}"
-                                  BorderBrush="{TemplateBinding BorderBrush}"
-                                  BorderThickness="{TemplateBinding BorderThickness}"
-                                  Content="{TemplateBinding Content}"
-                                  ContentTemplate="{TemplateBinding ContentTemplate}"
-                                  CornerRadius="{TemplateBinding CornerRadius}" />
-            </ControlTemplate>
-        </Setter>
-
-        <Style Selector="^:pointerover,^:focus">
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighlightBrush}" />
-        </Style>
-
-        <Style Selector="^:pressed">
-            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighlightPressedBrush}" />
-        </Style>
-
-        <Style Selector="^:error">
-            <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
-        </Style>
-
-        <Style Selector="^:disabled">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
-        </Style>
-    </ControlTheme>
 
     <ControlTheme x:Key="{x:Type DatePicker}" TargetType="DatePicker">
         <Setter Property="Background" Value="Transparent" />
@@ -84,7 +51,6 @@
                                     Width="{TemplateBinding TextBoxAttach.Width}"
                                     MinWidth="{TemplateBinding TextBoxAttach.MinWidth}"
                                     MaxWidth="{TemplateBinding TextBoxAttach.MaxWidth}"
-                                    Padding="0"
                                     Background="{TemplateBinding Background}"
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
@@ -92,7 +58,7 @@
                                     DataValidationErrors.Errors="{TemplateBinding DataValidationErrors.Errors}"
                                     IsEnabled="{TemplateBinding IsEnabled}"
                                     TemplatedControl.IsTemplateFocusTarget="True"
-                                    Theme="{StaticResource SimpleDatePickerFlyoutButtonTheme}">
+                                    Theme="{StaticResource SimpleDateTimePickerFlyoutButtonTheme}">
                                 <Grid Name="PART_ButtonContentGrid" ColumnDefinitions="78*,Auto,78*,Auto,78*">
                                     <!--  Ignore col defs here, set in code  -->
                                     <TextBlock Name="PART_YearTextBlock"
@@ -103,7 +69,7 @@
 
                                     <Rectangle Name="PART_FirstSpacer"
                                                Grid.Column="1"
-                                               Width="1"
+                                               Width="{DynamicResource DatePickerSpacerThemeThickness}"
                                                HorizontalAlignment="Center"
                                                Fill="{Binding #PART_FlyoutButton.BorderBrush}"
                                                UseLayoutRounding="False" />
@@ -116,7 +82,7 @@
 
                                     <Rectangle Name="PART_SecondSpacer"
                                                Grid.Column="3"
-                                               Width="1"
+                                               Width="{DynamicResource DatePickerSpacerThemeThickness}"
                                                HorizontalAlignment="Center"
                                                Fill="{Binding #PART_FlyoutButton.BorderBrush}"
                                                UseLayoutRounding="False" />
@@ -242,25 +208,11 @@
                                 Grid.Row="1"
                                 Grid.Column="0"
                                 FocusAttach.FocusOnLoaded="True"
-                                IsDefault="True"
-                                Theme="{StaticResource SimpleDateTimePickerAcceptDismissButtonTheme}">
-                            <Path Width="16"
-                                  Height="16"
-                                  Data="M0.5,8.25 5,13.25 15.5,2.75"
-                                  Stroke="{Binding $parent[Button].Foreground}"
-                                  StrokeThickness="0.75" />
-                        </Button>
+                                Theme="{StaticResource SimpleDateTimePickerAcceptButtonTheme}" />
                         <Button Name="PART_DismissButton"
                                 Grid.Row="1"
                                 Grid.Column="1"
-                                IsCancel="True"
-                                Theme="{StaticResource SimpleDateTimePickerAcceptDismissButtonTheme}">
-                            <Path Width="16"
-                                  Height="16"
-                                  Data="M2,2 14,14 M2,14 14 2"
-                                  Stroke="{Binding $parent[Button].Foreground}"
-                                  StrokeThickness="0.75" />
-                        </Button>
+                                Theme="{StaticResource SimpleDateTimePickerDismissButtonTheme}" />
                     </Grid>
                 </Grid>
             </ControlTemplate>
