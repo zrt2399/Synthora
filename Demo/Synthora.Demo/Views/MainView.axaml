@@ -116,8 +116,8 @@
                     <Canvas>
                         <Canvas.Styles>
                             <Style Selector="Ellipse">
-                                <Setter Property="Width" Value="400" />
-                                <Setter Property="Height" Value="400" />
+                                <Setter Property="Width" Value="500" />
+                                <Setter Property="Height" Value="500" />
                             </Style>
                         </Canvas.Styles>
                         <Ellipse Canvas.Left="300" Canvas.Top="60">
@@ -136,7 +136,7 @@
                                 </RadialGradientBrush>
                             </Ellipse.Fill>
                         </Ellipse>
-                        <Ellipse Canvas.Right="400" Canvas.Bottom="60">
+                        <Ellipse Canvas.Right="500" Canvas.Bottom="60">
                             <Ellipse.Fill>
                                 <RadialGradientBrush>
                                     <GradientStop Offset="0" Color="#4099FBF3" />
@@ -146,7 +146,9 @@
                         </Ellipse>
                     </Canvas>
 
-                    <TreeMenu HeaderBackground="Transparent" ItemsSource="{Binding TreeMenuItems}">
+                    <TreeMenu HeaderBackground="Transparent"
+                              ItemsSource="{Binding TreeMenuItems}"
+                              SelectedItem="{Binding SelectedTreeMenuItem}">
                         <TreeMenu.DataTemplates>
                             <DataTemplate DataType="vm:OverviewViewModel">
                                 <views:OverviewView />
@@ -240,9 +242,10 @@
                             </DataTemplate>
                         </TreeMenu.DataTemplates>
                         <TreeMenu.Header>
-                            <StackPanel VerticalAlignment="Bottom" Spacing="16">
-                                <TextBlock FontWeight="SemiBold" Text="Synthora Demo" />
-                            </StackPanel>
+                            <TextBlock>
+                                <Run FontWeight="SemiBold" Text="Synthora Demo  / " />
+                                <Run Foreground="{DynamicResource ThemeForegroundMidBrush}" Text="{Binding SelectedTreeMenuItem?.Title}" />
+                            </TextBlock>
                         </TreeMenu.Header>
                         <TreeMenu.PaneHeader>
                             <StackPanel Margin="32"
