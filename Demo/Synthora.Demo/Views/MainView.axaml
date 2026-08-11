@@ -120,7 +120,7 @@
                                 <Setter Property="Height" Value="500" />
                             </Style>
                         </Canvas.Styles>
-                        <Ellipse Canvas.Left="300" Canvas.Top="60">
+                        <Ellipse Canvas.Left="180" Canvas.Top="60">
                             <Ellipse.Fill>
                                 <RadialGradientBrush>
                                     <GradientStop Offset="0" Color="#40007DFF" />

@@ -77,10 +77,9 @@
     </UserControl.Styles>
 
     <ScrollViewer>
-        <StackPanel Margin="16"
-                    HorizontalAlignment="Left"
-                    Spacing="16">
-            <Border Classes="heroFrame">
+        <StackPanel Margin="16" Spacing="16">
+            <!--  Synthora Avalonia Gallery  -->
+            <Border HorizontalAlignment="Left" Classes="heroFrame">
                 <Border Classes="heroShell">
                     <WrapPanel ItemSpacing="16" LineSpacing="16">
                         <StackPanel Spacing="16">
@@ -297,6 +296,7 @@
             </Border>
 
             <WrapPanel ItemSpacing="16" LineSpacing="16">
+                <!--  INPUTS  -->
                 <Border MinWidth="320"
                         MaxWidth="460"
                         Classes="card">
@@ -329,6 +329,7 @@
                     </StackPanel>
                 </Border>
 
+                <!--  SELECTION  -->
                 <Border MinWidth="320"
                         MaxWidth="460"
                         Classes="card">
@@ -379,6 +380,7 @@
                     </StackPanel>
                 </Border>
 
+                <!--  RANGE & TABS  -->
                 <Border MinWidth="320"
                         MaxWidth="460"
                         Classes="card">
@@ -417,6 +419,7 @@
                     </StackPanel>
                 </Border>
 
+                <!--  DATE & TIME  -->
                 <Border MinWidth="320"
                         MaxWidth="460"
                         Classes="card">
@@ -431,9 +434,8 @@
                         <Calendar SelectionMode="SingleRange" />
                     </StackPanel>
                 </Border>
-            </WrapPanel>
 
-            <WrapPanel ItemSpacing="16" LineSpacing="16">
+                <!--  STATUS & NOTIFICATIONS  -->
                 <Border MinWidth="380"
                         MaxWidth="520"
                         Classes="card">
@@ -463,6 +465,7 @@
                     </StackPanel>
                 </Border>
 
+                <!--  WORKSPACE CONTAINERS  -->
                 <Border MinWidth="380"
                         MaxWidth="520"
                         Classes="card">
@@ -490,6 +493,7 @@
                     </StackPanel>
                 </Border>
 
+                <!--  NAVIGATION  -->
                 <Border MinWidth="380"
                         MaxWidth="520"
                         Classes="card">
