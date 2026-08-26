@@ -34,10 +34,13 @@
                                    LineSpacing="16"
                                    Orientation="Horizontal">
                             <CheckBox Content="AreRowGroupHeadersFrozen" IsChecked="{Binding #GroupingDataGrid.AreRowGroupHeadersFrozen}" />
+                            <CheckBox Content="AllowAutoHide" IsChecked="{Binding #GroupingDataGrid.(ScrollViewer.AllowAutoHide)}" />
+
                             <ComboBox ItemsSource="{EnumBindingSource DataGridHeadersVisibility}"
                                       SelectedItem="{Binding #GroupingDataGrid.HeadersVisibility}"
                                       TextBoxAttach.Header="HeadersVisibility:"
                                       TextBoxAttach.HeaderPlacement="Left" />
+
                             <Button Classes="Primary"
                                     Command="{Binding ExpandAllGroups}"
                                     Content="Expand All"

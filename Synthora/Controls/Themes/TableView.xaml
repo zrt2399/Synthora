@@ -102,10 +102,19 @@
                     <Border Grid.ColumnSpan="2"
                             BorderBrush="{DynamicResource SynthoraBorderBrush}"
                             BorderThickness="{DynamicResource TableViewColumnHeaderBottomBorderThickness}">
-                        <TableViewColumnHeadersPresenter />
+                        <Grid ColumnDefinitions="*,Auto">
+                            <TableViewColumnHeadersPresenter />
+                            <Rectangle Name="TopRightCorner"
+                                       Grid.Column="1"
+                                       Width="{Binding #PART_VerticalScrollBar.Bounds.Width}"
+                                       IsVisible="False" />
+                        </Grid>
                     </Border>
+
                     <ScrollContentPresenter Name="PART_ContentPresenter"
                                             Grid.Row="1"
+                                            Grid.RowSpan="2"
+                                            Grid.ColumnSpan="2"
                                             Padding="{TemplateBinding Padding}"
                                             Background="{TemplateBinding Background}"
                                             HorizontalSnapPointsAlignment="{TemplateBinding HorizontalSnapPointsAlignment}"
@@ -129,9 +138,17 @@
                 </Grid>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^[AllowAutoHide=True] /template/ ScrollContentPresenter#PART_ContentPresenter">
-            <Setter Property="Grid.ColumnSpan" Value="2" />
-            <Setter Property="Grid.RowSpan" Value="2" />
+        <Style Selector="^[AllowAutoHide=False]">
+            <Style Selector="^ /template/ ScrollContentPresenter#PART_ContentPresenter">
+                <Setter Property="Grid.ColumnSpan" Value="1" />
+                <Setter Property="Grid.RowSpan" Value="1" />
+            </Style>
+            <Style Selector="^ /template/ Rectangle#TopRightCorner">
+                <Setter Property="IsVisible" Value="True" />
+            </Style>
+            <Style Selector="^ /template/ TableViewColumnHeadersPresenter">
+                <Setter Property="ClipToBounds" Value="True" />
+            </Style>
         </Style>
     </ControlTheme>
 

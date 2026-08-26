@@ -54,4 +54,14 @@
 		<ProjectReference Include="..\Synthora.Demo\Synthora.Demo.csproj" />
 	</ItemGroup>
 
+	<Target Name="RemoveNativeSymbols" AfterTargets="Publish">
+		<ItemGroup>
+			<NativeSymbols Include="$(PublishDir)\**\*.pdb" />
+			<!--<NativeSymbols Include="$(PublishDir)\libSkiaSharp.pdb" />
+			<NativeSymbols Include="$(PublishDir)\libHarfBuzzSharp.pdb" />-->
+		</ItemGroup>
+
+		<Delete Files="@(NativeSymbols)" />
+	</Target>
+
 </Project>

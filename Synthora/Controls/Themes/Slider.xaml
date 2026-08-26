@@ -135,9 +135,10 @@
             <Setter Property="Background" Value="{DynamicResource OnSecondaryBrush}" />
         </Style>
         <Style Selector="^:horizontal">
+            <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="Template">
                 <ControlTemplate>
-                    <DataValidationErrors VerticalAlignment="Center" ClipToBounds="{TemplateBinding ClipToBounds}">
+                    <DataValidationErrors ClipToBounds="{TemplateBinding ClipToBounds}">
                         <Grid Margin="{TemplateBinding Padding}" RowDefinitions="Auto,Auto,Auto">
                             <TickBar x:Name="TopTickBar"
                                      Height="4"
@@ -197,9 +198,10 @@
             </Setter>
         </Style>
         <Style Selector="^:vertical">
+            <Setter Property="HorizontalAlignment" Value="Center" />
             <Setter Property="Template">
                 <ControlTemplate>
-                    <DataValidationErrors HorizontalAlignment="Center" ClipToBounds="{TemplateBinding ClipToBounds}">
+                    <DataValidationErrors ClipToBounds="{TemplateBinding ClipToBounds}">
                         <Grid Margin="{TemplateBinding Padding}" ColumnDefinitions="Auto,Auto,Auto">
                             <TickBar x:Name="LeftTickBar"
                                      Width="4"

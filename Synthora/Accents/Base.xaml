@@ -48,9 +48,9 @@
             <Color x:Key="TransparentPressedColor">#16000000</Color>
 
             <Color x:Key="HyperlinkVisitedColor">#FF681DA8</Color>
-            <Color x:Key="MenuItemSelectedPointerOverColor">#FFC4D3F2</Color>
-            <Color x:Key="MenuItemPointerOverColor">#FFCEDEFF</Color>
-            <Color x:Key="MenuItemPressedColor">#FFD8E6FF</Color>
+            <Color x:Key="MenuItemSelectedPointerOverColor">#FFCAD7F2</Color>
+            <Color x:Key="MenuItemPointerOverColor">#FFD4E2FF</Color>
+            <Color x:Key="MenuItemPressedColor">#FFDEEAFF</Color>
 
             <Color x:Key="ScrollBarThumbColor">#40000000</Color>
             <Color x:Key="ScrollBarThumbPointerOverColor">#60000000</Color>
@@ -196,9 +196,9 @@
             <Color x:Key="TransparentPressedColor">#16FFFFFF</Color>
 
             <Color x:Key="HyperlinkVisitedColor">#FFC58AF9</Color>
-            <Color x:Key="MenuItemSelectedPointerOverColor">#FF1356BA</Color>
-            <Color x:Key="MenuItemPointerOverColor">#FF145AC4</Color>
-            <Color x:Key="MenuItemPressedColor">#FF2C6BCA</Color>
+            <Color x:Key="MenuItemSelectedPointerOverColor">#FF243861</Color>
+            <Color x:Key="MenuItemPointerOverColor">#FF2E436E</Color>
+            <Color x:Key="MenuItemPressedColor">#FF384B6E</Color>
 
             <Color x:Key="ScrollBarThumbColor">#40FFFFFF</Color>
             <Color x:Key="ScrollBarThumbPointerOverColor">#60FFFFFF</Color>
@@ -387,8 +387,8 @@
     <x:Double x:Key="FontSizeH5">16</x:Double>
     <x:Double x:Key="FontSizeH6">14</x:Double>
 
-    <!--<x:Double x:Key="ScrollBarThickness">16</x:Double>-->
-    <x:Double x:Key="ScrollBarThickness">8</x:Double>
+    <x:Double x:Key="ScrollBarPersistentThickness">16</x:Double>
+    <x:Double x:Key="ScrollBarAutoHideThickness">8</x:Double>
     <x:Double x:Key="ScrollBarThumbThickness">8</x:Double>
     <x:Double x:Key="ScrollBarThumbMinLength">28</x:Double>
 

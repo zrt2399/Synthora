@@ -37,7 +37,7 @@
             </ControlTemplate>
         </Setter>
         <Style Selector="^[ShowShadowOnInteraction=True]">
-            <Setter Property="BoxShadow" Value="{DynamicResource EmptyBoxShadow}" />
+            <!--<Setter Property="BoxShadow" Value="{DynamicResource EmptyBoxShadow}" />-->
             <Style Selector="^:pointerover,^:focus-within">
                 <Style Selector="^ /template/ Border#RootBorder">
                     <Setter Property="BoxShadow" Value="{TemplateBinding InteractionBoxShadow}" />

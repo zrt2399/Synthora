@@ -119,7 +119,7 @@
                         <ShadowChrome>
                             <TextBlock Margin="8">ShadowChrome standalone</TextBlock>
                         </ShadowChrome>
-                        <ShadowChrome ShowShadowOnInteraction="True">
+                        <ShadowChrome ShowShadowOnInteraction="True" BoxShadow="none">
                             <TextBlock Margin="8">ShadowChrome with  ShowShadowOnPointerOver</TextBlock>
                         </ShadowChrome>
                         <ShadowChrome InteractionBoxShadow="0 0 12 0 #FF695AEE" ShowShadowOnInteraction="True">
@@ -162,6 +162,7 @@
                             <TextBlock Classes="sectionLabel" Text="SPACING WRAPPANEL" />
                         </StackPanel>
                         <SpacingWrapPanel ItemSpacing="16" LineSpacing="16">
+                            <SelectableTextBlock VerticalAlignment="Center">SelectableTextBlock</SelectableTextBlock>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock VerticalAlignment="Center">TextBlock</TextBlock>
                                 <TextBox Margin="6,0,0,0">TextBox</TextBox>

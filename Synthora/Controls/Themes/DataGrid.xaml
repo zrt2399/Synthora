@@ -350,10 +350,11 @@
 
                         <DataGridColumnHeadersPresenter Name="PART_ColumnHeadersPresenter" Grid.Column="1" />
 
-                        <DataGridColumnHeader Name="PART_TopRightCornerHeader"
+                        <DataGridColumnHeader Name="TopRightCornerHeader"
                                               Grid.Column="2"
-                                              Width="0"
-                                              AreSeparatorsVisible="False" />
+                                              Width="{Binding #PART_VerticalScrollbar.Bounds.Width}"
+                                              AreSeparatorsVisible="False"
+                                              IsVisible="False" />
 
                         <Rectangle Name="ColumnHeadersAndRowsSeparator"
                                    Grid.Row="1"
@@ -378,17 +379,17 @@
 
                         <!--<Rectangle Name="PART_BottomRightCorner"
                                    Grid.Row="3"
-                                   Grid.Column="2" />
+                                   Grid.Column="2" />-->
 
-                        <Rectangle Name="BottomLeftCorner"
-                                   Grid.Row="3"
-                                   Grid.ColumnSpan="2"
-                                   Fill="{DynamicResource ThemeControlMidBrush}" />-->
+                        <Border Name="BottomLeftCorner"
+                                Grid.Row="3"
+                                Grid.ColumnSpan="2"
+                                BorderBrush="{Binding #PART_HorizontalScrollbar.BorderBrush}"
+                                BorderThickness="{Binding #PART_HorizontalScrollbar.BorderThickness}" />
 
                         <ScrollBar Name="PART_VerticalScrollbar"
                                    Grid.Row="2"
                                    Grid.Column="2"
-                                   Width="{DynamicResource ScrollBarThickness}"
                                    AllowAutoHide="{Binding Path=(ScrollViewer.AllowAutoHide), RelativeSource={RelativeSource TemplatedParent}}"
                                    Orientation="Vertical" />
 
@@ -398,7 +399,6 @@
                             <Rectangle Name="PART_FrozenColumnScrollBarSpacer" />
                             <ScrollBar Name="PART_HorizontalScrollbar"
                                        Grid.Column="1"
-                                       Height="{DynamicResource ScrollBarThickness}"
                                        AllowAutoHide="{Binding Path=(ScrollViewer.AllowAutoHide), RelativeSource={RelativeSource TemplatedParent}}"
                                        Orientation="Horizontal" />
                         </Grid>
@@ -415,7 +415,7 @@
             <Style Selector="^ /template/ DataGridColumnHeader#PART_TopLeftCornerHeader">
                 <Setter Property="IsVisible" Value="False" />
             </Style>
-            <Style Selector="^ /template/ DataGridColumnHeader#PART_TopRightCornerHeader">
+            <Style Selector="^ /template/ DataGridColumnHeader#TopRightCornerHeader">
                 <Setter Property="IsVisible" Value="False" />
             </Style>
             <Style Selector="^ /template/ DataGridColumnHeadersPresenter#PART_ColumnHeadersPresenter">
@@ -427,11 +427,8 @@
         </Style>
 
         <Style Selector="^[(ScrollViewer.AllowAutoHide)=False]">
-            <Style Selector="^ /template/ DataGridColumnHeader#PART_TopRightCornerHeader">
-                <Setter Property="Width" Value="{DynamicResource ScrollBarThickness}" />
-            </Style>
-            <Style Selector="^ /template/ DataGridColumnHeadersPresenter#PART_ColumnHeadersPresenter">
-                <Setter Property="ClipToBounds" Value="True" />
+            <Style Selector="^ /template/ DataGridColumnHeader#TopRightCornerHeader">
+                <Setter Property="IsVisible" Value="True" />
             </Style>
             <Style Selector="^ /template/ DataGridRowsPresenter#PART_RowsPresenter">
                 <Setter Property="Grid.RowSpan" Value="1" />

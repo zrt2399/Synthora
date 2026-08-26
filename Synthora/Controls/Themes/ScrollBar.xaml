@@ -131,13 +131,17 @@
 
         <Style Selector="^:vertical">
             <Setter Property="ContextFlyout" Value="{StaticResource SimpleScrollBarVerticalContextFlyout}" />
-            <Setter Property="Width" Value="{DynamicResource ScrollBarThickness}" />
+            <Setter Property="Width" Value="{DynamicResource ScrollBarAutoHideThickness}" />
             <Setter Property="Template">
                 <ControlTemplate TargetType="ScrollBar">
-                    <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
                         <Grid RowDefinitions="Auto,*,Auto">
                             <RepeatButton Name="PART_LineUpButton"
                                           Grid.Row="0"
+                                          Width="{DynamicResource ScrollBarThumbThickness}"
                                           Height="10"
                                           AutomationProperties.Name="Line up"
                                           Theme="{StaticResource ScrollBarRepeatButtonTheme}">
@@ -169,6 +173,7 @@
                             </Track>
                             <RepeatButton Name="PART_LineDownButton"
                                           Grid.Row="2"
+                                          Width="{DynamicResource ScrollBarThumbThickness}"
                                           Height="10"
                                           AutomationProperties.Name="Line down"
                                           Theme="{StaticResource ScrollBarRepeatButtonTheme}">
@@ -181,15 +186,19 @@
         </Style>
 
         <Style Selector="^:horizontal">
-            <Setter Property="Height" Value="{DynamicResource ScrollBarThickness}" />
+            <Setter Property="Height" Value="{DynamicResource ScrollBarAutoHideThickness}" />
             <Setter Property="ContextFlyout" Value="{StaticResource SimpleScrollBarHorizontalContextFlyout}" />
             <Setter Property="Template">
                 <ControlTemplate TargetType="ScrollBar">
-                    <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
                         <Grid Name="PART_RootGrid" ColumnDefinitions="Auto,*,Auto">
                             <RepeatButton Name="PART_LineUpButton"
                                           Grid.Column="0"
                                           Width="10"
+                                          Height="{DynamicResource ScrollBarThumbThickness}"
                                           AutomationProperties.Name="Column left"
                                           Theme="{StaticResource ScrollBarRepeatButtonTheme}">
                                 <PathIcon Data="{DynamicResource ScrollBarLeftGlyph}" Theme="{StaticResource ScrollBarRepeatButtonPathIconTheme}" />
@@ -220,6 +229,7 @@
                             <RepeatButton Name="PART_LineDownButton"
                                           Grid.Column="2"
                                           Width="10"
+                                          Height="{DynamicResource ScrollBarThumbThickness}"
                                           AutomationProperties.Name="Column right"
                                           Theme="{StaticResource ScrollBarRepeatButtonTheme}">
                                 <PathIcon Data="{DynamicResource ScrollBarRightGlyph}" Theme="{StaticResource ScrollBarRepeatButtonPathIconTheme}" />
@@ -262,6 +272,18 @@
             <Setter Property="Foreground" Value="{DynamicResource ScrollBarThumbPressedBrush}" />
         </Style>
 
+        <Style Selector="^[AllowAutoHide=False]">
+            <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
+            <Style Selector="^:vertical">
+                <Setter Property="BorderThickness" Value="1,0,0,0" />
+                <Setter Property="Width" Value="{DynamicResource ScrollBarPersistentThickness}" />
+            </Style>
+            <Style Selector="^:horizontal">
+                <Setter Property="BorderThickness" Value="0,1,0,0" />
+                <Setter Property="Height" Value="{DynamicResource ScrollBarPersistentThickness}" />
+            </Style>
+        </Style>
+
         <Style Selector="^[IsExpanded=False]">
             <Style Selector="^ /template/ RepeatButton">
                 <Setter Property="IsVisible" Value="False" />
@@ -282,4 +304,5 @@
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledLowOpacity}" />
         </Style>
     </ControlTheme>
+
 </ResourceDictionary>

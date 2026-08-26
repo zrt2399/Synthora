@@ -65,8 +65,13 @@ namespace Synthora.Interop
                 int darkMode = enable ? 1 : 0;
                 int result = DwmSetWindowAttribute(hWnd, DwmWindowAttribute.UseImmersiveDarkMode, ref darkMode, sizeof(int));
 
-                RefreshTitleBar(hWnd);
-                return result == 0;
+                bool succeeded = result == 0;
+                if (succeeded)
+                {
+                    RefreshTitleBar(hWnd);
+                }
+
+                return succeeded;
             }
             return false;
         }
