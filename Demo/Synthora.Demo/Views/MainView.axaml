@@ -1,7 +1,6 @@
 <UserControl x:Class="Synthora.Demo.Views.MainView"
              xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:controls="using:Synthora.Demo.Controls"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:demo="using:Synthora.Demo"
              xmlns:local="using:Synthora.Demo.Views"
@@ -112,39 +111,7 @@
             </DialogHost.DialogContentTemplate>
             <Grid RowDefinitions="*,Auto">
                 <Panel>
-                    <controls:GridBackground GridBrush="{DynamicResource ThemeBorderLowBrush}" Opacity="0.3" />
-                    <Canvas>
-                        <Canvas.Styles>
-                            <Style Selector="Ellipse">
-                                <Setter Property="Width" Value="500" />
-                                <Setter Property="Height" Value="500" />
-                            </Style>
-                        </Canvas.Styles>
-                        <Ellipse Canvas.Left="180" Canvas.Top="60">
-                            <Ellipse.Fill>
-                                <RadialGradientBrush>
-                                    <GradientStop Offset="0" Color="#40007DFF" />
-                                    <GradientStop Offset="1" Color="Transparent" />
-                                </RadialGradientBrush>
-                            </Ellipse.Fill>
-                        </Ellipse>
-                        <Ellipse Canvas.Top="60" Canvas.Right="120">
-                            <Ellipse.Fill>
-                                <RadialGradientBrush>
-                                    <GradientStop Offset="0" Color="#40A855F7" />
-                                    <GradientStop Offset="1" Color="Transparent" />
-                                </RadialGradientBrush>
-                            </Ellipse.Fill>
-                        </Ellipse>
-                        <Ellipse Canvas.Right="500" Canvas.Bottom="60">
-                            <Ellipse.Fill>
-                                <RadialGradientBrush>
-                                    <GradientStop Offset="0" Color="#4099FBF3" />
-                                    <GradientStop Offset="1" Color="Transparent" />
-                                </RadialGradientBrush>
-                            </Ellipse.Fill>
-                        </Ellipse>
-                    </Canvas>
+                    <GlowBackground GridBrush="{DynamicResource GlowBackgroundGridBrush}" />
 
                     <TreeMenu HeaderBackground="Transparent"
                               ItemsSource="{Binding TreeMenuItems}"

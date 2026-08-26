@@ -112,6 +112,8 @@
             <SolidColorBrush x:Key="GridSplitterPreviewContentBackground">#22000000</SolidColorBrush>
             <SolidColorBrush x:Key="GridSplitterInnerBorderBackground">#1A000000</SolidColorBrush>
 
+            <SolidColorBrush x:Key="GlowBackgroundGridBrush" Color="#FFF5F5F5" />
+
             <SolidColorBrush x:Key="RefreshVisualizerForeground" Color="{StaticResource ThemeForegroundMidColor}" />
             <SolidColorBrush x:Key="RefreshVisualizerBackground" Color="Transparent" />
             <SolidColorBrush x:Key="TextSelectionBrush" Color="{StaticResource ThemeAccentColor4}" />
@@ -259,6 +261,8 @@
             <SolidColorBrush x:Key="GridSplitterOuterBorderBackground">#10FFFFFF</SolidColorBrush>
             <SolidColorBrush x:Key="GridSplitterPreviewContentBackground">#26FFFFFF</SolidColorBrush>
             <SolidColorBrush x:Key="GridSplitterInnerBorderBackground">#30FFFFFF</SolidColorBrush>
+
+            <SolidColorBrush x:Key="GlowBackgroundGridBrush" Color="#FF262626" />
 
             <SolidColorBrush x:Key="RefreshVisualizerForeground" Color="{StaticResource ThemeForegroundMidColor}" />
             <SolidColorBrush x:Key="RefreshVisualizerBackground" Color="Transparent" />
