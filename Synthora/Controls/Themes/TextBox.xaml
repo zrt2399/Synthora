@@ -92,19 +92,19 @@
                   IsVisible="{Binding !$parent[TextBox].IsReadOnly}" />
         <MenuItem Command="{Binding $parent[TextBox].SelectAll}"
                   Header="{DynamicResource StringTextFlyoutSelectAllText}"
-                  InputGesture="{x:Static GestureUtils.SelectAllGesture}"
+                  InputGesture="{x:Static KeyGestureUtils.SelectAll}"
                   IsEnabled="{Binding $parent[TextBox].Text, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
         <Separator IsVisible="{Binding !$parent[TextBox].IsReadOnly}" />
         <MenuItem Command="{Binding $parent[TextBox].Undo}"
                   Header="{DynamicResource StringTextFlyoutUndoText}"
                   Icon="{StaticResource TextUndoIcon}"
-                  InputGesture="{x:Static GestureUtils.UndoGesture}"
+                  InputGesture="{x:Static KeyGestureUtils.Undo}"
                   IsEnabled="{Binding $parent[TextBox].CanUndo}"
                   IsVisible="{Binding !$parent[TextBox].IsReadOnly}" />
         <MenuItem Command="{Binding $parent[TextBox].Redo}"
                   Header="{DynamicResource StringTextFlyoutRedoText}"
                   Icon="{StaticResource TextRedoIcon}"
-                  InputGesture="{x:Static GestureUtils.RedoGesture}"
+                  InputGesture="{x:Static KeyGestureUtils.Redo}"
                   IsEnabled="{Binding $parent[TextBox].CanRedo}"
                   IsVisible="{Binding !$parent[TextBox].IsReadOnly}" />
     </MenuFlyout>
