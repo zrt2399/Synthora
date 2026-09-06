@@ -71,6 +71,7 @@
                                                 BorderThickness="{TemplateBinding BorderThickness}"
                                                 ScrollViewerAttach.IsDisabled="True">
                                 <ListBox Name="PART_SelectingItemsControl"
+                                         Padding="{DynamicResource ThemeMenuFlyoutPadding}"
                                          Background="Transparent"
                                          BorderThickness="0"
                                          Foreground="{TemplateBinding Foreground}"
@@ -80,7 +81,15 @@
                                          ScrollViewer.VerticalScrollBarVisibility="Auto">
                                     <ListBox.Styles>
                                         <Style Selector="ListBoxItem">
-                                            <Setter Property="CornerRadius" Value="0" />
+                                            <Setter Property="CornerRadius">
+                                                <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.All}">
+                                                    <Binding Path="CornerRadius" RelativeSource="{RelativeSource AncestorType=SystemShadowChrome}" />
+                                                    <Binding Path="BorderThickness" RelativeSource="{RelativeSource AncestorType=SystemShadowChrome}" />
+                                                    <Binding Path="Padding" RelativeSource="{RelativeSource AncestorType=ListBox}" />
+                                                    <Binding Path="Margin" RelativeSource="{RelativeSource Mode=Self}" />
+                                                    <Binding Path="BorderThickness" RelativeSource="{RelativeSource Mode=Self}" />
+                                                </MultiBinding>
+                                            </Setter>
                                         </Style>
                                     </ListBox.Styles>
                                 </ListBox>

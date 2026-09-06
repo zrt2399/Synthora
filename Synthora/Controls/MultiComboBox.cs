@@ -454,7 +454,17 @@ namespace Synthora.Controls
         {
             if (IsDropDownOpen && dropDownItem.IsFocused && dropDownItem.IsArrangeValid)
             {
-                dropDownItem.BringIntoView();
+                var margin = Presenter?.Margin ?? default;
+                var left = Math.Max(0, margin.Left);
+                var top = Math.Max(0, margin.Top);
+                var right = Math.Max(0, margin.Right);
+                var bottom = Math.Max(0, margin.Bottom);
+
+                dropDownItem.BringIntoView(new Rect(
+                    -left,
+                    -top,
+                    dropDownItem.Bounds.Width + left + right,
+                    dropDownItem.Bounds.Height + top + bottom));
             }
         }
 

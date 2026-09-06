@@ -75,11 +75,12 @@
         <Setter Property="BorderBrush" Value="{DynamicResource SynthoraBorderBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusSmall}" />
-        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
         <Setter Property="PlaceholderForeground" Value="{DynamicResource ThemeForegroundBrush}" />
-        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="ComboBoxAttach.PopupCornerRadius" Value="{DynamicResource ThemeBorderCornerRadiusLarge}" />
+        <Setter Property="ComboBoxAttach.PopupBorderThickness" Value="{Binding $self.BorderThickness}" />
+        <Setter Property="ComboBoxAttach.PopupPadding" Value="{DynamicResource ThemeMenuFlyoutPadding}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <DockPanel>
@@ -167,7 +168,8 @@
                                 <SystemShadowChrome MinWidth="{Binding Bounds.Width, ElementName=FocusTarget}"
                                                     MaxHeight="{TemplateBinding MaxDropDownHeight}"
                                                     BorderBrush="{TemplateBinding BorderBrush}"
-                                                    BorderThickness="{TemplateBinding BorderThickness}">
+                                                    BorderThickness="{TemplateBinding ComboBoxAttach.PopupBorderThickness}"
+                                                    CornerRadius="{TemplateBinding ComboBoxAttach.PopupCornerRadius}">
                                     <Panel>
                                         <EmptyBox Name="EmptyBox"
                                                   Margin="10"
@@ -180,7 +182,9 @@
                                                       IsScrollChainingEnabled="False"
                                                       IsVisible="{Binding !#EmptyBox.IsVisible}"
                                                       VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
-                                            <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+                                            <ItemsPresenter Name="PART_ItemsPresenter"
+                                                            Margin="{TemplateBinding ComboBoxAttach.PopupPadding}"
+                                                            ItemsPanel="{TemplateBinding ItemsPanel}" />
                                         </ScrollViewer>
                                     </Panel>
                                 </SystemShadowChrome>

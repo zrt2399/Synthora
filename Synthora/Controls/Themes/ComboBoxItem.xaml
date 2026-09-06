@@ -6,6 +6,16 @@
     <ControlTheme x:Key="{x:Type ComboBoxItem}" TargetType="ComboBoxItem">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
+        <Setter Property="ComboBoxAttach.UsePopupPaddingForBringIntoView" Value="True" />
+        <Setter Property="CornerRadius">
+            <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.All}">
+                <Binding Path="$parent[ComboBox].(ComboBoxAttach.PopupCornerRadius)" />
+                <Binding Path="$parent[ComboBox].(ComboBoxAttach.PopupBorderThickness)" />
+                <Binding Path="$parent[ComboBox].(ComboBoxAttach.PopupPadding)" />
+                <Binding Path="$self.Margin" />
+                <Binding Path="$self.BorderThickness" />
+            </MultiBinding>
+        </Setter>
         <Setter Property="Template">
             <ControlTemplate>
                 <ContentPresenter Name="PART_ContentPresenter"

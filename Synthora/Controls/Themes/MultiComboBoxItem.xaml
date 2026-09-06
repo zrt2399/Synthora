@@ -6,7 +6,15 @@
     <ControlTheme x:Key="{x:Type MultiComboBoxItem}"
                   BasedOn="{StaticResource {x:Type ListBoxItem}}"
                   TargetType="MultiComboBoxItem">
-        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="CornerRadius">
+            <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.All}">
+                <Binding Path="$parent[MultiComboBox].(ComboBoxAttach.PopupCornerRadius)" />
+                <Binding Path="$parent[MultiComboBox].(ComboBoxAttach.PopupBorderThickness)" />
+                <Binding Path="$parent[MultiComboBox].(ComboBoxAttach.PopupPadding)" />
+                <Binding Path="$self.Margin" />
+                <Binding Path="$self.BorderThickness" />
+            </MultiBinding>
+        </Setter>
     </ControlTheme>
 
 </ResourceDictionary>
