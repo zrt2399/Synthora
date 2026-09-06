@@ -1,11 +1,11 @@
 <Project>
     <PropertyGroup>
-        <Version>2.5.1.0</Version>
-        <AvaloniaVersion>12.1.1</AvaloniaVersion>
+        <Version>2.5.2.0</Version>
+        <AvaloniaVersion>12.1.2</AvaloniaVersion>
         <AvaloniaDataGridVersion>12.1.2</AvaloniaDataGridVersion>
         <FileVersion>$(Version)</FileVersion>
         <AssemblyVersion>$(Version)</AssemblyVersion>
 
-        <DemoAvaloniaVersion>12.1.1</DemoAvaloniaVersion>
+        <DemoAvaloniaVersion>12.1.2</DemoAvaloniaVersion>
     </PropertyGroup>
 </Project>
