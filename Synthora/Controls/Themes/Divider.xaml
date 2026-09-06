@@ -42,7 +42,7 @@
                 <RotateTransform Angle="90" />
             </Setter>
         </Style>
-        <Style Selector="^:no-content /template/ ContentPresenter#PART_ContentPresenter">
+        <Style Selector="^:empty /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="IsVisible" Value="False" />
         </Style>
     </ControlTheme>

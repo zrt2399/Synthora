@@ -3,69 +3,57 @@
                     x:ClassModifier="internal"
                     x:CompileBindings="True">
 
-    <MenuFlyout x:Key="SimpleScrollBarVerticalContextFlyout">
+    <MenuFlyout x:Key="VerticalScrollBarContextFlyout">
         <MenuItem AutomationProperties.AutomationId="ScrollHere"
                   Command="{Binding $parent[ScrollBar].ScrollHere}"
                   Header="{DynamicResource StringScrollBarScrollHere}" />
         <Separator />
         <MenuItem AutomationProperties.AutomationId="Top"
-                  Command="{x:Static ScrollBarUtils.ScrollToHomeCommand}"
-                  CommandParameter="{Binding $parent[ScrollBar]}"
+                  Command="{Binding $parent[ScrollBar].ScrollToHome}"
                   Header="{DynamicResource StringScrollBarTop}" />
         <MenuItem AutomationProperties.AutomationId="Bottom"
-                  Command="{x:Static ScrollBarUtils.ScrollToEndCommand}"
-                  CommandParameter="{Binding $parent[ScrollBar]}"
+                  Command="{Binding $parent[ScrollBar].ScrollToEnd}"
                   Header="{DynamicResource StringScrollBarBottom}" />
         <Separator />
         <MenuItem AutomationProperties.AutomationId="PageUp"
-                  Command="{x:Static ScrollBarUtils.LargeDecrementCommand}"
-                  CommandParameter="{Binding $parent[ScrollBar]}"
+                  Command="{Binding $parent[ScrollBar].PageUp}"
                   Header="{DynamicResource StringScrollBarPageUp}" />
         <MenuItem AutomationProperties.AutomationId="PageDown"
-                  Command="{x:Static ScrollBarUtils.LargeIncrementCommand}"
-                  CommandParameter="{Binding $parent[ScrollBar]}"
+                  Command="{Binding $parent[ScrollBar].PageDown}"
                   Header="{DynamicResource StringScrollBarPageDown}" />
         <Separator />
         <MenuItem AutomationProperties.AutomationId="ScrollUp"
-                  Command="{x:Static ScrollBarUtils.SmallDecrementCommand}"
-                  CommandParameter="{Binding $parent[ScrollBar]}"
+                  Command="{Binding $parent[ScrollBar].LineUp}"
                   Header="{DynamicResource StringScrollBarScrollUp}" />
         <MenuItem AutomationProperties.AutomationId="ScrollDown"
-                  Command="{x:Static ScrollBarUtils.SmallIncrementCommand}"
-                  CommandParameter="{Binding $parent[ScrollBar]}"
+                  Command="{Binding $parent[ScrollBar].LineDown}"
                   Header="{DynamicResource StringScrollBarScrollDown}" />
     </MenuFlyout>
 
-    <MenuFlyout x:Key="SimpleScrollBarHorizontalContextFlyout">
+    <MenuFlyout x:Key="HorizontalScrollBarContextFlyout">
         <MenuItem AutomationProperties.AutomationId="ScrollHere"
                   Command="{Binding $parent[ScrollBar].ScrollHere}"
                   Header="{DynamicResource StringScrollBarScrollHere}" />
         <Separator />
         <MenuItem AutomationProperties.AutomationId="LeftEdge"
-                  Command="{x:Static ScrollBarUtils.ScrollToHomeCommand}"
-                  CommandParameter="{Binding $parent[ScrollBar]}"
+                  Command="{Binding $parent[ScrollBar].ScrollToHome}"
                   Header="{DynamicResource StringScrollBarLeftEdge}" />
         <MenuItem AutomationProperties.AutomationId="RightEdge"
-                  Command="{x:Static ScrollBarUtils.ScrollToEndCommand}"
-                  CommandParameter="{Binding $parent[ScrollBar]}"
+                  Command="{Binding $parent[ScrollBar].ScrollToEnd}"
                   Header="{DynamicResource StringScrollBarRightEdge}" />
         <Separator />
         <MenuItem AutomationProperties.AutomationId="PageLeft"
-                  Command="{x:Static ScrollBarUtils.LargeDecrementCommand}"
-                  CommandParameter="{Binding $parent[ScrollBar]}"
+                  Command="{Binding $parent[ScrollBar].PageLeft}"
                   Header="{DynamicResource StringScrollBarPageLeft}" />
         <MenuItem AutomationProperties.AutomationId="PageRight"
-                  Command="{x:Static ScrollBarUtils.LargeIncrementCommand}"
-                  CommandParameter="{Binding $parent[ScrollBar]}"
+                  Command="{Binding $parent[ScrollBar].PageRight}"
                   Header="{DynamicResource StringScrollBarPageRight}" />
         <Separator />
         <MenuItem AutomationProperties.AutomationId="ScrollLeft"
-                  Command="{x:Static ScrollBarUtils.SmallDecrementCommand}"
-                  CommandParameter="{Binding $parent[ScrollBar]}"
+                  Command="{Binding $parent[ScrollBar].LineLeft}"
                   Header="{DynamicResource StringScrollBarScrollLeft}" />
         <MenuItem AutomationProperties.AutomationId="ScrollRight"
-                  Command="{x:Static ScrollBarUtils.SmallIncrementCommand}"
-                  CommandParameter="{Binding $parent[ScrollBar]}"
+                  Command="{Binding $parent[ScrollBar].LineRight}"
                   Header="{DynamicResource StringScrollBarScrollRight}" />
     </MenuFlyout>
 
@@ -130,7 +118,7 @@
         <Setter Property="Background" Value="Transparent" />
 
         <Style Selector="^:vertical">
-            <Setter Property="ContextFlyout" Value="{StaticResource SimpleScrollBarVerticalContextFlyout}" />
+            <Setter Property="ContextFlyout" Value="{StaticResource VerticalScrollBarContextFlyout}" />
             <Setter Property="Width" Value="{DynamicResource ScrollBarAutoHideThickness}" />
             <Setter Property="Template">
                 <ControlTemplate TargetType="ScrollBar">
@@ -187,7 +175,7 @@
 
         <Style Selector="^:horizontal">
             <Setter Property="Height" Value="{DynamicResource ScrollBarAutoHideThickness}" />
-            <Setter Property="ContextFlyout" Value="{StaticResource SimpleScrollBarHorizontalContextFlyout}" />
+            <Setter Property="ContextFlyout" Value="{StaticResource HorizontalScrollBarContextFlyout}" />
             <Setter Property="Template">
                 <ControlTemplate TargetType="ScrollBar">
                     <Border Background="{TemplateBinding Background}"

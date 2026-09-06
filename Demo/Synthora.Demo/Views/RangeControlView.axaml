@@ -84,7 +84,8 @@
                     <ProgressBar Classes="Warning"
                                  ShowProgressText="True"
                                  Value="{Binding #SecondarySlider.Value}" />
-                    <ProgressBar Classes="Error"
+                    <ProgressBar Height="60"
+                                 Classes="Error"
                                  ShowProgressText="True"
                                  Value="{Binding #SecondarySlider.Value}" />
                     <ProgressBar IsIndeterminate="{Binding #ProgressRingToggle.IsChecked}" />

@@ -154,29 +154,6 @@
                     </StackPanel>
                 </Border>
 
-                <!--  SpacingWrapPanel  -->
-                <Border Classes="card">
-                    <StackPanel Spacing="16">
-                        <StackPanel Classes="sectionHeader">
-                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="ViewDashboard" />
-                            <TextBlock Classes="sectionLabel" Text="SPACING WRAPPANEL" />
-                        </StackPanel>
-                        <SpacingWrapPanel ItemSpacing="16" LineSpacing="16">
-                            <SelectableTextBlock VerticalAlignment="Center">SelectableTextBlock</SelectableTextBlock>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock VerticalAlignment="Center">TextBlock</TextBlock>
-                                <TextBox Margin="6,0,0,0">TextBox</TextBox>
-                            </StackPanel>
-                            <Button>Button</Button>
-                            <ComboBox SelectedIndex="0">
-                                <ComboBoxItem>ComboBoxItem-1</ComboBoxItem>
-                                <ComboBoxItem>ComboBoxItem-2</ComboBoxItem>
-                            </ComboBox>
-                            <DropDownButton>DropDownButton</DropDownButton>
-                        </SpacingWrapPanel>
-                    </StackPanel>
-                </Border>
-
                 <!--  EmptyBox  -->
                 <Border Classes="card">
                     <StackPanel Spacing="16">

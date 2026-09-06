@@ -1,6 +1,5 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Primitives;
 using Avalonia.Controls.Shapes;
 using Avalonia.Layout;
@@ -11,10 +10,8 @@ namespace Synthora.Controls
     /// <summary>
     /// Represents a customizable divider control.
     /// </summary>
-    [PseudoClasses(pcNoContent)]
     public class Divider : ContentControl
     {
-        private const string pcNoContent = ":no-content";
         private Grid? _dividerContainer;
 
         /// <summary>
@@ -114,11 +111,6 @@ namespace Synthora.Controls
             set => SetValue(RadiusYProperty, value);
         }
 
-        public Divider()
-        {
-            UpdatePseudoClasses();
-        }
-
         protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
         {
             base.OnPropertyChanged(change);
@@ -130,10 +122,6 @@ namespace Synthora.Controls
             {
                 SetGrid();
             }
-            else if (change.Property == ContentProperty)
-            {
-                UpdatePseudoClasses();
-            }
         }
 
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
@@ -141,11 +129,6 @@ namespace Synthora.Controls
             base.OnApplyTemplate(e);
             _dividerContainer = e.NameScope.Find<Grid>("PART_DividerContainer");
             SetGrid();
-        }
-
-        private void UpdatePseudoClasses()
-        {
-            PseudoClasses.Set(pcNoContent, Content == null);
         }
 
         private void SetGrid()

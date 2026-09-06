@@ -74,11 +74,11 @@
                                     <ProgressBar Classes="Secondary"
                                                  ShowProgressText="True"
                                                  Value="51" />
-                                    <SpacingWrapPanel ItemSpacing="12" LineSpacing="12">
+                                    <WrapPanel ItemSpacing="12" LineSpacing="12">
                                         <Button Classes="Secondary" Theme="{StaticResource SolidButtonTheme}">Open queue</Button>
                                         <Button Theme="{StaticResource OutlineButtonTheme}">Create task</Button>
                                         <Tag IsSolid="True" TagType="Question">triage</Tag>
-                                    </SpacingWrapPanel>
+                                    </WrapPanel>
                                 </StackPanel>
 
                                 <StackPanel Grid.Column="2" Spacing="12">
