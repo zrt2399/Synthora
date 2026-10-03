@@ -7,6 +7,13 @@ using Avalonia.Media;
 
 namespace Synthora.Controls
 {
+    public enum GlowPatternType
+    {
+        None,
+        Grid,
+        Dots,
+    }
+
     public class GlowBackground : Control
     {
         private static int _nextGlowSeed = Random.Shared.Next();
@@ -30,19 +37,22 @@ namespace Synthora.Controls
         private readonly List<Glow> _glows = [];
         private Size _glowCacheSize;
 
-        public static readonly StyledProperty<IBrush?> GridBrushProperty =
-            AvaloniaProperty.Register<GlowBackground, IBrush?>(nameof(GridBrush));
+        public static readonly StyledProperty<IBrush?> PatternBrushProperty =
+            AvaloniaProperty.Register<GlowBackground, IBrush?>(nameof(PatternBrush));
 
-        public static readonly StyledProperty<double> GridSizeProperty =
+        public static readonly StyledProperty<GlowPatternType> PatternTypeProperty =
+            AvaloniaProperty.Register<GlowBackground, GlowPatternType>(nameof(PatternType), defaultValue: GlowPatternType.Grid);
+
+        public static readonly StyledProperty<double> PatternSpacingProperty =
             AvaloniaProperty.Register<GlowBackground, double>(
-                nameof(GridSize), defaultValue: 100d, coerce: (_, value) => double.IsFinite(value) && value > 0 ? value : 100d);
+                nameof(PatternSpacing), defaultValue: 100d, coerce: (_, value) => double.IsFinite(value) && value > 0 ? value : 100d);
 
-        public static readonly StyledProperty<double> LineThicknessProperty =
+        public static readonly StyledProperty<double> PatternThicknessProperty =
             AvaloniaProperty.Register<GlowBackground, double>(
-                nameof(LineThickness), defaultValue: 1d, coerce: (_, value) => double.IsFinite(value) && value > 0 ? value : 1d);
+                nameof(PatternThickness), defaultValue: 1d, coerce: (_, value) => double.IsFinite(value) && value > 0 ? value : 1d);
 
-        public static readonly StyledProperty<bool> DrawBorderProperty =
-            AvaloniaProperty.Register<GlowBackground, bool>(nameof(DrawBorder));
+        public static readonly StyledProperty<bool> DrawPatternEdgesProperty =
+            AvaloniaProperty.Register<GlowBackground, bool>(nameof(DrawPatternEdges));
 
         public static readonly StyledProperty<int> GlowCountProperty =
             AvaloniaProperty.Register<GlowBackground, int>(
@@ -61,28 +71,34 @@ namespace Synthora.Controls
         public static readonly StyledProperty<IReadOnlyList<Color>?> GlowColorsProperty =
             AvaloniaProperty.Register<GlowBackground, IReadOnlyList<Color>?>(nameof(GlowColors), defaultValue: DefaultGlowColors);
 
-        public IBrush? GridBrush
+        public IBrush? PatternBrush
         {
-            get => GetValue(GridBrushProperty);
-            set => SetValue(GridBrushProperty, value);
+            get => GetValue(PatternBrushProperty);
+            set => SetValue(PatternBrushProperty, value);
         }
 
-        public double GridSize
+        public GlowPatternType PatternType
         {
-            get => GetValue(GridSizeProperty);
-            set => SetValue(GridSizeProperty, value);
+            get => GetValue(PatternTypeProperty);
+            set => SetValue(PatternTypeProperty, value);
         }
 
-        public double LineThickness
+        public double PatternSpacing
         {
-            get => GetValue(LineThicknessProperty);
-            set => SetValue(LineThicknessProperty, value);
+            get => GetValue(PatternSpacingProperty);
+            set => SetValue(PatternSpacingProperty, value);
         }
 
-        public bool DrawBorder
+        public double PatternThickness
         {
-            get => GetValue(DrawBorderProperty);
-            set => SetValue(DrawBorderProperty, value);
+            get => GetValue(PatternThicknessProperty);
+            set => SetValue(PatternThicknessProperty, value);
+        }
+
+        public bool DrawPatternEdges
+        {
+            get => GetValue(DrawPatternEdgesProperty);
+            set => SetValue(DrawPatternEdgesProperty, value);
         }
 
         public int GlowCount
@@ -122,8 +138,8 @@ namespace Synthora.Controls
 
         static GlowBackground()
         {
-            AffectsRender<GlowBackground>(GridBrushProperty, GridSizeProperty, LineThicknessProperty, DrawBorderProperty,
-                GlowCountProperty, GlowSizeProperty, AllowGlowOutsideBoundsProperty, GlowSeedProperty, GlowColorsProperty);
+            AffectsRender<GlowBackground>(PatternBrushProperty, PatternTypeProperty, PatternSpacingProperty, PatternThicknessProperty,
+                DrawPatternEdgesProperty, GlowCountProperty, GlowSizeProperty, AllowGlowOutsideBoundsProperty, GlowSeedProperty, GlowColorsProperty);
         }
 
         protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
@@ -143,26 +159,54 @@ namespace Synthora.Controls
         public override void Render(DrawingContext drawingContext)
         {
             base.Render(drawingContext);
-            if (GridBrush is IBrush gridBrush)
+            if (PatternBrush is { } patternBrush)
             {
-                var gridSize = GridSize;
-                var lineThickness = LineThickness;
-                var drawBorder = DrawBorder;
+                var spacing = PatternSpacing;
+                var thickness = PatternThickness;
+                var drawEdges = DrawPatternEdges;
 
-                var pen = new Pen(gridBrush, lineThickness);
-                for (var x = gridSize; x < Bounds.Width; x += gridSize)
+                if (PatternType == GlowPatternType.Grid)
                 {
-                    drawingContext.DrawLine(pen, new Point(x, 0), new Point(x, Bounds.Height));
+                    var pen = new Pen(patternBrush, thickness);
+                    for (var x = spacing; x < Bounds.Width; x += spacing)
+                    {
+                        drawingContext.DrawLine(pen, new Point(x, 0), new Point(x, Bounds.Height));
+                    }
+
+                    for (var y = spacing; y < Bounds.Height; y += spacing)
+                    {
+                        drawingContext.DrawLine(pen, new Point(0, y), new Point(Bounds.Width, y));
+                    }
+
+                    if (drawEdges)
+                    {
+                        drawingContext.DrawRectangle(patternBrush, null, new Rect(0, 0, Bounds.Width, thickness));
+                        drawingContext.DrawRectangle(patternBrush, null, new Rect(0, 0, thickness, Bounds.Height));
+                    }
                 }
-
-                for (var y = gridSize; y < Bounds.Height; y += gridSize)
+                else if (PatternType == GlowPatternType.Dots)
                 {
-                    drawingContext.DrawLine(pen, new Point(0, y), new Point(Bounds.Width, y));
-                }
+                    var radius = thickness / 2;
+                    for (var x = spacing; x < Bounds.Width; x += spacing)
+                    {
+                        for (var y = spacing; y < Bounds.Height; y += spacing)
+                        {
+                            drawingContext.DrawEllipse(patternBrush, null, new Point(x, y), radius, radius);
+                        }
+                    }
 
-                if (drawBorder)
-                {
-                    drawingContext.DrawRectangle(null, pen, new Rect(Bounds.Size));
+                    if (drawEdges)
+                    {
+                        for (var x = 0d; x < Bounds.Width; x += spacing)
+                        {
+                            drawingContext.DrawEllipse(patternBrush, null, new Point(x, 0), radius, radius);
+                        }
+
+                        for (var y = 0d; y < Bounds.Height; y += spacing)
+                        {
+                            drawingContext.DrawEllipse(patternBrush, null, new Point(0, y), radius, radius);
+                        }
+                    }
                 }
             }
 
@@ -216,11 +260,11 @@ namespace Synthora.Controls
                 var color = colorIndexes is null ? colors[random.Next(colors.Count)] : colors[colorIndexes[i]];
                 var brush = new RadialGradientBrush
                 {
-                    GradientStops = new GradientStops
-                    {
+                    GradientStops =
+                    [
                         new GradientStop(color, 0),
-                        new GradientStop(Colors.Transparent, 1),
-                    },
+                        new GradientStop(Colors.Transparent, 1)
+                    ]
                 };
 
                 _glows.Add(new Glow(new Point(x, y), radius, brush));

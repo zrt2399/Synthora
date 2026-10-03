@@ -1,0 +1,11 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
+                    x:CompileBindings="True">
+
+    <ControlTheme x:Key="{x:Type GlowBackground}"
+                  TargetType="GlowBackground">
+        <Setter Property="PatternBrush" Value="{DynamicResource GlowBackgroundPatternBrush}" />
+    </ControlTheme>
+
+</ResourceDictionary>

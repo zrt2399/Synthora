@@ -154,6 +154,30 @@
                     </StackPanel>
                 </Border>
 
+                <!--  Card showcase  -->
+                <Border Classes="card">
+                    <StackPanel Spacing="16">
+                        <StackPanel Classes="sectionHeader">
+                            <materialIcons:MaterialIcon Classes="sectionIcon" Kind="CardText" />
+                            <TextBlock Classes="sectionLabel" Text="CARD" />
+                        </StackPanel>
+                        <WrapPanel ItemSpacing="16" LineSpacing="16">
+                            <Card Width="220">
+                                <StackPanel Spacing="8">
+                                    <TextBlock FontSize="16" FontWeight="SemiBold" Text="Card" />
+                                    <TextBlock Text="A card-shaped content container." TextWrapping="Wrap" />
+                                </StackPanel>
+                            </Card>
+                            <Card Width="220">
+                                <StackPanel Spacing="8">
+                                    <TextBlock FontSize="16" FontWeight="SemiBold" Text="Interactive content" />
+                                    <Button HorizontalAlignment="Left" Content="Action" />
+                                </StackPanel>
+                            </Card>
+                        </WrapPanel>
+                    </StackPanel>
+                </Border>
+
                 <!--  EmptyBox  -->
                 <Border Classes="card">
                     <StackPanel Spacing="16">

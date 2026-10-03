@@ -31,7 +31,7 @@ namespace Synthora.Demo.ViewModels
         public ExtendedControlsViewModel()
         {
             IconKind = MaterialIconKind.Widgets;
-            Description = "Tag, StatusIndicator, ShadowChrome, GroupBoxEx, PathPicker, SpacingWrapPanel, EmptyBox";
+            Description = "Card, Tag, StatusIndicator, ShadowChrome, GroupBoxEx, PathPicker, SpacingWrapPanel, EmptyBox";
         }
     }
 }

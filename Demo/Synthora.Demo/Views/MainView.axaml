@@ -111,7 +111,9 @@
             </DialogHost.DialogContentTemplate>
             <Grid RowDefinitions="*,Auto">
                 <Panel>
-                    <GlowBackground GridBrush="{DynamicResource GlowBackgroundGridBrush}" />
+                    <GlowBackground DrawPatternEdges="True"
+                                    PatternThickness="6"
+                                    PatternType="Dots" />
 
                     <TreeMenu HeaderBackground="Transparent"
                               ItemsSource="{Binding TreeMenuItems}"

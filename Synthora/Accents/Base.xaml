@@ -112,7 +112,9 @@
             <SolidColorBrush x:Key="GridSplitterPreviewContentBackground">#22000000</SolidColorBrush>
             <SolidColorBrush x:Key="GridSplitterInnerBorderBackground">#1A000000</SolidColorBrush>
 
-            <SolidColorBrush x:Key="GlowBackgroundGridBrush" Color="#FFF5F5F5" />
+            <SolidColorBrush x:Key="GlowBackgroundPatternBrush" Color="#FFF5F5F5" />
+            <SolidColorBrush x:Key="CardBackgroundBrush" Color="#B8FBFDFF" />
+            <SolidColorBrush x:Key="CardBorderBrush" Color="#7AA8C7EA" />
 
             <SolidColorBrush x:Key="RefreshVisualizerForeground" Color="{StaticResource ThemeForegroundMidColor}" />
             <SolidColorBrush x:Key="RefreshVisualizerBackground" Color="Transparent" />
@@ -262,7 +264,9 @@
             <SolidColorBrush x:Key="GridSplitterPreviewContentBackground">#26FFFFFF</SolidColorBrush>
             <SolidColorBrush x:Key="GridSplitterInnerBorderBackground">#30FFFFFF</SolidColorBrush>
 
-            <SolidColorBrush x:Key="GlowBackgroundGridBrush" Color="#FF262626" />
+            <SolidColorBrush x:Key="GlowBackgroundPatternBrush" Color="#FF262626" />
+            <SolidColorBrush x:Key="CardBackgroundBrush" Color="#E0212223" />
+            <SolidColorBrush x:Key="CardBorderBrush" Color="#904A525B" />
 
             <SolidColorBrush x:Key="RefreshVisualizerForeground" Color="{StaticResource ThemeForegroundMidColor}" />
             <SolidColorBrush x:Key="RefreshVisualizerBackground" Color="Transparent" />
