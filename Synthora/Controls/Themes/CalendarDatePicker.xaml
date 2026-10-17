@@ -77,9 +77,6 @@
         <Setter Property="Padding" Value="{DynamicResource ThemeControlPadding}" />
         <Setter Property="PlaceholderForeground" Value="{DynamicResource ThemeForegroundBrush}" />
         <Setter Property="IsTodayHighlighted" Value="True" />
-        <!--  Fix CalendarDatePicker.Focus method does not work.  -->
-        <Setter Property="FocusAttach.UseCorrectFocusBehavior" Value="True" />
-
         <Setter Property="Template">
             <ControlTemplate>
                 <DockPanel>

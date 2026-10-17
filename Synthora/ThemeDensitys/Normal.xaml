@@ -32,6 +32,9 @@
     <Thickness x:Key="NotificationCardPadding">12</Thickness>
     <x:Double x:Key="NotificationCardPaddingDouble">12</x:Double>
     <x:Double x:Key="NotificationCardWidth">325</x:Double>
+    
+    <x:Double x:Key="DatePickerFlyoutPresenterHeight">30</x:Double>
+    <x:Double x:Key="TimePickerFlyoutPresenterHeight">30</x:Double>
 
     <Thickness x:Key="IconButtonPadding">5</Thickness>
     <x:Double x:Key="IconButtonPaddingDouble">5</x:Double>

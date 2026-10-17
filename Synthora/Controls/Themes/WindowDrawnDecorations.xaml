@@ -141,10 +141,10 @@
 
                     <WindowDrawnDecorationsContent.FullscreenPopover>
                         <!--  Shown on hover at top edge in fullscreen mode  -->
-                        <Panel Height="{DynamicResource DefaultTitleBarHeight}"
+                        <Panel Height="{TemplateBinding DefaultTitleBarHeight}"
                                VerticalAlignment="Top"
                                Background="{DynamicResource ThemeAccentBrush}"
-                               WindowDecorationProperties.ElementRole="TitleBar">
+                               WindowDecorationProperties.ElementRole="DecorationsElement">
                             <TextBlock Margin="12,0,0,0"
                                        VerticalAlignment="Center"
                                        Foreground="White"
