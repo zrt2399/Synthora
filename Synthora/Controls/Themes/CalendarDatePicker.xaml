@@ -123,7 +123,9 @@
                                           DisplayDateStart="{TemplateBinding DisplayDateStart}"
                                           FirstDayOfWeek="{TemplateBinding FirstDayOfWeek}"
                                           IsTodayHighlighted="{TemplateBinding IsTodayHighlighted}"
-                                          SelectedDate="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedDate, Mode=TwoWay}" />
+                                          IsWeekNumberVisible="{TemplateBinding IsWeekNumberVisible}"
+                                          SelectedDate="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedDate, Mode=TwoWay}"
+                                          WeekNumberRule="{TemplateBinding WeekNumberRule}" />
                             </SystemShadowChrome>
                         </Popup>
                     </Panel>

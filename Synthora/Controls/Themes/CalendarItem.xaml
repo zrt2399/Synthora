@@ -65,30 +65,48 @@
                         </Grid>
                     </GroupBoxEx.Header>
                     <Panel Name="Panel">
-                        <Grid Name="PART_MonthView" IsVisible="False">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-                        </Grid>
+                        <DockPanel Name="MonthView" Grid.IsSharedSizeScope="True">
+                            <Grid Name="PART_ElementWeekNumberLabels" IsVisible="False">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" SharedSizeGroup="CalendarMonthViewHeaderRow" />
+                                    <RowDefinition Height="Auto" SharedSizeGroup="CalendarMonthViewWeekRow" />
+                                    <RowDefinition Height="Auto" SharedSizeGroup="CalendarMonthViewWeekRow" />
+                                    <RowDefinition Height="Auto" SharedSizeGroup="CalendarMonthViewWeekRow" />
+                                    <RowDefinition Height="Auto" SharedSizeGroup="CalendarMonthViewWeekRow" />
+                                    <RowDefinition Height="Auto" SharedSizeGroup="CalendarMonthViewWeekRow" />
+                                    <RowDefinition Height="Auto" SharedSizeGroup="CalendarMonthViewWeekRow" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" SharedSizeGroup="CalendarMonthViewDayColumn" />
+                                </Grid.ColumnDefinitions>
+                                <!--  week number header  -->
+                                <ContentControl Content="{DynamicResource StringCalendarWeekNumberHeader}" FontWeight="SemiBold" />
+                            </Grid>
+                            <Grid Name="PART_MonthView" IsVisible="False">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" SharedSizeGroup="CalendarMonthViewHeaderRow" />
+                                    <RowDefinition Height="Auto" SharedSizeGroup="CalendarMonthViewWeekRow" />
+                                    <RowDefinition Height="Auto" SharedSizeGroup="CalendarMonthViewWeekRow" />
+                                    <RowDefinition Height="Auto" SharedSizeGroup="CalendarMonthViewWeekRow" />
+                                    <RowDefinition Height="Auto" SharedSizeGroup="CalendarMonthViewWeekRow" />
+                                    <RowDefinition Height="Auto" SharedSizeGroup="CalendarMonthViewWeekRow" />
+                                    <RowDefinition Height="Auto" SharedSizeGroup="CalendarMonthViewWeekRow" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" SharedSizeGroup="CalendarMonthViewDayColumn" />
+                                    <ColumnDefinition Width="Auto" SharedSizeGroup="CalendarMonthViewDayColumn" />
+                                    <ColumnDefinition Width="Auto" SharedSizeGroup="CalendarMonthViewDayColumn" />
+                                    <ColumnDefinition Width="Auto" SharedSizeGroup="CalendarMonthViewDayColumn" />
+                                    <ColumnDefinition Width="Auto" SharedSizeGroup="CalendarMonthViewDayColumn" />
+                                    <ColumnDefinition Width="Auto" SharedSizeGroup="CalendarMonthViewDayColumn" />
+                                    <ColumnDefinition Width="Auto" SharedSizeGroup="CalendarMonthViewDayColumn" />
+                                </Grid.ColumnDefinitions>
+                            </Grid>
+                        </DockPanel>
 
                         <Grid Name="PART_YearView"
-                              Width="{Binding #PART_MonthView.Bounds.Width, Mode=OneWay}"
-                              Height="{Binding #PART_MonthView.Bounds.Height, Mode=OneWay}"
+                              Width="{Binding #MonthView.Bounds.Width, Mode=OneWay}"
+                              Height="{Binding #MonthView.Bounds.Height, Mode=OneWay}"
                               IsVisible="False">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*" />
@@ -118,6 +136,16 @@
 
         <Style Selector="^:disabled /template/ Panel#Panel">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledMidOpacity}" />
+        </Style>
+
+        <Style Selector="^:hasweeknumbers">
+            <Style Selector="^ /template/ Grid#PART_ElementWeekNumberLabels">
+                <Style Selector="^ ContentControl">
+                    <!--<Setter Property="FontSize" Value="{DynamicResource CalendarWeekNumberFontSize}" />-->
+                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                    <Setter Property="VerticalContentAlignment" Value="Center" />
+                </Style>
+            </Style>
         </Style>
     </ControlTheme>
 

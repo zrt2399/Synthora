@@ -3,6 +3,8 @@
                     x:ClassModifier="internal">
 
     <x:String x:Key="StringCloseText">Cerrar</x:String>
+    <!--  Calendar  -->
+    <x:String x:Key="StringCalendarWeekNumberHeader">#</x:String>
     <!--  DatePicker  -->
     <x:String x:Key="StringDatePickerDayText">día</x:String>
     <x:String x:Key="StringDatePickerMonthText">mes</x:String>

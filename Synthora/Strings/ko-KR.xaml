@@ -3,6 +3,8 @@
                     x:ClassModifier="internal">
 
     <x:String x:Key="StringCloseText">닫기</x:String>
+    <!--  Calendar  -->
+    <x:String x:Key="StringCalendarWeekNumberHeader">주</x:String>
     <!--  DatePicker  -->
     <x:String x:Key="StringDatePickerDayText">일</x:String>
     <x:String x:Key="StringDatePickerMonthText">월</x:String>

@@ -6,6 +6,7 @@
     <x:Double x:Key="CaptionButtonWidth">44</x:Double>
     <x:Double x:Key="CaptionButtonHeight">32</x:Double>
     <x:Double x:Key="DefaultTitleBarHeight">32</x:Double>
+    <BoxShadows x:Key="WindowDrawnDecorationsWindowBorderBoxShadow">0 2 10 2 #80000000</BoxShadows>
 
     <ControlTheme x:Key="SimpleDrawnCaptionButtonTheme" TargetType="Button">
         <Setter Property="Background" Value="{DynamicResource CaptionButtonBackground}" />
@@ -145,7 +146,8 @@
                                VerticalAlignment="Top"
                                Background="{DynamicResource ThemeAccentBrush}"
                                WindowDecorationProperties.ElementRole="DecorationsElement">
-                            <TextBlock Margin="12,0,0,0"
+                            <TextBlock x:Name="PART_PopoverTitleText"
+                                       Margin="12,0,0,0"
                                        VerticalAlignment="Center"
                                        Foreground="White"
                                        Text="{TemplateBinding Title}" />
@@ -182,12 +184,11 @@
             <Setter Property="Margin" Value="{TemplateBinding ShadowThickness}" />
         </Style>
         <Style Selector="^:has-shadow /template/ Border#PART_WindowBorder">
-            <Setter Property="BoxShadow" Value="0 2 10 2 #80000000" />
+            <Setter Property="BoxShadow" Value="{DynamicResource WindowDrawnDecorationsWindowBorderBoxShadow}" />
         </Style>
         <Style Selector="^:has-shadow /template/ Panel#PART_OverlayWrapper">
             <Setter Property="Margin" Value="{TemplateBinding ShadowThickness}" />
         </Style>
-
 
         <!--  Border: inset titlebar and buttons inside frame  -->
         <Style Selector="^:has-border /template/ Panel#PART_TitleTextPanel">
@@ -210,7 +211,10 @@
             <Setter Property="Opacity" Value="0.2" />
         </Style>
 
-        <!--  Hide caption buttons when the platform does not support the action  -->
+        <!--
+            Hide title bar elements when the platform does not support the action
+            or when they aren't requested by WindowDrawnDecorations.TitleBarDecorationHints
+        -->
         <Style Selector="^:not(:has-minimize) /template/ Button#PART_MinimizeButton">
             <Setter Property="IsVisible" Value="False" />
         </Style>
@@ -221,6 +225,18 @@
             <Setter Property="IsVisible" Value="False" />
         </Style>
         <Style Selector="^:not(:has-fullscreen) /template/ Button#PART_PopoverFullScreenButton">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style Selector="^:not(:has-close) /template/ Button#PART_CloseButton">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style Selector="^:not(:has-close) /template/ Button#PART_PopoverCloseButton">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style Selector="^:not(:has-title) /template/ Panel#PART_TitleTextPanel">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style Selector="^:not(:has-title) /template/ TextBlock#PART_PopoverTitleText">
             <Setter Property="IsVisible" Value="False" />
         </Style>
 

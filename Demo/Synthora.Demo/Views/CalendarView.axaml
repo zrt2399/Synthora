@@ -9,7 +9,6 @@
              d:DesignWidth="800"
              x:DataType="vm:CalendarViewModel"
              mc:Ignorable="d">
-
     <DemoPage Title="Date &amp; Time Controls"
               Padding="0"
               Description="{Binding Description}"
@@ -18,13 +17,16 @@
             <StackPanel Spacing="16">
                 <Border Classes="card">
                     <StackPanel Spacing="16">
-                        <CalendarDatePicker Classes.Highlight="{Binding #Highlight.IsChecked}" TextBoxAttach.Header="CalendarDatePicker" />
+                        <CalendarDatePicker Classes.Highlight="{Binding #Highlight.IsChecked}"
+                                            IsWeekNumberVisible="{Binding #IsWeekNumberVisible.IsChecked}"
+                                            TextBoxAttach.Header="CalendarDatePicker" />
                         <DatePicker TextBoxAttach.Header="DatePicker" />
                         <TimePicker TextBoxAttach.Header="TimePicker" UseSeconds="True" />
                         <TimePicker TextBoxAttach.Header="TimePicker(Without second)" />
                         <StackPanel Orientation="Horizontal" Spacing="8">
                             <CheckBox Name="Shadow" Content="Shadow" />
                             <CheckBox Name="Highlight" Content="Highlight" />
+                            <CheckBox Name="IsWeekNumberVisible" Content="IsWeekNumberVisible" />
                             <ComboBox ItemsSource="{EnumBindingSource CalendarSelectionMode}"
                                       SelectedItem="{Binding #Calendar.SelectionMode}"
                                       TextBoxAttach.Header="SelectionMode:"
@@ -33,6 +35,7 @@
                         <Calendar Name="Calendar"
                                   Classes.Highlight="{Binding #Highlight.IsChecked}"
                                   Classes.Shadow="{Binding #Shadow.IsChecked}"
+                                  IsWeekNumberVisible="{Binding #IsWeekNumberVisible.IsChecked}"
                                   SelectionMode="SingleRange" />
                     </StackPanel>
                 </Border>

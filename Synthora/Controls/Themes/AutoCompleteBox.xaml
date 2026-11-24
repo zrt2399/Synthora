@@ -56,7 +56,8 @@
                                  MaxLength="{TemplateBinding MaxLength}"
                                  PlaceholderForeground="{TemplateBinding PlaceholderForeground}"
                                  PlaceholderText="{TemplateBinding PlaceholderText}"
-                                 TemplatedControl.IsTemplateFocusTarget="True" />
+                                 TemplatedControl.IsTemplateFocusTarget="True"
+                                 UseFloatingPlaceholder="{TemplateBinding UseFloatingPlaceholder}" />
 
                         <Popup Name="PART_Popup"
                                InheritsTransform="True"
