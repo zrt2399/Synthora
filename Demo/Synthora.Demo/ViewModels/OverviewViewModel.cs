@@ -1,3 +1,4 @@
+using System.Globalization;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Material.Icons;
 using Synthora.Demo.Models;
@@ -9,16 +10,16 @@ namespace Synthora.Demo.ViewModels
         public OverviewViewModel()
         {
             IconKind = MaterialIconKind.ViewDashboard;
-            SelectedThemeLanguage = SynthoraTheme.Current?.ThemeLanguage ?? ThemeLanguage.English;
+            SelectedThemeLanguage = SynthoraTheme.Current?.ThemeLanguage.Name ?? "en-US";
         }
 
         [ObservableProperty]
-        public partial ThemeLanguage SelectedThemeLanguage { get; set; }
-        partial void OnSelectedThemeLanguageChanged(ThemeLanguage value) => SynthoraTheme.Current?.ThemeLanguage = value;
+        public partial string SelectedThemeLanguage { get; set; }
+        partial void OnSelectedThemeLanguageChanged(string value) => SynthoraTheme.Current?.ThemeLanguage = CultureInfo.GetCultureInfo(value);
 
         public void SetThemeLanguage(object? content)
         {
-            if (content is ThemeLanguage language)
+            if (content is string language)
             {
                 SelectedThemeLanguage = language;
             }

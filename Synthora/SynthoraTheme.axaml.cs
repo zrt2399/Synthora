@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using Avalonia;
 using Avalonia.Controls;
@@ -53,55 +55,30 @@ namespace Synthora
     }
 
     /// <summary>
-    /// Defines the language resources used by Synthora theme strings.
-    /// </summary>
-    public enum ThemeLanguage
-    {
-        /// <summary>
-        /// Uses English string resources.
-        /// </summary>
-        [Description("English")]
-        English,
-        /// <summary>
-        /// Uses Simplified Chinese string resources.
-        /// </summary>
-        [Description("简体中文")]
-        SimplifiedChinese,
-        /// <summary>
-        /// Uses Traditional Chinese string resources.
-        /// </summary>
-        [Description("繁體中文")]
-        TraditionalChinese,
-        /// <summary>
-        /// Uses Japanese string resources.
-        /// </summary>
-        [Description("日本語")]
-        Japanese,
-        /// <summary>
-        /// Uses Korean string resources.
-        /// </summary>
-        [Description("한국어")]
-        Korean
-    }
-
-    /// <summary>
     /// Provides the Synthora theme resources and control styles for an Avalonia application.
     /// </summary>
     public class SynthoraTheme : Styles
     {
+        private static readonly CultureInfo _defaultThemeLanguage = CultureInfo.GetCultureInfo("en-US");
+
         internal const string DensityCompactResourceKey = "DensityCompact";
         internal const string DensityNormalResourceKey = "DensityNormal";
         internal const string DensitySpaciousResourceKey = "DensitySpacious";
-        internal const string LanguageEnglishResourceKey = "LanguageEnglish";
-        internal const string LanguageSimplifiedChineseResourceKey = "LanguageSimplifiedChinese";
-        internal const string LanguageTraditionalChineseResourceKey = "LanguageTraditionalChinese";
-        internal const string LanguageKoreanResourceKey = "LanguageKorean";
-        internal const string LanguageJapaneseResourceKey = "LanguageJapanese";
+        // Register each culture resource here and in SynthoraTheme.axaml.
+        private static readonly Dictionary<string, string> LanguageResourceKeys = new(StringComparer.OrdinalIgnoreCase)
+        {
+            ["en-US"] = "LanguageEn_US",
+            ["zh-Hans"] = "LanguageZh_Hans",
+            ["zh-Hant"] = "LanguageZh_Hant",
+            ["ja-JP"] = "LanguageJa_JP",
+            ["ko-KR"] = "LanguageKo_KR",
+            ["es-ES"] = "LanguageEs_ES",
+        };
 
         private ThemeDensity _themeDensity = ThemeDensity.Normal;
-        private IResourceProvider? _currentDensityResource;
-        private ThemeLanguage _themeLanguage = ThemeLanguage.English;
-        private IResourceProvider? _currentLanguageResource;
+        private IResourceProvider? _currentDensityResource; 
+        private CultureInfo _themeLanguage = _defaultThemeLanguage;
+        private readonly List<IResourceProvider> _currentLanguageResources = [];
 
         /// <summary>
         /// Defines the <see cref="ThemeDensity"/> property.
@@ -113,8 +90,8 @@ namespace Synthora
         /// <summary>
         /// Defines the <see cref="ThemeLanguage"/> property.
         /// </summary>
-        public static readonly DirectProperty<SynthoraTheme, ThemeLanguage> ThemeLanguageProperty =
-            AvaloniaProperty.RegisterDirect<SynthoraTheme, ThemeLanguage>(
+        public static readonly DirectProperty<SynthoraTheme, CultureInfo> ThemeLanguageProperty =
+            AvaloniaProperty.RegisterDirect<SynthoraTheme, CultureInfo>(
                 nameof(ThemeLanguage), o => o.ThemeLanguage, (o, v) => o.ThemeLanguage = v);
 
         /// <summary>
@@ -129,10 +106,10 @@ namespace Synthora
         /// <summary>
         /// Gets or sets the active language resources for <see cref="SynthoraTheme"/>.
         /// </summary>
-        public ThemeLanguage ThemeLanguage
+        public CultureInfo ThemeLanguage
         {
             get => _themeLanguage;
-            set => SetAndRaise(ThemeLanguageProperty, ref _themeLanguage, value);
+            set => SetAndRaise(ThemeLanguageProperty, ref _themeLanguage, value ?? _defaultThemeLanguage);
         }
 
         /// <summary>
@@ -160,7 +137,7 @@ namespace Synthora
             }
             else if (change.Property == ThemeLanguageProperty)
             {
-                UpdateLanguageResource(change.GetNewValue<ThemeLanguage>());
+                UpdateLanguageResource(change.GetNewValue<CultureInfo>());
             }
         }
 
@@ -176,18 +153,46 @@ namespace Synthora
             UpdateMergedResource(resourceKey, ref _currentDensityResource);
         }
 
-        private void UpdateLanguageResource(ThemeLanguage language)
+        private void UpdateLanguageResource(CultureInfo language)
         {
-            var resourceKey = language switch
+            var resourceKeys = new List<string>();
+            for (var culture = language; !string.IsNullOrEmpty(culture.Name); culture = culture.Parent)
             {
-                ThemeLanguage.SimplifiedChinese => LanguageSimplifiedChineseResourceKey,
-                ThemeLanguage.TraditionalChinese => LanguageTraditionalChineseResourceKey,
-                ThemeLanguage.Korean => LanguageKoreanResourceKey,
-                ThemeLanguage.Japanese => LanguageJapaneseResourceKey,
-                _ => LanguageEnglishResourceKey,
-            };
+                if (LanguageResourceKeys.TryGetValue(culture.Name, out var key))
+                {
+                    resourceKeys.Add(key);
+                }
+            }
 
-            UpdateMergedResource(resourceKey, ref _currentLanguageResource);
+            resourceKeys.Reverse();
+            var defaultKey = LanguageResourceKeys["en-US"];
+            if (!resourceKeys.Contains(defaultKey))
+            {
+                resourceKeys.Insert(0, defaultKey);
+            }
+
+            var resources = new List<IResourceProvider>();
+            foreach (var key in resourceKeys)
+            {
+                if (!TryGetResource(key, null, out var resource) || resource is not IResourceProvider provider)
+                {
+                    throw new Exception($"[SynthoraTheme] Error: Resource key '{key}' not found.");
+                }
+
+                resources.Add(provider);
+            }
+
+            foreach (var resource in _currentLanguageResources)
+            {
+                Resources.MergedDictionaries.Remove(resource);
+            }
+
+            _currentLanguageResources.Clear();
+            foreach (var resource in resources)
+            {
+                Resources.MergedDictionaries.Add(resource);
+                _currentLanguageResources.Add(resource);
+            }
         }
 
         private void UpdateMergedResource(string resourceKey, ref IResourceProvider? currentResource)

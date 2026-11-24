@@ -1,0 +1,74 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal">
+
+    <x:String x:Key="StringCloseText">Cerrar</x:String>
+    <!--  DatePicker  -->
+    <x:String x:Key="StringDatePickerDayText">día</x:String>
+    <x:String x:Key="StringDatePickerMonthText">mes</x:String>
+    <x:String x:Key="StringDatePickerYearText">año</x:String>
+    <!--  TimePicker  -->
+    <x:String x:Key="StringTimePickerHourText">hora</x:String>
+    <x:String x:Key="StringTimePickerMinuteText">minuto</x:String>
+    <x:String x:Key="StringTimePickerSecondText">segundo</x:String>
+    <!--  TextBox/SelectableTextBox flyout  -->
+    <x:String x:Key="StringTextFlyoutUndoText">Deshacer</x:String>
+    <x:String x:Key="StringTextFlyoutRedoText">Rehacer</x:String>
+    <x:String x:Key="StringTextFlyoutCutText">Cortar</x:String>
+    <x:String x:Key="StringTextFlyoutCopyText">Copiar</x:String>
+    <x:String x:Key="StringTextFlyoutPasteText">Pegar</x:String>
+    <x:String x:Key="StringTextFlyoutSelectAllText">Seleccionar todo</x:String>
+    <x:String x:Key="StringShowPasswordText">Mostrar contraseña</x:String>
+    <x:String x:Key="StringHidePasswordText">Ocultar contraseña</x:String>
+    <!--  ManagedFileChooser  -->
+    <x:String x:Key="StringManagedFileChooserFileNamePlaceholder">Nombre de archivo</x:String>
+    <x:String x:Key="StringManagedFileChooserShowHiddenFilesText">Mostrar archivos ocultos</x:String>
+    <x:String x:Key="StringManagedFileChooserOkText">Aceptar</x:String>
+    <x:String x:Key="StringManagedFileChooserCancelText">Cancelar</x:String>
+    <x:String x:Key="StringManagedFileChooserNameColumn">Nombre</x:String>
+    <x:String x:Key="StringManagedFileChooserDateModifiedColumn">Fecha de modificación</x:String>
+    <x:String x:Key="StringManagedFileChooserTypeColumn">Tipo</x:String>
+    <x:String x:Key="StringManagedFileChooserSizeColumn">Tamaño</x:String>
+    <x:String x:Key="StringManagedFileChooserOverwritePromptFileAlreadyExistsText">{0} ya existe. ¿Desea reemplazarlo?</x:String>
+    <x:String x:Key="StringManagedFileChooserOverwritePromptConfirmText">Sí</x:String>
+    <x:String x:Key="StringManagedFileChooserOverwritePromptCancelText">No</x:String>
+    <!--  ScrollBar  -->
+    <x:String x:Key="StringScrollBarScrollHere">Desplazar hasta aquí</x:String>
+    <x:String x:Key="StringScrollBarTop">Inicio</x:String>
+    <x:String x:Key="StringScrollBarBottom">Final</x:String>
+    <x:String x:Key="StringScrollBarPageUp">Página arriba</x:String>
+    <x:String x:Key="StringScrollBarPageDown">Página abajo</x:String>
+    <x:String x:Key="StringScrollBarScrollUp">Desplazar hacia arriba</x:String>
+    <x:String x:Key="StringScrollBarScrollDown">Desplazar hacia abajo</x:String>
+    <x:String x:Key="StringScrollBarLeftEdge">Borde izquierdo</x:String>
+    <x:String x:Key="StringScrollBarRightEdge">Borde derecho</x:String>
+    <x:String x:Key="StringScrollBarPageLeft">Página a la izquierda</x:String>
+    <x:String x:Key="StringScrollBarPageRight">Página a la derecha</x:String>
+    <x:String x:Key="StringScrollBarScrollLeft">Desplazar a la izquierda</x:String>
+    <x:String x:Key="StringScrollBarScrollRight">Desplazar a la derecha</x:String>
+    <!--  AlertDialog  -->
+    <x:String x:Key="StringAlertDialogButtonOK">Aceptar</x:String>
+    <x:String x:Key="StringAlertDialogButtonYes">Sí</x:String>
+    <x:String x:Key="StringAlertDialogButtonNo">No</x:String>
+    <x:String x:Key="StringAlertDialogButtonCancel">Cancelar</x:String>
+    <x:String x:Key="StringAlertDialogButtonAbort">Abortar</x:String>
+    <!--  EmptyBox  -->
+    <x:String x:Key="StringEmptyBoxDescription">Sin datos</x:String>
+    <!--  Pagination  -->
+    <x:String x:Key="StringPaginationEmptyText">Sin elementos</x:String>
+    <x:String x:Key="StringPaginationStatusTextFormat">{0}-{1} de {2}</x:String>
+    <x:String x:Key="StringPaginationTotalTextFormat">Total: {0} elementos</x:String>
+    <x:String x:Key="StringPaginationPageSizeUnitText">página</x:String>
+    <x:String x:Key="StringPaginationQuickJumpButtonText">Ir</x:String>
+    <x:String x:Key="StringPaginationFirstPageToolTip">Primera página</x:String>
+    <x:String x:Key="StringPaginationPreviousPageToolTip">Página anterior</x:String>
+    <x:String x:Key="StringPaginationNextPageToolTip">Página siguiente</x:String>
+    <x:String x:Key="StringPaginationLastPageToolTip">Última página</x:String>
+    <!--  CommandBar  -->
+    <x:String x:Key="StringCommandBarButtonMore">Más</x:String>
+    <!--  DrawerPage  -->
+    <x:String x:Key="StringDrawerPageToggleNavigationDrawer">Alternar panel de navegación</x:String>
+    <!--  TreeMenu  -->
+    <x:String x:Key="StringTreeMenuToggleNavigationPane">Alternar panel de navegación</x:String>
+
+</ResourceDictionary>

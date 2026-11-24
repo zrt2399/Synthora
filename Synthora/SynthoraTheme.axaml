@@ -6,11 +6,12 @@
 			<ResourceDictionary.MergedDictionaries>
 				<MergeResourceInclude Source="/Accents/Base.xaml" />
 			</ResourceDictionary.MergedDictionaries>
-			<ResourceInclude x:Key="LanguageEnglish" Source="/Strings/English.xaml" />
-			<ResourceInclude x:Key="LanguageSimplifiedChinese" Source="/Strings/SimplifiedChinese.xaml" />
-			<ResourceInclude x:Key="LanguageTraditionalChinese" Source="/Strings/TraditionalChinese.xaml" />
-			<ResourceInclude x:Key="LanguageKorean" Source="/Strings/Korean.xaml" />
-			<ResourceInclude x:Key="LanguageJapanese" Source="/Strings/Japanese.xaml" />
+			<ResourceInclude x:Key="LanguageEn_US" Source="/Strings/en-US.xaml" />
+			<ResourceInclude x:Key="LanguageZh_Hans" Source="/Strings/zh-Hans.xaml" />
+			<ResourceInclude x:Key="LanguageZh_Hant" Source="/Strings/zh-Hant.xaml" />
+			<ResourceInclude x:Key="LanguageKo_KR" Source="/Strings/ko-KR.xaml" />
+			<ResourceInclude x:Key="LanguageJa_JP" Source="/Strings/ja-JP.xaml" />
+			<ResourceInclude x:Key="LanguageEs_ES" Source="/Strings/es-ES.xaml" />
 
 			<ResourceInclude x:Key="DensityCompact" Source="/ThemeDensitys/Compact.xaml" />
 			<ResourceInclude x:Key="DensityNormal" Source="/ThemeDensitys/Normal.xaml" />

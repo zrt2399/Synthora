@@ -126,34 +126,40 @@
                                     <DropDownButton.Flyout>
                                         <MenuFlyout Placement="BottomEdgeAlignedLeft">
                                             <MenuItem Command="{Binding SetThemeLanguage}"
-                                                      CommandParameter="{x:Static ThemeLanguage.English}"
+                                                      CommandParameter="en-US"
                                                       GroupName="ThemeLanguage"
                                                       Header="English"
-                                                      IsChecked="{Binding SelectedThemeLanguage, Converter={x:Static SynthoraConverters.Equal}, ConverterParameter={x:Static ThemeLanguage.English}}"
+                                                      IsChecked="{Binding SelectedThemeLanguage, Converter={x:Static SynthoraConverters.Equal}, ConverterParameter=en-US}"
                                                       ToggleType="Radio" />
                                             <MenuItem Command="{Binding SetThemeLanguage}"
-                                                      CommandParameter="{x:Static ThemeLanguage.SimplifiedChinese}"
+                                                      CommandParameter="zh-Hans"
                                                       GroupName="ThemeLanguage"
                                                       Header="简体中文"
-                                                      IsChecked="{Binding SelectedThemeLanguage, Converter={x:Static SynthoraConverters.Equal}, ConverterParameter={x:Static ThemeLanguage.SimplifiedChinese}}"
+                                                      IsChecked="{Binding SelectedThemeLanguage, Converter={x:Static SynthoraConverters.Equal}, ConverterParameter=zh-Hans}"
                                                       ToggleType="Radio" />
                                             <MenuItem Command="{Binding SetThemeLanguage}"
-                                                      CommandParameter="{x:Static ThemeLanguage.TraditionalChinese}"
+                                                      CommandParameter="zh-Hant"
                                                       GroupName="ThemeLanguage"
                                                       Header="繁體中文"
-                                                      IsChecked="{Binding SelectedThemeLanguage, Converter={x:Static SynthoraConverters.Equal}, ConverterParameter={x:Static ThemeLanguage.TraditionalChinese}}"
+                                                      IsChecked="{Binding SelectedThemeLanguage, Converter={x:Static SynthoraConverters.Equal}, ConverterParameter=zh-Hant}"
                                                       ToggleType="Radio" />
                                             <MenuItem Command="{Binding SetThemeLanguage}"
-                                                      CommandParameter="{x:Static ThemeLanguage.Japanese}"
+                                                      CommandParameter="ja-JP"
                                                       GroupName="ThemeLanguage"
                                                       Header="日本語"
-                                                      IsChecked="{Binding SelectedThemeLanguage, Converter={x:Static SynthoraConverters.Equal}, ConverterParameter={x:Static ThemeLanguage.Japanese}}"
+                                                      IsChecked="{Binding SelectedThemeLanguage, Converter={x:Static SynthoraConverters.Equal}, ConverterParameter=ja-JP}"
                                                       ToggleType="Radio" />
                                             <MenuItem Command="{Binding SetThemeLanguage}"
-                                                      CommandParameter="{x:Static ThemeLanguage.Korean}"
+                                                      CommandParameter="ko-KR"
                                                       GroupName="ThemeLanguage"
                                                       Header="한국어"
-                                                      IsChecked="{Binding SelectedThemeLanguage, Converter={x:Static SynthoraConverters.Equal}, ConverterParameter={x:Static ThemeLanguage.Korean}}"
+                                                      IsChecked="{Binding SelectedThemeLanguage, Converter={x:Static SynthoraConverters.Equal}, ConverterParameter=ko-KR}"
+                                                      ToggleType="Radio" />
+                                            <MenuItem Command="{Binding SetThemeLanguage}"
+                                                      CommandParameter="es-ES"
+                                                      GroupName="ThemeLanguage"
+                                                      Header="Español"
+                                                      IsChecked="{Binding SelectedThemeLanguage, Converter={x:Static SynthoraConverters.Equal}, ConverterParameter=es-ES}"
                                                       ToggleType="Radio" />
                                         </MenuFlyout>
                                     </DropDownButton.Flyout>
