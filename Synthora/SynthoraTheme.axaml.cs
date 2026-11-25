@@ -62,7 +62,7 @@ namespace Synthora
         private static readonly CultureInfo _defaultThemeLanguage = CultureInfo.GetCultureInfo("en-US");
 
         internal const string DensityCompactResourceKey = "DensityCompact";
-        internal const string DensityNormalResourceKey = "DensityNormal";
+        // internal const string DensityNormalResourceKey = "DensityNormal";
         internal const string DensitySpaciousResourceKey = "DensitySpacious";
         // Register each culture resource here and in SynthoraTheme.axaml.
         private static readonly Dictionary<string, string> LanguageResourceKeys = new(StringComparer.OrdinalIgnoreCase)
@@ -76,8 +76,8 @@ namespace Synthora
         };
 
         private ThemeDensity _themeDensity = ThemeDensity.Normal;
-        private IResourceProvider? _currentDensityResource; 
         private CultureInfo _themeLanguage = _defaultThemeLanguage;
+        private IResourceProvider? _currentDensityResource;
         private readonly List<IResourceProvider> _currentLanguageResources = [];
 
         /// <summary>
@@ -124,8 +124,6 @@ namespace Synthora
         public SynthoraTheme(IServiceProvider? sp = null)
         {
             AvaloniaXamlLoader.Load(sp, this);
-            UpdateLanguageResource(ThemeLanguage);
-            UpdateDensityResource(ThemeDensity);
         }
 
         protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
@@ -147,8 +145,19 @@ namespace Synthora
             {
                 ThemeDensity.Compact => DensityCompactResourceKey,
                 ThemeDensity.Spacious => DensitySpaciousResourceKey,
-                _ => DensityNormalResourceKey,
+                _ => null,
             };
+
+            if (resourceKey == null)
+            {
+                if (_currentDensityResource != null)
+                {
+                    Resources.MergedDictionaries.Remove(_currentDensityResource);
+                    _currentDensityResource = null;
+                }
+
+                return;
+            }
 
             UpdateMergedResource(resourceKey, ref _currentDensityResource);
         }
@@ -166,10 +175,7 @@ namespace Synthora
 
             resourceKeys.Reverse();
             var defaultKey = LanguageResourceKeys["en-US"];
-            if (!resourceKeys.Contains(defaultKey))
-            {
-                resourceKeys.Insert(0, defaultKey);
-            }
+            resourceKeys.Remove(defaultKey);
 
             var resources = new List<IResourceProvider>();
             foreach (var key in resourceKeys)

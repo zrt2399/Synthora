@@ -4,6 +4,8 @@
 	<Styles.Resources>
 		<ResourceDictionary>
 			<ResourceDictionary.MergedDictionaries>
+				<ResourceInclude Source="/Strings/en-US.xaml" />
+				<ResourceInclude Source="/ThemeDensitys/Normal.xaml" />
 				<MergeResourceInclude Source="/Accents/Base.xaml" />
 			</ResourceDictionary.MergedDictionaries>
 			<ResourceInclude x:Key="LanguageEn_US" Source="/Strings/en-US.xaml" />
