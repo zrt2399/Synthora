@@ -101,7 +101,7 @@
             <Setter Property="Foreground" Value="{DynamicResource SuccessBrush}" />
             <Setter Property="BorderBrush" Value="{DynamicResource SuccessBrush}" />
             <Style Selector="^:checked">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnSuccessBrush}" />
                 <Setter Property="Background" Value="{DynamicResource SuccessBrush}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource SuccessBrush}" />
             </Style>
@@ -110,7 +110,7 @@
             <Setter Property="Foreground" Value="{DynamicResource QuestionBrush}" />
             <Setter Property="BorderBrush" Value="{DynamicResource QuestionBrush}" />
             <Style Selector="^:checked">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnQuestionBrush}" />
                 <Setter Property="Background" Value="{DynamicResource QuestionBrush}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource QuestionBrush}" />
             </Style>
@@ -119,7 +119,7 @@
             <Setter Property="Foreground" Value="{DynamicResource WarningBrush}" />
             <Setter Property="BorderBrush" Value="{DynamicResource WarningBrush}" />
             <Style Selector="^:checked">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnWarningBrush}" />
                 <Setter Property="Background" Value="{DynamicResource WarningBrush}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource WarningBrush}" />
             </Style>
@@ -128,7 +128,7 @@
             <Setter Property="Foreground" Value="{DynamicResource ErrorBrush}" />
             <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
             <Style Selector="^:checked">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnErrorBrush}" />
                 <Setter Property="Background" Value="{DynamicResource ErrorBrush}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
             </Style>
@@ -172,28 +172,28 @@
         <Style Selector="^.Success">
             <Setter Property="Foreground" Value="{DynamicResource SuccessBrush}" />
             <Style Selector="^:checked">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnSuccessBrush}" />
                 <Setter Property="Background" Value="{DynamicResource SuccessBrush}" />
             </Style>
         </Style>
         <Style Selector="^.Question">
             <Setter Property="Foreground" Value="{DynamicResource QuestionBrush}" />
             <Style Selector="^:checked">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnQuestionBrush}" />
                 <Setter Property="Background" Value="{DynamicResource QuestionBrush}" />
             </Style>
         </Style>
         <Style Selector="^.Warning">
             <Setter Property="Foreground" Value="{DynamicResource WarningBrush}" />
             <Style Selector="^:checked">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnWarningBrush}" />
                 <Setter Property="Background" Value="{DynamicResource WarningBrush}" />
             </Style>
         </Style>
         <Style Selector="^.Error">
             <Setter Property="Foreground" Value="{DynamicResource ErrorBrush}" />
             <Style Selector="^:checked">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnErrorBrush}" />
                 <Setter Property="Background" Value="{DynamicResource ErrorBrush}" />
             </Style>
         </Style>
@@ -242,28 +242,28 @@
         <Style Selector="^.Success">
             <Setter Property="Foreground" Value="{DynamicResource SuccessBrush}" />
             <Style Selector="^:checked">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnSuccessBrush}" />
                 <Setter Property="Background" Value="{DynamicResource SuccessBrush}" />
             </Style>
         </Style>
         <Style Selector="^.Question">
             <Setter Property="Foreground" Value="{DynamicResource QuestionBrush}" />
             <Style Selector="^:checked">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnQuestionBrush}" />
                 <Setter Property="Background" Value="{DynamicResource QuestionBrush}" />
             </Style>
         </Style>
         <Style Selector="^.Warning">
             <Setter Property="Foreground" Value="{DynamicResource WarningBrush}" />
             <Style Selector="^:checked">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnWarningBrush}" />
                 <Setter Property="Background" Value="{DynamicResource WarningBrush}" />
             </Style>
         </Style>
         <Style Selector="^.Error">
             <Setter Property="Foreground" Value="{DynamicResource ErrorBrush}" />
             <Style Selector="^:checked">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnErrorBrush}" />
                 <Setter Property="Background" Value="{DynamicResource ErrorBrush}" />
             </Style>
         </Style>

@@ -189,21 +189,21 @@
         </Style>
         <Style Selector="^.Warning">
             <Style Selector="^:pointerover">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnWarningBrush}" />
                 <Setter Property="Background" Value="{DynamicResource WarningBrush}" />
             </Style>
             <Style Selector="^:pressed">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnWarningBrush}" />
                 <Setter Property="Background" Value="{DynamicResource WarningPointerOverBrush}" />
             </Style>
         </Style>
         <Style Selector="^.Error">
             <Style Selector="^:pointerover">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnErrorBrush}" />
                 <Setter Property="Background" Value="{DynamicResource ErrorBrush}" />
             </Style>
             <Style Selector="^:pressed">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnErrorBrush}" />
                 <Setter Property="Background" Value="{DynamicResource ErrorPointerOverBrush}" />
             </Style>
         </Style>
@@ -299,29 +299,29 @@
         </Style>
         <Style Selector="^.Warning">
             <Style Selector="^:checked">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnWarningBrush}" />
                 <Setter Property="Background" Value="{DynamicResource WarningBrush}" />
             </Style>
             <Style Selector="^:checked:pointerover">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnWarningBrush}" />
                 <Setter Property="Background" Value="{DynamicResource WarningPointerOverBrush}" />
             </Style>
             <Style Selector="^:checked:pressed">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnWarningBrush}" />
                 <Setter Property="Background" Value="{DynamicResource WarningPressedBrush}" />
             </Style>
         </Style>
         <Style Selector="^.Error">
             <Style Selector="^:checked">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnErrorBrush}" />
                 <Setter Property="Background" Value="{DynamicResource ErrorBrush}" />
             </Style>
             <Style Selector="^:checked:pointerover">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnErrorBrush}" />
                 <Setter Property="Background" Value="{DynamicResource ErrorPointerOverBrush}" />
             </Style>
             <Style Selector="^:checked:pressed">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnErrorBrush}" />
                 <Setter Property="Background" Value="{DynamicResource ErrorPressedBrush}" />
             </Style>
         </Style>

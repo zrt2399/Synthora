@@ -203,13 +203,13 @@
                 <Setter Property="Foreground" Value="{DynamicResource WarningBrush}" />
             </Style>
             <Style Selector="^:selected /template/ Border#root PathIcon,^:pressed /template/ Border#root:pointerover PathIcon">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnWarningBrush}" />
             </Style>
             <Style Selector="^:selected /template/ Border#root TextBlock,^:pressed /template/ Border#root:pointerover TextBlock">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnWarningBrush}" />
             </Style>
             <Style Selector="^:selected /template/ Border#root ContentPresenter,^:pressed /template/ Border#root:pointerover ContentPresenter">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnWarningBrush}" />
             </Style>
             <Style Selector="^:selected /template/ Border#root">
                 <Setter Property="Background" Value="{DynamicResource WarningBrush}" />
@@ -230,13 +230,13 @@
                 <Setter Property="Foreground" Value="{DynamicResource ErrorBrush}" />
             </Style>
             <Style Selector="^:selected /template/ Border#root PathIcon,^:pressed /template/ Border#root:pointerover PathIcon">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnErrorBrush}" />
             </Style>
             <Style Selector="^:selected /template/ Border#root TextBlock,^:pressed /template/ Border#root:pointerover TextBlock">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnErrorBrush}" />
             </Style>
             <Style Selector="^:selected /template/ Border#root ContentPresenter,^:pressed /template/ Border#root:pointerover ContentPresenter">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnErrorBrush}" />
             </Style>
             <Style Selector="^:selected /template/ Border#root">
                 <Setter Property="Background" Value="{DynamicResource ErrorBrush}" />

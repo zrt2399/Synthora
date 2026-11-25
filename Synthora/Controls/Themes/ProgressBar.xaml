@@ -103,21 +103,21 @@
         <Style Selector="^.Success">
             <Setter Property="Foreground" Value="{DynamicResource SuccessBrush}" />
             <Style Selector="^ /template/ TextBlock#ForegroundText">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnSuccessBrush}" />
             </Style>
         </Style>
 
         <Style Selector="^.Warning">
             <Setter Property="Foreground" Value="{DynamicResource WarningBrush}" />
             <Style Selector="^ /template/ TextBlock#ForegroundText">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnWarningBrush}" />
             </Style>
         </Style>
 
         <Style Selector="^.Error">
             <Setter Property="Foreground" Value="{DynamicResource ErrorBrush}" />
             <Style Selector="^ /template/ TextBlock#ForegroundText">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnErrorBrush}" />
             </Style>
         </Style>
 

@@ -127,7 +127,7 @@
             </Style>
         </Style>
         <Style Selector="^.Success">
-            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Foreground" Value="{DynamicResource OnSuccessBrush}" />
             <Setter Property="Background" Value="{DynamicResource SuccessBrush}" />
             <Style Selector="^:focus,^:pointerover">
                 <Setter Property="Background" Value="{DynamicResource SuccessPointerOverBrush}" />
@@ -137,7 +137,7 @@
             </Style>
         </Style>
         <Style Selector="^.Question">
-            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Foreground" Value="{DynamicResource OnQuestionBrush}" />
             <Setter Property="Background" Value="{DynamicResource QuestionBrush}" />
             <Style Selector="^:focus,^:pointerover">
                 <Setter Property="Background" Value="{DynamicResource QuestionPointerOverBrush}" />
@@ -147,7 +147,7 @@
             </Style>
         </Style>
         <Style Selector="^.Warning">
-            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Foreground" Value="{DynamicResource OnWarningBrush}" />
             <Setter Property="Background" Value="{DynamicResource WarningBrush}" />
             <Style Selector="^:focus,^:pointerover">
                 <Setter Property="Background" Value="{DynamicResource WarningPointerOverBrush}" />
@@ -157,7 +157,7 @@
             </Style>
         </Style>
         <Style Selector="^.Error">
-            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Foreground" Value="{DynamicResource OnErrorBrush}" />
             <Setter Property="Background" Value="{DynamicResource ErrorBrush}" />
             <Style Selector="^:focus,^:pointerover">
                 <Setter Property="Background" Value="{DynamicResource ErrorPointerOverBrush}" />
@@ -237,41 +237,41 @@
         </Style>
         <Style Selector="^.Success">
             <Style Selector="^:focus,^:pointerover">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnSuccessBrush}" />
                 <Setter Property="Background" Value="{DynamicResource SuccessPointerOverBrush}" />
             </Style>
             <Style Selector="^:pressed">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnSuccessBrush}" />
                 <Setter Property="Background" Value="{DynamicResource SuccessPressedBrush}" />
             </Style>
         </Style>
         <Style Selector="^.Question">
             <Style Selector="^:focus,^:pointerover">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnQuestionBrush}" />
                 <Setter Property="Background" Value="{DynamicResource QuestionPointerOverBrush}" />
             </Style>
             <Style Selector="^:pressed">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnQuestionBrush}" />
                 <Setter Property="Background" Value="{DynamicResource QuestionPressedBrush}" />
             </Style>
         </Style>
         <Style Selector="^.Warning">
             <Style Selector="^:focus,^:pointerover">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnWarningBrush}" />
                 <Setter Property="Background" Value="{DynamicResource WarningPointerOverBrush}" />
             </Style>
             <Style Selector="^:pressed">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnWarningBrush}" />
                 <Setter Property="Background" Value="{DynamicResource WarningPressedBrush}" />
             </Style>
         </Style>
         <Style Selector="^.Error">
             <Style Selector="^:focus,^:pointerover">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnErrorBrush}" />
                 <Setter Property="Background" Value="{DynamicResource ErrorPointerOverBrush}" />
             </Style>
             <Style Selector="^:pressed">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{DynamicResource OnErrorBrush}" />
                 <Setter Property="Background" Value="{DynamicResource ErrorPressedBrush}" />
             </Style>
         </Style>
