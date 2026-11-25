@@ -62,12 +62,10 @@ namespace Synthora
         private static readonly CultureInfo _defaultThemeLanguage = CultureInfo.GetCultureInfo("en-US");
 
         internal const string DensityCompactResourceKey = "DensityCompact";
-        // internal const string DensityNormalResourceKey = "DensityNormal";
         internal const string DensitySpaciousResourceKey = "DensitySpacious";
         // Register each culture resource here and in SynthoraTheme.axaml.
         private static readonly Dictionary<string, string> LanguageResourceKeys = new(StringComparer.OrdinalIgnoreCase)
         {
-            ["en-US"] = "LanguageEn_US",
             ["zh-Hans"] = "LanguageZh_Hans",
             ["zh-Hant"] = "LanguageZh_Hant",
             ["ja-JP"] = "LanguageJa_JP",
@@ -174,8 +172,6 @@ namespace Synthora
             }
 
             resourceKeys.Reverse();
-            var defaultKey = LanguageResourceKeys["en-US"];
-            resourceKeys.Remove(defaultKey);
 
             var resources = new List<IResourceProvider>();
             foreach (var key in resourceKeys)
