@@ -19,20 +19,20 @@
                         BorderThickness="{TemplateBinding BorderThickness}"
                         BoxShadow="{TemplateBinding BoxShadow}"
                         CornerRadius="{TemplateBinding CornerRadius}">
-                    <Border ClipToBounds="True">
-                        <Border.CornerRadius>
+                    <ContentPresenter Name="PART_ContentPresenter"
+                                      Padding="{TemplateBinding Padding}"
+                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      ClipToBounds="True"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}">
+                        <ContentPresenter.CornerRadius>
                             <MultiBinding Converter="{x:Static SynthoraConverters.BorderCornerRadiusConverter}" ConverterParameter="{x:Static CornerRadiusType.All}">
                                 <TemplateBinding Property="CornerRadius" />
                                 <TemplateBinding Property="BorderThickness" />
                             </MultiBinding>
-                        </Border.CornerRadius>
-                        <ContentPresenter Name="PART_ContentPresenter"
-                                          Margin="{TemplateBinding Padding}"
-                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                          Content="{TemplateBinding Content}"
-                                          ContentTemplate="{TemplateBinding ContentTemplate}" />
-                    </Border>
+                        </ContentPresenter.CornerRadius>
+                    </ContentPresenter>
                 </Border>
             </ControlTemplate>
         </Setter>
