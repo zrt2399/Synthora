@@ -45,7 +45,7 @@
                     </ComboBox>
 
                     <StackPanel Orientation="Horizontal" Spacing="4">
-                        <Button Command="{Binding FirstPage, RelativeSource={RelativeSource TemplatedParent}}"
+                        <Button Command="{Binding GoToFirstPage, RelativeSource={RelativeSource TemplatedParent}}"
                                 IsEnabled="{TemplateBinding CanGoPrevious}"
                                 IsVisible="{TemplateBinding ShowFirstLastButtons}"
                                 Theme="{StaticResource PaginationButtonTheme}"
@@ -56,7 +56,7 @@
                                       VerticalAlignment="Center"
                                       Data="{DynamicResource DoubleArrowLeftData}" />
                         </Button>
-                        <RepeatButton Command="{Binding PreviousPage, RelativeSource={RelativeSource TemplatedParent}}"
+                        <RepeatButton Command="{Binding GoToPreviousPage, RelativeSource={RelativeSource TemplatedParent}}"
                                       IsEnabled="{TemplateBinding CanGoPrevious}"
                                       Theme="{StaticResource PaginationButtonTheme}"
                                       ToolTip.Tip="{DynamicResource StringPaginationPreviousPageToolTip}">
@@ -75,7 +75,7 @@
                                    Opacity="{DynamicResource ThemePlaceholderTextOpacity}"
                                    Text="{DynamicResource StringPaginationEmptyText}" />
 
-                        <RepeatButton Command="{Binding NextPage, RelativeSource={RelativeSource TemplatedParent}}"
+                        <RepeatButton Command="{Binding GoToNextPage, RelativeSource={RelativeSource TemplatedParent}}"
                                       IsEnabled="{TemplateBinding CanGoNext}"
                                       Theme="{StaticResource PaginationButtonTheme}"
                                       ToolTip.Tip="{DynamicResource StringPaginationNextPageToolTip}">
@@ -85,7 +85,7 @@
                                       VerticalAlignment="Center"
                                       Data="{DynamicResource ArrowRightData}" />
                         </RepeatButton>
-                        <Button Command="{Binding LastPage, RelativeSource={RelativeSource TemplatedParent}}"
+                        <Button Command="{Binding GoToLastPage, RelativeSource={RelativeSource TemplatedParent}}"
                                 IsEnabled="{TemplateBinding CanGoNext}"
                                 IsVisible="{TemplateBinding ShowFirstLastButtons}"
                                 Theme="{StaticResource PaginationButtonTheme}"

@@ -47,7 +47,7 @@ namespace Synthora.Controls
         /// Defines the <see cref="TotalItemCount"/> property.
         /// </summary>
         public static readonly StyledProperty<int> TotalItemCountProperty =
-            AvaloniaProperty.Register<Pagination, int>(nameof(TotalItemCount), defaultBindingMode: BindingMode.TwoWay);
+            AvaloniaProperty.Register<Pagination, int>(nameof(TotalItemCount));
 
         /// <summary>
         /// Defines the <see cref="DisplayPageCount"/> property.
@@ -422,22 +422,22 @@ namespace Synthora.Controls
         /// <summary>
         /// Moves to the first page.
         /// </summary>
-        public void FirstPage() => SetCurrentPage(0);
+        public void GoToFirstPage() => SetCurrentPage(0);
 
         /// <summary>
         /// Moves to the previous page.
         /// </summary>
-        public void PreviousPage() => SetCurrentPage(PageIndex - 1);
+        public void GoToPreviousPage() => SetCurrentPage(PageIndex - 1);
 
         /// <summary>
         /// Moves to the next page.
         /// </summary>
-        public void NextPage() => SetCurrentPage(PageIndex + 1);
+        public void GoToNextPage() => SetCurrentPage(PageIndex + 1);
 
         /// <summary>
         /// Moves to the last page.
         /// </summary>
-        public void LastPage() => SetCurrentPage(PageCount - 1);
+        public void GoToLastPage() => SetCurrentPage(PageCount - 1);
 
         private void Refresh()
         {
