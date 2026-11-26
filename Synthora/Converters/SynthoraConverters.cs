@@ -4,6 +4,7 @@ namespace Synthora.Converters
     {
         public static EqualsConverter Equal { get; } = new EqualsConverter();
         public static NotEqualsConverter NotEqual { get; } = new NotEqualsConverter();
+        public static DoNothingForNullConverter DoNothingForNull { get; } = new DoNothingForNullConverter();
         public static NullOrEmptyToBoolConverter IsNullOrEmpty { get; } = new NullOrEmptyToBoolConverter();
         public static NotNullOrEmptyToBoolConverter IsNotNullOrEmpty { get; } = new NotNullOrEmptyToBoolConverter();
         public static HasFlagConverter HasFlag { get; } = new HasFlagConverter();

@@ -33,8 +33,7 @@
                     <ComboBox HorizontalContentAlignment="Center"
                               IsVisible="{TemplateBinding ShowPageSizeSelector}"
                               ItemsSource="{TemplateBinding PageSizeOptions}"
-                              SelectedItem="{TemplateBinding PageSize,
-                                                             Mode=TwoWay}">
+                              SelectedItem="{Binding PageSize, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay, Converter={x:Static SynthoraConverters.DoNothingForNull}}">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
